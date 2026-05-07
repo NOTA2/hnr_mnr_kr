@@ -35,13 +35,23 @@
 - 일부 문자열은 `cp932 + 00 terminator` 형태의 평문이다.
 - 시스템 메시지와 아이템 관련 문자열이 실제로 추출되었다.
 - 참조 포인터 예시가 확인되었다.
+- 지역명 텍스트 뱅크(`0x18425C` 부근)가 추가로 확인되었다.
+- 전투 기술/능력 텍스트 대형 뱅크(`0x3D2059`, `0x3D329C`)가 확인되었다.
+- `0x3Dxxxx` 대형 뱅크는 일반 GBA 절대 포인터가 바로 잡히지 않는다.
+- UI 기술 텍스트 뱅크(`0x08B62C`)가 별도로 존재하며 일부 기술명이 중복된다.
+- `0x3Dxxxx` 계열 문자열 안에는 `0x0B` 제어 코드가 섞여 있다.
 
 참고 파일:
 
 - [README.md](/Users/user/test/README.md)
 - [initial_findings.md](/Users/user/test/analysis/initial_findings.md)
+- [text_bank_inventory.md](/Users/user/test/analysis/text_bank_inventory.md)
 - [item_texts.json](/Users/user/test/analysis/item_texts.json)
 - [system_messages.json](/Users/user/test/analysis/system_messages.json)
+- [location_texts.json](/Users/user/test/analysis/location_texts.json)
+- [battle_texts.json](/Users/user/test/analysis/battle_texts.json)
+- [ability_texts.json](/Users/user/test/analysis/ability_texts.json)
+- [ui_skill_texts.json](/Users/user/test/analysis/ui_skill_texts.json)
 
 ## 가장 중요한 작업 원칙
 
@@ -61,8 +71,8 @@
 구체 작업:
 
 - 메뉴 문자열 구간 찾기
-- 전투 메시지 구간 찾기
 - 대사/이벤트 문자열이 평문인지 압축인지 확인
+- `0x3Dxxxx` 텍스트 뱅크의 참조 구조를 확인
 - 새로 찾은 범위를 JSON으로 추출
 
 ### 2순위
@@ -161,7 +171,7 @@ python3 -m gba_kor_tool apply-translations \
 
 ## 당장 다음 에이전트가 시작할 일
 
-1. `scan-text` 와 `find-pointers` 로 메뉴/대사 후보 구간을 더 찾는다.
-2. 추출 가능한 새 구간이 있으면 JSON으로 저장한다.
-3. 의미 있는 결과가 나오면 분석 문서를 갱신한다.
-4. 폰트 조사 단계로 넘어갈 수 있을 만큼 데이터가 쌓였는지 판단한다.
+1. `0x3D2059` 와 `0x3D329C` 뱅크가 절대 포인터 대신 어떤 방식으로 참조되는지 확인한다.
+2. `0x18425C` 지역명 뱅크를 기준으로 폰트 표시와 메뉴 사용 위치를 역추적해 본다.
+3. 대사/이벤트 평문 구간이 더 있는지 `scan-text` 로 추가 탐색한다.
+4. 의미 있는 결과가 나오면 분석 문서를 갱신하고, 폰트 조사 단계로 넘어갈 수 있을지 판단한다.
