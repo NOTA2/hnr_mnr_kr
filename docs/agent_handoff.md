@@ -43,6 +43,7 @@
 
 참고 파일:
 
+- [project_control_tower.md](/Users/user/test/docs/project_control_tower.md)
 - [README.md](/Users/user/test/README.md)
 - [initial_findings.md](/Users/user/test/analysis/initial_findings.md)
 - [text_bank_inventory.md](/Users/user/test/analysis/text_bank_inventory.md)
@@ -61,6 +62,7 @@
 4. 먼저 내부 엔진과 게임 구조 파악을 끝낸다.
 5. 한 번에 큰 점프보다, 검증 가능한 작은 단계로 진행한다.
 6. 새 조사 결과는 문서에 남긴다.
+7. 작업 후에는 반드시 총괄 현황판과 관련 트랙 문서를 갱신한다.
 
 ## 다음 우선순위
 
@@ -163,11 +165,22 @@ python3 -m gba_kor_tool apply-translations \
 
 ## 문서 업데이트 규칙
 
-새 조사 결과가 있으면 아래 중 최소 하나를 갱신한다.
+새 조사 결과가 있으면 아래를 기준으로 갱신한다.
 
+- [project_control_tower.md](/Users/user/test/docs/project_control_tower.md)
+- 관련 트랙 문서 1개 이상
 - [initial_findings.md](/Users/user/test/analysis/initial_findings.md)
-- 이 문서
-- README 사용 예시
+- 필요 시 이 문서
+- 필요 시 README 사용 예시
+
+트랙 문서 위치:
+
+- [data_structure_investigation.md](/Users/user/test/docs/tracks/data_structure_investigation.md)
+- [text_extraction_progress.md](/Users/user/test/docs/tracks/text_extraction_progress.md)
+- [text_reinsertion_progress.md](/Users/user/test/docs/tracks/text_reinsertion_progress.md)
+- [font_and_encoding_progress.md](/Users/user/test/docs/tracks/font_and_encoding_progress.md)
+- [image_resource_progress.md](/Users/user/test/docs/tracks/image_resource_progress.md)
+- [tooling_and_gui_progress.md](/Users/user/test/docs/tracks/tooling_and_gui_progress.md)
 
 ## 당장 다음 에이전트가 시작할 일
 
