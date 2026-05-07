@@ -31,6 +31,8 @@
   - 일부 뱅크는 절대 포인터 확인
   - 일부 대형 뱅크는 절대 포인터 미확인
   - `0x0B` 제어 코드 사용 확인
+  - `0x17C1C0` 부근 `u32 length + u32 rom_address` 디스크립터 테이블 확인
+  - 해당 테이블은 겹치는 엔트리를 포함
 - 상세 문서: [data_structure_investigation.md](/Users/user/test/docs/tracks/data_structure_investigation.md)
 
 ### 2. 텍스트 추출
@@ -39,6 +41,7 @@
 - 현재 판단:
   - 시스템 메시지, 아이템, 지역명, 전투 기술, 능력, UI 기술 텍스트 추출본 확보
   - 추출 가능한 텍스트 뱅크가 계속 늘어나는 중
+  - 디스크립터 테이블과 별도로 보기 쉬운 번역용 JSON 묶음을 유지 중
 - 상세 문서: [text_extraction_progress.md](/Users/user/test/docs/tracks/text_extraction_progress.md)
 
 ### 3. 텍스트 재삽입
@@ -74,9 +77,10 @@
 
 ## 현재 가장 중요한 포인트
 
-1. `0x17C1E4` 청크 디렉터리와 `0x3Dxxxx` 텍스트 뱅크의 연결 방식 파악
-2. 대사/이벤트 평문 구간 추가 탐색
-3. 폰트 조사로 넘어갈 수 있을 만큼 텍스트 구조를 더 분리
+1. `0x17C1C0` 디스크립터 테이블을 누가 참조하는지 파악
+2. 겹치는 디스크립터 엔트리가 어떤 관계인지 분류
+3. 대사/이벤트 평문 구간 추가 탐색
+4. 폰트 조사로 넘어갈 수 있을 만큼 텍스트 구조를 더 분리
 
 ## 최근 주요 진전
 
@@ -93,8 +97,11 @@
 - 총괄 현황판, 트랙 문서, 반복 실수 방지 규칙, 실험 로그 체계 추가
 - `0x3Dxxxx` 뱅크가 순차 문자열 레코드 구조에 가깝다는 근거 확보
 - 전각 공백 필터 문제를 수정해 `battle/ability` 추출 누락을 회수
-- `0x17C1E4` 부근에서 `0x083Dxxxx + length` 청크 디렉터리 후보 확인
+- `inspect-chunk-table` 명령 추가
+- `0x17C1C0` 부근 테이블이 `u32 length + u32 rom_address` 형식임을 확인
+- 디스크립터 엔트리들이 서로 겹친다는 점을 확인
 - `material_texts.json` 별도 추출
+- `resource_chunks.json` 생성
 
 ## 세션 시작 규칙
 
@@ -125,3 +132,4 @@
 - [analysis/text_bank_inventory.md](/Users/user/test/analysis/text_bank_inventory.md)
 - [analysis/experiment_log.md](/Users/user/test/analysis/experiment_log.md)
 - [analysis/resource_chunk_directory.md](/Users/user/test/analysis/resource_chunk_directory.md)
+- [analysis/resource_chunks.json](/Users/user/test/analysis/resource_chunks.json)

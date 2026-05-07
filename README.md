@@ -13,6 +13,7 @@
 - 특정 범위 문자열 추출
 - 특정 문자열 바이트 검색
 - 포인터 위치 찾기
+- 길이/포인터 기반 리소스 테이블 점검
 - GBA LZ77 압축 블록 스캔
 - 4bpp 타일 덤프
 - 간단한 문자열 교체 / 리포인트 주입
@@ -92,6 +93,20 @@ LZ77 압축 블록 스캔:
 python3 -m gba_kor_tool scan-lz77 \
   "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
   --limit 50
+```
+
+길이+포인터 또는 포인터+길이 형태의 8바이트 청크 테이블 점검:
+
+```bash
+python3 -m gba_kor_tool inspect-chunk-table \
+  "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
+  0x17C1C0 \
+  --count 35 \
+  --scan-text \
+  --encoding cp932 \
+  --terminator 00 \
+  --require-japanese \
+  --output analysis/resource_chunks.json
 ```
 
 폰트/타일 후보 영역을 4bpp 이미지로 덤프:

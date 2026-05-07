@@ -404,6 +404,160 @@ def write_pgm(path: Path, pixels: bytes, width: int, height: int) -> None:
     write_binary(path, header + pixels)
 
 
+def unpack_chunk_table_entry(raw_first: int, raw_second: int, layout: str) -> Tuple[int, int]:
+    if layout == "length-pointer":
+        return raw_first, raw_second
+    if layout == "pointer-length":
+        return raw_second, raw_first
+    raise ToolError(f"지원하지 않는 청크 레이아웃입니다: {layout}")
+
+
+def is_valid_chunk_entry(data_size: int, *, length: int, rom_address: int) -> bool:
+    if length <= 0 or length > data_size:
+        return False
+    if rom_address < ROM_BASE or rom_address >= ROM_BASE + data_size:
+        return False
+    file_offset = rom_address - ROM_BASE
+    return file_offset + length <= data_size
+
+
+def score_chunk_layout(data: bytes, *, start: int, count: int, layout: str) -> Tuple[int, int]:
+    score = 0
+    valid_entries = 0
+    previous_offset: Optional[int] = None
+
+    for index in range(count):
+        table_offset = start + index * 8
+        if table_offset + 8 > len(data):
+            break
+        raw_first, raw_second = struct.unpack_from("<II", data, table_offset)
+        length, rom_address = unpack_chunk_table_entry(raw_first, raw_second, layout)
+        if not is_valid_chunk_entry(len(data), length=length, rom_address=rom_address):
+            continue
+        valid_entries += 1
+        score += 3
+        file_offset = rom_address - ROM_BASE
+        if file_offset % 4 == 0:
+            score += 1
+        if previous_offset is None or file_offset >= previous_offset:
+            score += 1
+        previous_offset = file_offset
+
+    return score, valid_entries
+
+
+def resolve_chunk_layout(data: bytes, *, start: int, count: int, layout: str) -> Tuple[str, Dict[str, dict]]:
+    if layout != "auto":
+        score, valid_entries = score_chunk_layout(data, start=start, count=count, layout=layout)
+        return layout, {layout: {"score": score, "valid_entries": valid_entries}}
+
+    candidates = {}
+    for candidate in ("length-pointer", "pointer-length"):
+        score, valid_entries = score_chunk_layout(data, start=start, count=count, layout=candidate)
+        candidates[candidate] = {"score": score, "valid_entries": valid_entries}
+
+    resolved_layout = max(
+        candidates.items(),
+        key=lambda item: (item[1]["score"], item[1]["valid_entries"]),
+    )[0]
+    return resolved_layout, candidates
+
+
+def inspect_chunk_table(
+    data: bytes,
+    *,
+    start: int,
+    count: int,
+    layout: str,
+    stop_on_invalid: bool,
+    scan_text: bool,
+    terminators: Sequence[int],
+    max_bytes: int,
+    encoding: Optional[str],
+    table: Optional[TableCodec],
+    max_unknown_ratio: float,
+    min_chars: int,
+    require_non_ascii: bool,
+    require_japanese_text: bool,
+    min_japanese_ratio: float,
+) -> dict:
+    resolved_layout, auto_scores = resolve_chunk_layout(data, start=start, count=count, layout=layout)
+    entries = []
+    previous_end_inclusive: Optional[int] = None
+
+    for index in range(count):
+        table_offset = start + index * 8
+        if table_offset + 8 > len(data):
+            raise ToolError("청크 테이블 범위가 ROM 끝을 넘어갑니다.")
+
+        raw_first, raw_second = struct.unpack_from("<II", data, table_offset)
+        length, rom_address = unpack_chunk_table_entry(raw_first, raw_second, resolved_layout)
+        entry = {
+            "index": index,
+            "table_offset": table_offset,
+            "raw_first_u32": raw_first,
+            "raw_second_u32": raw_second,
+            "layout": resolved_layout,
+            "valid": False,
+        }
+
+        if is_valid_chunk_entry(len(data), length=length, rom_address=rom_address):
+            file_offset = rom_address - ROM_BASE
+            end_exclusive = file_offset + length
+            end_inclusive = end_exclusive - 1
+            overlap_previous = previous_end_inclusive is not None and file_offset <= previous_end_inclusive
+            gap_from_previous = None
+            if previous_end_inclusive is not None:
+                gap_from_previous = file_offset - (previous_end_inclusive + 1)
+
+            entry.update(
+                {
+                    "valid": True,
+                    "length": length,
+                    "rom_address": rom_address,
+                    "file_offset": file_offset,
+                    "end_offset_exclusive": end_exclusive,
+                    "end_offset_inclusive": end_inclusive,
+                    "overlap_previous": overlap_previous,
+                    "gap_from_previous": gap_from_previous,
+                }
+            )
+
+            if scan_text:
+                records = extract_range_records(
+                    data,
+                    start=file_offset,
+                    end=end_exclusive,
+                    terminators=terminators,
+                    max_bytes=max_bytes,
+                    encoding=encoding,
+                    table=table,
+                    max_unknown_ratio=max_unknown_ratio,
+                    min_chars=min_chars,
+                    require_non_ascii=require_non_ascii,
+                    require_japanese_text=require_japanese_text,
+                    min_japanese_ratio=min_japanese_ratio,
+                )
+                entry["text_hits"] = len(records)
+                entry["first_text"] = records[0]["text"] if records else ""
+
+            previous_end_inclusive = end_inclusive
+        else:
+            if stop_on_invalid:
+                break
+
+        entries.append(entry)
+
+    return {
+        "table_offset": start,
+        "layout_requested": layout,
+        "layout_resolved": resolved_layout,
+        "auto_scores": auto_scores,
+        "entry_count_requested": count,
+        "entries": entries,
+    }
+
+
 def render_4bpp_tiles(data: bytes, *, offset: int, tiles: int, columns: int) -> Tuple[bytes, int, int]:
     width = columns * 8
     rows = math.ceil(tiles / columns)
@@ -590,6 +744,77 @@ def cmd_dump_4bpp(args: argparse.Namespace) -> int:
     output_path = Path(args.output)
     write_pgm(output_path, pixels, width, height)
     print(f"wrote: {output_path} ({width}x{height})")
+    return 0
+
+
+def cmd_inspect_chunk_table(args: argparse.Namespace) -> int:
+    rom_path = Path(args.rom)
+    data = load_rom(rom_path)
+    table = TableCodec.from_path(Path(args.table)) if args.table else None
+    result = inspect_chunk_table(
+        data,
+        start=parse_offset(args.start),
+        count=args.count,
+        layout=args.layout,
+        stop_on_invalid=args.stop_on_invalid,
+        scan_text=args.scan_text,
+        terminators=read_terminators(args.terminator),
+        max_bytes=args.max_bytes,
+        encoding=args.encoding,
+        table=table,
+        max_unknown_ratio=args.max_unknown_ratio,
+        min_chars=args.min_chars,
+        require_non_ascii=args.require_non_ascii,
+        require_japanese_text=args.require_japanese,
+        min_japanese_ratio=args.min_japanese_ratio,
+    )
+    if args.output:
+        write_json(Path(args.output), result)
+
+    requested = result["layout_requested"]
+    resolved = result["layout_resolved"]
+    if requested == "auto":
+        scores = result["auto_scores"]
+        summary = ", ".join(
+            f"{name} score={values['score']} valid={values['valid_entries']}"
+            for name, values in scores.items()
+        )
+        print(f"layout: auto -> {resolved} ({summary})")
+    else:
+        print(f"layout: {resolved}")
+
+    valid_entries = 0
+    for entry in result["entries"]:
+        if not entry["valid"]:
+            print(
+                f"[{entry['index']:02d}] table={format_offset(entry['table_offset'])} "
+                f"raw=0x{entry['raw_first_u32']:08X},0x{entry['raw_second_u32']:08X} invalid"
+            )
+            continue
+
+        valid_entries += 1
+        line = (
+            f"[{entry['index']:02d}] table={format_offset(entry['table_offset'])} "
+            f"len=0x{entry['length']:X} "
+            f"ptr=0x{entry['rom_address']:08X} "
+            f"file={format_offset(entry['file_offset'])} "
+            f"end={format_offset(entry['end_offset_inclusive'])}"
+        )
+        gap = entry.get("gap_from_previous")
+        if gap is not None:
+            if gap < 0:
+                line += f" overlap={-gap} bytes"
+            else:
+                line += f" gap={gap} bytes"
+        if args.scan_text:
+            line += f" text_hits={entry['text_hits']}"
+            if entry["first_text"]:
+                line += f" first={entry['first_text']}"
+        print(line)
+
+    print(f"valid entries: {valid_entries} / {len(result['entries'])}")
+    if args.output:
+        print(f"wrote: {args.output}")
     return 0
 
 
@@ -837,6 +1062,28 @@ def build_parser() -> argparse.ArgumentParser:
     scan_lz77.add_argument("--min-decompressed-size", type=int, default=32)
     scan_lz77.add_argument("--output")
     scan_lz77.set_defaults(func=cmd_scan_lz77)
+
+    inspect_chunk = sub.add_parser(
+        "inspect-chunk-table",
+        help="8바이트 리소스/청크 테이블을 길이+포인터 또는 포인터+길이로 해석합니다.",
+    )
+    inspect_chunk.add_argument("rom")
+    inspect_chunk.add_argument("start")
+    inspect_chunk.add_argument("--count", type=int, required=True)
+    inspect_chunk.add_argument("--layout", choices=["auto", "length-pointer", "pointer-length"], default="auto")
+    inspect_chunk.add_argument("--stop-on-invalid", action="store_true")
+    inspect_chunk.add_argument("--scan-text", action="store_true")
+    inspect_chunk.add_argument("--encoding", default="cp932")
+    inspect_chunk.add_argument("--table")
+    inspect_chunk.add_argument("--terminator", action="append", default=["00"])
+    inspect_chunk.add_argument("--min-chars", type=int, default=4)
+    inspect_chunk.add_argument("--max-bytes", type=int, default=128)
+    inspect_chunk.add_argument("--require-non-ascii", action="store_true", default=True)
+    inspect_chunk.add_argument("--require-japanese", action="store_true")
+    inspect_chunk.add_argument("--min-japanese-ratio", type=float, default=0.5)
+    inspect_chunk.add_argument("--max-unknown-ratio", type=float, default=0.25)
+    inspect_chunk.add_argument("--output")
+    inspect_chunk.set_defaults(func=cmd_inspect_chunk_table)
 
     dump_4bpp = sub.add_parser("dump-4bpp", help="4bpp 타일 데이터를 PGM 이미지로 덤프합니다.")
     dump_4bpp.add_argument("rom")

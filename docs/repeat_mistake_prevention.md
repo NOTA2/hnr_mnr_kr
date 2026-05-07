@@ -80,6 +80,19 @@
 
 이 경우에는 "탐색 조건을 바꿔야 한다"는 쪽으로 사고를 전환합니다.
 
+### 5. 리소스 테이블 엔트리를 겹치지 않는 청크 경계로 단정
+
+이 프로젝트에서는 이미 위험한 가정으로 확인되었습니다.
+
+- `0x17C1C0` 부근 테이블은 `u32 length + u32 rom_address` 형식으로 보인다.
+- 하지만 여러 엔트리가 서로 겹친다.
+
+따라서:
+
+- "엔트리 하나 = 독립 청크 하나"라고 바로 결론 내리지 않는다.
+- 범위 기반 추출 JSON과 실제 디스크립터 경계를 구분해서 기록한다.
+- 다음 조사 전에는 [resource_chunk_directory.md](/Users/user/test/analysis/resource_chunk_directory.md) 와 [resource_chunks.json](/Users/user/test/analysis/resource_chunks.json) 을 먼저 확인한다.
+
 ## 기록 규칙
 
 ### 사실
