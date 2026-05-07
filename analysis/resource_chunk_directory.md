@@ -5,6 +5,7 @@
 근거 산출물:
 
 - [resource_chunks.json](/Users/user/test/analysis/resource_chunks.json)
+- [resource_registry_map.md](/Users/user/test/analysis/resource_registry_map.md)
 
 ## 확인 방법
 
@@ -49,12 +50,15 @@ python3 -m gba_kor_tool inspect-chunk-table \
 - 이 테이블은 `포인터 + 길이`가 아니라 `길이 + ROM 주소` 순서로 읽혀야 한다.
 - 엔트리들은 주소 기준으로 대체로 오름차순이지만, 서로 **겹치거나 중첩**된다.
 - 따라서 이 구조를 단순한 "겹치지 않는 청크 분할표"로 보면 안 된다.
+- 또한 같은 근처의 상위 레지스트리 범위들은 대부분 `pointer-length` 레이아웃이라, `0x17C1C0` 은 주변 공통 규칙의 예외처럼 보인다.
 - 현재 추출된 [battle_texts.json](/Users/user/test/analysis/battle_texts.json), [material_texts.json](/Users/user/test/analysis/material_texts.json), [ability_texts.json](/Users/user/test/analysis/ability_texts.json) 은 번역 작업을 위한 편의상 뽑은 범위이며, 테이블 엔트리와 1:1 대응하지 않는다.
 - 특히 `battle_texts.json` 은 `0x3D2036..0x3D2557` 만 모아 둔 보기 쉬운 추출본이지, 단일 디스크립터 하나를 그대로 덤프한 결과가 아니다.
 
 ## 추가 관찰
 
 - `index 5`, `8`, `10`, `12`, `13`, `16`, `22`, `23`, `24` 같은 엔트리는 이전 엔트리와 겹친다.
+- `0x17C2F4`, `0x17C384`, `0x17C71C`, `0x17C7E4` 를 가리키는 상위 포인터 허브가 `0x076530` 부근에서 확인되었다.
+- 하지만 그 허브는 `0x17C1C0` 을 직접 가리키지 않는다.
 - 넓은 범위로 테이블을 더 스캔하면 이후 엔트리에서도 텍스트 히트가 나오지만, 큰 바이너리 자원 내부의 잡음이 섞이기 시작한다.
 - 따라서 현재는 `0x3Dxxxx` 근처의 밀집 구간을 우선 조사 대상으로 유지하는 편이 안전하다.
 

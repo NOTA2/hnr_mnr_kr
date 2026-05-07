@@ -33,6 +33,8 @@
   - `0x0B` 제어 코드 사용 확인
   - `0x17C1C0` 부근 `u32 length + u32 rom_address` 디스크립터 테이블 확인
   - 해당 테이블은 겹치는 엔트리를 포함
+  - `0x076530` 부근에서 여러 상위 리소스 레지스트리 경계를 가리키는 포인터 허브 확인
+  - 상위 레지스트리들은 주로 `pointer-length`, `0x17C1C0` 은 예외적으로 `length-pointer`
 - 상세 문서: [data_structure_investigation.md](/Users/user/test/docs/tracks/data_structure_investigation.md)
 
 ### 2. 텍스트 추출
@@ -77,8 +79,8 @@
 
 ## 현재 가장 중요한 포인트
 
-1. `0x17C1C0` 디스크립터 테이블을 누가 참조하는지 파악
-2. 겹치는 디스크립터 엔트리가 어떤 관계인지 분류
+1. `0x076530` 포인터 허브를 누가 참조하는지 파악
+2. `0x17C1C0` 이 왜 공통 레지스트리 바깥의 예외 테이블인지 설명할 상위 구조 찾기
 3. 대사/이벤트 평문 구간 추가 탐색
 4. 폰트 조사로 넘어갈 수 있을 만큼 텍스트 구조를 더 분리
 
@@ -102,6 +104,8 @@
 - 디스크립터 엔트리들이 서로 겹친다는 점을 확인
 - `material_texts.json` 별도 추출
 - `resource_chunks.json` 생성
+- `0x076530` 부근 상위 포인터 허브와 `0x17C2F4/0x17C384/0x17C71C/0x17C7E4` 레지스트리 경계 확인
+- `resource_registry_map.md`, `resource_registry_summary.json` 생성
 
 ## 세션 시작 규칙
 
@@ -133,3 +137,5 @@
 - [analysis/experiment_log.md](/Users/user/test/analysis/experiment_log.md)
 - [analysis/resource_chunk_directory.md](/Users/user/test/analysis/resource_chunk_directory.md)
 - [analysis/resource_chunks.json](/Users/user/test/analysis/resource_chunks.json)
+- [analysis/resource_registry_map.md](/Users/user/test/analysis/resource_registry_map.md)
+- [analysis/resource_registry_summary.json](/Users/user/test/analysis/resource_registry_summary.json)

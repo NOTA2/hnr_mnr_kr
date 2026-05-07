@@ -1,0 +1,135 @@
+{
+  "pointer_hub_offset": 484656,
+  "pointer_hub_rom_address": 134702384,
+  "registries": [
+    {
+      "name": "registry_a",
+      "start": 1557236,
+      "end": 1557380,
+      "entry_count": 18,
+      "layout": "pointer-length",
+      "valid_entries": 18,
+      "pointer_sites": [
+        484660,
+        484664
+      ],
+      "text_entry_count": 5,
+      "sample_text_entries": [
+        {
+          "index": 4,
+          "file_offset": 4317560,
+          "length": 1143508,
+          "text_hits": 200,
+          "first_text": "咒ﾞ囮勞"
+        },
+        {
+          "index": 7,
+          "file_offset": 5738224,
+          "length": 1296988,
+          "text_hits": 59,
+          "first_text": "ﾍxﾈ濵h鞐喆霓"
+        },
+        {
+          "index": 8,
+          "file_offset": 7035212,
+          "length": 776444,
+          "text_hits": 116,
+          "first_text": "01：リオール街"
+        },
+        {
+          "index": 12,
+          "file_offset": 8025356,
+          "length": 6540,
+          "text_hits": 20,
+          "first_text": "回復薬２体力を１００回復する薬"
+        },
+        {
+          "index": 15,
+          "file_offset": 8051292,
+          "length": 67048,
+          "text_hits": 3,
+          "first_text": "祿絣膤薐"
+        }
+      ]
+    },
+    {
+      "name": "registry_b",
+      "start": 1557380,
+      "end": 1558300,
+      "entry_count": 115,
+      "layout": "pointer-length",
+      "valid_entries": 115,
+      "pointer_sites": [
+        484664,
+        484668
+      ],
+      "text_entry_count": 1,
+      "sample_text_entries": [
+        {
+          "index": 86,
+          "file_offset": 8245628,
+          "length": 1188,
+          "text_hits": 1,
+          "first_text": "殖%韮ﾓ"
+        }
+      ]
+    },
+    {
+      "name": "registry_c",
+      "start": 1558300,
+      "end": 1558500,
+      "entry_count": 25,
+      "layout": "pointer-length",
+      "valid_entries": 25,
+      "pointer_sites": [
+        484668,
+        484680
+      ],
+      "text_entry_count": 0,
+      "sample_text_entries": []
+    },
+    {
+      "name": "registry_d",
+      "start": 1558500,
+      "end": 1559300,
+      "entry_count": 100,
+      "layout": "pointer-length",
+      "valid_entries": 100,
+      "pointer_sites": [
+        1032,
+        484680
+      ],
+      "text_entry_count": 4,
+      "sample_text_entries": [
+        {
+          "index": 0,
+          "file_offset": 8335360,
+          "length": 1412,
+          "text_hits": 1,
+          "first_text": "錬成であっさり終わらせる！\r"
+        },
+        {
+          "index": 25,
+          "file_offset": 8343412,
+          "length": 164,
+          "text_hits": 1,
+          "first_text": "ちったぁ活躍しておかねえとな\nムショから出てきた意味がねぇ\r\f"
+        },
+        {
+          "index": 34,
+          "file_offset": 8346836,
+          "length": 599,
+          "text_hits": 1,
+          "first_text": "錬金術師よ、大衆のためにあれ\f"
+        },
+        {
+          "index": 92,
+          "file_offset": 8360732,
+          "length": 945,
+          "text_hits": 1,
+          "first_text": "錬成であっさり終わらせる！\r"
+        }
+      ]
+    }
+  ]
+}

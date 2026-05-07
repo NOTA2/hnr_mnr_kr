@@ -93,6 +93,18 @@
 - 범위 기반 추출 JSON과 실제 디스크립터 경계를 구분해서 기록한다.
 - 다음 조사 전에는 [resource_chunk_directory.md](/Users/user/test/analysis/resource_chunk_directory.md) 와 [resource_chunks.json](/Users/user/test/analysis/resource_chunks.json) 을 먼저 확인한다.
 
+### 6. 주변 주소대의 디스크립터가 모두 같은 레이아웃이라고 가정
+
+이 가정도 이미 틀린 사례가 나왔습니다.
+
+- `0x17C1C0` 은 `length-pointer`
+- `0x17C2F4`, `0x17C384`, `0x17C71C`, `0x17C7E4` 이후 상위 레지스트리들은 `pointer-length`
+
+따라서:
+
+- 같은 `0x17Cxxx` 범위라도 자동 판정 없이 필드 순서를 고정하지 않는다.
+- 새 테이블을 볼 때는 먼저 레이아웃을 확인하고, 그 다음 텍스트/리소스 의미를 붙인다.
+
 ## 기록 규칙
 
 ### 사실
