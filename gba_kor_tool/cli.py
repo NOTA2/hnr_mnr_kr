@@ -1,0 +1,767 @@
+from __future__ import annotations
+
+import argparse
+import json
+import math
+import re
+import struct
+from dataclasses import asdict, dataclass
+from pathlib import Path
+from typing import Dict, Iterable, List, Optional, Sequence, Tuple
+
+ROM_BASE = 0x08000000
+JAPANESE_RE = re.compile(r"[\u3040-\u30ff\u3400-\u9fff]")
+SUSPICIOUS_ASCII_SYMBOLS = set("`|{}[]<>^_~\\")
+
+
+class ToolError(Exception):
+    pass
+
+
+@dataclass
+class RomHeader:
+    path: str
+    size: int
+    title: str
+    game_code: str
+    maker_code: str
+    unit_code: int
+    device_type: int
+    version: int
+    complement_check: int
+
+
+class TableCodec:
+    def __init__(self, mapping: Dict[bytes, str]) -> None:
+        if not mapping:
+            raise ToolError("빈 테이블은 사용할 수 없습니다.")
+        self.mapping = mapping
+        self.decode_keys = sorted(mapping.keys(), key=len, reverse=True)
+        reverse: Dict[str, bytes] = {}
+        for key, value in mapping.items():
+            reverse.setdefault(value, key)
+        self.encode_keys = sorted(reverse.keys(), key=len, reverse=True)
+        self.reverse = reverse
+
+    @classmethod
+    def from_path(cls, path: Path) -> "TableCodec":
+        mapping: Dict[bytes, str] = {}
+        for lineno, raw_line in enumerate(path.read_text(encoding="utf-8").splitlines(), start=1):
+            line = raw_line.strip()
+            if not line or line.startswith("#") or line.startswith(";") or line.startswith("//"):
+                continue
+            if "=" not in line:
+                continue
+            key, value = line.split("=", 1)
+            key = key.strip().replace(" ", "")
+            value = value.strip()
+            if len(key) % 2 != 0 or not re.fullmatch(r"[0-9A-Fa-f]+", key):
+                raise ToolError(f"{path}:{lineno}: 잘못된 테이블 키입니다: {key!r}")
+            mapping[bytes.fromhex(key)] = value
+        return cls(mapping)
+
+    def decode(self, payload: bytes) -> Tuple[str, int]:
+        parts: List[str] = []
+        unknown = 0
+        i = 0
+        while i < len(payload):
+            for key in self.decode_keys:
+                if payload.startswith(key, i):
+                    parts.append(self.mapping[key])
+                    i += len(key)
+                    break
+            else:
+                parts.append(f"[{payload[i]:02X}]")
+                unknown += 1
+                i += 1
+        return "".join(parts), unknown
+
+    def encode(self, text: str) -> bytes:
+        out = bytearray()
+        i = 0
+        while i < len(text):
+            for token in self.encode_keys:
+                if text.startswith(token, i):
+                    out.extend(self.reverse[token])
+                    i += len(token)
+                    break
+            else:
+                raise ToolError(f"테이블에 없는 문자/토큰입니다: {text[i:i + 8]!r}")
+        return bytes(out)
+
+
+def load_rom(path: Path) -> bytes:
+    return path.read_bytes()
+
+
+def parse_header(path: Path, data: bytes) -> RomHeader:
+    if len(data) < 0xC0:
+        raise ToolError("ROM 크기가 너무 작아서 GBA 헤더를 읽을 수 없습니다.")
+    return RomHeader(
+        path=str(path),
+        size=len(data),
+        title=data[0xA0:0xAC].split(b"\x00", 1)[0].decode("ascii", errors="replace"),
+        game_code=data[0xAC:0xB0].decode("ascii", errors="replace"),
+        maker_code=data[0xB0:0xB2].decode("ascii", errors="replace"),
+        unit_code=data[0xB3],
+        device_type=data[0xB4],
+        version=data[0xBC],
+        complement_check=data[0xBD],
+    )
+
+
+def parse_offset(value: str) -> int:
+    raw = int(value, 0)
+    if raw >= ROM_BASE:
+        return raw - ROM_BASE
+    return raw
+
+
+def parse_hex_byte(value: str) -> int:
+    cleaned = value.strip().lower().removeprefix("0x")
+    return int(cleaned, 16) & 0xFF
+
+
+def read_terminators(values: Sequence[str]) -> List[int]:
+    if not values:
+        return [0x00]
+    return [parse_hex_byte(value) for value in values]
+
+
+def format_offset(offset: int) -> str:
+    return f"0x{offset:06X}"
+
+
+def format_rom_address(offset: int) -> str:
+    return f"0x{ROM_BASE + offset:08X}"
+
+
+def contains_japanese(text: str) -> bool:
+    return bool(JAPANESE_RE.search(text))
+
+
+def japanese_ratio(text: str) -> float:
+    if not text:
+        return 0.0
+    return sum(1 for ch in text if JAPANESE_RE.match(ch)) / len(text)
+
+
+def suspicious_symbol_ratio(text: str) -> float:
+    if not text:
+        return 0.0
+    return sum(1 for ch in text if ch in SUSPICIOUS_ASCII_SYMBOLS) / len(text)
+
+
+def is_plausible_text(
+    text: str,
+    require_non_ascii: bool,
+    require_japanese_text: bool,
+    min_japanese_ratio: float,
+) -> bool:
+    if not text:
+        return False
+    printable_ratio = sum(ch.isprintable() and ch not in "\x0b\x0c" for ch in text) / len(text)
+    if printable_ratio < 0.9:
+        return False
+    if suspicious_symbol_ratio(text) > 0.2:
+        return False
+    if require_non_ascii and text.isascii():
+        return False
+    if require_japanese_text and (not contains_japanese(text) or japanese_ratio(text) < min_japanese_ratio):
+        return False
+    return True
+
+
+def decode_payload(
+    payload: bytes,
+    *,
+    encoding: Optional[str],
+    table: Optional[TableCodec],
+    max_unknown_ratio: float,
+) -> Tuple[str, int]:
+    if table is not None:
+        text, unknown = table.decode(payload)
+        if payload and (unknown / len(payload)) > max_unknown_ratio:
+            raise ToolError("미지 바이트 비율이 너무 높습니다.")
+        return text, unknown
+    if encoding is None:
+        raise ToolError("encoding 또는 table 중 하나는 반드시 필요합니다.")
+    return payload.decode(encoding), 0
+
+
+def encode_text(text: str, *, encoding: Optional[str], table: Optional[TableCodec]) -> bytes:
+    if table is not None:
+        return table.encode(text)
+    if encoding is None:
+        raise ToolError("encoding 또는 table 중 하나는 반드시 필요합니다.")
+    return text.encode(encoding)
+
+
+def iter_delimited_chunks(
+    data: bytes,
+    terminators: Sequence[int],
+    *,
+    max_bytes: int,
+) -> Iterable[Tuple[int, bytes, Optional[int]]]:
+    terminator_set = set(terminators)
+    start = 0
+    for index, byte in enumerate(data):
+        if byte in terminator_set:
+            length = index - start
+            if 0 < length <= max_bytes:
+                yield start, data[start:index], byte
+            start = index + 1
+    if start < len(data):
+        length = len(data) - start
+        if 0 < length <= max_bytes:
+            yield start, data[start:], None
+
+
+def extract_range_records(
+    data: bytes,
+    *,
+    start: int,
+    end: int,
+    terminators: Sequence[int],
+    max_bytes: int,
+    encoding: Optional[str],
+    table: Optional[TableCodec],
+    max_unknown_ratio: float,
+    min_chars: int,
+    require_non_ascii: bool,
+    require_japanese_text: bool,
+    min_japanese_ratio: float,
+) -> List[dict]:
+    if start < 0 or end > len(data) or start >= end:
+        raise ToolError("잘못된 추출 범위입니다.")
+    records = []
+    for rel_offset, payload, terminator in iter_delimited_chunks(
+        data[start:end],
+        terminators,
+        max_bytes=max_bytes,
+    ):
+        try:
+            text, unknown = decode_payload(
+                payload,
+                encoding=encoding,
+                table=table,
+                max_unknown_ratio=max_unknown_ratio,
+            )
+        except (UnicodeDecodeError, ToolError):
+            continue
+        if len(text) < min_chars:
+            continue
+        if not is_plausible_text(text, require_non_ascii, require_japanese_text, min_japanese_ratio):
+            continue
+        offset = start + rel_offset
+        records.append(
+            {
+                "offset": offset,
+                "rom_address": ROM_BASE + offset,
+                "byte_length": len(payload),
+                "terminator": None if terminator is None else f"0x{terminator:02X}",
+                "unknown_tokens": unknown,
+                "text": text,
+                "translation": "",
+            }
+        )
+    return records
+
+
+def find_all(data: bytes, needle: bytes) -> List[int]:
+    hits: List[int] = []
+    cursor = 0
+    while True:
+        index = data.find(needle, cursor)
+        if index == -1:
+            return hits
+        hits.append(index)
+        cursor = index + 1
+
+
+def find_pointers(data: bytes, target_offset: int, *, aligned_only: bool = True, limit: Optional[int] = None) -> List[int]:
+    target_value = ROM_BASE + target_offset
+    hits: List[int] = []
+    step = 4 if aligned_only else 1
+    stop = len(data) - 3
+    for offset in range(0, stop, step):
+        if struct.unpack_from("<I", data, offset)[0] == target_value:
+            hits.append(offset)
+            if limit is not None and len(hits) >= limit:
+                return hits
+    return hits
+
+
+def decompress_lz77(data: bytes, offset: int, *, max_output_size: int) -> Tuple[bytes, int]:
+    if offset + 4 > len(data) or data[offset] != 0x10:
+        raise ToolError("LZ77 헤더가 아닙니다.")
+    output_size = data[offset + 1] | (data[offset + 2] << 8) | (data[offset + 3] << 16)
+    if output_size <= 0 or output_size > max_output_size:
+        raise ToolError("비정상적인 LZ77 출력 크기입니다.")
+
+    src = offset + 4
+    out = bytearray()
+    while len(out) < output_size:
+        if src >= len(data):
+            raise ToolError("LZ77 데이터가 중간에 끝났습니다.")
+        flags = data[src]
+        src += 1
+        for bit in range(8):
+            if len(out) >= output_size:
+                break
+            if flags & (0x80 >> bit):
+                if src + 1 >= len(data):
+                    raise ToolError("LZ77 백레퍼런스가 잘렸습니다.")
+                b1 = data[src]
+                b2 = data[src + 1]
+                src += 2
+                count = (b1 >> 4) + 3
+                disp = (((b1 & 0x0F) << 8) | b2) + 1
+                if disp > len(out):
+                    raise ToolError("LZ77 백레퍼런스 거리가 잘못되었습니다.")
+                for _ in range(count):
+                    out.append(out[-disp])
+                    if len(out) >= output_size:
+                        break
+            else:
+                if src >= len(data):
+                    raise ToolError("LZ77 리터럴이 잘렸습니다.")
+                out.append(data[src])
+                src += 1
+    return bytes(out), src - offset
+
+
+def scan_lz77_blocks(
+    data: bytes,
+    *,
+    max_output_size: int,
+    min_compressed_size: int,
+    min_decompressed_size: int,
+    limit: Optional[int],
+) -> List[dict]:
+    hits: List[dict] = []
+    cursor = 0
+    while True:
+        index = data.find(b"\x10", cursor)
+        if index == -1:
+            return hits
+        cursor = index + 1
+        if index + 4 > len(data):
+            continue
+        declared = data[index + 1] | (data[index + 2] << 8) | (data[index + 3] << 16)
+        if declared <= 0 or declared > max_output_size:
+            continue
+        try:
+            payload, consumed = decompress_lz77(data, index, max_output_size=max_output_size)
+        except ToolError:
+            continue
+        if consumed < min_compressed_size or len(payload) < min_decompressed_size:
+            continue
+        hits.append(
+            {
+                "offset": index,
+                "rom_address": ROM_BASE + index,
+                "compressed_size": consumed,
+                "decompressed_size": len(payload),
+            }
+        )
+        if limit is not None and len(hits) >= limit:
+            return hits
+
+
+def align_up(value: int, alignment: int) -> int:
+    if alignment <= 1:
+        return value
+    return (value + alignment - 1) // alignment * alignment
+
+
+def find_free_space(data: bytes, *, start: int, size: int, fill_byte: int, alignment: int) -> int:
+    offset = align_up(start, alignment)
+    while offset + size <= len(data):
+        if all(byte == fill_byte for byte in data[offset:offset + size]):
+            return offset
+        offset += alignment
+    raise ToolError("요청한 길이만큼의 빈 공간을 찾지 못했습니다.")
+
+
+def write_json(path: Path, payload: object) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_text(json.dumps(payload, ensure_ascii=False, indent=2), encoding="utf-8")
+
+
+def write_binary(path: Path, payload: bytes) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_bytes(payload)
+
+
+def write_pgm(path: Path, pixels: bytes, width: int, height: int) -> None:
+    header = f"P5\n{width} {height}\n255\n".encode("ascii")
+    write_binary(path, header + pixels)
+
+
+def render_4bpp_tiles(data: bytes, *, offset: int, tiles: int, columns: int) -> Tuple[bytes, int, int]:
+    width = columns * 8
+    rows = math.ceil(tiles / columns)
+    height = rows * 8
+    image = bytearray(width * height)
+
+    for tile_index in range(tiles):
+        tile_offset = offset + tile_index * 32
+        tile = data[tile_offset:tile_offset + 32]
+        if len(tile) < 32:
+            raise ToolError("지정한 타일 수가 ROM 끝을 넘어갑니다.")
+        base_x = (tile_index % columns) * 8
+        base_y = (tile_index // columns) * 8
+        for row in range(8):
+            row_data = tile[row * 4:(row + 1) * 4]
+            x = base_x
+            for byte in row_data:
+                low = byte & 0x0F
+                high = byte >> 4
+                image[(base_y + row) * width + x] = low * 17
+                image[(base_y + row) * width + x + 1] = high * 17
+                x += 2
+
+    return bytes(image), width, height
+
+
+def cmd_info(args: argparse.Namespace) -> int:
+    rom_path = Path(args.rom)
+    header = parse_header(rom_path, load_rom(rom_path))
+    if args.json_output:
+        print(json.dumps(asdict(header), ensure_ascii=False, indent=2))
+    else:
+        print(f"ROM       : {header.path}")
+        print(f"Size      : {header.size} bytes")
+        print(f"Title     : {header.title}")
+        print(f"Game Code : {header.game_code}")
+        print(f"Maker     : {header.maker_code}")
+        print(f"Unit Code : {header.unit_code}")
+        print(f"Device    : {header.device_type}")
+        print(f"Version   : {header.version}")
+        print(f"Checksum  : 0x{header.complement_check:02X}")
+    return 0
+
+
+def cmd_scan_text(args: argparse.Namespace) -> int:
+    rom_path = Path(args.rom)
+    data = load_rom(rom_path)
+    table = TableCodec.from_path(Path(args.table)) if args.table else None
+    records = []
+    for offset, payload, terminator in iter_delimited_chunks(data, read_terminators(args.terminator), max_bytes=args.max_bytes):
+        try:
+            text, unknown = decode_payload(
+                payload,
+                encoding=args.encoding,
+                table=table,
+                max_unknown_ratio=args.max_unknown_ratio,
+            )
+        except (UnicodeDecodeError, ToolError):
+            continue
+        if len(text) < args.min_chars:
+            continue
+        if not is_plausible_text(text, args.require_non_ascii, args.require_japanese, args.min_japanese_ratio):
+            continue
+        records.append(
+            {
+                "offset": offset,
+                "rom_address": ROM_BASE + offset,
+                "byte_length": len(payload),
+                "terminator": None if terminator is None else f"0x{terminator:02X}",
+                "unknown_tokens": unknown,
+                "text": text,
+            }
+        )
+        if args.limit and len(records) >= args.limit:
+            break
+
+    if args.output:
+        write_json(Path(args.output), records)
+
+    for item in records:
+        print(
+            f"{format_offset(item['offset'])} "
+            f"({format_rom_address(item['offset'])}) "
+            f"[{item['byte_length']} bytes] "
+            f"{item['text']}"
+        )
+    print(f"hits: {len(records)}")
+    return 0
+
+
+def cmd_extract_range(args: argparse.Namespace) -> int:
+    rom_path = Path(args.rom)
+    data = load_rom(rom_path)
+    table = TableCodec.from_path(Path(args.table)) if args.table else None
+    records = extract_range_records(
+        data,
+        start=parse_offset(args.start),
+        end=parse_offset(args.end),
+        terminators=read_terminators(args.terminator),
+        max_bytes=args.max_bytes,
+        encoding=args.encoding,
+        table=table,
+        max_unknown_ratio=args.max_unknown_ratio,
+        min_chars=args.min_chars,
+        require_non_ascii=args.require_non_ascii,
+        require_japanese_text=args.require_japanese,
+        min_japanese_ratio=args.min_japanese_ratio,
+    )
+    if args.output:
+        write_json(Path(args.output), records)
+    for item in records[: args.preview]:
+        print(
+            f"{format_offset(item['offset'])} "
+            f"({format_rom_address(item['offset'])}) "
+            f"[{item['byte_length']} bytes] "
+            f"{item['text']}"
+        )
+    if len(records) > args.preview:
+        print(f"... {len(records) - args.preview} more")
+    print(f"hits: {len(records)}")
+    return 0
+
+
+def cmd_search_text(args: argparse.Namespace) -> int:
+    rom_path = Path(args.rom)
+    data = load_rom(rom_path)
+    table = TableCodec.from_path(Path(args.table)) if args.table else None
+    needle = encode_text(args.text, encoding=args.encoding, table=table)
+    hits = find_all(data, needle)
+    for offset in hits[: args.limit or None]:
+        print(f"{format_offset(offset)} ({format_rom_address(offset)})")
+        if args.show_pointers:
+            pointers = find_pointers(data, offset, aligned_only=not args.unaligned_pointers, limit=args.pointer_limit)
+            if pointers:
+                joined = ", ".join(f"{format_offset(ptr)}" for ptr in pointers)
+                print(f"  pointers: {joined}")
+    print(f"hits: {min(len(hits), args.limit) if args.limit else len(hits)} / total {len(hits)}")
+    return 0
+
+
+def cmd_find_pointers(args: argparse.Namespace) -> int:
+    rom_path = Path(args.rom)
+    data = load_rom(rom_path)
+    target_offset = parse_offset(args.target)
+    hits = find_pointers(data, target_offset, aligned_only=not args.unaligned, limit=args.limit)
+    for hit in hits:
+        print(f"{format_offset(hit)} ({format_rom_address(hit)})")
+    print(f"hits: {len(hits)}")
+    return 0
+
+
+def cmd_scan_lz77(args: argparse.Namespace) -> int:
+    rom_path = Path(args.rom)
+    data = load_rom(rom_path)
+    hits = scan_lz77_blocks(
+        data,
+        max_output_size=args.max_output_size,
+        min_compressed_size=args.min_compressed_size,
+        min_decompressed_size=args.min_decompressed_size,
+        limit=args.limit,
+    )
+    if args.output:
+        write_json(Path(args.output), hits)
+    for item in hits:
+        print(
+            f"{format_offset(item['offset'])} "
+            f"({format_rom_address(item['offset'])}) "
+            f"compressed={item['compressed_size']} "
+            f"decompressed={item['decompressed_size']}"
+        )
+    print(f"hits: {len(hits)}")
+    return 0
+
+
+def cmd_dump_4bpp(args: argparse.Namespace) -> int:
+    rom_path = Path(args.rom)
+    data = load_rom(rom_path)
+    pixels, width, height = render_4bpp_tiles(
+        data,
+        offset=parse_offset(args.offset),
+        tiles=args.tiles,
+        columns=args.columns,
+    )
+    output_path = Path(args.output)
+    write_pgm(output_path, pixels, width, height)
+    print(f"wrote: {output_path} ({width}x{height})")
+    return 0
+
+
+def cmd_replace_text(args: argparse.Namespace) -> int:
+    rom_path = Path(args.rom)
+    output_path = Path(args.output_rom)
+    data = bytearray(load_rom(rom_path))
+    table = TableCodec.from_path(Path(args.table)) if args.table else None
+    payload = bytearray(encode_text(args.text, encoding=args.encoding, table=table))
+    if args.terminator:
+        payload.extend(parse_hex_byte(value) for value in args.terminator)
+    offset = parse_offset(args.offset)
+    if len(payload) > args.max_bytes:
+        raise ToolError(f"새 문자열 길이 {len(payload)} bytes 가 허용 길이 {args.max_bytes} bytes 를 초과합니다.")
+    end = offset + args.max_bytes
+    if end > len(data):
+        raise ToolError("교체 범위가 ROM 끝을 넘어갑니다.")
+    data[offset:offset + len(payload)] = payload
+    if len(payload) < args.max_bytes:
+        pad = parse_hex_byte(args.pad_byte)
+        data[offset + len(payload):end] = bytes([pad]) * (args.max_bytes - len(payload))
+    write_binary(output_path, bytes(data))
+    print(f"patched: {output_path}")
+    print(f"offset : {format_offset(offset)}")
+    print(f"bytes  : {len(payload)} / {args.max_bytes}")
+    return 0
+
+
+def cmd_inject_text(args: argparse.Namespace) -> int:
+    rom_path = Path(args.rom)
+    output_path = Path(args.output_rom)
+    data = bytearray(load_rom(rom_path))
+    table = TableCodec.from_path(Path(args.table)) if args.table else None
+    payload = bytearray(encode_text(args.text, encoding=args.encoding, table=table))
+    if args.terminator:
+        payload.extend(parse_hex_byte(value) for value in args.terminator)
+
+    if args.destination_offset:
+        destination = parse_offset(args.destination_offset)
+    else:
+        destination = find_free_space(
+            data,
+            start=parse_offset(args.search_free_space_from),
+            size=len(payload),
+            fill_byte=parse_hex_byte(args.fill_byte),
+            alignment=args.align,
+        )
+
+    end = destination + len(payload)
+    if end > len(data):
+        raise ToolError("주입 위치가 ROM 끝을 넘어갑니다.")
+    data[destination:end] = payload
+
+    pointer_offsets = [parse_offset(value) for value in args.pointer]
+    pointer_value = ROM_BASE + destination
+    for pointer_offset in pointer_offsets:
+        if pointer_offset + 4 > len(data):
+            raise ToolError(f"포인터 위치가 ROM 끝을 넘어갑니다: {format_offset(pointer_offset)}")
+        struct.pack_into("<I", data, pointer_offset, pointer_value)
+
+    write_binary(output_path, bytes(data))
+    print(f"patched     : {output_path}")
+    print(f"string_at   : {format_offset(destination)} ({format_rom_address(destination)})")
+    print(f"pointer_val : 0x{pointer_value:08X}")
+    print(f"pointers    : {', '.join(format_offset(ptr) for ptr in pointer_offsets)}")
+    return 0
+
+
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description="GBA 한글화 작업용 ROM 조사/패치 툴")
+    sub = parser.add_subparsers(dest="command", required=True)
+
+    info = sub.add_parser("info", help="GBA ROM 헤더를 출력합니다.")
+    info.add_argument("rom")
+    info.add_argument("--json-output", action="store_true")
+    info.set_defaults(func=cmd_info)
+
+    scan_text = sub.add_parser("scan-text", help="종단 바이트 기준으로 문자열 후보를 스캔합니다.")
+    scan_text.add_argument("rom")
+    scan_text.add_argument("--encoding", default="cp932")
+    scan_text.add_argument("--table")
+    scan_text.add_argument("--terminator", action="append", default=[])
+    scan_text.add_argument("--min-chars", type=int, default=4)
+    scan_text.add_argument("--max-bytes", type=int, default=96)
+    scan_text.add_argument("--limit", type=int, default=100)
+    scan_text.add_argument("--require-non-ascii", action="store_true", default=True)
+    scan_text.add_argument("--require-japanese", action="store_true")
+    scan_text.add_argument("--min-japanese-ratio", type=float, default=0.5)
+    scan_text.add_argument("--max-unknown-ratio", type=float, default=0.25)
+    scan_text.add_argument("--output")
+    scan_text.set_defaults(func=cmd_scan_text)
+
+    extract_range = sub.add_parser("extract-range", help="지정한 ROM 구간에서 문자열을 추출합니다.")
+    extract_range.add_argument("rom")
+    extract_range.add_argument("start")
+    extract_range.add_argument("end")
+    extract_range.add_argument("--encoding", default="cp932")
+    extract_range.add_argument("--table")
+    extract_range.add_argument("--terminator", action="append", default=[])
+    extract_range.add_argument("--min-chars", type=int, default=1)
+    extract_range.add_argument("--max-bytes", type=int, default=128)
+    extract_range.add_argument("--require-non-ascii", action="store_true", default=True)
+    extract_range.add_argument("--require-japanese", action="store_true")
+    extract_range.add_argument("--min-japanese-ratio", type=float, default=0.5)
+    extract_range.add_argument("--max-unknown-ratio", type=float, default=0.25)
+    extract_range.add_argument("--preview", type=int, default=20)
+    extract_range.add_argument("--output")
+    extract_range.set_defaults(func=cmd_extract_range)
+
+    search_text = sub.add_parser("search-text", help="지정한 문자열의 바이트 패턴을 찾습니다.")
+    search_text.add_argument("rom")
+    search_text.add_argument("text")
+    search_text.add_argument("--encoding", default="cp932")
+    search_text.add_argument("--table")
+    search_text.add_argument("--limit", type=int)
+    search_text.add_argument("--show-pointers", action="store_true")
+    search_text.add_argument("--pointer-limit", type=int, default=16)
+    search_text.add_argument("--unaligned-pointers", action="store_true")
+    search_text.set_defaults(func=cmd_search_text)
+
+    find_ptr = sub.add_parser("find-pointers", help="문자열/데이터 오프셋을 가리키는 포인터를 찾습니다.")
+    find_ptr.add_argument("rom")
+    find_ptr.add_argument("target")
+    find_ptr.add_argument("--limit", type=int)
+    find_ptr.add_argument("--unaligned", action="store_true")
+    find_ptr.set_defaults(func=cmd_find_pointers)
+
+    scan_lz77 = sub.add_parser("scan-lz77", help="GBA BIOS LZ77 블록을 스캔합니다.")
+    scan_lz77.add_argument("rom")
+    scan_lz77.add_argument("--limit", type=int, default=100)
+    scan_lz77.add_argument("--max-output-size", type=int, default=4 * 1024 * 1024)
+    scan_lz77.add_argument("--min-compressed-size", type=int, default=24)
+    scan_lz77.add_argument("--min-decompressed-size", type=int, default=32)
+    scan_lz77.add_argument("--output")
+    scan_lz77.set_defaults(func=cmd_scan_lz77)
+
+    dump_4bpp = sub.add_parser("dump-4bpp", help="4bpp 타일 데이터를 PGM 이미지로 덤프합니다.")
+    dump_4bpp.add_argument("rom")
+    dump_4bpp.add_argument("offset")
+    dump_4bpp.add_argument("--tiles", type=int, required=True)
+    dump_4bpp.add_argument("--columns", type=int, default=16)
+    dump_4bpp.add_argument("--output", required=True)
+    dump_4bpp.set_defaults(func=cmd_dump_4bpp)
+
+    replace_text = sub.add_parser("replace-text", help="기존 위치에 문자열을 같은 길이 이하로 교체합니다.")
+    replace_text.add_argument("rom")
+    replace_text.add_argument("output_rom")
+    replace_text.add_argument("--offset", required=True)
+    replace_text.add_argument("--text", required=True)
+    replace_text.add_argument("--encoding", default="cp932")
+    replace_text.add_argument("--table")
+    replace_text.add_argument("--max-bytes", required=True, type=int)
+    replace_text.add_argument("--terminator", action="append", default=[])
+    replace_text.add_argument("--pad-byte", default="FF")
+    replace_text.set_defaults(func=cmd_replace_text)
+
+    inject_text = sub.add_parser("inject-text", help="자유 공간에 문자열을 넣고 포인터를 새 위치로 갱신합니다.")
+    inject_text.add_argument("rom")
+    inject_text.add_argument("output_rom")
+    inject_text.add_argument("--pointer", action="append", required=True)
+    inject_text.add_argument("--text", required=True)
+    inject_text.add_argument("--encoding", default="cp932")
+    inject_text.add_argument("--table")
+    inject_text.add_argument("--terminator", action="append", default=[])
+    inject_text.add_argument("--destination-offset")
+    inject_text.add_argument("--search-free-space-from", default="0x700000")
+    inject_text.add_argument("--fill-byte", default="FF")
+    inject_text.add_argument("--align", type=int, default=4)
+    inject_text.set_defaults(func=cmd_inject_text)
+
+    return parser
+
+
+def main(argv: Optional[Sequence[str]] = None) -> int:
+    parser = build_parser()
+    args = parser.parse_args(argv)
+    try:
+        return args.func(args)
+    except ToolError as exc:
+        parser.exit(1, f"error: {exc}\n")

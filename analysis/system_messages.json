@@ -1,0 +1,38 @@
+[
+  {
+    "offset": 558424,
+    "rom_address": 134776152,
+    "byte_length": 12,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "通信中・・・",
+    "translation": ""
+  },
+  {
+    "offset": 558440,
+    "rom_address": 134776168,
+    "byte_length": 39,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "通信エラー！\nケーブルを確認してください",
+    "translation": ""
+  },
+  {
+    "offset": 558484,
+    "rom_address": 134776212,
+    "byte_length": 39,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "通信エラー！\nデータ転送できませんでした",
+    "translation": ""
+  },
+  {
+    "offset": 558528,
+    "rom_address": 134776256,
+    "byte_length": 43,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "接続数オーバー！\n接続数を１台にしてください",
+    "translation": ""
+  }
+]
