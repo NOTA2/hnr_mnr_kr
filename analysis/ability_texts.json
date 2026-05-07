@@ -1,11 +1,38 @@
 [
   {
+    "offset": 4010622,
+    "rom_address": 138228350,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "黒曜石　　　　　\u000b火山岩の一種",
+    "translation": ""
+  },
+  {
     "offset": 4010652,
     "rom_address": 138228380,
     "byte_length": 33,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "ブラックペーパー\u000b因縁がある黒い紙",
+    "translation": ""
+  },
+  {
+    "offset": 4010686,
+    "rom_address": 138228414,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "ブラックウッド　\u000b炭のような物体",
+    "translation": ""
+  },
+  {
+    "offset": 4010718,
+    "rom_address": 138228446,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "ブラックパール　\u000b銀灰色のパール",
     "translation": ""
   },
   {
@@ -18,12 +45,39 @@
     "translation": ""
   },
   {
+    "offset": 4010782,
+    "rom_address": 138228510,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "ダークジュエル　\u000b怪しく光る宝石",
+    "translation": ""
+  },
+  {
+    "offset": 4010814,
+    "rom_address": 138228542,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "ダークストーン　\u000b高密度の黒い石",
+    "translation": ""
+  },
+  {
     "offset": 4010846,
     "rom_address": 138228574,
     "byte_length": 33,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "ダークウォーター\u000b毒性の強い黒い水",
+    "translation": ""
+  },
+  {
+    "offset": 4010880,
+    "rom_address": 138228608,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "ダークマター　　\u000b光を吸収する塊",
     "translation": ""
   },
   {
@@ -36,12 +90,57 @@
     "translation": ""
   },
   {
+    "offset": 4010946,
+    "rom_address": 138228674,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "錬成できません　\u000b質量が７以上",
+    "translation": ""
+  },
+  {
+    "offset": 4010976,
+    "rom_address": 138228704,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "錬成できません　\u000b価値が７以上",
+    "translation": ""
+  },
+  {
+    "offset": 4011006,
+    "rom_address": 138228734,
+    "byte_length": 33,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "錬成できません　\u000bレベルが６枚以上",
+    "translation": ""
+  },
+  {
+    "offset": 4011899,
+    "rom_address": 138229627,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "敵の足元に壁を　\u000b錬成して攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4011929,
     "rom_address": 138229657,
     "byte_length": 8,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "旋律の壁",
+    "translation": ""
+  },
+  {
+    "offset": 4011938,
+    "rom_address": 138229666,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "敵の足元に壁を　\u000b錬成して攻撃",
     "translation": ""
   },
   {
@@ -54,12 +153,30 @@
     "translation": ""
   },
   {
+    "offset": 4011977,
+    "rom_address": 138229705,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "複数の壁を錬成　\u000b敵全体を攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4012007,
     "rom_address": 138229735,
     "byte_length": 8,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "忘却の壁",
+    "translation": ""
+  },
+  {
+    "offset": 4012016,
+    "rom_address": 138229744,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "複数の壁を錬成　\u000b敵全体を攻撃",
     "translation": ""
   },
   {
@@ -72,12 +189,30 @@
     "translation": ""
   },
   {
+    "offset": 4012055,
+    "rom_address": 138229783,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "敵の足元に壁を　\u000b錬成して攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4012085,
     "rom_address": 138229813,
     "byte_length": 10,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "エド式大砲",
+    "translation": ""
+  },
+  {
+    "offset": 4012096,
+    "rom_address": 138229824,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "鋼鉄の大砲を　　\u000b錬成して攻撃",
     "translation": ""
   },
   {
@@ -90,12 +225,30 @@
     "translation": ""
   },
   {
+    "offset": 4012139,
+    "rom_address": 138229867,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "鋼鉄の大砲を　　\u000b錬成して攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4012169,
     "rom_address": 138229897,
     "byte_length": 14,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "エド式超巨大砲",
+    "translation": ""
+  },
+  {
+    "offset": 4012184,
+    "rom_address": 138229912,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "鋼鉄の大砲を　　\u000b錬成して攻撃",
     "translation": ""
   },
   {
@@ -108,12 +261,30 @@
     "translation": ""
   },
   {
+    "offset": 4012231,
+    "rom_address": 138229959,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "鋼鉄の大砲を　　\u000b錬成して攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4012261,
     "rom_address": 138229989,
     "byte_length": 16,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "エルリックカノン",
+    "translation": ""
+  },
+  {
+    "offset": 4012278,
+    "rom_address": 138230006,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "鋼鉄の大砲を　　\u000b錬成して攻撃",
     "translation": ""
   },
   {
@@ -126,12 +297,30 @@
     "translation": ""
   },
   {
+    "offset": 4012317,
+    "rom_address": 138230045,
+    "byte_length": 33,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "敵に鉄巨人の　　\u000bパンチを降らせる",
+    "translation": ""
+  },
+  {
     "offset": 4012351,
     "rom_address": 138230079,
     "byte_length": 10,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "鉄拳大制裁",
+    "translation": ""
+  },
+  {
+    "offset": 4012362,
+    "rom_address": 138230090,
+    "byte_length": 33,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "敵に鉄巨人の　　\u000bパンチを降らせる",
     "translation": ""
   },
   {
@@ -144,12 +333,30 @@
     "translation": ""
   },
   {
+    "offset": 4012405,
+    "rom_address": 138230133,
+    "byte_length": 33,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "敵に鉄巨人の　　\u000bキックを降らせる",
+    "translation": ""
+  },
+  {
     "offset": 4012439,
     "rom_address": 138230167,
     "byte_length": 10,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "鉄脚大制裁",
+    "translation": ""
+  },
+  {
+    "offset": 4012450,
+    "rom_address": 138230178,
+    "byte_length": 33,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "敵に鉄巨人の　　\u000bキックを降らせる",
     "translation": ""
   },
   {
@@ -162,12 +369,30 @@
     "translation": ""
   },
   {
+    "offset": 4012497,
+    "rom_address": 138230225,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "敵に鉄巨人の　　\u000b攻撃を浴びせる",
+    "translation": ""
+  },
+  {
     "offset": 4012529,
     "rom_address": 138230257,
     "byte_length": 6,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "斬裂剣",
+    "translation": ""
+  },
+  {
+    "offset": 4012536,
+    "rom_address": 138230264,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "大きな剣を錬成　\u000b敵を分断する",
     "translation": ""
   },
   {
@@ -180,12 +405,30 @@
     "translation": ""
   },
   {
+    "offset": 4012575,
+    "rom_address": 138230303,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "大きな剣を錬成　\u000b敵を分断する",
+    "translation": ""
+  },
+  {
     "offset": 4012605,
     "rom_address": 138230333,
     "byte_length": 10,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "轟撃斬裂剣",
+    "translation": ""
+  },
+  {
+    "offset": 4012616,
+    "rom_address": 138230344,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "大きな剣を錬成　\u000b敵を分断する",
     "translation": ""
   },
   {
@@ -198,12 +441,30 @@
     "translation": ""
   },
   {
+    "offset": 4012659,
+    "rom_address": 138230387,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "大きな剣を錬成　\u000b敵を分断する",
+    "translation": ""
+  },
+  {
     "offset": 4012689,
     "rom_address": 138230417,
     "byte_length": 14,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "轟断衝撃斬裂剣",
+    "translation": ""
+  },
+  {
+    "offset": 4012704,
+    "rom_address": 138230432,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "大きな剣を錬成　\u000b敵を分断する",
     "translation": ""
   },
   {
@@ -216,12 +477,30 @@
     "translation": ""
   },
   {
+    "offset": 4012741,
+    "rom_address": 138230469,
+    "byte_length": 33,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "右手の機械鎧を　\u000b剣に錬成して攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4012775,
     "rom_address": 138230503,
     "byte_length": 6,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "瞬撃剣",
+    "translation": ""
+  },
+  {
+    "offset": 4012782,
+    "rom_address": 138230510,
+    "byte_length": 33,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "右手の機械鎧を　\u000b剣に錬成して攻撃",
     "translation": ""
   },
   {
@@ -234,12 +513,30 @@
     "translation": ""
   },
   {
+    "offset": 4012823,
+    "rom_address": 138230551,
+    "byte_length": 33,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "右手の機械鎧を　\u000b剣に錬成して攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4012857,
     "rom_address": 138230585,
     "byte_length": 6,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "斬封剣",
+    "translation": ""
+  },
+  {
+    "offset": 4012864,
+    "rom_address": 138230592,
+    "byte_length": 33,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "右手の機械鎧を　\u000b剣に錬成して攻撃",
     "translation": ""
   },
   {
@@ -252,12 +549,30 @@
     "translation": ""
   },
   {
+    "offset": 4012907,
+    "rom_address": 138230635,
+    "byte_length": 33,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "右手の機械鎧を　\u000b剣に錬成して攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4012941,
     "rom_address": 138230669,
     "byte_length": 6,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "斬撃昇",
+    "translation": ""
+  },
+  {
+    "offset": 4012948,
+    "rom_address": 138230676,
+    "byte_length": 25,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "地面を砕き　　　\u000b敵を貫く",
     "translation": ""
   },
   {
@@ -270,12 +585,30 @@
     "translation": ""
   },
   {
+    "offset": 4012983,
+    "rom_address": 138230711,
+    "byte_length": 25,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "地面を砕き　　　\u000b敵を貫く",
+    "translation": ""
+  },
+  {
     "offset": 4013009,
     "rom_address": 138230737,
     "byte_length": 8,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "斬撃連昇",
+    "translation": ""
+  },
+  {
+    "offset": 4013018,
+    "rom_address": 138230746,
+    "byte_length": 25,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "地面を砕き　　　\u000b敵を貫く",
     "translation": ""
   },
   {
@@ -288,12 +621,30 @@
     "translation": ""
   },
   {
+    "offset": 4013055,
+    "rom_address": 138230783,
+    "byte_length": 25,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "地面を砕き　　　\u000b敵を貫く",
+    "translation": ""
+  },
+  {
     "offset": 4013081,
     "rom_address": 138230809,
     "byte_length": 10,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "斬撃昇乱舞",
+    "translation": ""
+  },
+  {
+    "offset": 4013092,
+    "rom_address": 138230820,
+    "byte_length": 25,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "地面を砕き　　　\u000b敵を貫く",
     "translation": ""
   },
   {
@@ -306,12 +657,30 @@
     "translation": ""
   },
   {
+    "offset": 4013135,
+    "rom_address": 138230863,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "馬の像を錬成し　\u000b体当たりさせる",
+    "translation": ""
+  },
+  {
     "offset": 4013167,
     "rom_address": 138230895,
     "byte_length": 14,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "アクセルレイジ",
+    "translation": ""
+  },
+  {
+    "offset": 4013182,
+    "rom_address": 138230910,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "馬の像を錬成し　\u000b体当たりさせる",
     "translation": ""
   },
   {
@@ -324,6 +693,15 @@
     "translation": ""
   },
   {
+    "offset": 4013231,
+    "rom_address": 138230959,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "馬の像を錬成し　\u000b体当たりさせる",
+    "translation": ""
+  },
+  {
     "offset": 4013263,
     "rom_address": 138230991,
     "byte_length": 12,
@@ -333,12 +711,30 @@
     "translation": ""
   },
   {
+    "offset": 4013276,
+    "rom_address": 138231004,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "馬の像を錬成し　\u000b体当たりさせる",
+    "translation": ""
+  },
+  {
     "offset": 4013308,
     "rom_address": 138231036,
     "byte_length": 16,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "チャージアクセル",
+    "translation": ""
+  },
+  {
+    "offset": 4013325,
+    "rom_address": 138231053,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "馬の像を錬成し　\u000b体当たりさせる",
     "translation": ""
   },
   {
@@ -459,6 +855,15 @@
     "translation": ""
   },
   {
+    "offset": 4013549,
+    "rom_address": 138231277,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "より強い輝きを　\u000b放つ爆弾を錬成",
+    "translation": ""
+  },
+  {
     "offset": 4013581,
     "rom_address": 138231309,
     "byte_length": 16,
@@ -483,6 +888,15 @@
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "ギガゴールドボム",
+    "translation": ""
+  },
+  {
+    "offset": 4013647,
+    "rom_address": 138231375,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "一層強い輝きを　\u000b放つ爆弾を錬成",
     "translation": ""
   },
   {
@@ -513,12 +927,30 @@
     "translation": ""
   },
   {
+    "offset": 4013745,
+    "rom_address": 138231473,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "鎖を錬成して　　\u000b敵を縛り上げる",
+    "translation": ""
+  },
+  {
     "offset": 4013777,
     "rom_address": 138231505,
     "byte_length": 16,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "チェーンスクイズ",
+    "translation": ""
+  },
+  {
+    "offset": 4013794,
+    "rom_address": 138231522,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "鎖を錬成して　　\u000b敵を縛り上げる",
     "translation": ""
   },
   {
@@ -531,12 +963,30 @@
     "translation": ""
   },
   {
+    "offset": 4013843,
+    "rom_address": 138231571,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "鎖を錬成して　　\u000b敵を縛り上げる",
+    "translation": ""
+  },
+  {
     "offset": 4013875,
     "rom_address": 138231603,
     "byte_length": 16,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "ウリングチェーン",
+    "translation": ""
+  },
+  {
+    "offset": 4013892,
+    "rom_address": 138231620,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "鎖を錬成して　　\u000b敵を縛り上げる",
     "translation": ""
   },
   {
@@ -549,12 +999,39 @@
     "translation": ""
   },
   {
+    "offset": 4013941,
+    "rom_address": 138231669,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "鎖を錬成して　　\u000b敵を縛り上げる",
+    "translation": ""
+  },
+  {
+    "offset": 4014835,
+    "rom_address": 138232563,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "敵の足元に壁を　\u000b錬成して攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4014865,
     "rom_address": 138232593,
     "byte_length": 8,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "惨劇の壁",
+    "translation": ""
+  },
+  {
+    "offset": 4014874,
+    "rom_address": 138232602,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "敵の足元に壁を　\u000b錬成して攻撃",
     "translation": ""
   },
   {
@@ -567,12 +1044,30 @@
     "translation": ""
   },
   {
+    "offset": 4014913,
+    "rom_address": 138232641,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "複数の壁を錬成　\u000b敵全体を攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4014943,
     "rom_address": 138232671,
     "byte_length": 8,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "戦慄の壁",
+    "translation": ""
+  },
+  {
+    "offset": 4014952,
+    "rom_address": 138232680,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "複数の壁を錬成　\u000b敵全体を攻撃",
     "translation": ""
   },
   {
@@ -585,12 +1080,30 @@
     "translation": ""
   },
   {
+    "offset": 4014991,
+    "rom_address": 138232719,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "敵の足元に壁を　\u000b錬成して攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4015021,
     "rom_address": 138232749,
     "byte_length": 14,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "ウォールヒット",
+    "translation": ""
+  },
+  {
+    "offset": 4015036,
+    "rom_address": 138232764,
+    "byte_length": 27,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "錬成した壁を　　\u000b殴って攻撃",
     "translation": ""
   },
   {
@@ -603,12 +1116,30 @@
     "translation": ""
   },
   {
+    "offset": 4015081,
+    "rom_address": 138232809,
+    "byte_length": 27,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "錬成した壁を　　\u000b殴って攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4015109,
     "rom_address": 138232837,
     "byte_length": 16,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "ウォールソリッド",
+    "translation": ""
+  },
+  {
+    "offset": 4015126,
+    "rom_address": 138232854,
+    "byte_length": 27,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "錬成した壁を　　\u000b殴って攻撃",
     "translation": ""
   },
   {
@@ -621,12 +1152,30 @@
     "translation": ""
   },
   {
+    "offset": 4015171,
+    "rom_address": 138232899,
+    "byte_length": 27,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "錬成した壁を　　\u000b殴って攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4015199,
     "rom_address": 138232927,
     "byte_length": 16,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "ウォールブレイク",
+    "translation": ""
+  },
+  {
+    "offset": 4015216,
+    "rom_address": 138232944,
+    "byte_length": 27,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "錬成した壁を　　\u000b殴って攻撃",
     "translation": ""
   },
   {
@@ -711,12 +1260,30 @@
     "translation": ""
   },
   {
+    "offset": 4015449,
+    "rom_address": 138233177,
+    "byte_length": 33,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "巨大なオモリを　\u000b錬成して敵を潰す",
+    "translation": ""
+  },
+  {
     "offset": 4015483,
     "rom_address": 138233211,
     "byte_length": 16,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "ストーンフィッド",
+    "translation": ""
+  },
+  {
+    "offset": 4015500,
+    "rom_address": 138233228,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "石像を錬成し　　\u000b体当たりさせる",
     "translation": ""
   },
   {
@@ -729,12 +1296,30 @@
     "translation": ""
   },
   {
+    "offset": 4015549,
+    "rom_address": 138233277,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "石像を錬成し　　\u000b体当たりさせる",
+    "translation": ""
+  },
+  {
     "offset": 4015581,
     "rom_address": 138233309,
     "byte_length": 14,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "パワーフィッド",
+    "translation": ""
+  },
+  {
+    "offset": 4015596,
+    "rom_address": 138233324,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "石像を錬成し　　\u000b体当たりさせる",
     "translation": ""
   },
   {
@@ -747,12 +1332,30 @@
     "translation": ""
   },
   {
+    "offset": 4015643,
+    "rom_address": 138233371,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "石像を錬成し　　\u000b体当たりさせる",
+    "translation": ""
+  },
+  {
     "offset": 4015675,
     "rom_address": 138233403,
     "byte_length": 14,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "アルドフィッド",
+    "translation": ""
+  },
+  {
+    "offset": 4015690,
+    "rom_address": 138233418,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "石像を錬成し　　\u000b体当たりさせる",
     "translation": ""
   },
   {
@@ -765,12 +1368,30 @@
     "translation": ""
   },
   {
+    "offset": 4015737,
+    "rom_address": 138233465,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "ボウガンを　　　\u000b錬成して攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4015767,
     "rom_address": 138233495,
     "byte_length": 16,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "スラストシャープ",
+    "translation": ""
+  },
+  {
+    "offset": 4015784,
+    "rom_address": 138233512,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "ボウガンを　　　\u000b錬成して攻撃",
     "translation": ""
   },
   {
@@ -783,6 +1404,15 @@
     "translation": ""
   },
   {
+    "offset": 4015831,
+    "rom_address": 138233559,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "ボウガンを　　　\u000b錬成して攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4015861,
     "rom_address": 138233589,
     "byte_length": 16,
@@ -792,12 +1422,30 @@
     "translation": ""
   },
   {
+    "offset": 4015878,
+    "rom_address": 138233606,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "ボウガンを　　　\u000b錬成して攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4015908,
     "rom_address": 138233636,
     "byte_length": 16,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "スラストシュート",
+    "translation": ""
+  },
+  {
+    "offset": 4015925,
+    "rom_address": 138233653,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "ボウガンを　　　\u000b錬成して攻撃",
     "translation": ""
   },
   {
@@ -900,12 +1548,30 @@
     "translation": ""
   },
   {
+    "offset": 4016090,
+    "rom_address": 138233818,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "ハンマーを　　　\u000b錬成して攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4016120,
     "rom_address": 138233848,
     "byte_length": 10,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "試練の鉄鎚",
+    "translation": ""
+  },
+  {
+    "offset": 4016131,
+    "rom_address": 138233859,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "ハンマーを　　　\u000b錬成して攻撃",
     "translation": ""
   },
   {
@@ -918,12 +1584,30 @@
     "translation": ""
   },
   {
+    "offset": 4016172,
+    "rom_address": 138233900,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "ハンマーを　　　\u000b錬成して攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4016202,
     "rom_address": 138233930,
     "byte_length": 10,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "神々の鉄鎚",
+    "translation": ""
+  },
+  {
+    "offset": 4016213,
+    "rom_address": 138233941,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "ハンマーを　　　\u000b錬成して攻撃",
     "translation": ""
   },
   {
@@ -936,12 +1620,30 @@
     "translation": ""
   },
   {
+    "offset": 4016254,
+    "rom_address": 138233982,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "ハンマーを　　　\u000b錬成して攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4016284,
     "rom_address": 138234012,
     "byte_length": 16,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "ブレイクショット",
+    "translation": ""
+  },
+  {
+    "offset": 4016301,
+    "rom_address": 138234029,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "錬成した壁から　\u000b小型の槍を発射",
     "translation": ""
   },
   {
@@ -954,12 +1656,30 @@
     "translation": ""
   },
   {
+    "offset": 4016348,
+    "rom_address": 138234076,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "錬成した壁から　\u000b小型の槍を発射",
+    "translation": ""
+  },
+  {
     "offset": 4016380,
     "rom_address": 138234108,
     "byte_length": 16,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "ディッツショット",
+    "translation": ""
+  },
+  {
+    "offset": 4016397,
+    "rom_address": 138234125,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "錬成した壁から　\u000b小型の槍を発射",
     "translation": ""
   },
   {
@@ -972,12 +1692,30 @@
     "translation": ""
   },
   {
+    "offset": 4016446,
+    "rom_address": 138234174,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "錬成した壁から　\u000b小型の槍を発射",
+    "translation": ""
+  },
+  {
     "offset": 4016478,
     "rom_address": 138234206,
     "byte_length": 16,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "バスターショット",
+    "translation": ""
+  },
+  {
+    "offset": 4016495,
+    "rom_address": 138234223,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "壁から槍を発射　\u000b敵全体を攻撃",
     "translation": ""
   },
   {
@@ -990,12 +1728,30 @@
     "translation": ""
   },
   {
+    "offset": 4016534,
+    "rom_address": 138234262,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "ＨＰを回復する　\u000bアイテムを錬成",
+    "translation": ""
+  },
+  {
     "offset": 4016566,
     "rom_address": 138234294,
     "byte_length": 8,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "回復薬２",
+    "translation": ""
+  },
+  {
+    "offset": 4016575,
+    "rom_address": 138234303,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "ＨＰを回復する　\u000bアイテムを錬成",
     "translation": ""
   },
   {
@@ -1008,12 +1764,30 @@
     "translation": ""
   },
   {
+    "offset": 4016616,
+    "rom_address": 138234344,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "ＨＰを回復する　\u000bアイテムを錬成",
+    "translation": ""
+  },
+  {
     "offset": 4016648,
     "rom_address": 138234376,
     "byte_length": 8,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "回復薬４",
+    "translation": ""
+  },
+  {
+    "offset": 4016657,
+    "rom_address": 138234385,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "ＨＰを回復する　\u000bアイテムを錬成",
     "translation": ""
   },
   {
@@ -1026,12 +1800,30 @@
     "translation": ""
   },
   {
+    "offset": 4016698,
+    "rom_address": 138234426,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "ＨＰを回復する　\u000bアイテムを錬成",
+    "translation": ""
+  },
+  {
     "offset": 4016730,
     "rom_address": 138234458,
     "byte_length": 10,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "大地の鼓動",
+    "translation": ""
+  },
+  {
+    "offset": 4016741,
+    "rom_address": 138234469,
+    "byte_length": 25,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "地震を起こして　\u000b攻撃する",
     "translation": ""
   },
   {
@@ -1044,12 +1836,30 @@
     "translation": ""
   },
   {
+    "offset": 4016778,
+    "rom_address": 138234506,
+    "byte_length": 25,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "地震を起こして　\u000b攻撃する",
+    "translation": ""
+  },
+  {
     "offset": 4016804,
     "rom_address": 138234532,
     "byte_length": 10,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "大地の進撃",
+    "translation": ""
+  },
+  {
+    "offset": 4016815,
+    "rom_address": 138234543,
+    "byte_length": 25,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "地震を起こして　\u000b攻撃する",
     "translation": ""
   },
   {
@@ -1062,12 +1872,39 @@
     "translation": ""
   },
   {
+    "offset": 4016852,
+    "rom_address": 138234580,
+    "byte_length": 25,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "地震を起こして　\u000b攻撃する",
+    "translation": ""
+  },
+  {
     "offset": 4016878,
     "rom_address": 138234606,
     "byte_length": 10,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "大地の激動",
+    "translation": ""
+  },
+  {
+    "offset": 4016889,
+    "rom_address": 138234617,
+    "byte_length": 25,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "地震を起こして　\u000b攻撃する",
+    "translation": ""
+  },
+  {
+    "offset": 4017777,
+    "rom_address": 138235505,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "ガトリング砲を　\u000b錬成して攻撃",
     "translation": ""
   },
   {
@@ -1080,12 +1917,30 @@
     "translation": ""
   },
   {
+    "offset": 4017818,
+    "rom_address": 138235546,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "ガトリング砲を　\u000b錬成して攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4017848,
     "rom_address": 138235576,
     "byte_length": 10,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "高速の散弾",
+    "translation": ""
+  },
+  {
+    "offset": 4017859,
+    "rom_address": 138235587,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "ガトリング砲を　\u000b錬成して攻撃",
     "translation": ""
   },
   {
@@ -1098,12 +1953,30 @@
     "translation": ""
   },
   {
+    "offset": 4017900,
+    "rom_address": 138235628,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "ガトリング砲を　\u000b錬成して攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4017930,
     "rom_address": 138235658,
     "byte_length": 10,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "光速の散弾",
+    "translation": ""
+  },
+  {
+    "offset": 4017941,
+    "rom_address": 138235669,
+    "byte_length": 33,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "ガトリング砲を　\u000b錬成して全体攻撃",
     "translation": ""
   },
   {
@@ -1206,12 +2079,30 @@
     "translation": ""
   },
   {
+    "offset": 4018183,
+    "rom_address": 138235911,
+    "byte_length": 33,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "敵の前に巨大な　\u000b手を錬成して攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4018217,
     "rom_address": 138235945,
     "byte_length": 16,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "ティアーファング",
+    "translation": ""
+  },
+  {
+    "offset": 4018234,
+    "rom_address": 138235962,
+    "byte_length": 33,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "敵の前に巨大な　\u000b手を錬成して攻撃",
     "translation": ""
   },
   {
@@ -1224,12 +2115,30 @@
     "translation": ""
   },
   {
+    "offset": 4018283,
+    "rom_address": 138236011,
+    "byte_length": 33,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "敵の前に巨大な　\u000b手を錬成して攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4018317,
     "rom_address": 138236045,
     "byte_length": 16,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "スクラズファング",
+    "translation": ""
+  },
+  {
+    "offset": 4018334,
+    "rom_address": 138236062,
+    "byte_length": 33,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "敵の前に巨大な　\u000b手を錬成して攻撃",
     "translation": ""
   },
   {
@@ -1242,12 +2151,30 @@
     "translation": ""
   },
   {
+    "offset": 4018383,
+    "rom_address": 138236111,
+    "byte_length": 33,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "敵の前に巨大な　\u000b手を錬成して攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4018417,
     "rom_address": 138236145,
     "byte_length": 10,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "波乗りエド",
+    "translation": ""
+  },
+  {
+    "offset": 4018428,
+    "rom_address": 138236156,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "水を錬成して　　\u000b波に乗って攻撃",
     "translation": ""
   },
   {
@@ -1260,12 +2187,30 @@
     "translation": ""
   },
   {
+    "offset": 4018473,
+    "rom_address": 138236201,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "水を錬成して　　\u000b波に乗って攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4018505,
     "rom_address": 138236233,
     "byte_length": 14,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "サーフアタック",
+    "translation": ""
+  },
+  {
+    "offset": 4018520,
+    "rom_address": 138236248,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "水を錬成して　　\u000b波に乗って攻撃",
     "translation": ""
   },
   {
@@ -1278,12 +2223,30 @@
     "translation": ""
   },
   {
+    "offset": 4018569,
+    "rom_address": 138236297,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "水を錬成して　　\u000b波に乗って攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4018601,
     "rom_address": 138236329,
     "byte_length": 14,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "ウェイブライド",
+    "translation": ""
+  },
+  {
+    "offset": 4018616,
+    "rom_address": 138236344,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "水を錬成して　　\u000b波に乗って攻撃",
     "translation": ""
   },
   {
@@ -1296,12 +2259,30 @@
     "translation": ""
   },
   {
+    "offset": 4018653,
+    "rom_address": 138236381,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "大量の水を錬成　\u000b大津波で攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4018683,
     "rom_address": 138236411,
     "byte_length": 6,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "大津波",
+    "translation": ""
+  },
+  {
+    "offset": 4018690,
+    "rom_address": 138236418,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "大量の水を錬成　\u000b大津波で攻撃",
     "translation": ""
   },
   {
@@ -1314,12 +2295,30 @@
     "translation": ""
   },
   {
+    "offset": 4018725,
+    "rom_address": 138236453,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "大量の水を錬成　\u000b大津波で攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4018755,
     "rom_address": 138236483,
     "byte_length": 6,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "大海嘯",
+    "translation": ""
+  },
+  {
+    "offset": 4018762,
+    "rom_address": 138236490,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "大量の水を錬成　\u000b大津波で攻撃",
     "translation": ""
   },
   {
@@ -1332,12 +2331,30 @@
     "translation": ""
   },
   {
+    "offset": 4018809,
+    "rom_address": 138236537,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "大量の水を錬成　\u000b大津波で攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4018839,
     "rom_address": 138236567,
     "byte_length": 16,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "ラーヴァストーム",
+    "translation": ""
+  },
+  {
+    "offset": 4018856,
+    "rom_address": 138236584,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "溶岩を錬成して　\u000b敵を飲み込む",
     "translation": ""
   },
   {
@@ -1350,12 +2367,30 @@
     "translation": ""
   },
   {
+    "offset": 4018901,
+    "rom_address": 138236629,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "溶岩を錬成して　\u000b敵を飲み込む",
+    "translation": ""
+  },
+  {
     "offset": 4018931,
     "rom_address": 138236659,
     "byte_length": 16,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "ラーヴァガッシュ",
+    "translation": ""
+  },
+  {
+    "offset": 4018948,
+    "rom_address": 138236676,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "溶岩を錬成して　\u000b敵を飲み込む",
     "translation": ""
   },
   {
@@ -1368,12 +2403,30 @@
     "translation": ""
   },
   {
+    "offset": 4018993,
+    "rom_address": 138236721,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "溶岩を錬成して　\u000b敵を飲み込む",
+    "translation": ""
+  },
+  {
     "offset": 4019023,
     "rom_address": 138236751,
     "byte_length": 14,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "ラーヴァフロウ",
+    "translation": ""
+  },
+  {
+    "offset": 4019038,
+    "rom_address": 138236766,
+    "byte_length": 33,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "溶岩を錬成して　\u000b敵全体を飲み込む",
     "translation": ""
   },
   {
@@ -1386,12 +2439,30 @@
     "translation": ""
   },
   {
+    "offset": 4019087,
+    "rom_address": 138236815,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "爆発を起こし　　\u000b相手を攻撃する",
+    "translation": ""
+  },
+  {
     "offset": 4019119,
     "rom_address": 138236847,
     "byte_length": 16,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "エクスプロード改",
+    "translation": ""
+  },
+  {
+    "offset": 4019136,
+    "rom_address": 138236864,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "爆発を起こし　　\u000b相手を攻撃する",
     "translation": ""
   },
   {
@@ -1404,12 +2475,30 @@
     "translation": ""
   },
   {
+    "offset": 4019185,
+    "rom_address": 138236913,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "大爆発を起こし　\u000b相手を攻撃する",
+    "translation": ""
+  },
+  {
     "offset": 4019217,
     "rom_address": 138236945,
     "byte_length": 16,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "エクスプロード滅",
+    "translation": ""
+  },
+  {
+    "offset": 4019234,
+    "rom_address": 138236962,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "大爆発を起こし　\u000b相手を攻撃する",
     "translation": ""
   },
   {
@@ -1422,12 +2511,30 @@
     "translation": ""
   },
   {
+    "offset": 4019283,
+    "rom_address": 138237011,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "大爆発を起こし　\u000b相手を攻撃する",
+    "translation": ""
+  },
+  {
     "offset": 4019315,
     "rom_address": 138237043,
     "byte_length": 8,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "沈黙の壁",
+    "translation": ""
+  },
+  {
+    "offset": 4019324,
+    "rom_address": 138237052,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "壁を錬成して　　\u000b敵を攻撃する",
     "translation": ""
   },
   {
@@ -1440,12 +2547,30 @@
     "translation": ""
   },
   {
+    "offset": 4019363,
+    "rom_address": 138237091,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "壁を錬成して　　\u000b敵を攻撃する",
+    "translation": ""
+  },
+  {
     "offset": 4019393,
     "rom_address": 138237121,
     "byte_length": 8,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "不動の壁",
+    "translation": ""
+  },
+  {
+    "offset": 4019402,
+    "rom_address": 138237130,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "壁を錬成して　　\u000b敵を攻撃する",
     "translation": ""
   },
   {
@@ -1458,12 +2583,30 @@
     "translation": ""
   },
   {
+    "offset": 4019441,
+    "rom_address": 138237169,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "壁を錬成して　　\u000b敵を攻撃する",
+    "translation": ""
+  },
+  {
     "offset": 4019471,
     "rom_address": 138237199,
     "byte_length": 8,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "幻想の壁",
+    "translation": ""
+  },
+  {
+    "offset": 4019480,
+    "rom_address": 138237208,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "壁を錬成して　　\u000b敵を攻撃する",
     "translation": ""
   },
   {
@@ -1476,12 +2619,30 @@
     "translation": ""
   },
   {
+    "offset": 4019519,
+    "rom_address": 138237247,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "ＨＰを回復する　\u000bアイテムを錬成",
+    "translation": ""
+  },
+  {
     "offset": 4019551,
     "rom_address": 138237279,
     "byte_length": 8,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "回復薬２",
+    "translation": ""
+  },
+  {
+    "offset": 4019560,
+    "rom_address": 138237288,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "ＨＰを回復する　\u000bアイテムを錬成",
     "translation": ""
   },
   {
@@ -1494,12 +2655,30 @@
     "translation": ""
   },
   {
+    "offset": 4019601,
+    "rom_address": 138237329,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "ＨＰを回復する　\u000bアイテムを錬成",
+    "translation": ""
+  },
+  {
     "offset": 4019633,
     "rom_address": 138237361,
     "byte_length": 8,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "回復薬４",
+    "translation": ""
+  },
+  {
+    "offset": 4019642,
+    "rom_address": 138237370,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "ＨＰを回復する　\u000bアイテムを錬成",
     "translation": ""
   },
   {
@@ -1512,12 +2691,30 @@
     "translation": ""
   },
   {
+    "offset": 4019683,
+    "rom_address": 138237411,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "ＨＰを回復する　\u000bアイテムを錬成",
+    "translation": ""
+  },
+  {
     "offset": 4019715,
     "rom_address": 138237443,
     "byte_length": 8,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "風の導き",
+    "translation": ""
+  },
+  {
+    "offset": 4019724,
+    "rom_address": 138237452,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "大気を錬成し　　\u000b衝撃破で攻撃",
     "translation": ""
   },
   {
@@ -1530,12 +2727,30 @@
     "translation": ""
   },
   {
+    "offset": 4019767,
+    "rom_address": 138237495,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "大気を錬成し　　\u000b衝撃破で攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4019797,
     "rom_address": 138237525,
     "byte_length": 12,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "風のゆううつ",
+    "translation": ""
+  },
+  {
+    "offset": 4019810,
+    "rom_address": 138237538,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "大気を錬成し　　\u000b衝撃破で攻撃",
     "translation": ""
   },
   {
@@ -1548,12 +2763,39 @@
     "translation": ""
   },
   {
+    "offset": 4019853,
+    "rom_address": 138237581,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "大気を錬成し　　\u000b衝撃破で攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4019883,
     "rom_address": 138237611,
     "byte_length": 8,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "風の歌声",
+    "translation": ""
+  },
+  {
+    "offset": 4019892,
+    "rom_address": 138237620,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "大気を錬成し　　\u000b衝撃破で攻撃",
+    "translation": ""
+  },
+  {
+    "offset": 4020781,
+    "rom_address": 138238509,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "負の力の流れを　\u000bぶつけて攻撃",
     "translation": ""
   },
   {
@@ -1566,12 +2808,30 @@
     "translation": ""
   },
   {
+    "offset": 4020820,
+    "rom_address": 138238548,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "負の力の流れを　\u000bぶつけて攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4020850,
     "rom_address": 138238578,
     "byte_length": 10,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "葬去流撃破",
+    "translation": ""
+  },
+  {
+    "offset": 4020861,
+    "rom_address": 138238589,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "負の力の流れを　\u000bぶつけて攻撃",
     "translation": ""
   },
   {
@@ -1584,12 +2844,30 @@
     "translation": ""
   },
   {
+    "offset": 4020902,
+    "rom_address": 138238630,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "負の力の流れを　\u000bぶつけて攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4020932,
     "rom_address": 138238660,
     "byte_length": 10,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "竜迅葬撃衝",
+    "translation": ""
+  },
+  {
+    "offset": 4020943,
+    "rom_address": 138238671,
+    "byte_length": 29,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "負の力の流れを　\u000bぶつけて攻撃",
     "translation": ""
   },
   {
@@ -1692,12 +2970,30 @@
     "translation": ""
   },
   {
+    "offset": 4021205,
+    "rom_address": 138238933,
+    "byte_length": 33,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "錬成した壁から　\u000b手が出現して攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4021239,
     "rom_address": 138238967,
     "byte_length": 8,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "憎悪の壁",
+    "translation": ""
+  },
+  {
+    "offset": 4021248,
+    "rom_address": 138238976,
+    "byte_length": 33,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "錬成した壁から　\u000b手が出現して攻撃",
     "translation": ""
   },
   {
@@ -1710,12 +3006,30 @@
     "translation": ""
   },
   {
+    "offset": 4021291,
+    "rom_address": 138239019,
+    "byte_length": 33,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "錬成した壁から　\u000b手が出現して攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4021325,
     "rom_address": 138239053,
     "byte_length": 8,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "狂騒の壁",
+    "translation": ""
+  },
+  {
+    "offset": 4021334,
+    "rom_address": 138239062,
+    "byte_length": 33,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "錬成した壁から　\u000b手が出現して攻撃",
     "translation": ""
   },
   {
@@ -1728,12 +3042,30 @@
     "translation": ""
   },
   {
+    "offset": 4021377,
+    "rom_address": 138239105,
+    "byte_length": 33,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "錬成した壁から　\u000b手が出現して攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4021411,
     "rom_address": 138239139,
     "byte_length": 6,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "砕身撃",
+    "translation": ""
+  },
+  {
+    "offset": 4021418,
+    "rom_address": 138239146,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "敵に負のものを　\u000b降り注がせ爆発",
     "translation": ""
   },
   {
@@ -1746,12 +3078,30 @@
     "translation": ""
   },
   {
+    "offset": 4021459,
+    "rom_address": 138239187,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "敵に負のものを　\u000b降り注がせ爆発",
+    "translation": ""
+  },
+  {
     "offset": 4021491,
     "rom_address": 138239219,
     "byte_length": 10,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "砕身大乱撃",
+    "translation": ""
+  },
+  {
+    "offset": 4021502,
+    "rom_address": 138239230,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "敵に負のものを　\u000b降り注がせ爆発",
     "translation": ""
   },
   {
@@ -1764,12 +3114,30 @@
     "translation": ""
   },
   {
+    "offset": 4021545,
+    "rom_address": 138239273,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "敵に負のものを　\u000b降り注がせ爆発",
+    "translation": ""
+  },
+  {
     "offset": 4021577,
     "rom_address": 138239305,
     "byte_length": 12,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "砕身超乱爆撃",
+    "translation": ""
+  },
+  {
+    "offset": 4021590,
+    "rom_address": 138239318,
+    "byte_length": 31,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "敵に負のものを　\u000b降り注がせ爆発",
     "translation": ""
   },
   {
@@ -1962,12 +3330,30 @@
     "translation": ""
   },
   {
+    "offset": 4021994,
+    "rom_address": 138239722,
+    "byte_length": 33,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "右手の機械鎧を　\u000b剣に錬成して攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4022028,
     "rom_address": 138239756,
     "byte_length": 16,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "ハイエストジイク",
+    "translation": ""
+  },
+  {
+    "offset": 4022045,
+    "rom_address": 138239773,
+    "byte_length": 33,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "右手の機械鎧を　\u000b剣に錬成して攻撃",
     "translation": ""
   },
   {
@@ -1980,6 +3366,15 @@
     "translation": ""
   },
   {
+    "offset": 4022096,
+    "rom_address": 138239824,
+    "byte_length": 33,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "右手の機械鎧を　\u000b剣に錬成して攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4022130,
     "rom_address": 138239858,
     "byte_length": 16,
@@ -1989,12 +3384,30 @@
     "translation": ""
   },
   {
+    "offset": 4022147,
+    "rom_address": 138239875,
+    "byte_length": 33,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "右手の機械鎧を　\u000b剣に錬成して攻撃",
+    "translation": ""
+  },
+  {
     "offset": 4022181,
     "rom_address": 138239909,
     "byte_length": 16,
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "ユウアダ・ジイク",
+    "translation": ""
+  },
+  {
+    "offset": 4022198,
+    "rom_address": 138239926,
+    "byte_length": 33,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "右手の機械鎧を　\u000b剣に錬成して攻撃",
     "translation": ""
   },
   {

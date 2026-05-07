@@ -12,6 +12,7 @@ from typing import Dict, Iterable, List, Optional, Sequence, Tuple
 ROM_BASE = 0x08000000
 JAPANESE_RE = re.compile(r"[\u3040-\u30ff\u3400-\u9fff]")
 SUSPICIOUS_ASCII_SYMBOLS = set("`|{}[]<>^_~\\")
+ALLOWED_NONPRINTABLE_TEXT_CHARS = {"\u3000"}
 
 
 class ToolError(Exception):
@@ -140,6 +141,10 @@ def contains_japanese(text: str) -> bool:
     return bool(JAPANESE_RE.search(text))
 
 
+def is_text_printable(ch: str) -> bool:
+    return (ch.isprintable() and ch not in "\x0b\x0c") or ch in ALLOWED_NONPRINTABLE_TEXT_CHARS
+
+
 def japanese_ratio(text: str) -> float:
     if not text:
         return 0.0
@@ -160,7 +165,7 @@ def is_plausible_text(
 ) -> bool:
     if not text:
         return False
-    printable_ratio = sum(ch.isprintable() and ch not in "\x0b\x0c" for ch in text) / len(text)
+    printable_ratio = sum(is_text_printable(ch) for ch in text) / len(text)
     if printable_ratio < 0.9:
         return False
     if suspicious_symbol_ratio(text) > 0.2:
