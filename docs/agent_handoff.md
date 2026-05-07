@@ -47,6 +47,8 @@
 - 이 테이블은 여러 엔트리가 서로 겹치므로, 단순한 비중첩 청크 분할표로 보면 안 된다.
 - `0x076530` 부근에서 `0x17C2F4`, `0x17C384`, `0x17C71C`, `0x17C7E4` 를 가리키는 상위 포인터 허브를 확인했다.
 - 이 상위 레지스트리들은 공통적으로 `pointer-length` 쪽이 맞고, `0x17C1C0` 은 예외적으로 `length-pointer` 다.
+- `0x17785C` 레지스트리에는 실제 Thumb accessor (`0x03BC`, `0x0414`) 가 존재하고, 각각 포인터/길이 필드를 읽는 함수로 보인다.
+- `0x017ED8` / `0x017EEC` 는 같은 함수 안에서 두 accessor 를 연속 호출해, 실제 로더/복사 루틴 후보로 보인다.
 - `0x3D2D60..0x3D3420` 청크에서 [material_texts.json](/Users/user/test/analysis/material_texts.json) `43`건을 별도 추출했다.
 - [resource_chunks.json](/Users/user/test/analysis/resource_chunks.json) 으로 현재 디스크립터 관계를 저장해 두었다.
 - [resource_registry_summary.json](/Users/user/test/analysis/resource_registry_summary.json) 으로 상위 레지스트리 요약을 저장해 두었다.
@@ -63,6 +65,10 @@
 - [resource_chunks.json](/Users/user/test/analysis/resource_chunks.json)
 - [resource_registry_map.md](/Users/user/test/analysis/resource_registry_map.md)
 - [resource_registry_summary.json](/Users/user/test/analysis/resource_registry_summary.json)
+- [registry_accessor_helpers.md](/Users/user/test/analysis/registry_accessor_helpers.md)
+- [thumb_bl_to_03bc.json](/Users/user/test/analysis/thumb_bl_to_03bc.json)
+- [thumb_bl_to_0414.json](/Users/user/test/analysis/thumb_bl_to_0414.json)
+- [thumb_bl_to_03e4.json](/Users/user/test/analysis/thumb_bl_to_03e4.json)
 - [item_texts.json](/Users/user/test/analysis/item_texts.json)
 - [system_messages.json](/Users/user/test/analysis/system_messages.json)
 - [location_texts.json](/Users/user/test/analysis/location_texts.json)
@@ -92,6 +98,7 @@
 
 - 메뉴 문자열 구간 찾기
 - 대사/이벤트 문자열이 평문인지 압축인지 확인
+- `0x17785C` accessor 호출부를 해석해 공용 로더 흐름 파악
 - `0x076530` 포인터 허브의 참조 구조를 확인
 - `0x17C1C0` 이 왜 공통 레지스트리 밖의 예외 테이블처럼 보이는지 확인
 - `0x3Dxxxx` 텍스트 뱅크와 디스크립터/레지스트리 인덱스의 연결 방식을 확인
@@ -211,8 +218,9 @@ python3 -m gba_kor_tool apply-translations \
 
 ## 당장 다음 에이전트가 시작할 일
 
-1. `0x076530` 포인터 허브를 어떤 코드/구조체가 사용하는지 확인한다.
-2. `0x17C1C0` 이 왜 공통 `pointer-length` 레지스트리 바깥에 있는 예외 테이블인지 설명할 상위 데이터를 찾는다.
-3. `0x3D2036` 와 `0x3D327E` 순차 레코드 뱅크가 디스크립터/레지스트리 내부에서 어떤 인덱스로 접근되는지 확인한다.
-4. `0x18425C` 지역명 뱅크를 기준으로 폰트 표시와 메뉴 사용 위치를 역추적해 본다.
-5. 대사/이벤트 평문 구간이 더 있는지 `scan-text` 로 추가 탐색한다.
+1. `0x007578`, `0x007760`, `0x017ED8`, `0x017EEC` 같은 accessor 호출부를 해석한다.
+2. `0x076530` 포인터 허브를 어떤 코드/구조체가 사용하는지 확인한다.
+3. `0x17C1C0` 이 왜 공통 `pointer-length` 레지스트리 바깥에 있는 예외 테이블인지 설명할 상위 데이터를 찾는다.
+4. `0x3D2036` 와 `0x3D327E` 순차 레코드 뱅크가 디스크립터/레지스트리 내부에서 어떤 인덱스로 접근되는지 확인한다.
+5. `0x18425C` 지역명 뱅크를 기준으로 폰트 표시와 메뉴 사용 위치를 역추적해 본다.
+6. 대사/이벤트 평문 구간이 더 있는지 `scan-text` 로 추가 탐색한다.

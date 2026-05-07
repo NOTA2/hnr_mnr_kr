@@ -6,6 +6,7 @@
 
 - [resource_registry_summary.json](/Users/user/test/analysis/resource_registry_summary.json)
 - [resource_chunk_directory.md](/Users/user/test/analysis/resource_chunk_directory.md)
+- [registry_accessor_helpers.md](/Users/user/test/analysis/registry_accessor_helpers.md)
 
 ## 핵심 발견
 
@@ -70,6 +71,11 @@
 - `0x17C1C0` 테이블은 물리적으로는 이 레지스트리 묶음 바로 앞에 붙어 있다.
 - 하지만 현재 확인된 상위 허브 포인터는 `0x17C2F4` 부터 시작하며, `0x17C1C0` 을 직접 가리키지 않는다.
 - 또한 `0x17C1C0` 만 `length-pointer` 레이아웃이고, 상위 레지스트리들은 모두 `pointer-length` 쪽이 맞는다.
+
+추가로:
+
+- `0x17785C` 레지스트리는 `0x03BC`, `0x0414` helper 함수로 직접 접근하는 코드 경로가 확인되었다.
+- 반면 `0x17C7E4` 는 상위 허브에 포함되어 있지만, 같은 수준의 직접 helper 호출 근거는 아직 약하다.
 
 현재 가장 안전한 해석은 아래와 같다.
 

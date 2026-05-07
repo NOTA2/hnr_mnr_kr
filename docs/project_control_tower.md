@@ -35,6 +35,7 @@
   - 해당 테이블은 겹치는 엔트리를 포함
   - `0x076530` 부근에서 여러 상위 리소스 레지스트리 경계를 가리키는 포인터 허브 확인
   - 상위 레지스트리들은 주로 `pointer-length`, `0x17C1C0` 은 예외적으로 `length-pointer`
+  - `0x17785C` 레지스트리를 읽는 Thumb accessor (`0x03BC`, `0x0414`) 확인
 - 상세 문서: [data_structure_investigation.md](/Users/user/test/docs/tracks/data_structure_investigation.md)
 
 ### 2. 텍스트 추출
@@ -79,8 +80,8 @@
 
 ## 현재 가장 중요한 포인트
 
-1. `0x076530` 포인터 허브를 누가 참조하는지 파악
-2. `0x17C1C0` 이 왜 공통 레지스트리 바깥의 예외 테이블인지 설명할 상위 구조 찾기
+1. `0x007578`, `0x007760`, `0x017ED8`, `0x017EEC` 같은 accessor 호출부 해석
+2. `0x076530` 포인터 허브를 누가 참조하는지 파악
 3. 대사/이벤트 평문 구간 추가 탐색
 4. 폰트 조사로 넘어갈 수 있을 만큼 텍스트 구조를 더 분리
 
@@ -106,6 +107,8 @@
 - `resource_chunks.json` 생성
 - `0x076530` 부근 상위 포인터 허브와 `0x17C2F4/0x17C384/0x17C71C/0x17C7E4` 레지스트리 경계 확인
 - `resource_registry_map.md`, `resource_registry_summary.json` 생성
+- `find-thumb-bl` 명령 추가
+- `0x17785C` 레지스트리의 Thumb accessor (`0x03BC`, `0x0414`) 호출자 목록 생성
 
 ## 세션 시작 규칙
 
@@ -139,3 +142,4 @@
 - [analysis/resource_chunks.json](/Users/user/test/analysis/resource_chunks.json)
 - [analysis/resource_registry_map.md](/Users/user/test/analysis/resource_registry_map.md)
 - [analysis/resource_registry_summary.json](/Users/user/test/analysis/resource_registry_summary.json)
+- [analysis/registry_accessor_helpers.md](/Users/user/test/analysis/registry_accessor_helpers.md)

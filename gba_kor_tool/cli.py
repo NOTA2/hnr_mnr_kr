@@ -297,6 +297,61 @@ def find_pointers(data: bytes, target_offset: int, *, aligned_only: bool = True,
     return hits
 
 
+def sign_extend(value: int, bits: int) -> int:
+    if value & (1 << (bits - 1)):
+        value -= 1 << bits
+    return value
+
+
+def decode_thumb_bl_target(data: bytes, offset: int) -> Optional[int]:
+    if offset < 0 or offset + 4 > len(data):
+        return None
+    first = struct.unpack_from("<H", data, offset)[0]
+    second = struct.unpack_from("<H", data, offset + 2)[0]
+    if (first & 0xF800) != 0xF000 or (second & 0xD000) != 0xD000:
+        return None
+
+    s = (first >> 10) & 1
+    j1 = (second >> 13) & 1
+    j2 = (second >> 11) & 1
+    imm10 = first & 0x03FF
+    imm11 = second & 0x07FF
+    i1 = 1 if j1 == s else 0
+    i2 = 1 if j2 == s else 0
+    imm25 = (s << 24) | (i1 << 23) | (i2 << 22) | (imm10 << 12) | (imm11 << 1)
+    return (offset + 4 + sign_extend(imm25, 25)) & 0xFFFFFFFF
+
+
+def find_thumb_bl_callers(
+    data: bytes,
+    *,
+    target_offset: int,
+    start: int = 0,
+    end: Optional[int] = None,
+    limit: Optional[int] = None,
+) -> List[dict]:
+    stop = len(data) if end is None else min(end, len(data))
+    if start < 0 or start >= stop:
+        raise ToolError("잘못된 Thumb BL 검색 범위입니다.")
+
+    hits: List[dict] = []
+    for offset in range(start, stop - 3, 2):
+        target = decode_thumb_bl_target(data, offset)
+        if target != target_offset:
+            continue
+        hits.append(
+            {
+                "call_offset": offset,
+                "call_rom_address": ROM_BASE + offset,
+                "target_offset": target_offset,
+                "target_rom_address": ROM_BASE + target_offset,
+            }
+        )
+        if limit is not None and len(hits) >= limit:
+            return hits
+    return hits
+
+
 def decompress_lz77(data: bytes, offset: int, *, max_output_size: int) -> Tuple[bytes, int]:
     if offset + 4 > len(data) or data[offset] != 0x10:
         raise ToolError("LZ77 헤더가 아닙니다.")
@@ -732,6 +787,35 @@ def cmd_scan_lz77(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_find_thumb_bl(args: argparse.Namespace) -> int:
+    rom_path = Path(args.rom)
+    data = load_rom(rom_path)
+    start = parse_offset(args.start) if args.start else 0
+    end = parse_offset(args.end) if args.end else None
+    target_offset = parse_offset(args.target)
+    hits = find_thumb_bl_callers(
+        data,
+        target_offset=target_offset,
+        start=start,
+        end=end,
+        limit=args.limit,
+    )
+    if args.output:
+        write_json(Path(args.output), hits)
+
+    for item in hits:
+        print(
+            f"{format_offset(item['call_offset'])} "
+            f"({format_rom_address(item['call_offset'])}) "
+            f"-> {format_offset(item['target_offset'])} "
+            f"({format_rom_address(item['target_offset'])})"
+        )
+    print(f"hits: {len(hits)}")
+    if args.output:
+        print(f"wrote: {args.output}")
+    return 0
+
+
 def cmd_dump_4bpp(args: argparse.Namespace) -> int:
     rom_path = Path(args.rom)
     data = load_rom(rom_path)
@@ -1053,6 +1137,15 @@ def build_parser() -> argparse.ArgumentParser:
     find_ptr.add_argument("--limit", type=int)
     find_ptr.add_argument("--unaligned", action="store_true")
     find_ptr.set_defaults(func=cmd_find_pointers)
+
+    find_thumb_bl = sub.add_parser("find-thumb-bl", help="Thumb BL 호출자가 특정 함수 오프셋을 가리키는지 찾습니다.")
+    find_thumb_bl.add_argument("rom")
+    find_thumb_bl.add_argument("target")
+    find_thumb_bl.add_argument("--start")
+    find_thumb_bl.add_argument("--end")
+    find_thumb_bl.add_argument("--limit", type=int)
+    find_thumb_bl.add_argument("--output")
+    find_thumb_bl.set_defaults(func=cmd_find_thumb_bl)
 
     scan_lz77 = sub.add_parser("scan-lz77", help="GBA BIOS LZ77 블록을 스캔합니다.")
     scan_lz77.add_argument("rom")

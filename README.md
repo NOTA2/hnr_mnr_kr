@@ -87,6 +87,15 @@ python3 -m gba_kor_tool find-pointers \
   0x123456
 ```
 
+특정 Thumb helper 함수를 BL로 호출하는 위치 찾기:
+
+```bash
+python3 -m gba_kor_tool find-thumb-bl \
+  "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
+  0x03BC \
+  --output analysis/thumb_bl_to_03bc.json
+```
+
 LZ77 압축 블록 스캔:
 
 ```bash
