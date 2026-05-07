@@ -16,6 +16,7 @@
 - GBA LZ77 압축 블록 스캔
 - 4bpp 타일 덤프
 - 간단한 문자열 교체 / 리포인트 주입
+- 번역 JSON 일괄 적용
 - ROM 해킹용 `.tbl` 문자 테이블 사용
 
 ## 실행 방법
@@ -130,6 +131,18 @@ python3 -m gba_kor_tool inject-text \
   --terminator 00
 ```
 
+번역 JSON의 `translation` 값을 한 번에 반영:
+
+```bash
+python3 -m gba_kor_tool apply-translations \
+  "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
+  analysis/item_texts.json \
+  patched.gba \
+  --encoding cp932 \
+  --search-free-space-from 0x700000 \
+  --report analysis/item_patch_report.json
+```
+
 ## `.tbl` 사용
 
 게임이 Shift-JIS가 아니라 전용 문자셋을 쓴다면 `.tbl` 파일을 만들어서 사용할 수 있습니다.
@@ -155,8 +168,9 @@ python3 -m gba_kor_tool inject-text \
 3. `scan-text` 를 `cp932`, `00`, `FF` 조합으로 돌려봅니다.
 4. 메뉴에서 보이는 문구를 하나 정해서 `search-text` 로 직접 찾습니다.
 5. 연속된 텍스트 블록이 보이면 `extract-range` 로 JSON으로 뽑아서 번역 목록을 만듭니다.
-6. 문자열이 안 잡히면 커스텀 인코딩이나 압축 스크립트일 가능성이 높으니 `.tbl` 과 폰트 타일부터 조사합니다.
-7. 타일/폰트를 찾으면 한글 글리프를 넣고, 그 다음 문자열 삽입기로 넘어갑니다.
+6. `translation` 필드를 채운 뒤 `apply-translations` 로 일괄 패치합니다.
+7. 문자열이 안 잡히면 커스텀 인코딩이나 압축 스크립트일 가능성이 높으니 `.tbl` 과 폰트 타일부터 조사합니다.
+8. 타일/폰트를 찾으면 한글 글리프를 넣고, 그 다음 문자열 삽입기로 넘어갑니다.
 
 ## 주의
 

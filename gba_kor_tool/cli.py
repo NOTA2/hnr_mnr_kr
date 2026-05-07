@@ -653,6 +653,118 @@ def cmd_inject_text(args: argparse.Namespace) -> int:
     return 0
 
 
+def parse_record_terminator(record: dict, default_values: Sequence[str]) -> bytes:
+    terminator_value = record.get("terminator")
+    if terminator_value:
+        return bytes([parse_hex_byte(terminator_value)])
+    return bytes(parse_hex_byte(value) for value in default_values)
+
+
+def cmd_apply_translations(args: argparse.Namespace) -> int:
+    rom_path = Path(args.rom)
+    translation_path = Path(args.translation_file)
+    output_path = Path(args.output_rom)
+    table = TableCodec.from_path(Path(args.table)) if args.table else None
+    data = bytearray(load_rom(rom_path))
+    records = json.loads(translation_path.read_text(encoding="utf-8"))
+    if not isinstance(records, list):
+        raise ToolError("번역 파일은 JSON 배열이어야 합니다.")
+
+    report = []
+    next_free_search = parse_offset(args.search_free_space_from)
+
+    for record in records:
+        translation = record.get("translation", "")
+        if not translation:
+            continue
+
+        original_offset = int(record["offset"])
+        original_byte_length = int(record["byte_length"])
+        terminator = parse_record_terminator(record, args.terminator)
+        encoded_text = encode_text(translation, encoding=args.encoding, table=table)
+        payload = encoded_text + terminator
+        original_capacity = original_byte_length + len(terminator)
+
+        if len(payload) <= original_capacity:
+            data[original_offset:original_offset + len(payload)] = payload
+            if len(payload) < original_capacity:
+                pad = parse_hex_byte(args.pad_byte)
+                data[original_offset + len(payload):original_offset + original_capacity] = bytes([pad]) * (
+                    original_capacity - len(payload)
+                )
+            report.append(
+                {
+                    "offset": original_offset,
+                    "action": "in_place",
+                    "translation": translation,
+                    "written_bytes": len(payload),
+                }
+            )
+            continue
+
+        if not args.auto_repoint:
+            report.append(
+                {
+                    "offset": original_offset,
+                    "action": "skipped_too_long",
+                    "translation": translation,
+                    "required_bytes": len(payload),
+                    "capacity_bytes": original_capacity,
+                }
+            )
+            continue
+
+        pointers = find_pointers(
+            data,
+            original_offset,
+            aligned_only=not args.unaligned_pointers,
+            limit=None,
+        )
+        if not pointers:
+            if args.fail_on_missing_pointers:
+                raise ToolError(f"{format_offset(original_offset)} 에 대한 포인터를 찾지 못했습니다.")
+            report.append(
+                {
+                    "offset": original_offset,
+                    "action": "skipped_no_pointer",
+                    "translation": translation,
+                }
+            )
+            continue
+
+        destination = find_free_space(
+            data,
+            start=next_free_search,
+            size=len(payload),
+            fill_byte=parse_hex_byte(args.fill_byte),
+            alignment=args.align,
+        )
+        data[destination:destination + len(payload)] = payload
+        pointer_value = ROM_BASE + destination
+        for pointer_offset in pointers:
+            struct.pack_into("<I", data, pointer_offset, pointer_value)
+        next_free_search = destination + len(payload)
+        report.append(
+            {
+                "offset": original_offset,
+                "action": "repointed",
+                "translation": translation,
+                "new_offset": destination,
+                "pointer_count": len(pointers),
+            }
+        )
+
+    write_binary(output_path, bytes(data))
+    if args.report:
+        write_json(Path(args.report), report)
+
+    changed = sum(1 for item in report if item["action"] in {"in_place", "repointed"})
+    print(f"patched: {output_path}")
+    print(f"changed: {changed}")
+    print(f"report : {args.report or '(not written)'}")
+    return 0
+
+
 def build_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(description="GBA 한글화 작업용 ROM 조사/패치 툴")
     sub = parser.add_subparsers(dest="command", required=True)
@@ -754,6 +866,23 @@ def build_parser() -> argparse.ArgumentParser:
     inject_text.add_argument("--fill-byte", default="FF")
     inject_text.add_argument("--align", type=int, default=4)
     inject_text.set_defaults(func=cmd_inject_text)
+
+    apply_translations = sub.add_parser("apply-translations", help="번역 JSON 파일을 ROM에 일괄 반영합니다.")
+    apply_translations.add_argument("rom")
+    apply_translations.add_argument("translation_file")
+    apply_translations.add_argument("output_rom")
+    apply_translations.add_argument("--encoding", default="cp932")
+    apply_translations.add_argument("--table")
+    apply_translations.add_argument("--terminator", action="append", default=["00"])
+    apply_translations.add_argument("--pad-byte", default="FF")
+    apply_translations.add_argument("--no-auto-repoint", action="store_false", dest="auto_repoint")
+    apply_translations.add_argument("--search-free-space-from", default="0x700000")
+    apply_translations.add_argument("--fill-byte", default="FF")
+    apply_translations.add_argument("--align", type=int, default=4)
+    apply_translations.add_argument("--unaligned-pointers", action="store_true")
+    apply_translations.add_argument("--fail-on-missing-pointers", action="store_true")
+    apply_translations.add_argument("--report")
+    apply_translations.set_defaults(func=cmd_apply_translations)
 
     return parser
 
