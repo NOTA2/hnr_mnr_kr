@@ -44,8 +44,10 @@
 참고 파일:
 
 - [project_control_tower.md](/Users/user/test/docs/project_control_tower.md)
+- [repeat_mistake_prevention.md](/Users/user/test/docs/repeat_mistake_prevention.md)
 - [README.md](/Users/user/test/README.md)
 - [initial_findings.md](/Users/user/test/analysis/initial_findings.md)
+- [experiment_log.md](/Users/user/test/analysis/experiment_log.md)
 - [text_bank_inventory.md](/Users/user/test/analysis/text_bank_inventory.md)
 - [item_texts.json](/Users/user/test/analysis/item_texts.json)
 - [system_messages.json](/Users/user/test/analysis/system_messages.json)
@@ -63,6 +65,7 @@
 5. 한 번에 큰 점프보다, 검증 가능한 작은 단계로 진행한다.
 6. 새 조사 결과는 문서에 남긴다.
 7. 작업 후에는 반드시 총괄 현황판과 관련 트랙 문서를 갱신한다.
+8. 이미 실패한 가설과 탐색을 같은 조건으로 반복하지 않는다.
 
 ## 다음 우선순위
 
@@ -120,6 +123,12 @@
 - 삽입기 예외 1개 해결
 - 분석 메모 1회 업데이트
 
+작업 전에는 반드시 아래를 확인한다.
+
+- [project_control_tower.md](/Users/user/test/docs/project_control_tower.md)
+- [repeat_mistake_prevention.md](/Users/user/test/docs/repeat_mistake_prevention.md)
+- [experiment_log.md](/Users/user/test/analysis/experiment_log.md)
+
 ## 실행 명령 예시
 
 ROM 정보:
@@ -169,6 +178,7 @@ python3 -m gba_kor_tool apply-translations \
 
 - [project_control_tower.md](/Users/user/test/docs/project_control_tower.md)
 - 관련 트랙 문서 1개 이상
+- [experiment_log.md](/Users/user/test/analysis/experiment_log.md)
 - [initial_findings.md](/Users/user/test/analysis/initial_findings.md)
 - 필요 시 이 문서
 - 필요 시 README 사용 예시

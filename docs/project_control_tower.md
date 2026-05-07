@@ -4,6 +4,11 @@
 
 새 세션이나 새 에이전트는 이 문서를 가장 먼저 읽고, 그 다음 관련 트랙 문서로 이동합니다.
 
+반복 실수 방지를 위해 아래 문서도 함께 확인합니다.
+
+- [repeat_mistake_prevention.md](/Users/user/test/docs/repeat_mistake_prevention.md)
+- [experiment_log.md](/Users/user/test/analysis/experiment_log.md)
+
 ## 현재 결론
 
 현재는 아래 두 단계를 동시에 진행 중입니다.
@@ -85,16 +90,19 @@
 - 대형 능력 텍스트 뱅크 확인
 - UI 기술 텍스트 뱅크 확인
 - 일부 뱅크는 일반 절대 포인터가 확인되지만, `0x3Dxxxx` 대형 뱅크는 다른 참조 구조일 가능성 확인
+- 총괄 현황판, 트랙 문서, 반복 실수 방지 규칙, 실험 로그 체계 추가
 
 ## 세션 시작 규칙
 
 새 세션에서 시작할 때 순서는 항상 아래와 같습니다.
 
 1. 이 문서를 읽는다.
-2. 현재 `IN PROGRESS` 상태인 트랙 문서를 읽는다.
-3. [docs/agent_handoff.md](/Users/user/test/docs/agent_handoff.md) 를 읽는다.
-4. 한 번에 한 가지 의미 있는 진전만 만든다.
-5. 작업 후 이 문서와 관련 트랙 문서를 갱신한다.
+2. [repeat_mistake_prevention.md](/Users/user/test/docs/repeat_mistake_prevention.md) 를 읽는다.
+3. [experiment_log.md](/Users/user/test/analysis/experiment_log.md) 를 읽는다.
+4. 현재 `IN PROGRESS` 상태인 트랙 문서를 읽는다.
+5. [docs/agent_handoff.md](/Users/user/test/docs/agent_handoff.md) 를 읽는다.
+6. 한 번에 한 가지 의미 있는 진전만 만든다.
+7. 작업 후 이 문서와 관련 트랙 문서를 갱신한다.
 
 ## 문서 갱신 규칙
 
@@ -102,10 +110,13 @@
 
 1. 이 문서
 2. 관련 트랙 문서 1개 이상
-3. 필요 시 [analysis/initial_findings.md](/Users/user/test/analysis/initial_findings.md)
+3. [analysis/experiment_log.md](/Users/user/test/analysis/experiment_log.md)
+4. 필요 시 [analysis/initial_findings.md](/Users/user/test/analysis/initial_findings.md)
 
 ## 관련 문서
 
 - [docs/agent_handoff.md](/Users/user/test/docs/agent_handoff.md)
 - [docs/korean_localization_workflow.md](/Users/user/test/docs/korean_localization_workflow.md)
+- [docs/repeat_mistake_prevention.md](/Users/user/test/docs/repeat_mistake_prevention.md)
 - [analysis/text_bank_inventory.md](/Users/user/test/analysis/text_bank_inventory.md)
+- [analysis/experiment_log.md](/Users/user/test/analysis/experiment_log.md)
