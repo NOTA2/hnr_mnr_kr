@@ -74,7 +74,7 @@
 
 ## 현재 가장 중요한 포인트
 
-1. `0x3D2059` 와 `0x3D329C` 텍스트 뱅크의 참조 방식 파악
+1. `0x17C1E4` 청크 디렉터리와 `0x3Dxxxx` 텍스트 뱅크의 연결 방식 파악
 2. 대사/이벤트 평문 구간 추가 탐색
 3. 폰트 조사로 넘어갈 수 있을 만큼 텍스트 구조를 더 분리
 
@@ -93,6 +93,8 @@
 - 총괄 현황판, 트랙 문서, 반복 실수 방지 규칙, 실험 로그 체계 추가
 - `0x3Dxxxx` 뱅크가 순차 문자열 레코드 구조에 가깝다는 근거 확보
 - 전각 공백 필터 문제를 수정해 `battle/ability` 추출 누락을 회수
+- `0x17C1E4` 부근에서 `0x083Dxxxx + length` 청크 디렉터리 후보 확인
+- `material_texts.json` 별도 추출
 
 ## 세션 시작 규칙
 
@@ -122,3 +124,4 @@
 - [docs/repeat_mistake_prevention.md](/Users/user/test/docs/repeat_mistake_prevention.md)
 - [analysis/text_bank_inventory.md](/Users/user/test/analysis/text_bank_inventory.md)
 - [analysis/experiment_log.md](/Users/user/test/analysis/experiment_log.md)
+- [analysis/resource_chunk_directory.md](/Users/user/test/analysis/resource_chunk_directory.md)

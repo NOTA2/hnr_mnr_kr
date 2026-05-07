@@ -43,6 +43,8 @@
 - `0x3D2036` 전투 뱅크는 순차적인 이름/설명 0종단 목록 구조에 가깝다.
 - `0x3D327E` 능력 뱅크는 순차적인 `이름+0x0B+설명` 0종단 목록 구조에 가깝다.
 - 전각 공백 `U+3000` 때문에 일부 레코드가 누락되던 추출 필터 문제를 수정했다.
+- `0x17C1E4` 부근에서 `0x083Dxxxx + length` 청크 디렉터리 후보가 확인되었다.
+- `0x3D2D60..0x3D3420` 청크에서 [material_texts.json](/Users/user/test/analysis/material_texts.json) `43`건을 별도 추출했다.
 
 참고 파일:
 
@@ -52,11 +54,13 @@
 - [initial_findings.md](/Users/user/test/analysis/initial_findings.md)
 - [experiment_log.md](/Users/user/test/analysis/experiment_log.md)
 - [text_bank_inventory.md](/Users/user/test/analysis/text_bank_inventory.md)
+- [resource_chunk_directory.md](/Users/user/test/analysis/resource_chunk_directory.md)
 - [item_texts.json](/Users/user/test/analysis/item_texts.json)
 - [system_messages.json](/Users/user/test/analysis/system_messages.json)
 - [location_texts.json](/Users/user/test/analysis/location_texts.json)
 - [battle_texts.json](/Users/user/test/analysis/battle_texts.json)
 - [ability_texts.json](/Users/user/test/analysis/ability_texts.json)
+- [material_texts.json](/Users/user/test/analysis/material_texts.json)
 - [ui_skill_texts.json](/Users/user/test/analysis/ui_skill_texts.json)
 
 ## 가장 중요한 작업 원칙
@@ -197,7 +201,7 @@ python3 -m gba_kor_tool apply-translations \
 
 ## 당장 다음 에이전트가 시작할 일
 
-1. `0x3D2036` 와 `0x3D327E` 순차 레코드 뱅크가 어떤 인덱스/구조체로 접근되는지 확인한다.
-2. `0x18425C` 지역명 뱅크를 기준으로 폰트 표시와 메뉴 사용 위치를 역추적해 본다.
-3. 대사/이벤트 평문 구간이 더 있는지 `scan-text` 로 추가 탐색한다.
-4. 의미 있는 결과가 나오면 분석 문서를 갱신하고, 폰트 조사 단계로 넘어갈 수 있을지 판단한다.
+1. `0x17C1E4` 청크 디렉터리를 어떤 코드/구조체가 사용하는지 확인한다.
+2. `0x3D2036` 와 `0x3D327E` 순차 레코드 뱅크가 청크 내부에서 어떤 인덱스로 접근되는지 확인한다.
+3. `0x18425C` 지역명 뱅크를 기준으로 폰트 표시와 메뉴 사용 위치를 역추적해 본다.
+4. 대사/이벤트 평문 구간이 더 있는지 `scan-text` 로 추가 탐색한다.
