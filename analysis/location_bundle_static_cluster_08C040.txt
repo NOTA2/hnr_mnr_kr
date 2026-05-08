@@ -1,0 +1,112 @@
+0x08C040: 5FFC  ldrsh r4, [r7, r7]
+0x08C042: 0300  lsls r0, r0, #12
+0x08C044: 6028  str r0, [r5, #0]
+0x08C046: 0300  lsls r0, r0, #12
+0x08C048: 5FF0  ldrsh r0, [r6, r7]
+0x08C04A: 0300  lsls r0, r0, #12
+0x08C04C: 4248  negs r0, r1
+0x08C04E: 0818  lsrs r0, r3, #0
+0x08C050: 40F8  lsrs r0, r7
+0x08C052: 0818  lsrs r0, r3, #0
+0x08C054: 6018  str r0, [r3, #0]
+0x08C056: 0300  lsls r0, r0, #12
+0x08C058: 09CC  lsrs r4, r1, #7
+0x08C05A: 0300  lsls r0, r0, #12
+0x08C05C: 5FE0  ldrsh r0, [r4, r7]
+0x08C05E: 0300  lsls r0, r0, #12
+0x08C060: 2FB4  cmp r7, #180
+0x08C062: 0300  lsls r0, r0, #12
+0x08C064: 5FFC  ldrsh r4, [r7, r7]
+0x08C066: 0300  lsls r0, r0, #12
+0x08C068: 5FF8  ldrsh r0, [r7, r7]
+0x08C06A: 0300  lsls r0, r0, #12
+0x08C06C: 425C  negs r4, r3
+0x08C06E: 0818  lsrs r0, r3, #0
+0x08C070: 6028  str r0, [r5, #0]
+0x08C072: 0300  lsls r0, r0, #12
+0x08C074: 09CC  lsrs r4, r1, #7
+0x08C076: 0300  lsls r0, r0, #12
+0x08C078: 5FE0  ldrsh r0, [r4, r7]
+0x08C07A: 0300  lsls r0, r0, #12
+0x08C07C: 6018  str r0, [r3, #0]
+0x08C07E: 0300  lsls r0, r0, #12
+0x08C080: 5FFC  ldrsh r4, [r7, r7]
+0x08C082: 0300  lsls r0, r0, #12
+0x08C084: 0958  lsrs r0, r3, #5
+0x08C086: 0300  lsls r0, r0, #12
+0x08C088: 6000  str r0, [r0, #0]
+0x08C08A: 0300  lsls r0, r0, #12
+0x08C08C: 6028  str r0, [r5, #0]
+0x08C08E: 0300  lsls r0, r0, #12
+0x08C090: 09CC  lsrs r4, r1, #7
+0x08C092: 0300  lsls r0, r0, #12
+0x08C094: 5FFC  ldrsh r4, [r7, r7]
+0x08C096: 0300  lsls r0, r0, #12
+0x08C098: 0958  lsrs r0, r3, #5
+0x08C09A: 0300  lsls r0, r0, #12
+0x08C09C: 6000  str r0, [r0, #0]
+0x08C09E: 0300  lsls r0, r0, #12
+0x08C0A0: 09A0  lsrs r0, r4, #6
+0x08C0A2: 0300  lsls r0, r0, #12
+0x08C0A4: 0958  lsrs r0, r3, #5
+0x08C0A6: 0300  lsls r0, r0, #12
+0x08C0A8: 40E8  lsrs r0, r5
+0x08C0AA: 0818  lsrs r0, r3, #0
+0x08C0AC: 6000  str r0, [r0, #0]
+0x08C0AE: 0300  lsls r0, r0, #12
+0x08C0B0: 6018  str r0, [r3, #0]
+0x08C0B2: 0300  lsls r0, r0, #12
+0x08C0B4: 2FB4  cmp r7, #180
+0x08C0B6: 0300  lsls r0, r0, #12
+0x08C0B8: 4248  negs r0, r1
+0x08C0BA: 0818  lsrs r0, r3, #0
+0x08C0BC: 5FF8  ldrsh r0, [r7, r7]
+0x08C0BE: 0300  lsls r0, r0, #12
+0x08C0C0: 5FA0  ldrsh r0, [r4, r6]
+0x08C0C2: 0300  lsls r0, r0, #12
+0x08C0C4: 425C  negs r4, r3
+0x08C0C6: 0818  lsrs r0, r3, #0
+0x08C0C8: 2F90  cmp r7, #144
+0x08C0CA: 0300  lsls r0, r0, #12
+0x08C0CC: 6028  str r0, [r5, #0]
+0x08C0CE: 0300  lsls r0, r0, #12
+0x08C0D0: 2FD0  cmp r7, #208
+0x08C0D2: 0300  lsls r0, r0, #12
+0x08C0D4: 2FF0  cmp r7, #240
+0x08C0D6: 0300  lsls r0, r0, #12
+0x08C0D8: 2FC8  cmp r7, #200
+0x08C0DA: 0300  lsls r0, r0, #12
+0x08C0DC: 2FBC  cmp r7, #188
+0x08C0DE: 0300  lsls r0, r0, #12
+0x08C0E0: 6018  str r0, [r3, #0]
+0x08C0E2: 0300  lsls r0, r0, #12
+0x08C0E4: 5FF8  ldrsh r0, [r7, r7]
+0x08C0E6: 0300  lsls r0, r0, #12
+0x08C0E8: 6020  str r0, [r4, #0]
+0x08C0EA: 0300  lsls r0, r0, #12
+0x08C0EC: 5FFC  ldrsh r4, [r7, r7]
+0x08C0EE: 0300  lsls r0, r0, #12
+0x08C0F0: 5FEC  ldrsh r4, [r5, r7]
+0x08C0F2: 0300  lsls r0, r0, #12
+0x08C0F4: 48B0  ldr r0, [pc] ; =0x66838D83 @0x08C3B8
+0x08C0F6: 0818  lsrs r0, r3, #0
+0x08C0F8: 5FE4  ldrsh r4, [r4, r7]
+0x08C0FA: 0300  lsls r0, r0, #12
+0x08C0FC: 6014  str r4, [r2, #0]
+0x08C0FE: 0300  lsls r0, r0, #12
+0x08C100: 0988  lsrs r0, r1, #6
+0x08C102: 0300  lsls r0, r0, #12
+0x08C104: 098C  lsrs r4, r1, #6
+0x08C106: 0300  lsls r0, r0, #12
+0x08C108: 5FF0  ldrsh r0, [r6, r7]
+0x08C10A: 0300  lsls r0, r0, #12
+0x08C10C: 5FE8  ldrsh r0, [r5, r7]
+0x08C10E: 0300  lsls r0, r0, #12
+0x08C110: 4820  ldr r0, [pc] ; =0x03006014 @0x08C194
+0x08C112: 0818  lsrs r0, r3, #0
+0x08C114: 4888  ldr r0, [pc] ; =0x81718EC0 @0x08C338
+0x08C116: 0818  lsrs r0, r3, #0
+0x08C118: 6020  str r0, [r4, #0]
+0x08C11A: 0300  lsls r0, r0, #12
+0x08C11C: 5FF8  ldrsh r0, [r7, r7]
+0x08C11E: 0300  lsls r0, r0, #12

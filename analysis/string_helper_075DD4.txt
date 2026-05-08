@@ -1,0 +1,71 @@
+0x075DA0: 4770  .hword 0x4770
+0x075DA2: 0000  lsls r0, r0, #0
+0x075DA4: 4770  .hword 0x4770
+0x075DA6: 0000  lsls r0, r0, #0
+0x075DA8: B530  push 0x130
+0x075DAA: 1C05  movs r5, r0
+0x075DAC: 1C08  movs r0, r1
+0x075DAE: 4C08  ldr r4, [pc] ; =0x03007384 @0x075DD0
+0x075DB0: 2100  movs r1, #0
+0x075DB2: 6021  str r1, [r4, #0]
+0x075DB4: F000 FA10  bl 0x0761D8
+0x075DB8: 1C01  movs r1, r0
+0x075DBA: 2001  movs r0, #1
+0x075DBC: 4240  negs r0, r0
+0x075DBE: 4281  cmp r1, r0
+0x075DC0: D103  bne 0x075DCA
+0x075DC2: 6820  ldr r0, [r4, #0]
+0x075DC4: 2800  cmp r0, #0
+0x075DC6: D000  beq 0x075DCA
+0x075DC8: 6028  str r0, [r5, #0]
+0x075DCA: 1C08  movs r0, r1
+0x075DCC: BD30  pop 0x130
+0x075DCE: 0000  lsls r0, r0, #0
+0x075DD0: 7384  strb r4, [r0, #14]
+0x075DD2: 0300  lsls r0, r0, #12
+0x075DD4: B530  push 0x130
+0x075DD6: 1C01  movs r1, r0
+0x075DD8: 1C0D  movs r5, r1
+0x075DDA: 2003  movs r0, #3
+0x075DDC: 4008  ands r0, r1
+0x075DDE: 2800  cmp r0, #0
+0x075DE0: D114  bne 0x075E0C
+0x075DE2: 1C0A  movs r2, r1
+0x075DE4: 6811  ldr r1, [r2, #0]
+0x075DE6: 4C02  ldr r4, [pc] ; =0xFEFEFEFF @0x075DF0
+0x075DE8: 1908  adds r0, r1, r4
+0x075DEA: 4388  bics r0, r1
+0x075DEC: 4B01  ldr r3, [pc] ; =0x80808080 @0x075DF4
+0x075DEE: E007  b 0x075E00
+0x075DF0: FEFF  .hword 0xFEFF
+0x075DF2: FEFE  .hword 0xFEFE
+0x075DF4: 8080  strh r0, [r0, #4]
+0x075DF6: 8080  strh r0, [r0, #4]
+0x075DF8: 3204  adds r2, #4
+0x075DFA: 6811  ldr r1, [r2, #0]
+0x075DFC: 1908  adds r0, r1, r4
+0x075DFE: 4388  bics r0, r1
+0x075E00: 4018  ands r0, r3
+0x075E02: 2800  cmp r0, #0
+0x075E04: D0F8  beq 0x075DF8
+0x075E06: 1C11  movs r1, r2
+0x075E08: E000  b 0x075E0C
+0x075E0A: 3101  adds r1, #1
+0x075E0C: 7808  ldrb r0, [r1, #0]
+0x075E0E: 2800  cmp r0, #0
+0x075E10: D1FB  bne 0x075E0A
+0x075E12: 1B48  subs r0, r1, r5
+0x075E14: BD30  pop 0x130
+0x075E16: 0000  lsls r0, r0, #0
+0x075E18: 1C03  movs r3, r0
+0x075E1A: 2100  movs r1, #0
+0x075E1C: 4A00  ldr r2, [pc] ; =0x03000E70 @0x075E20
+0x075E1E: E005  b 0x075E2C
+0x075E20: 0E70  lsrs r0, r6, #25
+0x075E22: 0300  lsls r0, r0, #12
+0x075E24: 3208  adds r2, #8
+0x075E26: 3101  adds r1, #1
+0x075E28: 2913  cmp r1, #19
+0x075E2A: DC02  bgt 0x075E32
+0x075E2C: 6810  ldr r0, [r2, #0]
+0x075E2E: 4298  cmp r0, r3

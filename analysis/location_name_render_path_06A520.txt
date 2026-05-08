@@ -1,0 +1,121 @@
+0x06A520: 6838  ldr r0, [r7, #0]
+0x06A522: 2809  cmp r0, #9
+0x06A524: DC1E  bgt 0x06A564
+0x06A526: 4811  ldr r0, [pc] ; =0x03006018 @0x06A56C
+0x06A528: 7801  ldrb r1, [r0, #0]
+0x06A52A: 2900  cmp r1, #0
+0x06A52C: D11A  bne 0x06A564
+0x06A52E: 4810  ldr r0, [pc] ; =0x03005FF8 @0x06A570
+0x06A530: 6839  ldr r1, [r7, #0]
+0x06A532: 1C0A  movs r2, r1
+0x06A534: 7002  strb r2, [r0, #0]
+0x06A536: 6838  ldr r0, [r7, #0]
+0x06A538: 212C  movs r1, #44
+0x06A53A: 4348  muls r0, r1
+0x06A53C: 4A0D  ldr r2, [pc] ; =0x0818425C @0x06A574
+0x06A53E: 1881  adds r1, r0, r2
+0x06A540: 1C08  movs r0, r1
+0x06A542: F00B FC47  bl 0x075DD4
+0x06A546: 0841  lsrs r1, r0, #1
+0x06A548: 6079  str r1, [r7, #4]
+0x06A54A: 480B  ldr r0, [pc] ; =0x03005FE0 @0x06A578
+0x06A54C: 6879  ldr r1, [r7, #4]
+0x06A54E: 1C0B  movs r3, r1
+0x06A550: 005A  lsls r2, r3, #1
+0x06A552: 1852  adds r2, r2, r1
+0x06A554: 0091  lsls r1, r2, #2
+0x06A556: 6001  str r1, [r0, #0]
+0x06A558: 4808  ldr r0, [pc] ; =0x030009CC @0x06A57C
+0x06A55A: 2100  movs r1, #0
+0x06A55C: 6001  str r1, [r0, #0]
+0x06A55E: 4808  ldr r0, [pc] ; =0x03005FFC @0x06A580
+0x06A560: 2102  movs r1, #2
+0x06A562: 6001  str r1, [r0, #0]
+0x06A564: B002  sub sp, #8
+0x06A566: BC90  pop 0x090
+0x06A568: BC01  pop 0x001
+0x06A56A: 4700  bx r0
+0x06A56C: 6018  str r0, [r3, #0]
+0x06A56E: 0300  lsls r0, r0, #12
+0x06A570: 5FF8  ldrsh r0, [r7, r7]
+0x06A572: 0300  lsls r0, r0, #12
+0x06A574: 425C  negs r4, r3
+0x06A576: 0818  lsrs r0, r3, #0
+0x06A578: 5FE0  ldrsh r0, [r4, r7]
+0x06A57A: 0300  lsls r0, r0, #12
+0x06A57C: 09CC  lsrs r4, r1, #7
+0x06A57E: 0300  lsls r0, r0, #12
+0x06A580: 5FFC  ldrsh r4, [r7, r7]
+0x06A582: 0300  lsls r0, r0, #12
+0x06A584: B580  push 0x180
+0x06A586: B084  .hword 0xB084
+0x06A588: AF01  .hword 0xAF01
+0x06A58A: F000 FA17  bl 0x06A9BC
+0x06A58E: 480C  ldr r0, [pc] ; =0x03006028 @0x06A5C0
+0x06A590: 6801  ldr r1, [r0, #0]
+0x06A592: 480B  ldr r0, [pc] ; =0x03006028 @0x06A5C0
+0x06A594: 6842  ldr r2, [r0, #4]
+0x06A596: 2000  movs r0, #0
+0x06A598: 9000  .hword 0x9000
+0x06A59A: 206A  movs r0, #106
+0x06A59C: 2300  movs r3, #0
+0x06A59E: F7F8 FD2F  bl 0x063000
+0x06A5A2: F000 F95F  bl 0x06A864
+0x06A5A6: 4807  ldr r0, [pc] ; =0x030009CC @0x06A5C4
+0x06A5A8: 4907  ldr r1, [pc] ; =0x03005FE0 @0x06A5C8
+0x06A5AA: 6800  ldr r0, [r0, #0]
+0x06A5AC: 6809  ldr r1, [r1, #0]
+0x06A5AE: 4288  cmp r0, r1
+0x06A5B0: D110  bne 0x06A5D4
+0x06A5B2: 4806  ldr r0, [pc] ; =0x03006018 @0x06A5CC
+0x06A5B4: 2102  movs r1, #2
+0x06A5B6: 7001  strb r1, [r0, #0]
+0x06A5B8: 4805  ldr r0, [pc] ; =0x03005FFC @0x06A5D0
+0x06A5BA: 2101  movs r1, #1
+0x06A5BC: 6001  str r1, [r0, #0]
+0x06A5BE: E076  b 0x06A6AE
+0x06A5C0: 6028  str r0, [r5, #0]
+0x06A5C2: 0300  lsls r0, r0, #12
+0x06A5C4: 09CC  lsrs r4, r1, #7
+0x06A5C6: 0300  lsls r0, r0, #12
+0x06A5C8: 5FE0  ldrsh r0, [r4, r7]
+0x06A5CA: 0300  lsls r0, r0, #12
+0x06A5CC: 6018  str r0, [r3, #0]
+0x06A5CE: 0300  lsls r0, r0, #12
+0x06A5D0: 5FFC  ldrsh r4, [r7, r7]
+0x06A5D2: 0300  lsls r0, r0, #12
+0x06A5D4: 4812  ldr r0, [pc] ; =0x030009CC @0x06A620
+0x06A5D6: 4912  ldr r1, [pc] ; =0x030009CC @0x06A620
+0x06A5D8: 680A  ldr r2, [r1, #0]
+0x06A5DA: 1C11  movs r1, r2
+0x06A5DC: 310C  adds r1, #12
+0x06A5DE: 6001  str r1, [r0, #0]
+0x06A5E0: 4810  ldr r0, [pc] ; =0x03000958 @0x06A624
+0x06A5E2: 4910  ldr r1, [pc] ; =0x03000958 @0x06A624
+0x06A5E4: 680A  ldr r2, [r1, #0]
+0x06A5E6: 1C11  movs r1, r2
+0x06A5E8: 390C  subs r1, #12
+0x06A5EA: 6001  str r1, [r0, #0]
+0x06A5EC: 480C  ldr r0, [pc] ; =0x030009CC @0x06A620
+0x06A5EE: 6801  ldr r1, [r0, #0]
+0x06A5F0: 1C08  movs r0, r1
+0x06A5F2: 2118  movs r1, #24
+0x06A5F4: F009 FB6E  bl 0x073CD4
+0x06A5F8: 6078  str r0, [r7, #4]
+0x06A5FA: 4809  ldr r0, [pc] ; =0x030009CC @0x06A620
+0x06A5FC: 6801  ldr r1, [r0, #0]
+0x06A5FE: 1C08  movs r0, r1
+0x06A600: 2118  movs r1, #24
+0x06A602: F009 FBCD  bl 0x073DA0
+0x06A606: 1C01  movs r1, r0
+0x06A608: 1C08  movs r0, r1
+0x06A60A: 210C  movs r1, #12
+0x06A60C: F009 FB62  bl 0x073CD4
+0x06A610: 60B8  str r0, [r7, #8]
+0x06A612: 2000  movs r0, #0
+0x06A614: 6038  str r0, [r7, #0]
+0x06A616: 6838  ldr r0, [r7, #0]
+0x06A618: 6879  ldr r1, [r7, #4]
+0x06A61A: 4288  cmp r0, r1
+0x06A61C: DB04  blt 0x06A628
+0x06A61E: E023  b 0x06A668

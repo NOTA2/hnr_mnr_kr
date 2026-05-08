@@ -104,6 +104,22 @@
   - entry `33`, `47` 같은 큰 엔트리도 대사성 문자열을 다수 포함한다.
   - 초기 전수 스캔 때는 `scan-text` 기본 `--limit 100` 에 걸려 일부만 보였으므로, 넓은 범위 스캔에서는 반드시 limit 을 올려야 한다.
 
+### Registry A entry 8 mixed script bank
+
+- 상위 entry:
+  - registry: `A`
+  - index: `8`
+  - 범위: `0x6B594C` ~ `0x772E58`
+- 파일:
+  - [registry_a_entry8_terminator_10_texts.json](/Users/user/test/analysis/registry_a_entry8_terminator_10_texts.json)
+  - [terminator_10_late_dialogue_hits.json](/Users/user/test/analysis/terminator_10_late_dialogue_hits.json)
+  - [terminator_10_global_hits.json](/Users/user/test/analysis/terminator_10_global_hits.json)
+- 현재 확인:
+  - entry 8 범위를 `0x10` terminator 기준 슬라이딩 스캔하면 현재 `1200`건까지 회수되며, 이미 limit 에 걸린 상태다.
+  - `0x6B7B44` 이후로는 리오르/코넬로 초반부처럼 보이는 이벤트 대사가 밀집한다.
+  - `0x772E00` save menu block 도 이 entry 안쪽에 포함되므로, entry 8 은 **대사 + 메뉴 + command-stream text** 가 섞인 대형 mixed script bank 후보로 보는 해석이 강하다.
+  - `0x10` 종단 전역 스캔은 앞쪽 잡음이 섞이므로, 실제 사용 시에는 entry 8 같은 상위 범위로 좁혀 재스캔하는 편이 안전하다.
+
 ### 크레딧(타이틀) 텍스트
 
 - 파일: [credits_texts.json](/Users/user/test/analysis/credits_texts.json)
@@ -122,6 +138,7 @@
 - 아이템/기술/지역/UI가 서로 다른 파일로 분리되기 시작해서 작업 관리가 쉬워졌다.
 - 아직 대사/이벤트 본문 텍스트는 충분히 확보되지 않았다.
 - Registry D 분석으로 본편성 대사/튜토리얼 텍스트가 대량으로 추가 확보되었다.
+- Registry A entry 8 분석으로 `0x10` 종단 command-stream 대사 bank 가 훨씬 크게 존재한다는 근거가 생겼다.
 - 전각 공백 필터 문제를 수정하면서 `battle/ability` 추출본의 누락 문자열을 회수했다.
 - 상위 리소스 청크 기준으로 보았을 때 `material_texts` 라는 별도 텍스트 묶음도 확인되었다.
 - `material_texts` 뱅크는 순수 문자열 덩어리가 아니라, 앞단 binary record 와 뒷단 문자열 본문이 결합된 mixed resource 로 보인다.
@@ -130,10 +147,10 @@
 
 ## 다음 할 일
 
-1. Registry D `305`개 대사를 장면/용도 기준으로 더 묶기
-2. Registry D 외의 남은 command-stream / mixed resource 대사 뱅크를 찾기
-3. 메뉴 관련 텍스트 뱅크를 더 분리하기
-4. 추출본별 번역 우선순위를 나누기
+1. Registry A entry `8` 의 `1200` hit 를 limit 없이 더 회수할지, 장면 블록 기준으로 분할할지 결정하기
+2. Registry D `305`개 대사를 장면/용도 기준으로 더 묶기
+3. Registry D 외의 남은 command-stream / mixed resource 대사 뱅크를 찾기
+4. 메뉴 관련 텍스트 뱅크를 더 분리하기
 
 ## 진행 로그
 

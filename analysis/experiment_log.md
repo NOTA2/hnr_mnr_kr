@@ -267,6 +267,33 @@
   - `--limit 500` 으로 재실행하자 Registry D 전체 회수본 `305`건과 대응 workset 이 정상적으로 만들어졌다.
 - 판정: `성공`
 - 교훈: 넓은 범위 스캔 결과를 근거 문서로 삼기 전에는 기본 limit 에 잘리지 않았는지 먼저 확인해야 한다.
+
+### 실험 30
+
+- 가설: `save_menu_texts` 에서 보인 `0x10` terminator command-stream 형식은 국지적인 예외가 아니라, 더 큰 대사/메뉴 bank 에 반복 사용될 수 있다.
+- 시도:
+  - ROM 전체를 `scan-text --sliding --terminator 0x10 --min-chars 4 --require-japanese --limit 400` 조건으로 훑었다.
+  - 결과를 오프셋 클러스터로 묶어 늦은 구간의 밀집 영역을 확인했다.
+  - 이후 Registry A entry `8` 범위 `0x6B594C..0x772E58` 를 같은 조건으로 다시 스캔했다.
+- 결과:
+  - 전역 `0x10` 스캔에서 `0x6B7B44` 이후 대사성 문자열이 대량으로 나타났다.
+  - Registry A entry `8` 재스캔에서는 현재 `1200`건까지 회수되었고, 이미 limit 에 걸렸다.
+  - `0x772E00` save menu block 도 이 entry 안쪽에 포함되어 있었다.
+- 판정: `성공`
+- 교훈: `0x10` 종단 텍스트는 save menu 예외가 아니라, 상위 mixed script bank 안에 넓게 퍼진 형식이다. 전역 스캔만 믿지 말고, registry entry 범위로 다시 좁혀 재추출해야 한다.
+
+### 실험 31
+
+- 가설: 최근 따라간 `0x0514xx` UI cluster 가 실제 폰트/문자 매핑 렌더러에 바로 닿을 수 있다.
+- 시도:
+  - `0x0514D0..0x051980`, `0x058720`, `0x075DD4` 를 디스어셈블해 호출 관계를 확인했다.
+  - Registry B raw companion 엔트리 `86`, `87`, `88` 은 헤더 뒤를 바로 4bpp 로 덤프해 시각적으로 확인했다.
+- 결과:
+  - `0x075DD4` 는 `strlen` 계열이고, `0x0514xx` 클러스터는 문자열 길이로 UI slot/layout 을 조정하는 경향이 강했다.
+  - `0x058720` 은 문자열 렌더러가 아니라 tracked slot record 좌표를 넘기는 position helper 쪽이었다.
+  - raw companion 엔트리 `86..88` 4bpp 덤프는 글자판이 아니라 잡음에 가까웠다.
+- 판정: `부분 성공`
+- 교훈: UI layout 경로와 실제 문자 렌더러를 섞어 보면 폰트 추적이 빗나간다. raw companion asset 도 헤더/압축/별도 포맷 가능성을 먼저 배제해야 한다.
 - 판정: `성공`
 - 교훈: 전체 로그와 모든 참고 문서는 기본 입력이 아니라 선택적 참조로 두는 편이 장기 자동화와 후속 세션에 더 적합하다.
 

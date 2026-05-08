@@ -25,6 +25,8 @@
 - Registry D (`0x17C7E4..0x17CB04`) 는 아직 덜 추출된 대사/이벤트 텍스트의 핵심 후보다.
 - Registry D 물리 범위 `0x7F3000..0x7F96E9` 를 슬라이딩 스캔하면 현재 `305`개 대사성 문자열이 잡힌다.
 - 전체본은 [registry_d_full_sliding_texts.json](/Users/user/test/analysis/registry_d_full_sliding_texts.json), 번역용 작업 세트는 [translation_workset_registry_d_dialogue.json](/Users/user/test/analysis/translation_workset_registry_d_dialogue.json) 에 있다.
+- Registry A entry `8` (`0x6B594C..0x772E58`) 는 지역명만 담긴 entry 가 아니라, `0x10` 종단 command-stream 대사/이벤트/메뉴가 함께 섞인 대형 mixed script bank 후보다.
+- 현재 [registry_a_entry8_terminator_10_texts.json](/Users/user/test/analysis/registry_a_entry8_terminator_10_texts.json) 에 `1200`건까지 회수했고, limit 에 걸린 상태다.
 - `save_menu_texts.json` 류는 종단 바이트가 `0x10` 이라서 일반 `00` 종단 문자열과 분리해서 다뤄야 한다.
 - 재삽입 도구 기본 기능은 이미 있다:
   - 같은 길이 이하 덮어쓰기
@@ -32,6 +34,9 @@
   - 포인터 갱신
   - `apply-translations` 일괄 반영
 - 아직 **한글을 실제 ROM에 표시할 폰트/인코딩 경로는 확보되지 않았다.**
+- 다만 최근 확인으로는:
+  - `0x0514xx` UI cluster 는 실제 문자 렌더러보다 **문자열 길이 기반 layout / slot setup** 경로에 가깝다.
+  - world-map Registry B raw companion 엔트리 `86..89` 는 헤더 뒤를 바로 4bpp 로 덤프해도 글자판이 아니라 잡음이라, **직접 폰트 raw tiles** 후보에서는 우선 제외한다.
 - 따라서 현재 병목은 데이터 구조보다 **폰트/문자 매핑/문자폭** 쪽이다.
 
 ## 분석 보존 위치
@@ -55,6 +60,7 @@
 - 한글 표시 경로가 없는 상태에서 구조 분석만 계속 늘리지 않는다.
 - `save_menu_texts` 를 `00` 종단 평문처럼 취급하지 않는다.
 - 넓은 슬라이딩 스캔은 기본 `--limit 100` 에 걸릴 수 있으니, 전체 회수를 원할 때는 `--limit` 을 명시한다.
+- `0x10` 종단 전역 스캔은 앞쪽 바이너리 잡음도 섞으므로, 클러스터 범위와 상위 registry entry 를 함께 확인한다.
 - literal scan 결과만으로 "더 조사할 게 없다"고 결론내리지 않지만, 실제 한글화와 직접 연결되지 않는 deep dive 도 늘리지 않는다.
 
 ## 유용한 명령
@@ -79,12 +85,23 @@ python3 -m gba_kor_tool scan-text \
   --require-japanese \
   --limit 500 \
   --output analysis/registry_d_full_sliding_texts.json
+
+python3 -m gba_kor_tool scan-text \
+  "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
+  --start 0x6B594C \
+  --end 0x772E58 \
+  --sliding \
+  --terminator 0x10 \
+  --min-chars 4 \
+  --require-japanese \
+  --limit 1200 \
+  --output analysis/registry_a_entry8_terminator_10_texts.json
 ```
 
 ## 완료 조건
 
-- Registry D 계열 대사 추출본을 더 구조화한다.
-- 번역 작업 세트를 1개 이상 더 정리한다.
+- Registry A entry `8` / Registry D 계열 대사 추출본을 더 구조화한다.
+- 번역 단계에 들어가기 전까지는 추출본과 구조 근거를 계속 분리 정리한다.
 - 한글 표시를 위해 필요한 폰트/인코딩 경로를 최소 1개 확보한다.
 - 첫 번째 실제 한글 패치 테스트 경로를 잡는다.
 

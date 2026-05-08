@@ -97,6 +97,18 @@
   - 튜토리얼 설명, 전투 개시 대사, 이벤트성 짧은 문장이 다수 포함된다.
   - 넓은 범위 스캔에서는 기본 `--limit 100` 때문에 일부만 보일 수 있으므로 limit 명시가 필요하다.
 
+### Registry A entry 8 command-stream 대사/메뉴 bank
+
+- 범위: `0x6B594C` ~ `0x772E58`
+- 파일:
+  - [registry_a_entry8_terminator_10_texts.json](/Users/user/test/analysis/registry_a_entry8_terminator_10_texts.json)
+  - [terminator_10_late_dialogue_hits.json](/Users/user/test/analysis/terminator_10_late_dialogue_hits.json)
+- 특징:
+  - `0x10` 종단 기준 슬라이딩 스캔으로 대사/이벤트/메뉴 문자열이 대량 회수된다.
+  - 현재 추출은 `1200`건에서 limit 에 걸린 상태다.
+  - `0x772E00` save menu block 도 같은 entry 안쪽에 포함된다.
+  - 현재는 **대형 mixed script bank** 로 보는 해석이 가장 강하다.
+
 ## 현재 해석
 
 - 이 게임은 일본어 평문이 여러 군데에 분산 저장되어 있다.
