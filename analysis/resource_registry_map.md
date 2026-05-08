@@ -59,6 +59,17 @@
 - `0x0002CC`: `20`
 - `0x000304`: `1`
 
+현재 fixed selector 분류:
+
+- `selector=1`: direct 호출 `8`개, 모두 `entry_index=0`
+- `selector=3`: direct 호출 `11`개, `entry_index 0/2/3/5`
+- 나머지 `1`개 (`0x000378`) 는 `0x00033C` wrapper 내부 공용 경로
+
+`0x00033C` wrapper:
+
+- `0x0002CC` + `0x000304` 를 함께 쓰는 작은 로더/설정 helper 로 보인다.
+- 현재 확인된 BL 호출자 `6`개는 모두 `selector=3` 을 넘긴다.
+
 반면 `0x17C7E4` 는 허브 안에 들어 있지만, 이 `0x000290` family 가 복사하는 첫 4엔트리 바깥에 남아 있다.
 
 ## 현재 확인된 상위 레지스트리 범위
@@ -114,6 +125,7 @@
 - `0x17C1C0` 은 공통 레지스트리 체계의 일부라기보다 예외적인 보조 디스크립터일 수 있다.
 - 혹은 상위 리소스의 하위 뷰/세부 분해표일 수 있다.
 - `0x076530` 허브도 단일 평면 구조가 아니라, 최소한 "generic selector 가 쓰는 첫 4엔트리" 와 "별도 direct helper 로 빠지는 `0x17C7E4` 축" 으로 분리해서 봐야 한다.
+- 또한 generic accessor 의 실제 direct 사용은 현재 `Registry A` 와 `Registry C` 로 편중되어 있고, `Registry B` / `selector=0` direct 사용은 아직 보이지 않는다.
 
 ## 추가 관찰
 
@@ -123,6 +135,6 @@
 
 ## 다음 유력 작업
 
-1. `0x0002CC` / `0x000304` 호출부에서 registry selector 값이 어떻게 쓰이는지 확인
+1. 왜 direct `0x0002CC` 호출이 `selector=1` / `3` 에만 몰리는지 확인
 2. `0x17C7E4` 가 왜 generic selector family 밖에 있는지 확인
 3. `0x17C1C0` 이 왜 이 공통 레지스트리 묶음 밖에 있는지 설명할 상위 데이터 찾기

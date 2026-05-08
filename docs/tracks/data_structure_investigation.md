@@ -40,6 +40,11 @@
 - `0x0002CC` 는 `(entry_index, registry_selector)` 를 받아 선택된 허브 registry 의 `pointer` 필드를 읽는 generic accessor 로 보인다.
 - `0x000304` 는 같은 방식으로 `length` 필드를 읽는 generic accessor 로 보인다.
 - `0x0002CC` 의 BL 호출자는 현재 `20`개, `0x000304` 의 BL 호출자는 현재 `1`개가 확인되었다.
+- direct `0x0002CC` 호출 `20`개를 분류하면, 현재 고정 selector 는 `1` 과 `3` 만 확인된다.
+- `selector=1` direct 호출 `8`개 (`0x000B04`, `0x005472`, `0x0091C6`, `0x015A28`, `0x01606A`, `0x0618A4`, `0x064B5C`, `0x069D72`) 는 모두 `entry_index=0` 으로 `Registry A (0x17C2F4)` 첫 엔트리를 읽는다.
+- `selector=3` direct 호출 `11`개 (`0x06F47E`, `0x06F48C`, `0x06F556`, `0x070470`, `0x070480`, `0x070552`, `0x070564`, `0x070904`, `0x070914`, `0x0709E6`, `0x0709F8`) 는 `entry_index 0/2/3/5` 를 읽는다.
+- 남은 `0x000378` 호출은 고정 selector 가 아니라 `0x00033C` wrapper 내부 공용 경로다.
+- `0x00033C` 의 알려진 BL 호출자 `6`개는 현재 모두 `selector=3` 을 넘긴다.
 - `0x17CE98` 부근은 청크 디스크립터보다 주소 배열에 더 가깝다.
 - `0x17785C` 레지스트리는 `0x03BC` / `0x0414` Thumb helper 로 직접 접근되는 것이 확인되었다.
 - 수동 해석 기준으로 `0x03BC` 는 포인터 필드, `0x0414` 는 길이 필드 accessor 에 가깝다.
@@ -74,6 +79,7 @@
 - 그리고 `0x03BC` 단독 호출부는 전부 같은 성격이 아니다. 일부는 순수 binary table (`0x093D`, `0x094B`) 를 읽고, 일부는 binary header + 문자열 본문이 결합된 mixed resource (`0x093E`) 를 읽는다.
 - 따라서 앞으로는 "이 호출부가 텍스트인가 아닌가"를 이분법으로 보지 말고, "고정 index -> record directory -> 상대 문자열 오프셋" 같은 중간 단계를 포함해 해석해야 한다.
 - 반면 `0x17C7E4` 는 허브에 포함되어도 `0x000290` family 가 복사하는 4엔트리 바깥에 있어, 상위 registry 묶음 안에서도 별도 취급되는 예외 축으로 보인다.
+- 또한 현재 관찰된 generic hub accessor 사용은 모든 registry 에 고르게 퍼져 있지 않다. direct `0x0002CC` 는 `Registry A` 와 `Registry C` 에만 고정으로 붙어 있고, `Registry B` 및 `selector=0` direct 사용은 아직 보이지 않는다.
 
 ## 근거 문서
 
@@ -82,7 +88,7 @@
 
 ## 다음 할 일
 
-1. `0x0002CC` / `0x000304` 호출부에서 registry selector 값과 대상 registry 분류
+1. 왜 direct `0x0002CC` 호출이 `selector=1` / `3` 에만 몰리는지 설명할 상위 흐름 찾기
 2. `0x093D` 와 `0x094B` binary table 이 각각 어떤 게임 데이터 분류를 담는지 분리
 3. 왜 `0x17C7E4` 가 상위 허브 안에서도 generic `0x000290` family 밖에 남는지 설명할 구조 찾기
 4. `0x17C1C0` 이 왜 공통 상위 레지스트리와 다른 레이아웃을 쓰는지 설명할 구조 찾기
@@ -111,3 +117,4 @@
 - `0x007578` / `0x007760` / `0x007824` 단독 accessor 경로가 각각 `0x094B` / `0x093D` / `0x093E` 고정 index 리소스로 이어진다는 점을 확인
 - `0x3D2D60` 재료 뱅크 앞쪽에 `7-byte` 레코드 디렉터리가 있고, 뒤쪽 텍스트는 그 상대 오프셋으로 연결된다는 점을 확인
 - `0x076530` 허브가 `0x0002C0` literal 을 통해 `0x000290` helper 에서 직접 쓰이며, `0x0002CC` / `0x000304` generic registry accessor 의 기반이라는 점을 확인
+- direct `0x0002CC` 호출들이 `selector=1` 과 `3` 두 군집으로 갈리고, `0x000304` 는 `0x00033C` wrapper 내부 길이 조회로만 보인다는 점을 확인

@@ -272,3 +272,19 @@
   - `0x17C7E4` 는 허브 안에 있지만 이 generic helper family 가 복사하는 4엔트리 바깥에 남아 있다.
 - 판정: `성공`
 - 교훈: `0x076530` 허브는 "상위 registry selector + generic accessor family" 관점으로 다뤄야 한다. 또한 허브 전체가 단일한 규칙으로 소비된다고 가정하면 안 되고, `0x17C7E4` 같은 예외 축은 별도로 추적해야 한다.
+
+### 실험 30
+
+- 가설: `0x0002CC` direct caller 들은 registry selector 값 몇 개에 집중될 수 있고, 그 분포를 보면 어떤 상위 registry 가 실제로 공용 accessor family 를 쓰는지 좁힐 수 있다.
+- 시도:
+  - `find-thumb-bl` 로 `0x0002CC`, `0x000304`, `0x00033C` caller 목록을 다시 수집했다.
+  - caller 가 몰린 주소대 (`0x000B04`, `0x005472`, `0x0091C6`, `0x015A28`, `0x01606A`, `0x0618A4`, `0x064B5C`, `0x069D72`, `0x06F47E..0x06F556`, `0x070470..0x070564`, `0x070904..0x0709F8`) 를 ARMv4T 오브젝트로 재조립해 직전 immediate setup 을 확인했다.
+- 결과:
+  - direct `0x0002CC` caller `20`개 중 고정 selector 로 확인된 값은 `1` 과 `3` 뿐이었다.
+  - `selector=1` direct 호출 `8`개는 모두 `entry_index=0` 으로 `Registry A (0x17C2F4)` 첫 엔트리를 읽는다.
+  - `selector=3` direct 호출 `11`개는 `entry_index 0/2/3/5` 를 읽으며 `0x06F4xx`, `0x0704xx`, `0x0709xx` 군집으로 모인다.
+  - 남은 `1`개 (`0x000378`) 는 고정 selector 호출이 아니라 `0x00033C` wrapper 내부 공용 경로였다.
+  - `0x000304` 의 유일한 BL 호출자 `0x000392` 도 같은 `0x00033C` wrapper 내부 길이 조회였다.
+  - `0x00033C` 의 알려진 BL 호출자 `6`개는 현재 모두 `selector=3` 을 넘긴다.
+- 판정: `성공`
+- 교훈: generic hub accessor family 의 실제 사용은 전체 registry 에 고르게 퍼져 있지 않다. 현재 direct caller 기준으로는 `Registry A` 와 `Registry C` 로 편중되어 있고, `selector=0` / `2` 경로는 다른 helper 나 다른 상위 흐름을 통해 접근할 가능성을 우선 의심해야 한다.

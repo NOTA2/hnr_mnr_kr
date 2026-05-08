@@ -23,6 +23,11 @@
 15. `0x0002C0` 의 `0x076530` 포인터는 `0x000290` helper 의 literal 이며, 이 helper 는 허브 첫 4엔트리 (`0x17785C`, `0x17C2F4`, `0x17C384`, `0x17C71C`) 중 하나를 선택해 반환한다.
 16. `0x0002CC` / `0x000304` 는 `0x000290` 위에 쌓인 generic accessor 로, 선택된 registry 엔트리의 `pointer` / `length` 필드를 읽는다.
 17. `0x17C7E4` 는 허브 안에 있으나 현재 generic `0x000290` family 에는 포함되지 않고, 별도 direct helper 계열로 관리되는 것으로 보인다.
+18. direct `0x0002CC` 호출 `20`개 중 현재 고정 selector 로 확인된 값은 `1` 과 `3` 뿐이다.
+19. `selector=1` direct 호출 `8`개는 모두 `entry_index=0` 으로 `Registry A (0x17C2F4)` 첫 엔트리를 읽는다.
+20. `selector=3` direct 호출 `11`개는 `entry_index 0/2/3/5` 를 읽으며, `0x06F4xx` / `0x0704xx` / `0x0709xx` 군집으로 몰려 있다.
+21. `0x000304` 의 유일한 BL 호출자는 `0x000392` 이며, 이는 `0x00033C` wrapper 내부 길이 조회다.
+22. `0x00033C` 호출자 `6`개는 현재 모두 `selector=3` 을 넘긴다.
 
 ## 지금 반복하면 안 되는 가정
 
@@ -33,10 +38,11 @@
 5. `0x17C7E4` 도 `0x17785C` 와 같은 accessor 패턴일 거라고 가정하지 않는다.
 6. `0x03BC` 단독 호출부가 곧바로 순수 문자열 포인터를 반환한다고 가정하지 않는다.
 7. `0x076530` 허브의 모든 포인터가 같은 helper family 에서 직접 사용된다고 가정하지 않는다.
+8. `0x0002CC` generic accessor 가 모든 registry selector 를 비슷한 빈도로 쓸 거라고 가정하지 않는다.
 
 ## 지금 가장 유력한 다음 질문
 
-1. `0x0002CC` 호출자들은 registry selector 로 어떤 값을 주는가
+1. 왜 direct `0x0002CC` 호출이 selector `0` / `2` 없이 `1` / `3` 에만 몰리는가
 2. 왜 `0x17C7E4` 는 `0x076530` 허브 안에 있으면서도 generic `0x000290` family 밖에 있는가
 3. `0x093D` binary table 은 `0x093E` 재료 문자열 뱅크와 어떤 관계인가
 4. `0x094B` / `0x12DF8(0x63)` 경로는 어떤 게임 데이터 분류를 읽는가

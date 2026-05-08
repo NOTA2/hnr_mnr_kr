@@ -96,6 +96,32 @@
 
 - `20`
 
+현재 caller 분류:
+
+- `selector=1`, `entry_index=0` direct 호출 `8`개:
+  - `0x000B04`
+  - `0x005472`
+  - `0x0091C6`
+  - `0x015A28`
+  - `0x01606A`
+  - `0x0618A4`
+  - `0x064B5C`
+  - `0x069D72`
+- `selector=3`, `entry_index=0/2/3/5` direct 호출 `11`개:
+  - `0x06F47E`
+  - `0x06F48C`
+  - `0x06F556`
+  - `0x070470`
+  - `0x070480`
+  - `0x070552`
+  - `0x070564`
+  - `0x070904`
+  - `0x070914`
+  - `0x0709E6`
+  - `0x0709F8`
+- 나머지 `1`개:
+  - `0x000378` (`0x00033C` wrapper 내부)
+
 ### `0x000304`
 
 - 입력: `entry_index`, `registry_selector`
@@ -108,6 +134,12 @@
 현재 BL 호출자 수:
 
 - `1`
+
+현재 caller:
+
+- `0x000392` (`0x00033C` wrapper 내부)
+
+즉 generic length accessor 는 현재 직접 호출되지 않고, `0x00033C` 안에서만 확인된다.
 
 ## 확인된 로더 루틴: `0x17EB4`
 
@@ -184,10 +216,12 @@
 - `0x076530` 허브에 `0x17785C` 가 여러 번 들어 있는 점도, 이 레지스트리가 공용 기준표 역할을 할 가능성을 높인다.
 - 반대로 `0x17C7E4` 는 상위 허브에 포함되어 있지만, 아직은 `0x17785C` 만큼 직접적인 accessor 사용 근거가 부족하다.
 - 그리고 `0x17785C` 는 전용 helper (`0x03BC`, `0x0414`) 뿐 아니라, `0x076530` 허브 generic family 의 selector `0` 으로도 접근될 수 있다.
+- 하지만 현재 관찰된 direct `0x0002CC` caller 는 `selector=1` 과 `selector=3` 에 편중되어 있고, `selector=0` / `2` fixed caller 는 아직 보이지 않는다.
+- 또 `0x000304` 는 사실상 `0x00033C` wrapper 뒤에서만 보이므로, generic `pointer+length` pair 사용도 모든 registry 에 고르게 퍼져 있지 않다.
 - `0x03BC` 단독 호출은 "텍스트 아님" 또는 "문자열 포인터 직접 반환" 둘 중 하나로 단순화할 수 없다.
 - 실제로는 binary table, mixed record directory, in-bank 상대 문자열 포인터가 섞여 있다.
 
 ## 다음 유력 작업
 
-1. `0x0002CC` 호출부에서 registry selector 값과 caller 군집을 분리
+1. 왜 direct `0x0002CC` caller 가 `selector=1` / `3` 에 편중되는지 확인
 2. `0x093D` / `0x094B` binary table 이 어떤 게임 분류를 담는지 추가 분리

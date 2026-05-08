@@ -23,12 +23,17 @@
 - `0x076530` 허브는 `0x0002C0` literal 을 통해 `0x000290` helper 에서 직접 참조된다.
 - `0x000290` 는 허브 첫 4엔트리 (`0x17785C`, `0x17C2F4`, `0x17C384`, `0x17C71C`) 중 하나의 base pointer 를 선택해 반환하는 상위 registry selector helper 로 보인다.
 - `0x0002CC` / `0x000304` 는 그 위에 쌓인 generic accessor 로, 선택된 registry 엔트리의 `pointer` / `length` 필드를 읽는다.
+- direct `0x0002CC` 호출 `20`개 중 현재 고정 selector 로 확인된 값은 `1` 과 `3` 뿐이다.
+- `selector=1` direct 호출 `8`개는 모두 `entry_index=0` 으로 `Registry A (0x17C2F4)` 첫 엔트리를 읽는다.
+- `selector=3` direct 호출 `11`개는 `entry_index 0/2/3/5` 를 읽으며 `0x06F4xx`, `0x0704xx`, `0x0709xx` 군집으로 모인다.
+- `0x000304` 의 유일한 BL 호출자는 `0x000392` 이고, 이는 `0x00033C` wrapper 내부 길이 조회다.
+- `0x00033C` 의 알려진 BL 호출자 `6`개는 현재 모두 `selector=3` 을 넘긴다.
 - 반면 `0x17C7E4` 는 허브에 들어 있지만 이 generic helper family 밖에 남아 있고, 별도 direct helper (`0x03E8` 계열) 쪽과 연결되는 것으로 보인다.
 - 일부 메뉴/진행 메시지는 일반 `00` 종단 평문이 아니라 명령 스트림 내부 문자열이다.
 
 ## 다음 한 단계 후보
 
-1. `0x0002CC` / `0x000304` 호출부에서 registry selector 값을 분류하기
+1. 왜 direct `0x0002CC` 호출이 selector `1` / `3` 에만 몰리는지 확인하기
 2. 왜 `0x17C7E4` 가 generic `0x000290` family 밖에 있는지 확인하기
 3. 대사/이벤트 평문 구간을 추가로 찾기
 

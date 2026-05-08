@@ -17,7 +17,7 @@
 
 ## 현재 최우선 과제
 
-1. `0x0002CC` / `0x000304` generic hub accessor 호출부에서 registry selector 값 분류
+1. 왜 direct `0x0002CC` 호출이 selector `1` / `3` 에만 몰리는지 확인
 2. `0x093D` / `0x093E` / `0x094B` 고정 인덱스 리소스와 주변 helper 의미를 더 분리
 3. 대사/이벤트 평문 구간 추가 탐색
 4. 폰트 조사로 넘어갈 수 있을 만큼 텍스트 구조를 더 분리
@@ -43,6 +43,8 @@
 - `0x007578` 단독 accessor 경로가 `0x094B -> 0x3DDB30` binary table 을 읽으며 직접 평문 문자열 경로는 아니라는 점 확인
 - `0x076530` 허브를 직접 가리키는 포인터가 `0x0002C0` literal 하나뿐이며, 이 값이 `0x000290` helper 의 상위 registry selector 로 쓰인다는 점 확인
 - `0x0002CC` / `0x000304` 가 `0x000290` 위에 쌓인 generic `pointer-length` accessor 로 보이며, 각각 selected registry 의 포인터/길이 필드를 반환한다는 점 확인
+- direct `0x0002CC` 호출 `20`개 중 현재 고정 selector 는 `1` 과 `3` 만 확인되며, `selector=1` 은 `entry 0` 단일 패턴, `selector=3` 은 `entry 0/2/3/5` 군집 패턴으로 갈린다는 점 확인
+- `0x000304` 의 유일한 BL 호출자는 `0x000392` 이고, 이는 `0x00033C` wrapper 내부 길이 조회라는 점 확인
 - 세이브/진행 메뉴 텍스트와 크레딧 텍스트 추출
 
 ## 작업 후 최소 갱신 규칙

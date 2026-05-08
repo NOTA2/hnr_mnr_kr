@@ -29,7 +29,7 @@
 
 ## 지금 가장 좋은 다음 한 단계
 
-1. `0x0002CC` / `0x000304` generic hub accessor 호출부에서 registry selector 값 분류
+1. 왜 direct `0x0002CC` 호출이 selector `1` / `3` 에만 몰리는지 확인
 2. `0x093D` / `0x094B` 와 연결된 고정 인덱스 resource 의미 추가 분리
 3. 대사/이벤트 평문 구간 추가 탐색
 
