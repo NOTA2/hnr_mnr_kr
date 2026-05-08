@@ -388,3 +388,19 @@
   - `0x1849A0` 은 `13-entry` Thumb handler pointer table, `0x1849D4` 는 `7-entry` special pair table 후보로 정리되었다.
 - 판정: `성공`
 - 교훈: location/world-map 계열 데이터는 문자열, 좌표, 이동 규칙, handler 가 한 묶음으로 저장될 수 있다. 이후에는 `string bank` 만 보는 접근보다 **bundle 단위 구조화**가 훨씬 효율적이다.
+
+### 실험 37
+
+- 가설: `0x184888` route block table 이 가리키는 `0x1844B0..0x1847F7` 시퀀스는 opcode script 가 아니라, `13`개 node 위에서 목적지까지 이동 경로를 나열한 path list 일 수 있다.
+- 시도:
+  - [location_bundle_tables.json](/Users/user/test/analysis/location_bundle_tables.json) 의 `route_script_block_table` 전 엔트리를 다시 읽어, 각 block 의 null slot 패턴을 비교했다.
+  - 모든 시퀀스에서 `FF` 를 제외한 byte 값의 전체 집합을 모아 범위를 확인했다.
+  - block 별 시퀀스를 사람이 읽기 쉬운 형태로 다시 나열해, `00 0A 01 FF`, `02 0B 01 0A 00 FF`, `09 08 07 06 0C 0B 01 FF` 같은 패턴이 실제로 "출발 node -> 중간 node -> 도착 node" 식으로 읽히는지 비교했다.
+- 결과:
+  - 모든 block 은 자기 자신의 slot 하나만 `null` 이었다. 즉 `block 0 -> slot 0`, `block 1 -> slot 1`, ..., `block 9 -> slot 9` 패턴이 고정이다.
+  - non-null slot 은 항상 다른 `9`개 목적지에 대해 하나씩 채워져 있었다.
+  - `FF` 를 제외한 route byte 값은 현재 정확히 `0..12` 만 사용한다.
+  - 이 값 집합은 `0x184820` 의 `13 * (x, y)` node position table, `0x1849A0` 의 `13-entry` handler table 과 크기가 정확히 맞는다.
+  - 따라서 현재 최선 해석은 `0..9 = location node`, `0x0A..0x0C = connector / transit node`, `FF = terminator` 이고, 각 slot payload 는 "출발 location 에서 목적지 location 으로 가는 node path" 다.
+- 판정: `성공`
+- 교훈: 겉보기에는 bytecode 처럼 보여도, 실제로는 opcode 가 아니라 그래프 경로 데이터일 수 있다. 특히 값 범위가 작고 self-slot null 패턴이 강할 때는 script 보다 path matrix 가능성을 먼저 검토해야 한다.

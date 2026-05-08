@@ -13,7 +13,7 @@
   1. `0x184220..0x184244`: `10-entry` order/permutation table
   2. `0x184248..0x1843FF`: `10 * 0x2C` location record table
   3. `0x184420..0x1844AF`: `18 * (u32, u32)` pair table
-  4. `0x1844B0..0x1847F7`: route/command bytecode region
+  4. `0x1844B0..0x1847F7`: route path byte region
   5. `0x184820..0x184887`: `13 * (x, y)` node position pair table 후보
   6. `0x184888..0x1848AF`: `10-entry` route script block pointer table
   7. `0x1849A0..0x1849D3`: `13-entry` Thumb handler pointer table
@@ -39,20 +39,31 @@
 - 각 엔트리는 `0x1844E4`, `0x184538`, `0x184594`, `0x1845E8`, `0x184640`, `0x184690`, `0x1846E8`, `0x184740`, `0x1847A0`, `0x1847F8` 같은 pointer sub-table 을 가리킨다.
 - 각 sub-table 은 다시 `10-slot` pointer matrix 로 읽힌다.
 - slot pointer 가 `null` 이면 route/command 가 비어 있고, non-null 이면 `0x1844B0..0x1847F7` bytecode 영역을 가리킨다.
+- 모든 block 은 자기 자신의 slot 하나만 `null` 이다.
+  - `block 0 -> slot 0 null`
+  - `block 1 -> slot 1 null`
+  - ...
+  - `block 9 -> slot 9 null`
 
-bytecode 공통 패턴:
+route sequence 공통 패턴:
 
 - 길이: 대체로 `4 ~ 8` bytes
 - 마지막 바이트는 `FF`
+- `FF` 를 제외한 값은 현재 `0..12` 만 나온다.
 - 예시:
   - `00 0A 01 FF`
   - `02 0B 01 0A 00 FF`
   - `07 06 0C 0B 01 FF`
+  - `09 08 07 06 0C 0B 01 FF`
 
 현재 가장 안전한 해석:
 
-- 이 구조는 **per-location route/transition command matrix** 후보다.
-- 즉 `10`개 location 사이의 이동/연결/표시 규칙을 bytecode 로 저장하는 테이블일 가능성이 높다.
+- 이 구조는 **per-location route path matrix** 후보다.
+- `10`개 location block 이 있고, 각 block 은 다른 `9`개 목적지까지의 경로를 한 줄씩 저장한다.
+- sequence 안의 값은 현재 `13`개 node 집합을 가리키는 것으로 보는 해석이 가장 자연스럽다.
+  - `0..9`: location node
+  - `0x0A..0x0C`: 중간 connector / transit node 후보
+- 즉 이 영역은 "opcode script" 라기보다 **node list + terminator** 형식의 경로 데이터일 가능성이 높다.
 
 ## Node Position Pair Table
 
@@ -68,6 +79,7 @@ bytecode 공통 패턴:
 현재 해석:
 
 - location/world-map 상의 node/icon/cursor position 후보
+- route sequence 가 `0..12` 값만 사용한다는 점도, 이 table 이 실제 `13-node` 공간을 설명한다는 해석과 잘 맞는다.
 
 ## Label Position Pair 후보
 
@@ -95,7 +107,8 @@ bytecode 공통 패턴:
 
 현재 해석:
 
-- per-node 또는 per-state callback/handler table 후보
+- per-node callback/handler table 후보
+- route sequence 와 node position table 이 모두 `13`개 축을 공유하므로, 현재는 `node 13개 <-> handler 13개` 정렬 가능성을 우선 둔다.
 
 ## Special Pair Table
 

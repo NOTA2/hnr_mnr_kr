@@ -61,13 +61,15 @@
 - 첫 name field `0x18425C` 는 기존에 문자열 뱅크로 추출됐지만, 실제로는 첫 location record (`0x184248`) 의 `+0x14` 필드다.
 - `0x184248` record base direct ref 는 `12`개, `0x18425C` first name field direct ref 는 `4`개가 확인되었다.
 - `0x184420..0x1844AF` 구간에는 `18 * (u32, u32)` pair table 이 있다.
-- `0x1844B0..0x1847F7` 구간에는 `FF` 종료 bytecode 가 밀집해 있다.
-- `0x184888` 구간은 `10-entry` route script block pointer table 이며, 각 block 은 다시 `10-slot` pointer matrix 로 읽힌다.
-- 이 matrix 의 non-null slot 은 `0x1844B0..0x1847F7` bytecode 를 가리킨다.
+- `0x1844B0..0x1847F7` 구간에는 `FF` 종료 경로 시퀀스가 밀집해 있다.
+- `0x184888` 구간은 `10-entry` route block pointer table 이며, 각 block 은 다시 `10-slot` pointer matrix 로 읽힌다.
+- 이 matrix 의 non-null slot 은 `0x1844B0..0x1847F7` 시퀀스를 가리킨다.
+- 모든 block 은 자기 자신의 slot 하나만 `null` 이다. 즉 `block n -> slot n` 패턴이 고정이다.
+- route 시퀀스는 `FF` 를 제외하면 현재 `0..12` 값만 사용한다.
 - `0x184820` 구간은 `13 * (x, y)` node position pair table 후보다.
 - location record `field1/field2` 와 `0x184820` node pair 앞 `10`개는 `8 / 10` 완전 일치, `2 / 10` 작은 delta 패턴을 보인다.
 - `0x184950` 구간에는 `10 * (x, y)` label position pair 후보가 있다.
-- `0x1849A0` 구간에는 `13-entry` Thumb handler pointer table 이 있다.
+- `0x1849A0` 구간에는 `13-entry` Thumb handler pointer table 이 있고, 현재는 위 `13-node` 축과 정렬될 가능성을 우선 둔다.
 - `0x1849D4` 구간에는 `(index, 0x3E1..0x3EF)` 형태의 `7-entry` special pair table 후보가 있다.
 - `0x17CE98` 부근은 청크 디스크립터보다 주소 배열에 더 가깝다.
 - `0x17785C` 레지스트리는 `0x03BC` / `0x0414` Thumb helper 로 직접 접근되는 것이 확인되었다.
@@ -106,8 +108,9 @@
 - 또한 현재 관찰된 generic hub accessor 사용은 모든 registry 에 고르게 퍼져 있지 않다. direct `0x0002CC` 는 `Registry A` 와 `Registry C` 에만 고정으로 붙어 있다.
 - `selector=0` direct 사용이 안 보이는 점은 `0x17785C` 전용 helper (`0x03BC`, `0x0414`) 가 이미 널리 쓰인다는 점으로 어느 정도 설명된다.
 - 그리고 `Registry B` 역시 실제로는 `0x17C384` 원본 base 가 아니라 `0x183D50` 미러 테이블과 `0x068DF8` 공용 helper family 쪽에서 소비되는 것으로 보인다.
-- 그리고 `0x184220` tail 은 단순한 문자열 꼬리가 아니라, `order table + location record table + route bytecode/handler bundle` 까지 이어지는 구조다.
-- 따라서 이제 미해결점은 "Registry B 에 concrete access route 가 있는가"가 아니라, "`field0/field3/field4` 의미", "`0x184420` route pair table 과 bytecode matrix 의 인덱스 규칙", "`0x1849A0` handler / `0x1849D4` special pair 가 location/node 구조와 어떻게 묶이는가"로 바뀌었다.
+- 그리고 `0x184220` tail 은 단순한 문자열 꼬리가 아니라, `order table + location record table + route path matrix + node/handler bundle` 까지 이어지는 구조다.
+- 특히 `0x184888` 경로는 opcode script 보다 `13-node` 기반 path matrix 로 보는 해석이 더 강하다.
+- 따라서 이제 미해결점은 "Registry B 에 concrete access route 가 있는가"가 아니라, "`field0/field3/field4` 의미", "`0x184420` pair table 이 path matrix 와 어떻게 묶이는가", "`0x1849D4` special pair 가 어떤 event/script/message 축을 대표하는가"로 바뀌었다.
 
 ## 근거 문서
 
@@ -117,7 +120,7 @@
 ## 다음 할 일
 
 1. `field0` / `field3` / `field4` 의미 확인
-2. `0x184420` route pair table 과 `0x184888` route script block table 인덱스 규칙 확인
+2. `0x184420` pair table 과 `0x184888` path matrix 인덱스 규칙 확인
 3. `0x093D` 와 `0x094B` binary table 이 각각 어떤 게임 데이터 분류를 담는지 분리
 4. 왜 `0x17C1C0` 이 상위 허브와 다른 레이아웃을 유지하는지 설명할 구조 찾기
 5. 겹치는 엔트리의 관계를 부모/자식/메타데이터 관점에서 분류
@@ -127,33 +130,5 @@
 
 ## 진행 로그
 
-### 2026-05-08
-
-- 평문 `cp932 + 00` 문자열 존재 확인
-- 절대 포인터가 직접 잡히는 뱅크와 잡히지 않는 뱅크를 구분
-- `0x0B` 제어 코드 존재 확인
-- `0x3D2036` 전투 뱅크가 순차적 이름/설명 목록 구조임을 확인
-- `0x3D327E` 능력 뱅크가 순차적 결합 문자열 목록 구조임을 확인
-- 전각 공백 때문에 추출 누락이 생기던 필터 문제를 수정
-- `inspect-chunk-table` 로 `0x17C1C0` 테이블이 `length + pointer` 형식임을 확인
-- 같은 테이블 엔트리들이 서로 겹친다는 점을 확인
-- `0x076530` 부근 포인터 허브와 그 아래 `pointer-length` 상위 레지스트리 범위를 확인
-- `0x17C1C0` 이 주변 공통 레지스트리와 다른 예외 레이아웃임을 확인
-- `find-thumb-bl` 기능으로 `0x17785C` 레지스트리 accessor 호출자들을 정리
-- `0x17CE0` 가 32열 halfword 목적지 계산 helper 임을 확인
-- `0x17EB4` / `0x017ED8` / `0x017EEC` 경로가 `0x17785C` 엔트리를 DMA3 로 복사하는 그래픽 리소스 로더임을 확인
-- `0x007578` / `0x007760` / `0x007824` 단독 accessor 경로가 각각 `0x094B` / `0x093D` / `0x093E` 고정 index 리소스로 이어진다는 점을 확인
-- `0x3D2D60` 재료 뱅크 앞쪽에 `7-byte` 레코드 디렉터리가 있고, 뒤쪽 텍스트는 그 상대 오프셋으로 연결된다는 점을 확인
-- `0x076530` 허브가 `0x0002C0` literal 을 통해 `0x000290` helper 에서 직접 쓰이며, `0x0002CC` / `0x000304` generic registry accessor 의 기반이라는 점을 확인
-- direct `0x0002CC` 호출들이 `selector=1` 과 `3` 두 군집으로 갈리고, `0x000304` 는 `0x00033C` wrapper 내부 길이 조회로만 보인다는 점을 확인
-- `0x17C7E4` 전용 helper 는 `0x03E4` 가 아니라 `0x03E8` 이며, BL caller `3`개와 `pointer accessor` 패턴이 실제로 확인된다는 점을 확인
-- `Registry B` 원본 테이블이 `0x183D50` 에 완전히 같은 미러 테이블로 한 번 더 저장되며, 이 쪽이 실제 live access path 로 보인다는 점을 확인
-- `0x068DF8` helper 가 `0x183D50` 엔트리 선두의 `ZP` magic 을 검사해 decode 또는 raw fallback 으로 분기하고, BL caller `38`개를 가진다는 점을 확인
-- `0x068DF8` caller 들이 fixed index 경로와 descriptor/global 기반 동적 index 경로로 나뉜다는 점을 확인
-- `0x1840F8..0x1841E7` 구간이 `15 * 16-byte` 타일 companion descriptor 배열이며, Registry B index 와 VRAM 목적지를 함께 담는다는 점을 확인
-- `0x1841E8..0x18421F` 구간이 `7 * 8-byte` palette companion descriptor 배열이며, Registry B index 와 palette RAM 목적지를 함께 담는다는 점을 확인
-- `0x184220` 이후부터는 별도 metadata 와 문자열 tail 이 섞이기 시작한다는 점을 확인
-- `0x184220..0x184244` 구간이 `10-entry` permutation/order table 이라는 점을 확인
-- `0x184248..0x1843FF` 구간이 `10 * 0x2C` fixed-size location record table 이며, 이름은 `+0x14` 의 `0x18-byte` 필드에 들어 있다는 점을 확인
-- `0x184420..0x1844AF` 구간이 `18 * (u32, u32)` pair table 이고, `0x184888` 이 `10-entry` route script block table 이라는 점을 확인
-- `0x1844B0..0x1847F7` route bytecode region 과 `0x1849A0` handler table, `0x1849D4` special pair table 후보를 함께 확인
+- 세부 실험 이력은 [experiment_log.md](/Users/user/test/analysis/experiment_log.md) 를 본다.
+- 이 문서는 활성 트랙 문서이므로, 중복 로그보다 **현재 구조 해석과 다음 질문** 위주로 유지한다.
