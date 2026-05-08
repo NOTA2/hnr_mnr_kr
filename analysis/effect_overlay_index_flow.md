@@ -78,3 +78,14 @@
 - 이 8개 accessor 는 공통 descriptor 의 halfword field `+0x04, +0x06, +0x08, +0x0A, +0x0C, +0x0E, +0x10, +0x12` 에서 각각 low 10-bit 값을 읽는다.
 - 따라서 현재 가장 강한 해석은 **descriptor field selector 역할을 하는 3-bit variant index** 다.
 - 현재 `0x184A0C` row 에서 실제 사용된 값은 `0` 과 `6` 뿐이며, row `2` 만 `6` 을 쓴다.
+
+`word1` 의 low nibble 에 대해서도 아래까지는 확인됐다.
+
+- `0x02B96C` 는 두 번째 인자를 `& 0x0F` 로 제한한 뒤 `0x03CA68` 에 전달한다.
+- `0x03CA68` 은 `0x182530` 16-entry Thumb function pointer table 로 dispatch 한다.
+- table entry `0..3` 은 각각 `0x03CAC0`, `0x03CB3C`, `0x03CBB8`, `0x03CC34` 로 이어진다.
+- 이 4개 accessor 는 `*(0x03001450) + 0x270/0x274` descriptor family 에서 halfword field `+0x02, +0x04, +0x06, +0x08` low 10-bit 를 읽는다.
+- table entry `4..15` 는 모두 `0x03CCB0` fallback accessor 로 이어진다.
+- fallback accessor 는 같은 descriptor 의 field `+0x00` low 8-bit 를 base 로 읽고, `0x03CA68` 복귀 후 `+ (nibble - 4)` 보정을 받는다.
+- 따라서 현재 가장 안전한 해석은 `word1 low nibble` 이 **descriptor family 내부 field / slot selector** 라는 것이다.
+- 현재 effect/overlay row 에서 실제 사용된 low nibble 은 `0, 1, 4, 8, 14` 다.

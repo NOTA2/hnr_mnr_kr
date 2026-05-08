@@ -559,3 +559,20 @@
   - 현재 `0x184A0C` row 에서 실제 쓰이는 `word3` 값은 `0` 과 `6` 뿐이며, row `2` 만 `6` 을 사용한다.
 - 판정: `성공`
 - 교훈: `word3` 은 frame 번호처럼 독립 의미를 가진 값보다, 공통 descriptor 안의 **필드 선택축** 으로 보는 편이 훨씬 안전하다. 다음은 이 descriptor 를 고르는 `word1 low nibble` 과 `word2` 의미를 좁히는 것이 가장 효율적이다.
+
+### 실험 48
+
+- 가설: `0x184A0C` row 의 `word1 low nibble` 은 단순 플래그가 아니라, `0x03CA68` 이 사용하는 descriptor family 내부 field / slot selector 일 수 있다.
+- 시도:
+  - `0x182530` table 을 raw word 로 덤프해 `word1 & 0x0F` 가 어떤 엔트리로 dispatch 되는지 확인했다.
+  - `0x03CA68` 본체와 table 이 가리키는 `0x03CAC0`, `0x03CB3C`, `0x03CBB8`, `0x03CC34`, `0x03CCB0` 쪽을 Thumb 슬라이스로 다시 읽었다.
+  - 현재 `0x184A0C` row 들의 `word1 low nibble` 분포도 다시 집계했다.
+- 결과:
+  - `0x182530` 은 16-entry Thumb function pointer table 이다.
+  - entry `0..3` 은 각각 `0x03CAC0`, `0x03CB3C`, `0x03CBB8`, `0x03CC34` 로 이어지고, `*(0x03001450) + 0x270/0x274` descriptor family 의 halfword field `+0x02, +0x04, +0x06, +0x08` low 10-bit 를 읽는다.
+  - entry `4..15` 는 모두 `0x03CCB0` fallback accessor 로 모인다.
+  - fallback accessor 는 같은 descriptor 의 field `+0x00` low 8-bit 를 base 로 읽고, `0x03CA68` 복귀 후 `+ (nibble - 4)` 보정을 받아 최종 값을 만든다.
+  - 따라서 `word1 low nibble` 은 registry family 자체보다, **하나의 descriptor family 안에서 어떤 field / slot 을 고를지 정하는 축** 으로 보는 해석이 가장 강하다.
+  - 현재 effect/overlay row 의 실제 low nibble 값은 `0, 1, 4, 8, 14` 이다.
+- 판정: `성공`
+- 교훈: `word1` 은 16가지 완전 독립 타입보다, `0..3` direct field + `4..15` shared range selector 구조로 보는 편이 훨씬 자연스럽다. 다음은 `word2` 와 `word1` 상위 비트를 좁히는 것이 가장 효율적이다.
