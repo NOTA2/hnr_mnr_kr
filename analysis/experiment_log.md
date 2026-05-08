@@ -353,3 +353,19 @@
   - `0x184220` 이후에는 다른 metadata 와 문자열이 이어져, 전체 `0x1840E8..` 영역이 uniform struct 는 아니라는 경계도 확인되었다.
 - 판정: `성공`
 - 교훈: 미러 테이블 뒤를 한 덩어리로 취급하지 말고, 최소한 `tile descriptor array`, `palette descriptor array`, `metadata/string tail` 로 나눠서 추적해야 한다.
+
+### 실험 35
+
+- 가설: `0x184220` 이후 tail 은 잡다한 문자열 뭉치가 아니라, order table 과 fixed-size location record table 로 이어질 수 있다.
+- 시도:
+  - `location_texts.json` 의 지역명 오프셋 간격을 비교해 record stride 후보를 확인했다.
+  - `0x184220..0x1843FF` raw 값을 직접 읽어 `u32` 필드와 name field 경계를 재구성했다.
+  - `find-pointers` 로 `0x184248` record base 와 `0x18425C` first name field 의 direct ref 수를 비교했다.
+- 결과:
+  - `0x184220..0x184244` 는 `3, 4, 0, 2, 7, 9, 5, 1, 6, 8` 값의 `10-entry` permutation/order table 로 보인다.
+  - `0x184248..0x1843FF` 는 `10 * 0x2C` fixed-size location record table 로 읽힌다.
+  - 각 row 는 `5 * u32 metadata + 0x18-byte name field` 구조로 보이며, 이름은 row 시작 `+0x14` 에 들어 있다.
+  - 기존 `0x18425C` 지역명 문자열은 첫 location record (`0x184248`) 의 name field 로 재해석되었다.
+  - direct ref 는 `0x184248 = 12`, `0x18425C = 4` 로 확인되어, 실제 소비 단위는 문자열보다 record table 일 가능성이 높다.
+- 판정: `성공`
+- 교훈: 이미 문자열이 추출되었다고 해서 그 구간을 곧바로 standalone text bank 로 확정하면 안 된다. fixed-size record 안의 name field 일 수 있으므로, stride 와 base pointer 를 함께 확인해야 한다.

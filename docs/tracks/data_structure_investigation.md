@@ -56,6 +56,10 @@
 - `0x1840F8..0x1841E7` 구간에는 `15`개의 `16-byte` companion descriptor 가 존재하며, 현재 해석은 `destination_vram + registry_b_index + dim_a + dim_b` 다.
 - `0x1841E8..0x18421F` 구간에는 `7`개의 `8-byte` companion descriptor 가 존재하며, 현재 해석은 `registry_b_index + destination_palette_ram` 다.
 - `0x184220` 이후에는 별도 metadata 와 문자열이 섞이기 시작하므로, 이 전체 구간을 하나의 struct family 로 다시 묶으면 안 된다.
+- `0x184220..0x184244` 구간에는 `3, 4, 0, 2, 7, 9, 5, 1, 6, 8` 값의 `10-entry` permutation/order table 이 있다.
+- `0x184248..0x1843FF` 구간은 `10 * 0x2C` fixed-size location record table 이며, 각 row 는 `5 * u32 metadata + 0x18-byte name field` 구조로 읽힌다.
+- 첫 name field `0x18425C` 는 기존에 문자열 뱅크로 추출됐지만, 실제로는 첫 location record (`0x184248`) 의 `+0x14` 필드다.
+- `0x184248` record base direct ref 는 `12`개, `0x18425C` first name field direct ref 는 `4`개가 확인되었다.
 - `0x17CE98` 부근은 청크 디스크립터보다 주소 배열에 더 가깝다.
 - `0x17785C` 레지스트리는 `0x03BC` / `0x0414` Thumb helper 로 직접 접근되는 것이 확인되었다.
 - 수동 해석 기준으로 `0x03BC` 는 포인터 필드, `0x0414` 는 길이 필드 accessor 에 가깝다.
@@ -93,7 +97,8 @@
 - 또한 현재 관찰된 generic hub accessor 사용은 모든 registry 에 고르게 퍼져 있지 않다. direct `0x0002CC` 는 `Registry A` 와 `Registry C` 에만 고정으로 붙어 있다.
 - `selector=0` direct 사용이 안 보이는 점은 `0x17785C` 전용 helper (`0x03BC`, `0x0414`) 가 이미 널리 쓰인다는 점으로 어느 정도 설명된다.
 - 그리고 `Registry B` 역시 실제로는 `0x17C384` 원본 base 가 아니라 `0x183D50` 미러 테이블과 `0x068DF8` 공용 helper family 쪽에서 소비되는 것으로 보인다.
-- 따라서 이제 미해결점은 "Registry B 에 concrete access route 가 있는가"가 아니라, "caller 들이 어떤 index 군과 companion descriptor 를 쓰는가"와 "`0x184220` 이후 tail 이 어떤 상위 descriptor 에 묶이는가"로 바뀌었다.
+- 그리고 `0x184220` tail 은 단순한 문자열 꼬리가 아니라, 적어도 `order table + location record table` 까지 이어지는 구조다.
+- 따라서 이제 미해결점은 "Registry B 에 concrete access route 가 있는가"가 아니라, "caller 들이 어떤 index 군과 companion descriptor 를 쓰는가", "`0x184248` location record field 들이 무엇을 의미하는가", "`0x08BFD0` / `0x08C060` / `0x08C1D0` 같은 상위 bundle 이 이 구조를 어떻게 묶는가"로 바뀌었다.
 
 ## 근거 문서
 
@@ -102,8 +107,8 @@
 
 ## 다음 할 일
 
-1. `0x184220` 이후 tail metadata/string block 구조 확인
-2. `0x08BFF8` / `0x08C0A8` / `0x08C210` data descriptor 와 `0x183D50` / `0x1840E8` / `0x1841E8` 연결 구조 확인
+1. `0x184248` location record field 의미 확인
+2. `0x08BFD0` / `0x08C060` / `0x08C1D0` data descriptor 와 `0x184248` / `0x1840F8` / `0x1841E8` 연결 구조 확인
 3. `0x093D` 와 `0x094B` binary table 이 각각 어떤 게임 데이터 분류를 담는지 분리
 4. 왜 `0x17C1C0` 이 상위 허브와 다른 레이아웃을 유지하는지 설명할 구조 찾기
 5. 겹치는 엔트리의 관계를 부모/자식/메타데이터 관점에서 분류
@@ -139,3 +144,5 @@
 - `0x1840F8..0x1841E7` 구간이 `15 * 16-byte` 타일 companion descriptor 배열이며, Registry B index 와 VRAM 목적지를 함께 담는다는 점을 확인
 - `0x1841E8..0x18421F` 구간이 `7 * 8-byte` palette companion descriptor 배열이며, Registry B index 와 palette RAM 목적지를 함께 담는다는 점을 확인
 - `0x184220` 이후부터는 별도 metadata 와 문자열 tail 이 섞이기 시작한다는 점을 확인
+- `0x184220..0x184244` 구간이 `10-entry` permutation/order table 이라는 점을 확인
+- `0x184248..0x1843FF` 구간이 `10 * 0x2C` fixed-size location record table 이며, 이름은 `+0x14` 의 `0x18-byte` 필드에 들어 있다는 점을 확인

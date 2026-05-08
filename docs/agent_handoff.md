@@ -42,12 +42,17 @@
 - `0x1841E8..0x18421F` 구간에는 `7`개의 `8-byte` companion descriptor 가 있으며, 현재 해석은 `registry_b_index + destination_palette_ram` 다.
 - 이 `7`개 palette descriptor 는 Registry B index `0x61`, `0x60`, `0x5F`, `0x5C`, `0x5D`, `0x5E`, `0x70` 를 사용한다.
 - `0x184220` 이후에는 다른 metadata 와 문자열이 섞이기 시작하므로, `0x1840E8..` 전체를 한 가지 uniform struct 로 다시 가정하면 안 된다.
+- `0x184220..0x184244` 구간은 `3, 4, 0, 2, 7, 9, 5, 1, 6, 8` 값으로 이루어진 `10`개 permutation/order table 이다.
+- `0x184248..0x1843FF` 구간은 `10 * 0x2C` fixed-size location record table 로 읽힌다.
+- 각 location record 는 `5 * u32` metadata 뒤에 `0x18-byte` 이름 필드가 붙는 형태이며, 이름 필드는 record 시작 `+0x14` 에 있다.
+- 기존 `0x18425C` 지역명 뱅크는 독립 문자열 뱅크라기보다, 이 location record table 첫 row 의 name field (`0x184248 + 0x14`) 로 보는 편이 맞다.
+- 첫 name field `0x18425C` direct ref 는 `4`개뿐이지만, record base `0x184248` direct ref 는 `12`개가 확인된다. 즉 실제 소비 단위는 문자열보다 record table 쪽일 가능성이 더 높다.
 - 따라서 `selector=0` direct generic caller 부재는 `0x17785C` 의 전용 helper (`0x03BC`, `0x0414`) 로 설명 가능하고, `Registry B` 역시 dead registry 가 아니라 **미러 테이블 + ZP-aware helper family** 경로로 접근되는 live asset bank 로 보는 편이 맞다.
 - 일부 메뉴/진행 메시지는 일반 `00` 종단 평문이 아니라 명령 스트림 내부 문자열이다.
 
 ## 다음 한 단계 후보
 
-1. `0x184220` 이후 tail metadata/string block 과 `0x08BFF8` / `0x08C0A8` / `0x08C210` data descriptor ref 를 분리하기
+1. `0x184248` location record 의 `field0..field4` 의미와 `0x08BFD0` / `0x08C060` / `0x08C1D0` descriptor bundle 관계를 분리하기
 2. `0x093D` / `0x094B` binary resource 의미를 더 분리하기
 3. 대사/이벤트 평문 구간을 추가로 찾기
 
@@ -65,6 +70,8 @@
 - accessor 함수 메모: [registry_accessor_helpers.md](/Users/user/test/analysis/registry_accessor_helpers.md)
 - Registry B 미러 산출물: [registry_b_mirror_summary.json](/Users/user/test/analysis/registry_b_mirror_summary.json)
 - Registry B companion descriptor 산출물: [registry_b_companion_descriptors.json](/Users/user/test/analysis/registry_b_companion_descriptors.json)
+- location record 요약: [location_record_table.md](/Users/user/test/analysis/location_record_table.md)
+- location record 산출물: [location_record_table.json](/Users/user/test/analysis/location_record_table.json)
 - 리소스 청크 예외 테이블: [resource_chunk_directory.md](/Users/user/test/analysis/resource_chunk_directory.md)
 - 전체 참고 맵: [reference_map.md](/Users/user/test/docs/reference_map.md)
 

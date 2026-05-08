@@ -39,6 +39,10 @@
 31. `0x1840F8..0x1841E7` 구간은 `15 * 16-byte` companion descriptor 배열로 읽히며, 각 row 는 `destination_vram + registry_b_index + dim_a + dim_b` 패턴을 가진다.
 32. `0x1841E8..0x18421F` 구간은 `7 * 8-byte` companion descriptor 배열로 읽히며, 각 row 는 `registry_b_index + destination_palette_ram` 패턴을 가진다.
 33. `0x184220` 이후에는 다른 metadata 와 문자열이 섞이기 시작하므로, `0x1840E8..` 전체를 한 가지 uniform struct 로 다시 다루면 안 된다.
+34. `0x184220..0x184244` 구간에는 `3, 4, 0, 2, 7, 9, 5, 1, 6, 8` 값의 `10-entry` permutation/order table 이 있다.
+35. `0x184248..0x1843FF` 구간은 `10 * 0x2C` fixed-size location record table 이며, 각 row 는 `5 * u32 metadata + 0x18-byte name field` 구조로 읽힌다.
+36. 기존 `0x18425C` 지역명 문자열은 독립 뱅크라기보다 첫 location record 의 name field (`record + 0x14`) 다.
+37. `0x184248` record base direct ref 는 `12`개, `0x18425C` 첫 name field direct ref 는 `4`개가 확인되므로, 실제 소비 단위는 문자열보다 record table 쪽일 가능성이 높다.
 
 ## 지금 반복하면 안 되는 가정
 
@@ -51,11 +55,12 @@
 7. `0x076530` 허브의 모든 포인터가 같은 helper family 에서 직접 사용된다고 가정하지 않는다.
 8. `0x0002CC` generic accessor 가 모든 registry selector 를 비슷한 빈도로 쓸 거라고 가정하지 않는다.
 9. `0x1840E8..` 전체를 한 종류의 descriptor 배열이라고 가정하지 않는다.
+10. `0x18425C` 지역명 구간을 순수 standalone string bank 라고 가정하지 않는다.
 
 ## 지금 가장 유력한 다음 질문
 
-1. `0x184220` 이후 tail block 은 정확히 어디서 끝나고, 어떤 metadata/string 구조로 갈라지는가
-2. `0x08BFF8` / `0x08C0A8` / `0x08C210` data descriptor 는 `0x183D50`, `0x1840E8`, `0x1841E8` 을 어떻게 묶는가
+1. `0x184248` location record 의 `field0..field4` 는 각각 어떤 게임 의미를 가지는가
+2. `0x08BFD0` / `0x08C060` / `0x08C1D0` descriptor bundle 은 `0x184248`, `0x1840F8`, `0x1841E8` 을 어떻게 묶는가
 3. `0x093D` binary table 은 `0x093E` 재료 문자열 뱅크와 어떤 관계인가
 4. `0x094B` / `0x12DF8(0x63)` 경로는 어떤 게임 데이터 분류를 읽는가
 

@@ -12,7 +12,7 @@
 - 현재 가장 안전한 분리는 아래 셋이다.
   1. `0x1840F8..0x1841E7`: 타일 companion descriptor 배열
   2. `0x1841E8..0x18421F`: palette companion descriptor 배열
-  3. `0x184220` 이후: 다른 metadata 와 문자열 tail
+  3. `0x184220` 이후: location order/record table 로 이어지는 metadata/string tail
 
 ## 타일 descriptor 배열
 
@@ -57,6 +57,14 @@
   - `0x06D158`
   - `0x08BFF8`
   - `0x08C210`
+
+## 이어지는 구조
+
+- `0x184220..0x184244`:
+  - `10-entry` order/permutation table
+- `0x184248..0x1843FF`:
+  - `10 * 0x2C` fixed-size location record table
+  - 자세한 내용은 [location_record_table.md](/Users/user/test/analysis/location_record_table.md) 참고
 
 ## 주의할 점
 

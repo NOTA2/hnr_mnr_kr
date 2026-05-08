@@ -35,8 +35,9 @@
 
 ### 맵/지역명 문자열
 
-- 범위: `0x18425C` ~ `0x1843F3`
+- 범위: `0x184248` ~ `0x1843FF` (`10 * 0x2C` fixed-size location record)
 - 산출물: [location_texts.json](/Users/user/test/analysis/location_texts.json)
+- 구조 산출물: [location_record_table.json](/Users/user/test/analysis/location_record_table.json)
 
 예시:
 
@@ -103,7 +104,11 @@
 
 ## 추가 관찰
 
-- `0x18425C` 지역명 뱅크는 일반적인 GBA 절대 포인터가 실제로 확인되었다.
+- `0x18425C` 지역명 문자열은 일반적인 GBA 절대 포인터가 실제로 확인되었다.
+- 다만 이 구간은 순수 standalone string bank 가 아니라, `0x184248..0x1843FF` 의 `10 * 0x2C` fixed-size location record table 안쪽 name field 추출본으로 보는 편이 맞다.
+- 각 location record 는 `5 * u32 metadata + 0x18-byte name field` 구조로 읽히며, 첫 name field 가 `0x18425C` 다.
+- `0x184220..0x184244` 앞쪽에는 `3, 4, 0, 2, 7, 9, 5, 1, 6, 8` 값의 `10-entry` order table 도 붙어 있다.
+- `0x184248` record base direct ref 는 `12`개, `0x18425C` first name field direct ref 는 `4`개가 확인되어, 실제 소비 단위는 문자열보다 record table 쪽일 가능성이 높다.
 - `0x3D2059` 와 `0x3D329C` 대형 텍스트 뱅크는 같은 방식의 절대 포인터가 바로 잡히지 않았다.
 - 따라서 `0x3Dxxxx` 영역은 직접 포인터 대신 인덱스/구조체/상대 오프셋/압축 해제 후 참조 같은 별도 구조를 쓸 가능성이 있다.
 - `0x08B62C` UI 기술 텍스트는 `0x3D2059` 전투 기술 텍스트와 일부 이름이 겹친다.
@@ -148,7 +153,7 @@
 
 ## 다음 우선순위
 
-1. `0x184220` 이후 tail metadata/string block 과 `0x08BFF8` / `0x08C0A8` / `0x08C210` descriptor ref 패턴을 확인한다.
+1. `0x184248` location record field 의미와 `0x08BFD0` / `0x08C060` / `0x08C1D0` descriptor bundle 관계를 확인한다.
 2. `0x093D` / `0x094B` binary table 이 어떤 게임 데이터 분류인지 확인한다.
 3. 폰트 타일과 문자 폭 테이블을 찾아 한글 글리프 삽입 준비를 시작한다.
 4. 수정된 추출본을 기준으로 번역 대상 JSON을 정리한다.

@@ -17,7 +17,7 @@
 
 ## 현재 최우선 과제
 
-1. `0x184220` 이후 tail metadata/string block 과 `0x08BFF8` / `0x08C0A8` / `0x08C210` descriptor ref 분리
+1. `0x184248` location record field 의미와 `0x08BFD0` / `0x08C060` / `0x08C1D0` descriptor bundle 관계 분리
 2. `0x093D` / `0x093E` / `0x094B` 고정 인덱스 리소스와 주변 helper 의미를 더 분리
 3. 대사/이벤트 평문 구간 추가 탐색
 4. 폰트 조사로 넘어갈 수 있을 만큼 텍스트 구조를 더 분리
@@ -54,6 +54,8 @@
 - `0x1840F8..0x1841E7` 이 `15 * 16-byte` companion descriptor 배열이며, `destination_vram + registry_b_index + 2개 치수값` 패턴으로 읽힌다는 점 확인
 - `0x1841E8..0x18421F` 이 `7 * 8-byte` palette companion descriptor 배열이며, `registry_b_index + destination_palette_ram` 패턴으로 읽힌다는 점 확인
 - `0x184220` 이후에는 다른 metadata 와 문자열이 섞여 시작하므로, `0x1840E8..` 전체를 uniform struct 로 보면 안 된다는 경계 확인
+- `0x184220..0x184244` 이 `10-entry` permutation/order table 이며, 그 뒤 `0x184248..0x1843FF` 가 `10 * 0x2C` fixed-size location record table 이라는 점 확인
+- 기존 `location_texts.json` 은 standalone string bank 라기보다 location record table 내부 name field 추출본이라는 점 확인
 - 세이브/진행 메뉴 텍스트와 크레딧 텍스트 추출
 
 ## 작업 후 최소 갱신 규칙

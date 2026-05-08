@@ -141,6 +141,7 @@
 - 중요한 경계:
   - `0x184220` 이후에는 다른 metadata 와 문자열이 이어지기 시작한다.
   - 따라서 `0x1840E8..` 전체를 uniform struct 로 다루면 안 된다.
+  - 현재 확인된 바로는 이 tail 이 곧바로 `10-entry` location order table (`0x184220..0x184244`) 과 `10 * 0x2C` location record table (`0x184248..0x1843FF`) 로 이어진다.
 
 ### Registry C
 
@@ -188,6 +189,6 @@
 
 ## 다음 유력 작업
 
-1. `0x184220` 이후 tail metadata/string block 과 `0x08BFF8` / `0x08C0A8` / `0x08C210` data descriptor ref 패턴 분류
+1. `0x184248` location record field 의미와 `0x08BFD0` / `0x08C060` / `0x08C1D0` data descriptor ref 패턴 분류
 2. `0x17C1C0` 이 왜 이 공통 레지스트리 묶음 밖에 있는지 설명할 상위 데이터 찾기
 3. `0x093D` / `0x094B` 고정 인덱스 binary resource 의미 분리
