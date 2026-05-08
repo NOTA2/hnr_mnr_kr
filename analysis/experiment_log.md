@@ -222,6 +222,19 @@
 
 ### 실험 26
 
+- 가설: `0x017ED8` / `0x017EEC` 호출부는 같은 index 에 대해 `0x03BC` / `0x0414` 를 조회한 뒤 실제 리소스 로드나 복사를 수행하는 공용 루틴일 수 있다.
+- 시도:
+  - `capstone` 이 없는 환경이라, 원본 ROM halfword 를 임시 ARMv4T 오브젝트로 재조립한 뒤 `clang --target=armv4t-none-eabi` + `objdump --triple=thumbv4t-none-eabi` 로 `0x17EB4`, `0x17CE0` 주변을 디스어셈블했다.
+  - 같은 결과에서 `0x03BC`, `0x0414`, `0x17CE0` 호출 순서와 `0x040000D4` / `0x040000D8` / `0x040000DC` 리터럴 사용 여부를 확인했다.
+- 결과:
+  - `0x17CE0` 는 `(base, x, y)` 를 받아 `base + 2 * (x + y * 32)` 를 계산하는 helper 로 해석되었다.
+  - `0x17EB4` 는 같은 16비트 index 에 대해 `0x03BC` 로 source pointer, `0x0414` 로 byte length 를 읽는다.
+  - 길이가 0이 아니면 `0x17CE0` 로 목적지 주소를 계산하고, DMA3 busy bit 를 폴링한 뒤 `0x040000D4` / `0x040000D8` / `0x040000DC` 에 source/destination/`(length >> 1) | 0x80000000` 를 써서 halfword 복사를 시작한다.
+- 판정: `성공`
+- 교훈: `0x17785C` 의 `pointer+length` 경로는 적어도 이 호출부에서는 텍스트 로더가 아니라 그래픽/타일맵 리소스 DMA 경로다. 다음 accessor 해석은 `0x03BC` 단독 호출부를 우선 봐야 한다.
+
+### 실험 27
+
 - 가설: 세션 시작 때 긴 문서와 전체 로그를 매번 읽는 구조는 토큰 낭비가 크고, 실제 필요한 문서만 읽도록 라우팅을 분리하는 편이 더 효율적이다.
 - 시도: 시작용 요약 문서 `session_start.md`, 현재 제약 요약 `current_constraints.md`, 작업별 참고 맵 `reference_map.md` 를 만들고, 총괄/핸드오프/반복 방지 문서를 더 짧게 압축했다.
 - 결과: 매 세션의 기본 읽기 경로를 `session_start -> agent_handoff -> current_constraints -> 활성 트랙 문서` 로 줄일 수 있게 되었다.
