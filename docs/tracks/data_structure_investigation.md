@@ -70,11 +70,15 @@
 - location record `field1/field2` 와 `0x184820` node pair 앞 `10`개는 `8 / 10` 완전 일치, `2 / 10` 작은 delta 패턴을 보인다.
 - 코드 기준으로 `field1/field2` 는 location icon / hotspot 사각형의 좌상단 좌표로 보는 편이 더 정확하다.
 - `field0`, `field3`, `field4` 는 helper `0x63000` / `0x63424` 로 직접 전달되는 draw 파라미터다.
-- 현재 가장 안전한 해석은 `field0 = asset/icon family ID 후보`, `field3 = draw subtype/mode 후보`, `field4 = graphic/tile-base variant 후보` 다.
+- caller/helper 내부 wiring 기준으로 보면 `field4` 는 `r3` 를 통해 attr2 low 10-bit tile index 쪽을, `field3` 는 stack arg 를 통해 attr2 high-byte 상위 nibble 쪽을 조정한다.
+- 따라서 현재 가장 안전한 해석은 `field0 = asset/icon family ID 후보`, `field3 = palette bank / draw subtype 후보`, `field4 = graphic/tile-base variant 후보` 다.
 - `0x184950` 구간에는 `10 * (x, y)` label position pair 후보가 있다.
 - `0x1849A0` 구간에는 `13-entry` Thumb handler pointer table 이 있고, 현재는 위 `13-node` 축과 정렬될 가능성을 우선 둔다.
 - `0x1849D4` 구간은 현재 `(location_index, special event/script/message id)` 의미의 `7-entry` special pair table 로 보는 해석이 가장 강하다.
 - `0x06A838` helper 는 `0x030009A0 + location_index * 4` 플래그를 읽어 활성 여부를 판정하므로, location 활성/비활성은 record field 가 아니라 별도 runtime array 가 맡는다.
+- `0x08BFC8..0x08C2B8` 구간에는 location/world-map bundle table 과 `0x03002Fxx` / `0x03005Fxx` / `0x030060xx` / `0x030009xx` runtime global 을 함께 묶는 dense static constant cluster 가 있다.
+- 이 cluster 안에서 `0x1849A0` handler table 은 사실상 `1`회만 재등장하지만, `0x184248`, `0x1849D4`, `0x184820`, `0x1840F8`, `0x1841E8` 는 여러 번 반복된다.
+- `0x184A0C` numeric tail 도 direct ref (`0x06D070`, `0x08C1FC`) 가 있어, location bundle family 경계를 `0x184A0B` 에서 기계적으로 끊으면 안 된다.
 - `0x17CE98` 부근은 청크 디스크립터보다 주소 배열에 더 가깝다.
 - `0x17785C` 레지스트리는 `0x03BC` / `0x0414` Thumb helper 로 직접 접근되는 것이 확인되었다.
 - 수동 해석 기준으로 `0x03BC` 는 포인터 필드, `0x0414` 는 길이 필드 accessor 에 가깝다.
@@ -113,10 +117,11 @@
 - `selector=0` direct 사용이 안 보이는 점은 `0x17785C` 전용 helper (`0x03BC`, `0x0414`) 가 이미 널리 쓰인다는 점으로 어느 정도 설명된다.
 - 그리고 `Registry B` 역시 실제로는 `0x17C384` 원본 base 가 아니라 `0x183D50` 미러 테이블과 `0x068DF8` 공용 helper family 쪽에서 소비되는 것으로 보인다.
 - 그리고 `0x184220` tail 은 단순한 문자열 꼬리가 아니라, `order table + location record table + hotspot lookup + route path matrix + node/handler bundle` 까지 이어지는 구조다.
+- 여기에 더해, 상위 소비 단위도 개별 table 하나보다 `static constant cluster + runtime global` 묶음일 가능성이 커졌다.
 - 특히 `0x184888` 경로는 opcode script 보다 `13-node` 기반 path matrix 로 보는 해석이 더 강하다.
 - `0x184420` 은 path edge table 이 아니라 hit-test / hotspot id -> location index lookup table 로 보는 편이 맞다.
 - `0x1849D4` 는 단순 숫자쌍이 아니라 location index -> special event/script/message id 매핑으로 읽는 편이 맞다.
-- 따라서 이제 미해결점은 "`field3` exact subtype", "`0x1849A0` handler / `0x06A864` special overlay 관계", "`0x47EB0` / `0x561D4` helper 의미" 쪽으로 더 좁아졌다.
+- 따라서 이제 미해결점은 "`field3` exact palette/subtype 의미", "`0x1849A0` singular cluster slot 소비 경로", "`0x184A0C` numeric tail 의미", "`0x47EB0` / `0x561D4` helper 의미" 쪽으로 더 좁아졌다.
 
 ## 근거 문서
 
@@ -125,14 +130,15 @@
 
 ## 다음 할 일
 
-1. `field3` exact subtype 과 `0x63000` / `0x63424` helper signature 확인
-2. `0x1849A0` handler table 과 `0x06A864` / `0x06D600` special overlay 흐름 분리
-3. `0x47EB0` / `0x561D4` helper 의미 추가 분리
-4. 왜 `0x17C1C0` 이 상위 허브와 다른 레이아웃을 유지하는지 설명할 구조 찾기
-5. 겹치는 엔트리의 관계를 부모/자식/메타데이터 관점에서 분류
-6. `0x3D2036` 전투 기술 뱅크 참조 방식 확인
-7. `0x3D327E` 대형 능력 뱅크 참조 방식 확인
-8. 폰트 조사에 들어가기 전 텍스트 뱅크 유형 분류 확정
+1. `field3` exact palette/subtype 의미 확인
+2. `0x1849A0` handler table singular cluster slot 소비 경로 찾기
+3. `0x184A0C` numeric tail 의미 확인
+4. `0x47EB0` / `0x561D4` helper 의미 추가 분리
+5. 왜 `0x17C1C0` 이 상위 허브와 다른 레이아웃을 유지하는지 설명할 구조 찾기
+6. 겹치는 엔트리의 관계를 부모/자식/메타데이터 관점에서 분류
+7. `0x3D2036` 전투 기술 뱅크 참조 방식 확인
+8. `0x3D327E` 대형 능력 뱅크 참조 방식 확인
+9. 폰트 조사에 들어가기 전 텍스트 뱅크 유형 분류 확정
 
 ## 진행 로그
 

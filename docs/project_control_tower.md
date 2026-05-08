@@ -17,10 +17,10 @@
 
 ## 현재 최우선 과제
 
-1. `field3` exact subtype 과 `0x63000` / `0x63424` helper signature 분리
-2. `0x1849A0` handler table 과 `0x06A864` / `0x06D600` special overlay 흐름 분리
-3. `0x093D` / `0x093E` / `0x094B` 고정 인덱스 리소스와 주변 helper 의미를 더 분리
-4. 대사/이벤트 평문 구간 추가 탐색
+1. `0x1849A0` handler table singular cluster slot 소비 경로 찾기
+2. `0x184A0C` numeric tail 과 `0x06D070` 소비 방식 분리
+3. `field3` exact palette/subtype 의미 추가 분리
+4. `0x093D` / `0x093E` / `0x094B` 고정 인덱스 리소스와 주변 helper 의미를 더 분리
 
 ## 단계 상태
 
@@ -61,8 +61,12 @@
 - route 시퀀스가 `FF` 를 제외하면 `0..12` 값만 사용하므로, opcode script 보다 `13-node` 기반 path matrix 해석이 더 강하다는 점 확인
 - `0x184820` 이 `13 * (x, y)` node position pair table 후보이고, location record `field1/field2` 와 거의 일치하지만, 코드 기준으로는 location icon / hotspot 좌상단 원점과 node anchor 관계로 보는 편이 더 정확하다는 점 확인
 - `field0`, `field3`, `field4` 가 draw helper `0x63000` / `0x63424` 로 직접 전달되는 표시 파라미터라는 점 확인
+- `0x63000` / `0x63424` 내부에서 `field4` 가 sprite attr2 low 10-bit tile index 쪽, `field3` 가 attr2 high-byte 상위 nibble 쪽을 조정한다는 점 확인
 - `0x1849D4` 가 `(location_index, special event/script/message id)` 매핑으로 읽히며, `0x06D5A8` 이 둘째 필드를 runtime 객체로 바꿔 첫 필드 location slot 에 저장한다는 점 확인
 - `0x06A838` helper 가 `0x030009A0 + location_index * 4` 활성 플래그를 읽는다는 점 확인
+- `0x08BFC8..0x08C2B8` 구간에 location/world-map bundle 하위 table 과 runtime global 을 함께 묶는 dense static constant cluster 가 있다는 점 확인
+- `0x1849A0` handler table 은 direct ref 가 `2`건뿐이고, `0x184248` / `0x1849D4` / `0x184820` / `0x1840F8` 등은 같은 cluster 안에서 반복 소비된다는 점 확인
+- `0x184A0C` numeric tail 도 `0x06D070`, `0x08C1FC` live ref 가 있어 tail 경계를 더 보수적으로 잡아야 한다는 점 확인
 - 세이브/진행 메뉴 텍스트와 크레딧 텍스트 추출
 
 ## 작업 후 최소 갱신 규칙

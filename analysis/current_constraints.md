@@ -59,6 +59,11 @@
 51. `0x1849D4` table 은 현재 `(location_index, special event/script/message id)` 로 보는 해석이 가장 강하다.
 52. `0x06D5A8` 루틴은 `0x1849D4` 의 둘째 필드 (`0x3E1..0x3EF`) 를 helper `0x47EB0` 에 넘겨 런타임 값을 얻고, 그 결과를 첫 필드 location index 로 색인되는 배열 슬롯에 저장한다.
 53. `0x06A838` helper 는 `0x030009A0 + location_index * 4` 플래그를 읽어 location 활성 여부를 판정한다. 따라서 활성/비활성은 `field3` 가 아니라 별도 플래그 배열이 맡는다.
+54. `0x069E9C` / `0x06D4A8` caller 기준으로 `field4` 는 `r3`, `field3` 는 stack arg 로 `0x63000` / `0x63424` 에 전달된다.
+55. `0x63000` / `0x63424` 는 near-duplicate sprite/OAM helper pair 로 보이며, `field4` 는 attr2 low 10-bit tile index 계열, `field3` 는 attr2 high-byte 상위 nibble palette/subtype 계열을 조정한다.
+56. `0x08BFC8..0x08C2B8` 구간에는 `0x184248`, `0x18425C`, `0x184420`, `0x184820`, `0x1848B0`, `0x1849A0`, `0x1849D4`, `0x1840F8`, `0x1841E8`, `0x184A0C` 를 반복 참조하는 dense static constant cluster 가 있다.
+57. `0x1849A0` handler table direct ref 는 현재 `0x069E94`, `0x08BFC8` 2건뿐이고, 반대로 `0x184248`, `0x1849D4`, `0x1840F8`, `0x184820` 등은 code literal + static cluster 양쪽에서 반복 참조된다.
+58. `0x184A0C` numeric tail 은 direct ref `0x06D070`, `0x08C1FC` 가 있어, location bundle tail 을 `0x184A0B` 에서 기계적으로 끊으면 안 된다.
 
 ## 지금 반복하면 안 되는 가정
 
@@ -77,15 +82,18 @@
 13. `0x184420` table 을 route graph edge table 이라고 가정하지 않는다. 현재는 hotspot/cell id -> location index lookup 해석이 더 강하다.
 14. `0x1849D4` 를 단순 숫자 쌍이라고 가정하지 않는다. 현재는 location index -> special event/script/message id 매핑 해석이 더 강하다.
 15. `field3` 를 location 활성 플래그라고 가정하지 않는다. 활성 여부는 `0x030009A0` runtime array 가 따로 관리한다.
+16. `0x1849A0` handler table direct ref 가 적다고 해서 dead table 이라고 가정하지 않는다. 현재는 static constant cluster 내부 슬롯일 가능성이 더 높다.
+17. location/world-map bundle tail 을 무조건 `0x184A0B` 에서 끝난다고 가정하지 않는다. `0x184A0C` 이후 numeric tail 도 live ref 가 있다.
 
 ## 지금 가장 유력한 다음 질문
 
-1. `field3` 의 정확한 subtype 의미와 `0x63000` / `0x63424` helper signature 를 더 분리할 수 있는가
-2. `0x1849A0` handler `13`개는 `0x06A864` / `0x06D600` special overlay 흐름에서 어떤 역할을 가지는가
-3. `0x47EB0` 가 `0x3E1..0x3EF` 를 어떤 종류의 런타임 객체로 바꾸는가
-4. `0x561D4` hotspot helper 반환값이 실제 맵 좌표계에서 어떤 단위를 의미하는가
-5. `0x093D` binary table 은 `0x093E` 재료 문자열 뱅크와 어떤 관계인가
-6. `0x094B` / `0x12DF8(0x63)` 경로는 어떤 게임 데이터 분류를 읽는가
+1. `field3` 가 정확히 palette bank 인지, 또는 palette + subtype 복합 값인지 더 좁힐 수 있는가
+2. `0x1849A0` handler table 의 단일 static cluster 슬롯을 실제로 소비하는 코드는 어디인가
+3. `0x184A0C` numeric tail 을 `0x06D070` 이 어떤 의미로 읽는가
+4. `0x47EB0` 가 `0x3E1..0x3EF` 를 어떤 종류의 런타임 객체로 바꾸는가
+5. `0x561D4` hotspot helper 반환값이 실제 맵 좌표계에서 어떤 단위를 의미하는가
+6. `0x093D` binary table 은 `0x093E` 재료 문자열 뱅크와 어떤 관계인가
+7. `0x094B` / `0x12DF8(0x63)` 경로는 어떤 게임 데이터 분류를 읽는가
 
 ## 문서 사용 규칙
 

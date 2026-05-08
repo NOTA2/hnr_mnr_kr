@@ -445,3 +445,32 @@
   - 같은 흐름에서 `0x06A838` helper 는 `0x030009A0 + location_index * 4` 값을 읽어 location 활성 여부를 판정한다.
 - 판정: `성공`
 - 교훈: `special_pair_table` 은 현재 **location index -> special event/script/message id** 매핑으로 보는 편이 가장 강하다. 또한 location 활성/비활성은 record field 가 아니라 별도 runtime array 가 맡는다.
+
+### 실험 41
+
+- 가설: location record `field3` / `field4` 의 정확한 역할은 caller 쪽 값 분포만으로는 부족하고, draw helper 내부에서 어느 sprite bitfield 에 꽂히는지 봐야 더 좁힐 수 있다.
+- 시도:
+  - `0x069E9C`, `0x06D4A8` caller 와 `0x63000`, `0x63424` helper pair 를 ARMv4T 슬라이스로 다시 읽었다.
+  - caller 가 row 의 어느 필드를 register / stack 으로 넘기는지와, helper 가 attr halfword/byte 를 어떤 방식으로 수정하는지 대조했다.
+- 결과:
+  - caller 는 `field4` 를 `r3`, `field3` 를 stack arg 로 넘긴다.
+  - `0x63000` / `0x63424` 는 거의 같은 구조의 sprite/OAM build helper 로 보인다.
+  - helper 내부에서 `r3` (`field4`) 는 sprite attr2 low 10-bit tile index 쪽에 더해진다.
+  - stack arg (`field3`) 는 sprite attr2 high byte 상위 nibble 쪽에 더해진다.
+  - 따라서 현재 최선 해석은 `field4 = tile-base / graphic variant offset`, `field3 = palette bank / draw subtype` 이다.
+- 판정: `성공`
+- 교훈: draw field 는 막연한 metadata 가 아니라, 실제 sprite template bitfield 로 바로 연결된다. 이후에는 값 분포보다 **register/bitfield 연결**을 우선 본다.
+
+### 실험 42
+
+- 가설: location/world-map bundle 하위 table 들은 개별 direct ref 만으로 소비되지 않고, 더 큰 정적 constant cluster 안에서 runtime global 과 함께 재조합될 수 있다.
+- 시도:
+  - `0x184248`, `0x18425C`, `0x184420`, `0x184820`, `0x1848B0`, `0x1849A0`, `0x1849D4`, `0x1840F8`, `0x1841E8`, `0x184A0C` 에 대해 unaligned direct-pointer scan 을 다시 수행했다.
+  - `0x08BFA0..0x08C2C0` 구간 raw `u32` 값을 little-endian 으로 풀어, 정적 table pointer 와 `0x03002Fxx` / `0x03005Fxx` / `0x030060xx` / `0x030009xx` runtime global 이 어떻게 섞여 있는지 확인했다.
+- 결과:
+  - `0x08BFC8..0x08C2B8` 구간에는 location/world-map bundle 관련 static constant 가 조밀하게 반복 배치되어 있다.
+  - `0x184248`, `0x18425C`, `0x184420`, `0x184820`, `0x1848B0`, `0x1849D4`, `0x1840F8`, `0x1841E8` 는 이 cluster 안에서 여러 번 재등장한다.
+  - 반면 `0x1849A0` handler table 은 현재 `0x069E94`, `0x08BFC8` 두 건만 잡혀, direct literal 보다 상위 cluster slot 으로 소비될 가능성이 더 강해졌다.
+  - `0x184A0C` 도 `0x06D070`, `0x08C1FC` direct ref 가 있어, location bundle tail 끝을 `0x184A0B` 로 단정하면 안 된다.
+- 판정: `성공`
+- 교훈: direct ref 수가 적다고 dead table 로 치면 안 된다. 특히 location/world-map 계열은 **static constant cluster + runtime global** 묶음으로 소비되는 경로를 같이 봐야 한다.

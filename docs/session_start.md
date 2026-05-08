@@ -29,9 +29,9 @@
 
 ## 지금 가장 좋은 다음 한 단계
 
-1. `field3` exact subtype 과 `0x63000` / `0x63424` helper signature 분리
-2. `0x1849A0` handler table 과 `0x06A864` / `0x06D600` special overlay 흐름 분리
-3. `0x093D` / `0x094B` 와 연결된 고정 인덱스 resource 의미 추가 분리
+1. `0x1849A0` handler table singular cluster slot 소비 경로 찾기
+2. `0x184A0C` numeric tail 과 `0x06D070` 소비 방식 분리
+3. `field3` exact palette/subtype 의미 추가 분리
 
 매 실행마다 위 셋 중 하나만 끝낸다.
 

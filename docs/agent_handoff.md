@@ -58,20 +58,24 @@
 - `0x184820` 에는 `13 * (x, y)` node position pair table 후보가 있고, location record `field1/field2` 와는 `8 / 10` 완전 일치, 나머지 `2 / 10` 은 작은 delta 만 존재한다.
 - 코드 기준으로 `field1/field2` 는 location icon / hotspot 사각형의 좌상단 좌표로 보는 편이 더 정확하다. `0x06A418` 이 descriptor `(dim_a, dim_b) * 8` 과 함께 이 값을 직접 hit-test 한다.
 - `field0`, `field3`, `field4` 는 helper `0x63000` / `0x63424` 로 직접 전달되는 draw 파라미터다.
-- 현재 가장 안전한 해석은 `field0 = asset/icon family ID 후보`, `field3 = draw subtype/mode 후보`, `field4 = graphic/tile-base variant 후보` 다.
+- caller/helper 내부 wiring 기준으로는 `field4` 가 attr2 low 10-bit tile index 쪽, `field3` 가 attr2 high-byte 상위 nibble 쪽을 조정한다.
+- 따라서 현재 가장 안전한 해석은 `field0 = asset/icon family ID 후보`, `field3 = palette bank / draw subtype 후보`, `field4 = graphic/tile-base variant 후보` 다.
 - `0x184950` 에는 `10 * (x, y)` label position pair 후보가 있다.
 - `0x1849A0` 에는 `13-entry` Thumb handler pointer table 이 있고, 현재는 위 `13-node` 축과 정렬될 가능성을 우선 둔다.
 - `0x1849D4` 는 현재 `(location_index, special event/script/message id)` 의미의 `7-entry` special pair table 로 보는 해석이 가장 강하다.
 - `0x06D5A8` 루틴은 둘째 필드 `0x3E1..0x3EF` 를 helper `0x47EB0` 에 넘긴 뒤, 반환값을 첫 필드 location index 슬롯에 저장한다.
 - `0x06A838` helper 는 `0x030009A0 + location_index * 4` 플래그를 읽어 활성 여부를 판정한다. 따라서 활성/비활성은 record field 가 아니라 별도 runtime array 가 맡는다.
+- `0x08BFC8..0x08C2B8` 구간에는 location/world-map bundle table 과 `0x03002Fxx` / `0x03005Fxx` / `0x030060xx` / `0x030009xx` runtime global 을 함께 묶는 dense static constant cluster 가 있다.
+- `0x1849A0` handler table direct ref 는 현재 `0x069E94`, `0x08BFC8` 두 건뿐이라, 독립 literal 보다 **상위 cluster 의 단일 슬롯** 으로 소비될 가능성을 열어 두는 편이 안전하다.
+- `0x184A0C` numeric tail 도 direct ref (`0x06D070`, `0x08C1FC`) 가 있어, bundle tail 경계를 `0x184A0B` 에서 기계적으로 끊지 않는 편이 좋다.
 - 따라서 `selector=0` direct generic caller 부재는 `0x17785C` 의 전용 helper (`0x03BC`, `0x0414`) 로 설명 가능하고, `Registry B` 역시 dead registry 가 아니라 **미러 테이블 + ZP-aware helper family** 경로로 접근되는 live asset bank 로 보는 편이 맞다.
 - 일부 메뉴/진행 메시지는 일반 `00` 종단 평문이 아니라 명령 스트림 내부 문자열이다.
 
 ## 다음 한 단계 후보
 
-1. `field3` exact subtype 과 `0x63000` / `0x63424` helper signature 를 더 분리하기
-2. `0x1849A0` handler table 과 `0x06A864` / `0x06D600` special overlay 흐름을 더 분리하기
-3. `0x093D` / `0x094B` binary resource 의미를 더 분리하기
+1. `0x1849A0` handler table 의 singular cluster slot 을 실제로 소비하는 코드를 찾기
+2. `0x184A0C` numeric tail 을 `0x06D070` 이 어떤 의미로 읽는지 확인하기
+3. `field3` exact palette/subtype 의미를 더 좁히기
 
 매 실행에서는 위 셋 중 **하나만** 고른다.
 

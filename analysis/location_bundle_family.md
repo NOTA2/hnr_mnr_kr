@@ -48,6 +48,11 @@
 - `field4`: location icon 의 **graphic variant / tile-base 계열 파라미터** 후보
   - 값이 `0x80`, `0x84`, `0x88`, `0x8C`, `0x100`, `0x104`, `0x108` 식으로 정렬되어 있어, 연속된 graphic block / tile variant 축으로 읽는 해석이 가장 자연스럽다.
 - 즉 `field0/field3/field4` 는 좌표나 활성 플래그보다 **표시 파라미터** 쪽에 가깝다.
+- caller/handler 배선까지 보면 더 구체적으로 정리할 수 있다.
+  - `0x069E9C` / `0x06D4A8` caller 는 `field4` 를 `r3` 로, `field3` 를 stack arg 로 `0x63000` / `0x63424` 에 넘긴다.
+  - helper 내부에서 `r3` (`field4`) 는 sprite attr2 low 10-bit 쪽에 더해진다. 즉 현재는 **tile index / graphic variant offset** 해석이 가장 강하다.
+  - stack arg (`field3`) 는 sprite attr2 high byte 상위 nibble 쪽에 더해진다. 즉 현재는 **palette bank / draw subtype** 해석이 가장 강하다.
+  - `0x63000` / `0x63424` 는 추상 로직 helper 보다, 거의 같은 구조를 가진 **sprite/OAM build helper pair** 로 보는 편이 더 정확하다.
 
 ## Route Pair Table
 
@@ -148,6 +153,8 @@ route sequence 공통 패턴:
 
 - per-node callback/handler table 후보
 - route sequence 와 node position table 이 모두 `13`개 축을 공유하므로, 현재는 `node 13개 <-> handler 13개` 정렬 가능성을 우선 둔다.
+- 다만 direct ref 는 현재 `0x069E94`, `0x08BFC8` 두 군데뿐이라, `0x1849D4` 나 `0x184248` 처럼 여러 code literal 에서 반복 소비되는 강한 테이블과는 성격이 다를 수 있다.
+- 즉 handler table 은 독립 상수라기보다, **상위 static bundle 의 일부 슬롯**으로 간접 소비될 가능성을 열어 두는 편이 안전하다.
 
 ## Special Pair Table
 
@@ -164,8 +171,28 @@ route sequence 공통 패턴:
 - 각 entry 는 `(location_index, special event/script/message id)` 로 읽는 해석이 가장 강하다.
 - 근거:
   - `0x06D5A8` 루틴은 `7`개 엔트리를 순회하며, **둘째 필드** (`0x3E1..0x3EF`) 를 helper `0x47EB0` 에 넘긴 뒤, 반환값을 **첫 필드** location index 로 색인되는 배열 슬롯에 저장한다.
-  - `0x06D430` 루틴은 별도의 `0..6` selector 로 같은 table 을 인덱싱하고, **첫 필드** 를 location slot 번호처럼 사용해 플래그를 세운다.
+- `0x06D430` 루틴은 별도의 `0..6` selector 로 같은 table 을 인덱싱하고, **첫 필드** 를 location slot 번호처럼 사용해 플래그를 세운다.
 - 따라서 현재는 `special_pair_table` 을 "특수 이동/이벤트 가능한 location 목록 + 그에 대응하는 event/script/message ID" 로 보는 편이 가장 자연스럽다.
+
+## Static Constant Cluster
+
+- `0x08BFC8..0x08C2B8` 구간에는 location/world-map bundle 관련 static constant 가 조밀하게 반복 배치되어 있다.
+- 이 구간에서 반복 확인된 target:
+  - `0x184248` location record table
+  - `0x18425C` first name field
+  - `0x184420` hotspot/location lookup
+  - `0x184820` node position pair table
+  - `0x1848B0` numeric blob
+  - `0x1849A0` handler pointer table
+  - `0x1849D4` special pair table
+  - `0x1840F8` / `0x1841E8` companion descriptor pair
+  - `0x184A0C` numeric tail
+- 이 static constant 들 옆에는 `0x03002Fxx`, `0x03005Fxx`, `0x030060xx`, `0x030009xx` runtime global 이 반복해서 붙는다.
+- 현재 가장 안전한 해석:
+  - 코드가 모든 location bundle 하위 table 을 독립 literal 로만 들고 다니는 것이 아니라,
+  - **정적 constant cluster + runtime global 조합** 을 통해 higher-level UI/state bundle 처럼 소비하는 경로도 함께 가진다.
+- 특히 `0x1849A0` 은 direct ref 가 `2`건뿐이지만, `0x184248`, `0x1849D4`, `0x184820`, `0x1840F8`, `0x1841E8` 는 code literal 과 이 static cluster 양쪽에서 반복 확인된다.
+- 또한 `0x184A0C` 는 `0x06D070`, `0x08C1FC` direct ref 가 있어, location bundle tail 끝을 무조건 `0x184A0B` 에서 끊는 해석은 피하는 편이 안전하다.
 
 ## Direct Ref 강도
 
@@ -180,7 +207,8 @@ route sequence 공통 패턴:
 
 ## 다음 질문
 
-1. `field3` 의 정확한 subtype 의미와 `0x63000` / `0x63424` helper signature 를 더 분리할 수 있는가
-2. `0x06A864` / `0x06D600` special location overlay 흐름에서 `0x1849A0` handler `13`개가 어떤 역할을 가지는가
-3. `0x47EB0` 가 `0x3E1..0x3EF` 를 어떤 종류의 런타임 객체로 바꾸는가
-4. `0x561D4` hotspot helper 반환값이 실제 맵 좌표계에서 어떤 단위를 의미하는가
+1. `field3` 가 정확히 palette bank 인지, 또는 palette + subtype 복합 값인지 더 좁힐 수 있는가
+2. `0x1849A0` handler table 의 **단일 static cluster 슬롯** 을 실제로 소비하는 코드가 어디인가
+3. `0x184A0C` numeric tail 을 `0x06D070` 이 어떤 의미로 읽는가
+4. `0x47EB0` 가 `0x3E1..0x3EF` 를 어떤 종류의 런타임 객체로 바꾸는가
+5. `0x561D4` hotspot helper 반환값이 실제 맵 좌표계에서 어떤 단위를 의미하는가

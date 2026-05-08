@@ -76,6 +76,11 @@ name field:
   - 값은 `3`, `4`, `5` 세 종류만 보인다.
 - `field4`: location icon 의 **graphic variant / tile-base 계열 파라미터** 후보
   - 값이 `0x80`, `0x84`, `0x88`, `0x8C`, `0x100`, `0x104`, `0x108` 식으로 정렬된다.
+- caller/handler 내부 wiring 기준으로는 더 구체적으로 볼 수 있다.
+  - caller 는 `field4` 를 `r3`, `field3` 를 stack arg 로 넘긴다.
+  - `0x63000` / `0x63424` helper 내부에서 `field4` 는 sprite attr2 low 10-bit tile index 쪽에 더해진다.
+  - 반대로 `field3` 는 sprite attr2 high byte 상위 nibble 쪽에 더해진다.
+  - 그래서 현재는 `field4 = tile-base / graphic variant offset`, `field3 = palette bank / draw subtype` 해석이 가장 강하다.
 
 즉 `field0/field3/field4` 는 현재로서는 좌표보다 **표시 파라미터** 로 보는 편이 가장 자연스럽다.
 

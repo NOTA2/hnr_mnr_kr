@@ -118,10 +118,14 @@
 - `0x184820` 의 `13 * (x, y)` node position pair table 후보는 location record `field1/field2` 와 거의 일치한다. (`8 / 10` 완전 일치)
 - 코드 기준으로는 `field1/field2` 가 location icon / hotspot 사각형의 좌상단 좌표, `0x184820` 이 node/cursor anchor 좌표 쪽에 더 가깝다.
 - `field0`, `field3`, `field4` 는 draw helper `0x63000` / `0x63424` 로 직접 전달되는 표시 파라미터다.
-- 현재는 `field0 = asset/icon family ID 후보`, `field3 = draw subtype/mode 후보`, `field4 = graphic/tile-base variant 후보` 로 보는 해석이 가장 자연스럽다.
+- caller/helper 내부 wiring 기준으로는 `field4` 가 sprite attr2 low 10-bit tile index 쪽, `field3` 가 attr2 high-byte 상위 nibble 쪽을 조정한다.
+- 현재는 `field0 = asset/icon family ID 후보`, `field3 = palette bank / draw subtype 후보`, `field4 = graphic/tile-base variant 후보` 로 보는 해석이 가장 자연스럽다.
 - `0x1849A0` 에는 `13-entry` Thumb handler pointer table, `0x1849D4` 에는 `7-entry` special pair table이 있다.
 - `0x1849D4` 는 현재 `(location_index, special event/script/message id)` 매핑으로 보는 해석이 가장 강하다.
 - 현재는 `0..9 = location node`, `0x0A..0x0C = connector / transit node`, `0x1849A0 = 13-node handler table` 로 보는 해석이 가장 자연스럽다.
+- `0x08BFC8..0x08C2B8` 구간에는 location/world-map bundle 하위 table (`0x184248`, `0x18425C`, `0x184420`, `0x184820`, `0x1848B0`, `0x1849A0`, `0x1849D4`, `0x1840F8`, `0x1841E8`, `0x184A0C`) 과 `0x03002Fxx` / `0x03005Fxx` / `0x030060xx` / `0x030009xx` runtime global 이 반복 묶인 dense static constant cluster 가 있다.
+- `0x1849A0` handler table direct ref 는 현재 `0x069E94`, `0x08BFC8` 두 건뿐이라, 독립 literal 보다 상위 cluster 슬롯으로 소비될 가능성을 열어 두는 편이 안전하다.
+- `0x184A0C` numeric tail 도 `0x06D070`, `0x08C1FC` live ref 가 있어, location bundle tail 을 `0x184A0B` 에서 기계적으로 끊으면 안 된다.
 - `0x3D2059` 와 `0x3D329C` 대형 텍스트 뱅크는 같은 방식의 절대 포인터가 바로 잡히지 않았다.
 - 따라서 `0x3Dxxxx` 영역은 직접 포인터 대신 인덱스/구조체/상대 오프셋/압축 해제 후 참조 같은 별도 구조를 쓸 가능성이 있다.
 - `0x08B62C` UI 기술 텍스트는 `0x3D2059` 전투 기술 텍스트와 일부 이름이 겹친다.
@@ -166,8 +170,9 @@
 
 ## 다음 우선순위
 
-1. `field3` exact subtype 과 `0x63000` / `0x63424` helper signature 를 더 분리한다.
-2. `0x1849A0` handler table 과 `0x06A864` / `0x06D600` special overlay 흐름을 더 분리한다.
-3. `0x093D` / `0x094B` binary table 이 어떤 게임 데이터 분류인지 확인한다.
-4. 폰트 타일과 문자 폭 테이블을 찾아 한글 글리프 삽입 준비를 시작한다.
-5. 수정된 추출본을 기준으로 번역 대상 JSON을 정리한다.
+1. `0x1849A0` handler table singular cluster slot 소비 경로를 찾는다.
+2. `0x184A0C` numeric tail 을 `0x06D070` 이 어떤 의미로 읽는지 확인한다.
+3. `field3` exact palette/subtype 의미를 더 좁힌다.
+4. `0x093D` / `0x094B` binary table 이 어떤 게임 데이터 분류인지 확인한다.
+5. 폰트 타일과 문자 폭 테이블을 찾아 한글 글리프 삽입 준비를 시작한다.
+6. 수정된 추출본을 기준으로 번역 대상 JSON을 정리한다.
