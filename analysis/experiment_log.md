@@ -404,3 +404,44 @@
   - 따라서 현재 최선 해석은 `0..9 = location node`, `0x0A..0x0C = connector / transit node`, `FF = terminator` 이고, 각 slot payload 는 "출발 location 에서 목적지 location 으로 가는 node path" 다.
 - 판정: `성공`
 - 교훈: 겉보기에는 bytecode 처럼 보여도, 실제로는 opcode 가 아니라 그래프 경로 데이터일 수 있다. 특히 값 범위가 작고 self-slot null 패턴이 강할 때는 script 보다 path matrix 가능성을 먼저 검토해야 한다.
+
+### 실험 38
+
+- 가설: `0x184420` 의 `18 * (u32, u32)` table 은 route graph edge 목록이 아니라, world-map hit-test 결과를 location index 로 바꾸는 lookup table 일 수 있다.
+- 시도:
+  - `0x06A1F8` 를 포함하는 `0x06A09C` 계열 초기화/선택 루틴을 ARMv4T 슬라이스로 다시 읽었다.
+  - `0x184420` literal xref 와 loop count 를 확인하고, table 값을 location 별로 묶어 보았다.
+- 결과:
+  - `0x06A1F8` 부근 루틴은 helper `0x561D4` 반환값과 `0x184420` 첫 필드를 `18`건 순회 비교한다.
+  - 일치하면 둘째 필드를 current-location byte (`0x03006020`) 로 기록한다.
+  - table 을 location 별로 묶으면 `0 -> [14,18,24,30,34]`, `6 -> [38,41,46,47]`, `9 -> [62,64]` 처럼 반복 location index 군집이 나타난다.
+- 판정: `성공`
+- 교훈: `0x184420` 은 route path matrix 와 같은 성격이 아니다. 현재는 **hotspot/cell id -> location index lookup** 으로 보는 해석이 가장 강하다.
+
+### 실험 39
+
+- 가설: location record 의 `field1/field2` 는 단순 node 좌표가 아니라, 실제 world-map icon / hotspot hit box 원점일 수 있고 `field0/field3/field4` 는 draw helper 파라미터일 수 있다.
+- 시도:
+  - `0x06A418` hit-test 루틴과 `0x069E9C`, `0x06D4A8` draw caller 를 ARMv4T 슬라이스로 다시 읽었다.
+  - `0x184248` location record, `0x1840F8` companion descriptor, `0x18425C` name field stride 관계를 함께 대조했다.
+- 결과:
+  - `0x06A418` 은 활성 location 에 대해 `field1`, `field2` 와 descriptor `(dim_a, dim_b) * 8` 을 비교해 hit-test 사각형을 만든다.
+  - 따라서 `field1/field2` 는 현재 **location icon / hotspot 좌상단 좌표** 로 보는 편이 가장 정확하다.
+  - 같은 함수는 선택된 location index 를 `0x030009CC` 에 저장하고, `0x18425C + index * 0x2C` 형태로 이름 field 주소를 계산해 폭 계산 helper 를 호출한다.
+  - `0x069E9C` / `0x06D4A8` 는 row 의 `field0`, `field1`, `field2`, `field4`, `field3` 를 helper `0x63000` / `0x63424` 로 직접 넘긴다.
+  - 따라서 `field0/field3/field4` 는 좌표보다 **표시 파라미터** 쪽에 가깝고, 현재 최선 해석은 `field0 = asset/icon family ID`, `field3 = draw subtype/mode`, `field4 = graphic/tile-base variant` 다.
+- 판정: `성공`
+- 교훈: location record 는 "문자열 + 메타데이터" 정도가 아니라, 실제 world-map 선택/표시 로직에 직접 물리는 UI struct 다.
+
+### 실험 40
+
+- 가설: `0x1849D4` special pair table 은 단순 숫자 목록이 아니라, special location 과 event/script/message ID 를 이어 주는 매핑일 수 있다.
+- 시도:
+  - `0x06D430`, `0x06D5A8` 주변 code xref 를 다시 읽고 literal 값을 확인했다.
+  - special pair 첫 필드와 location record index, 둘째 필드와 helper 입력값 사용 방식을 분리해서 보았다.
+- 결과:
+  - `0x06D5A8` 루틴은 `7`개 엔트리를 순회하며, **둘째 필드** (`0x3E1..0x3EF`) 를 helper `0x47EB0` 에 넘긴 뒤, 반환값을 **첫 필드** location index 로 색인되는 배열 슬롯에 저장한다.
+  - `0x06D430` 루틴은 별도의 `0..6` selector 로 같은 table 을 인덱싱하고, **첫 필드** 를 location slot 번호처럼 사용해 플래그를 세운다.
+  - 같은 흐름에서 `0x06A838` helper 는 `0x030009A0 + location_index * 4` 값을 읽어 location 활성 여부를 판정한다.
+- 판정: `성공`
+- 교훈: `special_pair_table` 은 현재 **location index -> special event/script/message id** 매핑으로 보는 편이 가장 강하다. 또한 location 활성/비활성은 record field 가 아니라 별도 runtime array 가 맡는다.

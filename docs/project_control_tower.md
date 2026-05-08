@@ -17,10 +17,10 @@
 
 ## 현재 최우선 과제
 
-1. `field0` / `field3` / `field4` 의미와 `0x184420` pair table, `0x1849D4` special pair 관계 분리
-2. `0x093D` / `0x093E` / `0x094B` 고정 인덱스 리소스와 주변 helper 의미를 더 분리
-3. 대사/이벤트 평문 구간 추가 탐색
-4. 폰트 조사로 넘어갈 수 있을 만큼 텍스트 구조를 더 분리
+1. `field3` exact subtype 과 `0x63000` / `0x63424` helper signature 분리
+2. `0x1849A0` handler table 과 `0x06A864` / `0x06D600` special overlay 흐름 분리
+3. `0x093D` / `0x093E` / `0x094B` 고정 인덱스 리소스와 주변 helper 의미를 더 분리
+4. 대사/이벤트 평문 구간 추가 탐색
 
 ## 단계 상태
 
@@ -56,11 +56,13 @@
 - `0x184220` 이후에는 다른 metadata 와 문자열이 섞여 시작하므로, `0x1840E8..` 전체를 uniform struct 로 보면 안 된다는 경계 확인
 - `0x184220..0x184244` 이 `10-entry` permutation/order table 이며, 그 뒤 `0x184248..0x1843FF` 가 `10 * 0x2C` fixed-size location record table 이라는 점 확인
 - 기존 `location_texts.json` 은 standalone string bank 라기보다 location record table 내부 name field 추출본이라는 점 확인
-- `0x184420..0x1844AF` 이 `18 * (u32, u32)` pair table 이고, `0x1844B0..0x1847F7` 이 route path 시퀀스 영역이라는 점 확인
+- `0x184420..0x1844AF` 이 `(hotspot_id, location_index)` lookup table 이고, `0x1844B0..0x1847F7` 이 route path 시퀀스 영역이라는 점 확인
 - `0x184888` 이 `10-entry` route block table 이고, 각 block 이 다시 `10-slot` matrix 로 읽히며 자기 자신의 slot 하나만 `null` 이라는 점 확인
 - route 시퀀스가 `FF` 를 제외하면 `0..12` 값만 사용하므로, opcode script 보다 `13-node` 기반 path matrix 해석이 더 강하다는 점 확인
-- `0x184820` 이 `13 * (x, y)` node position pair table 후보이고, location record `field1/field2` 와 거의 일치한다는 점 확인
-- `0x1849A0` 이 `13-entry` Thumb handler pointer table, `0x1849D4` 가 `7-entry` special pair table 후보이며, handler 는 `13-node` 축과 정렬될 가능성이 높다는 점 확인
+- `0x184820` 이 `13 * (x, y)` node position pair table 후보이고, location record `field1/field2` 와 거의 일치하지만, 코드 기준으로는 location icon / hotspot 좌상단 원점과 node anchor 관계로 보는 편이 더 정확하다는 점 확인
+- `field0`, `field3`, `field4` 가 draw helper `0x63000` / `0x63424` 로 직접 전달되는 표시 파라미터라는 점 확인
+- `0x1849D4` 가 `(location_index, special event/script/message id)` 매핑으로 읽히며, `0x06D5A8` 이 둘째 필드를 runtime 객체로 바꿔 첫 필드 location slot 에 저장한다는 점 확인
+- `0x06A838` helper 가 `0x030009A0 + location_index * 4` 활성 플래그를 읽는다는 점 확인
 - 세이브/진행 메뉴 텍스트와 크레딧 텍스트 추출
 
 ## 작업 후 최소 갱신 규칙

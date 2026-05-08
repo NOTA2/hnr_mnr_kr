@@ -47,7 +47,8 @@
 - 각 location record 는 `5 * u32` metadata 뒤에 `0x18-byte` 이름 필드가 붙는 형태이며, 이름 필드는 record 시작 `+0x14` 에 있다.
 - 기존 `0x18425C` 지역명 뱅크는 독립 문자열 뱅크라기보다, 이 location record table 첫 row 의 name field (`0x184248 + 0x14`) 로 보는 편이 맞다.
 - 첫 name field `0x18425C` direct ref 는 `4`개뿐이지만, record base `0x184248` direct ref 는 `12`개가 확인된다. 즉 실제 소비 단위는 문자열보다 record table 쪽일 가능성이 더 높다.
-- `0x184420..0x1844AF` 구간에는 `18 * (u32, u32)` pair table 이 있다.
+- `0x184420..0x1844AF` 구간의 `18 * (u32, u32)` table 은 현재 `(hotspot_id, location_index)` lookup table 로 보는 해석이 가장 강하다.
+- `0x06A1F8` 부근 루틴은 helper `0x561D4` 반환값과 이 table 첫 필드를 `18`건 순회 비교하고, 일치하면 둘째 필드를 current-location byte (`0x03006020`) 로 저장한다.
 - `0x1844B0..0x1847F7` 구간은 `FF` 종료 경로 시퀀스가 밀집한 route region 으로 보는 편이 더 자연스럽다.
 - `0x184888` 에는 `10-entry` route script block pointer table 이 있고, 각 block 은 다시 `10-slot` pointer matrix 로 읽힌다.
 - 이 matrix 의 non-null slot 은 `0x1844B0..0x1847F7` 시퀀스를 가리킨다.
@@ -55,17 +56,22 @@
 - route 시퀀스는 `FF` 를 제외하면 현재 `0..12` 값만 사용한다.
 - 따라서 이 영역은 opcode script 보다, `10`개 location 사이 경로를 `13`개 node (`0..9` location + `0x0A..0x0C` connector 후보) 위에서 나열한 **path matrix** 로 보는 해석이 더 강하다.
 - `0x184820` 에는 `13 * (x, y)` node position pair table 후보가 있고, location record `field1/field2` 와는 `8 / 10` 완전 일치, 나머지 `2 / 10` 은 작은 delta 만 존재한다.
+- 코드 기준으로 `field1/field2` 는 location icon / hotspot 사각형의 좌상단 좌표로 보는 편이 더 정확하다. `0x06A418` 이 descriptor `(dim_a, dim_b) * 8` 과 함께 이 값을 직접 hit-test 한다.
+- `field0`, `field3`, `field4` 는 helper `0x63000` / `0x63424` 로 직접 전달되는 draw 파라미터다.
+- 현재 가장 안전한 해석은 `field0 = asset/icon family ID 후보`, `field3 = draw subtype/mode 후보`, `field4 = graphic/tile-base variant 후보` 다.
 - `0x184950` 에는 `10 * (x, y)` label position pair 후보가 있다.
 - `0x1849A0` 에는 `13-entry` Thumb handler pointer table 이 있고, 현재는 위 `13-node` 축과 정렬될 가능성을 우선 둔다.
-- `0x1849D4` 에는 `(index, 0x3E1..0x3EF)` 형태의 `7-entry` special pair table 후보가 있다.
+- `0x1849D4` 는 현재 `(location_index, special event/script/message id)` 의미의 `7-entry` special pair table 로 보는 해석이 가장 강하다.
+- `0x06D5A8` 루틴은 둘째 필드 `0x3E1..0x3EF` 를 helper `0x47EB0` 에 넘긴 뒤, 반환값을 첫 필드 location index 슬롯에 저장한다.
+- `0x06A838` helper 는 `0x030009A0 + location_index * 4` 플래그를 읽어 활성 여부를 판정한다. 따라서 활성/비활성은 record field 가 아니라 별도 runtime array 가 맡는다.
 - 따라서 `selector=0` direct generic caller 부재는 `0x17785C` 의 전용 helper (`0x03BC`, `0x0414`) 로 설명 가능하고, `Registry B` 역시 dead registry 가 아니라 **미러 테이블 + ZP-aware helper family** 경로로 접근되는 live asset bank 로 보는 편이 맞다.
 - 일부 메뉴/진행 메시지는 일반 `00` 종단 평문이 아니라 명령 스트림 내부 문자열이다.
 
 ## 다음 한 단계 후보
 
-1. `field0` / `field3` / `field4` 의미와 `0x184420` pair table, `0x1849D4` special pair 관계를 분리하기
-2. `0x093D` / `0x094B` binary resource 의미를 더 분리하기
-3. 대사/이벤트 평문 구간을 추가로 찾기
+1. `field3` exact subtype 과 `0x63000` / `0x63424` helper signature 를 더 분리하기
+2. `0x1849A0` handler table 과 `0x06A864` / `0x06D600` special overlay 흐름을 더 분리하기
+3. `0x093D` / `0x094B` binary resource 의미를 더 분리하기
 
 매 실행에서는 위 셋 중 **하나만** 고른다.
 

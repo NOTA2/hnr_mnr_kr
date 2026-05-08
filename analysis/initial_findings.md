@@ -109,12 +109,18 @@
 - 각 location record 는 `5 * u32 metadata + 0x18-byte name field` 구조로 읽히며, 첫 name field 가 `0x18425C` 다.
 - `0x184220..0x184244` 앞쪽에는 `3, 4, 0, 2, 7, 9, 5, 1, 6, 8` 값의 `10-entry` order table 도 붙어 있다.
 - `0x184248` record base direct ref 는 `12`개, `0x18425C` first name field direct ref 는 `4`개가 확인되어, 실제 소비 단위는 문자열보다 record table 쪽일 가능성이 높다.
-- `0x184420..0x1844AF` 에는 `18 * (u32, u32)` pair table 이 있고, `0x1844B0..0x1847F7` 에는 `FF` 종료 경로 시퀀스가 밀집한 route region 이 있다.
+- `0x184420..0x1844AF` table 은 현재 `(hotspot_id, location_index)` lookup table 로 보는 해석이 가장 강하다.
+- `0x06A1F8` 부근 루틴은 helper `0x561D4` 반환값과 이 table 첫 필드를 비교하고, 일치하면 둘째 필드를 current-location byte 로 기록한다.
+- `0x1844B0..0x1847F7` 에는 `FF` 종료 경로 시퀀스가 밀집한 route region 이 있다.
 - `0x184888` 에는 `10-entry` route block pointer table 이 있으며, 각 block 은 다시 `10-slot` pointer matrix 로 읽힌다.
 - 각 block 은 자기 자신의 slot 하나만 `null` 이고, 나머지 `9`개 목적지 slot 은 route 시퀀스를 가진다.
 - route 시퀀스는 `FF` 를 제외하면 현재 `0..12` 값만 사용하므로, opcode script 보다 `13-node` 기반 path matrix 로 보는 해석이 더 강하다.
 - `0x184820` 의 `13 * (x, y)` node position pair table 후보는 location record `field1/field2` 와 거의 일치한다. (`8 / 10` 완전 일치)
-- `0x1849A0` 에는 `13-entry` Thumb handler pointer table, `0x1849D4` 에는 `7-entry` special pair table 후보가 있다.
+- 코드 기준으로는 `field1/field2` 가 location icon / hotspot 사각형의 좌상단 좌표, `0x184820` 이 node/cursor anchor 좌표 쪽에 더 가깝다.
+- `field0`, `field3`, `field4` 는 draw helper `0x63000` / `0x63424` 로 직접 전달되는 표시 파라미터다.
+- 현재는 `field0 = asset/icon family ID 후보`, `field3 = draw subtype/mode 후보`, `field4 = graphic/tile-base variant 후보` 로 보는 해석이 가장 자연스럽다.
+- `0x1849A0` 에는 `13-entry` Thumb handler pointer table, `0x1849D4` 에는 `7-entry` special pair table이 있다.
+- `0x1849D4` 는 현재 `(location_index, special event/script/message id)` 매핑으로 보는 해석이 가장 강하다.
 - 현재는 `0..9 = location node`, `0x0A..0x0C = connector / transit node`, `0x1849A0 = 13-node handler table` 로 보는 해석이 가장 자연스럽다.
 - `0x3D2059` 와 `0x3D329C` 대형 텍스트 뱅크는 같은 방식의 절대 포인터가 바로 잡히지 않았다.
 - 따라서 `0x3Dxxxx` 영역은 직접 포인터 대신 인덱스/구조체/상대 오프셋/압축 해제 후 참조 같은 별도 구조를 쓸 가능성이 있다.
@@ -160,8 +166,8 @@
 
 ## 다음 우선순위
 
-1. `field0` / `field3` / `field4` 의미와 `0x184420` pair table, `0x1849D4` special pair 관계를 확인한다.
-2. `0x093D` / `0x094B` binary table 이 어떤 게임 데이터 분류인지 확인한다.
-3. 폰트 타일과 문자 폭 테이블을 찾아 한글 글리프 삽입 준비를 시작한다.
-4. 수정된 추출본을 기준으로 번역 대상 JSON을 정리한다.
-5. 길이 증가 문자열을 위한 전용 재삽입 규칙을 게임 기준으로 고정한다.
+1. `field3` exact subtype 과 `0x63000` / `0x63424` helper signature 를 더 분리한다.
+2. `0x1849A0` handler table 과 `0x06A864` / `0x06D600` special overlay 흐름을 더 분리한다.
+3. `0x093D` / `0x094B` binary table 이 어떤 게임 데이터 분류인지 확인한다.
+4. 폰트 타일과 문자 폭 테이블을 찾아 한글 글리프 삽입 준비를 시작한다.
+5. 수정된 추출본을 기준으로 번역 대상 JSON을 정리한다.

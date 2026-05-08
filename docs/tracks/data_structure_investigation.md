@@ -60,7 +60,7 @@
 - `0x184248..0x1843FF` 구간은 `10 * 0x2C` fixed-size location record table 이며, 각 row 는 `5 * u32 metadata + 0x18-byte name field` 구조로 읽힌다.
 - 첫 name field `0x18425C` 는 기존에 문자열 뱅크로 추출됐지만, 실제로는 첫 location record (`0x184248`) 의 `+0x14` 필드다.
 - `0x184248` record base direct ref 는 `12`개, `0x18425C` first name field direct ref 는 `4`개가 확인되었다.
-- `0x184420..0x1844AF` 구간에는 `18 * (u32, u32)` pair table 이 있다.
+- `0x184420..0x1844AF` 구간의 `18 * (u32, u32)` table 은 현재 `(hotspot_id, location_index)` lookup table 로 보는 해석이 가장 강하다.
 - `0x1844B0..0x1847F7` 구간에는 `FF` 종료 경로 시퀀스가 밀집해 있다.
 - `0x184888` 구간은 `10-entry` route block pointer table 이며, 각 block 은 다시 `10-slot` pointer matrix 로 읽힌다.
 - 이 matrix 의 non-null slot 은 `0x1844B0..0x1847F7` 시퀀스를 가리킨다.
@@ -68,9 +68,13 @@
 - route 시퀀스는 `FF` 를 제외하면 현재 `0..12` 값만 사용한다.
 - `0x184820` 구간은 `13 * (x, y)` node position pair table 후보다.
 - location record `field1/field2` 와 `0x184820` node pair 앞 `10`개는 `8 / 10` 완전 일치, `2 / 10` 작은 delta 패턴을 보인다.
+- 코드 기준으로 `field1/field2` 는 location icon / hotspot 사각형의 좌상단 좌표로 보는 편이 더 정확하다.
+- `field0`, `field3`, `field4` 는 helper `0x63000` / `0x63424` 로 직접 전달되는 draw 파라미터다.
+- 현재 가장 안전한 해석은 `field0 = asset/icon family ID 후보`, `field3 = draw subtype/mode 후보`, `field4 = graphic/tile-base variant 후보` 다.
 - `0x184950` 구간에는 `10 * (x, y)` label position pair 후보가 있다.
 - `0x1849A0` 구간에는 `13-entry` Thumb handler pointer table 이 있고, 현재는 위 `13-node` 축과 정렬될 가능성을 우선 둔다.
-- `0x1849D4` 구간에는 `(index, 0x3E1..0x3EF)` 형태의 `7-entry` special pair table 후보가 있다.
+- `0x1849D4` 구간은 현재 `(location_index, special event/script/message id)` 의미의 `7-entry` special pair table 로 보는 해석이 가장 강하다.
+- `0x06A838` helper 는 `0x030009A0 + location_index * 4` 플래그를 읽어 활성 여부를 판정하므로, location 활성/비활성은 record field 가 아니라 별도 runtime array 가 맡는다.
 - `0x17CE98` 부근은 청크 디스크립터보다 주소 배열에 더 가깝다.
 - `0x17785C` 레지스트리는 `0x03BC` / `0x0414` Thumb helper 로 직접 접근되는 것이 확인되었다.
 - 수동 해석 기준으로 `0x03BC` 는 포인터 필드, `0x0414` 는 길이 필드 accessor 에 가깝다.
@@ -108,9 +112,11 @@
 - 또한 현재 관찰된 generic hub accessor 사용은 모든 registry 에 고르게 퍼져 있지 않다. direct `0x0002CC` 는 `Registry A` 와 `Registry C` 에만 고정으로 붙어 있다.
 - `selector=0` direct 사용이 안 보이는 점은 `0x17785C` 전용 helper (`0x03BC`, `0x0414`) 가 이미 널리 쓰인다는 점으로 어느 정도 설명된다.
 - 그리고 `Registry B` 역시 실제로는 `0x17C384` 원본 base 가 아니라 `0x183D50` 미러 테이블과 `0x068DF8` 공용 helper family 쪽에서 소비되는 것으로 보인다.
-- 그리고 `0x184220` tail 은 단순한 문자열 꼬리가 아니라, `order table + location record table + route path matrix + node/handler bundle` 까지 이어지는 구조다.
+- 그리고 `0x184220` tail 은 단순한 문자열 꼬리가 아니라, `order table + location record table + hotspot lookup + route path matrix + node/handler bundle` 까지 이어지는 구조다.
 - 특히 `0x184888` 경로는 opcode script 보다 `13-node` 기반 path matrix 로 보는 해석이 더 강하다.
-- 따라서 이제 미해결점은 "Registry B 에 concrete access route 가 있는가"가 아니라, "`field0/field3/field4` 의미", "`0x184420` pair table 이 path matrix 와 어떻게 묶이는가", "`0x1849D4` special pair 가 어떤 event/script/message 축을 대표하는가"로 바뀌었다.
+- `0x184420` 은 path edge table 이 아니라 hit-test / hotspot id -> location index lookup table 로 보는 편이 맞다.
+- `0x1849D4` 는 단순 숫자쌍이 아니라 location index -> special event/script/message id 매핑으로 읽는 편이 맞다.
+- 따라서 이제 미해결점은 "`field3` exact subtype", "`0x1849A0` handler / `0x06A864` special overlay 관계", "`0x47EB0` / `0x561D4` helper 의미" 쪽으로 더 좁아졌다.
 
 ## 근거 문서
 
@@ -119,9 +125,9 @@
 
 ## 다음 할 일
 
-1. `field0` / `field3` / `field4` 의미 확인
-2. `0x184420` pair table 과 `0x184888` path matrix 인덱스 규칙 확인
-3. `0x093D` 와 `0x094B` binary table 이 각각 어떤 게임 데이터 분류를 담는지 분리
+1. `field3` exact subtype 과 `0x63000` / `0x63424` helper signature 확인
+2. `0x1849A0` handler table 과 `0x06A864` / `0x06D600` special overlay 흐름 분리
+3. `0x47EB0` / `0x561D4` helper 의미 추가 분리
 4. 왜 `0x17C1C0` 이 상위 허브와 다른 레이아웃을 유지하는지 설명할 구조 찾기
 5. 겹치는 엔트리의 관계를 부모/자식/메타데이터 관점에서 분류
 6. `0x3D2036` 전투 기술 뱅크 참조 방식 확인

@@ -29,9 +29,9 @@
 
 ## 지금 가장 좋은 다음 한 단계
 
-1. `field0` / `field3` / `field4` 의미와 `0x184420` pair table, `0x1849D4` special pair 연결 분리
-2. `0x093D` / `0x094B` 와 연결된 고정 인덱스 resource 의미 추가 분리
-3. 대사/이벤트 평문 구간 추가 탐색
+1. `field3` exact subtype 과 `0x63000` / `0x63424` helper signature 분리
+2. `0x1849A0` handler table 과 `0x06A864` / `0x06D600` special overlay 흐름 분리
+3. `0x093D` / `0x094B` 와 연결된 고정 인덱스 resource 의미 추가 분리
 
 매 실행마다 위 셋 중 하나만 끝낸다.
 

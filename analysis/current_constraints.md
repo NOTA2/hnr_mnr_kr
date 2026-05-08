@@ -43,7 +43,7 @@
 35. `0x184248..0x1843FF` 구간은 `10 * 0x2C` fixed-size location record table 이며, 각 row 는 `5 * u32 metadata + 0x18-byte name field` 구조로 읽힌다.
 36. 기존 `0x18425C` 지역명 문자열은 독립 뱅크라기보다 첫 location record 의 name field (`record + 0x14`) 다.
 37. `0x184248` record base direct ref 는 `12`개, `0x18425C` 첫 name field direct ref 는 `4`개가 확인되므로, 실제 소비 단위는 문자열보다 record table 쪽일 가능성이 높다.
-38. `0x184420..0x1844AF` 구간에는 `18 * (u32, u32)` pair table 이 있다.
+38. `0x184420..0x1844AF` 구간의 `18 * (u32, u32)` table 은 현재 `(hotspot_id, location_index)` 변환표로 보는 해석이 가장 강하다.
 39. `0x1844B0..0x1847F7` 구간은 `FF` 종료 경로 시퀀스가 밀집한 route region 으로 보는 편이 더 자연스럽다.
 40. `0x184888` 에는 `10-entry` route script block pointer table 이 있고, 각 block 은 다시 `10-slot` pointer matrix 로 읽힌다.
 41. 이 matrix 의 non-null slot 은 `0x1844B0..0x1847F7` 시퀀스를 가리키며, 각 block 에서 자기 자신의 slot 하나만 `null` 이다.
@@ -51,9 +51,14 @@
 43. 따라서 `0x184888` 구조는 opcode script 보다 `10개 location 간 이동 경로를 13개 node 위에서 나열한 path matrix` 로 보는 해석이 더 강하다.
 44. `0..9` 는 location node, `0x0A..0x0C` 는 connector / transit node 후보로 두는 해석이 가장 자연스럽다.
 45. `0x184820` node position pair table 후보는 `13 * (x, y)` 구조이며, location record `field1/field2` 와 `8 / 10` 완전 일치, 나머지 `2 / 10` 은 작은 delta 만 가진다.
-46. `0x184950` 에는 `10 * (x, y)` label position pair 후보가 있다.
-47. `0x1849A0` 에는 `13-entry` Thumb handler pointer table 이 있고, 현재는 위 `13-node` 축과 맞물릴 가능성을 우선 둔다.
-48. `0x1849D4` 에는 `(index, 0x3E1..0x3EF)` 형태의 `7-entry` special pair table 후보가 있다.
+46. 코드 기준으로 `field1/field2` 는 location icon / hotspot 사각형의 좌상단 좌표로 보는 편이 더 정확하다. `0x06A418` hit-test 루틴이 descriptor `(dim_a, dim_b) * 8` 과 함께 이 두 필드를 직접 비교한다.
+47. `field0`, `field3`, `field4` 는 좌표보다 draw helper 파라미터 쪽에 가깝다. `0x069E9C` / `0x06D4A8` 계열이 이 필드들을 helper `0x63000` / `0x63424` 로 직접 넘긴다.
+48. 현재 가장 안전한 해석은 `field0 = asset/icon family ID 후보`, `field3 = draw subtype/mode 후보`, `field4 = graphic/tile-base variant 후보` 다.
+49. `0x184950` 에는 `10 * (x, y)` label position pair 후보가 있다.
+50. `0x1849A0` 에는 `13-entry` Thumb handler pointer table 이 있고, 현재는 위 `13-node` 축과 맞물릴 가능성을 우선 둔다.
+51. `0x1849D4` table 은 현재 `(location_index, special event/script/message id)` 로 보는 해석이 가장 강하다.
+52. `0x06D5A8` 루틴은 `0x1849D4` 의 둘째 필드 (`0x3E1..0x3EF`) 를 helper `0x47EB0` 에 넘겨 런타임 값을 얻고, 그 결과를 첫 필드 location index 로 색인되는 배열 슬롯에 저장한다.
+53. `0x06A838` helper 는 `0x030009A0 + location_index * 4` 플래그를 읽어 location 활성 여부를 판정한다. 따라서 활성/비활성은 `field3` 가 아니라 별도 플래그 배열이 맡는다.
 
 ## 지금 반복하면 안 되는 가정
 
@@ -69,13 +74,16 @@
 10. `0x18425C` 지역명 구간을 순수 standalone string bank 라고 가정하지 않는다.
 11. `field1/field2` 를 단순 ID 라고 가정하지 않는다. 현재는 좌표 계열 값일 가능성이 더 높다.
 12. `0x1844B0..0x1847F7` 시퀀스를 곧바로 opcode script 라고 가정하지 않는다. 현재는 node path 목록 해석이 더 강하다.
+13. `0x184420` table 을 route graph edge table 이라고 가정하지 않는다. 현재는 hotspot/cell id -> location index lookup 해석이 더 강하다.
+14. `0x1849D4` 를 단순 숫자 쌍이라고 가정하지 않는다. 현재는 location index -> special event/script/message id 매핑 해석이 더 강하다.
+15. `field3` 를 location 활성 플래그라고 가정하지 않는다. 활성 여부는 `0x030009A0` runtime array 가 따로 관리한다.
 
 ## 지금 가장 유력한 다음 질문
 
-1. `field0`, `field3`, `field4` 는 각각 어떤 게임 의미를 가지는가
-2. `0x184420` pair table 은 route path matrix 와 어떤 인덱스 규칙으로 연결되는가
-3. `0x1849A0` handler `13`개는 `0x184820` node `13`개와 1:1 대응하는가
-4. `0x1849D4` 의 `0x3E1..0x3EF` 값은 script/event/message 중 무엇인가
+1. `field3` 의 정확한 subtype 의미와 `0x63000` / `0x63424` helper signature 를 더 분리할 수 있는가
+2. `0x1849A0` handler `13`개는 `0x06A864` / `0x06D600` special overlay 흐름에서 어떤 역할을 가지는가
+3. `0x47EB0` 가 `0x3E1..0x3EF` 를 어떤 종류의 런타임 객체로 바꾸는가
+4. `0x561D4` hotspot helper 반환값이 실제 맵 좌표계에서 어떤 단위를 의미하는가
 5. `0x093D` binary table 은 `0x093E` 재료 문자열 뱅크와 어떤 관계인가
 6. `0x094B` / `0x12DF8(0x63)` 경로는 어떤 게임 데이터 분류를 읽는가
 
