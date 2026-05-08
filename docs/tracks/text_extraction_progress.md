@@ -13,6 +13,30 @@
 
 - 상태: `IN PROGRESS`
 
+## 작업용 번역 세트
+
+### 코어 UI 세트
+
+- 파일: [translation_workset_core_ui.json](/Users/user/test/analysis/translation_workset_core_ui.json)
+- 구성:
+  - `system_messages`
+  - `save_menu_texts`
+  - `location_texts`
+  - `ui_skill_texts`
+- 레코드 수: `43`
+- 목적:
+  - 사람이 여러 JSON 파일을 오가지 않고 바로 번역 작업을 시작할 수 있게 하는 첫 workset
+  - `save_menu_texts` 처럼 기존에 `translation` 필드가 없던 추출본도 같은 형식으로 정규화
+
+### Registry D 대사 세트
+
+- 파일: [translation_workset_registry_d_dialogue.json](/Users/user/test/analysis/translation_workset_registry_d_dialogue.json)
+- 소스: [registry_d_full_sliding_texts.json](/Users/user/test/analysis/registry_d_full_sliding_texts.json)
+- 레코드 수: `305`
+- 목적:
+  - 아직 따로 추출되지 않았던 튜토리얼/전투 전후 대사/이벤트 대사를 번역 가능한 한 파일로 묶기
+  - command stream 성격이 섞인 mixed resource 에서도 실제 사람이 읽을 수 있는 텍스트를 바로 작업 세트로 전환
+
 ## 확보된 추출본
 
 ### 시스템 메시지
@@ -64,6 +88,22 @@
   - 해당 블록에서는 `0x10` 이 문자열 종단(또는 구분) 역할을 하는 것으로 관측됨
   - `extract-range` 로는 잡히지 않아 `scan-text --sliding` 으로 추출함
 
+### Registry D 튜토리얼/이벤트 대사
+
+- 테이블 범위: `0x17C7E4` ~ `0x17CB04`
+- 물리 범위: `0x7F3000` ~ `0x7F96E9`
+- 파일:
+  - [registry_d_entries_scan.json](/Users/user/test/analysis/registry_d_entries_scan.json)
+  - [registry_d_full_sliding_texts.json](/Users/user/test/analysis/registry_d_full_sliding_texts.json)
+  - [registry_d_tutorial_dialogue_texts.json](/Users/user/test/analysis/registry_d_tutorial_dialogue_texts.json)
+  - [registry_d_battle_dialogue_texts.json](/Users/user/test/analysis/registry_d_battle_dialogue_texts.json)
+- 현재 확인:
+  - Registry D 전체 물리 범위를 `scan-text --sliding` + terminator `0x0D/0x0C/0x00` 으로 보면 `305`개 텍스트가 잡힌다.
+  - 텍스트가 확인된 엔트리는 현재 `81 / 100` 개다.
+  - entry `0` / `92` 는 튜토리얼 계열 중복/변형 대사 묶음으로 보인다.
+  - entry `33`, `47` 같은 큰 엔트리도 대사성 문자열을 다수 포함한다.
+  - 초기 전수 스캔 때는 `scan-text` 기본 `--limit 100` 에 걸려 일부만 보였으므로, 넓은 범위 스캔에서는 반드시 limit 을 올려야 한다.
+
 ### 크레딧(타이틀) 텍스트
 
 - 파일: [credits_texts.json](/Users/user/test/analysis/credits_texts.json)
@@ -81,6 +121,7 @@
 - 번역 가능한 텍스트 뱅크는 이미 여러 개 확보되었다.
 - 아이템/기술/지역/UI가 서로 다른 파일로 분리되기 시작해서 작업 관리가 쉬워졌다.
 - 아직 대사/이벤트 본문 텍스트는 충분히 확보되지 않았다.
+- Registry D 분석으로 본편성 대사/튜토리얼 텍스트가 대량으로 추가 확보되었다.
 - 전각 공백 필터 문제를 수정하면서 `battle/ability` 추출본의 누락 문자열을 회수했다.
 - 상위 리소스 청크 기준으로 보았을 때 `material_texts` 라는 별도 텍스트 묶음도 확인되었다.
 - `material_texts` 뱅크는 순수 문자열 덩어리가 아니라, 앞단 binary record 와 뒷단 문자열 본문이 결합된 mixed resource 로 보인다.
@@ -89,9 +130,9 @@
 
 ## 다음 할 일
 
-1. 대사/이벤트 평문 구간을 더 찾기
-2. 메뉴 관련 텍스트 뱅크를 더 분리하기
-3. 중복 저장되는 문자열 뱅크 관계를 파악하기
+1. Registry D `305`개 대사를 장면/용도 기준으로 더 묶기
+2. Registry D 외의 남은 command-stream / mixed resource 대사 뱅크를 찾기
+3. 메뉴 관련 텍스트 뱅크를 더 분리하기
 4. 추출본별 번역 우선순위를 나누기
 
 ## 진행 로그

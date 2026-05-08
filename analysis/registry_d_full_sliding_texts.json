@@ -1,0 +1,2442 @@
+[
+  {
+    "offset": 8335391,
+    "rom_address": 142553119,
+    "byte_length": 24,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "さぁ相手になってやるぜ！"
+  },
+  {
+    "offset": 8335433,
+    "rom_address": 142553161,
+    "byte_length": 26,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "兄さん、どうやって戦うの？"
+  },
+  {
+    "offset": 8335477,
+    "rom_address": 142553205,
+    "byte_length": 26,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "錬成であっさり終わらせる！"
+  },
+  {
+    "offset": 8335552,
+    "rom_address": 142553280,
+    "byte_length": 22,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "このコマンドで錬成だ！"
+  },
+  {
+    "offset": 8335592,
+    "rom_address": 142553320,
+    "byte_length": 20,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "素材や技を作るんだね"
+  },
+  {
+    "offset": 8335630,
+    "rom_address": 142553358,
+    "byte_length": 51,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "そう、説明が表示されるから\nムズかしいことじゃないさ"
+  },
+  {
+    "offset": 8335683,
+    "rom_address": 142553411,
+    "byte_length": 16,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "とりあえず見とけ"
+  },
+  {
+    "offset": 8335818,
+    "rom_address": 142553546,
+    "byte_length": 16,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "これが素材錬成だ"
+  },
+  {
+    "offset": 8335852,
+    "rom_address": 142553580,
+    "byte_length": 43,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "これで自分が欲しい素材を\n作っていくんだね？"
+  },
+  {
+    "offset": 8335913,
+    "rom_address": 142553641,
+    "byte_length": 14,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "そういうこと！"
+  },
+  {
+    "offset": 8335945,
+    "rom_address": 142553673,
+    "byte_length": 47,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "じゃあこれでいい素材を\nたくさん作ろうよ、兄さん"
+  },
+  {
+    "offset": 8336010,
+    "rom_address": 142553738,
+    "byte_length": 33,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "でもちゃんとルールを\n守らないとな"
+  },
+  {
+    "offset": 8336087,
+    "rom_address": 142553815,
+    "byte_length": 49,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "２つ以上の素材を選んで\n他の素材を錬成するのが基本"
+  },
+  {
+    "offset": 8336138,
+    "rom_address": 142553866,
+    "byte_length": 49,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "最初に選んだ素材がベースで\n質量と価値を上下させる"
+  },
+  {
+    "offset": 8336189,
+    "rom_address": 142553917,
+    "byte_length": 49,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "１足す１は２、２足す２は４\n等価値の素材を錬成する"
+  },
+  {
+    "offset": 8336256,
+    "rom_address": 142553984,
+    "byte_length": 12,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "等価交換だね"
+  },
+  {
+    "offset": 8336286,
+    "rom_address": 142554014,
+    "byte_length": 43,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "カードの質量、価値は上限７\nレベルは上限が５"
+  },
+  {
+    "offset": 8336331,
+    "rom_address": 142554059,
+    "byte_length": 22,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "それを守らなきゃダメだ"
+  },
+  {
+    "offset": 8336371,
+    "rom_address": 142554099,
+    "byte_length": 29,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "なるほど\nそう簡単にいかないね"
+  },
+  {
+    "offset": 8336418,
+    "rom_address": 142554146,
+    "byte_length": 41,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "そのうち慣れるさ\nじゃあついでにもうひとつ"
+  },
+  {
+    "offset": 8336461,
+    "rom_address": 142554189,
+    "byte_length": 43,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "素材を作る以外にも\n技として使うってのもある"
+  },
+  {
+    "offset": 8336506,
+    "rom_address": 142554234,
+    "byte_length": 41,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "やり方は素材錬成と同様\n素材か技を選ぶだけ"
+  },
+  {
+    "offset": 8336562,
+    "rom_address": 142554290,
+    "byte_length": 22,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "兄さんの得意なことだね"
+  },
+  {
+    "offset": 8336602,
+    "rom_address": 142554330,
+    "byte_length": 51,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "最初は？？？になってるけど\nどんどん使ってみればいい"
+  },
+  {
+    "offset": 8336668,
+    "rom_address": 142554396,
+    "byte_length": 29,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "よっしゃ\n派手に決めてみるぜ！"
+  },
+  {
+    "offset": 8336902,
+    "rom_address": 142554630,
+    "byte_length": 14,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "なんだ、アル？"
+  },
+  {
+    "offset": 8336933,
+    "rom_address": 142554661,
+    "byte_length": 39,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "紫の素材なんだけど…\nボク見た事ないよ？"
+  },
+  {
+    "offset": 8337006,
+    "rom_address": 142554734,
+    "byte_length": 49,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "この素材を錬成に使うと\n質量や価値がマイナスされる"
+  },
+  {
+    "offset": 8337057,
+    "rom_address": 142554785,
+    "byte_length": 24,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "それ以外は謎に包まれてる"
+  },
+  {
+    "offset": 8337084,
+    "rom_address": 142554812,
+    "byte_length": 47,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "ベースになるカードを選び\n次に、この素材を選ぶと"
+  },
+  {
+    "offset": 8337133,
+    "rom_address": 142554861,
+    "byte_length": 47,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "ベース素材の質量や価値から\n数値がマイナスされる"
+  },
+  {
+    "offset": 8337198,
+    "rom_address": 142554926,
+    "byte_length": 14,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "なんか怖いね…"
+  },
+  {
+    "offset": 8337230,
+    "rom_address": 142554958,
+    "byte_length": 20,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "ま、モノは使いようだ"
+  },
+  {
+    "offset": 8337252,
+    "rom_address": 142554980,
+    "byte_length": 39,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "こいつを使えば\n素材錬成の幅が広がるしな"
+  },
+  {
+    "offset": 8337293,
+    "rom_address": 142555021,
+    "byte_length": 49,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "注意するのは、これを使って\n数値をマイナスするとき"
+  },
+  {
+    "offset": 8337344,
+    "rom_address": 142555072,
+    "byte_length": 47,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "質量や価値が０になる錬成は\nできないってことだな"
+  },
+  {
+    "offset": 8337409,
+    "rom_address": 142555137,
+    "byte_length": 26,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "ちなみに、言い忘れてたけど"
+  },
+  {
+    "offset": 8337437,
+    "rom_address": 142555165,
+    "byte_length": 37,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "一度でも使った技は\n手帳に記入するから"
+  },
+  {
+    "offset": 8337476,
+    "rom_address": 142555204,
+    "byte_length": 43,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "チェックしたいときは\n手帳を開いてみるといい"
+  },
+  {
+    "offset": 8337619,
+    "rom_address": 142555347,
+    "byte_length": 26,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "さっさとケリつけちゃおうぜ"
+  },
+  {
+    "offset": 8337663,
+    "rom_address": 142555391,
+    "byte_length": 20,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "うん、そうだね兄さん"
+  },
+  {
+    "offset": 8337786,
+    "rom_address": 142555514,
+    "byte_length": 28,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "コニィはあまりムチャするなよ"
+  },
+  {
+    "offset": 8337832,
+    "rom_address": 142555560,
+    "byte_length": 26,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "心配してくれて、ありがとう"
+  },
+  {
+    "offset": 8337871,
+    "rom_address": 142555599,
+    "byte_length": 41,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "でも、ケガをしたら\n私が治してあげますから"
+  },
+  {
+    "offset": 8338014,
+    "rom_address": 142555742,
+    "byte_length": 43,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "ったく、なんだって\n街にキメラがいるんだよッ"
+  },
+  {
+    "offset": 8338158,
+    "rom_address": 142555886,
+    "byte_length": 26,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "こんなとこにいやがったのか"
+  },
+  {
+    "offset": 8338387,
+    "rom_address": 142556115,
+    "byte_length": 22,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "いいかげんウンザリだぜ"
+  },
+  {
+    "offset": 8338525,
+    "rom_address": 142556253,
+    "byte_length": 16,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "こいつで最後か！"
+  },
+  {
+    "offset": 8338543,
+    "rom_address": 142556271,
+    "byte_length": 29,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "気合入れて\nとっとと片付けるッ"
+  },
+  {
+    "offset": 8338740,
+    "rom_address": 142556468,
+    "byte_length": 20,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "よろしくお願いします"
+  },
+  {
+    "offset": 8338793,
+    "rom_address": 142556521,
+    "byte_length": 22,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "全力で向かってきなさい"
+  },
+  {
+    "offset": 8339353,
+    "rom_address": 142557081,
+    "byte_length": 43,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "コニィ、今度はオレたちもいる\n絶対に勝てる！"
+  },
+  {
+    "offset": 8339451,
+    "rom_address": 142557179,
+    "byte_length": 39,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "実戦経験者を\nあなどってもらっては困るな"
+  },
+  {
+    "offset": 8339605,
+    "rom_address": 142557333,
+    "byte_length": 33,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "それじゃ\nちゃちゃっと片付けますか"
+  },
+  {
+    "offset": 8339676,
+    "rom_address": 142557404,
+    "byte_length": 39,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "小僧ごときがぁぁぁッ\n調子に乗るなよッ！"
+  },
+  {
+    "offset": 8339818,
+    "rom_address": 142557546,
+    "byte_length": 24,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "いいかげん最後にしようぜ"
+  },
+  {
+    "offset": 8339942,
+    "rom_address": 142557670,
+    "byte_length": 27,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "私が負けたら\n協力してやろう"
+  },
+  {
+    "offset": 8339990,
+    "rom_address": 142557718,
+    "byte_length": 27,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "その言葉\n忘れないで下さいよ"
+  },
+  {
+    "offset": 8340042,
+    "rom_address": 142557770,
+    "byte_length": 29,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "えっ？\nどこから火がついたの？"
+  },
+  {
+    "offset": 8340092,
+    "rom_address": 142557820,
+    "byte_length": 28,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "アレは大佐が錬成してるんだよ"
+  },
+  {
+    "offset": 8340215,
+    "rom_address": 142557943,
+    "byte_length": 27,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "私が負けたら\n協力してやろう"
+  },
+  {
+    "offset": 8340263,
+    "rom_address": 142557991,
+    "byte_length": 27,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "その言葉\n忘れないで下さいよ"
+  },
+  {
+    "offset": 8340391,
+    "rom_address": 142558119,
+    "byte_length": 29,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "えっ？\nどこから火がついたの？"
+  },
+  {
+    "offset": 8340441,
+    "rom_address": 142558169,
+    "byte_length": 28,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "アレは大佐が錬成してるんだよ"
+  },
+  {
+    "offset": 8340600,
+    "rom_address": 142558328,
+    "byte_length": 33,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "マジでこのオレ様と\nやるってのか？"
+  },
+  {
+    "offset": 8340664,
+    "rom_address": 142558392,
+    "byte_length": 29,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "ああ、力ずくで\n仲間にしてやる"
+  },
+  {
+    "offset": 8340817,
+    "rom_address": 142558545,
+    "byte_length": 41,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "けっ、キメラにも親玉が\nいるとは笑わせるぜ"
+  },
+  {
+    "offset": 8340860,
+    "rom_address": 142558588,
+    "byte_length": 14,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "覚悟しやがれ！"
+  },
+  {
+    "offset": 8340979,
+    "rom_address": 142558707,
+    "byte_length": 16,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "逃がすなよ、鋼の"
+  },
+  {
+    "offset": 8341016,
+    "rom_address": 142558744,
+    "byte_length": 14,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "わかってるって"
+  },
+  {
+    "offset": 8341158,
+    "rom_address": 142558886,
+    "byte_length": 47,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "オレたちのニセモノは\nちゃんとオレたちで倒すぜ！"
+  },
+  {
+    "offset": 8341233,
+    "rom_address": 142558961,
+    "byte_length": 16,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "そうだね、兄さん"
+  },
+  {
+    "offset": 8341267,
+    "rom_address": 142558995,
+    "byte_length": 31,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "ニセモノめ！\n覚悟してください！"
+  },
+  {
+    "offset": 8341326,
+    "rom_address": 142559054,
+    "byte_length": 39,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "ニセモノにニセモノって\n言われたかねぇぞ"
+  },
+  {
+    "offset": 8341367,
+    "rom_address": 142559095,
+    "byte_length": 22,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "本物の力を見せてやる！"
+  },
+  {
+    "offset": 8341410,
+    "rom_address": 142559138,
+    "byte_length": 28,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "心おきなく攻撃させてもらおう"
+  },
+  {
+    "offset": 8341456,
+    "rom_address": 142559184,
+    "byte_length": 20,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "なんだか戦いにくいわ"
+  },
+  {
+    "offset": 8341578,
+    "rom_address": 142559306,
+    "byte_length": 49,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "ヨロイ君に攻撃するのは\nやだなぁ。でも、やるぞぉ！"
+  },
+  {
+    "offset": 8341645,
+    "rom_address": 142559373,
+    "byte_length": 33,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "少女に攻撃するのは\n気がひけますな"
+  },
+  {
+    "offset": 8341699,
+    "rom_address": 142559427,
+    "byte_length": 47,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "いい歳して、いつまでも\n人形遊びしてんじゃねえよ"
+  },
+  {
+    "offset": 8341775,
+    "rom_address": 142559503,
+    "byte_length": 38,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "おまえごときに時間を\n\u000bかけてるわけには"
+  },
+  {
+    "offset": 8341815,
+    "rom_address": 142559543,
+    "byte_length": 14,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "いかないんだよ"
+  },
+  {
+    "offset": 8341970,
+    "rom_address": 142559698,
+    "byte_length": 37,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "おまえごときに時間を\nかけてるわけには"
+  },
+  {
+    "offset": 8342009,
+    "rom_address": 142559737,
+    "byte_length": 16,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "いかないんだよ！"
+  },
+  {
+    "offset": 8342043,
+    "rom_address": 142559771,
+    "byte_length": 25,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "キメラばっかで\nあきたぜ！"
+  },
+  {
+    "offset": 8342099,
+    "rom_address": 142559827,
+    "byte_length": 44,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "国家錬金術師、\n\u000bそして我が使命を邪魔する者！"
+  },
+  {
+    "offset": 8342145,
+    "rom_address": 142559873,
+    "byte_length": 22,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "この場の全員、滅ぼす！"
+  },
+  {
+    "offset": 8342221,
+    "rom_address": 142559949,
+    "byte_length": 28,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "なんてものわかり良くなくてね"
+  },
+  {
+    "offset": 8342267,
+    "rom_address": 142559995,
+    "byte_length": 24,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "おとなしく裁きを受けよ！"
+  },
+  {
+    "offset": 8342505,
+    "rom_address": 142560233,
+    "byte_length": 20,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "むう、やりおるわい！"
+  },
+  {
+    "offset": 8342543,
+    "rom_address": 142560271,
+    "byte_length": 28,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "オッサンこそやるじゃねーか！"
+  },
+  {
+    "offset": 8342596,
+    "rom_address": 142560324,
+    "byte_length": 35,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "あのな…いつまで\n筋肉勝負やってる？"
+  },
+  {
+    "offset": 8342633,
+    "rom_address": 142560361,
+    "byte_length": 14,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "決着をつけるぞ"
+  },
+  {
+    "offset": 8342750,
+    "rom_address": 142560478,
+    "byte_length": 31,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "お兄ちゃんの\nジャマをするヤツは"
+  },
+  {
+    "offset": 8342783,
+    "rom_address": 142560511,
+    "byte_length": 18,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "許さないからねっ！"
+  },
+  {
+    "offset": 8342822,
+    "rom_address": 142560550,
+    "byte_length": 14,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "軍の狗どもが…"
+  },
+  {
+    "offset": 8342838,
+    "rom_address": 142560566,
+    "byte_length": 33,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "私にかなうとでも\n思っているのか？"
+  },
+  {
+    "offset": 8342892,
+    "rom_address": 142560620,
+    "byte_length": 37,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "やってみなくちゃ\nわかんねーだろうが！"
+  },
+  {
+    "offset": 8342971,
+    "rom_address": 142560699,
+    "byte_length": 43,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "では、ほんの少しだけ\n私の力をみせてやろう…"
+  },
+  {
+    "offset": 8343107,
+    "rom_address": 142560835,
+    "byte_length": 12,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "なんだっ！？"
+  },
+  {
+    "offset": 8343343,
+    "rom_address": 142561071,
+    "byte_length": 20,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "さらばだ、軍の狗ども"
+  },
+  {
+    "offset": 8343498,
+    "rom_address": 142561226,
+    "byte_length": 57,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "ちったぁ活躍しておかねえとな\nムショから出てきた意味がねぇ"
+  },
+  {
+    "offset": 8343680,
+    "rom_address": 142561408,
+    "byte_length": 35,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "よほどオレ様に\n斬られたいらしいな！"
+  },
+  {
+    "offset": 8343746,
+    "rom_address": 142561474,
+    "byte_length": 37,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "まったく…なに一人で\n張り切ってんだよ"
+  },
+  {
+    "offset": 8343883,
+    "rom_address": 142561611,
+    "byte_length": 35,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "じゃ、ランディくん\nガンバってねーん"
+  },
+  {
+    "offset": 8343934,
+    "rom_address": 142561662,
+    "byte_length": 39,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "なんだー！？\nケイトもマジメに戦えよっ！"
+  },
+  {
+    "offset": 8343989,
+    "rom_address": 142561717,
+    "byte_length": 39,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "だって、あたし、\nお守り役なんだけどぉ？"
+  },
+  {
+    "offset": 8344030,
+    "rom_address": 142561758,
+    "byte_length": 22,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "じゃ、ちょっとだけだよ"
+  },
+  {
+    "offset": 8344172,
+    "rom_address": 142561900,
+    "byte_length": 43,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "国家錬金術師、\nそして我が使命を邪魔する者！"
+  },
+  {
+    "offset": 8344217,
+    "rom_address": 142561945,
+    "byte_length": 24,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "この場の全員、滅ぼす！！"
+  },
+  {
+    "offset": 8344259,
+    "rom_address": 142561987,
+    "byte_length": 53,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "滅ぼすといわれて了解するほど\nものわかりが良くなくてね"
+  },
+  {
+    "offset": 8344330,
+    "rom_address": 142562058,
+    "byte_length": 24,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "おとなしく裁きを受けよ！"
+  },
+  {
+    "offset": 8344481,
+    "rom_address": 142562209,
+    "byte_length": 31,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "しょうがない。\n相手してやるぜ！"
+  },
+  {
+    "offset": 8344640,
+    "rom_address": 142562368,
+    "byte_length": 39,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "鋼の錬金術師！\nここでぶっ潰してやるぜ！"
+  },
+  {
+    "offset": 8344697,
+    "rom_address": 142562425,
+    "byte_length": 14,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "鋼の、大変だな"
+  },
+  {
+    "offset": 8344713,
+    "rom_address": 142562441,
+    "byte_length": 33,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "潰されたら、\nますます身長が縮むぞ"
+  },
+  {
+    "offset": 8344767,
+    "rom_address": 142562495,
+    "byte_length": 18,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "余計なお世話だっ！"
+  },
+  {
+    "offset": 8344806,
+    "rom_address": 142562534,
+    "byte_length": 27,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "とほほ…\nなんでオレ様まで…"
+  },
+  {
+    "offset": 8344964,
+    "rom_address": 142562692,
+    "byte_length": 37,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "今度こそ、\n完全にぶっ飛ばしてやるっ！"
+  },
+  {
+    "offset": 8345022,
+    "rom_address": 142562750,
+    "byte_length": 41,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "身長だけかと思えば\n人間の器もちっちゃーい"
+  },
+  {
+    "offset": 8345084,
+    "rom_address": 142562812,
+    "byte_length": 20,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "…ぜったい、潰すっ！"
+  },
+  {
+    "offset": 8345232,
+    "rom_address": 142562960,
+    "byte_length": 45,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "さて、あんなバケモノ、\nどうやって倒すよ、大佐"
+  },
+  {
+    "offset": 8345295,
+    "rom_address": 142563023,
+    "byte_length": 41,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "面倒なことになると、\nこっちに任せるんだな"
+  },
+  {
+    "offset": 8345354,
+    "rom_address": 142563082,
+    "byte_length": 22,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "それが大佐の仕事だろ？"
+  },
+  {
+    "offset": 8345394,
+    "rom_address": 142563122,
+    "byte_length": 43,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "エド、マスタング…\nここはオレ様に任せてくれ"
+  },
+  {
+    "offset": 8345455,
+    "rom_address": 142563183,
+    "byte_length": 24,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "何か策があるってことか？"
+  },
+  {
+    "offset": 8345497,
+    "rom_address": 142563225,
+    "byte_length": 49,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "当然だ。オレ様だって\n雷霆の錬金術師と呼ばれた男だ"
+  },
+  {
+    "offset": 8345548,
+    "rom_address": 142563276,
+    "byte_length": 16,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "策くらいあらぁな"
+  },
+  {
+    "offset": 8345582,
+    "rom_address": 142563310,
+    "byte_length": 24,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "まずはヤツを弱らせるぞ！"
+  },
+  {
+    "offset": 8345736,
+    "rom_address": 142563464,
+    "byte_length": 14,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "どうあがいても"
+  },
+  {
+    "offset": 8345752,
+    "rom_address": 142563480,
+    "byte_length": 39,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "貴様らはしょせん、\n軍の狗にすぎんのだ！"
+  },
+  {
+    "offset": 8345812,
+    "rom_address": 142563540,
+    "byte_length": 26,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "いちいち癇に障るんだよっ！"
+  },
+  {
+    "offset": 8345840,
+    "rom_address": 142563568,
+    "byte_length": 37,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "ごたく並べてねぇで、\nかかって来いよ！"
+  },
+  {
+    "offset": 8345906,
+    "rom_address": 142563634,
+    "byte_length": 39,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "そんな挑発して、\n何か作戦でもあるの！？"
+  },
+  {
+    "offset": 8345966,
+    "rom_address": 142563694,
+    "byte_length": 22,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "んなもん、あるかよっ！"
+  },
+  {
+    "offset": 8346009,
+    "rom_address": 142563737,
+    "byte_length": 43,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "ほう、策もないわりには\nやけに強気じゃないか"
+  },
+  {
+    "offset": 8346070,
+    "rom_address": 142563798,
+    "byte_length": 39,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "虚勢ぐらい張らないと、\nこんなヤツ相手に"
+  },
+  {
+    "offset": 8346111,
+    "rom_address": 142563839,
+    "byte_length": 24,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "戦う気にはならないからな"
+  },
+  {
+    "offset": 8346153,
+    "rom_address": 142563881,
+    "byte_length": 14,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "それは同感だな"
+  },
+  {
+    "offset": 8346188,
+    "rom_address": 142563916,
+    "byte_length": 51,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "国家錬金術師などと称しても、\nしょせんはこの程度か？"
+  },
+  {
+    "offset": 8346257,
+    "rom_address": 142563985,
+    "byte_length": 37,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "そのくせ、我が理想を\n阻もうとは…笑止"
+  },
+  {
+    "offset": 8346315,
+    "rom_address": 142564043,
+    "byte_length": 12,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "何が理想だ！"
+  },
+  {
+    "offset": 8346329,
+    "rom_address": 142564057,
+    "byte_length": 43,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "リンカー！てめぇのどこに\n理想があるんだよ！"
+  },
+  {
+    "offset": 8346399,
+    "rom_address": 142564127,
+    "byte_length": 31,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "錬金術師よ、\n大衆のためにあれ！"
+  },
+  {
+    "offset": 8346451,
+    "rom_address": 142564179,
+    "byte_length": 43,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "貴様らのような軍の狗である\n国家錬金術師では"
+  },
+  {
+    "offset": 8346496,
+    "rom_address": 142564224,
+    "byte_length": 18,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "その理想はなしえぬ"
+  },
+  {
+    "offset": 8346516,
+    "rom_address": 142564244,
+    "byte_length": 37,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "私はイシュヴァールで、\nそれを悟った！"
+  },
+  {
+    "offset": 8346571,
+    "rom_address": 142564299,
+    "byte_length": 39,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "勝手なことばっか、\n言ってんじゃねーよ！"
+  },
+  {
+    "offset": 8346612,
+    "rom_address": 142564340,
+    "byte_length": 33,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "リンカー、てめぇの\nやってることの"
+  },
+  {
+    "offset": 8346647,
+    "rom_address": 142564375,
+    "byte_length": 20,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "どこが大衆のためだ！"
+  },
+  {
+    "offset": 8346688,
+    "rom_address": 142564416,
+    "byte_length": 29,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "…やはり\nわかりあえぬようだな"
+  },
+  {
+    "offset": 8346738,
+    "rom_address": 142564466,
+    "byte_length": 22,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "わかり合いたくもねぇよ"
+  },
+  {
+    "offset": 8346762,
+    "rom_address": 142564490,
+    "byte_length": 47,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "いい加減、そのよく動く口、\n閉じさせてやるぜっ！"
+  },
+  {
+    "offset": 8346925,
+    "rom_address": 142564653,
+    "byte_length": 16,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "コニィ、大丈夫？"
+  },
+  {
+    "offset": 8347212,
+    "rom_address": 142564940,
+    "byte_length": 18,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "ええ、もう迷わない"
+  },
+  {
+    "offset": 8347293,
+    "rom_address": 142565021,
+    "byte_length": 28,
+    "terminator": "0x0C",
+    "unknown_tokens": 0,
+    "text": "錬金術師よ、大衆のためにあれ"
+  },
+  {
+    "offset": 8347380,
+    "rom_address": 142565108,
+    "byte_length": 28,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "錬金術師よ、大衆のためにあれ"
+  },
+  {
+    "offset": 8347522,
+    "rom_address": 142565250,
+    "byte_length": 45,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "ほわー。眠くなってきたから、\nさっさとそんなの"
+  },
+  {
+    "offset": 8347569,
+    "rom_address": 142565297,
+    "byte_length": 26,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "やっつけちゃっていいよん！"
+  },
+  {
+    "offset": 8347616,
+    "rom_address": 142565344,
+    "byte_length": 22,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "…負けるもんですかっ！"
+  },
+  {
+    "offset": 8347640,
+    "rom_address": 142565368,
+    "byte_length": 43,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "エドにできて、\n私にできないわけないからっ！"
+  },
+  {
+    "offset": 8347704,
+    "rom_address": 142565432,
+    "byte_length": 39,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "やっぱ、コニィは、\nああじゃなくっちゃな"
+  },
+  {
+    "offset": 8347764,
+    "rom_address": 142565492,
+    "byte_length": 23,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "え？\n…じゃあ、兄さんは"
+  },
+  {
+    "offset": 8347818,
+    "rom_address": 142565546,
+    "byte_length": 49,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "オレはべつに手助けなんて、\nしたつもりはないけど？"
+  },
+  {
+    "offset": 8347888,
+    "rom_address": 142565616,
+    "byte_length": 31,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "素直に応援して\nあげればいいのに"
+  },
+  {
+    "offset": 8347921,
+    "rom_address": 142565649,
+    "byte_length": 22,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "…まったく、兄さんたら"
+  },
+  {
+    "offset": 8348042,
+    "rom_address": 142565770,
+    "byte_length": 25,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "最期だ\n神に祈る間をやろう"
+  },
+  {
+    "offset": 8348088,
+    "rom_address": 142565816,
+    "byte_length": 16,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "あいにくだけど…"
+  },
+  {
+    "offset": 8348106,
+    "rom_address": 142565834,
+    "byte_length": 29,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "祈りたい神サマが\nいないんでね"
+  },
+  {
+    "offset": 8348168,
+    "rom_address": 142565896,
+    "byte_length": 23,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "ならば、\n裁きを受けよ！"
+  },
+  {
+    "offset": 8348294,
+    "rom_address": 142566022,
+    "byte_length": 14,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "小僧がッッッ！"
+  },
+  {
+    "offset": 8348310,
+    "rom_address": 142566038,
+    "byte_length": 33,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "今度は貴様を\nバラバラにしてやる！"
+  },
+  {
+    "offset": 8348446,
+    "rom_address": 142566174,
+    "byte_length": 37,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "理不尽なヤツらだ！\n犬なんて知るかっ！"
+  },
+  {
+    "offset": 8348504,
+    "rom_address": 142566232,
+    "byte_length": 18,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "しらばっくれるな！"
+  },
+  {
+    "offset": 8348626,
+    "rom_address": 142566354,
+    "byte_length": 14,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "さっさとやって"
+  },
+  {
+    "offset": 8348642,
+    "rom_address": 142566370,
+    "byte_length": 29,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "さっさと下水道から\n出たいよな"
+  },
+  {
+    "offset": 8348689,
+    "rom_address": 142566417,
+    "byte_length": 16,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "そうだね、兄さん"
+  },
+  {
+    "offset": 8348723,
+    "rom_address": 142566451,
+    "byte_length": 22,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "おのれ、ナメやがって！"
+  },
+  {
+    "offset": 8348846,
+    "rom_address": 142566574,
+    "byte_length": 29,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "さっさと片付けて\n先に進むぞ！"
+  },
+  {
+    "offset": 8348978,
+    "rom_address": 142566706,
+    "byte_length": 16,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "さあ、次に進むぞ"
+  },
+  {
+    "offset": 8349105,
+    "rom_address": 142566833,
+    "byte_length": 33,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "貴様一匹など、\n私ひとりで十分だ！"
+  },
+  {
+    "offset": 8349242,
+    "rom_address": 142566970,
+    "byte_length": 27,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "オレはオレひとりで\n十分だ！"
+  },
+  {
+    "offset": 8349271,
+    "rom_address": 142566999,
+    "byte_length": 16,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "偽者はぶっ潰す！"
+  },
+  {
+    "offset": 8349317,
+    "rom_address": 142567045,
+    "byte_length": 41,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "エドが何人もいたら\nうるさくて仕方ないです"
+  },
+  {
+    "offset": 8349376,
+    "rom_address": 142567104,
+    "byte_length": 12,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "いや、コニィ"
+  },
+  {
+    "offset": 8349390,
+    "rom_address": 142567118,
+    "byte_length": 31,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "そういう問題でも\nないんだけどね"
+  },
+  {
+    "offset": 8349470,
+    "rom_address": 142567198,
+    "byte_length": 53,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "マップで錬成したいときは\nここで必要なカードを選ぶんだ"
+  },
+  {
+    "offset": 8349525,
+    "rom_address": 142567253,
+    "byte_length": 31,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "今欲しいカードは\n金属の３－２だ"
+  },
+  {
+    "offset": 8349625,
+    "rom_address": 142567353,
+    "byte_length": 37,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "でも兄さん\n金属の３－２は持ってないよ"
+  },
+  {
+    "offset": 8349680,
+    "rom_address": 142567408,
+    "byte_length": 20,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "さっきも教えただろ？"
+  },
+  {
+    "offset": 8349702,
+    "rom_address": 142567430,
+    "byte_length": 45,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "欲しいカードがないときは\n作っちまえばいいのさ"
+  },
+  {
+    "offset": 8349749,
+    "rom_address": 142567477,
+    "byte_length": 49,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "元になるカードを選んで\n別のカードを足せばいいんだ"
+  },
+  {
+    "offset": 8349800,
+    "rom_address": 142567528,
+    "byte_length": 57,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "つまり金属の２－１のカードに\n別の１－１のカードを足せば…"
+  },
+  {
+    "offset": 8349872,
+    "rom_address": 142567600,
+    "byte_length": 43,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "金属の３－２のカードが\nできるってことだね？"
+  },
+  {
+    "offset": 8349930,
+    "rom_address": 142567658,
+    "byte_length": 29,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "そう！\nそれじゃやってみるぜ！"
+  },
+  {
+    "offset": 8350075,
+    "rom_address": 142567803,
+    "byte_length": 43,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "あとはそのカードを選んで\n「つかう」だけだね"
+  },
+  {
+    "offset": 8350133,
+    "rom_address": 142567861,
+    "byte_length": 51,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "気をつけなきゃいけないのは\nこの「つかう」コマンドは"
+  },
+  {
+    "offset": 8350186,
+    "rom_address": 142567914,
+    "byte_length": 41,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "マップで錬成したりするとき\n使うものなんだ"
+  },
+  {
+    "offset": 8350229,
+    "rom_address": 142567957,
+    "byte_length": 53,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "アイテムや素材が欲しいなら\n「錬成」コマンドを使うんだ"
+  },
+  {
+    "offset": 8350297,
+    "rom_address": 142568025,
+    "byte_length": 31,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "何もない時に\n素材を「つかう」と"
+  },
+  {
+    "offset": 8350330,
+    "rom_address": 142568058,
+    "byte_length": 41,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "そのまま無くなっちゃうから\n注意しなきゃね"
+  },
+  {
+    "offset": 8350386,
+    "rom_address": 142568114,
+    "byte_length": 39,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "おっと、もうひとつ！\n素材を選んだあとに"
+  },
+  {
+    "offset": 8350427,
+    "rom_address": 142568155,
+    "byte_length": 43,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "Ｒボタンを押すと\n選んだ素材をすぐ捨てられる"
+  },
+  {
+    "offset": 8350472,
+    "rom_address": 142568200,
+    "byte_length": 29,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "サクサク捨てたいとき\n便利だぞ"
+  },
+  {
+    "offset": 8350516,
+    "rom_address": 142568244,
+    "byte_length": 39,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "わかったよ兄さん\nそれじゃ素材をつかうよ"
+  },
+  {
+    "offset": 8350778,
+    "rom_address": 142568506,
+    "byte_length": 41,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "機械鎧を攻撃されても\n痛くもかゆくもないぜ"
+  },
+  {
+    "offset": 8350984,
+    "rom_address": 142568712,
+    "byte_length": 25,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "格がちがうんだよ\n格がっ！"
+  },
+  {
+    "offset": 8351049,
+    "rom_address": 142568777,
+    "byte_length": 33,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "私はあきらめんぞ\nこの石がある限り"
+  },
+  {
+    "offset": 8351084,
+    "rom_address": 142568812,
+    "byte_length": 12,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "私は無敵だ！"
+  },
+  {
+    "offset": 8351272,
+    "rom_address": 142569000,
+    "byte_length": 37,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "兄さん、いくらなんでも\nやりすぎだよ…"
+  },
+  {
+    "offset": 8351330,
+    "rom_address": 142569058,
+    "byte_length": 39,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "そうか？少佐ならこれぐらい\n大丈夫だって"
+  },
+  {
+    "offset": 8351532,
+    "rom_address": 142569260,
+    "byte_length": 14,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "オレの勝ちだな"
+  },
+  {
+    "offset": 8351564,
+    "rom_address": 142569292,
+    "byte_length": 39,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "ぬぬぬっ！！\nまたしても、こんなガキに…"
+  },
+  {
+    "offset": 8351621,
+    "rom_address": 142569349,
+    "byte_length": 18,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "刑務所に逆戻りだな"
+  },
+  {
+    "offset": 8351657,
+    "rom_address": 142569385,
+    "byte_length": 14,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "覚えてやがれ！"
+  },
+  {
+    "offset": 8351851,
+    "rom_address": 142569579,
+    "byte_length": 14,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "お前ら強いなぁ"
+  },
+  {
+    "offset": 8351867,
+    "rom_address": 142569595,
+    "byte_length": 31,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "そこの小さいの！\n名前を教えろっ"
+  },
+  {
+    "offset": 8351919,
+    "rom_address": 142569647,
+    "byte_length": 41,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "だれがぁ？\nミクロミニチュア錬金術師だぁ？"
+  },
+  {
+    "offset": 8351981,
+    "rom_address": 142569709,
+    "byte_length": 23,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "だから、お前だよ\nどチビ"
+  },
+  {
+    "offset": 8352024,
+    "rom_address": 142569752,
+    "byte_length": 47,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "オレは鋼の錬金術師\nエドワード・エルリックだぁ！"
+  },
+  {
+    "offset": 8352092,
+    "rom_address": 142569820,
+    "byte_length": 47,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "オレはランディ・ローバーだ\n盗んだ物は返してやる"
+  },
+  {
+    "offset": 8352189,
+    "rom_address": 142569917,
+    "byte_length": 39,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "へへっ、まだ捕まる訳には\n行かないんでね"
+  },
+  {
+    "offset": 8352555,
+    "rom_address": 142570283,
+    "byte_length": 25,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "やっばー！\nたんま、たんま"
+  },
+  {
+    "offset": 8352601,
+    "rom_address": 142570329,
+    "byte_length": 12,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "なんだよ突然"
+  },
+  {
+    "offset": 8352615,
+    "rom_address": 142570343,
+    "byte_length": 14,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "反省したのか？"
+  },
+  {
+    "offset": 8352647,
+    "rom_address": 142570375,
+    "byte_length": 28,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "お兄ちゃんに言いつけてやる！"
+  },
+  {
+    "offset": 8352894,
+    "rom_address": 142570622,
+    "byte_length": 29,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "見て、あそこ。\n鍵が落ちてるよ"
+  },
+  {
+    "offset": 8352944,
+    "rom_address": 142570672,
+    "byte_length": 24,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "どこかの扉の鍵みたいね。"
+  },
+  {
+    "offset": 8352970,
+    "rom_address": 142570698,
+    "byte_length": 37,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "もう一度、屋敷内を\n探しなおしましょう"
+  },
+  {
+    "offset": 8353341,
+    "rom_address": 142571069,
+    "byte_length": 14,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "行っちゃった…"
+  },
+  {
+    "offset": 8353383,
+    "rom_address": 142571111,
+    "byte_length": 48,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "すぐに行き止まりだよ、兄さん\n\u000bここじゃないみたい"
+  },
+  {
+    "offset": 8353455,
+    "rom_address": 142571183,
+    "byte_length": 48,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "すぐに行き止まりだよ、兄さん\n\u000bここじゃないみたい"
+  },
+  {
+    "offset": 8353662,
+    "rom_address": 142571390,
+    "byte_length": 43,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "オレ様にかかれば\nおちゃのこサイサイってね！"
+  },
+  {
+    "offset": 8353893,
+    "rom_address": 142571621,
+    "byte_length": 26,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "どうやら片付いたみたいだな"
+  },
+  {
+    "offset": 8353937,
+    "rom_address": 142571665,
+    "byte_length": 41,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "マーティンス中佐も\n元気になったみたいだし"
+  },
+  {
+    "offset": 8353996,
+    "rom_address": 142571724,
+    "byte_length": 41,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "オレ様はいつだって元気で\n前向きな男だぜ？"
+  },
+  {
+    "offset": 8354055,
+    "rom_address": 142571783,
+    "byte_length": 35,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "さっきまで一人で\n考え込んでたくせに"
+  },
+  {
+    "offset": 8354268,
+    "rom_address": 142571996,
+    "byte_length": 39,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "この数を相手にしては\nやはり分が悪いか…"
+  },
+  {
+    "offset": 8354573,
+    "rom_address": 142572301,
+    "byte_length": 24,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "終わったよ、ヒューズ中佐"
+  },
+  {
+    "offset": 8354628,
+    "rom_address": 142572356,
+    "byte_length": 43,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "いつも思うが、お前らって\nムチャクチャだよな"
+  },
+  {
+    "offset": 8354822,
+    "rom_address": 142572550,
+    "byte_length": 29,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "ヒューズ中佐…\n大丈夫ですか？"
+  },
+  {
+    "offset": 8354872,
+    "rom_address": 142572600,
+    "byte_length": 12,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "なんで俺まで"
+  },
+  {
+    "offset": 8354886,
+    "rom_address": 142572614,
+    "byte_length": 39,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "こんなのの相手をするはめに\nなるんだよ…"
+  },
+  {
+    "offset": 8354946,
+    "rom_address": 142572674,
+    "byte_length": 37,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "親玉を片付けたんだ。\nこれで一安心だな"
+  },
+  {
+    "offset": 8355148,
+    "rom_address": 142572876,
+    "byte_length": 39,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "残念だけど、\nいつまでも遊んでられないの"
+  },
+  {
+    "offset": 8355189,
+    "rom_address": 142572917,
+    "byte_length": 16,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "またね、鋼の坊や"
+  },
+  {
+    "offset": 8355495,
+    "rom_address": 142573223,
+    "byte_length": 16,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "…バ、バカなっ！"
+  },
+  {
+    "offset": 8355722,
+    "rom_address": 142573450,
+    "byte_length": 16,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "お、俺の筋肉が…"
+  },
+  {
+    "offset": 8355765,
+    "rom_address": 142573493,
+    "byte_length": 35,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "良かったな、エド\n潰されずに済んでよ"
+  },
+  {
+    "offset": 8355821,
+    "rom_address": 142573549,
+    "byte_length": 16,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "…まだ言うかっ！"
+  },
+  {
+    "offset": 8356000,
+    "rom_address": 142573728,
+    "byte_length": 24,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "あっちゃー！　ヤバイよう"
+  },
+  {
+    "offset": 8356026,
+    "rom_address": 142573754,
+    "byte_length": 31,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "…えーい\nこのまま逃げちゃおうっ"
+  },
+  {
+    "offset": 8356154,
+    "rom_address": 142573882,
+    "byte_length": 20,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "こらー、逃げんなー！"
+  },
+  {
+    "offset": 8356207,
+    "rom_address": 142573935,
+    "byte_length": 33,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "またいつか\n遊んであげるからねっ！"
+  },
+  {
+    "offset": 8356407,
+    "rom_address": 142574135,
+    "byte_length": 18,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "こ、こんなはずでは"
+  },
+  {
+    "offset": 8356427,
+    "rom_address": 142574155,
+    "byte_length": 12,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "こうなったら"
+  },
+  {
+    "offset": 8356874,
+    "rom_address": 142574602,
+    "byte_length": 33,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "よっしゃー！\nまずは１回戦突破だ！"
+  },
+  {
+    "offset": 8357058,
+    "rom_address": 142574786,
+    "byte_length": 33,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "悪いけど\n負けるつもりはないからさ"
+  },
+  {
+    "offset": 8357242,
+    "rom_address": 142574970,
+    "byte_length": 27,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "相変わらず\n安物の機械鎧だな"
+  },
+  {
+    "offset": 8357432,
+    "rom_address": 142575160,
+    "byte_length": 18,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "よっしゃ、勝った！"
+  },
+  {
+    "offset": 8357468,
+    "rom_address": 142575196,
+    "byte_length": 39,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "正面から戦って\n兄さんがボクに勝つなんて"
+  },
+  {
+    "offset": 8357688,
+    "rom_address": 142575416,
+    "byte_length": 33,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "おっしゃー！\nどうだ思い知ったか！"
+  },
+  {
+    "offset": 8357739,
+    "rom_address": 142575467,
+    "byte_length": 35,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "べーだ！\nなに、いい気んなってんだか"
+  },
+  {
+    "offset": 8357944,
+    "rom_address": 142575672,
+    "byte_length": 14,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "ゼェゼェゼェ…"
+  },
+  {
+    "offset": 8357960,
+    "rom_address": 142575688,
+    "byte_length": 37,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "アームストロング少佐と\n戦うと…疲れる"
+  },
+  {
+    "offset": 8358015,
+    "rom_address": 142575743,
+    "byte_length": 43,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "鍛え方が足りぬのだ\nエドワード・エルリックよ"
+  },
+  {
+    "offset": 8358228,
+    "rom_address": 142575956,
+    "byte_length": 39,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "そういや思い出したよ\nリンカーのとこで！"
+  },
+  {
+    "offset": 8358288,
+    "rom_address": 142576016,
+    "byte_length": 20,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "今頃おせーんだよっ！"
+  },
+  {
+    "offset": 8358484,
+    "rom_address": 142576212,
+    "byte_length": 27,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "ゼェゼェ…\nまだやる気か！？"
+  },
+  {
+    "offset": 8358539,
+    "rom_address": 142576267,
+    "byte_length": 45,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "良かろう、鋼の錬金術師\nその命、しばし預けよう"
+  },
+  {
+    "offset": 8358768,
+    "rom_address": 142576496,
+    "byte_length": 37,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "これで発火布は\n使いもんにならないだろ"
+  },
+  {
+    "offset": 8358826,
+    "rom_address": 142576554,
+    "byte_length": 31,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "…しまったっ！\n不覚を取ったか！"
+  },
+  {
+    "offset": 8359028,
+    "rom_address": 142576756,
+    "byte_length": 47,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "強くなったな、鋼の錬金術師\nその命、預けておく！"
+  },
+  {
+    "offset": 8359332,
+    "rom_address": 142577060,
+    "byte_length": 35,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "安物の機械鎧じゃ\nオレに勝てないって"
+  },
+  {
+    "offset": 8359369,
+    "rom_address": 142577097,
+    "byte_length": 22,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "何度言えばわかるわけ？"
+  },
+  {
+    "offset": 8359550,
+    "rom_address": 142577278,
+    "byte_length": 37,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "なんで何も関係ない俺様が\nこんな目に…"
+  },
+  {
+    "offset": 8359605,
+    "rom_address": 142577333,
+    "byte_length": 35,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "最初から\nブラックハヤテ号の居場所を"
+  },
+  {
+    "offset": 8359642,
+    "rom_address": 142577370,
+    "byte_length": 16,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "言わないからだ！"
+  },
+  {
+    "offset": 8359810,
+    "rom_address": 142577538,
+    "byte_length": 37,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "オ、俺がなにを\nしたっていうんだっ！？"
+  },
+  {
+    "offset": 8359869,
+    "rom_address": 142577597,
+    "byte_length": 29,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "黙れ、誘拐犯！\n往生際が悪いぞ"
+  },
+  {
+    "offset": 8360064,
+    "rom_address": 142577792,
+    "byte_length": 27,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "無駄な抵抗は\nおやめなさい！"
+  },
+  {
+    "offset": 8360109,
+    "rom_address": 142577837,
+    "byte_length": 22,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "なんだかホークアイ中尉"
+  },
+  {
+    "offset": 8360133,
+    "rom_address": 142577861,
+    "byte_length": 33,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "オイシイとこ、\n持っていってない？"
+  },
+  {
+    "offset": 8360332,
+    "rom_address": 142578060,
+    "byte_length": 22,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "これが最後の一撃だっ！"
+  },
+  {
+    "offset": 8360635,
+    "rom_address": 142578363,
+    "byte_length": 22,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "なかなかの手前であった"
+  },
+  {
+    "offset": 8360678,
+    "rom_address": 142578406,
+    "byte_length": 18,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "フン、あんたもな！"
+  },
+  {
+    "offset": 8360743,
+    "rom_address": 142578471,
+    "byte_length": 24,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "さぁ相手になってやるぜ！"
+  },
+  {
+    "offset": 8360781,
+    "rom_address": 142578509,
+    "byte_length": 26,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "兄さん、どうやって戦うの？"
+  },
+  {
+    "offset": 8360821,
+    "rom_address": 142578549,
+    "byte_length": 26,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "錬成であっさり終わらせる！"
+  },
+  {
+    "offset": 8360872,
+    "rom_address": 142578600,
+    "byte_length": 22,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "このコマンドで錬成だ！"
+  },
+  {
+    "offset": 8360908,
+    "rom_address": 142578636,
+    "byte_length": 20,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "素材や技を作るんだね"
+  },
+  {
+    "offset": 8360942,
+    "rom_address": 142578670,
+    "byte_length": 52,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "そう、説明が表示されるから\n\u000bムズかしいことじゃないさ"
+  },
+  {
+    "offset": 8360996,
+    "rom_address": 142578724,
+    "byte_length": 23,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "\u000bとりあえずやってみるぜ"
+  },
+  {
+    "offset": 8361036,
+    "rom_address": 142578764,
+    "byte_length": 16,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "これが素材錬成だ"
+  },
+  {
+    "offset": 8361066,
+    "rom_address": 142578794,
+    "byte_length": 44,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "これで自分が欲しい素材を\n\u000b作っていくんだね？"
+  },
+  {
+    "offset": 8361124,
+    "rom_address": 142578852,
+    "byte_length": 14,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "そういうこと！"
+  },
+  {
+    "offset": 8361152,
+    "rom_address": 142578880,
+    "byte_length": 48,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "じゃあこれでいい素材を\n\u000bたくさん作ろうよ　兄さん"
+  },
+  {
+    "offset": 8361214,
+    "rom_address": 142578942,
+    "byte_length": 44,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "うーん、でもちゃんとルールを\n\u000b守らないとなー"
+  },
+  {
+    "offset": 8361294,
+    "rom_address": 142579022,
+    "byte_length": 52,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "カードを二つ以上組み合わせて\n\u000b質量と価値を上下させる"
+  },
+  {
+    "offset": 8361348,
+    "rom_address": 142579076,
+    "byte_length": 52,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "１足す１は２、２足す２は４\n\u000b等価値の素材を錬成できる"
+  },
+  {
+    "offset": 8361414,
+    "rom_address": 142579142,
+    "byte_length": 12,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "等価交換だね"
+  },
+  {
+    "offset": 8361440,
+    "rom_address": 142579168,
+    "byte_length": 60,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "カードの質量、価値は上限７\n\u000bレベルは上限が５ってルールがある"
+  },
+  {
+    "offset": 8361502,
+    "rom_address": 142579230,
+    "byte_length": 23,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "\u000bそれを守らなきゃダメだ"
+  },
+  {
+    "offset": 8361583,
+    "rom_address": 142579311,
+    "byte_length": 16,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "そのうち慣れるさ"
+  },
+  {
+    "offset": 8361600,
+    "rom_address": 142579328,
+    "byte_length": 25,
+    "terminator": "0x0D",
+    "unknown_tokens": 0,
+    "text": "\u000bじゃあそろそろ終わらすぜ"
+  }
+]

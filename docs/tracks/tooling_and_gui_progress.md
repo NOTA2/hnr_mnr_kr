@@ -49,3 +49,5 @@
 
 - `dump-thumb` CLI 추가
 - world-map / overlay 분석에 자주 쓰는 `bl`, `b{cond}`, `ldr literal`, `ldrsh`, register-ALU 패턴을 재사용 가능한 형태로 정리
+- `build-translation-set` CLI 추가
+- 여러 추출 JSON을 하나의 번역 작업용 JSON으로 묶고 `translation` / `notes` / source 메타데이터를 정규화하는 흐름 추가

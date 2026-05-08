@@ -1,13 +1,16 @@
 # Data Structure Investigation
 
-이 트랙 문서는 데이터 구조 조사의 **현재 지도**만 담는다.
+이 트랙 문서는 데이터 구조 조사의 **보존 지도**만 담는다.
 
 시작 시 기본으로 읽지 않는다. 구체 작업은 [active_task.md](/Users/user/test/docs/active_task.md) 를 따른다.
 
 ## 상태
 
 - 상태: `IN PROGRESS`
-- 현재 초점: `0x184A0C` effect/overlay row 의 `word4` side-path 를 `0x03005284 -> 0x482/0x484 -> 0x33C/+0x33E` promotion 구조까지 묶어 정리
+- 현재 원칙:
+  - deep world-map / tracked-slot 분석은 여기 보존하고, hot path 에서는 직접 읽지 않는다.
+  - 새 구조 분석은 **텍스트 추출을 직접 막는 경우에만** 다시 진행한다.
+  - 현재 한글화 메인 루프는 [text_extraction_progress.md](/Users/user/test/docs/tracks/text_extraction_progress.md) 쪽이다.
 
 ## 텍스트 구조
 

@@ -41,3 +41,8 @@
 
 - `apply-translations` 기본 기능 추가
 - 테스트 JSON으로 1건 패치 성공
+
+### 2026-05-09
+
+- `build-translation-set` 로 여러 추출 JSON을 번역 작업용 JSON 한 개로 묶는 흐름 추가
+- `save_menu_texts` 같이 `translation` 필드가 없던 추출본도 재삽입 workset 에 넣을 수 있게 정리

@@ -177,6 +177,17 @@ python3 -m gba_kor_tool apply-translations \
   --report analysis/item_patch_report.json
 ```
 
+여러 추출 JSON을 하나의 번역 작업용 JSON으로 합치기:
+
+```bash
+python3 -m gba_kor_tool build-translation-set \
+  analysis/translation_workset_core_ui.json \
+  analysis/system_messages.json \
+  analysis/save_menu_texts.json \
+  analysis/location_texts.json \
+  analysis/ui_skill_texts.json
+```
+
 ## `.tbl` 사용
 
 게임이 Shift-JIS가 아니라 전용 문자셋을 쓴다면 `.tbl` 파일을 만들어서 사용할 수 있습니다.
@@ -203,8 +214,9 @@ python3 -m gba_kor_tool apply-translations \
 4. 메뉴에서 보이는 문구를 하나 정해서 `search-text` 로 직접 찾습니다.
 5. 연속된 텍스트 블록이 보이면 `extract-range` 로 JSON으로 뽑아서 번역 목록을 만듭니다.
 6. `translation` 필드를 채운 뒤 `apply-translations` 로 일괄 패치합니다.
-7. 문자열이 안 잡히면 커스텀 인코딩이나 압축 스크립트일 가능성이 높으니 `.tbl` 과 폰트 타일부터 조사합니다.
-8. 타일/폰트를 찾으면 한글 글리프를 넣고, 그 다음 문자열 삽입기로 넘어갑니다.
+7. 여러 추출본을 같이 번역하고 싶으면 `build-translation-set` 으로 먼저 작업용 JSON 한 개로 묶습니다.
+8. 문자열이 안 잡히면 커스텀 인코딩이나 압축 스크립트일 가능성이 높으니 `.tbl` 과 폰트 타일부터 조사합니다.
+9. 타일/폰트를 찾으면 한글 글리프를 넣고, 그 다음 문자열 삽입기로 넘어갑니다.
 
 ## 주의
 

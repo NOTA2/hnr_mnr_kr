@@ -238,6 +238,35 @@
 - 가설: 세션 시작 때 긴 문서와 전체 로그를 매번 읽는 구조는 토큰 낭비가 크고, 실제 필요한 문서만 읽도록 라우팅을 분리하는 편이 더 효율적이다.
 - 시도: 시작용 요약 문서 `session_start.md`, 현재 제약 요약 `current_constraints.md`, 작업별 참고 맵 `reference_map.md` 를 만들고, 총괄/핸드오프/반복 방지 문서를 더 짧게 압축했다.
 - 결과: 매 세션의 기본 읽기 경로를 `session_start -> agent_handoff -> current_constraints -> 활성 트랙 문서` 로 줄일 수 있게 되었다.
+
+## 2026-05-09
+
+### 실험 28
+
+- 가설: Registry D (`0x17C7E4..0x17CB04`) 는 몇 개의 샘플 대사만 들어 있는 예외 엔트리가 아니라, 아직 추출되지 않은 튜토리얼/이벤트 대사를 넓게 담고 있을 수 있다.
+- 시도:
+  - `inspect-chunk-table` 로 Registry D `100`개 엔트리의 `pointer-length` 범위와 샘플 텍스트를 다시 확인했다.
+  - 물리 범위 `0x7F3000..0x7F96E9` 에 대해 `scan-text --sliding --terminator 0x0D --terminator 0x0C --terminator 0x00 --min-chars 6 --require-japanese` 를 적용했다.
+  - entry `0`, `25`, `34`, `92` 는 별도 범위 스캔으로도 재확인했다.
+- 결과:
+  - Registry D 전체 물리 범위에서 현재 `305`개의 대사성 문자열을 회수했다.
+  - 텍스트가 잡힌 엔트리는 `81 / 100` 개다.
+  - 튜토리얼 설명, 전투 개시/종료 대사, 이벤트 짧은 문장이 한 레지스트리 안에 넓게 분산되어 있었다.
+- 판정: `성공`
+- 교훈: "sample_text_entries 몇 개만 텍스트"처럼 보이는 registry 라도, mixed resource 구조에서는 전체 물리 범위를 슬라이딩 스캔해야 실제 텍스트량이 보인다.
+
+### 실험 29
+
+- 가설: Registry D 전체 대사를 한 번에 스캔하면 그대로 번역 workset 으로 올릴 수 있을 것이다.
+- 시도:
+  - `scan-text` 결과를 [registry_d_full_sliding_texts.json](/Users/user/test/analysis/registry_d_full_sliding_texts.json) 으로 저장했다.
+  - `build-translation-set` 으로 [translation_workset_registry_d_dialogue.json](/Users/user/test/analysis/translation_workset_registry_d_dialogue.json) 을 만들었다.
+  - 첫 전수 스캔 뒤 `records=100` 만 나온 이유를 확인하기 위해 parser default 를 점검했다.
+- 결과:
+  - `scan-text` 기본 `--limit` 이 `100` 이라서 첫 wide scan 결과가 잘려 있었다.
+  - `--limit 500` 으로 재실행하자 Registry D 전체 회수본 `305`건과 대응 workset 이 정상적으로 만들어졌다.
+- 판정: `성공`
+- 교훈: 넓은 범위 스캔 결과를 근거 문서로 삼기 전에는 기본 limit 에 잘리지 않았는지 먼저 확인해야 한다.
 - 판정: `성공`
 - 교훈: 전체 로그와 모든 참고 문서는 기본 입력이 아니라 선택적 참조로 두는 편이 장기 자동화와 후속 세션에 더 적합하다.
 

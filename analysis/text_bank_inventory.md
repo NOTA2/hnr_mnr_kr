@@ -84,6 +84,19 @@
   - `00` 종단 평문 덩어리 형태가 아니라, 명령/파라미터 바이트 사이에 `cp932` 텍스트가 삽입된 형태로 보임
   - 문자열 종단/구분 바이트로 `0x10` 사용 사례 확인
 
+### Registry D 튜토리얼/이벤트 대사
+
+- 테이블 범위: `0x17C7E4` ~ `0x17CB04`
+- 물리 범위: `0x7F3000` ~ `0x7F96E9`
+- 파일:
+  - [registry_d_full_sliding_texts.json](/Users/user/test/analysis/registry_d_full_sliding_texts.json)
+  - [translation_workset_registry_d_dialogue.json](/Users/user/test/analysis/translation_workset_registry_d_dialogue.json)
+- 특징:
+  - `pointer-length` Registry D 엔트리 안에 command byte 와 함께 대사가 섞여 있다.
+  - `scan-text --sliding` + terminator `0x0D/0x0C/0x00` 로 현재 `305`개 문자열을 회수했다.
+  - 튜토리얼 설명, 전투 개시 대사, 이벤트성 짧은 문장이 다수 포함된다.
+  - 넓은 범위 스캔에서는 기본 `--limit 100` 때문에 일부만 보일 수 있으므로 limit 명시가 필요하다.
+
 ## 현재 해석
 
 - 이 게임은 일본어 평문이 여러 군데에 분산 저장되어 있다.

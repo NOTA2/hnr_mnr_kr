@@ -1405,6 +1405,54 @@ def parse_record_terminator(record: dict, default_values: Sequence[str]) -> byte
     return bytes(parse_hex_byte(value) for value in default_values)
 
 
+def normalize_translation_record(record: dict, *, source_path: Path, source_order: int) -> dict:
+    normalized = dict(record)
+    normalized.setdefault("translation", "")
+    normalized.setdefault("notes", "")
+    normalized["source_file"] = source_path.name
+    normalized["source_group"] = source_path.stem
+    normalized["source_order"] = source_order
+    return normalized
+
+
+def cmd_build_translation_set(args: argparse.Namespace) -> int:
+    output_path = Path(args.output)
+    merged: List[dict] = []
+    seen_keys = set()
+
+    for source_order, raw_path in enumerate(args.inputs):
+        source_path = Path(raw_path)
+        records = json.loads(source_path.read_text(encoding="utf-8"))
+        if not isinstance(records, list):
+            raise ToolError(f"{source_path}: JSON 배열이 아닙니다.")
+
+        for record in records:
+            if not isinstance(record, dict):
+                raise ToolError(f"{source_path}: 배열 원소는 객체여야 합니다.")
+            if "offset" not in record or "text" not in record:
+                raise ToolError(f"{source_path}: 최소한 offset, text 필드가 필요합니다.")
+
+            normalized = normalize_translation_record(record, source_path=source_path, source_order=source_order)
+            dedupe_key = (
+                normalized["source_file"],
+                int(normalized["offset"]),
+            )
+            if args.dedupe_text:
+                dedupe_key = (normalized["text"],)
+            if dedupe_key in seen_keys:
+                continue
+            seen_keys.add(dedupe_key)
+            merged.append(normalized)
+
+    merged.sort(key=lambda item: (int(item.get("source_order", 0)), int(item["offset"])))
+    write_json(output_path, merged)
+
+    print(f"written : {output_path}")
+    print(f"records : {len(merged)}")
+    print(f"sources : {len(args.inputs)}")
+    return 0
+
+
 def cmd_apply_translations(args: argparse.Namespace) -> int:
     rom_path = Path(args.rom)
     translation_path = Path(args.translation_file)
@@ -1667,6 +1715,15 @@ def build_parser() -> argparse.ArgumentParser:
     inject_text.add_argument("--fill-byte", default="FF")
     inject_text.add_argument("--align", type=int, default=4)
     inject_text.set_defaults(func=cmd_inject_text)
+
+    build_translation_set = sub.add_parser(
+        "build-translation-set",
+        help="여러 추출 JSON을 번역 작업용 JSON 한 개로 묶고 translation 필드를 정규화합니다.",
+    )
+    build_translation_set.add_argument("output")
+    build_translation_set.add_argument("inputs", nargs="+")
+    build_translation_set.add_argument("--dedupe-text", action="store_true")
+    build_translation_set.set_defaults(func=cmd_build_translation_set)
 
     apply_translations = sub.add_parser("apply-translations", help="번역 JSON 파일을 ROM에 일괄 반영합니다.")
     apply_translations.add_argument("rom")

@@ -6,21 +6,29 @@
 
 ## 단계
 
-- 데이터 구조 조사: `IN PROGRESS`
+- 데이터 구조 조사: `PARKED EXCEPT TEXT EXTRACTION TARGETS`
 - 텍스트 추출: `IN PROGRESS`
 - 텍스트 재삽입: `BOOTSTRAPPED`
-- 폰트/문자 매핑: `NOT STARTED`
+- 폰트/문자 매핑: `IN PROGRESS`
 - 이미지 리소스: `NOT STARTED`
 - GUI/작업 워크플로우: `DEFERRED`
 
 ## 현재 우선순위
 
-1. `0x184A0C` effect/overlay row 의 `word4` tracked slot side-path 와 `+0x33C/+0x33E` writer / promotion path 추가 분리
-2. `0x1849A0` handler table static cluster slot 소비 경로 찾기
-3. `field3` exact palette/subtype 의미 추가 분리
-4. `0x093D` / `0x093E` / `0x094B` 고정 리소스 관계 확인
+1. 번역 작업용 텍스트 세트 확대와 정리
+2. 한글 표시를 위한 폰트/문자 매핑/문자폭 경로 확보
+3. 첫 번째 실제 한글 재삽입 테스트
+4. 이미지 리소스는 텍스트 루프가 돈 뒤에 착수
 
 ## 최근 핵심 진전
+
+- `build-translation-set` CLI 를 추가해 여러 추출 JSON 을 번역 작업용 JSON 한 개로 묶을 수 있게 했다.
+- [translation_workset_core_ui.json](/Users/user/test/analysis/translation_workset_core_ui.json) 을 만들어 `system + save + location + ui_skill` 43개 레코드를 한 파일로 정리했다.
+- 위 작업 세트의 시스템/세이브/지역명 앞부분에는 한국어 초안을 채우기 시작했다.
+- `save_menu_texts` 처럼 `0x10` 종단을 쓰는 명령 스트림형 텍스트도 이제 같은 번역 workset 흐름에 넣을 수 있다.
+- Registry D (`0x17C7E4..0x17CB04`) 전체 물리 범위 `0x7F3000..0x7F96E9` 를 넓은 슬라이딩 스캔으로 다시 훑어 `305`개 대사성 문자열을 확보했다.
+- 위 결과를 [translation_workset_registry_d_dialogue.json](/Users/user/test/analysis/translation_workset_registry_d_dialogue.json) 으로 정리해, 튜토리얼/이벤트/전투 전후 대사를 바로 번역 가능한 workset 으로 전환했다.
+- 넓은 범위 `scan-text` 는 기본 `--limit 100` 으로 잘릴 수 있다는 운영 함정을 확인했고, 이후 wide scan 에서는 limit 을 명시해야 한다.
 
 - `0x184A0C..0x184AD3` 을 `10 * 0x14` effect/overlay parameter table 후보로 분리했다.
 - `0x03005FF8` 은 world-map 선택/hover location index byte 로 보는 해석이 강해졌다.
