@@ -1,0 +1,1227 @@
+{
+  "value": 50352772,
+  "value_hex": "0x03005284",
+  "search_start": 249856,
+  "search_start_rom_address": 134467584,
+  "search_end": 368640,
+  "search_end_rom_address": 134586368,
+  "word_hits": [
+    {
+      "offset": 267064,
+      "rom_address": 134484792,
+      "aligned": true
+    },
+    {
+      "offset": 280420,
+      "rom_address": 134498148,
+      "aligned": true
+    },
+    {
+      "offset": 281260,
+      "rom_address": 134498988,
+      "aligned": true
+    },
+    {
+      "offset": 281300,
+      "rom_address": 134499028,
+      "aligned": true
+    },
+    {
+      "offset": 285724,
+      "rom_address": 134503452,
+      "aligned": true
+    },
+    {
+      "offset": 286176,
+      "rom_address": 134503904,
+      "aligned": true
+    },
+    {
+      "offset": 286536,
+      "rom_address": 134504264,
+      "aligned": true
+    },
+    {
+      "offset": 286824,
+      "rom_address": 134504552,
+      "aligned": true
+    },
+    {
+      "offset": 293436,
+      "rom_address": 134511164,
+      "aligned": true
+    }
+  ],
+  "thumb_literal_loads": [
+    {
+      "instruction_offset": 266998,
+      "instruction_rom_address": 134484726,
+      "literal_offset": 267064,
+      "literal_rom_address": 134484792,
+      "register": "r0",
+      "access": "write_word",
+      "context": [
+        {
+          "offset": 266994,
+          "rom_address": 134484722,
+          "instruction": "movs r1, #0"
+        },
+        {
+          "offset": 266996,
+          "rom_address": 134484724,
+          "instruction": "str r1, [r0, #0]"
+        },
+        {
+          "offset": 266998,
+          "rom_address": 134484726,
+          "instruction": "ldr r0, [pc] -> 0x041338"
+        },
+        {
+          "offset": 267000,
+          "rom_address": 134484728,
+          "instruction": "movs r1, #1"
+        },
+        {
+          "offset": 267002,
+          "rom_address": 134484730,
+          "instruction": "thumb16 0x4249"
+        },
+        {
+          "offset": 267004,
+          "rom_address": 134484732,
+          "instruction": "str r1, [r0, #0]"
+        },
+        {
+          "offset": 267006,
+          "rom_address": 134484734,
+          "instruction": "ldr r0, [pc] -> 0x04133C"
+        },
+        {
+          "offset": 267008,
+          "rom_address": 134484736,
+          "instruction": "ldr r1, [pc] -> 0x041340"
+        },
+        {
+          "offset": 267010,
+          "rom_address": 134484738,
+          "instruction": "str r1, [r0, #0]"
+        },
+        {
+          "offset": 267012,
+          "rom_address": 134484740,
+          "instruction": "ldr r0, [pc] -> 0x041344"
+        },
+        {
+          "offset": 267014,
+          "rom_address": 134484742,
+          "instruction": "ldr r1, [pc] -> 0x041340"
+        }
+      ]
+    },
+    {
+      "instruction_offset": 280308,
+      "instruction_rom_address": 134498036,
+      "literal_offset": 280420,
+      "literal_rom_address": 134498148,
+      "register": "r0",
+      "access": "write_word",
+      "context": [
+        {
+          "offset": 280304,
+          "rom_address": 134498032,
+          "instruction": "cmp r1, #0"
+        },
+        {
+          "offset": 280306,
+          "rom_address": 134498034,
+          "instruction": "thumb16 0xD13B"
+        },
+        {
+          "offset": 280308,
+          "rom_address": 134498036,
+          "instruction": "ldr r0, [pc] -> 0x044764"
+        },
+        {
+          "offset": 280310,
+          "rom_address": 134498038,
+          "instruction": "ldr r1, [pc] -> 0x044744"
+        },
+        {
+          "offset": 280312,
+          "rom_address": 134498040,
+          "instruction": "ldr r2, [r1, #0]"
+        },
+        {
+          "offset": 280314,
+          "rom_address": 134498042,
+          "instruction": "str r2, [r0, #0]"
+        },
+        {
+          "offset": 280316,
+          "rom_address": 134498044,
+          "instruction": "ldr r0, [pc] -> 0x044768"
+        },
+        {
+          "offset": 280318,
+          "rom_address": 134498046,
+          "instruction": "movs r1, #1"
+        },
+        {
+          "offset": 280320,
+          "rom_address": 134498048,
+          "instruction": "str r1, [r0, #0]"
+        },
+        {
+          "offset": 280322,
+          "rom_address": 134498050,
+          "instruction": "ldr r0, [pc] -> 0x044760"
+        },
+        {
+          "offset": 280324,
+          "rom_address": 134498052,
+          "instruction": "ldr r1, [pc] -> 0x044744"
+        }
+      ]
+    },
+    {
+      "instruction_offset": 281242,
+      "instruction_rom_address": 134498970,
+      "literal_offset": 281260,
+      "literal_rom_address": 134498988,
+      "register": "r0",
+      "access": "read_word",
+      "context": [
+        {
+          "offset": 281238,
+          "rom_address": 134498966,
+          "instruction": "movs r1, #0"
+        },
+        {
+          "offset": 281240,
+          "rom_address": 134498968,
+          "instruction": "strh r1, [r0, #0]"
+        },
+        {
+          "offset": 281242,
+          "rom_address": 134498970,
+          "instruction": "ldr r0, [pc] -> 0x044AAC"
+        },
+        {
+          "offset": 281244,
+          "rom_address": 134498972,
+          "instruction": "ldr r1, [r0, #0]"
+        },
+        {
+          "offset": 281246,
+          "rom_address": 134498974,
+          "instruction": "thumb16 0x1C08"
+        },
+        {
+          "offset": 281248,
+          "rom_address": 134498976,
+          "instruction": "thumb16 0xE01A"
+        },
+        {
+          "offset": 281250,
+          "rom_address": 134498978,
+          "instruction": "thumb16 0x0000"
+        },
+        {
+          "offset": 281252,
+          "rom_address": 134498980,
+          "instruction": "thumb16 0x00E8"
+        },
+        {
+          "offset": 281254,
+          "rom_address": 134498982,
+          "instruction": "thumb16 0x0300"
+        },
+        {
+          "offset": 281256,
+          "rom_address": 134498984,
+          "instruction": "thumb16 0x0000"
+        },
+        {
+          "offset": 281258,
+          "rom_address": 134498986,
+          "instruction": "thumb16 0x0000"
+        }
+      ]
+    },
+    {
+      "instruction_offset": 281284,
+      "instruction_rom_address": 134499012,
+      "literal_offset": 281300,
+      "literal_rom_address": 134499028,
+      "register": "r0",
+      "access": "write_word",
+      "context": [
+        {
+          "offset": 281280,
+          "rom_address": 134499008,
+          "instruction": "thumb16 0x00E8"
+        },
+        {
+          "offset": 281282,
+          "rom_address": 134499010,
+          "instruction": "thumb16 0x0300"
+        },
+        {
+          "offset": 281284,
+          "rom_address": 134499012,
+          "instruction": "ldr r0, [pc] -> 0x044AD4"
+        },
+        {
+          "offset": 281286,
+          "rom_address": 134499014,
+          "instruction": "movs r1, #1"
+        },
+        {
+          "offset": 281288,
+          "rom_address": 134499016,
+          "instruction": "thumb16 0x4249"
+        },
+        {
+          "offset": 281290,
+          "rom_address": 134499018,
+          "instruction": "str r1, [r0, #0]"
+        },
+        {
+          "offset": 281292,
+          "rom_address": 134499020,
+          "instruction": "movs r0, #1"
+        },
+        {
+          "offset": 281294,
+          "rom_address": 134499022,
+          "instruction": "thumb16 0x4240"
+        },
+        {
+          "offset": 281296,
+          "rom_address": 134499024,
+          "instruction": "thumb16 0xE002"
+        },
+        {
+          "offset": 281298,
+          "rom_address": 134499026,
+          "instruction": "thumb16 0x0000"
+        },
+        {
+          "offset": 281300,
+          "rom_address": 134499028,
+          "instruction": "thumb16 0x5284"
+        }
+      ]
+    },
+    {
+      "instruction_offset": 285592,
+      "instruction_rom_address": 134503320,
+      "literal_offset": 285724,
+      "literal_rom_address": 134503452,
+      "register": "r0",
+      "access": "read_word",
+      "context": [
+        {
+          "offset": 285588,
+          "rom_address": 134503316,
+          "instruction": "thumb16 0x5014"
+        },
+        {
+          "offset": 285590,
+          "rom_address": 134503318,
+          "instruction": "thumb16 0x0300"
+        },
+        {
+          "offset": 285592,
+          "rom_address": 134503320,
+          "instruction": "ldr r0, [pc] -> 0x045C1C"
+        },
+        {
+          "offset": 285594,
+          "rom_address": 134503322,
+          "instruction": "ldr r1, [r0, #0]"
+        },
+        {
+          "offset": 285596,
+          "rom_address": 134503324,
+          "instruction": "movs r0, #1"
+        },
+        {
+          "offset": 285598,
+          "rom_address": 134503326,
+          "instruction": "thumb16 0x42C1"
+        },
+        {
+          "offset": 285600,
+          "rom_address": 134503328,
+          "instruction": "thumb16 0xD100"
+        },
+        {
+          "offset": 285602,
+          "rom_address": 134503330,
+          "instruction": "thumb16 0xE1E2"
+        },
+        {
+          "offset": 285604,
+          "rom_address": 134503332,
+          "instruction": "ldr r0, [pc] -> 0x045C20"
+        },
+        {
+          "offset": 285606,
+          "rom_address": 134503334,
+          "instruction": "ldr r1, [r0, #0]"
+        },
+        {
+          "offset": 285608,
+          "rom_address": 134503336,
+          "instruction": "thumb16 0x1C08"
+        }
+      ]
+    },
+    {
+      "instruction_offset": 285634,
+      "instruction_rom_address": 134503362,
+      "literal_offset": 285724,
+      "literal_rom_address": 134503452,
+      "register": "r1",
+      "access": "read_word",
+      "context": [
+        {
+          "offset": 285630,
+          "rom_address": 134503358,
+          "instruction": "ldr r1, [pc] -> 0x045C20"
+        },
+        {
+          "offset": 285632,
+          "rom_address": 134503360,
+          "instruction": "ldr r0, [r1, #0]"
+        },
+        {
+          "offset": 285634,
+          "rom_address": 134503362,
+          "instruction": "ldr r1, [pc] -> 0x045C1C"
+        },
+        {
+          "offset": 285636,
+          "rom_address": 134503364,
+          "instruction": "ldr r2, [r1, #0]"
+        },
+        {
+          "offset": 285638,
+          "rom_address": 134503366,
+          "instruction": "thumb16 0x1C11"
+        },
+        {
+          "offset": 285640,
+          "rom_address": 134503368,
+          "instruction": "thumb16 0x00CA"
+        },
+        {
+          "offset": 285642,
+          "rom_address": 134503370,
+          "instruction": "thumb16 0x1881"
+        },
+        {
+          "offset": 285644,
+          "rom_address": 134503372,
+          "instruction": "thumb16 0x1C08"
+        },
+        {
+          "offset": 285646,
+          "rom_address": 134503374,
+          "instruction": "ldr r3, [pc] -> 0x045C24"
+        },
+        {
+          "offset": 285648,
+          "rom_address": 134503376,
+          "instruction": "thumb16 0x18C9"
+        },
+        {
+          "offset": 285650,
+          "rom_address": 134503378,
+          "instruction": "ldrh r0, [r1, #0]"
+        }
+      ]
+    },
+    {
+      "instruction_offset": 285692,
+      "instruction_rom_address": 134503420,
+      "literal_offset": 285724,
+      "literal_rom_address": 134503452,
+      "register": "r1",
+      "access": "read_word",
+      "context": [
+        {
+          "offset": 285688,
+          "rom_address": 134503416,
+          "instruction": "ldr r1, [pc] -> 0x045C20"
+        },
+        {
+          "offset": 285690,
+          "rom_address": 134503418,
+          "instruction": "ldr r0, [r1, #0]"
+        },
+        {
+          "offset": 285692,
+          "rom_address": 134503420,
+          "instruction": "ldr r1, [pc] -> 0x045C1C"
+        },
+        {
+          "offset": 285694,
+          "rom_address": 134503422,
+          "instruction": "ldr r2, [r1, #0]"
+        },
+        {
+          "offset": 285696,
+          "rom_address": 134503424,
+          "instruction": "thumb16 0x1C11"
+        },
+        {
+          "offset": 285698,
+          "rom_address": 134503426,
+          "instruction": "thumb16 0x00CA"
+        },
+        {
+          "offset": 285700,
+          "rom_address": 134503428,
+          "instruction": "thumb16 0x1881"
+        },
+        {
+          "offset": 285702,
+          "rom_address": 134503430,
+          "instruction": "thumb16 0x1C08"
+        },
+        {
+          "offset": 285704,
+          "rom_address": 134503432,
+          "instruction": "ldr r2, [pc] -> 0x045C24"
+        },
+        {
+          "offset": 285706,
+          "rom_address": 134503434,
+          "instruction": "thumb16 0x1889"
+        },
+        {
+          "offset": 285708,
+          "rom_address": 134503436,
+          "instruction": "ldrh r0, [r1, #0]"
+        }
+      ]
+    },
+    {
+      "instruction_offset": 285912,
+      "instruction_rom_address": 134503640,
+      "literal_offset": 286176,
+      "literal_rom_address": 134503904,
+      "register": "r1",
+      "access": "read_word",
+      "context": [
+        {
+          "offset": 285908,
+          "rom_address": 134503636,
+          "instruction": "ldr r1, [pc] -> 0x045DDC"
+        },
+        {
+          "offset": 285910,
+          "rom_address": 134503638,
+          "instruction": "ldr r0, [r1, #0]"
+        },
+        {
+          "offset": 285912,
+          "rom_address": 134503640,
+          "instruction": "ldr r1, [pc] -> 0x045DE0"
+        },
+        {
+          "offset": 285914,
+          "rom_address": 134503642,
+          "instruction": "ldr r2, [r1, #0]"
+        },
+        {
+          "offset": 285916,
+          "rom_address": 134503644,
+          "instruction": "thumb16 0x1C11"
+        },
+        {
+          "offset": 285918,
+          "rom_address": 134503646,
+          "instruction": "thumb16 0x3108"
+        },
+        {
+          "offset": 285920,
+          "rom_address": 134503648,
+          "instruction": "movs r2, #52"
+        },
+        {
+          "offset": 285922,
+          "rom_address": 134503650,
+          "instruction": "thumb16 0x4351"
+        },
+        {
+          "offset": 285924,
+          "rom_address": 134503652,
+          "instruction": "thumb16 0x1C02"
+        },
+        {
+          "offset": 285926,
+          "rom_address": 134503654,
+          "instruction": "ldr r2, [pc] -> 0x045DE4"
+        },
+        {
+          "offset": 285928,
+          "rom_address": 134503656,
+          "instruction": "thumb16 0x1880"
+        }
+      ]
+    },
+    {
+      "instruction_offset": 285986,
+      "instruction_rom_address": 134503714,
+      "literal_offset": 286176,
+      "literal_rom_address": 134503904,
+      "register": "r1",
+      "access": "read_word",
+      "context": [
+        {
+          "offset": 285982,
+          "rom_address": 134503710,
+          "instruction": "ldr r1, [pc] -> 0x045DDC"
+        },
+        {
+          "offset": 285984,
+          "rom_address": 134503712,
+          "instruction": "ldr r0, [r1, #0]"
+        },
+        {
+          "offset": 285986,
+          "rom_address": 134503714,
+          "instruction": "ldr r1, [pc] -> 0x045DE0"
+        },
+        {
+          "offset": 285988,
+          "rom_address": 134503716,
+          "instruction": "ldr r2, [r1, #0]"
+        },
+        {
+          "offset": 285990,
+          "rom_address": 134503718,
+          "instruction": "thumb16 0x1C11"
+        },
+        {
+          "offset": 285992,
+          "rom_address": 134503720,
+          "instruction": "thumb16 0x3108"
+        },
+        {
+          "offset": 285994,
+          "rom_address": 134503722,
+          "instruction": "movs r2, #52"
+        },
+        {
+          "offset": 285996,
+          "rom_address": 134503724,
+          "instruction": "thumb16 0x4351"
+        },
+        {
+          "offset": 285998,
+          "rom_address": 134503726,
+          "instruction": "thumb16 0x1C02"
+        },
+        {
+          "offset": 286000,
+          "rom_address": 134503728,
+          "instruction": "movs r2, #176"
+        },
+        {
+          "offset": 286002,
+          "rom_address": 134503730,
+          "instruction": "thumb16 0x00D2"
+        }
+      ]
+    },
+    {
+      "instruction_offset": 286060,
+      "instruction_rom_address": 134503788,
+      "literal_offset": 286176,
+      "literal_rom_address": 134503904,
+      "register": "r0",
+      "access": "read_word",
+      "context": [
+        {
+          "offset": 286056,
+          "rom_address": 134503784,
+          "instruction": "thumb16 0x1C11"
+        },
+        {
+          "offset": 286058,
+          "rom_address": 134503786,
+          "instruction": "strh r1, [r0, #0]"
+        },
+        {
+          "offset": 286060,
+          "rom_address": 134503788,
+          "instruction": "ldr r0, [pc] -> 0x045DE0"
+        },
+        {
+          "offset": 286062,
+          "rom_address": 134503790,
+          "instruction": "ldr r1, [r0, #0]"
+        },
+        {
+          "offset": 286064,
+          "rom_address": 134503792,
+          "instruction": "thumb16 0x1C08"
+        },
+        {
+          "offset": 286066,
+          "rom_address": 134503794,
+          "instruction": "thumb16 0xF001"
+        },
+        {
+          "offset": 286068,
+          "rom_address": 134503796,
+          "instruction": "thumb16 0xFDA1"
+        },
+        {
+          "offset": 286070,
+          "rom_address": 134503798,
+          "instruction": "ldr r1, [pc] -> 0x045DDC"
+        },
+        {
+          "offset": 286072,
+          "rom_address": 134503800,
+          "instruction": "ldr r3, [r1, #0]"
+        },
+        {
+          "offset": 286074,
+          "rom_address": 134503802,
+          "instruction": "thumb16 0x1C1A"
+        },
+        {
+          "offset": 286076,
+          "rom_address": 134503804,
+          "instruction": "ldr r2, [pc] -> 0x045DF4"
+        }
+      ]
+    },
+    {
+      "instruction_offset": 286100,
+      "instruction_rom_address": 134503828,
+      "literal_offset": 286176,
+      "literal_rom_address": 134503904,
+      "register": "r0",
+      "access": "read_word",
+      "context": [
+        {
+          "offset": 286096,
+          "rom_address": 134503824,
+          "instruction": "ldr r0, [pc] -> 0x045DDC"
+        },
+        {
+          "offset": 286098,
+          "rom_address": 134503826,
+          "instruction": "ldr r1, [r0, #0]"
+        },
+        {
+          "offset": 286100,
+          "rom_address": 134503828,
+          "instruction": "ldr r0, [pc] -> 0x045DE0"
+        },
+        {
+          "offset": 286102,
+          "rom_address": 134503830,
+          "instruction": "ldr r2, [r0, #0]"
+        },
+        {
+          "offset": 286104,
+          "rom_address": 134503832,
+          "instruction": "thumb16 0x1C10"
+        },
+        {
+          "offset": 286106,
+          "rom_address": 134503834,
+          "instruction": "thumb16 0x1C0A"
+        },
+        {
+          "offset": 286108,
+          "rom_address": 134503836,
+          "instruction": "ldr r3, [pc] -> 0x045DF8"
+        },
+        {
+          "offset": 286110,
+          "rom_address": 134503838,
+          "instruction": "thumb16 0x18C9"
+        },
+        {
+          "offset": 286112,
+          "rom_address": 134503840,
+          "instruction": "ldrh r2, [r1, #0]"
+        },
+        {
+          "offset": 286114,
+          "rom_address": 134503842,
+          "instruction": "movs r3, #0"
+        },
+        {
+          "offset": 286116,
+          "rom_address": 134503844,
+          "instruction": "thumb16 0x401A"
+        }
+      ]
+    },
+    {
+      "instruction_offset": 286250,
+      "instruction_rom_address": 134503978,
+      "literal_offset": 286536,
+      "literal_rom_address": 134504264,
+      "register": "r1",
+      "access": "read_word",
+      "context": [
+        {
+          "offset": 286246,
+          "rom_address": 134503974,
+          "instruction": "str r1, [r7, #36]"
+        },
+        {
+          "offset": 286248,
+          "rom_address": 134503976,
+          "instruction": "ldr r0, [pc] -> 0x045F44"
+        },
+        {
+          "offset": 286250,
+          "rom_address": 134503978,
+          "instruction": "ldr r1, [pc] -> 0x045F48"
+        },
+        {
+          "offset": 286252,
+          "rom_address": 134503980,
+          "instruction": "ldr r2, [r1, #0]"
+        },
+        {
+          "offset": 286254,
+          "rom_address": 134503982,
+          "instruction": "thumb16 0x1C11"
+        },
+        {
+          "offset": 286256,
+          "rom_address": 134503984,
+          "instruction": "thumb16 0x008A"
+        },
+        {
+          "offset": 286258,
+          "rom_address": 134503986,
+          "instruction": "thumb16 0x1880"
+        },
+        {
+          "offset": 286260,
+          "rom_address": 134503988,
+          "instruction": "ldrh r1, [r0, #2]"
+        },
+        {
+          "offset": 286262,
+          "rom_address": 134503990,
+          "instruction": "ldr r2, [r7, #36]"
+        },
+        {
+          "offset": 286264,
+          "rom_address": 134503992,
+          "instruction": "thumb16 0x1C08"
+        },
+        {
+          "offset": 286266,
+          "rom_address": 134503994,
+          "instruction": "thumb16 0x4010"
+        }
+      ]
+    },
+    {
+      "instruction_offset": 286298,
+      "instruction_rom_address": 134504026,
+      "literal_offset": 286536,
+      "literal_rom_address": 134504264,
+      "register": "r1",
+      "access": "read_word",
+      "context": [
+        {
+          "offset": 286294,
+          "rom_address": 134504022,
+          "instruction": "ldr r1, [pc] -> 0x045F3C"
+        },
+        {
+          "offset": 286296,
+          "rom_address": 134504024,
+          "instruction": "ldr r0, [r1, #0]"
+        },
+        {
+          "offset": 286298,
+          "rom_address": 134504026,
+          "instruction": "ldr r1, [pc] -> 0x045F48"
+        },
+        {
+          "offset": 286300,
+          "rom_address": 134504028,
+          "instruction": "ldr r2, [r1, #0]"
+        },
+        {
+          "offset": 286302,
+          "rom_address": 134504030,
+          "instruction": "thumb16 0x1C11"
+        },
+        {
+          "offset": 286304,
+          "rom_address": 134504032,
+          "instruction": "thumb16 0x3108"
+        },
+        {
+          "offset": 286306,
+          "rom_address": 134504034,
+          "instruction": "movs r2, #52"
+        },
+        {
+          "offset": 286308,
+          "rom_address": 134504036,
+          "instruction": "thumb16 0x4351"
+        },
+        {
+          "offset": 286310,
+          "rom_address": 134504038,
+          "instruction": "thumb16 0x1C02"
+        },
+        {
+          "offset": 286312,
+          "rom_address": 134504040,
+          "instruction": "ldr r2, [pc] -> 0x045F50"
+        },
+        {
+          "offset": 286314,
+          "rom_address": 134504042,
+          "instruction": "thumb16 0x1880"
+        }
+      ]
+    },
+    {
+      "instruction_offset": 286372,
+      "instruction_rom_address": 134504100,
+      "literal_offset": 286536,
+      "literal_rom_address": 134504264,
+      "register": "r1",
+      "access": "read_word",
+      "context": [
+        {
+          "offset": 286368,
+          "rom_address": 134504096,
+          "instruction": "ldr r1, [pc] -> 0x045F3C"
+        },
+        {
+          "offset": 286370,
+          "rom_address": 134504098,
+          "instruction": "ldr r0, [r1, #0]"
+        },
+        {
+          "offset": 286372,
+          "rom_address": 134504100,
+          "instruction": "ldr r1, [pc] -> 0x045F48"
+        },
+        {
+          "offset": 286374,
+          "rom_address": 134504102,
+          "instruction": "ldr r2, [r1, #0]"
+        },
+        {
+          "offset": 286376,
+          "rom_address": 134504104,
+          "instruction": "thumb16 0x1C11"
+        },
+        {
+          "offset": 286378,
+          "rom_address": 134504106,
+          "instruction": "thumb16 0x3108"
+        },
+        {
+          "offset": 286380,
+          "rom_address": 134504108,
+          "instruction": "movs r2, #52"
+        },
+        {
+          "offset": 286382,
+          "rom_address": 134504110,
+          "instruction": "thumb16 0x4351"
+        },
+        {
+          "offset": 286384,
+          "rom_address": 134504112,
+          "instruction": "thumb16 0x1C02"
+        },
+        {
+          "offset": 286386,
+          "rom_address": 134504114,
+          "instruction": "movs r2, #176"
+        },
+        {
+          "offset": 286388,
+          "rom_address": 134504116,
+          "instruction": "thumb16 0x00D2"
+        }
+      ]
+    },
+    {
+      "instruction_offset": 286446,
+      "instruction_rom_address": 134504174,
+      "literal_offset": 286536,
+      "literal_rom_address": 134504264,
+      "register": "r0",
+      "access": "read_word",
+      "context": [
+        {
+          "offset": 286442,
+          "rom_address": 134504170,
+          "instruction": "thumb16 0x1C11"
+        },
+        {
+          "offset": 286444,
+          "rom_address": 134504172,
+          "instruction": "strh r1, [r0, #0]"
+        },
+        {
+          "offset": 286446,
+          "rom_address": 134504174,
+          "instruction": "ldr r0, [pc] -> 0x045F48"
+        },
+        {
+          "offset": 286448,
+          "rom_address": 134504176,
+          "instruction": "ldr r1, [r0, #0]"
+        },
+        {
+          "offset": 286450,
+          "rom_address": 134504178,
+          "instruction": "thumb16 0x1C08"
+        },
+        {
+          "offset": 286452,
+          "rom_address": 134504180,
+          "instruction": "thumb16 0xF001"
+        },
+        {
+          "offset": 286454,
+          "rom_address": 134504182,
+          "instruction": "thumb16 0xFCE0"
+        },
+        {
+          "offset": 286456,
+          "rom_address": 134504184,
+          "instruction": "ldr r1, [pc] -> 0x045F3C"
+        },
+        {
+          "offset": 286458,
+          "rom_address": 134504186,
+          "instruction": "ldr r3, [r1, #0]"
+        },
+        {
+          "offset": 286460,
+          "rom_address": 134504188,
+          "instruction": "thumb16 0x1C1A"
+        },
+        {
+          "offset": 286462,
+          "rom_address": 134504190,
+          "instruction": "ldr r2, [pc] -> 0x045F60"
+        }
+      ]
+    },
+    {
+      "instruction_offset": 286486,
+      "instruction_rom_address": 134504214,
+      "literal_offset": 286536,
+      "literal_rom_address": 134504264,
+      "register": "r0",
+      "access": "read_word",
+      "context": [
+        {
+          "offset": 286482,
+          "rom_address": 134504210,
+          "instruction": "ldr r0, [pc] -> 0x045F3C"
+        },
+        {
+          "offset": 286484,
+          "rom_address": 134504212,
+          "instruction": "ldr r1, [r0, #0]"
+        },
+        {
+          "offset": 286486,
+          "rom_address": 134504214,
+          "instruction": "ldr r0, [pc] -> 0x045F48"
+        },
+        {
+          "offset": 286488,
+          "rom_address": 134504216,
+          "instruction": "ldr r2, [r0, #0]"
+        },
+        {
+          "offset": 286490,
+          "rom_address": 134504218,
+          "instruction": "thumb16 0x1C10"
+        },
+        {
+          "offset": 286492,
+          "rom_address": 134504220,
+          "instruction": "thumb16 0x1C0A"
+        },
+        {
+          "offset": 286494,
+          "rom_address": 134504222,
+          "instruction": "ldr r3, [pc] -> 0x045F64"
+        },
+        {
+          "offset": 286496,
+          "rom_address": 134504224,
+          "instruction": "thumb16 0x18C9"
+        },
+        {
+          "offset": 286498,
+          "rom_address": 134504226,
+          "instruction": "ldrh r2, [r1, #0]"
+        },
+        {
+          "offset": 286500,
+          "rom_address": 134504228,
+          "instruction": "movs r3, #0"
+        },
+        {
+          "offset": 286502,
+          "rom_address": 134504230,
+          "instruction": "thumb16 0x401A"
+        }
+      ]
+    },
+    {
+      "instruction_offset": 286766,
+      "instruction_rom_address": 134504494,
+      "literal_offset": 286824,
+      "literal_rom_address": 134504552,
+      "register": "r0",
+      "access": "read_word",
+      "context": [
+        {
+          "offset": 286762,
+          "rom_address": 134504490,
+          "instruction": "thumb16 0x1C0A"
+        },
+        {
+          "offset": 286764,
+          "rom_address": 134504492,
+          "instruction": "strh r2, [r0, #0]"
+        },
+        {
+          "offset": 286766,
+          "rom_address": 134504494,
+          "instruction": "ldr r0, [pc] -> 0x046068"
+        },
+        {
+          "offset": 286768,
+          "rom_address": 134504496,
+          "instruction": "ldr r1, [r0, #0]"
+        },
+        {
+          "offset": 286770,
+          "rom_address": 134504498,
+          "instruction": "movs r0, #1"
+        },
+        {
+          "offset": 286772,
+          "rom_address": 134504500,
+          "instruction": "thumb16 0x42C1"
+        },
+        {
+          "offset": 286774,
+          "rom_address": 134504502,
+          "instruction": "thumb16 0xD10F"
+        },
+        {
+          "offset": 286776,
+          "rom_address": 134504504,
+          "instruction": "ldr r0, [pc] -> 0x046060"
+        },
+        {
+          "offset": 286778,
+          "rom_address": 134504506,
+          "instruction": "ldr r2, [r0, #0]"
+        },
+        {
+          "offset": 286780,
+          "rom_address": 134504508,
+          "instruction": "thumb16 0x1C11"
+        },
+        {
+          "offset": 286782,
+          "rom_address": 134504510,
+          "instruction": "movs r3, #128"
+        }
+      ]
+    },
+    {
+      "instruction_offset": 293416,
+      "instruction_rom_address": 134511144,
+      "literal_offset": 293436,
+      "literal_rom_address": 134511164,
+      "register": "r0",
+      "access": "read_word",
+      "context": [
+        {
+          "offset": 293412,
+          "rom_address": 134511140,
+          "instruction": "thumb16 0x1C08"
+        },
+        {
+          "offset": 293414,
+          "rom_address": 134511142,
+          "instruction": "thumb16 0xE00B"
+        },
+        {
+          "offset": 293416,
+          "rom_address": 134511144,
+          "instruction": "ldr r0, [pc] -> 0x047A3C"
+        },
+        {
+          "offset": 293418,
+          "rom_address": 134511146,
+          "instruction": "ldr r1, [r0, #0]"
+        },
+        {
+          "offset": 293420,
+          "rom_address": 134511148,
+          "instruction": "ldr r2, [r7, #36]"
+        },
+        {
+          "offset": 293422,
+          "rom_address": 134511150,
+          "instruction": "thumb16 0x1C08"
+        },
+        {
+          "offset": 293424,
+          "rom_address": 134511152,
+          "instruction": "thumb16 0x1C11"
+        },
+        {
+          "offset": 293426,
+          "rom_address": 134511154,
+          "instruction": "thumb16 0xF7E4"
+        },
+        {
+          "offset": 293428,
+          "rom_address": 134511156,
+          "instruction": "thumb16 0xFBBB"
+        },
+        {
+          "offset": 293430,
+          "rom_address": 134511158,
+          "instruction": "ldr r1, [r7, #32]"
+        },
+        {
+          "offset": 293432,
+          "rom_address": 134511160,
+          "instruction": "thumb16 0x1C08"
+        }
+      ]
+    }
+  ]
+}

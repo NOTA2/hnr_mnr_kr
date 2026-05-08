@@ -114,7 +114,14 @@
 - `0x0443F8` 는 global `0x0300503C` 를 slot iterator 로 사용해 후보 slot `0..15` 를 훑는다.
 - 이 루프는 현재 tracked slot `0x33C/+0x33E` 와 겹치는 후보를 건너뛰고, `+0x574` active flag, `+0x57C` / `+0xBA4` / `+0xBA6` 위치/경계 값, `0x03005240` 의 `16 * 4-byte` per-slot state table 을 함께 사용한다.
 - 선택된 후보는 `0x03005284` 에 `slot id` 또는 `-1` sentinel 로 남는다.
+- `0x0412D0..0x04137A` 초기화 경로는 `0x03005284 = -1` 을 기록하고, `0x03005240[16]` 각 entry 의 `+0` / `+2` halfword 를 모두 지운다.
+- 현재 가장 안전한 `0x03005240` entry 해석은 `u16 in_use_flag`, `u16 edge_mask` 다.
+- `0x044AE0` 는 global bounds 비교로 `1/2/4/8` bit 를 조합한 edge/boundary mask 를 계산하고, `0x0446E2..0x04473C` 는 이 값을 `0x03005240[candidate].+2` 에 저장한다.
 - 현재 확인된 `0x0443F8` direct caller 는 `0x059034` 하나이며, 이 caller 는 성공 시 반환 slot id 를 `slot + 0x5A` runtime id 로 변환해 후속 object 구축에 사용한다.
 - `0x045B98` 계열과 `0x047A28` 은 `0x03005284` 를 읽는 consumer 이므로, `0x03005284` 는 selected candidate slot buffer 로 보는 해석이 강하다.
+- `0x045D6C/0x045D94` 와 `0x045EEE/0x045F16` 은 `0x03005284` 를 읽어 `0x482 = raw slot`, `0x484 = 0x0478B8(slot)` derived companion id 를 staging 한 뒤 `0x0458DC` 를 호출한다.
+- `0x0478B8(slot)` 은 slot record `0x714[slot]` 와 bundle `0x0CD4[slot]` 의 좌표/방향 정보를 섞어 companion id 를 만들고, 필요하면 `0x02C1AC(slot, derived_dir)` fallback 으로 보정한다.
+- `0x04B7F0` 는 `0x482/0x484` pending pair 와 기존 `0x33E` tracked slot 을 함께 읽는 consumer 로 보인다.
+- `0x051022` 는 현재 확인된 `0x33E` direct clear writer 이며, 특정 state flag 조건에서 `0x33E = -1` sentinel 을 기록한다.
 - `0x044B7C` 는 시작부터 `0x33E` 를 읽어 `0x714` table 기반 후속 object 흐름으로 들어가므로, `+0x33E` 는 optional second tracked slot consumer 경로도 가진다.
-- 따라서 현재 가장 안전한 해석은 `word4` 가 **overlay slot maintenance mode flag** 라는 것이다.
+- 따라서 현재 가장 안전한 해석은 `word4` 가 **overlay slot maintenance mode flag** 이고, `0x03005284 -> 0x482/0x484` 는 tracked-slot machinery 앞단의 pending promotion buffer 라는 것이다.

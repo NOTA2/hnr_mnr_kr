@@ -7,7 +7,7 @@
 ## 상태
 
 - 상태: `IN PROGRESS`
-- 현재 초점: `0x184A0C` effect/overlay row 의 `word4` side-path exact 의미와 `word1 low nibble` 오해 정리
+- 현재 초점: `0x184A0C` effect/overlay row 의 `word4` side-path 를 `0x03005284 -> 0x482/0x484 -> 0x33C/+0x33E` promotion 구조까지 묶어 정리
 
 ## 텍스트 구조
 
@@ -56,17 +56,24 @@
 - 따라서 `+0x33E` 는 optional second tracked slot field 후보로 더 좁혀졌다.
 - `0x0443F8` 는 `0x0300503C` iterator 로 slot `0..15` 후보를 훑는 allocator 로 보인다.
 - 이 allocator 는 tracked slot `0x33C/+0x33E` 와 충돌하는 후보를 제외하고, `0x03005240` per-slot state table 과 slot record / 위치 조건을 검사한 뒤 결과를 `0x03005284` 에 `slot id` 또는 `-1` sentinel 로 남긴다.
+- `0x0412D0..0x04137A` 초기화 경로는 `0x03005284 = -1` 을 넣고, `0x03005240[16]` 의 `+0` / `+2` halfword 를 모두 지운다.
+- 현재 가장 안전한 `0x03005240` entry 해석은 `u16 in_use_flag`, `u16 edge_mask` 다.
+- `0x044AE0` 는 global bounds 비교로 `1/2/4/8` bit 를 조합한 edge/boundary mask 를 계산하고, allocator 는 이를 `0x03005240[candidate].+2` 에 기록한다.
 - 현재 확인된 `0x0443F8` direct caller 는 `0x059034` 하나이며, caller 는 반환 slot id 를 `slot + 0x5A` runtime id 로 변환해 후속 object 구축에 쓴다.
 - `0x045B98` / `0x047A28` 등은 `0x03005284` 를 consumer 로 읽는다.
+- `0x045D6C/0x045D94` 와 `0x045EEE/0x045F16` 은 `0x03005284` candidate 를 `0x482 = raw slot`, `0x484 = 0x0478B8(slot)` pair 로 staging 한 뒤 `0x0458DC` 를 호출한다.
+- `0x0478B8(slot)` 은 slot record `0x714[slot]` 와 bundle `0x0CD4[slot]` 의 좌표/방향 정보를 이용해 companion id 를 만들고, 필요하면 `0x02C1AC(slot, derived_dir)` fallback 으로 보정한다.
+- `0x04B7F0` 는 `0x482/0x484` pending pair 와 기존 `0x33E` tracked slot 을 함께 읽는 consumer 로 보인다.
+- `0x051022` 는 특정 state flag 조건에서 `0x33E = -1` sentinel 을 기록하는 direct clear writer 다.
 - `0x044B7C` 는 시작부터 `0x33E` 를 읽어 `0x714` table 기반 후속 object 흐름으로 들어가므로, `+0x33E` 는 optional second tracked slot consumer 경로도 가진다.
-- 따라서 `word4` 는 현재 **overlay slot maintenance mode flag** 로 보는 해석이 가장 강하다.
+- 따라서 `word4` 는 현재 **overlay slot maintenance mode flag** 로 보는 해석이 가장 강하고, `0x03005284 -> 0x482/0x484` 는 tracked-slot machinery 앞단의 pending promotion buffer 로 보는 해석이 강하다.
 - `word3` 은 `0x02B96C` 에 세 번째 인자로 전달되고 `& 7` 로 제한된 뒤, `0x0383F8 -> 0x1824F0` 8-entry accessor table 로 이어진다.
 - 이 accessor 들은 공통 descriptor 의 halfword field `+0x04` 부터 `+0x12` 까지 low 10-bit 값을 읽으므로, `word3` 은 사실상 **descriptor field selector** 로 보는 해석이 가장 강하다.
 - 현재 effect/overlay row 에서는 `word3 = 0` 이 기본이고, row `2` 만 `word3 = 6` 을 사용한다.
 
 ## 다음 질문
 
-1. `0x184A0C` row 의 `word4` side-path 가 보존/삭제하는 slot 군의 역할과 `+0x33C/+0x33E` tracked field writer / promotion path
+1. `0x184A0C` row 의 `word4` side-path 에서 `0x482/0x484` pending pair 가 실제로 `+0x33C/+0x33E` tracked field 로 승격되는 writer path
 2. `0x03CA68` helper-family 분석을 effect row 경로와 분리해서 어떻게 기록할지 정리
 3. `0x1849A0` handler table 의 static cluster slot 소비 경로
 4. `field3` exact palette/subtype 의미

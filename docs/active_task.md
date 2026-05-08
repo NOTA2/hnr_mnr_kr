@@ -6,7 +6,7 @@
 
 ## 현재 목표
 
-- tracked slot allocator / writer 구조를 더 좁혀 `0x33C/+0x33E` 가 언제 갱신되는지까지 연결한다.
+- tracked slot allocator / promotion 구조를 더 좁혀 `0x03005284 -> 0x482/0x484 -> 0x33C/+0x33E` 승격 파이프라인을 연결한다.
 
 ## 바로 필요한 사실
 
@@ -32,8 +32,15 @@
 - 여기서 첫 비교는 `cmp` 가 아니라 `cmn` 이므로, 실제 특수값은 `+0x33E == -1` sentinel 이다. 즉 두 번째 tracked slot 은 optional field 일 가능성이 높다.
 - `0x0443F8` 는 global `0x0300503C` 를 slot iterator 로 써서 후보 slot `0..15` 를 훑고, 현재 tracked slot `0x33C/+0x33E` 와 겹치는 후보는 건너뛴다.
 - 이 함수는 `0x03005240` 의 `16 * 4-byte` per-slot state table 을 갱신하면서 후보를 검사하고, 최종 선택 결과를 `0x03005284` 에 `slot id` 또는 `-1` sentinel 로 남긴다.
+- `0x0412D0..0x04137A` 초기화 경로는 `0x03005284 = -1` 을 넣고, `0x03005240[16]` 각 entry 의 `+0` / `+2` halfword 를 모두 지운다.
+- 현재 가장 안전한 `0x03005240` entry 해석은 `u16 in_use_flag`, `u16 edge_mask` 다.
+- `0x044AE0` 는 global bounds 비교로 `1/2/4/8` bit 를 조합한 edge/boundary mask 를 계산하고, `0x0446E2..0x04473C` 는 이 값을 `0x03005240[candidate].+2` 에 저장한다.
 - 현재 확인된 `0x0443F8` direct caller 는 `0x059034` 하나이며, 이 caller 는 성공 시 반환 slot id 를 받은 뒤 `slot + 0x5A` runtime id 로 변환해 후속 object 구축에 쓴다.
 - `0x045B98` 계열과 `0x047A28` 은 `0x03005284` 를 읽는 consumer 라서, `0x03005284` 는 일회성 scratch 가 아니라 **selected candidate slot buffer** 로 보는 해석이 강하다.
+- `0x045D6C/0x045D94` 와 `0x045EEE/0x045F16` 은 `0x03005284` 를 읽어 `0x482 = raw slot`, `0x484 = 0x0478B8(slot)` derived companion id 를 staging 한 뒤 `0x0458DC` 를 호출한다.
+- `0x0478B8(slot)` 은 slot record `0x714[slot]` 와 bundle `0x0CD4[slot]` 의 좌표/방향 정보를 섞어 companion id 를 만든다. 필요하면 `0x02C1AC(slot, derived_dir)` fallback 으로 보정한다.
+- `0x04B7F0` 는 `0x482/0x484` pending pair 와 기존 `0x33E` tracked slot 을 함께 읽는 consumer 로 보인다.
+- `0x051022` 는 현재 확인된 `0x33E` direct clear writer 이며, 특정 state flag 조건에서 `0x33E = -1` sentinel 을 기록한다.
 - 따라서 현재 `word4` 는 연속 수치보다 **overlay slot maintenance mode flag** 로 보는 해석이 가장 안전하다.
 - `word3` 은 `0x02B96C` 의 세 번째 인자로 전달되고, 내부에서 `& 7` 로 제한된 뒤 `0x0383F8` 에 전달된다.
 - `0x0383F8` 은 `0x1824F0` 의 8-entry Thumb function pointer table (`0x0377E0..0x037AB8`) 을 index 한다.
@@ -63,7 +70,7 @@ python3 -m gba_kor_tool find-u32-refs "Hagane no Renkinjutsushi - Meisou no Rond
 ## 완료 조건
 
 - `0x33C/+0x33E` tracked field writer 또는 promotion path 를 1개 이상 더 잡는다.
-- `0x0443F8 -> 0x03005284 -> consumer` 흐름을 helper 메모가 아니라 구조 설명 수준으로 굳힌다.
+- `0x0443F8 -> 0x03005284 -> 0x482/0x484 -> consumer` 흐름을 구조 설명 수준으로 굳힌다.
 - 관련 분석 문서와 [experiment_log.md](/Users/user/test/analysis/experiment_log.md) 에 짧게 기록한다.
 
 ## 참고 지도

@@ -36,7 +36,12 @@
 - `0x03D6F0` 첫 비교는 `cmp` 가 아니라 `cmn` 이므로, `+0x33E` 는 `-1` sentinel 을 갖는 optional second tracked slot field 후보로 좁혀졌다.
 - `0x0443F8` 는 tracked slot `0x33C/+0x33E` 를 피해서 slot `0..15` 후보를 훑는 allocator 로 보이며, 선택 결과를 `0x03005284` 에 남긴다.
 - `0x03005240` 은 이 allocator 가 갱신하는 `16 * 4-byte` per-slot state table 후보로 좁혀졌다.
+- `0x0412D0..0x04137A` 는 `0x03005284 = -1` 과 `0x03005240[16]` clear 를 수행하는 allocator init 경로로 좁혀졌다.
+- `0x044AE0` 는 `0x03005240[candidate].+2` 에 저장되는 edge/boundary mask helper 로 좁혀졌다.
 - `0x0443F8` direct caller 는 현재 `0x059034` 하나이며, caller 는 반환 slot id 를 `slot + 0x5A` runtime id 로 변환해 후속 object 구축에 사용한다.
+- `0x045D6C/0x045D94` 와 `0x045EEE/0x045F16` 은 `0x03005284` candidate 를 `0x482 = raw slot`, `0x484 = 0x0478B8(slot)` pair 로 staging 한 뒤 `0x0458DC` 를 호출한다.
+- `0x04B7F0` 는 `0x482/0x484` pending pair 와 기존 `0x33E` tracked slot 을 함께 읽는 consumer 로 보인다.
+- `0x051022` 는 특정 state flag 조건에서 `0x33E = -1` sentinel 을 기록하는 direct clear writer 다.
 - `find-u32-refs` CLI 로 `u32` literal hit 와 Thumb literal load 후보를 추적할 수 있게 했다.
 
 ## 안정화된 큰 구조

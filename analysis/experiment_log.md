@@ -677,3 +677,33 @@
   - `0x044B7C` 시작부는 `0x33E` 를 읽어 `0x714` table 기반 후속 object 흐름으로 들어가므로, `+0x33E` 는 optional second tracked slot consumer 경로도 가진다.
 - 판정: `성공`
 - 교훈: tracked field 를 이해하려면 read/clear helper만 보면 부족하다. allocator (`iterate -> exclude tracked -> emit candidate`) 와 consumer (`candidate buffer`) 를 함께 봐야 실제 lifecycle 이 보인다.
+
+### 실험 55
+
+- 가설: `0x03005240` 은 막연한 scratch 가 아니라 allocator 전용 `16 * 4-byte` per-slot state table 이며, `0x03005284` candidate 는 별도 pending pair 로 한 단계 더 승격될 수 있다.
+- 시도:
+  - `0x0412D0..0x04137A` init slice 와 `0x0446E2..0x04473C`, `0x044AE0..0x044B74` 를 다시 읽어 `0x03005240` field 쓰임을 비교했다.
+  - `0x045D6C/0x045D94`, `0x045EEE/0x045F16`, `0x04679E` 를 읽어 `0x03005284`, `0x482`, `0x484` 의 staging 흐름을 정리했다.
+  - `0x0478B8` 과 `0x04B7F0` 를 함께 읽어 `0x484` 의 derived companion 의미와 pending pair consumer 여부를 점검했다.
+- 결과:
+  - `0x0412D0..0x04137A` 는 `0x03005284 = -1` 을 기록하고, `0x03005240[16]` 각 entry 의 `+0` / `+2` halfword 를 모두 지운다.
+  - `0x0446E2..0x04473C` 는 새 candidate 를 잡을 때 `0x03005240[candidate].+0 |= 1` 을 세우고, `0x044AE0` 의 반환값을 `+2` 에 저장한다.
+  - `0x044AE0` 는 global bounds 비교로 `1/2/4/8` bit 를 조합한 edge/boundary mask 를 만들므로, 현재 가장 안전한 `0x03005240` entry 해석은 `u16 in_use_flag`, `u16 edge_mask` 다.
+  - `0x045D6C/0x045D94` 와 `0x045EEE/0x045F16` 은 `0x03005284` 를 읽어 `0x482 = raw slot`, `0x484 = 0x0478B8(slot)` pair 로 staging 한 뒤 `0x0458DC` 를 호출한다.
+  - `0x0478B8(slot)` 은 slot record `0x714[slot]` 와 bundle `0x0CD4[slot]` 의 좌표/방향 정보를 섞어 companion id 를 만들고, 필요하면 `0x02C1AC(slot, derived_dir)` fallback 으로 보정한다.
+  - `0x04B7F0` 는 `0x482/0x484` pending pair 와 기존 `0x33E` tracked slot 을 함께 읽는 consumer 로 보이므로, `0x03005284 -> 0x482/0x484` 는 tracked-slot machinery 앞단의 pending promotion buffer 로 보는 해석이 가장 강해졌다.
+- 판정: `성공`
+- 교훈: allocator 결과를 곧바로 tracked field 에 연결하려고 하면 중간 staging pair 를 놓치기 쉽다. candidate buffer, derived companion, tracked field 를 서로 다른 단계로 나눠 보는 편이 안정적이다.
+
+### 실험 56
+
+- 가설: `0x33E` 는 읽기 전용 상태가 아니라 상위 state 전환 함수에서 sentinel 로 직접 초기화될 수 있다.
+- 시도:
+  - `0x04F000..0x051200` 범위의 `0x033E` literal ref 를 다시 좁혀 보고, 실제 store 가 있는지 확인했다.
+  - `0x050FF8..0x05103C` 를 직접 읽어 `0x033E` 주변 명령이 read 인지 write 인지 분리했다.
+- 결과:
+  - `0x051022..0x051034` 는 base `0x03005014` 에 `0x033E` 를 더한 주소를 만든 뒤, 기존 halfword 에 `0xFFFF` 를 OR 해서 `strh` 한다.
+  - sign-extended consumer 기준으로 이 값은 `-1` sentinel 이므로, 이 코드는 특정 state flag 조건에서 **`0x33E = -1` direct clear writer** 로 읽는 편이 자연스럽다.
+  - 따라서 `+0x33E` 는 purely derived field 가 아니라, 상위 state 흐름에서 explicit reset 을 받는 tracked slot field 로 더 좁혀졌다.
+- 판정: `성공`
+- 교훈: writer 탐색이 막힐 때는 consumer helper 주변만 돌지 말고, 상태 전환 루틴이 몰린 상위 range 를 좁혀 보는 편이 효율적이다.
