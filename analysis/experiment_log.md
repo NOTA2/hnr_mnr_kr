@@ -576,3 +576,22 @@
   - 현재 effect/overlay row 의 실제 low nibble 값은 `0, 1, 4, 8, 14` 이다.
 - 판정: `성공`
 - 교훈: `word1` 은 16가지 완전 독립 타입보다, `0..3` direct field + `4..15` shared range selector 구조로 보는 편이 훨씬 자연스럽다. 다음은 `word2` 와 `word1` 상위 비트를 좁히는 것이 가장 효율적이다.
+
+### 실험 49
+
+- 가설: `0x184A0C` row 의 `word1` / `word2` 는 descriptor selector 와 별개로, 실제 object positioning 에 쓰이는 raw coordinate pair 일 수 있다.
+- 시도:
+  - `0x047A88` 전체 슬라이스를 다시 읽어 `word1` / `word2` stack slot 사용 횟수를 확인했다.
+  - detached slice 의 BL target 은 `slice_start + local_target` 으로 다시 환산해 실제 helper `0x0587BC`, `0x058870` 를 찾았다.
+  - `0x0587BC` / `0x058870` 를 직접 읽어 `word1` / `word2` 가 어떤 object field 로 들어가는지 확인했다.
+- 결과:
+  - `0x047A88` 안에서 `word1` / `word2` 는 각각 한 번만 읽히고, sign-extended 16-bit pair 로 `0x0587BC` 에 함께 전달된다.
+  - `0x0587BC` 는 두 축에 같은 scalar transform helper `0x075560` 을 각각 적용한다.
+  - 변환 결과는 current active object/entry 의 `+0x08` / `+0x0C` 에 저장된다.
+  - 이어지는 `0x058870` 은 이 `+0x08` / `+0x0C` 값을 다른 active entry 로 복사하는 흐름을 가진다.
+  - `word4` 는 `0x047A88` 에서 `[r7 + 0x1C]` 로 한 번만 읽히고, `0` 여부에 따라 optional branch 를 건너뛴다.
+  - 따라서 현재 가장 안전한 해석은 `word1` / `word2` 가 **raw positional pair (x/y 계열)** 라는 것이다.
+  - 따라서 `word4` 는 현재 **boolean / mode flag** 로 보는 편이 가장 안전하다.
+  - 다만 `0x075560` 의 exact scaling rule 과 `word4` 가 켜는 side-path 의 정확한 의미는 이번 단계에서 확정하지 않았다.
+- 판정: `성공`
+- 교훈: `word1 low nibble` selector 분석과 `word1` 전체 좌표 역할은 동시에 참일 수 있다. 같은 word 가 selector bit 와 raw position encoding 을 함께 담는 packed field 일 가능성을 열어 두고 진행한다.

@@ -13,6 +13,7 @@
 5. 구조 해석이 바뀌면 관련 문서와 로그를 같이 갱신한다.
 6. literal pool 근처를 볼 때는 값 주소만 보지 말고, 실제 `ldr` instruction 의 PC-relative target 을 계산한다.
 7. 시작 시 읽는 문서는 [session_start.md](/Users/user/test/docs/session_start.md) 와 [active_task.md](/Users/user/test/docs/active_task.md) 로 제한한다.
+8. detached binary slice 를 `.org 0` 으로 디스어셈블했을 때는 BL target 을 로컬 오프셋으로 먼저 보고, 필요하면 `actual = slice_start + local_target` 으로 다시 환산한다.
 
 ## 컨텍스트 예산 규칙
 

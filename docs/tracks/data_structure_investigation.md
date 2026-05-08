@@ -7,7 +7,7 @@
 ## 상태
 
 - 상태: `IN PROGRESS`
-- 현재 초점: `0x184A0C` effect/overlay row 의 `word2` 와 `word1` 상위 비트 의미
+- 현재 초점: `0x184A0C` effect/overlay row 의 `word1` / `word2` exact coordinate format 과 `word4`
 
 ## 텍스트 구조
 
@@ -45,14 +45,19 @@
 - `word1 low nibble` 은 `0x03CA68 -> 0x182530` 16-entry dispatch table 로 이어진다.
 - entry `0..3` 은 `*(0x03001450) + 0x270/0x274` descriptor family 의 halfword field `+0x02, +0x04, +0x06, +0x08` low 10-bit 를 읽는다.
 - entry `4..15` 는 공통 fallback 으로 모여 field `+0x00` low 8-bit base 에 `+ (nibble - 4)` 를 적용한다.
+- `word1` / `word2` 는 `0x047A88` 안에서 각각 한 번만 읽히고, sign-extended 16-bit pair 로 `0x0587BC` 에 함께 전달된다.
+- `0x0587BC` 는 두 축에 scalar transform helper `0x075560` 을 적용한 뒤, active object/entry 의 `+0x08` / `+0x0C` 에 결과를 저장한다.
+- 따라서 `word1` / `word2` 는 현재 **raw positional pair (x/y 계열)** 로 보는 해석이 가장 강하다.
+- `word4` 는 `0x047A88` 안에서 한 번만 읽히며, `0` 여부에 따라 optional side-path 를 건너뛴다.
+- 따라서 `word4` 는 현재 **boolean / mode flag** 로 보는 해석이 가장 강하다.
 - `word3` 은 `0x02B96C` 에 세 번째 인자로 전달되고 `& 7` 로 제한된 뒤, `0x0383F8 -> 0x1824F0` 8-entry accessor table 로 이어진다.
 - 이 accessor 들은 공통 descriptor 의 halfword field `+0x04` 부터 `+0x12` 까지 low 10-bit 값을 읽으므로, `word3` 은 사실상 **descriptor field selector** 로 보는 해석이 가장 강하다.
 - 현재 effect/overlay row 에서는 `word3 = 0` 이 기본이고, row `2` 만 `word3 = 6` 을 사용한다.
 
 ## 다음 질문
 
-1. `0x184A0C` row 의 `word2` exact 의미
-2. `0x184A0C` row 의 `word1` 상위 비트 exact 의미
+1. `0x184A0C` row 의 `word1` / `word2` exact scale 또는 packing 규칙
+2. `0x184A0C` row 의 `word4` exact 의미
 3. `0x1849A0` handler table 의 static cluster slot 소비 경로
 4. `field3` exact palette/subtype 의미
 5. `0x093D` / `0x093E` / `0x094B` 고정 리소스 관계

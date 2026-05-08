@@ -6,7 +6,7 @@
 
 ## 현재 목표
 
-- `0x184A0C` effect/overlay row 의 `word2` 의미와 `word1` 상위 비트 의미를 더 좁힌다.
+- `0x184A0C` effect/overlay row 의 `word1` / `word2` exact coordinate format 과 `word4` 의미를 더 좁힌다.
 
 ## 바로 필요한 사실
 
@@ -21,6 +21,11 @@
 - 위 table 의 entry `0..3` 은 `*(0x03001450) + 0x270/0x274` descriptor family 에서 halfword field `+0x02, +0x04, +0x06, +0x08` low 10-bit 를 읽는다.
 - entry `4..15` 는 모두 같은 fallback accessor 로 모이며, descriptor field `+0x00` low 8-bit 를 base 로 읽은 뒤 `+ (nibble - 4)` 로 보정된다.
 - 현재 `0x184A0C` row 에서 실제로 쓰인 `word1 low nibble` 값은 `0, 1, 4, 8, 14` 다.
+- `0x047A88` 안에서 `word1` / `word2` stack slot 은 각각 한 번만 읽히며, 둘은 sign-extended 16-bit pair 로 `0x0587BC` 에 함께 전달된다.
+- `0x0587BC` 는 두 축에 같은 scalar transform helper `0x075560` 을 적용한 뒤, active object/entry 의 `+0x08` / `+0x0C` 에 결과를 저장한다.
+- 따라서 현재 가장 안전한 해석은 `word1` / `word2` 가 **raw positional pair (x/y 계열)** 라는 것이다. 다만 exact fixed-point scale 은 아직 미확정이다.
+- `word4` 는 `0x047A88` 에서 다섯 번째 인자로 `[r7 + 0x1C]` 에서 한 번 읽히고, `0` 여부만 검사해 optional branch 를 켜거나 끈다.
+- 따라서 현재 `word4` 는 연속 수치보다 **boolean / mode flag** 로 보는 해석이 가장 안전하다.
 - `word3` 은 `0x02B96C` 의 세 번째 인자로 전달되고, 내부에서 `& 7` 로 제한된 뒤 `0x0383F8` 에 전달된다.
 - `0x0383F8` 은 `0x1824F0` 의 8-entry Thumb function pointer table (`0x0377E0..0x037AB8`) 을 index 한다.
 - 위 8개 accessor 는 공통 descriptor 의 halfword field `+0x04, +0x06, +0x08, +0x0A, +0x0C, +0x0E, +0x10, +0x12` 에서 각각 low 10-bit 값을 읽는다.
@@ -37,6 +42,7 @@
 - `0x06B8B0` 시작부 `strb #0` 을 `0x03005FF8` 초기화로 보지 않는다. 이 write 는 `0x03005FE8` 쪽이다.
 - `0x06A5B2` 의 `strb #2` 를 `0x03005FF8` write 로 보지 않는다. 이 write 는 `0x03006018 = 2` state 전환이다.
 - literal pool 값만 보고 code entry 로 취급하지 않는다. 실제 `ldr` instruction 의 PC-relative target 을 확인한다.
+- detached Thumb slice 를 `.org 0` 으로 디스어셈블했을 때는 BL target 을 그대로 ROM 주소로 읽지 않는다. 필요하면 `actual = slice_start + local_target` 으로 다시 맞춘다.
 
 ## 유용한 명령
 
@@ -46,8 +52,8 @@ python3 -m gba_kor_tool find-u32-refs "Hagane no Renkinjutsushi - Meisou no Rond
 
 ## 완료 조건
 
-- `word2` 가 `0x047A88` / `0x02B96C` 이후 어디에 저장되거나 어떤 좌표/타입 축으로 재해석되는지 1개 이상 좁힌다.
-- 가능하면 `word1` 상위 비트가 위치/좌표/팔레트/타입 중 어떤 축으로 이어지는지 1개 이상 확인한다.
+- `0x075560` 변환 전후를 기준으로 `word1` / `word2` 의 exact scale 또는 packing 규칙을 1개 이상 좁힌다.
+- 가능하면 아직 해석되지 않은 `word4` 의 boolean / mode 역할을 1개 이상 확인한다.
 - 관련 분석 문서와 [experiment_log.md](/Users/user/test/analysis/experiment_log.md) 에 짧게 기록한다.
 
 ## 참고 지도

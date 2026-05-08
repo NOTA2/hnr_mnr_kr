@@ -40,8 +40,8 @@
 
 ## 남은 질문
 
-- `word1 low nibble` 이 `0x03CA68` 에서 어떤 registry / descriptor family 를 고르는지 아직 남아 있다.
-- `word2` 가 `0x047A88` / `0x02B96C` 이후 어떤 좌표 / 타입 축으로 재해석되는지도 남아 있다.
+- `word1` / `word2` raw pair 가 `0x075560` 전후 어떤 exact scale / packing 규칙을 가지는지 아직 남아 있다.
+- `word4` 의 boolean / mode 의미도 아직 남아 있다.
 - 현재 direct literal scan 에서는 `0x06A52E` 만 writer 로 보이지만, static cluster 를 통한 간접 writer 가능성은 아직 완전히 배제하지 않는다.
 
 ## Row Parameter Semantics
@@ -89,3 +89,18 @@
 - fallback accessor 는 같은 descriptor 의 field `+0x00` low 8-bit 를 base 로 읽고, `0x03CA68` 복귀 후 `+ (nibble - 4)` 보정을 받는다.
 - 따라서 현재 가장 안전한 해석은 `word1 low nibble` 이 **descriptor family 내부 field / slot selector** 라는 것이다.
 - 현재 effect/overlay row 에서 실제 사용된 low nibble 은 `0, 1, 4, 8, 14` 다.
+
+`word1` / `word2` pair 에 대해서도 아래까지는 확인됐다.
+
+- `0x047A88` 안에서 `word1` / `word2` stack slot 은 각각 한 번만 읽힌다.
+- 두 값은 sign-extended 16-bit pair 로 helper `0x0587BC` 에 함께 전달된다.
+- `0x0587BC` 는 현재 active object/entry 를 찾은 뒤, 두 축에 같은 scalar transform helper `0x075560` 을 각각 적용한다.
+- 변환 결과는 active object/entry 의 `+0x08` / `+0x0C` 에 저장된다.
+- 따라서 현재 가장 안전한 해석은 `word1` / `word2` 가 **raw positional pair (x/y 계열)** 라는 것이다.
+- 다만 `0x075560` 의 exact scaling rule 까지는 아직 확정하지 않았다.
+
+`word4` 에 대해서도 아래까지는 확인됐다.
+
+- `0x047A88` 는 다섯 번째 인자를 `[r7 + 0x1C]` 에서 읽는다.
+- 이 값은 `0` 여부만 검사되며, `0` 이면 `0x020C` 쪽 공통 경로로 바로 건너뛴다.
+- 따라서 현재 가장 안전한 해석은 `word4` 가 **optional side-path 를 켜는 boolean / mode flag** 라는 것이다.
