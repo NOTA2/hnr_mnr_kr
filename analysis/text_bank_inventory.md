@@ -29,6 +29,13 @@
   - `0x08C06C -> 0x18425C`
   - `0x08C0C4 -> 0x18425C`
 
+### 크레딧(타이틀) 텍스트
+
+- 범위: `0x08C3AC` ~ `0x08CE00`
+- 파일: [credits_texts.json](/Users/user/test/analysis/credits_texts.json)
+- 특징: 크레딧 화면에서 쓰이는 직책/회사/이름 문자열
+- 포인터 예시: `0x184E20 -> 0x08C3AC`
+
 ## 직접 포인터가 아직 안 잡힌 뱅크
 
 ### 전투 기술명/설명

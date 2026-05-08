@@ -60,6 +60,12 @@
   - 해당 블록에서는 `0x10` 이 문자열 종단(또는 구분) 역할을 하는 것으로 관측됨
   - `extract-range` 로는 잡히지 않아 `scan-text --sliding` 으로 추출함
 
+### 크레딧(타이틀) 텍스트
+
+- 파일: [credits_texts.json](/Users/user/test/analysis/credits_texts.json)
+- 범위: `0x08C3AC` ~ `0x08CE00`
+- 현재 추출 수: `10`
+
 ### 리소스 디스크립터 테이블 덤프
 
 - 파일: [resource_chunks.json](/Users/user/test/analysis/resource_chunks.json)
@@ -94,6 +100,7 @@
 - 대형 능력 텍스트 뱅크 추출
 - UI 기술 텍스트 추출
 - 세이브 관련 메뉴 메시지 추출(명령 스트림 내 `cp932`, 종단 바이트 `0x10`)
+- 크레딧(타이틀) 텍스트 추출
 - 전투/능력 텍스트 뱅크 시작점과 누락 문자열을 재보정
 - 청크 디렉터리 기반으로 재료/속성 텍스트 뱅크를 별도 추출
 - `inspect-chunk-table` 로 리소스 디스크립터 테이블 덤프 생성
