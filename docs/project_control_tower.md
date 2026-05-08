@@ -79,6 +79,11 @@
 4. [experiment_log.md](/Users/user/test/analysis/experiment_log.md)
 5. 필요 시 [initial_findings.md](/Users/user/test/analysis/initial_findings.md)
 
+## 운영 메모
+
+- 기존 환경에 이미 있는 도구와 시스템 경로를 먼저 사용한다.
+- 분석을 직접 막는 경우에는 이유를 설명하고 필요한 분석 도구를 설치할 수 있다.
+
 ## 읽기 규칙
 
 - 시작할 때 이 문서를 먼저 읽지 않는다.
