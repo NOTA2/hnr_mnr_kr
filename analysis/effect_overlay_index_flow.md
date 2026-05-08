@@ -40,8 +40,8 @@
 
 ## 남은 질문
 
-- `word1` / `word2` raw pair 가 `0x075560` 전후 어떤 exact scale / packing 규칙을 가지는지 아직 남아 있다.
-- `word4` 의 boolean / mode 의미도 아직 남아 있다.
+- `word4 != 0` 이 켜는 optional side-path 가 실제로 어떤 overlay / object 추가 동작인지 아직 남아 있다.
+- `word1 low nibble` selector 해석과 `word1` 전체 좌표 경로가 실제로 같은 word 를 다중 용도로 재사용하는지, 아니면 call-arg 매핑 재검증이 필요한지도 남아 있다.
 - 현재 direct literal scan 에서는 `0x06A52E` 만 writer 로 보이지만, static cluster 를 통한 간접 writer 가능성은 아직 완전히 배제하지 않는다.
 
 ## Row Parameter Semantics
@@ -96,8 +96,9 @@
 - 두 값은 sign-extended 16-bit pair 로 helper `0x0587BC` 에 함께 전달된다.
 - `0x0587BC` 는 현재 active object/entry 를 찾은 뒤, 두 축에 같은 scalar transform helper `0x075560` 을 각각 적용한다.
 - 변환 결과는 active object/entry 의 `+0x08` / `+0x0C` 에 저장된다.
-- 따라서 현재 가장 안전한 해석은 `word1` / `word2` 가 **raw positional pair (x/y 계열)** 라는 것이다.
-- 다만 `0x075560` 의 exact scaling rule 까지는 아직 확정하지 않았다.
+- `0x075560` 은 내부적으로 signed int 를 IEEE-754 single float bit pattern 으로 포장한다. 하위 helper 는 `0x074D44` packer, `0x074DFC` unpacker 로 보인다.
+- 따라서 현재 가장 안전한 해석은 `word1` / `word2` 가 **직접적인 signed integer 좌표쌍** 이고, runtime object 에는 float 형태로 저장된다는 것이다.
+- 다만 `word1 low nibble` selector 분석과 이 좌표 경로가 같은 field 를 다중 용도로 재사용하는지 여부는 아직 열어 둔다.
 
 `word4` 에 대해서도 아래까지는 확인됐다.
 

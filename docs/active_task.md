@@ -6,7 +6,7 @@
 
 ## 현재 목표
 
-- `0x184A0C` effect/overlay row 의 `word1` / `word2` exact coordinate format 과 `word4` 의미를 더 좁힌다.
+- `0x184A0C` effect/overlay row 의 `word4` side-path 의미와 `word1 low nibble` 다중 용도 여부를 더 좁힌다.
 
 ## 바로 필요한 사실
 
@@ -23,7 +23,8 @@
 - 현재 `0x184A0C` row 에서 실제로 쓰인 `word1 low nibble` 값은 `0, 1, 4, 8, 14` 다.
 - `0x047A88` 안에서 `word1` / `word2` stack slot 은 각각 한 번만 읽히며, 둘은 sign-extended 16-bit pair 로 `0x0587BC` 에 함께 전달된다.
 - `0x0587BC` 는 두 축에 같은 scalar transform helper `0x075560` 을 적용한 뒤, active object/entry 의 `+0x08` / `+0x0C` 에 결과를 저장한다.
-- 따라서 현재 가장 안전한 해석은 `word1` / `word2` 가 **raw positional pair (x/y 계열)** 라는 것이다. 다만 exact fixed-point scale 은 아직 미확정이다.
+- `0x075560` 은 내부적으로 signed int 를 IEEE-754 single float 비트패턴으로 포장한다.
+- 따라서 현재 가장 안전한 해석은 `word1` / `word2` 가 **직접적인 signed integer 좌표쌍** 이고, runtime object 에는 float 형태로 저장된다는 것이다.
 - `word4` 는 `0x047A88` 에서 다섯 번째 인자로 `[r7 + 0x1C]` 에서 한 번 읽히고, `0` 여부만 검사해 optional branch 를 켜거나 끈다.
 - 따라서 현재 `word4` 는 연속 수치보다 **boolean / mode flag** 로 보는 해석이 가장 안전하다.
 - `word3` 은 `0x02B96C` 의 세 번째 인자로 전달되고, 내부에서 `& 7` 로 제한된 뒤 `0x0383F8` 에 전달된다.
@@ -52,8 +53,8 @@ python3 -m gba_kor_tool find-u32-refs "Hagane no Renkinjutsushi - Meisou no Rond
 
 ## 완료 조건
 
-- `0x075560` 변환 전후를 기준으로 `word1` / `word2` 의 exact scale 또는 packing 규칙을 1개 이상 좁힌다.
-- 가능하면 아직 해석되지 않은 `word4` 의 boolean / mode 역할을 1개 이상 확인한다.
+- `word4 != 0` 일 때만 실행되는 side-path 가 어떤 overlay / object 추가 동작인지 1개 이상 좁힌다.
+- 가능하면 `word1 low nibble` selector 가 실제로 같은 좌표 word 의 하위 비트를 재사용하는지, 아니면 call-arg 매핑 재검증이 필요한지 1개 이상 정리한다.
 - 관련 분석 문서와 [experiment_log.md](/Users/user/test/analysis/experiment_log.md) 에 짧게 기록한다.
 
 ## 참고 지도

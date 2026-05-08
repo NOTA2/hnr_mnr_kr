@@ -7,7 +7,7 @@
 ## 상태
 
 - 상태: `IN PROGRESS`
-- 현재 초점: `0x184A0C` effect/overlay row 의 `word1` / `word2` exact coordinate format 과 `word4`
+- 현재 초점: `0x184A0C` effect/overlay row 의 `word4` side-path 와 `word1 low nibble` 다중 용도 여부
 
 ## 텍스트 구조
 
@@ -47,7 +47,8 @@
 - entry `4..15` 는 공통 fallback 으로 모여 field `+0x00` low 8-bit base 에 `+ (nibble - 4)` 를 적용한다.
 - `word1` / `word2` 는 `0x047A88` 안에서 각각 한 번만 읽히고, sign-extended 16-bit pair 로 `0x0587BC` 에 함께 전달된다.
 - `0x0587BC` 는 두 축에 scalar transform helper `0x075560` 을 적용한 뒤, active object/entry 의 `+0x08` / `+0x0C` 에 결과를 저장한다.
-- 따라서 `word1` / `word2` 는 현재 **raw positional pair (x/y 계열)** 로 보는 해석이 가장 강하다.
+- `0x075560` 은 signed int 를 IEEE-754 single float bit pattern 으로 포장하는 helper 로 보인다.
+- 따라서 `word1` / `word2` 는 현재 **직접적인 signed integer 좌표쌍** 으로 보는 해석이 가장 강하다.
 - `word4` 는 `0x047A88` 안에서 한 번만 읽히며, `0` 여부에 따라 optional side-path 를 건너뛴다.
 - 따라서 `word4` 는 현재 **boolean / mode flag** 로 보는 해석이 가장 강하다.
 - `word3` 은 `0x02B96C` 에 세 번째 인자로 전달되고 `& 7` 로 제한된 뒤, `0x0383F8 -> 0x1824F0` 8-entry accessor table 로 이어진다.
@@ -56,8 +57,8 @@
 
 ## 다음 질문
 
-1. `0x184A0C` row 의 `word1` / `word2` exact scale 또는 packing 규칙
-2. `0x184A0C` row 의 `word4` exact 의미
+1. `0x184A0C` row 의 `word4` side-path exact 의미
+2. `word1 low nibble` selector 와 `word1` 좌표 경로의 다중 용도 여부
 3. `0x1849A0` handler table 의 static cluster slot 소비 경로
 4. `field3` exact palette/subtype 의미
 5. `0x093D` / `0x093E` / `0x094B` 고정 리소스 관계

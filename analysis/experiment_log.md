@@ -595,3 +595,19 @@
   - 다만 `0x075560` 의 exact scaling rule 과 `word4` 가 켜는 side-path 의 정확한 의미는 이번 단계에서 확정하지 않았다.
 - 판정: `성공`
 - 교훈: `word1 low nibble` selector 분석과 `word1` 전체 좌표 역할은 동시에 참일 수 있다. 같은 word 가 selector bit 와 raw position encoding 을 함께 담는 packed field 일 가능성을 열어 두고 진행한다.
+
+### 실험 50
+
+- 가설: `0x0587BC` 가 부르는 `0x075560` 은 좌표값을 어떤 bespoke fixed-point 로 바꾸는 것이 아니라, signed int 를 직접 float 비트패턴으로 포장하는 helper 일 수 있다.
+- 시도:
+  - `0x075560` 내부 BL target 을 실제 ROM 주소로 환산해 `0x074D44`, `0x074DFC` helper 를 직접 읽었다.
+  - `0x074D44` / `0x074DFC` 의 bitfield 처리 방식을 확인해 IEEE-754 single pack/unpack 형태와 맞는지 비교했다.
+  - 대표 정수값 `0`, `1`, `400`, `427`, `475`, `-1`, `-400` 의 표준 float bit pattern 도 함께 계산해 기준을 잡았다.
+- 결과:
+  - `0x074DFC` 는 32-bit 값을 sign / exponent / mantissa 성분으로 풀어 임시 구조체에 저장하는 unpacker 로 보인다.
+  - `0x074D44` 는 반대로 임시 구조체의 sign / exponent / mantissa 를 조합해 32-bit 값을 만드는 packer 로 보인다.
+  - `0x075560` 첫 helper 는 signed int 를 정규화한 뒤 위 packer 로 넘기는 흐름을 가진다.
+  - 따라서 `0x0587BC` 가 `word1` / `word2` 에 적용하는 변환은 bespoke scale 변환보다 **signed integer -> IEEE-754 single float 포장** 으로 보는 해석이 가장 강하다.
+  - 이 기준이면 `word1 = 0x190`, `word2 = 0x1AB` 같은 값은 각각 `400.0f`, `427.0f` 좌표로 저장되는 흐름과 잘 맞는다.
+- 판정: `성공`
+- 교훈: detached slice 분석에서는 내부 BL target 재환산이 매우 중요하다. 좌표계 해석을 할 때는 “어떤 수치 형식으로 저장되는가”와 “원본 데이터가 packed metadata 를 함께 담는가”를 분리해서 봐야 한다.
