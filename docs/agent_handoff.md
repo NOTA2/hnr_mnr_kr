@@ -67,14 +67,17 @@
 - `0x06A838` helper 는 `0x030009A0 + location_index * 4` 플래그를 읽어 활성 여부를 판정한다. 따라서 활성/비활성은 record field 가 아니라 별도 runtime array 가 맡는다.
 - `0x08BFC8..0x08C2B8` 구간에는 location/world-map bundle table 과 `0x03002Fxx` / `0x03005Fxx` / `0x030060xx` / `0x030009xx` runtime global 을 함께 묶는 dense static constant cluster 가 있다.
 - `0x1849A0` handler table direct ref 는 현재 `0x069E94`, `0x08BFC8` 두 건뿐이라, 독립 literal 보다 **상위 cluster 의 단일 슬롯** 으로 소비될 가능성을 열어 두는 편이 안전하다.
-- `0x184A0C` numeric tail 도 direct ref (`0x06D070`, `0x08C1FC`) 가 있어, bundle tail 경계를 `0x184A0B` 에서 기계적으로 끊지 않는 편이 좋다.
+- `0x184A0C` 이후 table 도 direct ref (`0x06D070`, `0x08C1FC`) 가 있어, bundle tail 경계를 `0x184A0B` 에서 기계적으로 끊지 않는 편이 좋다.
+- `0x184A0C..0x184AD3` 은 `10 * 0x14` effect/overlay parameter table 후보이며, `0x06CFB8` 계열 함수가 `0x03002FFC == 0x10` 일 때 `0x03005FF8` byte 를 index 로 사용해 읽는다.
+- 이 row 의 `5`개 word 는 helper `0x047A88` 에 `r0=word0`, `r1=word1`, `r2=word2`, `r3=word3`, `[sp]=word4`, `[sp+4]=0` 형태로 전달된다.
+- `0x047A88` 의 다른 caller (`0x051E96`, `0x051FFE`) 도 구조체 필드를 같은 helper 로 넘기므로, `0x184A0C` 은 텍스트/포인터 table 이 아니라 정적 effect/overlay spawn parameter table 로 보는 편이 맞다.
 - 따라서 `selector=0` direct generic caller 부재는 `0x17785C` 의 전용 helper (`0x03BC`, `0x0414`) 로 설명 가능하고, `Registry B` 역시 dead registry 가 아니라 **미러 테이블 + ZP-aware helper family** 경로로 접근되는 live asset bank 로 보는 편이 맞다.
 - 일부 메뉴/진행 메시지는 일반 `00` 종단 평문이 아니라 명령 스트림 내부 문자열이다.
 
 ## 다음 한 단계 후보
 
 1. `0x1849A0` handler table 의 singular cluster slot 을 실제로 소비하는 코드를 찾기
-2. `0x184A0C` numeric tail 을 `0x06D070` 이 어떤 의미로 읽는지 확인하기
+2. `0x03005FF8` effect/overlay table index 를 어떤 코드가 최종 선택하는지 확인하기
 3. `field3` exact palette/subtype 의미를 더 좁히기
 
 매 실행에서는 위 셋 중 **하나만** 고른다.

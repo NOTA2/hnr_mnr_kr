@@ -125,7 +125,10 @@
 - 현재는 `0..9 = location node`, `0x0A..0x0C = connector / transit node`, `0x1849A0 = 13-node handler table` 로 보는 해석이 가장 자연스럽다.
 - `0x08BFC8..0x08C2B8` 구간에는 location/world-map bundle 하위 table (`0x184248`, `0x18425C`, `0x184420`, `0x184820`, `0x1848B0`, `0x1849A0`, `0x1849D4`, `0x1840F8`, `0x1841E8`, `0x184A0C`) 과 `0x03002Fxx` / `0x03005Fxx` / `0x030060xx` / `0x030009xx` runtime global 이 반복 묶인 dense static constant cluster 가 있다.
 - `0x1849A0` handler table direct ref 는 현재 `0x069E94`, `0x08BFC8` 두 건뿐이라, 독립 literal 보다 상위 cluster 슬롯으로 소비될 가능성을 열어 두는 편이 안전하다.
-- `0x184A0C` numeric tail 도 `0x06D070`, `0x08C1FC` live ref 가 있어, location bundle tail 을 `0x184A0B` 에서 기계적으로 끊으면 안 된다.
+- `0x184A0C` 이후 table 도 `0x06D070`, `0x08C1FC` live ref 가 있어, location bundle tail 을 `0x184A0B` 에서 기계적으로 끊으면 안 된다.
+- `0x184A0C..0x184AD3` 은 `10 * 0x14` effect/overlay parameter table 후보로 읽힌다.
+- `0x06CFB8` 계열 함수는 `0x03002FFC == 0x10` 일 때 `0x03005FF8` byte 를 index 로 사용해 `0x184A0C + index * 0x14` row 를 읽고, `5`개 word 를 helper `0x047A88` 로 전달한다.
+- 따라서 `0x184A0C` 은 텍스트나 포인터 배열보다 정적 world-map effect/overlay spawn parameter table 로 보는 편이 강하다.
 - `0x3D2059` 와 `0x3D329C` 대형 텍스트 뱅크는 같은 방식의 절대 포인터가 바로 잡히지 않았다.
 - 따라서 `0x3Dxxxx` 영역은 직접 포인터 대신 인덱스/구조체/상대 오프셋/압축 해제 후 참조 같은 별도 구조를 쓸 가능성이 있다.
 - `0x08B62C` UI 기술 텍스트는 `0x3D2059` 전투 기술 텍스트와 일부 이름이 겹친다.
@@ -171,7 +174,7 @@
 ## 다음 우선순위
 
 1. `0x1849A0` handler table singular cluster slot 소비 경로를 찾는다.
-2. `0x184A0C` numeric tail 을 `0x06D070` 이 어떤 의미로 읽는지 확인한다.
+2. `0x03005FF8` effect/overlay table index 선택 경로를 확인한다.
 3. `field3` exact palette/subtype 의미를 더 좁힌다.
 4. `0x093D` / `0x094B` binary table 이 어떤 게임 데이터 분류인지 확인한다.
 5. 폰트 타일과 문자 폭 테이블을 찾아 한글 글리프 삽입 준비를 시작한다.

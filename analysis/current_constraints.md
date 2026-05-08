@@ -53,7 +53,7 @@
 45. `0x184820` node position pair table 후보는 `13 * (x, y)` 구조이며, location record `field1/field2` 와 `8 / 10` 완전 일치, 나머지 `2 / 10` 은 작은 delta 만 가진다.
 46. 코드 기준으로 `field1/field2` 는 location icon / hotspot 사각형의 좌상단 좌표로 보는 편이 더 정확하다. `0x06A418` hit-test 루틴이 descriptor `(dim_a, dim_b) * 8` 과 함께 이 두 필드를 직접 비교한다.
 47. `field0`, `field3`, `field4` 는 좌표보다 draw helper 파라미터 쪽에 가깝다. `0x069E9C` / `0x06D4A8` 계열이 이 필드들을 helper `0x63000` / `0x63424` 로 직접 넘긴다.
-48. 현재 가장 안전한 해석은 `field0 = asset/icon family ID 후보`, `field3 = draw subtype/mode 후보`, `field4 = graphic/tile-base variant 후보` 다.
+48. 현재 가장 안전한 해석은 `field0 = asset/icon family ID 후보`, `field3 = palette bank / draw subtype 후보`, `field4 = graphic/tile-base variant 후보` 다.
 49. `0x184950` 에는 `10 * (x, y)` label position pair 후보가 있다.
 50. `0x1849A0` 에는 `13-entry` Thumb handler pointer table 이 있고, 현재는 위 `13-node` 축과 맞물릴 가능성을 우선 둔다.
 51. `0x1849D4` table 은 현재 `(location_index, special event/script/message id)` 로 보는 해석이 가장 강하다.
@@ -63,7 +63,11 @@
 55. `0x63000` / `0x63424` 는 near-duplicate sprite/OAM helper pair 로 보이며, `field4` 는 attr2 low 10-bit tile index 계열, `field3` 는 attr2 high-byte 상위 nibble palette/subtype 계열을 조정한다.
 56. `0x08BFC8..0x08C2B8` 구간에는 `0x184248`, `0x18425C`, `0x184420`, `0x184820`, `0x1848B0`, `0x1849A0`, `0x1849D4`, `0x1840F8`, `0x1841E8`, `0x184A0C` 를 반복 참조하는 dense static constant cluster 가 있다.
 57. `0x1849A0` handler table direct ref 는 현재 `0x069E94`, `0x08BFC8` 2건뿐이고, 반대로 `0x184248`, `0x1849D4`, `0x1840F8`, `0x184820` 등은 code literal + static cluster 양쪽에서 반복 참조된다.
-58. `0x184A0C` numeric tail 은 direct ref `0x06D070`, `0x08C1FC` 가 있어, location bundle tail 을 `0x184A0B` 에서 기계적으로 끊으면 안 된다.
+58. `0x184A0C` 이후 tail 은 direct ref `0x06D070`, `0x08C1FC` 가 있어, location bundle tail 을 `0x184A0B` 에서 기계적으로 끊으면 안 된다.
+59. `0x184A0C..0x184AD3` 은 `10 * 0x14` effect/overlay parameter table 후보로 읽힌다. 바로 뒤 `0x184AD4` 부터는 `0x087E0000`, `0x00002B18` 로 시작하는 다른 pointer/length 계열 데이터가 이어진다.
+60. `0x06D070` 은 함수 시작점이 아니라 `0x06CFB8` 계열 함수의 literal pool 안에 있는 `0x08184A0C` 값이며, 이 함수는 `0x03002FFC == 0x10` 일 때 `0x03005FF8` byte 를 index 로 써서 `0x184A0C + index * 0x14` row 를 읽는다.
+61. 해당 row 의 `5`개 word 는 helper `0x047A88` 에 `r0=word0`, `r1=word1`, `r2=word2`, `r3=word3`, `[sp]=word4`, `[sp+4]=0` 형태로 전달된다.
+62. `0x047A88` 의 다른 caller (`0x051E96`, `0x051FFE`) 도 구조체 필드들을 같은 helper 로 넘기므로, `0x184A0C` 은 텍스트/포인터 table 이 아니라 world-map effect/overlay spawn parameter table 후보로 보는 해석이 강하다.
 
 ## 지금 반복하면 안 되는 가정
 
@@ -83,17 +87,19 @@
 14. `0x1849D4` 를 단순 숫자 쌍이라고 가정하지 않는다. 현재는 location index -> special event/script/message id 매핑 해석이 더 강하다.
 15. `field3` 를 location 활성 플래그라고 가정하지 않는다. 활성 여부는 `0x030009A0` runtime array 가 따로 관리한다.
 16. `0x1849A0` handler table direct ref 가 적다고 해서 dead table 이라고 가정하지 않는다. 현재는 static constant cluster 내부 슬롯일 가능성이 더 높다.
-17. location/world-map bundle tail 을 무조건 `0x184A0B` 에서 끝난다고 가정하지 않는다. `0x184A0C` 이후 numeric tail 도 live ref 가 있다.
+17. location/world-map bundle tail 을 무조건 `0x184A0B` 에서 끝난다고 가정하지 않는다. `0x184A0C` 이후 table 도 live ref 가 있다.
+18. `0x184A0C` 를 텍스트 후보나 포인터 배열로 보지 않는다. 현재는 fixed-size effect/overlay parameter row 로 보는 편이 맞다.
 
 ## 지금 가장 유력한 다음 질문
 
 1. `field3` 가 정확히 palette bank 인지, 또는 palette + subtype 복합 값인지 더 좁힐 수 있는가
 2. `0x1849A0` handler table 의 단일 static cluster 슬롯을 실제로 소비하는 코드는 어디인가
-3. `0x184A0C` numeric tail 을 `0x06D070` 이 어떤 의미로 읽는가
-4. `0x47EB0` 가 `0x3E1..0x3EF` 를 어떤 종류의 런타임 객체로 바꾸는가
-5. `0x561D4` hotspot helper 반환값이 실제 맵 좌표계에서 어떤 단위를 의미하는가
-6. `0x093D` binary table 은 `0x093E` 재료 문자열 뱅크와 어떤 관계인가
-7. `0x094B` / `0x12DF8(0x63)` 경로는 어떤 게임 데이터 분류를 읽는가
+3. `0x03005FF8` effect/overlay table index 를 어떤 코드가 최종 선택하는가
+4. `0x184A0C` row 의 `word0` / `word3` 이 `0x047A88` 내부에서 정확히 어떤 효과를 갖는가
+5. `0x47EB0` 가 `0x3E1..0x3EF` 를 어떤 종류의 런타임 객체로 바꾸는가
+6. `0x561D4` hotspot helper 반환값이 실제 맵 좌표계에서 어떤 단위를 의미하는가
+7. `0x093D` binary table 은 `0x093E` 재료 문자열 뱅크와 어떤 관계인가
+8. `0x094B` / `0x12DF8(0x63)` 경로는 어떤 게임 데이터 분류를 읽는가
 
 ## 문서 사용 규칙
 

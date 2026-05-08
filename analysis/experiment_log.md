@@ -474,3 +474,20 @@
   - `0x184A0C` 도 `0x06D070`, `0x08C1FC` direct ref 가 있어, location bundle tail 끝을 `0x184A0B` 로 단정하면 안 된다.
 - 판정: `성공`
 - 교훈: direct ref 수가 적다고 dead table 로 치면 안 된다. 특히 location/world-map 계열은 **static constant cluster + runtime global** 묶음으로 소비되는 경로를 같이 봐야 한다.
+
+### 실험 43
+
+- 가설: `0x184A0C` numeric tail 은 단순 미해석 꼬리가 아니라, 고정 크기 effect/overlay parameter table 일 수 있다.
+- 시도:
+  - `0x184A0C` raw word 를 `5 * u32` row 로 펼쳐 보았다.
+  - `0x06D070` direct ref 주변을 Thumb 슬라이스로 다시 읽어, 실제 코드 시작점인지 literal pool 값인지 분리했다.
+  - `0x047A88` helper 와 그 BL caller (`0x051E96`, `0x051FFE`, `0x06D050`) 를 비교했다.
+- 결과:
+  - `0x184A0C..0x184AD3` 은 `10 * 0x14` row 로 깔끔하게 끊긴다.
+  - 바로 뒤 `0x184AD4` 부터는 `0x087E0000`, `0x00002B18` 로 시작하는 별도 pointer/length 계열 데이터가 이어진다.
+  - `0x06D070` 은 함수 시작점이 아니라, `0x06CFB8` 계열 함수의 literal pool 안에 있는 `0x08184A0C` 값이다.
+  - 해당 함수는 `0x03002FFC == 0x10` 일 때 `0x03005FF8` byte 를 index 로 사용해 `0x184A0C + index * 0x14` row 를 읽는다.
+  - row 의 `5`개 word 는 `0x047A88` 로 `r0=word0`, `r1=word1`, `r2=word2`, `r3=word3`, `[sp]=word4`, `[sp+4]=0` 형태로 전달된다.
+  - `0x047A88` 의 다른 caller 도 구조체 필드를 같은 helper 로 넘기므로, 이 table 은 텍스트나 포인터 배열보다 정적 effect/overlay spawn parameter table 로 보는 해석이 강하다.
+- 판정: `성공`
+- 교훈: literal pool 주소를 code entry 로 착각하지 말고, 참조한 instruction 까지 역으로 따라가야 한다. `0x184A0C` 는 이제 "미해석 tail" 이 아니라 별도 fixed-size parameter table 로 다룬다.

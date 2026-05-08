@@ -186,13 +186,47 @@ route sequence 공통 패턴:
   - `0x1849A0` handler pointer table
   - `0x1849D4` special pair table
   - `0x1840F8` / `0x1841E8` companion descriptor pair
-  - `0x184A0C` numeric tail
+  - `0x184A0C` effect/overlay parameter table
 - 이 static constant 들 옆에는 `0x03002Fxx`, `0x03005Fxx`, `0x030060xx`, `0x030009xx` runtime global 이 반복해서 붙는다.
 - 현재 가장 안전한 해석:
   - 코드가 모든 location bundle 하위 table 을 독립 literal 로만 들고 다니는 것이 아니라,
   - **정적 constant cluster + runtime global 조합** 을 통해 higher-level UI/state bundle 처럼 소비하는 경로도 함께 가진다.
 - 특히 `0x1849A0` 은 direct ref 가 `2`건뿐이지만, `0x184248`, `0x1849D4`, `0x184820`, `0x1840F8`, `0x1841E8` 는 code literal 과 이 static cluster 양쪽에서 반복 확인된다.
 - 또한 `0x184A0C` 는 `0x06D070`, `0x08C1FC` direct ref 가 있어, location bundle tail 끝을 무조건 `0x184A0B` 에서 끊는 해석은 피하는 편이 안전하다.
+
+## Effect / Overlay Parameter Table
+
+- base: `0x184A0C`
+- 범위: `0x184A0C..0x184AD3`
+- 개수: `10`
+- row 크기: `0x14`
+- row 구조 후보: `5 * u32`
+- 바로 뒤 `0x184AD4` 부터는 `0x087E0000`, `0x00002B18` 처럼 pointer/length 성격의 다른 데이터가 시작되므로, 현재는 `0x184A0C` table 을 `10 * 0x14` 로 끊는 편이 가장 자연스럽다.
+
+값 예시:
+
+- row `0`: `(0x1E, 0x190, 0x1AB, 0, 1)`
+- row `2`: `(0x01, 0x1E0, 0x1C2, 6, 1)`
+- row `9`: `(0x3E, 0x050, 0x1EA, 0, 0)`
+
+소비 경로:
+
+- `0x06D070` 은 코드 시작점이 아니라, `0x06CFB8` 계열 함수의 literal pool 안에 있는 `0x08184A0C` 값이다.
+- 해당 함수는 `0x03002FFC` halfword 가 `0x10` 일 때, `0x03005FF8` byte 를 index 로 사용해 `0x184A0C + index * 0x14` row 를 읽는다.
+- row 의 `5`개 word 는 helper `0x047A88` 로 그대로 전달된다.
+  - `r0 = word0`
+  - `r1 = word1`
+  - `r2 = word2`
+  - `r3 = word3`
+  - `[sp] = word4`
+  - `[sp+4] = 0`
+
+현재 가장 안전한 해석:
+
+- 이 table 은 텍스트나 포인터 테이블이 아니라, **world-map effect / overlay spawn parameter table** 후보다.
+- `0x047A88` 의 다른 caller (`0x051E96`, `0x051FFE`) 도 구조체 필드들을 같은 helper 로 넘기므로, `0x184A0C` row 는 그 구조체 일부를 정적 table 로 빼 둔 형태에 가깝다.
+- `word1/word2` 는 signed coordinate-like 값으로 바로 사용되고, `word4` 는 helper 내부 optional branch 를 켜는 flag 처럼 쓰인다.
+- `word0` 은 effect/asset id, `word3` 은 helper 내부 sub-parameter 후보로 두되, 정확한 의미는 추가 확인이 필요하다.
 
 ## Direct Ref 강도
 
@@ -209,6 +243,7 @@ route sequence 공통 패턴:
 
 1. `field3` 가 정확히 palette bank 인지, 또는 palette + subtype 복합 값인지 더 좁힐 수 있는가
 2. `0x1849A0` handler table 의 **단일 static cluster 슬롯** 을 실제로 소비하는 코드가 어디인가
-3. `0x184A0C` numeric tail 을 `0x06D070` 이 어떤 의미로 읽는가
-4. `0x47EB0` 가 `0x3E1..0x3EF` 를 어떤 종류의 런타임 객체로 바꾸는가
-5. `0x561D4` hotspot helper 반환값이 실제 맵 좌표계에서 어떤 단위를 의미하는가
+3. `0x03005FF8` effect/overlay table index 를 어떤 코드가 최종 선택하는가
+4. `0x184A0C` row 의 `word0` / `word3` 이 `0x047A88` 내부에서 정확히 어떤 효과를 갖는가
+5. `0x47EB0` 가 `0x3E1..0x3EF` 를 어떤 종류의 런타임 객체로 바꾸는가
+6. `0x561D4` hotspot helper 반환값이 실제 맵 좌표계에서 어떤 단위를 의미하는가
