@@ -47,6 +47,8 @@
 - 파일: [material_texts.json](/Users/user/test/analysis/material_texts.json)
 - 범위: `0x3D2D60` ~ `0x3D3420`
 - 현재 추출 수: `43`
+- 특징:
+  - 뱅크 앞쪽에는 `7-byte` binary record directory 가 있고, 추출된 `cp932` 문자열은 그 뒤쪽 본문 영역에 놓여 있다.
 
 ### UI 기술 텍스트
 
@@ -81,6 +83,7 @@
 - 아직 대사/이벤트 본문 텍스트는 충분히 확보되지 않았다.
 - 전각 공백 필터 문제를 수정하면서 `battle/ability` 추출본의 누락 문자열을 회수했다.
 - 상위 리소스 청크 기준으로 보았을 때 `material_texts` 라는 별도 텍스트 묶음도 확인되었다.
+- `material_texts` 뱅크는 순수 문자열 덩어리가 아니라, 앞단 binary record 와 뒷단 문자열 본문이 결합된 mixed resource 로 보인다.
 - 다만 추출 JSON의 범위와 실제 디스크립터 엔트리 범위는 1:1 대응하지 않을 수 있다.
 - 넓은 디스크립터 범위를 그대로 스캔하면 잡음이 섞이므로, 번역용 JSON은 계속 사람이 읽기 좋은 단위로 유지하는 편이 낫다.
 
@@ -106,3 +109,4 @@
 - 전투/능력 텍스트 뱅크 시작점과 누락 문자열을 재보정
 - 청크 디렉터리 기반으로 재료/속성 텍스트 뱅크를 별도 추출
 - `inspect-chunk-table` 로 리소스 디스크립터 테이블 덤프 생성
+- `0x3D2D60` 재료 뱅크 앞단에 있는 `7-byte` record directory 를 확인

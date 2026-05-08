@@ -30,6 +30,12 @@
 - `0x017ED8`
 - `0x01C9BC`
 
+고정 index 호출부 메모:
+
+- `0x007578`: literal index `0x094B` -> registry entry `0x3DDB30`, length `0x02C3`
+- `0x007760`: literal index `0x093D` -> registry entry `0x3D2A40`, length `0x0320`
+- `0x007824`: literal index `0x093E` -> registry entry `0x3D2D60`, length `0x06C0`
+
 ## Helper 2: `0x0414`
 
 수동 Thumb 해석 기준으로 아래 성격에 가깝다.
@@ -56,6 +62,7 @@
 - `0x017ED8` 와 `0x017EEC` 는 가까운 위치에서 각각 `0x03BC`, `0x0414` 를 호출한다.
 - 이 패턴은 `같은 index에 대해 pointer -> length` 를 연속 조회하는 흐름이라, 단순 이름 조회보다 **리소스 로더/복사 루틴** 쪽에 가깝다.
 - 반대로 `0x007578`, `0x007760`, `0x007824` 같은 호출부는 현재까지 `0x03BC` 만 확인되어, 길이 없이 포인터만 쓰는 경로일 가능성이 있다.
+- 다만 `포인터만 쓰는 경로` 도 모두 순수 binary lookup 은 아니다. `0x007824` 경로는 binary record 와 같은 리소스 내부 문자열 본문을 함께 사용한다.
 
 ## 확인된 로더 루틴: `0x17EB4`
 
@@ -82,6 +89,36 @@
 
 이 helper 때문에 `0x17EB4` 는 텍스트 조립보다 **타일맵 또는 16비트 엔트리 버퍼 채우기** 와 더 가깝다.
 
+## 단독 accessor 경로 메모
+
+### `0x007578` 호출부
+
+- registry index `0x094B`
+- target entry: `0x3DDB30`, length `0x02C3`
+- `0x65` 바이트 간격 레코드를 고르는 흐름이 보인다.
+- `extract-range` 결과 평문 `cp932` hit 는 `0` 이었다.
+
+즉 이 경로는 현재까지 **직접 텍스트보다는 binary gameplay table 조회** 에 더 가깝다.
+
+### `0x007760` 호출부
+
+- registry index `0x093D`
+- target entry: `0x3D2A40`, length `0x0320`
+- 선택된 엔트리에서 `4-byte` 레코드를 읽어 구조체의 `+2 .. +5` 바이트 필드를 채운다.
+- 이어지는 helper 는 같은 구조체에서 파생된 추가 포인터/값을 계산한다.
+
+즉 이 경로는 **문자열 본문 직접 조회라기보다 UI/재료 metadata lookup** 에 가깝다.
+
+### `0x007824` 호출부
+
+- registry index `0x093E`
+- target entry: `0x3D2D60`, length `0x06C0`
+- 뱅크 앞쪽에는 `5-byte metadata + u16 relative string offset` 형태의 `7-byte` 레코드가 반복된다.
+- `0x795C` helper 는 같은 레코드의 뒤 2바이트를 조합해 같은 뱅크 내부 문자열 포인터를 만든다.
+- 뱅크 뒤쪽에는 실제 `cp932` 재료/속성명 문자열이 이어진다.
+
+즉 이 경로는 **binary header + in-bank text body** 가 결합된 mixed resource lookup 이다.
+
 ## Helper 3: `0x03E4`
 
 `0x03E4` 부근 함수는 literal base 로 `0x17C7E4` 를 사용한다.
@@ -101,8 +138,10 @@
 - `0x17785C` 는 상위 레지스트리 중에서도 실제 코드 accessor 가 이미 확인된 핵심 `pointer-length` 레지스트리다.
 - `0x076530` 허브에 `0x17785C` 가 여러 번 들어 있는 점도, 이 레지스트리가 공용 기준표 역할을 할 가능성을 높인다.
 - 반대로 `0x17C7E4` 는 상위 허브에 포함되어 있지만, 아직은 `0x17785C` 만큼 직접적인 accessor 사용 근거가 부족하다.
+- `0x03BC` 단독 호출은 "텍스트 아님" 또는 "문자열 포인터 직접 반환" 둘 중 하나로 단순화할 수 없다.
+- 실제로는 binary table, mixed record directory, in-bank 상대 문자열 포인터가 섞여 있다.
 
 ## 다음 유력 작업
 
-1. `0x007578`, `0x007760`, `0x007824` 같은 `0x03BC` 단독 호출부를 더 해석해 `포인터만 쓰는 경로` 의 의미를 확인
-2. `0x17785C` 와 `0x076530` 허브 사이의 연결 방식이 데이터 선택용인지, 로더 초기화용인지 확인
+1. `0x17785C` 와 `0x076530` 허브 사이의 연결 방식이 데이터 선택용인지, 로더 초기화용인지 확인
+2. `0x093D` / `0x094B` binary table 이 어떤 게임 분류를 담는지 추가 분리
