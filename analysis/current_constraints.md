@@ -16,18 +16,20 @@
 8. `0x17785C` 레지스트리에는 실제 Thumb accessor `0x03BC`, `0x0414` 가 있다.
 9. `0x17CE0` 는 `base + 2 * (x + y * 32)` 목적지 주소를 계산한다.
 10. `0x17EB4` / `0x017ED8` / `0x017EEC` 는 `0x17785C` 포인터/길이 엔트리를 DMA3 로 halfword 복사한다.
-11. `0x03E4` 의 `0x17C7E4` helper 는 현재 BL 호출자나 함수 포인터 흔적이 없다.
+11. `0x03E8` helper 는 literal base `0x17C7E4` 를 사용하고, 현재 BL 호출자 `3`개 (`0x0106E6`, `0x010798`, `0x010892`) 가 확인되었다.
 12. `0x007760` 단독 accessor 경로는 고정 index `0x093D` (`0x3D2A40`, 길이 `0x0320`) binary table 을 읽는다.
 13. `0x007824` 단독 accessor 경로는 고정 index `0x093E` (`0x3D2D60`, 길이 `0x06C0`) 를 읽으며, 앞쪽 `7-byte` 레코드와 뒤쪽 `cp932` 문자열 영역을 함께 쓴다.
 14. `0x007578` 단독 accessor 경로는 고정 index `0x094B` (`0x3DDB30`, 길이 `0x02C3`) binary table 을 읽으며 직접 평문 텍스트 경로는 아니다.
 15. `0x0002C0` 의 `0x076530` 포인터는 `0x000290` helper 의 literal 이며, 이 helper 는 허브 첫 4엔트리 (`0x17785C`, `0x17C2F4`, `0x17C384`, `0x17C71C`) 중 하나를 선택해 반환한다.
 16. `0x0002CC` / `0x000304` 는 `0x000290` 위에 쌓인 generic accessor 로, 선택된 registry 엔트리의 `pointer` / `length` 필드를 읽는다.
-17. `0x17C7E4` 는 허브 안에 있으나 현재 generic `0x000290` family 에는 포함되지 않고, 별도 direct helper 계열로 관리되는 것으로 보인다.
+17. `0x17C7E4` 는 허브 안에 있으나 generic `0x000290` family 가 선택하는 첫 4엔트리에는 포함되지 않고, 별도 direct helper 계열로 관리되는 것으로 보인다.
 18. direct `0x0002CC` 호출 `20`개 중 현재 고정 selector 로 확인된 값은 `1` 과 `3` 뿐이다.
 19. `selector=1` direct 호출 `8`개는 모두 `entry_index=0` 으로 `Registry A (0x17C2F4)` 첫 엔트리를 읽는다.
 20. `selector=3` direct 호출 `11`개는 `entry_index 0/2/3/5` 를 읽으며, `0x06F4xx` / `0x0704xx` / `0x0709xx` 군집으로 몰려 있다.
 21. `0x000304` 의 유일한 BL 호출자는 `0x000392` 이며, 이는 `0x00033C` wrapper 내부 길이 조회다.
 22. `0x00033C` 호출자 `6`개는 현재 모두 `selector=3` 을 넘긴다.
+23. `selector=0` direct generic caller 부재는 `0x17785C` 전용 helper (`0x03BC`, `0x0414`) 가 이미 널리 쓰인다는 점으로 설명 가능하다.
+24. 상위 registry 중 현재 concrete access route 가 허브 참조 외에 거의 안 잡히는 축은 사실상 `Registry B (0x17C384)` 뿐이다.
 
 ## 지금 반복하면 안 되는 가정
 
@@ -42,10 +44,9 @@
 
 ## 지금 가장 유력한 다음 질문
 
-1. 왜 direct `0x0002CC` 호출이 selector `0` / `2` 없이 `1` / `3` 에만 몰리는가
-2. 왜 `0x17C7E4` 는 `0x076530` 허브 안에 있으면서도 generic `0x000290` family 밖에 있는가
-3. `0x093D` binary table 은 `0x093E` 재료 문자열 뱅크와 어떤 관계인가
-4. `0x094B` / `0x12DF8(0x63)` 경로는 어떤 게임 데이터 분류를 읽는가
+1. 왜 `Registry B (0x17C384)` 는 허브 참조 외 concrete access route 가 거의 안 보이는가
+2. `0x093D` binary table 은 `0x093E` 재료 문자열 뱅크와 어떤 관계인가
+3. `0x094B` / `0x12DF8(0x63)` 경로는 어떤 게임 데이터 분류를 읽는가
 
 ## 문서 사용 규칙
 

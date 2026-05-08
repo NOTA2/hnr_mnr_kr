@@ -7,6 +7,7 @@
 - [thumb_bl_to_03bc.json](/Users/user/test/analysis/thumb_bl_to_03bc.json)
 - [thumb_bl_to_0414.json](/Users/user/test/analysis/thumb_bl_to_0414.json)
 - [thumb_bl_to_03e4.json](/Users/user/test/analysis/thumb_bl_to_03e4.json)
+- [thumb_bl_to_03e8.json](/Users/user/test/analysis/thumb_bl_to_03e8.json)
 
 ## Helper 1: `0x03BC`
 
@@ -196,32 +197,50 @@
 
 즉 이 경로는 **binary header + in-bank text body** 가 결합된 mixed resource lookup 이다.
 
-## Helper 3: `0x03E4`
+## Helper 3: `0x03E8`
 
-`0x03E4` 부근 함수는 literal base 로 `0x17C7E4` 를 사용한다.
+수동 Thumb 해석 기준으로 아래 성격에 가깝다.
 
-현재 확인 결과:
+- literal base: `0x17C7E4`
+- index 입력을 `index * 8` 오프셋으로 변환
+- `base + index * 8` 위치의 첫 번째 `u32` 반환
 
-- BL 호출자: `0`
-- `0x080003E5` Thumb 함수 포인터 값의 32비트 저장 흔적: `0`
+즉, `0x17C7E4` 레지스트리의 **포인터 필드 accessor** 로 보는 해석이 가장 자연스럽다.
 
-따라서 현재 단계에서는 아래 둘 중 하나일 가능성이 있다.
+호출자 수:
 
-- 직접 BL 대신 다른 분기 방식으로만 도달한다.
-- 유사 코드가 다른 곳에 인라인/복제되어 실제 helper 로는 거의 쓰이지 않는다.
+- `3`개 BL 호출 확인
+
+대표 호출 위치:
+
+- `0x0106E6`
+- `0x010798`
+- `0x010892`
+
+caller 관찰 메모:
+
+- 세 caller 모두 local/stack 근처 table 에서 `u16` index 를 읽은 뒤 `0x03E8` 을 호출한다.
+- 반환된 포인터는 공통적으로 구조체의 `+0x8` 필드 쪽에 저장된다.
+- 따라서 `0x17C7E4` 는 단순 허브 장식이 아니라, 실제 object/setup 흐름에서 참조되는 live registry 로 취급해야 한다.
+
+이전 실패 기록:
+
+- [thumb_bl_to_03e4.json](/Users/user/test/analysis/thumb_bl_to_03e4.json) 는 `0x03E4` 가 실제 callable helper 라는 가설을 검증하다 실패한 산출물이다.
+- 현재는 `0x03E8` 이 올바른 helper entry 로 보는 편이 맞다.
 
 ## 현재 해석
 
 - `0x17785C` 는 상위 레지스트리 중에서도 실제 코드 accessor 가 이미 확인된 핵심 `pointer-length` 레지스트리다.
 - `0x076530` 허브에 `0x17785C` 가 여러 번 들어 있는 점도, 이 레지스트리가 공용 기준표 역할을 할 가능성을 높인다.
-- 반대로 `0x17C7E4` 는 상위 허브에 포함되어 있지만, 아직은 `0x17785C` 만큼 직접적인 accessor 사용 근거가 부족하다.
+- `0x17C7E4` 역시 상위 허브 바깥 예외 축이지만, 이제는 `0x03E8` direct helper 와 `3`개 caller 가 확인되어 실제 accessor 사용 근거가 충분하다.
 - 그리고 `0x17785C` 는 전용 helper (`0x03BC`, `0x0414`) 뿐 아니라, `0x076530` 허브 generic family 의 selector `0` 으로도 접근될 수 있다.
-- 하지만 현재 관찰된 direct `0x0002CC` caller 는 `selector=1` 과 `selector=3` 에 편중되어 있고, `selector=0` / `2` fixed caller 는 아직 보이지 않는다.
+- 따라서 `selector=0` direct generic caller 가 안 보이는 점은 큰 이상이라기보다, 이미 전용 helper family 가 널리 쓰인 결과일 가능성이 높다.
+- 반면 현재 상위 registry 중 concrete access route 가 가장 비어 있는 축은 `Registry B (0x17C384)` 다.
 - 또 `0x000304` 는 사실상 `0x00033C` wrapper 뒤에서만 보이므로, generic `pointer+length` pair 사용도 모든 registry 에 고르게 퍼져 있지 않다.
 - `0x03BC` 단독 호출은 "텍스트 아님" 또는 "문자열 포인터 직접 반환" 둘 중 하나로 단순화할 수 없다.
 - 실제로는 binary table, mixed record directory, in-bank 상대 문자열 포인터가 섞여 있다.
 
 ## 다음 유력 작업
 
-1. 왜 direct `0x0002CC` caller 가 `selector=1` / `3` 에 편중되는지 확인
+1. `Registry B (0x17C384)` 의 concrete access route 찾기
 2. `0x093D` / `0x094B` binary table 이 어떤 게임 분류를 담는지 추가 분리

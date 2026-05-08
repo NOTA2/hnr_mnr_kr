@@ -17,7 +17,7 @@
 
 ## 현재 최우선 과제
 
-1. 왜 direct `0x0002CC` 호출이 selector `1` / `3` 에만 몰리는지 확인
+1. `Registry B (0x17C384)` 의 concrete accessor 경로 찾기
 2. `0x093D` / `0x093E` / `0x094B` 고정 인덱스 리소스와 주변 helper 의미를 더 분리
 3. 대사/이벤트 평문 구간 추가 탐색
 4. 폰트 조사로 넘어갈 수 있을 만큼 텍스트 구조를 더 분리
@@ -45,6 +45,8 @@
 - `0x0002CC` / `0x000304` 가 `0x000290` 위에 쌓인 generic `pointer-length` accessor 로 보이며, 각각 selected registry 의 포인터/길이 필드를 반환한다는 점 확인
 - direct `0x0002CC` 호출 `20`개 중 현재 고정 selector 는 `1` 과 `3` 만 확인되며, `selector=1` 은 `entry 0` 단일 패턴, `selector=3` 은 `entry 0/2/3/5` 군집 패턴으로 갈린다는 점 확인
 - `0x000304` 의 유일한 BL 호출자는 `0x000392` 이고, 이는 `0x00033C` wrapper 내부 길이 조회라는 점 확인
+- `0x17C7E4` 전용 helper 가 기존 추정 `0x03E4` 가 아니라 실제 BL 호출이 있는 `0x03E8` 이며, `0x0106E6`, `0x010798`, `0x010892` 3개 caller 를 가진다는 점 확인
+- `0x03E8` 는 `0x17C7E4 + index * 8` 의 첫 `u32` 를 읽는 pointer accessor 로 보이며, 이로 인해 현재 concrete access route 가 비어 있는 상위 registry 는 사실상 `0x17C384` 뿐이라는 점 확인
 - 세이브/진행 메뉴 텍스트와 크레딧 텍스트 추출
 
 ## 작업 후 최소 갱신 규칙

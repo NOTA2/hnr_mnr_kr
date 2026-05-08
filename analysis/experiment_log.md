@@ -288,3 +288,19 @@
   - `0x00033C` 의 알려진 BL 호출자 `6`개는 현재 모두 `selector=3` 을 넘긴다.
 - 판정: `성공`
 - 교훈: generic hub accessor family 의 실제 사용은 전체 registry 에 고르게 퍼져 있지 않다. 현재 direct caller 기준으로는 `Registry A` 와 `Registry C` 로 편중되어 있고, `selector=0` / `2` 경로는 다른 helper 나 다른 상위 흐름을 통해 접근할 가능성을 우선 의심해야 한다.
+
+### 실험 31
+
+- 가설: `0x17C7E4` direct helper 가 없다는 이전 결론은 helper entry 주소를 `0x03E4` 로 잘못 잡은 결과일 수 있다.
+- 시도:
+  - `find-pointers` 로 `0x17C384`, `0x17C71C`, `0x17C7E4` 직접 참조를 다시 비교했다.
+  - `find-thumb-bl` 를 `0x03E4` 와 `0x03E8` 양쪽에 다시 실행했다.
+  - `0x03E8` 주변과 caller `0x0106E6`, `0x010798`, `0x010892` 슬라이스를 ARMv4T 오브젝트로 재조립해 Thumb 흐름을 확인했다.
+- 결과:
+  - `0x17C384`, `0x17C71C` 는 여전히 허브 내부 참조 `1`건씩만 확인되었다.
+  - `0x17C7E4` 는 허브 항목 `0x076548` 외에 `0x000408` literal 이 추가로 확인되었다.
+  - `find-thumb-bl 0x03E4` 결과는 여전히 `0`건이었지만, `find-thumb-bl 0x03E8` 에서는 caller `3`개 (`0x0106E6`, `0x010798`, `0x010892`) 가 확인되었다.
+  - `0x03E8` helper 는 `0x17C7E4` literal base 위에서 `index * 8` 후 첫 `u32` 를 읽는 pointer accessor 로 해석된다.
+  - 세 caller 는 공통적으로 `u16` index 를 읽어 `0x03E8` 을 호출하고, 반환 포인터를 구조체 `+0x8` 필드에 저장한다.
+- 판정: `성공`
+- 교훈: `0x17C7E4` 는 generic 허브 밖의 별도 direct helper 축으로 실제 사용된다. 따라서 `selector=0` 부재는 `0x17785C` 전용 helper 로 설명 가능하고, 현재 상위 registry 중 concrete access route 가 가장 비어 있는 축은 `Registry B (0x17C384)` 다.

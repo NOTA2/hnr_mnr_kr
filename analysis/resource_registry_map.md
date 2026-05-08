@@ -72,6 +72,12 @@
 
 반면 `0x17C7E4` 는 허브 안에 들어 있지만, 이 `0x000290` family 가 복사하는 첫 4엔트리 바깥에 남아 있다.
 
+별도 direct helper 근거:
+
+- `0x17C7E4` 직접 포인터 검색 결과는 `0x076548` 허브 항목 외에 `0x000408` literal 이 추가로 확인된다.
+- 이 literal 을 쓰는 `0x03E8` helper 는 `0x17C7E4 + index * 8` 위치의 첫 `u32` 를 반환하는 pointer accessor 로 보인다.
+- `0x03E8` BL 호출자는 `0x0106E6`, `0x010798`, `0x010892` 총 `3`개다.
+
 ## 현재 확인된 상위 레지스트리 범위
 
 ### Registry A
@@ -91,6 +97,7 @@
 - 특징:
   - 대부분 바이너리성 리소스로 보인다.
   - 현재 필터 기준으로는 텍스트성이 강한 엔트리가 거의 없다.
+  - 현재까지는 허브 내부 포인터 외 concrete accessor/helper 경로가 확인되지 않았다.
 
 ### Registry C
 
@@ -118,14 +125,16 @@
 추가로:
 
 - `0x17785C` 레지스트리는 `0x03BC`, `0x0414` helper 함수로 직접 접근하는 코드 경로가 확인되었다.
-- 반면 `0x17C7E4` 는 상위 허브에 포함되어 있지만, 같은 수준의 직접 helper 호출 근거는 아직 약하다.
+- `0x17C7E4` 레지스트리도 `0x03E8` direct helper 와 `3`개 BL caller 가 확인되어, generic family 밖의 별도 accessor 축으로 보는 근거가 생겼다.
 
 현재 가장 안전한 해석은 아래와 같다.
 
 - `0x17C1C0` 은 공통 레지스트리 체계의 일부라기보다 예외적인 보조 디스크립터일 수 있다.
 - 혹은 상위 리소스의 하위 뷰/세부 분해표일 수 있다.
 - `0x076530` 허브도 단일 평면 구조가 아니라, 최소한 "generic selector 가 쓰는 첫 4엔트리" 와 "별도 direct helper 로 빠지는 `0x17C7E4` 축" 으로 분리해서 봐야 한다.
-- 또한 generic accessor 의 실제 direct 사용은 현재 `Registry A` 와 `Registry C` 로 편중되어 있고, `Registry B` / `selector=0` direct 사용은 아직 보이지 않는다.
+- 또한 generic accessor 의 실제 direct 사용은 현재 `Registry A` 와 `Registry C` 로 편중되어 있다.
+- `selector=0` direct generic 사용이 안 보이는 점은 `0x17785C` 전용 helper (`0x03BC`, `0x0414`) 로 설명 가능하다.
+- 그 결과 현재 상위 registry 중 concrete access route 가 비어 있는 축은 사실상 `Registry B (0x17C384)` 뿐이다.
 
 ## 추가 관찰
 
@@ -135,6 +144,6 @@
 
 ## 다음 유력 작업
 
-1. 왜 direct `0x0002CC` 호출이 `selector=1` / `3` 에만 몰리는지 확인
-2. `0x17C7E4` 가 왜 generic selector family 밖에 있는지 확인
-3. `0x17C1C0` 이 왜 이 공통 레지스트리 묶음 밖에 있는지 설명할 상위 데이터 찾기
+1. `Registry B (0x17C384)` 의 concrete access route 찾기
+2. `0x17C1C0` 이 왜 이 공통 레지스트리 묶음 밖에 있는지 설명할 상위 데이터 찾기
+3. `0x093D` / `0x094B` 고정 인덱스 binary resource 의미 분리

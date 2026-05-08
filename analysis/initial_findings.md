@@ -125,10 +125,13 @@
 - `selector=3` direct 호출 `11`개는 `entry_index 0/2/3/5` 를 읽으며, `0x06F4xx` / `0x0704xx` / `0x0709xx` 군집에 몰린다.
 - `0x000304` 는 현재 `0x00033C` wrapper 내부에서만 확인된다.
 - 이 상위 레지스트리 범위들은 공통적으로 `pointer-length` 레이아웃에 가깝고, `0x17C1C0` 테이블만 예외적으로 `length-pointer` 쪽이 맞는다.
-- 반면 `0x17C7E4` 는 허브 안에 있으면서도 이 generic helper family 바깥에 남아 있고, 별도 direct helper 계열로 다뤄지는 것으로 보인다.
+- `0x17C7E4` 는 허브 안에 있으면서도 이 generic helper family 바깥에 남아 있고, 별도 direct helper `0x03E8` 계열로 다뤄진다.
+- `0x03E8` BL 호출자는 `0x0106E6`, `0x010798`, `0x010892` 총 `3`개이며, helper 본체는 `0x17C7E4 + index * 8` 의 첫 `u32` 를 읽는 pointer accessor 로 보인다.
 - 따라서 `0x17C1C0` 은 공통 레지스트리의 메인 경로라기보다 예외적인 보조 디스크립터 또는 하위 분해표일 가능성이 있다.
 - `0x17785C` 레지스트리에는 실제 Thumb helper accessor (`0x03BC`, `0x0414`) 가 존재하며, 각각 포인터 필드와 길이 필드를 읽는 함수로 보인다.
 - `0x03BC` 는 BL 호출자 `77`개, `0x0414` 는 `4`개가 확인되었다.
+- 따라서 `selector=0` direct generic caller 부재는 `0x17785C` 전용 helper family 가 이미 널리 쓰인다는 점으로 설명 가능하다.
+- 현재 상위 registry 중 concrete access route 가 허브 참조 외에 거의 안 잡히는 축은 사실상 `Registry B (0x17C384)` 뿐이다.
 - `0x03BC` 단독 호출부 중 일부는 고정 index 로 특정 리소스 엔트리를 읽는다.
   - `0x093D -> 0x3D2A40` (`0x0320`, binary 4-byte record table)
   - `0x093E -> 0x3D2D60` (`0x06C0`, 재료 문자열 뱅크 + 앞단 7-byte record directory)
@@ -137,7 +140,7 @@
 
 ## 다음 우선순위
 
-1. 왜 direct `0x0002CC` caller 가 `selector=1` / `3` 에 편중되는지 확인한다.
+1. `Registry B (0x17C384)` 의 concrete access route 를 확인한다.
 2. `0x093D` / `0x094B` binary table 이 어떤 게임 데이터 분류인지 확인한다.
 3. 폰트 타일과 문자 폭 테이블을 찾아 한글 글리프 삽입 준비를 시작한다.
 4. 수정된 추출본을 기준으로 번역 대상 JSON을 정리한다.

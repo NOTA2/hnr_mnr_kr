@@ -28,13 +28,16 @@
 - `selector=3` direct 호출 `11`개는 `entry_index 0/2/3/5` 를 읽으며 `0x06F4xx`, `0x0704xx`, `0x0709xx` 군집으로 모인다.
 - `0x000304` 의 유일한 BL 호출자는 `0x000392` 이고, 이는 `0x00033C` wrapper 내부 길이 조회다.
 - `0x00033C` 의 알려진 BL 호출자 `6`개는 현재 모두 `selector=3` 을 넘긴다.
-- 반면 `0x17C7E4` 는 허브에 들어 있지만 이 generic helper family 밖에 남아 있고, 별도 direct helper (`0x03E8` 계열) 쪽과 연결되는 것으로 보인다.
+- `0x17C7E4` 는 허브에 들어 있지만 generic `0x000290` family 가 복사하는 첫 4엔트리 바깥에 남아 있고, 별도 direct helper `0x03E8` 계열로 접근된다.
+- `0x03E8` helper 는 literal base `0x17C7E4` 를 읽고 `base + index * 8` 위치의 첫 `u32` 를 반환하는 pointer accessor 로 보인다.
+- `0x03E8` BL 호출자는 `0x0106E6`, `0x010798`, `0x010892` 총 `3`개다.
+- 따라서 `selector=0` direct generic caller 부재는 `0x17785C` 의 전용 helper (`0x03BC`, `0x0414`) 때문일 가능성이 높고, 현재 상위 registry 중 concrete access route 가 비어 있는 축은 사실상 `Registry B (0x17C384)` 뿐이다.
 - 일부 메뉴/진행 메시지는 일반 `00` 종단 평문이 아니라 명령 스트림 내부 문자열이다.
 
 ## 다음 한 단계 후보
 
-1. 왜 direct `0x0002CC` 호출이 selector `1` / `3` 에만 몰리는지 확인하기
-2. 왜 `0x17C7E4` 가 generic `0x000290` family 밖에 있는지 확인하기
+1. `Registry B (0x17C384)` 의 concrete access route 찾기
+2. `0x093D` / `0x094B` binary resource 의미를 더 분리하기
 3. 대사/이벤트 평문 구간을 추가로 찾기
 
 매 실행에서는 위 셋 중 **하나만** 고른다.
