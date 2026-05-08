@@ -40,7 +40,8 @@
 
 ## 남은 질문
 
-- `word3` 이 `0x02B96C` / `0x0383F8` 경로에서 정확히 어떤 subresource / frame / template variant 를 고르는지 아직 남아 있다.
+- `word1 low nibble` 이 `0x03CA68` 에서 어떤 registry / descriptor family 를 고르는지 아직 남아 있다.
+- `word2` 가 `0x047A88` / `0x02B96C` 이후 어떤 좌표 / 타입 축으로 재해석되는지도 남아 있다.
 - 현재 direct literal scan 에서는 `0x06A52E` 만 writer 로 보이지만, static cluster 를 통한 간접 writer 가능성은 아직 완전히 배제하지 않는다.
 
 ## Row Parameter Semantics
@@ -73,4 +74,7 @@
 - `0x047DEE` / `0x047E26` 에서 `word3` 이 `0x02B96C` 의 `r2` 로 전달된다.
 - `0x02B96C` 는 세 번째 인자를 `& 7` 로 제한한다.
 - 제한된 값은 `0x0383F8` 의 두 번째 인자로 전달된다.
-- 따라서 현재 안전한 해석은 **3-bit object/subresource variant index** 다.
+- `0x0383F8` 은 `0x1824F0` 의 8-entry Thumb function pointer table (`0x0377E0..0x037AB8`) 을 index 한다.
+- 이 8개 accessor 는 공통 descriptor 의 halfword field `+0x04, +0x06, +0x08, +0x0A, +0x0C, +0x0E, +0x10, +0x12` 에서 각각 low 10-bit 값을 읽는다.
+- 따라서 현재 가장 강한 해석은 **descriptor field selector 역할을 하는 3-bit variant index** 다.
+- 현재 `0x184A0C` row 에서 실제 사용된 값은 `0` 과 `6` 뿐이며, row `2` 만 `6` 을 쓴다.

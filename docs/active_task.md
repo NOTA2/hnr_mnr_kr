@@ -6,7 +6,7 @@
 
 ## 현재 목표
 
-- `0x184A0C` effect/overlay row 의 `word3` 의미를 `0x02B96C` / `0x0383F8` 내부 동작으로 더 좁힌다.
+- `0x184A0C` effect/overlay row 의 `word1` / `word2` 의미를 `0x02B96C` / `0x03CA68` 경로로 더 좁힌다.
 
 ## 바로 필요한 사실
 
@@ -18,6 +18,9 @@
 - `word0` 은 `0x0561F8` 을 통해 `*(0x03005014) + 0x90` byte 에 저장되고, `0x184420` hotspot/location lookup 의 hotspot id 와 row별로 정확히 매칭된다.
 - 따라서 `word0` 은 **location 대표 hotspot/cell id** 로 보는 해석이 가장 강하다.
 - `word3` 은 `0x02B96C` 의 세 번째 인자로 전달되고, 내부에서 `& 7` 로 제한된 뒤 `0x0383F8` 에 전달된다.
+- `0x0383F8` 은 `0x1824F0` 의 8-entry Thumb function pointer table (`0x0377E0..0x037AB8`) 을 index 한다.
+- 위 8개 accessor 는 공통 descriptor 의 halfword field `+0x04, +0x06, +0x08, +0x0A, +0x0C, +0x0E, +0x10, +0x12` 에서 각각 low 10-bit 값을 읽는다.
+- 현재 `0x184A0C` row 에서 실제로 쓰인 `word3` 값은 대부분 `0`, row `2` 만 `6` 이다.
 
 ## 이번 작업에서 열 문서
 
@@ -39,8 +42,8 @@ python3 -m gba_kor_tool find-u32-refs "Hagane no Renkinjutsushi - Meisou no Rond
 
 ## 완료 조건
 
-- `0x0383F8` 내부 또는 그 주변 호출부에서 `word3 & 7` 이 어떤 subresource / frame / template variant 를 고르는지 최소 1개 이상 검증한다.
-- 검증되면 이 파일의 `현재 목표` 를 다음 작업으로 바꾼다.
+- `0x03CA68` 이 고르는 registry / descriptor family 와 `word1 low nibble` 의 관계를 최소 1개 이상 검증한다.
+- 가능하면 `word2` 가 `0x02B96C` 이후 어디에 저장되거나 어떤 좌표/타입 축으로 재해석되는지 1개 이상 좁힌다.
 - 관련 분석 문서와 [experiment_log.md](/Users/user/test/analysis/experiment_log.md) 에 짧게 기록한다.
 
 ## 참고 지도

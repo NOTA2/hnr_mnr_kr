@@ -15,7 +15,7 @@
 
 ## 현재 우선순위
 
-1. `0x184A0C` effect/overlay row 의 `word3` object/subresource variant 의미 확인
+1. `0x184A0C` effect/overlay row 의 `word1 low nibble` / `word2` 의미 확인
 2. `0x1849A0` handler table static cluster slot 소비 경로 찾기
 3. `field3` exact palette/subtype 의미 추가 분리
 4. `0x093D` / `0x093E` / `0x094B` 고정 리소스 관계 확인
@@ -27,7 +27,9 @@
 - 확인된 direct writer 는 `0x06A52E` 이며, hit-test loop index `0..9` 를 저장한다.
 - `0x06CEC0` 은 selected index 를 current-location byte `0x03006020` 으로 복사한다.
 - `0x184A0C` row `word0` 은 `0x184420` hotspot/location lookup 과 row별로 정확히 맞아 location 대표 hotspot/cell id 로 좁혀졌다.
-- `word3` 은 `0x02B96C` 내부에서 `& 7` 로 제한되어 `0x0383F8` 로 넘어가는 3-bit object/subresource variant 후보가 됐다.
+- `word3` 은 `0x02B96C` 내부에서 `& 7` 로 제한된 뒤 `0x0383F8 -> 0x1824F0` 8-entry accessor table 로 이어진다.
+- 이 accessor 들은 공통 descriptor 의 halfword field `+0x04 .. +0x12` 에서 low 10-bit 값을 읽으므로, `word3` 은 descriptor field selector 로 보는 해석이 가장 강하다.
+- 현재 effect/overlay row 에서 실제 사용된 `word3` 값은 `0` 과 `6` 뿐이다.
 - `find-u32-refs` CLI 로 `u32` literal hit 와 Thumb literal load 후보를 추적할 수 있게 했다.
 
 ## 안정화된 큰 구조

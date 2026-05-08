@@ -7,7 +7,7 @@
 ## 상태
 
 - 상태: `IN PROGRESS`
-- 현재 초점: `0x184A0C` effect/overlay row 세부 의미
+- 현재 초점: `0x184A0C` effect/overlay row 의 `word1` / `word2` 의미
 
 ## 텍스트 구조
 
@@ -42,14 +42,16 @@
 - `0x06CEC0` 은 selected index 를 current-location byte `0x03006020` 으로 복사한다.
 - `0x06CFB8` 은 selected index 로 `0x184A0C + index * 0x14` row 를 읽고 `0x047A88` 에 전달한다.
 - `0x184A0C` row `word0` 은 `0x184420` hotspot/location lookup 의 hotspot id 와 row별로 정확히 맞으므로, location 대표 hotspot/cell id 로 보는 해석이 강하다.
-- `word3` 은 `0x02B96C` 에 세 번째 인자로 전달되고 `& 7` 로 제한되므로, 3-bit object/subresource variant index 후보로 둔다.
+- `word3` 은 `0x02B96C` 에 세 번째 인자로 전달되고 `& 7` 로 제한된 뒤, `0x0383F8 -> 0x1824F0` 8-entry accessor table 로 이어진다.
+- 이 accessor 들은 공통 descriptor 의 halfword field `+0x04` 부터 `+0x12` 까지 low 10-bit 값을 읽으므로, `word3` 은 사실상 **descriptor field selector** 로 보는 해석이 가장 강하다.
+- 현재 effect/overlay row 에서는 `word3 = 0` 이 기본이고, row `2` 만 `word3 = 6` 을 사용한다.
 
 ## 다음 질문
 
-1. `0x184A0C` row 의 `word3` object/subresource variant 의미
-2. `0x1849A0` handler table 의 static cluster slot 소비 경로
-3. `field3` exact palette/subtype 의미
-4. `0x47EB0` / `0x561D4` helper 의미
+1. `0x184A0C` row 의 `word1 low nibble` 이 `0x03CA68` 에서 고르는 registry / descriptor family
+2. `0x184A0C` row 의 `word2` exact 의미
+3. `0x1849A0` handler table 의 static cluster slot 소비 경로
+4. `field3` exact palette/subtype 의미
 5. `0x093D` / `0x093E` / `0x094B` 고정 리소스 관계
 
 ## 자세한 근거

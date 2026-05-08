@@ -542,3 +542,20 @@
   - `word3` 은 `0x047DEE` / `0x047E26` 에서 `0x02B96C` 의 세 번째 인자로 전달되고, `0x02B96C` 내부에서 `& 7` 로 제한된 뒤 `0x0383F8` 에 전달된다.
 - 판정: `성공`
 - 교훈: effect table 의 첫 word 는 새 asset namespace 가 아니라 이미 확인된 hotspot/location namespace 와 재결합될 수 있다. `word3` 은 별도 3-bit object/subresource variant 축으로 이어서 보면 된다.
+
+### 실험 47
+
+- 가설: `0x184A0C` effect/overlay row 의 `word3` 은 막연한 effect subtype 이 아니라, `0x03CA68` 이 돌려준 공통 descriptor 안에서 **어느 field 를 읽을지 고르는 selector** 일 수 있다.
+- 시도:
+  - `0x0383F8` 를 Thumb 슬라이스로 다시 읽어, `word3 & 7` 이후 실제 분기 구조를 확인했다.
+  - `0x1824F0` 에 있는 8개 엔트리를 raw word 로 덤프해 데이터인지 코드 포인터인지 구분했다.
+  - `0x1824F0` 가 가리키는 `0x0377E0..0x037AB8` accessor 들을 연속 block 으로 읽어 공통 패턴을 비교했다.
+  - `0x184A0C` row 의 실제 `word3` 사용값도 다시 집계했다.
+- 결과:
+  - `0x0383F8` 은 두 번째 인자를 `& 7` 로 제한한 뒤 `0x1824F0` 의 8-entry table 을 index 한다.
+  - `0x1824F0` 엔트리 값은 `0x080377E1`, `0x08037849`, `0x080378B1`, `0x08037919`, `0x08037981`, `0x080379E9`, `0x08037A51`, `0x08037AB9` 로, 모두 Thumb 함수 포인터다.
+  - 이 8개 함수는 같은 descriptor 를 읽되, halfword field offset 만 `+0x04, +0x06, +0x08, +0x0A, +0x0C, +0x0E, +0x10, +0x12` 로 순차적으로 다르다.
+  - 각 accessor 는 해당 halfword 의 low 10-bit 값을 반환한다.
+  - 현재 `0x184A0C` row 에서 실제 쓰이는 `word3` 값은 `0` 과 `6` 뿐이며, row `2` 만 `6` 을 사용한다.
+- 판정: `성공`
+- 교훈: `word3` 은 frame 번호처럼 독립 의미를 가진 값보다, 공통 descriptor 안의 **필드 선택축** 으로 보는 편이 훨씬 안전하다. 다음은 이 descriptor 를 고르는 `word1 low nibble` 과 `word2` 의미를 좁히는 것이 가장 효율적이다.
