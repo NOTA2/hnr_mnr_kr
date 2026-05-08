@@ -14,6 +14,7 @@
 6. literal pool 근처를 볼 때는 값 주소만 보지 말고, 실제 `ldr` instruction 의 PC-relative target 을 계산한다.
 7. 시작 시 읽는 문서는 [session_start.md](/Users/user/test/docs/session_start.md) 와 [active_task.md](/Users/user/test/docs/active_task.md) 로 제한한다.
 8. detached binary slice 를 `.org 0` 으로 디스어셈블했을 때는 BL target 을 로컬 오프셋으로 먼저 보고, 필요하면 `actual = slice_start + local_target` 으로 다시 환산한다.
+9. helper-family 수준에서 확인한 인자 의미를 특정 caller 경로에 바로 투영하지 않는다. 실제 call site 직전 레지스터 값(`r0..r3`)을 다시 확인한다.
 
 ## 컨텍스트 예산 규칙
 
@@ -28,6 +29,7 @@
 - `0x06B8B0` 시작부의 `strb #0` 을 `0x03005FF8` 초기화로 기록하지 않는다. 해당 write 는 `0x03005FE8` 쪽이다.
 - `0x06A5B2` 의 `strb #2` 를 `0x03005FF8` write 로 기록하지 않는다. 해당 write 는 `0x03006018 = 2` state 전환이다.
 - 특정 global 의 writer/reader 를 분리할 때는 `find-u32-refs` 결과의 `access=write_byte/read_byte` 를 먼저 확인한 뒤 수동 disassembly 로 보강한다.
+- Thumb register-ALU (`0x4000` 계열) 는 `.hword` 로 넘기지 않는다. `cmp` 와 `cmn` 을 혼동하면 sentinel 해석이 뒤집힐 수 있다.
 
 ## 작업 전 최소 체크
 

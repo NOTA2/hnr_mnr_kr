@@ -96,6 +96,16 @@ python3 -m gba_kor_tool find-thumb-bl \
   --output analysis/thumb_bl_to_03bc.json
 ```
 
+특정 ROM 구간을 간단한 Thumb 디스어셈블리 형태로 덤프:
+
+```bash
+python3 -m gba_kor_tool dump-thumb \
+  "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
+  0x047CFC \
+  0x047DA0 \
+  --output analysis/world_map_slot_loop.txt
+```
+
 LZ77 압축 블록 스캔:
 
 ```bash

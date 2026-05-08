@@ -6,7 +6,7 @@
 
 ## 현재 목표
 
-- `0x184A0C` effect/overlay row 의 `word4` side-path 의미와 `word1 low nibble` 다중 용도 여부를 더 좁힌다.
+- `0x184A0C` effect/overlay row 의 `word4` side-path 를 tracked slot 관점에서 더 좁히고, 남은 특수 처리 (`+0x33E == 1` 비교) 의미를 분리 정리한다.
 
 ## 바로 필요한 사실
 
@@ -17,16 +17,20 @@
 - `0x03005FF8` direct writer 는 현재 `0x06A52E` 로 확인되며, hit-test loop index `0..9` 를 저장한다.
 - `word0` 은 `0x0561F8` 을 통해 `*(0x03005014) + 0x90` byte 에 저장되고, `0x184420` hotspot/location lookup 의 hotspot id 와 row별로 정확히 매칭된다.
 - 따라서 `word0` 은 **location 대표 hotspot/cell id** 로 보는 해석이 가장 강하다.
-- `word1 low nibble` 은 `0x03CA68` 에 전달되고, 내부 `0x182530` 16-entry table 로 dispatch 된다.
-- 위 table 의 entry `0..3` 은 `*(0x03001450) + 0x270/0x274` descriptor family 에서 halfword field `+0x02, +0x04, +0x06, +0x08` low 10-bit 를 읽는다.
-- entry `4..15` 는 모두 같은 fallback accessor 로 모이며, descriptor field `+0x00` low 8-bit 를 base 로 읽은 뒤 `+ (nibble - 4)` 로 보정된다.
-- 현재 `0x184A0C` row 에서 실제로 쓰인 `word1 low nibble` 값은 `0, 1, 4, 8, 14` 다.
 - `0x047A88` 안에서 `word1` / `word2` stack slot 은 각각 한 번만 읽히며, 둘은 sign-extended 16-bit pair 로 `0x0587BC` 에 함께 전달된다.
 - `0x0587BC` 는 두 축에 같은 scalar transform helper `0x075560` 을 적용한 뒤, active object/entry 의 `+0x08` / `+0x0C` 에 결과를 저장한다.
 - `0x075560` 은 내부적으로 signed int 를 IEEE-754 single float 비트패턴으로 포장한다.
 - 따라서 현재 가장 안전한 해석은 `word1` / `word2` 가 **직접적인 signed integer 좌표쌍** 이고, runtime object 에는 float 형태로 저장된다는 것이다.
+- `0x02B96C -> 0x03CA68` dispatch table 자체는 존재하지만, `0x047A88` effect row 경로의 실제 call site (`0x047DEE`, `0x047E26`) 에서는 두 번째 인자 `r1` 이 `0` 으로 고정된다.
+- 따라서 이전의 "`word1 low nibble` 이 이 dispatch 를 고른다"는 해석은 **effect row 경로에 대해서는 틀렸을 가능성이 높다**.
 - `word4` 는 `0x047A88` 에서 다섯 번째 인자로 `[r7 + 0x1C]` 에서 한 번 읽히고, `0` 여부만 검사해 optional branch 를 켜거나 끈다.
-- 따라서 현재 `word4` 는 연속 수치보다 **boolean / mode flag** 로 보는 해석이 가장 안전하다.
+- `word4 != 0` 이면 `0x03001450 + 0x33C/+0x33E` 의 두 halfword 를 읽고, `+8` 보정 후 실제 slot `8..23` 과 직접 비교한다.
+- 따라서 `+0x33C/+0x33E` 는 적어도 **raw tracked slot id 2개** 로 보는 해석이 강하다.
+- 같은 side-path 는 tracked slot 둘을 제외한 slot `8..23` 의 세 병렬 block (`+0x0574`, `+0x0AF4`, `+0x0BF4`) 을 `0x075D4C` 로 지운다.
+- `0x044320(slot, flag)` 는 `+0x0574 + (slot + 8) * 0x34` record 의 상위 플래그를 clear/set 하고, `0x0443B4(slot)` 는 같은 플래그가 살아 있는지 검사하는 helper 로 보는 해석이 강하다.
+- `0x03D6F0` 는 `+0x33E` 와 `+0x33C` 를 함께 읽어 `0x0443B4` / `0x044320` 를 호출하는 정합성 보조 루틴으로 보인다.
+- 여기서 첫 비교는 `cmp` 가 아니라 `cmn` 이므로, 실제 특수값은 `+0x33E == -1` sentinel 이다. 즉 두 번째 tracked slot 은 optional field 일 가능성이 높다.
+- 따라서 현재 `word4` 는 연속 수치보다 **overlay slot maintenance mode flag** 로 보는 해석이 가장 안전하다.
 - `word3` 은 `0x02B96C` 의 세 번째 인자로 전달되고, 내부에서 `& 7` 로 제한된 뒤 `0x0383F8` 에 전달된다.
 - `0x0383F8` 은 `0x1824F0` 의 8-entry Thumb function pointer table (`0x0377E0..0x037AB8`) 을 index 한다.
 - 위 8개 accessor 는 공통 descriptor 의 halfword field `+0x04, +0x06, +0x08, +0x0A, +0x0C, +0x0E, +0x10, +0x12` 에서 각각 low 10-bit 값을 읽는다.
@@ -44,6 +48,7 @@
 - `0x06A5B2` 의 `strb #2` 를 `0x03005FF8` write 로 보지 않는다. 이 write 는 `0x03006018 = 2` state 전환이다.
 - literal pool 값만 보고 code entry 로 취급하지 않는다. 실제 `ldr` instruction 의 PC-relative target 을 확인한다.
 - detached Thumb slice 를 `.org 0` 으로 디스어셈블했을 때는 BL target 을 그대로 ROM 주소로 읽지 않는다. 필요하면 `actual = slice_start + local_target` 으로 다시 맞춘다.
+- `cmp` / `cmn` 같은 register ALU opcode 는 즉시값 비교처럼 보일 수 있으니, `0x4000` 계열 Thumb ALU op 를 따로 확인한다.
 
 ## 유용한 명령
 
@@ -53,8 +58,8 @@ python3 -m gba_kor_tool find-u32-refs "Hagane no Renkinjutsushi - Meisou no Rond
 
 ## 완료 조건
 
-- `word4 != 0` 일 때만 실행되는 side-path 가 어떤 overlay / object 추가 동작인지 1개 이상 좁힌다.
-- 가능하면 `word1 low nibble` selector 가 실제로 같은 좌표 word 의 하위 비트를 재사용하는지, 아니면 call-arg 매핑 재검증이 필요한지 1개 이상 정리한다.
+- `+0x33C/+0x33E` tracked field 의 역할을 slot lifecycle 관점에서 1단계 이상 더 좁힌다.
+- `0x03D6F0` 의 남은 특수 처리 의미를 과장 없이 분리 기록한다.
 - 관련 분석 문서와 [experiment_log.md](/Users/user/test/analysis/experiment_log.md) 에 짧게 기록한다.
 
 ## 참고 지도

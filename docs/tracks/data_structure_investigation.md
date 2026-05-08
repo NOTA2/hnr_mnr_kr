@@ -7,7 +7,7 @@
 ## 상태
 
 - 상태: `IN PROGRESS`
-- 현재 초점: `0x184A0C` effect/overlay row 의 `word4` side-path 와 `word1 low nibble` 다중 용도 여부
+- 현재 초점: `0x184A0C` effect/overlay row 의 `word4` side-path exact 의미와 `word1 low nibble` 오해 정리
 
 ## 텍스트 구조
 
@@ -42,23 +42,27 @@
 - `0x06CEC0` 은 selected index 를 current-location byte `0x03006020` 으로 복사한다.
 - `0x06CFB8` 은 selected index 로 `0x184A0C + index * 0x14` row 를 읽고 `0x047A88` 에 전달한다.
 - `0x184A0C` row `word0` 은 `0x184420` hotspot/location lookup 의 hotspot id 와 row별로 정확히 맞으므로, location 대표 hotspot/cell id 로 보는 해석이 강하다.
-- `word1 low nibble` 은 `0x03CA68 -> 0x182530` 16-entry dispatch table 로 이어진다.
-- entry `0..3` 은 `*(0x03001450) + 0x270/0x274` descriptor family 의 halfword field `+0x02, +0x04, +0x06, +0x08` low 10-bit 를 읽는다.
-- entry `4..15` 는 공통 fallback 으로 모여 field `+0x00` low 8-bit base 에 `+ (nibble - 4)` 를 적용한다.
 - `word1` / `word2` 는 `0x047A88` 안에서 각각 한 번만 읽히고, sign-extended 16-bit pair 로 `0x0587BC` 에 함께 전달된다.
 - `0x0587BC` 는 두 축에 scalar transform helper `0x075560` 을 적용한 뒤, active object/entry 의 `+0x08` / `+0x0C` 에 결과를 저장한다.
 - `0x075560` 은 signed int 를 IEEE-754 single float bit pattern 으로 포장하는 helper 로 보인다.
 - 따라서 `word1` / `word2` 는 현재 **직접적인 signed integer 좌표쌍** 으로 보는 해석이 가장 강하다.
-- `word4` 는 `0x047A88` 안에서 한 번만 읽히며, `0` 여부에 따라 optional side-path 를 건너뛴다.
-- 따라서 `word4` 는 현재 **boolean / mode flag** 로 보는 해석이 가장 강하다.
+- `0x03CA68` dispatch table 분석은 helper-family 차원에서는 유효하지만, `0x047A88` effect row 경로의 실제 `0x02B96C` call site 는 두 번째 인자 `r1 = 0` 으로 고정된다.
+- 따라서 이전의 "`word1 low nibble` 이 effect row 경로에서 dispatch 를 고른다"는 해석은 현재 철회하는 편이 안전하다.
+- `word4` 는 `0x047A88` 안에서 한 번만 읽히며, `0` 여부에 따라 tracked slot 두 개를 제외한 slot `8..23` clearing side-path 를 켠다.
+- `0x03001450 + 0x33C/+0x33E` 는 이 side-path 안에서 `+8` 보정 후 실제 slot `8..23` 과 직접 비교되므로, 적어도 **raw tracked slot id 2개** 로 보는 해석이 강하다.
+- `0x044320(slot, flag)` 는 `+0x0574 + (slot + 8) * 0x34` record 플래그를 clear/set 하고, `0x0443B4(slot)` 는 같은 플래그를 검사하는 helper 로 보는 해석이 강하다.
+- `0x03D6F0` 는 `+0x33E` 와 `+0x33C` 를 함께 읽어 tracked slot 상태를 맞추는 보조 루틴처럼 보인다.
+- 이 루틴의 첫 비교는 `cmp` 가 아니라 `cmn` 이므로, 실제 특수값은 `+0x33E == -1` sentinel 로 읽는 편이 자연스럽다.
+- 따라서 `+0x33E` 는 optional second tracked slot field 후보로 더 좁혀졌다.
+- 따라서 `word4` 는 현재 **overlay slot maintenance mode flag** 로 보는 해석이 가장 강하다.
 - `word3` 은 `0x02B96C` 에 세 번째 인자로 전달되고 `& 7` 로 제한된 뒤, `0x0383F8 -> 0x1824F0` 8-entry accessor table 로 이어진다.
 - 이 accessor 들은 공통 descriptor 의 halfword field `+0x04` 부터 `+0x12` 까지 low 10-bit 값을 읽으므로, `word3` 은 사실상 **descriptor field selector** 로 보는 해석이 가장 강하다.
 - 현재 effect/overlay row 에서는 `word3 = 0` 이 기본이고, row `2` 만 `word3 = 6` 을 사용한다.
 
 ## 다음 질문
 
-1. `0x184A0C` row 의 `word4` side-path exact 의미
-2. `word1 low nibble` selector 와 `word1` 좌표 경로의 다중 용도 여부
+1. `0x184A0C` row 의 `word4` side-path 가 보존/삭제하는 slot 군의 역할과 `+0x33C/+0x33E` 두 tracked field 의 더 정확한 의미
+2. `0x03CA68` helper-family 분석을 effect row 경로와 분리해서 어떻게 기록할지 정리
 3. `0x1849A0` handler table 의 static cluster slot 소비 경로
 4. `field3` exact palette/subtype 의미
 5. `0x093D` / `0x093E` / `0x094B` 고정 리소스 관계

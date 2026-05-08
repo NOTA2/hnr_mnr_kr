@@ -40,8 +40,8 @@
 
 ## 남은 질문
 
-- `word4 != 0` 이 켜는 optional side-path 가 실제로 어떤 overlay / object 추가 동작인지 아직 남아 있다.
-- `word1 low nibble` selector 해석과 `word1` 전체 좌표 경로가 실제로 같은 word 를 다중 용도로 재사용하는지, 아니면 call-arg 매핑 재검증이 필요한지도 남아 있다.
+- `word4 != 0` 이 켜는 slot maintenance side-path 가 실제로 어떤 overlay / object 군을 보존/삭제하는지 아직 남아 있다.
+- `0x03CA68` dispatch table 분석은 helper-family 차원에서 유효하지만, effect row 경로의 실제 인자 매핑과는 분리해서 다시 정리할 필요가 있다.
 - 현재 direct literal scan 에서는 `0x06A52E` 만 writer 로 보이지만, static cluster 를 통한 간접 writer 가능성은 아직 완전히 배제하지 않는다.
 
 ## Row Parameter Semantics
@@ -79,7 +79,7 @@
 - 따라서 현재 가장 강한 해석은 **descriptor field selector 역할을 하는 3-bit variant index** 다.
 - 현재 `0x184A0C` row 에서 실제 사용된 값은 `0` 과 `6` 뿐이며, row `2` 만 `6` 을 쓴다.
 
-`word1` 의 low nibble 에 대해서도 아래까지는 확인됐다.
+`0x03CA68` helper-family 에 대해서는 아래까지 확인됐지만, 이것을 effect row `word1` 에 직접 연결하는 해석은 수정이 필요하다.
 
 - `0x02B96C` 는 두 번째 인자를 `& 0x0F` 로 제한한 뒤 `0x03CA68` 에 전달한다.
 - `0x03CA68` 은 `0x182530` 16-entry Thumb function pointer table 로 dispatch 한다.
@@ -87,8 +87,8 @@
 - 이 4개 accessor 는 `*(0x03001450) + 0x270/0x274` descriptor family 에서 halfword field `+0x02, +0x04, +0x06, +0x08` low 10-bit 를 읽는다.
 - table entry `4..15` 는 모두 `0x03CCB0` fallback accessor 로 이어진다.
 - fallback accessor 는 같은 descriptor 의 field `+0x00` low 8-bit 를 base 로 읽고, `0x03CA68` 복귀 후 `+ (nibble - 4)` 보정을 받는다.
-- 따라서 현재 가장 안전한 해석은 `word1 low nibble` 이 **descriptor family 내부 field / slot selector** 라는 것이다.
-- 현재 effect/overlay row 에서 실제 사용된 low nibble 은 `0, 1, 4, 8, 14` 다.
+- 다만 `0x047A88` effect row 경로의 실제 call site (`0x047DEE`, `0x047E26`) 에서는 `0x02B96C` 의 두 번째 인자 `r1` 이 `0` 으로 고정된다.
+- 따라서 이전의 "`word1 low nibble` 이 effect row 경로에서 이 dispatch 를 고른다"는 해석은 현재 철회하는 편이 안전하다.
 
 `word1` / `word2` pair 에 대해서도 아래까지는 확인됐다.
 
@@ -104,4 +104,11 @@
 
 - `0x047A88` 는 다섯 번째 인자를 `[r7 + 0x1C]` 에서 읽는다.
 - 이 값은 `0` 여부만 검사되며, `0` 이면 `0x020C` 쪽 공통 경로로 바로 건너뛴다.
-- 따라서 현재 가장 안전한 해석은 `word4` 가 **optional side-path 를 켜는 boolean / mode flag** 라는 것이다.
+- `word4 != 0` 이면 global `0x03001450 + 0x33C/+0x33E` 의 두 halfword 를 읽고, 각각 `+8` 보정 후 slot `8..23` 과 직접 비교한다.
+- 따라서 `+0x33C/+0x33E` 는 적어도 **raw tracked slot id 2개** 로 보는 해석이 강하다.
+- 이 side-path 는 slot `8..23` 의 세 병렬 block (`+0x0574`, `+0x0AF4`, `+0x0BF4`) 을 `0x075D4C` 로 지우되, tracked slot `+8` 두 개는 건너뛴다.
+- `0x044320(slot, flag)` 는 `+0x0574 + (slot + 8) * 0x34` record 의 상위 플래그를 clear/set 하고, `0x0443B4(slot)` 는 같은 플래그가 살아 있는지 검사하는 helper 로 보는 해석이 강하다.
+- `0x03D6F0` 는 `+0x33E` 와 `+0x33C` 를 함께 읽어 `0x0443B4` / `0x044320` 를 호출하는 정합성 보조 루틴으로 보인다.
+- `0x03D6F0` 첫 비교는 `cmp` 가 아니라 `cmn` 이므로, 실제 특수값은 `+0x33E == -1` sentinel 로 읽는 편이 자연스럽다.
+- 따라서 `+0x33E` 는 "두 번째 tracked slot 없음" 상태를 가질 수 있는 optional slot field 후보로 좁혀진다.
+- 따라서 현재 가장 안전한 해석은 `word4` 가 **overlay slot maintenance mode flag** 라는 것이다.

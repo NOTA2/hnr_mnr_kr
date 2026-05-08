@@ -402,6 +402,24 @@ def describe_thumb16(data: bytes, offset: int) -> str:
     return f"thumb16 0x{insn:04X}"
 
 
+THUMB_COND_NAMES = [
+    "eq",
+    "ne",
+    "cs",
+    "cc",
+    "mi",
+    "pl",
+    "vs",
+    "vc",
+    "hi",
+    "ls",
+    "ge",
+    "lt",
+    "gt",
+    "le",
+]
+
+
 def infer_literal_access(data: bytes, instruction_offset: int, register: int, *, max_instructions: int = 8) -> str:
     for index in range(1, max_instructions + 1):
         offset = instruction_offset + index * 2
@@ -485,6 +503,124 @@ def sign_extend(value: int, bits: int) -> int:
     return value
 
 
+def describe_thumb_disasm(data: bytes, offset: int) -> str:
+    if offset < 0 or offset + 2 > len(data):
+        return "out-of-range"
+
+    insn = struct.unpack_from("<H", data, offset)[0]
+    if (insn & 0xF800) == 0x4800:
+        register, literal_offset = decode_thumb_ldr_literal(data, offset) or (0, 0)
+        literal = ""
+        if 0 <= literal_offset <= len(data) - 4:
+            value = struct.unpack_from("<I", data, literal_offset)[0]
+            literal = f" ; =0x{value:08X} @{format_offset(literal_offset)}"
+        return f"ldr r{register}, [pc]{literal}"
+    if (insn & 0xF000) == 0xD000 and (insn & 0x0F00) != 0x0F00:
+        cond = (insn >> 8) & 0xF
+        target = (offset + 4 + sign_extend((insn & 0xFF) << 1, 9)) & 0xFFFFFFFF
+        return f"b{THUMB_COND_NAMES[cond]} {format_offset(target)}"
+    if (insn & 0xF800) == 0xE000:
+        target = (offset + 4 + sign_extend((insn & 0x07FF) << 1, 12)) & 0xFFFFFFFF
+        return f"b {format_offset(target)}"
+    if (insn & 0xFFC0) == 0x4240:
+        return f"negs r{insn & 7}, r{(insn >> 3) & 7}"
+    if (insn & 0xFFC0) == 0x4700:
+        return f"bx r{(insn >> 3) & 0xF}"
+    if (insn & 0xFF87) == 0x4680:
+        source = ((insn >> 3) & 0x7) | (((insn >> 7) & 0x1) << 3)
+        dest = (insn & 0x7) | (((insn >> 6) & 0x1) << 3)
+        return f"mov r{dest}, r{source}"
+    if (insn & 0xE000) == 0x0000:
+        opcode = (insn >> 11) & 0x3
+        names = ["lsls", "lsrs", "asrs"]
+        if opcode <= 2:
+            amount = (insn >> 6) & 0x1F
+            return f"{names[opcode]} r{insn & 7}, r{(insn >> 3) & 7}, #{amount}"
+    if (insn & 0xFC00) == 0x1800:
+        op = "adds" if ((insn >> 9) & 1) == 0 else "subs"
+        return f"{op} r{insn & 7}, r{(insn >> 3) & 7}, r{(insn >> 6) & 7}"
+    if (insn & 0xFC00) == 0x1C00:
+        op = "adds" if ((insn >> 9) & 1) == 0 else "subs"
+        imm = (insn >> 6) & 0x7
+        source = (insn >> 3) & 0x7
+        dest = insn & 0x7
+        if imm == 0 and op == "adds":
+            return f"movs r{dest}, r{source}"
+        return f"{op} r{dest}, r{source}, #{imm}"
+    if (insn & 0xFC00) == 0x4000:
+        op = (insn >> 6) & 0xF
+        names = {
+            0: "ands",
+            1: "eors",
+            2: "lsls",
+            3: "lsrs",
+            4: "asrs",
+            5: "adcs",
+            6: "sbcs",
+            7: "rors",
+            8: "tst",
+            9: "rsbs",
+            10: "cmp",
+            11: "cmn",
+            12: "orrs",
+            13: "muls",
+            14: "bics",
+            15: "mvns",
+        }
+        return f"{names[op]} r{insn & 7}, r{(insn >> 3) & 7}"
+    if (insn & 0xF800) == 0x3000:
+        return f"adds r{(insn >> 8) & 7}, #{insn & 0xFF}"
+    if (insn & 0xF800) == 0x3800:
+        return f"subs r{(insn >> 8) & 7}, #{insn & 0xFF}"
+    if (insn & 0xFE00) == 0x5E00:
+        return f"ldrsh r{insn & 7}, [r{(insn >> 3) & 7}, r{(insn >> 6) & 7}]"
+    if (insn & 0xFE00) == 0x5600:
+        return f"ldrsb r{insn & 7}, [r{(insn >> 3) & 7}, r{(insn >> 6) & 7}]"
+    if (insn & 0xFE00) == 0x5A00:
+        return f"ldrh r{insn & 7}, [r{(insn >> 3) & 7}, r{(insn >> 6) & 7}]"
+    if (insn & 0xFE00) == 0x5200:
+        return f"strh r{insn & 7}, [r{(insn >> 3) & 7}, r{(insn >> 6) & 7}]"
+    if (insn & 0xFE00) == 0x5000:
+        op = (insn >> 9) & 0x7
+        names = {
+            0: "str",
+            1: "strh",
+            2: "strb",
+            3: "ldrsb",
+            4: "ldr",
+            5: "ldrh",
+            6: "ldrb",
+            7: "ldrsh",
+        }
+        return f"{names[op]} r{insn & 7}, [r{(insn >> 3) & 7}, r{(insn >> 6) & 7}]"
+    if (insn & 0xF800) == 0x7800:
+        return f"ldrb r{insn & 7}, [r{(insn >> 3) & 7}, #{(insn >> 6) & 0x1F}]"
+    if (insn & 0xF800) == 0x7000:
+        return f"strb r{insn & 7}, [r{(insn >> 3) & 7}, #{(insn >> 6) & 0x1F}]"
+    if (insn & 0xF800) == 0x6800:
+        return f"ldr r{insn & 7}, [r{(insn >> 3) & 7}, #{((insn >> 6) & 0x1F) * 4}]"
+    if (insn & 0xF800) == 0x6000:
+        return f"str r{insn & 7}, [r{(insn >> 3) & 7}, #{((insn >> 6) & 0x1F) * 4}]"
+    if (insn & 0xF800) == 0x8800:
+        return f"ldrh r{insn & 7}, [r{(insn >> 3) & 7}, #{((insn >> 6) & 0x1F) * 2}]"
+    if (insn & 0xF800) == 0x8000:
+        return f"strh r{insn & 7}, [r{(insn >> 3) & 7}, #{((insn >> 6) & 0x1F) * 2}]"
+    if (insn & 0xFE00) == 0xB400:
+        return f"push 0x{insn & 0x1FF:03X}"
+    if (insn & 0xFE00) == 0xBC00:
+        return f"pop 0x{insn & 0x1FF:03X}"
+    if (insn & 0xFF80) == 0xB000:
+        amount = (insn & 0x7F) * 4
+        if insn & 0x80:
+            return f"add sp, #{amount}"
+        return f"sub sp, #{amount}"
+    if (insn & 0xF800) == 0x2800:
+        return f"cmp r{(insn >> 8) & 7}, #{insn & 0xFF}"
+    if (insn & 0xF800) == 0x2000:
+        return f"movs r{(insn >> 8) & 7}, #{insn & 0xFF}"
+    return f".hword 0x{insn:04X}"
+
+
 def decode_thumb_bl_target(data: bytes, offset: int) -> Optional[int]:
     if offset < 0 or offset + 4 > len(data):
         return None
@@ -532,6 +668,28 @@ def find_thumb_bl_callers(
         if limit is not None and len(hits) >= limit:
             return hits
     return hits
+
+
+def dump_thumb_slice(data: bytes, *, start: int, end: int) -> List[str]:
+    if start < 0 or end > len(data) or start >= end:
+        raise ToolError("잘못된 Thumb 슬라이스 범위입니다.")
+    if start % 2 or end % 2:
+        raise ToolError("Thumb 슬라이스 범위는 2바이트 정렬이어야 합니다.")
+
+    lines: List[str] = []
+    offset = start
+    while offset < end:
+        target = decode_thumb_bl_target(data, offset)
+        if target is not None:
+            first = struct.unpack_from("<H", data, offset)[0]
+            second = struct.unpack_from("<H", data, offset + 2)[0]
+            lines.append(f"{format_offset(offset)}: {first:04X} {second:04X}  bl {format_offset(target)}")
+            offset += 4
+            continue
+        insn = struct.unpack_from("<H", data, offset)[0]
+        lines.append(f"{format_offset(offset)}: {insn:04X}  {describe_thumb_disasm(data, offset)}")
+        offset += 2
+    return lines
 
 
 def decompress_lz77(data: bytes, offset: int, *, max_output_size: int) -> Tuple[bytes, int]:
@@ -1073,6 +1231,22 @@ def cmd_find_thumb_bl(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_dump_thumb(args: argparse.Namespace) -> int:
+    rom_path = Path(args.rom)
+    data = load_rom(rom_path)
+    start = parse_offset(args.start)
+    end = parse_offset(args.end)
+    lines = dump_thumb_slice(data, start=start, end=end)
+    text = "\n".join(lines)
+    if args.output:
+        Path(args.output).write_text(text + "\n", encoding="utf-8")
+    print(text)
+    print(f"lines: {len(lines)}")
+    if args.output:
+        print(f"wrote: {args.output}")
+    return 0
+
+
 def cmd_dump_4bpp(args: argparse.Namespace) -> int:
     rom_path = Path(args.rom)
     data = load_rom(rom_path)
@@ -1421,6 +1595,13 @@ def build_parser() -> argparse.ArgumentParser:
     find_thumb_bl.add_argument("--limit", type=int)
     find_thumb_bl.add_argument("--output")
     find_thumb_bl.set_defaults(func=cmd_find_thumb_bl)
+
+    dump_thumb = sub.add_parser("dump-thumb", help="지정한 ROM 구간을 간단한 Thumb 디스어셈블리 형태로 출력합니다.")
+    dump_thumb.add_argument("rom")
+    dump_thumb.add_argument("start")
+    dump_thumb.add_argument("end")
+    dump_thumb.add_argument("--output")
+    dump_thumb.set_defaults(func=cmd_dump_thumb)
 
     scan_lz77 = sub.add_parser("scan-lz77", help="GBA BIOS LZ77 블록을 스캔합니다.")
     scan_lz77.add_argument("rom")

@@ -25,6 +25,7 @@
 - 범위 추출
 - 포인터 탐색
 - `find-u32-refs` 기반 Thumb literal reference 추적
+- `dump-thumb` 기반 경량 Thumb slice 확인
 - 일괄 번역 적용 기본 기능
 - `session_start.md` + `active_task.md` 기반 경량 세션 시작 구조
 
@@ -43,3 +44,8 @@
 - `session_start.md`, `current_constraints.md`, `reference_map.md` 기반의 1차 경량 문서 라우팅 구조 추가
 - `session_start.md` + `active_task.md` 만 기본으로 읽는 2차 저토큰 시작 구조로 개편
 - `find-u32-refs` CLI 추가
+
+### 2026-05-09
+
+- `dump-thumb` CLI 추가
+- world-map / overlay 분석에 자주 쓰는 `bl`, `b{cond}`, `ldr literal`, `ldrsh`, register-ALU 패턴을 재사용 가능한 형태로 정리

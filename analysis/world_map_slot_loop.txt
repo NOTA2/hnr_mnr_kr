@@ -1,0 +1,65 @@
+0x047CFC: 4823  ldr r0, [pc] ; =0x03005014 @0x047D8C
+0x047CFE: 6801  ldr r1, [r0, #0]
+0x047D00: 1C08  movs r0, r1
+0x047D02: 22CF  movs r2, #207
+0x047D04: 0092  lsls r2, r2, #2
+0x047D06: 1889  adds r1, r1, r2
+0x047D08: 2300  movs r3, #0
+0x047D0A: 5EC8  ldrsh r0, [r1, r3]
+0x047D0C: 1C01  movs r1, r0
+0x047D0E: 3108  adds r1, #8
+0x047D10: 6938  ldr r0, [r7, #16]
+0x047D12: 4288  cmp r0, r1
+0x047D14: D036  beq 0x047D84
+0x047D16: 481D  ldr r0, [pc] ; =0x03005014 @0x047D8C
+0x047D18: 6801  ldr r1, [r0, #0]
+0x047D1A: 1C08  movs r0, r1
+0x047D1C: 481C  ldr r0, [pc] ; =0x0000033E @0x047D90
+0x047D1E: 1809  adds r1, r1, r0
+0x047D20: 2200  movs r2, #0
+0x047D22: 5E88  ldrsh r0, [r1, r2]
+0x047D24: 1C01  movs r1, r0
+0x047D26: 3108  adds r1, #8
+0x047D28: 6938  ldr r0, [r7, #16]
+0x047D2A: 4288  cmp r0, r1
+0x047D2C: D02A  beq 0x047D84
+0x047D2E: 4817  ldr r0, [pc] ; =0x03005014 @0x047D8C
+0x047D30: 6939  ldr r1, [r7, #16]
+0x047D32: 2234  movs r2, #52
+0x047D34: 4351  muls r1, r2
+0x047D36: 4B17  ldr r3, [pc] ; =0x00000574 @0x047D94
+0x047D38: 18CA  adds r2, r1, r3
+0x047D3A: 6800  ldr r0, [r0, #0]
+0x047D3C: 1811  adds r1, r2, r0
+0x047D3E: 1C08  movs r0, r1
+0x047D40: 2100  movs r1, #0
+0x047D42: 2234  movs r2, #52
+0x047D44: F02E F802  bl 0x075D4C
+0x047D48: 4810  ldr r0, [pc] ; =0x03005014 @0x047D8C
+0x047D4A: 6939  ldr r1, [r7, #16]
+0x047D4C: 1C0B  movs r3, r1
+0x047D4E: 009A  lsls r2, r3, #2
+0x047D50: 1852  adds r2, r2, r1
+0x047D52: 0091  lsls r1, r2, #2
+0x047D54: 4B10  ldr r3, [pc] ; =0x00000AF4 @0x047D98
+0x047D56: 18CA  adds r2, r1, r3
+0x047D58: 6800  ldr r0, [r0, #0]
+0x047D5A: 1811  adds r1, r2, r0
+0x047D5C: 1C08  movs r0, r1
+0x047D5E: 2100  movs r1, #0
+0x047D60: 2214  movs r2, #20
+0x047D62: F02D FFF3  bl 0x075D4C
+0x047D66: 4809  ldr r0, [pc] ; =0x03005014 @0x047D8C
+0x047D68: 6939  ldr r1, [r7, #16]
+0x047D6A: 1C0B  movs r3, r1
+0x047D6C: 00DA  lsls r2, r3, #3
+0x047D6E: 1A52  subs r2, r2, r1
+0x047D70: 0091  lsls r1, r2, #2
+0x047D72: 4B0A  ldr r3, [pc] ; =0x00000BF4 @0x047D9C
+0x047D74: 18CA  adds r2, r1, r3
+0x047D76: 6800  ldr r0, [r0, #0]
+0x047D78: 1811  adds r1, r2, r0
+0x047D7A: 1C08  movs r0, r1
+0x047D7C: 2100  movs r1, #0
+0x047D7E: 221C  movs r2, #28
+0x047D80: F02D FFE4  bl 0x075D4C

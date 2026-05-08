@@ -611,3 +611,52 @@
   - 이 기준이면 `word1 = 0x190`, `word2 = 0x1AB` 같은 값은 각각 `400.0f`, `427.0f` 좌표로 저장되는 흐름과 잘 맞는다.
 - 판정: `성공`
 - 교훈: detached slice 분석에서는 내부 BL target 재환산이 매우 중요하다. 좌표계 해석을 할 때는 “어떤 수치 형식으로 저장되는가”와 “원본 데이터가 packed metadata 를 함께 담는가”를 분리해서 봐야 한다.
+
+### 실험 51
+
+- 가설: `0x03CA68` dispatch table 분석을 effect row `word1 low nibble` 에 직접 연결한 것은 caller 경로를 충분히 확인하지 않은 오해일 수 있다. 대신 `word4 != 0` side-path 가 실제 overlay slot maintenance 를 수행할 가능성이 높다.
+- 시도:
+  - `0x047A88` slice 의 실제 `0x02B96C` call site (`0x047DEE`, `0x047E26`) 직전 레지스터 세팅을 다시 읽었다.
+  - nonzero side-path 내부 BL target 을 실제 ROM 주소로 환산해 `0x044320`, `0x03CFC0`, `0x03D090`, `0x075D4C` 를 직접 읽었다.
+  - side-path literal pool 에서 global 오프셋 `0x033C`, `0x033E`, `0x0574`, `0x0AF4`, `0x0BF4` 도 다시 추출했다.
+- 결과:
+  - `0x047DEE`, `0x047E26` 에서 `0x02B96C` 직전 `r2` 는 `word3`, `r1` 은 `0` 으로 세팅된다.
+  - 따라서 이전의 "`word1 low nibble` 이 effect row 경로에서 `0x03CA68` dispatch 를 고른다"는 해석은 현재 철회하는 편이 안전하다.
+  - `word4 != 0` side-path 는 global `0x03001450 + 0x33C/+0x33E` 의 두 tracked slot 을 읽고, slot `8..23` 범위의 세 병렬 block (`+0x0574`, `+0x0AF4`, `+0x0BF4`) 을 순회한다.
+  - helper `0x075D4C` 는 사실상 memset 계열이므로, 이 side-path 는 tracked slot 두 개를 제외한 block 들을 0으로 지우는 흐름으로 읽힌다.
+  - `0x044320` 은 `+0x0574` block 의 플래그 비트를 clear/set 하는 helper 로 보인다.
+  - 따라서 `word4` 는 현재 **overlay slot maintenance mode flag** 로 보는 해석이 가장 강하다.
+- 판정: `성공`
+- 교훈: helper-family 차원의 구조 해석과 특정 caller 경로의 실제 인자 전달은 반드시 분리해서 적어야 한다. caller 직전 레지스터를 보지 않으면 같은 실수를 반복하게 된다.
+
+### 실험 52
+
+- 가설: `word4 != 0` side-path 가 읽는 `0x03001450 + 0x33C/+0x33E` 는 막연한 상태값이 아니라, 실제 slot `8..23` clearing 루프와 짝을 이루는 tracked raw slot id 필드일 수 있다.
+- 시도:
+  - `0x047CFC..0x047D84` 루프를 다시 읽어 `+0x33C/+0x33E` 값이 어떤 비교식에 들어가는지 확인했다.
+  - `0x044320`, `0x0443B4`, `0x03D6F0` 를 이어서 읽어 same slot record 에 대한 flag set/check/sync 흐름인지 비교했다.
+  - helper caller 목록도 다시 확인해 이 조합이 `0x047A88` 전용인지, 다른 overlay builder 들과 공유되는지 점검했다.
+- 결과:
+  - `0x047CFC..0x047D2C` 에서는 `+0x33C` 와 `+0x33E` halfword 를 읽은 뒤 각각 `+8` 보정해서 현재 loop slot `8..23` 과 직접 비교한다.
+  - 따라서 `+0x33C/+0x33E` 는 적어도 **raw tracked slot id 2개** 로 보는 해석이 가장 강하다.
+  - `0x044320(slot, flag)` 는 `+0x0574 + (slot + 8) * 0x34` record 의 상위 플래그를 clear/set 하고, `0x0443B4(slot)` 는 같은 플래그가 살아 있는지 검사하는 helper 로 보인다.
+  - `0x03D6F0` 는 `+0x33E` 와 `+0x33C` 를 함께 읽어 `0x0443B4` / `0x044320` 를 호출하는 정합성 보조 루틴처럼 보인다.
+  - 다만 `0x03D6F0` 안의 `+0x33E == 1` 비교는 아직 sentinel 인지 real slot special-case 인지 확정하지 않았다.
+  - `0x03D768` caller 목록은 `0x047DCC`, `0x048EE8`, `0x04F688`, `0x04FCA8`, `0x04FF2C`, `0x050BA4` 로, 이 slot maintenance 흐름이 world-map 한 군데가 아니라 여러 overlay builder family 에서 재사용되는 helper 군일 가능성을 높인다.
+- 판정: `성공`
+- 교훈: slot clearing 루프는 단순 memset 범위를 보는 것만으로는 부족하다. loop index 와 tracked field 를 같은 좌표계로 환산하는 비교식 (`raw slot + 8`) 까지 확인해야 “상태값”과 “slot id” 를 구분할 수 있다.
+
+### 실험 53
+
+- 가설: `0x03D6F0` 첫 분기에서 보였던 `+0x33E == 1` 비교는 register ALU opcode 를 잘못 읽은 착시일 수 있다. 올바르게 읽으면 second tracked slot 의 sentinel 의미가 드러날 가능성이 있다.
+- 시도:
+  - ad-hoc Thumb slice 출력을 CLI `dump-thumb` 로 정리해 `0x047CFC..0x047D84`, `0x03D6F0..0x03D75A` 를 다시 읽었다.
+  - `0x42C8`, `0x4288`, `0x5EC8`, `0x5E88` 같은 자주 나오는 ALU / `ldrsh` 패턴을 명시적으로 decode 해서 비교식을 다시 확인했다.
+- 결과:
+  - `0x047CFC..0x047D2C` 에서는 `+0x33C` / `+0x33E` halfword 를 읽어 `+8` 보정 뒤 slot `8..23` 와 비교하는 흐름이 더 명확해졌다.
+  - `0x03D704` 의 `0x42C8` 은 `cmp r0, r1` 이 아니라 `cmn r0, r1` 이다.
+  - 따라서 `0x03D6F0` 첫 분기는 `+0x33E == 1` special-case 가 아니라, sign-extended halfword 기준 **`+0x33E == -1` sentinel** 검사로 읽는 편이 자연스럽다.
+  - 이 해석이면 `+0x33E` 는 "두 번째 tracked slot 없음" 상태를 가질 수 있는 optional slot field 후보로 좁혀진다.
+  - `dump-thumb` CLI 가 추가되어, 같은 종류의 world-map / overlay / font 인접 Thumb slice 확인을 반복 스크립트 없이 재사용할 수 있게 되었다.
+- 판정: `성공`
+- 교훈: Thumb ALU register opcode (`0x4000` 계열) 를 `.hword` 로 흘리면 sentinel 해석이 완전히 뒤집힐 수 있다. `cmp` 와 `cmn` 구분은 특히 tracked state / sentinel 분석에서 반드시 직접 확인해야 한다.
