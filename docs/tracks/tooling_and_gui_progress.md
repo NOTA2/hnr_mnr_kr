@@ -24,8 +24,9 @@
 - 문자열 스캔
 - 범위 추출
 - 포인터 탐색
+- `find-u32-refs` 기반 Thumb literal reference 추적
 - 일괄 번역 적용 기본 기능
-- 경량 세션 시작 문서 구조
+- `session_start.md` + `active_task.md` 기반 경량 세션 시작 구조
 
 ## 다음 할 일
 
@@ -39,4 +40,6 @@
 ### 2026-05-08
 
 - 초기 CLI 작업대 구축
-- `session_start.md`, `current_constraints.md`, `reference_map.md` 기반의 경량 문서 라우팅 구조 추가
+- `session_start.md`, `current_constraints.md`, `reference_map.md` 기반의 1차 경량 문서 라우팅 구조 추가
+- `session_start.md` + `active_task.md` 만 기본으로 읽는 2차 저토큰 시작 구조로 개편
+- `find-u32-refs` CLI 추가

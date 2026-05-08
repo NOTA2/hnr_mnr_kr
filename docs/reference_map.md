@@ -1,49 +1,48 @@
 # Reference Map
 
-이 문서는 **필요할 때만 여는 참고 문서 안내서**다.
+이 문서는 필요할 때만 여는 참고 문서 안내서다.
 
-## 리소스 레지스트리 / 디스크립터 구조
+## Hot Path
 
-- 상위 레지스트리 흐름: [resource_registry_map.md](/Users/user/test/analysis/resource_registry_map.md)
-- 상위 레지스트리 요약 JSON: [resource_registry_summary.json](/Users/user/test/analysis/resource_registry_summary.json)
+- 세션 시작: [session_start.md](/Users/user/test/docs/session_start.md)
+- 현재 작업 카드: [active_task.md](/Users/user/test/docs/active_task.md)
+
+## Active Summaries
+
+- 장기 대시보드: [project_control_tower.md](/Users/user/test/docs/project_control_tower.md)
+- 데이터 구조 트랙: [data_structure_investigation.md](/Users/user/test/docs/tracks/data_structure_investigation.md)
+- 텍스트 추출 트랙: [text_extraction_progress.md](/Users/user/test/docs/tracks/text_extraction_progress.md)
+- 금지 가정: [current_constraints.md](/Users/user/test/analysis/current_constraints.md)
+- 실수 방지 규칙: [repeat_mistake_prevention.md](/Users/user/test/docs/repeat_mistake_prevention.md)
+
+## Location / World-Map
+
+- bundle 요약: [location_bundle_family.md](/Users/user/test/analysis/location_bundle_family.md)
+- bundle JSON: [location_bundle_tables.json](/Users/user/test/analysis/location_bundle_tables.json)
+- record 요약: [location_record_table.md](/Users/user/test/analysis/location_record_table.md)
+- record JSON: [location_record_table.json](/Users/user/test/analysis/location_record_table.json)
+- effect index 흐름: [effect_overlay_index_flow.md](/Users/user/test/analysis/effect_overlay_index_flow.md)
+- effect index refs JSON: [effect_overlay_index_refs.json](/Users/user/test/analysis/effect_overlay_index_refs.json)
+
+## Resource Registry
+
+- 상위 registry 구조: [resource_registry_map.md](/Users/user/test/analysis/resource_registry_map.md)
+- registry accessor 해석: [registry_accessor_helpers.md](/Users/user/test/analysis/registry_accessor_helpers.md)
 - `0x17C1C0` 예외 테이블: [resource_chunk_directory.md](/Users/user/test/analysis/resource_chunk_directory.md)
-- `0x17C1C0` 덤프 JSON: [resource_chunks.json](/Users/user/test/analysis/resource_chunks.json)
-- accessor helper 해석: [registry_accessor_helpers.md](/Users/user/test/analysis/registry_accessor_helpers.md)
-- BL 호출자 목록: [thumb_bl_to_03bc.json](/Users/user/test/analysis/thumb_bl_to_03bc.json), [thumb_bl_to_0414.json](/Users/user/test/analysis/thumb_bl_to_0414.json), [thumb_bl_to_03e4.json](/Users/user/test/analysis/thumb_bl_to_03e4.json)
+- Registry B companion: [registry_b_companion_descriptors.md](/Users/user/test/analysis/registry_b_companion_descriptors.md)
 
-## Location / World-Map Bundle
-
-- location record 요약: [location_record_table.md](/Users/user/test/analysis/location_record_table.md)
-- location record JSON: [location_record_table.json](/Users/user/test/analysis/location_record_table.json)
-- location bundle family 요약: [location_bundle_family.md](/Users/user/test/analysis/location_bundle_family.md)
-- location bundle JSON: [location_bundle_tables.json](/Users/user/test/analysis/location_bundle_tables.json)
-- effect/overlay index 흐름: [effect_overlay_index_flow.md](/Users/user/test/analysis/effect_overlay_index_flow.md)
-- effect/overlay index literal refs: [effect_overlay_index_refs.json](/Users/user/test/analysis/effect_overlay_index_refs.json)
-
-## 텍스트 뱅크 개요
+## Text Banks
 
 - 전체 요약: [initial_findings.md](/Users/user/test/analysis/initial_findings.md)
 - 텍스트 뱅크 목록: [text_bank_inventory.md](/Users/user/test/analysis/text_bank_inventory.md)
+- 추출 진행: [text_extraction_progress.md](/Users/user/test/docs/tracks/text_extraction_progress.md)
 
-## 추출 데이터셋
+## Large Data
 
-- 시스템: [system_messages.json](/Users/user/test/analysis/system_messages.json)
-- 아이템/이벤트: [item_texts.json](/Users/user/test/analysis/item_texts.json)
-- 지역명: [location_texts.json](/Users/user/test/analysis/location_texts.json)
-- 전투 기술: [battle_texts.json](/Users/user/test/analysis/battle_texts.json)
-- 능력/기술: [ability_texts.json](/Users/user/test/analysis/ability_texts.json)
-- 재료/속성: [material_texts.json](/Users/user/test/analysis/material_texts.json)
-- UI 기술: [ui_skill_texts.json](/Users/user/test/analysis/ui_skill_texts.json)
-- 세이브/진행 메뉴: [save_menu_texts.json](/Users/user/test/analysis/save_menu_texts.json)
-- 크레딧/타이틀: [credits_texts.json](/Users/user/test/analysis/credits_texts.json)
+- 대형 JSON은 기본으로 열지 않는다.
+- 필요한 경우 `python3 -m gba_kor_tool` 명령이나 짧은 스크립트로 필요한 키/범위만 조회한다.
 
-## 장기 기록
+## Long-Term Log
 
-- 전체 실험 아카이브: [experiment_log.md](/Users/user/test/analysis/experiment_log.md)
+- 전체 실험 로그: [experiment_log.md](/Users/user/test/analysis/experiment_log.md)
 - 초보자용 전체 흐름: [korean_localization_workflow.md](/Users/user/test/docs/korean_localization_workflow.md)
-
-## 읽기 원칙
-
-- 현재 작업과 직접 관련된 항목만 연다.
-- 구조 확인이 목적이면 JSON 전체보다 요약 문서를 먼저 본다.
-- 과거 실패 원인을 재검증할 때만 전체 실험 로그를 연다.

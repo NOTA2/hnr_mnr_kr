@@ -12,6 +12,15 @@
 4. 한 단계에서 하나의 의미 있는 진전만 만든다.
 5. 구조 해석이 바뀌면 관련 문서와 로그를 같이 갱신한다.
 6. literal pool 근처를 볼 때는 값 주소만 보지 말고, 실제 `ldr` instruction 의 PC-relative target 을 계산한다.
+7. 시작 시 읽는 문서는 [session_start.md](/Users/user/test/docs/session_start.md) 와 [active_task.md](/Users/user/test/docs/active_task.md) 로 제한한다.
+
+## 컨텍스트 예산 규칙
+
+- `Hot Path`: 매 세션 읽어도 되는 작은 문서. 현재는 `session_start.md`, `active_task.md` 뿐이다.
+- `Active Summary`: 필요 시 여는 요약 문서. 트랙 문서, control tower, current constraints 가 여기에 속한다.
+- `Cold Evidence`: 전체 실험 로그, 대형 JSON, 상세 분석 문서. 작업이 직접 요구할 때만 일부를 조회한다.
+- 큰 JSON은 통째로 읽지 말고 명령으로 필요한 범위만 추출한다.
+- 같은 정보를 여러 hot path 문서에 중복해 쓰지 않는다. hot path 에는 링크와 현재 next step 만 둔다.
 
 ## 최근 추가된 주의점
 
@@ -22,9 +31,7 @@
 ## 작업 전 최소 체크
 
 1. [session_start.md](/Users/user/test/docs/session_start.md)
-2. [agent_handoff.md](/Users/user/test/docs/agent_handoff.md)
-3. [current_constraints.md](/Users/user/test/analysis/current_constraints.md)
-4. 현재 활성 트랙 문서만
+2. [active_task.md](/Users/user/test/docs/active_task.md)
 
 기본적으로는 **전체 실험 로그나 모든 분석 문서를 처음부터 다 읽지 않는다.**
 
@@ -35,6 +42,8 @@
 3. [current_constraints.md](/Users/user/test/analysis/current_constraints.md)
 4. [experiment_log.md](/Users/user/test/analysis/experiment_log.md)
 5. 필요 시 [initial_findings.md](/Users/user/test/analysis/initial_findings.md)
+
+단, 토큰 절약을 위해 매 실행마다 위 전체를 기계적으로 열지 않는다. 우선 [active_task.md](/Users/user/test/docs/active_task.md) 를 갱신하고, 구조/우선순위가 바뀐 문서만 추가로 갱신한다.
 
 ## 언제 전체 로그를 읽는가
 

@@ -509,3 +509,18 @@
   - 기존에 헷갈리기 쉬웠던 `0x06B8B0` 시작부 `strb #0` 은 `0x03005FF8` 이 아니라 `0x03005FE8` write 였고, `0x06A5B2` 의 `strb #2` 도 `0x03006018` state write 였다.
 - 판정: `성공`
 - 교훈: `0x03005FF8` 은 현재 **선택/hover location index byte** 로 보는 편이 가장 강하다. effect table 의 row 수 `10`은 location 수 `10`과 정렬되며, 앞으로는 이 값 자체보다 `0x184A0C` row 내부 파라미터 의미를 좁히는 것이 더 유리하다.
+
+### 실험 45
+
+- 가설: 세션 시작 시 읽는 문서를 `session_start.md -> agent_handoff.md -> current_constraints.md -> 활성 트랙 문서` 로 유지하면, 실제 작업 전부터 불필요한 컨텍스트를 과하게 소비한다.
+- 시도:
+  - 문서 크기를 `wc -c` 로 확인했다.
+  - 새 hot path 문서 [active_task.md](/Users/user/test/docs/active_task.md) 를 만들고, [session_start.md](/Users/user/test/docs/session_start.md) 를 이 파일만 읽도록 바꿨다.
+  - [agent_handoff.md](/Users/user/test/docs/agent_handoff.md), [current_constraints.md](/Users/user/test/analysis/current_constraints.md), [data_structure_investigation.md](/Users/user/test/docs/tracks/data_structure_investigation.md), [project_control_tower.md](/Users/user/test/docs/project_control_tower.md) 를 링크 중심 요약으로 압축했다.
+  - [reference_map.md](/Users/user/test/docs/reference_map.md) 를 `Hot Path / Active Summaries / Cold Evidence` 구조로 재정리했다.
+- 결과:
+  - 새 기본 시작 경로는 `session_start.md` + `active_task.md` 두 파일이다.
+  - 두 파일 합계는 약 `4.3KB` 로, 기존 기본 시작 경로였던 `session_start + agent_handoff + current_constraints + data_structure + text_extraction` 의 약 `49KB` 대비 훨씬 작아졌다.
+  - 긴 분석 로그, 대형 JSON, 상세 트랙 문서는 시작 경로에서 제거하고 필요 시 링크/명령으로 접근하도록 바뀌었다.
+- 판정: `성공`
+- 교훈: 장기 프로젝트 문서는 "얼마나 많이 기록했는가"보다 "기본 경로에서 무엇을 읽지 않는가"가 더 중요하다. 증거는 보존하되, hot path 에는 현재 next step 과 금지 가정만 둔다.

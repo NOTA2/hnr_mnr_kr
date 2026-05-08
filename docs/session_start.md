@@ -1,57 +1,42 @@
 # Session Start
 
-이 문서는 **매 세션의 유일한 시작점**이다.
+이 파일은 **매 세션의 유일한 시작점**이다.
 
-목표는 필요한 문서만 읽고 바로 작업을 시작하는 것이다.
+목표는 시작 컨텍스트를 작게 유지하고, 필요한 문서만 추가로 여는 것이다.
 
-## 필수 읽기 순서
+## 읽기 순서
 
-아래만 먼저 읽는다.
+기본으로는 아래 2개만 읽는다.
 
 1. 이 문서
-2. [agent_handoff.md](/Users/user/test/docs/agent_handoff.md)
-3. [current_constraints.md](/Users/user/test/analysis/current_constraints.md)
-4. 현재 활성 트랙 문서
-   - [data_structure_investigation.md](/Users/user/test/docs/tracks/data_structure_investigation.md)
-   - [text_extraction_progress.md](/Users/user/test/docs/tracks/text_extraction_progress.md)
+2. [active_task.md](/Users/user/test/docs/active_task.md)
+
+그 외 문서는 [active_task.md](/Users/user/test/docs/active_task.md) 가 명시한 경우에만 연다.
 
 ## 기본 금지
 
-- 시작하자마자 모든 문서와 모든 분석 JSON을 읽지 않는다.
-- [experiment_log.md](/Users/user/test/analysis/experiment_log.md) 는 기본 필수 문서가 아니다.
-- 참고 문서는 현재 고른 작업이 직접 필요로 할 때만 연다.
-
-## 도구 사용 원칙
-
-- 먼저 현재 환경에 이미 있는 도구와 시스템 경로를 확인한다.
-- 분석을 직접 막는 경우에만 새 도구 설치를 고려한다.
-- 설치가 필요하면 왜 필요한지 짧게 설명하고 진행한다.
-- 가능하면 범용 분석 도구를 우선하고, 한 번성 임시 도구 설치는 피한다.
+- 시작하자마자 [agent_handoff.md](/Users/user/test/docs/agent_handoff.md), [current_constraints.md](/Users/user/test/analysis/current_constraints.md), 트랙 문서, 전체 JSON, [experiment_log.md](/Users/user/test/analysis/experiment_log.md) 를 읽지 않는다.
+- 큰 JSON은 사람이 훑지 않는다. 필요한 값만 `python3 -m gba_kor_tool ...` 또는 짧은 스크립트로 조회한다.
+- 같은 가설을 반복할 때는 무엇이 달라졌는지 먼저 기록한다.
 
 ## 현재 단계
 
 - 메인: `데이터 구조 조사`
-- 병행: `텍스트 추출`
+- 병행: `텍스트 추출 범위 확대`
 - 보류: `폰트/문자폭`, `이미지`, `GUI`
 
-## 지금 가장 좋은 다음 한 단계
+## 실행 규칙
 
-1. `0x184A0C` effect/overlay row 의 `word0` / `word3` 세부 의미 확인
-2. `0x1849A0` handler table singular cluster slot 소비 경로 찾기
-3. `field3` exact palette/subtype 의미 추가 분리
+- 한 번의 실행에서 의미 있는 next step 하나를 끝낸다.
+- 시작 경로에서 읽은 내용만으로 부족할 때만 참고 문서를 추가로 연다.
+- 구조 해석이 바뀌면 새 사실과 금지 가정을 짧게 남긴다.
 
-매 실행마다 위 셋 중 하나만 끝낸다.
+## 작업 후 갱신
 
-## 작업 후 최소 갱신
+의미 있는 진전이 있으면 아래만 우선 갱신한다.
 
-의미 있는 진전이 있었다면 아래를 갱신한다.
+1. [active_task.md](/Users/user/test/docs/active_task.md)
+2. 현재 작업과 직접 관련된 분석 문서 1개
+3. [experiment_log.md](/Users/user/test/analysis/experiment_log.md) 끝에 실험 1개 append
 
-1. [project_control_tower.md](/Users/user/test/docs/project_control_tower.md)
-2. 관련 트랙 문서 최소 1개
-3. [current_constraints.md](/Users/user/test/analysis/current_constraints.md)
-4. [experiment_log.md](/Users/user/test/analysis/experiment_log.md)
-5. 필요 시 [initial_findings.md](/Users/user/test/analysis/initial_findings.md)
-
-## 참고 문서 선택법
-
-무슨 문서를 더 읽어야 할지 모르겠으면 [reference_map.md](/Users/user/test/docs/reference_map.md) 를 본다.
+[project_control_tower.md](/Users/user/test/docs/project_control_tower.md) 는 단계/우선순위가 바뀐 경우에만 갱신한다.
