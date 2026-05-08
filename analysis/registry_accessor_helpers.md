@@ -59,10 +59,55 @@
 
 ## 호출 패턴 메모
 
+- 더 상위에는 `0x076530` 허브를 직접 쓰는 generic helper family (`0x000290`, `0x0002CC`, `0x000304`) 가 별도로 존재한다.
 - `0x017ED8` 와 `0x017EEC` 는 가까운 위치에서 각각 `0x03BC`, `0x0414` 를 호출한다.
 - 이 패턴은 `같은 index에 대해 pointer -> length` 를 연속 조회하는 흐름이라, 단순 이름 조회보다 **리소스 로더/복사 루틴** 쪽에 가깝다.
 - 반대로 `0x007578`, `0x007760`, `0x007824` 같은 호출부는 현재까지 `0x03BC` 만 확인되어, 길이 없이 포인터만 쓰는 경로일 가능성이 있다.
 - 다만 `포인터만 쓰는 경로` 도 모두 순수 binary lookup 은 아니다. `0x007824` 경로는 binary record 와 같은 리소스 내부 문자열 본문을 함께 사용한다.
+
+## Generic Hub Helpers
+
+### `0x000290`
+
+- literal: `0x076530`
+- 동작:
+  - 허브 첫 `16`바이트를 로컬 버퍼로 복사
+  - 입력 index 로 첫 4엔트리 중 하나를 선택해 반환
+
+선택 대상:
+
+1. `0x17785C`
+2. `0x17C2F4`
+3. `0x17C384`
+4. `0x17C71C`
+
+즉 `0x076530` 허브의 **상위 registry selector helper** 로 보는 해석이 가장 자연스럽다.
+
+### `0x0002CC`
+
+- 입력: `entry_index`, `registry_selector`
+- 동작:
+  - `0x000290` 으로 registry base 선택
+  - `base + entry_index * 8` 의 첫 `u32` 반환
+
+즉 selected registry 의 **generic pointer accessor** 다.
+
+현재 BL 호출자 수:
+
+- `20`
+
+### `0x000304`
+
+- 입력: `entry_index`, `registry_selector`
+- 동작:
+  - `0x000290` 으로 registry base 선택
+  - `base + entry_index * 8 + 4` 의 `u32` 반환
+
+즉 selected registry 의 **generic length accessor** 다.
+
+현재 BL 호출자 수:
+
+- `1`
 
 ## 확인된 로더 루틴: `0x17EB4`
 
@@ -138,10 +183,11 @@
 - `0x17785C` 는 상위 레지스트리 중에서도 실제 코드 accessor 가 이미 확인된 핵심 `pointer-length` 레지스트리다.
 - `0x076530` 허브에 `0x17785C` 가 여러 번 들어 있는 점도, 이 레지스트리가 공용 기준표 역할을 할 가능성을 높인다.
 - 반대로 `0x17C7E4` 는 상위 허브에 포함되어 있지만, 아직은 `0x17785C` 만큼 직접적인 accessor 사용 근거가 부족하다.
+- 그리고 `0x17785C` 는 전용 helper (`0x03BC`, `0x0414`) 뿐 아니라, `0x076530` 허브 generic family 의 selector `0` 으로도 접근될 수 있다.
 - `0x03BC` 단독 호출은 "텍스트 아님" 또는 "문자열 포인터 직접 반환" 둘 중 하나로 단순화할 수 없다.
 - 실제로는 binary table, mixed record directory, in-bank 상대 문자열 포인터가 섞여 있다.
 
 ## 다음 유력 작업
 
-1. `0x17785C` 와 `0x076530` 허브 사이의 연결 방식이 데이터 선택용인지, 로더 초기화용인지 확인
+1. `0x0002CC` 호출부에서 registry selector 값과 caller 군집을 분리
 2. `0x093D` / `0x094B` binary table 이 어떤 게임 분류를 담는지 추가 분리
