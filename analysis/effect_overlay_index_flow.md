@@ -111,4 +111,10 @@
 - `0x03D6F0` 는 `+0x33E` 와 `+0x33C` 를 함께 읽어 `0x0443B4` / `0x044320` 를 호출하는 정합성 보조 루틴으로 보인다.
 - `0x03D6F0` 첫 비교는 `cmp` 가 아니라 `cmn` 이므로, 실제 특수값은 `+0x33E == -1` sentinel 로 읽는 편이 자연스럽다.
 - 따라서 `+0x33E` 는 "두 번째 tracked slot 없음" 상태를 가질 수 있는 optional slot field 후보로 좁혀진다.
+- `0x0443F8` 는 global `0x0300503C` 를 slot iterator 로 사용해 후보 slot `0..15` 를 훑는다.
+- 이 루프는 현재 tracked slot `0x33C/+0x33E` 와 겹치는 후보를 건너뛰고, `+0x574` active flag, `+0x57C` / `+0xBA4` / `+0xBA6` 위치/경계 값, `0x03005240` 의 `16 * 4-byte` per-slot state table 을 함께 사용한다.
+- 선택된 후보는 `0x03005284` 에 `slot id` 또는 `-1` sentinel 로 남는다.
+- 현재 확인된 `0x0443F8` direct caller 는 `0x059034` 하나이며, 이 caller 는 성공 시 반환 slot id 를 `slot + 0x5A` runtime id 로 변환해 후속 object 구축에 사용한다.
+- `0x045B98` 계열과 `0x047A28` 은 `0x03005284` 를 읽는 consumer 이므로, `0x03005284` 는 selected candidate slot buffer 로 보는 해석이 강하다.
+- `0x044B7C` 는 시작부터 `0x33E` 를 읽어 `0x714` table 기반 후속 object 흐름으로 들어가므로, `+0x33E` 는 optional second tracked slot consumer 경로도 가진다.
 - 따라서 현재 가장 안전한 해석은 `word4` 가 **overlay slot maintenance mode flag** 라는 것이다.

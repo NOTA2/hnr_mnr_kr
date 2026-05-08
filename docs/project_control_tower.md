@@ -15,7 +15,7 @@
 
 ## 현재 우선순위
 
-1. `0x184A0C` effect/overlay row 의 `word4` tracked slot side-path 와 `+0x33C/+0x33E` 의미 추가 분리
+1. `0x184A0C` effect/overlay row 의 `word4` tracked slot side-path 와 `+0x33C/+0x33E` writer / promotion path 추가 분리
 2. `0x1849A0` handler table static cluster slot 소비 경로 찾기
 3. `field3` exact palette/subtype 의미 추가 분리
 4. `0x093D` / `0x093E` / `0x094B` 고정 리소스 관계 확인
@@ -34,6 +34,9 @@
 - `word4 != 0` side-path 는 `0x03001450 + 0x33C/+0x33E` 의 raw tracked slot id 두 개를 읽어, 나머지 slot `8..23` 의 병렬 block 을 지우는 maintenance 경로로 좁혀졌다.
 - `0x044320` / `0x0443B4` / `0x03D6F0` 는 같은 tracked slot record 플래그를 set/check/sync 하는 helper 군으로 보는 해석이 강하다.
 - `0x03D6F0` 첫 비교는 `cmp` 가 아니라 `cmn` 이므로, `+0x33E` 는 `-1` sentinel 을 갖는 optional second tracked slot field 후보로 좁혀졌다.
+- `0x0443F8` 는 tracked slot `0x33C/+0x33E` 를 피해서 slot `0..15` 후보를 훑는 allocator 로 보이며, 선택 결과를 `0x03005284` 에 남긴다.
+- `0x03005240` 은 이 allocator 가 갱신하는 `16 * 4-byte` per-slot state table 후보로 좁혀졌다.
+- `0x0443F8` direct caller 는 현재 `0x059034` 하나이며, caller 는 반환 slot id 를 `slot + 0x5A` runtime id 로 변환해 후속 object 구축에 사용한다.
 - `find-u32-refs` CLI 로 `u32` literal hit 와 Thumb literal load 후보를 추적할 수 있게 했다.
 
 ## 안정화된 큰 구조

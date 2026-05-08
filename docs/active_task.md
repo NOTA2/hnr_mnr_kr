@@ -6,7 +6,7 @@
 
 ## 현재 목표
 
-- `0x184A0C` effect/overlay row 의 `word4` side-path 를 tracked slot 관점에서 더 좁히고, 남은 특수 처리 (`+0x33E == 1` 비교) 의미를 분리 정리한다.
+- tracked slot allocator / writer 구조를 더 좁혀 `0x33C/+0x33E` 가 언제 갱신되는지까지 연결한다.
 
 ## 바로 필요한 사실
 
@@ -30,6 +30,10 @@
 - `0x044320(slot, flag)` 는 `+0x0574 + (slot + 8) * 0x34` record 의 상위 플래그를 clear/set 하고, `0x0443B4(slot)` 는 같은 플래그가 살아 있는지 검사하는 helper 로 보는 해석이 강하다.
 - `0x03D6F0` 는 `+0x33E` 와 `+0x33C` 를 함께 읽어 `0x0443B4` / `0x044320` 를 호출하는 정합성 보조 루틴으로 보인다.
 - 여기서 첫 비교는 `cmp` 가 아니라 `cmn` 이므로, 실제 특수값은 `+0x33E == -1` sentinel 이다. 즉 두 번째 tracked slot 은 optional field 일 가능성이 높다.
+- `0x0443F8` 는 global `0x0300503C` 를 slot iterator 로 써서 후보 slot `0..15` 를 훑고, 현재 tracked slot `0x33C/+0x33E` 와 겹치는 후보는 건너뛴다.
+- 이 함수는 `0x03005240` 의 `16 * 4-byte` per-slot state table 을 갱신하면서 후보를 검사하고, 최종 선택 결과를 `0x03005284` 에 `slot id` 또는 `-1` sentinel 로 남긴다.
+- 현재 확인된 `0x0443F8` direct caller 는 `0x059034` 하나이며, 이 caller 는 성공 시 반환 slot id 를 받은 뒤 `slot + 0x5A` runtime id 로 변환해 후속 object 구축에 쓴다.
+- `0x045B98` 계열과 `0x047A28` 은 `0x03005284` 를 읽는 consumer 라서, `0x03005284` 는 일회성 scratch 가 아니라 **selected candidate slot buffer** 로 보는 해석이 강하다.
 - 따라서 현재 `word4` 는 연속 수치보다 **overlay slot maintenance mode flag** 로 보는 해석이 가장 안전하다.
 - `word3` 은 `0x02B96C` 의 세 번째 인자로 전달되고, 내부에서 `& 7` 로 제한된 뒤 `0x0383F8` 에 전달된다.
 - `0x0383F8` 은 `0x1824F0` 의 8-entry Thumb function pointer table (`0x0377E0..0x037AB8`) 을 index 한다.
@@ -58,8 +62,8 @@ python3 -m gba_kor_tool find-u32-refs "Hagane no Renkinjutsushi - Meisou no Rond
 
 ## 완료 조건
 
-- `+0x33C/+0x33E` tracked field 의 역할을 slot lifecycle 관점에서 1단계 이상 더 좁힌다.
-- `0x03D6F0` 의 남은 특수 처리 의미를 과장 없이 분리 기록한다.
+- `0x33C/+0x33E` tracked field writer 또는 promotion path 를 1개 이상 더 잡는다.
+- `0x0443F8 -> 0x03005284 -> consumer` 흐름을 helper 메모가 아니라 구조 설명 수준으로 굳힌다.
 - 관련 분석 문서와 [experiment_log.md](/Users/user/test/analysis/experiment_log.md) 에 짧게 기록한다.
 
 ## 참고 지도

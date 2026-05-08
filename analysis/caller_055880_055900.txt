@@ -1,0 +1,61 @@
+0x055880: D003  beq 0x05588A
+0x055882: 6838  ldr r0, [r7, #0]
+0x055884: 2140  movs r1, #64
+0x055886: 4308  orrs r0, r1
+0x055888: 6038  str r0, [r7, #0]
+0x05588A: 4822  ldr r0, [pc] ; =0x03005014 @0x055914
+0x05588C: 4921  ldr r1, [pc] ; =0x03005014 @0x055914
+0x05588E: 680A  ldr r2, [r1, #0]
+0x055890: 1C11  movs r1, r2
+0x055892: 21CF  movs r1, #207
+0x055894: 0089  lsls r1, r1, #2
+0x055896: 1852  adds r2, r2, r1
+0x055898: 2300  movs r3, #0
+0x05589A: 5ED1  ldrsh r1, [r2, r3]
+0x05589C: 2234  movs r2, #52
+0x05589E: 4351  muls r1, r2
+0x0558A0: 4B1D  ldr r3, [pc] ; =0x00000714 @0x055918
+0x0558A2: 18CA  adds r2, r1, r3
+0x0558A4: 6800  ldr r0, [r0, #0]
+0x0558A6: 1811  adds r1, r2, r0
+0x0558A8: 1C08  movs r0, r1
+0x0558AA: F7D7 F975  bl 0x02CB98
+0x0558AE: 6839  ldr r1, [r7, #0]
+0x0558B0: 4308  orrs r0, r1
+0x0558B2: 6038  str r0, [r7, #0]
+0x0558B4: 4817  ldr r0, [pc] ; =0x03005014 @0x055914
+0x0558B6: 6801  ldr r1, [r0, #0]
+0x0558B8: 1C08  movs r0, r1
+0x0558BA: 20CF  movs r0, #207
+0x0558BC: 0080  lsls r0, r0, #2
+0x0558BE: 1809  adds r1, r1, r0
+0x0558C0: 2300  movs r3, #0
+0x0558C2: 5ECA  ldrsh r2, [r1, r3]
+0x0558C4: 1C10  movs r0, r2
+0x0558C6: F7EE FD75  bl 0x0443B4
+0x0558CA: 01C1  lsls r1, r0, #7
+0x0558CC: 6838  ldr r0, [r7, #0]
+0x0558CE: 4301  orrs r1, r0
+0x0558D0: 6039  str r1, [r7, #0]
+0x0558D2: 6838  ldr r0, [r7, #0]
+0x0558D4: F000 FD34  bl 0x056340
+0x0558D8: 490E  ldr r1, [pc] ; =0x03005014 @0x055914
+0x0558DA: 6808  ldr r0, [r1, #0]
+0x0558DC: 490D  ldr r1, [pc] ; =0x03005014 @0x055914
+0x0558DE: 680A  ldr r2, [r1, #0]
+0x0558E0: 1C11  movs r1, r2
+0x0558E2: 21CF  movs r1, #207
+0x0558E4: 0089  lsls r1, r1, #2
+0x0558E6: 1852  adds r2, r2, r1
+0x0558E8: 2300  movs r3, #0
+0x0558EA: 5ED1  ldrsh r1, [r2, r3]
+0x0558EC: 1C0A  movs r2, r1
+0x0558EE: 3208  adds r2, #8
+0x0558F0: 2334  movs r3, #52
+0x0558F2: 1C11  movs r1, r2
+0x0558F4: 4359  muls r1, r3
+0x0558F6: 1C02  movs r2, r0
+0x0558F8: 4A08  ldr r2, [pc] ; =0x00000574 @0x05591C
+0x0558FA: 1880  adds r0, r0, r2
+0x0558FC: 1841  adds r1, r0, r1
+0x0558FE: 6808  ldr r0, [r1, #0]

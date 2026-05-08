@@ -1,0 +1,34 @@
+0x047A18: 6278  str r0, [r7, #36]
+0x047A1A: 6A38  ldr r0, [r7, #32]
+0x047A1C: 6A79  ldr r1, [r7, #36]
+0x047A1E: 4288  cmp r0, r1
+0x047A20: D102  bne 0x047A28
+0x047A22: 6A39  ldr r1, [r7, #32]
+0x047A24: 1C08  movs r0, r1
+0x047A26: E00B  b 0x047A40
+0x047A28: 4804  ldr r0, [pc] ; =0x03005284 @0x047A3C
+0x047A2A: 6801  ldr r1, [r0, #0]
+0x047A2C: 6A7A  ldr r2, [r7, #36]
+0x047A2E: 1C08  movs r0, r1
+0x047A30: 1C11  movs r1, r2
+0x047A32: F7E4 FBBB  bl 0x02C1AC
+0x047A36: 6A39  ldr r1, [r7, #32]
+0x047A38: 1C08  movs r0, r1
+0x047A3A: E001  b 0x047A40
+0x047A3C: 5284  strh r4, [r0, r2]
+0x047A3E: 0300  lsls r0, r0, #12
+0x047A40: B00C  sub sp, #48
+0x047A42: BC80  pop 0x080
+0x047A44: BC02  pop 0x002
+0x047A46: 4708  bx r1
+0x047A48: B580  push 0x180
+0x047A4A: B082  .hword 0xB082
+0x047A4C: 466F  .hword 0x466F
+0x047A4E: 1D39  adds r1, r7, #4
+0x047A50: 1C38  movs r0, r7
+0x047A52: F010 FE65  bl 0x058720
+0x047A56: 6838  ldr r0, [r7, #0]
+0x047A58: 10C1  asrs r1, r0, #3
+0x047A5A: 6039  str r1, [r7, #0]
+0x047A5C: 6878  ldr r0, [r7, #4]
+0x047A5E: 10C1  asrs r1, r0, #3

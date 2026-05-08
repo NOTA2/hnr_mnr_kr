@@ -660,3 +660,20 @@
   - `dump-thumb` CLI 가 추가되어, 같은 종류의 world-map / overlay / font 인접 Thumb slice 확인을 반복 스크립트 없이 재사용할 수 있게 되었다.
 - 판정: `성공`
 - 교훈: Thumb ALU register opcode (`0x4000` 계열) 를 `.hword` 로 흘리면 sentinel 해석이 완전히 뒤집힐 수 있다. `cmp` 와 `cmn` 구분은 특히 tracked state / sentinel 분석에서 반드시 직접 확인해야 한다.
+
+### 실험 54
+
+- 가설: `0x33C/+0x33E` tracked field 는 passive state 가 아니라, 별도 allocator 가 피해야 하는 reserved slot set 으로 쓰일 수 있다. 이 경우 allocator 출력 버퍼와 consumer 를 함께 보면 구조가 더 명확해질 것이다.
+- 시도:
+  - `0x0443F8` 본체와 후반부를 더 길게 읽어 `0x0300503C`, `0x03005240`, `0x03005284` 역할을 정리했다.
+  - `0x0443F8` direct caller 를 다시 찾고, 유일한 caller `0x059034` 를 따라가 반환값 사용 방식을 확인했다.
+  - `0x03005284` consumer (`0x047A28`, `0x045B98` 계열) 도 짧게 읽어 선택 결과 버퍼인지 점검했다.
+- 결과:
+  - `0x0443F8` 는 `0x0300503C` 를 slot iterator 로 써서 후보 slot `0..15` 를 훑는다.
+  - 루프는 현재 tracked slot `0x33C/+0x33E` 와 겹치는 후보를 건너뛰고, `+0x574` active flag, `+0x57C` / `+0xBA4` / `+0xBA6` 위치/경계 값, `0x03005240` 의 `16 * 4-byte` per-slot state table 을 함께 사용한다.
+  - 선택된 후보는 `0x03005284` 에 `slot id` 또는 `-1` sentinel 로 남는다.
+  - `0x0443F8` direct caller 는 현재 `0x059034` 하나이며, caller 는 성공 시 반환 slot id 를 `slot + 0x5A` runtime id 로 변환해 후속 object 구축에 사용한다.
+  - `0x045B98` / `0x047A28` 은 `0x03005284` 를 읽는 consumer 로 보이므로, `0x03005284` 는 selected candidate slot buffer 로 보는 해석이 강하다.
+  - `0x044B7C` 시작부는 `0x33E` 를 읽어 `0x714` table 기반 후속 object 흐름으로 들어가므로, `+0x33E` 는 optional second tracked slot consumer 경로도 가진다.
+- 판정: `성공`
+- 교훈: tracked field 를 이해하려면 read/clear helper만 보면 부족하다. allocator (`iterate -> exclude tracked -> emit candidate`) 와 consumer (`candidate buffer`) 를 함께 봐야 실제 lifecycle 이 보인다.

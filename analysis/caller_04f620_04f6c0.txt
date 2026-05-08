@@ -1,0 +1,67 @@
+0x04F620: 140E  asrs r6, r1, #16
+0x04F622: 491E  ldr r1, [pc] ; =0x03005014 @0x04F69C
+0x04F624: 6808  ldr r0, [r1, #0]
+0x04F626: 491D  ldr r1, [pc] ; =0x03005014 @0x04F69C
+0x04F628: 680A  ldr r2, [r1, #0]
+0x04F62A: 1C11  movs r1, r2
+0x04F62C: 23CF  movs r3, #207
+0x04F62E: 009B  lsls r3, r3, #2
+0x04F630: 18D2  adds r2, r2, r3
+0x04F632: 2300  movs r3, #0
+0x04F634: 5ED1  ldrsh r1, [r2, r3]
+0x04F636: 1C0A  movs r2, r1
+0x04F638: 3208  adds r2, #8
+0x04F63A: 2334  movs r3, #52
+0x04F63C: 1C11  movs r1, r2
+0x04F63E: 4359  muls r1, r3
+0x04F640: 1C02  movs r2, r0
+0x04F642: 22B0  movs r2, #176
+0x04F644: 00D2  lsls r2, r2, #3
+0x04F646: 1880  adds r0, r0, r2
+0x04F648: 1841  adds r1, r0, r1
+0x04F64A: 6808  ldr r0, [r1, #0]
+0x04F64C: 4916  ldr r1, [pc] ; =0x3F800000 @0x04F6A8
+0x04F64E: F025 FCE7  bl 0x075020
+0x04F652: 1C01  movs r1, r0
+0x04F654: 1C08  movs r0, r1
+0x04F656: F025 FFB3  bl 0x0755C0
+0x04F65A: 1C01  movs r1, r0
+0x04F65C: 1C08  movs r0, r1
+0x04F65E: 0401  lsls r1, r0, #16
+0x04F660: 140A  asrs r2, r1, #16
+0x04F662: 9400  .hword 0x9400
+0x04F664: 1C28  movs r0, r5
+0x04F666: 1C31  movs r1, r6
+0x04F668: 2300  movs r3, #0
+0x04F66A: F7DB FF81  bl 0x02B570
+0x04F66E: F7EE F83F  bl 0x03D6F0
+0x04F672: F023 F9FB  bl 0x072A6C
+0x04F676: F022 FF53  bl 0x072520
+0x04F67A: 2001  movs r0, #1
+0x04F67C: F022 FF1C  bl 0x0724B8
+0x04F680: F7F1 FE00  bl 0x041284
+0x04F684: F7ED FEA2  bl 0x03D3CC
+0x04F688: F7EE F86E  bl 0x03D768
+0x04F68C: 2002  movs r0, #2
+0x04F68E: F7FF FE31  bl 0x04F2F4
+0x04F692: B003  sub sp, #12
+0x04F694: BCF0  pop 0x0F0
+0x04F696: BC01  pop 0x001
+0x04F698: 4700  bx r0
+0x04F69A: 0000  lsls r0, r0, #0
+0x04F69C: 5014  str r4, [r2, r0]
+0x04F69E: 0300  lsls r0, r0, #12
+0x04F6A0: 033E  lsls r6, r7, #12
+0x04F6A2: 0000  lsls r0, r0, #0
+0x04F6A4: 057C  lsls r4, r7, #21
+0x04F6A6: 0000  lsls r0, r0, #0
+0x04F6A8: 0000  lsls r0, r0, #0
+0x04F6AA: 3F80  subs r7, #128
+0x04F6AC: B580  push 0x180
+0x04F6AE: B082  .hword 0xB082
+0x04F6B0: 466F  .hword 0x466F
+0x04F6B2: F7F7 F80B  bl 0x0466CC
+0x04F6B6: 2800  cmp r0, #0
+0x04F6B8: D102  bne 0x04F6C0
+0x04F6BA: 2005  movs r0, #5
+0x04F6BC: F7FF FE1A  bl 0x04F2F4

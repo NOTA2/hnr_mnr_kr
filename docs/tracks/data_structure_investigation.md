@@ -54,6 +54,11 @@
 - `0x03D6F0` 는 `+0x33E` 와 `+0x33C` 를 함께 읽어 tracked slot 상태를 맞추는 보조 루틴처럼 보인다.
 - 이 루틴의 첫 비교는 `cmp` 가 아니라 `cmn` 이므로, 실제 특수값은 `+0x33E == -1` sentinel 로 읽는 편이 자연스럽다.
 - 따라서 `+0x33E` 는 optional second tracked slot field 후보로 더 좁혀졌다.
+- `0x0443F8` 는 `0x0300503C` iterator 로 slot `0..15` 후보를 훑는 allocator 로 보인다.
+- 이 allocator 는 tracked slot `0x33C/+0x33E` 와 충돌하는 후보를 제외하고, `0x03005240` per-slot state table 과 slot record / 위치 조건을 검사한 뒤 결과를 `0x03005284` 에 `slot id` 또는 `-1` sentinel 로 남긴다.
+- 현재 확인된 `0x0443F8` direct caller 는 `0x059034` 하나이며, caller 는 반환 slot id 를 `slot + 0x5A` runtime id 로 변환해 후속 object 구축에 쓴다.
+- `0x045B98` / `0x047A28` 등은 `0x03005284` 를 consumer 로 읽는다.
+- `0x044B7C` 는 시작부터 `0x33E` 를 읽어 `0x714` table 기반 후속 object 흐름으로 들어가므로, `+0x33E` 는 optional second tracked slot consumer 경로도 가진다.
 - 따라서 `word4` 는 현재 **overlay slot maintenance mode flag** 로 보는 해석이 가장 강하다.
 - `word3` 은 `0x02B96C` 에 세 번째 인자로 전달되고 `& 7` 로 제한된 뒤, `0x0383F8 -> 0x1824F0` 8-entry accessor table 로 이어진다.
 - 이 accessor 들은 공통 descriptor 의 halfword field `+0x04` 부터 `+0x12` 까지 low 10-bit 값을 읽으므로, `word3` 은 사실상 **descriptor field selector** 로 보는 해석이 가장 강하다.
@@ -61,7 +66,7 @@
 
 ## 다음 질문
 
-1. `0x184A0C` row 의 `word4` side-path 가 보존/삭제하는 slot 군의 역할과 `+0x33C/+0x33E` 두 tracked field 의 더 정확한 의미
+1. `0x184A0C` row 의 `word4` side-path 가 보존/삭제하는 slot 군의 역할과 `+0x33C/+0x33E` tracked field writer / promotion path
 2. `0x03CA68` helper-family 분석을 effect row 경로와 분리해서 어떻게 기록할지 정리
 3. `0x1849A0` handler table 의 static cluster slot 소비 경로
 4. `field3` exact palette/subtype 의미
