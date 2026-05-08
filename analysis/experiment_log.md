@@ -369,3 +369,22 @@
   - direct ref 는 `0x184248 = 12`, `0x18425C = 4` 로 확인되어, 실제 소비 단위는 문자열보다 record table 일 가능성이 높다.
 - 판정: `성공`
 - 교훈: 이미 문자열이 추출되었다고 해서 그 구간을 곧바로 standalone text bank 로 확정하면 안 된다. fixed-size record 안의 name field 일 수 있으므로, stride 와 base pointer 를 함께 확인해야 한다.
+
+### 실험 36
+
+- 가설: `location record table` 뒤쪽 tail 은 추가적인 world-map/location bundle 로 이어지고, 이 안에는 route/script/handler 성격의 여러 하위 테이블이 함께 들어 있을 수 있다.
+- 시도:
+  - `0x08BFD0`, `0x08C060`, `0x08C1D0` descriptor bundle 주변 포인터를 자동 주석 달아 어떤 ROM table 들이 반복 참조되는지 정리했다.
+  - `0x184420`, `0x184820`, `0x184888`, `0x1849A0`, `0x1849D4`, `0x184A0C` 직접 포인터 ref 수를 비교했다.
+  - `0x184888` 의 `10-entry` pointer table 을 따라가 각 block 이 다시 `10-slot` pointer matrix 인지 확인하고, non-null slot bytecode 를 `FF` terminator 까지 추출했다.
+  - `location record field1/field2` 와 `0x184820` 좌표쌍의 앞 `10`개를 비교했다.
+- 결과:
+  - `0x184420..0x1844AF` 에 `18 * (u32, u32)` pair table 이 있다.
+  - `0x1844B0..0x1847F7` 은 `FF` 종료 bytecode 가 밀집한 route/command region 으로 보인다.
+  - `0x184888` 에는 `10-entry` route script block table 이 있고, 각 block 은 다시 `10-slot` pointer matrix 로 읽힌다.
+  - 이 matrix 의 non-null slot 은 위 bytecode region 을 가리키며, 현재는 per-location route/transition command table 후보로 보는 편이 가장 안전하다.
+  - `0x184820` 에는 `13 * (x, y)` node position pair table 후보가 있고, location record `field1/field2` 와는 `8 / 10` 완전 일치, 나머지 `2 / 10` 은 작은 delta 만 보였다.
+  - `0x184950` 에는 `10 * (x, y)` label position pair 후보가 있다.
+  - `0x1849A0` 은 `13-entry` Thumb handler pointer table, `0x1849D4` 는 `7-entry` special pair table 후보로 정리되었다.
+- 판정: `성공`
+- 교훈: location/world-map 계열 데이터는 문자열, 좌표, 이동 규칙, handler 가 한 묶음으로 저장될 수 있다. 이후에는 `string bank` 만 보는 접근보다 **bundle 단위 구조화**가 훨씬 효율적이다.

@@ -65,6 +65,9 @@
 - `0x184248..0x1843FF`:
   - `10 * 0x2C` fixed-size location record table
   - 자세한 내용은 [location_record_table.md](/Users/user/test/analysis/location_record_table.md) 참고
+- `0x184420..0x184A0C`:
+  - route bytecode / node position / handler / special pair 를 포함한 location bundle tail
+  - 자세한 내용은 [location_bundle_family.md](/Users/user/test/analysis/location_bundle_family.md) 참고
 
 ## 주의할 점
 

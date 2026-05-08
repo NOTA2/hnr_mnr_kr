@@ -11,6 +11,13 @@
 - accessor helper 해석: [registry_accessor_helpers.md](/Users/user/test/analysis/registry_accessor_helpers.md)
 - BL 호출자 목록: [thumb_bl_to_03bc.json](/Users/user/test/analysis/thumb_bl_to_03bc.json), [thumb_bl_to_0414.json](/Users/user/test/analysis/thumb_bl_to_0414.json), [thumb_bl_to_03e4.json](/Users/user/test/analysis/thumb_bl_to_03e4.json)
 
+## Location / World-Map Bundle
+
+- location record 요약: [location_record_table.md](/Users/user/test/analysis/location_record_table.md)
+- location record JSON: [location_record_table.json](/Users/user/test/analysis/location_record_table.json)
+- location bundle family 요약: [location_bundle_family.md](/Users/user/test/analysis/location_bundle_family.md)
+- location bundle JSON: [location_bundle_tables.json](/Users/user/test/analysis/location_bundle_tables.json)
+
 ## 텍스트 뱅크 개요
 
 - 전체 요약: [initial_findings.md](/Users/user/test/analysis/initial_findings.md)

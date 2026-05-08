@@ -4,6 +4,7 @@
 
 - [location_record_table.json](/Users/user/test/analysis/location_record_table.json)
 - [location_texts.json](/Users/user/test/analysis/location_texts.json)
+- [location_bundle_family.md](/Users/user/test/analysis/location_bundle_family.md)
 
 ## 핵심 결론
 
@@ -54,6 +55,12 @@ name field:
 - first name field `0x18425C`: direct ref `4`
 
 이 차이 때문에 현재는 문자열보다 record table 이 실제 소비 단위일 가능성이 더 높다.
+
+## 좌표 후보
+
+- `field1/field2` 는 [location_bundle_family.md](/Users/user/test/analysis/location_bundle_family.md) 에 정리된 `0x184820` node position pair table 앞 `10`개와 거의 일치한다.
+- `8 / 10` 은 완전 일치하고, `ヴィヴァス`, `リオール` 2건만 작은 delta (`-8,0`, `-12,-8`) 가 있다.
+- 따라서 `field1/field2` 는 단순 ID 보다 **location/node 좌표 계열 값** 으로 보는 편이 더 자연스럽다.
 
 ## 주의할 점
 

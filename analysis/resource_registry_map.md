@@ -141,7 +141,7 @@
 - 중요한 경계:
   - `0x184220` 이후에는 다른 metadata 와 문자열이 이어지기 시작한다.
   - 따라서 `0x1840E8..` 전체를 uniform struct 로 다루면 안 된다.
-  - 현재 확인된 바로는 이 tail 이 곧바로 `10-entry` location order table (`0x184220..0x184244`) 과 `10 * 0x2C` location record table (`0x184248..0x1843FF`) 로 이어진다.
+  - 현재 확인된 바로는 이 tail 이 곧바로 `10-entry` location order table (`0x184220..0x184244`), `10 * 0x2C` location record table (`0x184248..0x1843FF`), 그리고 그 뒤의 location/world-map bundle (`0x184420..`) 로 이어진다.
 
 ### Registry C
 

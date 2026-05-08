@@ -43,6 +43,14 @@
 35. `0x184248..0x1843FF` 구간은 `10 * 0x2C` fixed-size location record table 이며, 각 row 는 `5 * u32 metadata + 0x18-byte name field` 구조로 읽힌다.
 36. 기존 `0x18425C` 지역명 문자열은 독립 뱅크라기보다 첫 location record 의 name field (`record + 0x14`) 다.
 37. `0x184248` record base direct ref 는 `12`개, `0x18425C` 첫 name field direct ref 는 `4`개가 확인되므로, 실제 소비 단위는 문자열보다 record table 쪽일 가능성이 높다.
+38. `0x184420..0x1844AF` 구간에는 `18 * (u32, u32)` pair table 이 있다.
+39. `0x1844B0..0x1847F7` 구간은 `FF` 종료 bytecode 가 밀집한 route/command region 으로 보인다.
+40. `0x184888` 에는 `10-entry` route script block pointer table 이 있고, 각 block 은 다시 `10-slot` pointer matrix 로 읽힌다.
+41. 이 matrix 의 non-null slot 은 `0x1844B0..0x1847F7` bytecode 를 가리키므로, 현재는 per-location route/transition command table 후보로 보는 편이 가장 안전하다.
+42. `0x184820` node position pair table 후보는 `13 * (x, y)` 구조이며, location record `field1/field2` 와 `8 / 10` 완전 일치, 나머지 `2 / 10` 은 작은 delta 만 가진다.
+43. `0x184950` 에는 `10 * (x, y)` label position pair 후보가 있다.
+44. `0x1849A0` 에는 `13-entry` Thumb handler pointer table 이 있다.
+45. `0x1849D4` 에는 `(index, 0x3E1..0x3EF)` 형태의 `7-entry` special pair table 후보가 있다.
 
 ## 지금 반복하면 안 되는 가정
 
@@ -56,13 +64,16 @@
 8. `0x0002CC` generic accessor 가 모든 registry selector 를 비슷한 빈도로 쓸 거라고 가정하지 않는다.
 9. `0x1840E8..` 전체를 한 종류의 descriptor 배열이라고 가정하지 않는다.
 10. `0x18425C` 지역명 구간을 순수 standalone string bank 라고 가정하지 않는다.
+11. `field1/field2` 를 단순 ID 라고 가정하지 않는다. 현재는 좌표 계열 값일 가능성이 더 높다.
 
 ## 지금 가장 유력한 다음 질문
 
-1. `0x184248` location record 의 `field0..field4` 는 각각 어떤 게임 의미를 가지는가
-2. `0x08BFD0` / `0x08C060` / `0x08C1D0` descriptor bundle 은 `0x184248`, `0x1840F8`, `0x1841E8` 을 어떻게 묶는가
-3. `0x093D` binary table 은 `0x093E` 재료 문자열 뱅크와 어떤 관계인가
-4. `0x094B` / `0x12DF8(0x63)` 경로는 어떤 게임 데이터 분류를 읽는가
+1. `field0`, `field3`, `field4` 는 각각 어떤 게임 의미를 가지는가
+2. `0x184420` pair table 은 route bytecode / pointer matrix 와 어떤 인덱스 규칙으로 연결되는가
+3. `0x1849A0` handler `13`개는 `0x184820` node `13`개와 1:1 대응하는가
+4. `0x1849D4` 의 `0x3E1..0x3EF` 값은 script/event/message 중 무엇인가
+5. `0x093D` binary table 은 `0x093E` 재료 문자열 뱅크와 어떤 관계인가
+6. `0x094B` / `0x12DF8(0x63)` 경로는 어떤 게임 데이터 분류를 읽는가
 
 ## 문서 사용 규칙
 

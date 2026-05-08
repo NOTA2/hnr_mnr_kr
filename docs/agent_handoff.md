@@ -47,12 +47,20 @@
 - 각 location record 는 `5 * u32` metadata 뒤에 `0x18-byte` 이름 필드가 붙는 형태이며, 이름 필드는 record 시작 `+0x14` 에 있다.
 - 기존 `0x18425C` 지역명 뱅크는 독립 문자열 뱅크라기보다, 이 location record table 첫 row 의 name field (`0x184248 + 0x14`) 로 보는 편이 맞다.
 - 첫 name field `0x18425C` direct ref 는 `4`개뿐이지만, record base `0x184248` direct ref 는 `12`개가 확인된다. 즉 실제 소비 단위는 문자열보다 record table 쪽일 가능성이 더 높다.
+- `0x184420..0x1844AF` 구간에는 `18 * (u32, u32)` pair table 이 있다.
+- `0x1844B0..0x1847F7` 구간은 `FF` 종료 bytecode 가 밀집한 route/command region 으로 보인다.
+- `0x184888` 에는 `10-entry` route script block pointer table 이 있고, 각 block 은 다시 `10-slot` pointer matrix 로 읽힌다.
+- 이 matrix 의 non-null slot 은 `0x1844B0..0x1847F7` bytecode 를 가리키며, 현재는 per-location route/transition command table 후보로 보는 편이 가장 안전하다.
+- `0x184820` 에는 `13 * (x, y)` node position pair table 후보가 있고, location record `field1/field2` 와는 `8 / 10` 완전 일치, 나머지 `2 / 10` 은 작은 delta 만 존재한다.
+- `0x184950` 에는 `10 * (x, y)` label position pair 후보가 있다.
+- `0x1849A0` 에는 `13-entry` Thumb handler pointer table 이 있다.
+- `0x1849D4` 에는 `(index, 0x3E1..0x3EF)` 형태의 `7-entry` special pair table 후보가 있다.
 - 따라서 `selector=0` direct generic caller 부재는 `0x17785C` 의 전용 helper (`0x03BC`, `0x0414`) 로 설명 가능하고, `Registry B` 역시 dead registry 가 아니라 **미러 테이블 + ZP-aware helper family** 경로로 접근되는 live asset bank 로 보는 편이 맞다.
 - 일부 메뉴/진행 메시지는 일반 `00` 종단 평문이 아니라 명령 스트림 내부 문자열이다.
 
 ## 다음 한 단계 후보
 
-1. `0x184248` location record 의 `field0..field4` 의미와 `0x08BFD0` / `0x08C060` / `0x08C1D0` descriptor bundle 관계를 분리하기
+1. `field0` / `field3` / `field4` 의미와 `0x184420` route pair table, `0x1849A0` handler table 관계를 분리하기
 2. `0x093D` / `0x094B` binary resource 의미를 더 분리하기
 3. 대사/이벤트 평문 구간을 추가로 찾기
 
@@ -70,6 +78,8 @@
 - accessor 함수 메모: [registry_accessor_helpers.md](/Users/user/test/analysis/registry_accessor_helpers.md)
 - Registry B 미러 산출물: [registry_b_mirror_summary.json](/Users/user/test/analysis/registry_b_mirror_summary.json)
 - Registry B companion descriptor 산출물: [registry_b_companion_descriptors.json](/Users/user/test/analysis/registry_b_companion_descriptors.json)
+- location bundle 요약: [location_bundle_family.md](/Users/user/test/analysis/location_bundle_family.md)
+- location bundle 산출물: [location_bundle_tables.json](/Users/user/test/analysis/location_bundle_tables.json)
 - location record 요약: [location_record_table.md](/Users/user/test/analysis/location_record_table.md)
 - location record 산출물: [location_record_table.json](/Users/user/test/analysis/location_record_table.json)
 - 리소스 청크 예외 테이블: [resource_chunk_directory.md](/Users/user/test/analysis/resource_chunk_directory.md)
