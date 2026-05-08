@@ -41,10 +41,12 @@
 - `0x06A52E` 가 `0x03005FF8` 의 확인된 direct writer 이며, hit-test loop index `0..9` 를 저장한다.
 - `0x06CEC0` 은 selected index 를 current-location byte `0x03006020` 으로 복사한다.
 - `0x06CFB8` 은 selected index 로 `0x184A0C + index * 0x14` row 를 읽고 `0x047A88` 에 전달한다.
+- `0x184A0C` row `word0` 은 `0x184420` hotspot/location lookup 의 hotspot id 와 row별로 정확히 맞으므로, location 대표 hotspot/cell id 로 보는 해석이 강하다.
+- `word3` 은 `0x02B96C` 에 세 번째 인자로 전달되고 `& 7` 로 제한되므로, 3-bit object/subresource variant index 후보로 둔다.
 
 ## 다음 질문
 
-1. `0x184A0C` row 의 `word0` / `word3` effect subtype 의미
+1. `0x184A0C` row 의 `word3` object/subresource variant 의미
 2. `0x1849A0` handler table 의 static cluster slot 소비 경로
 3. `field3` exact palette/subtype 의미
 4. `0x47EB0` / `0x561D4` helper 의미

@@ -15,7 +15,7 @@
 
 ## 현재 우선순위
 
-1. `0x184A0C` effect/overlay row 의 `word0` / `word3` 세부 의미 확인
+1. `0x184A0C` effect/overlay row 의 `word3` object/subresource variant 의미 확인
 2. `0x1849A0` handler table static cluster slot 소비 경로 찾기
 3. `field3` exact palette/subtype 의미 추가 분리
 4. `0x093D` / `0x093E` / `0x094B` 고정 리소스 관계 확인
@@ -26,6 +26,8 @@
 - `0x03005FF8` 은 world-map 선택/hover location index byte 로 보는 해석이 강해졌다.
 - 확인된 direct writer 는 `0x06A52E` 이며, hit-test loop index `0..9` 를 저장한다.
 - `0x06CEC0` 은 selected index 를 current-location byte `0x03006020` 으로 복사한다.
+- `0x184A0C` row `word0` 은 `0x184420` hotspot/location lookup 과 row별로 정확히 맞아 location 대표 hotspot/cell id 로 좁혀졌다.
+- `word3` 은 `0x02B96C` 내부에서 `& 7` 로 제한되어 `0x0383F8` 로 넘어가는 3-bit object/subresource variant 후보가 됐다.
 - `find-u32-refs` CLI 로 `u32` literal hit 와 Thumb literal load 후보를 추적할 수 있게 했다.
 
 ## 안정화된 큰 구조

@@ -230,7 +230,9 @@ route sequence 공통 패턴:
 - `0x06CEC0` 은 이 selected index 를 current-location byte `0x03006020` 로 복사하므로, 이 값은 "선택 후보 -> 현재 위치 확정" 흐름의 중간 상태로도 쓰인다.
 - `0x047A88` 의 다른 caller (`0x051E96`, `0x051FFE`) 도 구조체 필드들을 같은 helper 로 넘기므로, `0x184A0C` row 는 그 구조체 일부를 정적 table 로 빼 둔 형태에 가깝다.
 - `word1/word2` 는 signed coordinate-like 값으로 바로 사용되고, `word4` 는 helper 내부 optional branch 를 켜는 flag 처럼 쓰인다.
-- `word0` 은 effect/asset id, `word3` 은 helper 내부 sub-parameter 후보로 두되, 정확한 의미는 추가 확인이 필요하다.
+- `word0` 은 `0x047A88 -> 0x0561F8` 경로에서 `*(0x03005014) + 0x90` byte 로 저장되며, `0x0561D4` getter 가 같은 값을 읽는다.
+- `word0` 값 `10`개는 `0x184420` hotspot/location lookup 의 hotspot id 와 정확히 `1:1` 매칭되고, 매칭된 location index 도 row index 와 같다. 따라서 현재는 **location 대표 hotspot/cell id** 로 보는 해석이 가장 강하다.
+- `word3` 은 `0x047A88 -> 0x02B96C` 경로에서 세 번째 인자로 전달되고, `0x02B96C` 내부에서 `& 7` 로 제한된 뒤 `0x0383F8` 에 전달된다. 현재는 **3-bit object/subresource variant index** 후보로 둔다.
 
 ## Direct Ref 강도
 
@@ -248,6 +250,6 @@ route sequence 공통 패턴:
 1. `field3` 가 정확히 palette bank 인지, 또는 palette + subtype 복합 값인지 더 좁힐 수 있는가
 2. `0x1849A0` handler table 의 **단일 static cluster 슬롯** 을 실제로 소비하는 코드가 어디인가
 3. `0x03005FF8` effect/overlay table index 를 어떤 코드가 최종 선택하는가
-4. `0x184A0C` row 의 `word0` / `word3` 이 `0x047A88` 내부에서 정확히 어떤 효과를 갖는가
+4. `0x184A0C` row 의 `word3` 이 `0x02B96C` / `0x0383F8` 경로에서 정확히 어떤 subresource variant 를 고르는가
 5. `0x47EB0` 가 `0x3E1..0x3EF` 를 어떤 종류의 런타임 객체로 바꾸는가
-6. `0x561D4` hotspot helper 반환값이 실제 맵 좌표계에서 어떤 단위를 의미하는가
+6. `0x561D4` 로 읽히는 대표 hotspot/cell id 가 실제 맵 좌표계에서 어떤 단위를 의미하는가

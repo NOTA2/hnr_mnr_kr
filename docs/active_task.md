@@ -6,7 +6,7 @@
 
 ## 현재 목표
 
-- `0x184A0C` effect/overlay row 의 `word0` / `word3` 의미를 `0x047A88` 내부 동작으로 좁힌다.
+- `0x184A0C` effect/overlay row 의 `word3` 의미를 `0x02B96C` / `0x0383F8` 내부 동작으로 더 좁힌다.
 
 ## 바로 필요한 사실
 
@@ -15,6 +15,9 @@
 - row 는 `0x047A88` 에 `r0=word0`, `r1=word1`, `r2=word2`, `r3=word3`, `[sp]=word4`, `[sp+4]=0` 형태로 전달된다.
 - `0x03005FF8` 은 effect 전용 state 가 아니라 world-map 선택/hover location index byte 로 보는 해석이 강하다.
 - `0x03005FF8` direct writer 는 현재 `0x06A52E` 로 확인되며, hit-test loop index `0..9` 를 저장한다.
+- `word0` 은 `0x0561F8` 을 통해 `*(0x03005014) + 0x90` byte 에 저장되고, `0x184420` hotspot/location lookup 의 hotspot id 와 row별로 정확히 매칭된다.
+- 따라서 `word0` 은 **location 대표 hotspot/cell id** 로 보는 해석이 가장 강하다.
+- `word3` 은 `0x02B96C` 의 세 번째 인자로 전달되고, 내부에서 `& 7` 로 제한된 뒤 `0x0383F8` 에 전달된다.
 
 ## 이번 작업에서 열 문서
 
@@ -36,7 +39,7 @@ python3 -m gba_kor_tool find-u32-refs "Hagane no Renkinjutsushi - Meisou no Rond
 
 ## 완료 조건
 
-- `0x047A88` 내부에서 `word0` / `word3` 가 어느 분기, asset id, OAM field, 좌표/속도 계열 값에 연결되는지 최소 1개 이상 검증한다.
+- `0x0383F8` 내부 또는 그 주변 호출부에서 `word3 & 7` 이 어떤 subresource / frame / template variant 를 고르는지 최소 1개 이상 검증한다.
 - 검증되면 이 파일의 `현재 목표` 를 다음 작업으로 바꾼다.
 - 관련 분석 문서와 [experiment_log.md](/Users/user/test/analysis/experiment_log.md) 에 짧게 기록한다.
 

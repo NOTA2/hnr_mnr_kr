@@ -524,3 +524,21 @@
   - 긴 분석 로그, 대형 JSON, 상세 트랙 문서는 시작 경로에서 제거하고 필요 시 링크/명령으로 접근하도록 바뀌었다.
 - 판정: `성공`
 - 교훈: 장기 프로젝트 문서는 "얼마나 많이 기록했는가"보다 "기본 경로에서 무엇을 읽지 않는가"가 더 중요하다. 증거는 보존하되, hot path 에는 현재 next step 과 금지 가정만 둔다.
+
+### 실험 46
+
+- 가설: `0x184A0C` effect/overlay row 의 `word0` 은 effect asset id 자체가 아니라, location/world-map 선택 체계에서 쓰는 hotspot/cell id 일 수 있다.
+- 시도:
+  - `0x047A88` 본체를 Thumb 슬라이스로 다시 읽어 `word0` / `word3` 사용 지점을 분리했다.
+  - `0x0561F8` / `0x0561D4` helper 를 확인해 같은 runtime byte 의 setter/getter 관계를 확인했다.
+  - `0x184A0C` row `word0` 값 `10`개와 `0x184420` hotspot/location lookup table 을 비교했다.
+  - `word3` 이 전달되는 `0x02B96C` 도 짧게 추적해 세 번째 인자 사용 방식을 확인했다.
+- 결과:
+  - `0x047A88` 은 `word0` 을 `0x0561F8` 로 넘긴다.
+  - `0x0561F8` 은 `*(0x03005014) + 0x90` byte 에 값을 저장하고, `0x0561D4` 는 같은 byte 를 읽어 반환한다.
+  - `word0` 값 `10`개는 `0x184420` hotspot/location lookup 의 hotspot id 와 정확히 `1:1` 매칭된다.
+  - 매칭된 location index 도 effect row index 와 모두 같다.
+  - 따라서 `word0` 은 effect asset id 보다는 **location 대표 hotspot/cell id** 로 보는 해석이 가장 강하다.
+  - `word3` 은 `0x047DEE` / `0x047E26` 에서 `0x02B96C` 의 세 번째 인자로 전달되고, `0x02B96C` 내부에서 `& 7` 로 제한된 뒤 `0x0383F8` 에 전달된다.
+- 판정: `성공`
+- 교훈: effect table 의 첫 word 는 새 asset namespace 가 아니라 이미 확인된 hotspot/location namespace 와 재결합될 수 있다. `word3` 은 별도 3-bit object/subresource variant 축으로 이어서 보면 된다.

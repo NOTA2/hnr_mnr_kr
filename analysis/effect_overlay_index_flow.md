@@ -40,5 +40,37 @@
 
 ## 남은 질문
 
-- `0x184A0C` row 의 `word0` / `word3` 이 `0x047A88` 내부에서 정확히 어떤 effect subtype 을 바꾸는지 아직 남아 있다.
+- `word3` 이 `0x02B96C` / `0x0383F8` 경로에서 정확히 어떤 subresource / frame / template variant 를 고르는지 아직 남아 있다.
 - 현재 direct literal scan 에서는 `0x06A52E` 만 writer 로 보이지만, static cluster 를 통한 간접 writer 가능성은 아직 완전히 배제하지 않는다.
+
+## Row Parameter Semantics
+
+`0x047A88` 내부에서 확인된 연결:
+
+- `word0` 은 `0x047B00` 에서 `0x0561F8` 로 전달된다.
+- `0x0561F8` 은 `*(0x03005014) + 0x90` byte 에 이 값을 저장한다.
+- `0x0561D4` 는 같은 byte 를 읽어 반환한다.
+- 이 getter 값은 기존 `0x184420` hotspot/location lookup 경로에서도 비교값으로 쓰인다.
+- 따라서 `word0` 은 effect asset id 라기보다 **location 대표 hotspot/cell id** 로 보는 해석이 가장 강하다.
+
+`word0` 과 `0x184420` lookup 의 일치:
+
+| effect row / location | word0 | `0x184420` match |
+| --- | --- | --- |
+| `0` | `0x1E` | hotspot `0x1E` -> location `0` |
+| `1` | `0x0D` | hotspot `0x0D` -> location `1` |
+| `2` | `0x01` | hotspot `0x01` -> location `2` |
+| `3` | `0x0A` | hotspot `0x0A` -> location `3` |
+| `4` | `0x37` | hotspot `0x37` -> location `4` |
+| `5` | `0x41` | hotspot `0x41` -> location `5` |
+| `6` | `0x26` | hotspot `0x26` -> location `6` |
+| `7` | `0x05` | hotspot `0x05` -> location `7` |
+| `8` | `0x3B` | hotspot `0x3B` -> location `8` |
+| `9` | `0x3E` | hotspot `0x3E` -> location `9` |
+
+`word3` 은 아직 최종 의미 확정 전이지만, 아래까지는 확인됐다.
+
+- `0x047DEE` / `0x047E26` 에서 `word3` 이 `0x02B96C` 의 `r2` 로 전달된다.
+- `0x02B96C` 는 세 번째 인자를 `& 7` 로 제한한다.
+- 제한된 값은 `0x0383F8` 의 두 번째 인자로 전달된다.
+- 따라서 현재 안전한 해석은 **3-bit object/subresource variant index** 다.

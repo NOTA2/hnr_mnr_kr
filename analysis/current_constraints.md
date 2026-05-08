@@ -17,6 +17,7 @@
 - `0x1849D4` 는 `(location_index, special event/script/message id)` 매핑으로 보는 해석이 강하다.
 - `0x184A0C..0x184AD3` 은 `10 * 0x14` effect/overlay parameter table 후보다.
 - `0x03005FF8` 은 world-map 선택/hover location index byte 로 보는 해석이 강하다.
+- `0x184A0C` row `word0` 은 location 대표 hotspot/cell id 로 보는 해석이 강하다.
 
 ## 반복 금지
 
@@ -34,7 +35,7 @@
 
 ## 현재 질문
 
-1. `0x184A0C` row 의 `word0` / `word3` 이 `0x047A88` 내부에서 어떤 효과를 갖는가
+1. `0x184A0C` row 의 `word3` 이 `0x02B96C` / `0x0383F8` 경로에서 어떤 subresource variant 를 고르는가
 2. `0x1849A0` handler table 의 static cluster 슬롯을 실제로 소비하는 코드는 어디인가
 3. `field3` 가 palette bank 인지, palette + subtype 복합 값인지 더 좁힐 수 있는가
 4. `0x47EB0` 가 `0x3E1..0x3EF` 를 어떤 런타임 객체로 바꾸는가
