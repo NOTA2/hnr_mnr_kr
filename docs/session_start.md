@@ -36,8 +36,8 @@
 
 ## 지금 가장 좋은 다음 한 단계
 
-1. `0x1849A0` handler table singular cluster slot 소비 경로 찾기
-2. `0x03005FF8` effect/overlay table index 선택 경로 확인
+1. `0x184A0C` effect/overlay row 의 `word0` / `word3` 세부 의미 확인
+2. `0x1849A0` handler table singular cluster slot 소비 경로 찾기
 3. `field3` exact palette/subtype 의미 추가 분리
 
 매 실행마다 위 셋 중 하나만 끝낸다.

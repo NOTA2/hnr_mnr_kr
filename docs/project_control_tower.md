@@ -17,8 +17,8 @@
 
 ## 현재 최우선 과제
 
-1. `0x1849A0` handler table singular cluster slot 소비 경로 찾기
-2. `0x03005FF8` effect/overlay table index 선택 경로 확인
+1. `0x184A0C` effect/overlay row 의 `word0` / `word3` 세부 의미 확인
+2. `0x1849A0` handler table singular cluster slot 소비 경로 찾기
 3. `field3` exact palette/subtype 의미 추가 분리
 4. `0x093D` / `0x093E` / `0x094B` 고정 인덱스 리소스와 주변 helper 의미를 더 분리
 
@@ -68,6 +68,9 @@
 - `0x1849A0` handler table 은 direct ref 가 `2`건뿐이고, `0x184248` / `0x1849D4` / `0x184820` / `0x1840F8` 등은 같은 cluster 안에서 반복 소비된다는 점 확인
 - `0x184A0C` 이후 table 도 `0x06D070`, `0x08C1FC` live ref 가 있어 tail 경계를 더 보수적으로 잡아야 한다는 점 확인
 - `0x184A0C..0x184AD3` 이 `10 * 0x14` effect/overlay parameter table 후보이며, `0x06CFB8` 계열 함수가 `0x03005FF8` index 로 row 를 읽어 helper `0x047A88` 에 전달한다는 점 확인
+- `0x03005FF8` 이 독립 effect state 가 아니라 world-map 선택/hover location index byte 로 보이며, `0x06A52E` 가 hit-test loop index `0..9` 를 쓰는 확인된 direct writer 라는 점 확인
+- `0x06CEC0` 이 `0x03005FF8` selected index 를 current-location byte `0x03006020` 으로 복사해 transition 좌표 계산을 시작한다는 점 확인
+- `find-u32-refs` CLI 를 추가해 특정 32비트 값의 literal hit 와 Thumb literal load/read-write 후보를 자동 추적할 수 있게 했다
 - 세이브/진행 메뉴 텍스트와 크레딧 텍스트 추출
 
 ## 작업 후 최소 갱신 규칙

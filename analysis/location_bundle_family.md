@@ -5,6 +5,7 @@
 - [location_bundle_tables.json](/Users/user/test/analysis/location_bundle_tables.json)
 - [location_record_table.md](/Users/user/test/analysis/location_record_table.md)
 - [location_record_table.json](/Users/user/test/analysis/location_record_table.json)
+- [effect_overlay_index_flow.md](/Users/user/test/analysis/effect_overlay_index_flow.md)
 
 ## 핵심 결론
 
@@ -224,6 +225,9 @@ route sequence 공통 패턴:
 현재 가장 안전한 해석:
 
 - 이 table 은 텍스트나 포인터 테이블이 아니라, **world-map effect / overlay spawn parameter table** 후보다.
+- `0x03005FF8` 은 direct code slice 기준으로 독립 effect state 가 아니라 **선택/hover 된 location index byte** 로 보는 해석이 강하다.
+- 확인된 writer 는 `0x06A52E` 이며, hit-test loop index `0..9` 를 `0x03005FF8` 에 byte 로 저장한다.
+- `0x06CEC0` 은 이 selected index 를 current-location byte `0x03006020` 로 복사하므로, 이 값은 "선택 후보 -> 현재 위치 확정" 흐름의 중간 상태로도 쓰인다.
 - `0x047A88` 의 다른 caller (`0x051E96`, `0x051FFE`) 도 구조체 필드들을 같은 helper 로 넘기므로, `0x184A0C` row 는 그 구조체 일부를 정적 table 로 빼 둔 형태에 가깝다.
 - `word1/word2` 는 signed coordinate-like 값으로 바로 사용되고, `word4` 는 helper 내부 optional branch 를 켜는 flag 처럼 쓰인다.
 - `word0` 은 effect/asset id, `word3` 은 helper 내부 sub-parameter 후보로 두되, 정확한 의미는 추가 확인이 필요하다.

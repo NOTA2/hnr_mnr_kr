@@ -71,13 +71,18 @@
 - `0x184A0C..0x184AD3` 은 `10 * 0x14` effect/overlay parameter table 후보이며, `0x06CFB8` 계열 함수가 `0x03002FFC == 0x10` 일 때 `0x03005FF8` byte 를 index 로 사용해 읽는다.
 - 이 row 의 `5`개 word 는 helper `0x047A88` 에 `r0=word0`, `r1=word1`, `r2=word2`, `r3=word3`, `[sp]=word4`, `[sp+4]=0` 형태로 전달된다.
 - `0x047A88` 의 다른 caller (`0x051E96`, `0x051FFE`) 도 구조체 필드를 같은 helper 로 넘기므로, `0x184A0C` 은 텍스트/포인터 table 이 아니라 정적 effect/overlay spawn parameter table 로 보는 편이 맞다.
+- `0x03005FF8` 은 direct code slice 기준으로 독립 effect state 가 아니라 world-map 선택/hover location index byte 로 보는 해석이 가장 강하다.
+- `0x069000..0x06DFFF` 안의 확인된 direct writer 는 `0x06A52E` 하나이며, hit-test loop index `0..9` 를 `strb` 로 저장한다.
+- `0x06CEC0` 은 `0x03005FF8` selected index 를 current-location byte `0x03006020` 으로 복사하고 transition 좌표 계산을 시작한다.
+- `0x06B8B0` 시작부의 `strb #0` 은 `0x03005FF8` 초기화가 아니라 `0x03005FE8` 쪽 write 다. `0x06A5B2` 도 `0x03005FF8` writer 가 아니라 `0x03006018 = 2` state write 다.
+- `find-u32-refs` CLI 가 추가되었고, `0x03005FF8` 분석 결과는 [effect_overlay_index_refs.json](/Users/user/test/analysis/effect_overlay_index_refs.json) / [effect_overlay_index_flow.md](/Users/user/test/analysis/effect_overlay_index_flow.md) 에 있다.
 - 따라서 `selector=0` direct generic caller 부재는 `0x17785C` 의 전용 helper (`0x03BC`, `0x0414`) 로 설명 가능하고, `Registry B` 역시 dead registry 가 아니라 **미러 테이블 + ZP-aware helper family** 경로로 접근되는 live asset bank 로 보는 편이 맞다.
 - 일부 메뉴/진행 메시지는 일반 `00` 종단 평문이 아니라 명령 스트림 내부 문자열이다.
 
 ## 다음 한 단계 후보
 
-1. `0x1849A0` handler table 의 singular cluster slot 을 실제로 소비하는 코드를 찾기
-2. `0x03005FF8` effect/overlay table index 를 어떤 코드가 최종 선택하는지 확인하기
+1. `0x184A0C` effect/overlay row 의 `word0` / `word3` 세부 의미를 `0x047A88` 내부에서 좁히기
+2. `0x1849A0` handler table 의 singular cluster slot 을 실제로 소비하는 코드를 찾기
 3. `field3` exact palette/subtype 의미를 더 좁히기
 
 매 실행에서는 위 셋 중 **하나만** 고른다.

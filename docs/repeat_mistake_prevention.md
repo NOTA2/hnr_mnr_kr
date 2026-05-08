@@ -11,6 +11,13 @@
 3. 같은 실험을 다시 할 때는 무엇이 달라졌는지 적는다.
 4. 한 단계에서 하나의 의미 있는 진전만 만든다.
 5. 구조 해석이 바뀌면 관련 문서와 로그를 같이 갱신한다.
+6. literal pool 근처를 볼 때는 값 주소만 보지 말고, 실제 `ldr` instruction 의 PC-relative target 을 계산한다.
+
+## 최근 추가된 주의점
+
+- `0x06B8B0` 시작부의 `strb #0` 을 `0x03005FF8` 초기화로 기록하지 않는다. 해당 write 는 `0x03005FE8` 쪽이다.
+- `0x06A5B2` 의 `strb #2` 를 `0x03005FF8` write 로 기록하지 않는다. 해당 write 는 `0x03006018 = 2` state 전환이다.
+- 특정 global 의 writer/reader 를 분리할 때는 `find-u32-refs` 결과의 `access=write_byte/read_byte` 를 먼저 확인한 뒤 수동 disassembly 로 보강한다.
 
 ## 작업 전 최소 체크
 

@@ -332,6 +332,153 @@ def find_pointers(data: bytes, target_offset: int, *, aligned_only: bool = True,
     return hits
 
 
+def parse_u32(value: str) -> int:
+    parsed = int(value, 0)
+    if parsed < 0 or parsed > 0xFFFFFFFF:
+        raise ToolError("32비트 범위를 벗어난 값입니다.")
+    return parsed
+
+
+def find_u32_values(
+    data: bytes,
+    value: int,
+    *,
+    aligned_only: bool = False,
+    start: int = 0,
+    end: Optional[int] = None,
+    limit: Optional[int] = None,
+) -> List[int]:
+    needle = struct.pack("<I", value)
+    hits: List[int] = []
+    step = 4 if aligned_only else 1
+    stop = (len(data) if end is None else min(end, len(data))) - 3
+    offset = start
+    if aligned_only and offset % 4:
+        offset += 4 - (offset % 4)
+    for offset in range(offset, stop, step):
+        if data[offset:offset + 4] != needle:
+            continue
+        hits.append(offset)
+        if limit is not None and len(hits) >= limit:
+            return hits
+    return hits
+
+
+def decode_thumb_ldr_literal(data: bytes, offset: int) -> Optional[Tuple[int, int]]:
+    if offset < 0 or offset + 2 > len(data):
+        return None
+    insn = struct.unpack_from("<H", data, offset)[0]
+    if (insn & 0xF800) != 0x4800:
+        return None
+    register = (insn >> 8) & 0x7
+    pc = (offset + 4) & ~0x3
+    literal_offset = pc + ((insn & 0xFF) * 4)
+    return register, literal_offset
+
+
+def describe_thumb16(data: bytes, offset: int) -> str:
+    if offset < 0 or offset + 2 > len(data):
+        return "out-of-range"
+    insn = struct.unpack_from("<H", data, offset)[0]
+    if (insn & 0xF800) == 0x4800:
+        register, literal_offset = decode_thumb_ldr_literal(data, offset) or (0, 0)
+        return f"ldr r{register}, [pc] -> {format_offset(literal_offset)}"
+    if (insn & 0xF800) == 0x7800:
+        return f"ldrb r{insn & 7}, [r{(insn >> 3) & 7}, #{(insn >> 6) & 0x1F}]"
+    if (insn & 0xF800) == 0x7000:
+        return f"strb r{insn & 7}, [r{(insn >> 3) & 7}, #{(insn >> 6) & 0x1F}]"
+    if (insn & 0xF800) == 0x6800:
+        return f"ldr r{insn & 7}, [r{(insn >> 3) & 7}, #{((insn >> 6) & 0x1F) * 4}]"
+    if (insn & 0xF800) == 0x6000:
+        return f"str r{insn & 7}, [r{(insn >> 3) & 7}, #{((insn >> 6) & 0x1F) * 4}]"
+    if (insn & 0xF800) == 0x8800:
+        return f"ldrh r{insn & 7}, [r{(insn >> 3) & 7}, #{((insn >> 6) & 0x1F) * 2}]"
+    if (insn & 0xF800) == 0x8000:
+        return f"strh r{insn & 7}, [r{(insn >> 3) & 7}, #{((insn >> 6) & 0x1F) * 2}]"
+    if (insn & 0xF800) == 0x2800:
+        return f"cmp r{(insn >> 8) & 7}, #{insn & 0xFF}"
+    if (insn & 0xF800) == 0x2000:
+        return f"movs r{(insn >> 8) & 7}, #{insn & 0xFF}"
+    return f"thumb16 0x{insn:04X}"
+
+
+def infer_literal_access(data: bytes, instruction_offset: int, register: int, *, max_instructions: int = 8) -> str:
+    for index in range(1, max_instructions + 1):
+        offset = instruction_offset + index * 2
+        if offset + 2 > len(data):
+            break
+        insn = struct.unpack_from("<H", data, offset)[0]
+        opcode = insn & 0xF800
+        base = (insn >> 3) & 7
+        if base == register:
+            if opcode == 0x7000:
+                return "write_byte"
+            if opcode == 0x7800:
+                return "read_byte"
+            if opcode == 0x6000:
+                return "write_word"
+            if opcode == 0x6800:
+                return "read_word"
+            if opcode == 0x8000:
+                return "write_halfword"
+            if opcode == 0x8800:
+                return "read_halfword"
+        dest = None
+        if opcode in {0x4800, 0x2000, 0x2800}:
+            dest = (insn >> 8) & 7
+        elif opcode in {0x7000, 0x7800, 0x6000, 0x6800, 0x8000, 0x8800}:
+            dest = insn & 7
+        if dest == register and opcode != 0x2800:
+            break
+    return "unknown"
+
+
+def find_thumb_literal_loads(
+    data: bytes,
+    literal_offsets: Sequence[int],
+    *,
+    start: int = 0,
+    end: Optional[int] = None,
+    limit: Optional[int] = None,
+) -> List[dict]:
+    literal_set = set(literal_offsets)
+    stop = len(data) if end is None else min(end, len(data))
+    if start < 0 or start >= stop:
+        raise ToolError("잘못된 Thumb literal 검색 범위입니다.")
+
+    hits: List[dict] = []
+    for offset in range(start, stop - 1, 2):
+        decoded = decode_thumb_ldr_literal(data, offset)
+        if decoded is None:
+            continue
+        register, literal_offset = decoded
+        if literal_offset not in literal_set:
+            continue
+        context = []
+        for context_offset in range(max(start, offset - 4), min(stop, offset + 18), 2):
+            context.append(
+                {
+                    "offset": context_offset,
+                    "rom_address": ROM_BASE + context_offset,
+                    "instruction": describe_thumb16(data, context_offset),
+                }
+            )
+        hits.append(
+            {
+                "instruction_offset": offset,
+                "instruction_rom_address": ROM_BASE + offset,
+                "literal_offset": literal_offset,
+                "literal_rom_address": ROM_BASE + literal_offset,
+                "register": f"r{register}",
+                "access": infer_literal_access(data, offset, register),
+                "context": context,
+            }
+        )
+        if limit is not None and len(hits) >= limit:
+            return hits
+    return hits
+
+
 def sign_extend(value: int, bits: int) -> int:
     if value & (1 << (bits - 1)):
         value -= 1 << bits
@@ -819,6 +966,61 @@ def cmd_find_pointers(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_find_u32_refs(args: argparse.Namespace) -> int:
+    rom_path = Path(args.rom)
+    data = load_rom(rom_path)
+    value = parse_u32(args.value)
+    start = parse_offset(args.start) if args.start else 0
+    end = parse_offset(args.end) if args.end else None
+    scoped_word_hits = find_u32_values(data, value, aligned_only=args.aligned, start=start, end=end, limit=args.limit)
+    literal_loads = find_thumb_literal_loads(
+        data,
+        scoped_word_hits,
+        start=start,
+        end=end,
+        limit=args.load_limit,
+    )
+    report = {
+        "value": value,
+        "value_hex": f"0x{value:08X}",
+        "search_start": start,
+        "search_start_rom_address": ROM_BASE + start,
+        "search_end": end,
+        "search_end_rom_address": None if end is None else ROM_BASE + end,
+        "word_hits": [
+            {
+                "offset": offset,
+                "rom_address": ROM_BASE + offset,
+                "aligned": offset % 4 == 0,
+            }
+            for offset in scoped_word_hits
+        ],
+        "thumb_literal_loads": literal_loads,
+    }
+    if args.output:
+        write_json(Path(args.output), report)
+
+    print(f"value: 0x{value:08X}")
+    print(f"word hits: {len(scoped_word_hits)}")
+    for offset in scoped_word_hits[: args.preview]:
+        print(f"  {format_offset(offset)} ({format_rom_address(offset)})")
+    if len(scoped_word_hits) > args.preview:
+        print(f"  ... {len(scoped_word_hits) - args.preview} more")
+    print(f"thumb literal loads: {len(literal_loads)}")
+    for item in literal_loads[: args.preview]:
+        print(
+            f"  {format_offset(item['instruction_offset'])} "
+            f"({format_rom_address(item['instruction_offset'])}) "
+            f"loads {item['register']} from {format_offset(item['literal_offset'])} "
+            f"access={item['access']}"
+        )
+    if len(literal_loads) > args.preview:
+        print(f"  ... {len(literal_loads) - args.preview} more")
+    if args.output:
+        print(f"wrote: {args.output}")
+    return 0
+
+
 def cmd_scan_lz77(args: argparse.Namespace) -> int:
     rom_path = Path(args.rom)
     data = load_rom(rom_path)
@@ -1195,6 +1397,21 @@ def build_parser() -> argparse.ArgumentParser:
     find_ptr.add_argument("--limit", type=int)
     find_ptr.add_argument("--unaligned", action="store_true")
     find_ptr.set_defaults(func=cmd_find_pointers)
+
+    find_u32_refs = sub.add_parser(
+        "find-u32-refs",
+        help="특정 32비트 값을 찾고, 그 literal 을 읽는 Thumb LDR 후보를 함께 표시합니다.",
+    )
+    find_u32_refs.add_argument("rom")
+    find_u32_refs.add_argument("value")
+    find_u32_refs.add_argument("--start")
+    find_u32_refs.add_argument("--end")
+    find_u32_refs.add_argument("--aligned", action="store_true", help="4바이트 정렬 위치만 값 검색")
+    find_u32_refs.add_argument("--limit", type=int, help="값 검색 결과 제한")
+    find_u32_refs.add_argument("--load-limit", type=int, help="Thumb literal load 결과 제한")
+    find_u32_refs.add_argument("--preview", type=int, default=20)
+    find_u32_refs.add_argument("--output")
+    find_u32_refs.set_defaults(func=cmd_find_u32_refs)
 
     find_thumb_bl = sub.add_parser("find-thumb-bl", help="Thumb BL 호출자가 특정 함수 오프셋을 가리키는지 찾습니다.")
     find_thumb_bl.add_argument("rom")

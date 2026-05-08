@@ -491,3 +491,21 @@
   - `0x047A88` 의 다른 caller 도 구조체 필드를 같은 helper 로 넘기므로, 이 table 은 텍스트나 포인터 배열보다 정적 effect/overlay spawn parameter table 로 보는 해석이 강하다.
 - 판정: `성공`
 - 교훈: literal pool 주소를 code entry 로 착각하지 말고, 참조한 instruction 까지 역으로 따라가야 한다. `0x184A0C` 는 이제 "미해석 tail" 이 아니라 별도 fixed-size parameter table 로 다룬다.
+
+### 실험 44
+
+- 가설: `0x03005FF8` 은 `0x184A0C` effect table 만을 위한 독립 index 가 아니라, world-map 선택/hover location index 로 먼저 정해지고 여러 경로에서 재사용될 수 있다.
+- 시도:
+  - `find-u32-refs` CLI 를 추가해 특정 `u32` 값의 literal hit 와 Thumb literal load 후보를 자동으로 뽑도록 했다.
+  - `0x03005FF8` 값을 `0x069000..0x06DFFF` 범위에서 검색해 [effect_overlay_index_refs.json](/Users/user/test/analysis/effect_overlay_index_refs.json) 으로 저장했다.
+  - 자동 분류 결과의 `write_byte` / `read_byte` 후보를 수동 disassembly 로 대조했다.
+- 결과:
+  - 해당 범위에서 `0x03005FF8` literal value hit 는 `10`개, Thumb literal load 는 `27`개였다.
+  - 자동 접근 분류는 `write_byte` `1`개, `read_byte` `26`개로 갈렸다.
+  - 확인된 direct writer 는 `0x06A52E` 하나이며, hit-test loop index `0..9` 를 `0x03005FF8` 에 `strb` 로 저장한다.
+  - `0x06A93E` / `0x06A95E` 는 selected location display 계산에 이 값을 읽고, `0x06B8CA..0x06C07C` 군집은 current-location byte `0x03006020` 과 함께 route/path matrix 계산에 읽는다.
+  - `0x06CEC0` 은 `0x03005FF8` selected index 를 `0x03006020` current-location byte 로 복사한 뒤 transition 좌표 계산을 시작한다.
+  - `0x06CFB8` 계열은 같은 selected index 를 `0x184A0C` effect/overlay parameter row 선택에 사용한다.
+  - 기존에 헷갈리기 쉬웠던 `0x06B8B0` 시작부 `strb #0` 은 `0x03005FF8` 이 아니라 `0x03005FE8` write 였고, `0x06A5B2` 의 `strb #2` 도 `0x03006018` state write 였다.
+- 판정: `성공`
+- 교훈: `0x03005FF8` 은 현재 **선택/hover location index byte** 로 보는 편이 가장 강하다. effect table 의 row 수 `10`은 location 수 `10`과 정렬되며, 앞으로는 이 값 자체보다 `0x184A0C` row 내부 파라미터 의미를 좁히는 것이 더 유리하다.

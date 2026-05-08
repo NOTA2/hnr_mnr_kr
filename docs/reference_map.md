@@ -17,6 +17,8 @@
 - location record JSON: [location_record_table.json](/Users/user/test/analysis/location_record_table.json)
 - location bundle family 요약: [location_bundle_family.md](/Users/user/test/analysis/location_bundle_family.md)
 - location bundle JSON: [location_bundle_tables.json](/Users/user/test/analysis/location_bundle_tables.json)
+- effect/overlay index 흐름: [effect_overlay_index_flow.md](/Users/user/test/analysis/effect_overlay_index_flow.md)
+- effect/overlay index literal refs: [effect_overlay_index_refs.json](/Users/user/test/analysis/effect_overlay_index_refs.json)
 
 ## 텍스트 뱅크 개요
 

@@ -82,6 +82,10 @@
 - `0x184A0C..0x184AD3` 은 현재 `10 * 0x14` effect/overlay parameter table 후보로 보는 해석이 가장 강하다.
 - `0x06CFB8` 계열 함수는 `0x03002FFC == 0x10` 일 때 `0x03005FF8` byte 를 index 로 써서 `0x184A0C + index * 0x14` row 를 읽고, `5`개 word 를 helper `0x047A88` 로 넘긴다.
 - `0x047A88` 의 다른 caller (`0x051E96`, `0x051FFE`) 도 구조체 필드를 같은 helper 로 넘기므로, `0x184A0C` table 은 텍스트나 포인터 배열이 아니라 정적 effect/overlay spawn parameter table 로 보는 편이 맞다.
+- `0x03005FF8` 은 direct code slice (`0x069000..0x06DFFF`) 기준으로 독립 effect state 가 아니라 선택/hover 된 location index byte 로 보는 해석이 가장 강하다.
+- 이 범위에서 확인된 direct writer 는 `0x06A52E` 하나이며, hit-test loop index `0..9` 를 `0x03005FF8` 에 `strb` 로 저장한다.
+- 같은 값은 `0x06A93E` / `0x06A95E` 의 selected label/display 계산, `0x06B8CA..0x06C07C` 의 route/path matrix 계산, `0x06CFE4..0x06D034` 의 effect row 선택에서 반복적으로 read 된다.
+- `0x06CEC0` 은 `0x03005FF8` selected index 를 current-location byte `0x03006020` 으로 복사한 뒤 transition 좌표 계산을 시작한다.
 - `0x17CE98` 부근은 청크 디스크립터보다 주소 배열에 더 가깝다.
 - `0x17785C` 레지스트리는 `0x03BC` / `0x0414` Thumb helper 로 직접 접근되는 것이 확인되었다.
 - 수동 해석 기준으로 `0x03BC` 는 포인터 필드, `0x0414` 는 길이 필드 accessor 에 가깝다.
@@ -124,7 +128,8 @@
 - 특히 `0x184888` 경로는 opcode script 보다 `13-node` 기반 path matrix 로 보는 해석이 더 강하다.
 - `0x184420` 은 path edge table 이 아니라 hit-test / hotspot id -> location index lookup table 로 보는 편이 맞다.
 - `0x1849D4` 는 단순 숫자쌍이 아니라 location index -> special event/script/message id 매핑으로 읽는 편이 맞다.
-- 따라서 이제 미해결점은 "`field3` exact palette/subtype 의미", "`0x1849A0` singular cluster slot 소비 경로", "`0x03005FF8` effect index 선택 경로", "`0x47EB0` / `0x561D4` helper 의미" 쪽으로 더 좁아졌다.
+- 따라서 이제 미해결점은 "`0x184A0C` effect row 세부 파라미터 의미", "`field3` exact palette/subtype 의미", "`0x1849A0` singular cluster slot 소비 경로", "`0x47EB0` / `0x561D4` helper 의미" 쪽으로 더 좁아졌다.
+- `0x03005FF8` 의 직접 선택 흐름은 현재 "world-map 선택/hover location index" 로 상당히 좁혀졌으므로, 남은 질문은 이 값 자체보다 `0x184A0C` effect row 의 세부 파라미터 의미 쪽이다.
 
 ## 근거 문서
 
@@ -133,9 +138,9 @@
 
 ## 다음 할 일
 
-1. `field3` exact palette/subtype 의미 확인
+1. `0x184A0C` row 의 `word0` / `word3` effect subtype 의미 확인
 2. `0x1849A0` handler table singular cluster slot 소비 경로 찾기
-3. `0x03005FF8` effect/overlay table index 선택 경로 확인
+3. `field3` exact palette/subtype 의미 확인
 4. `0x47EB0` / `0x561D4` helper 의미 추가 분리
 5. 왜 `0x17C1C0` 이 상위 허브와 다른 레이아웃을 유지하는지 설명할 구조 찾기
 6. 겹치는 엔트리의 관계를 부모/자식/메타데이터 관점에서 분류

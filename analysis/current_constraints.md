@@ -68,6 +68,9 @@
 60. `0x06D070` 은 함수 시작점이 아니라 `0x06CFB8` 계열 함수의 literal pool 안에 있는 `0x08184A0C` 값이며, 이 함수는 `0x03002FFC == 0x10` 일 때 `0x03005FF8` byte 를 index 로 써서 `0x184A0C + index * 0x14` row 를 읽는다.
 61. 해당 row 의 `5`개 word 는 helper `0x047A88` 에 `r0=word0`, `r1=word1`, `r2=word2`, `r3=word3`, `[sp]=word4`, `[sp+4]=0` 형태로 전달된다.
 62. `0x047A88` 의 다른 caller (`0x051E96`, `0x051FFE`) 도 구조체 필드들을 같은 helper 로 넘기므로, `0x184A0C` 은 텍스트/포인터 table 이 아니라 world-map effect/overlay spawn parameter table 후보로 보는 해석이 강하다.
+63. `0x03005FF8` 은 direct code slice (`0x069000..0x06DFFF`) 기준으로 독립 effect state 가 아니라 선택/hover 된 location index byte 로 보는 해석이 가장 강하다.
+64. 이 범위의 확인된 direct writer 는 `0x06A52E` 하나이며, hit-test loop index `0..9` 를 `strb` 로 저장한다.
+65. `0x06CEC0` 은 `0x03005FF8` selected index 를 current-location byte `0x03006020` 으로 복사한 뒤 transition 좌표 계산을 시작한다.
 
 ## 지금 반복하면 안 되는 가정
 
@@ -89,17 +92,18 @@
 16. `0x1849A0` handler table direct ref 가 적다고 해서 dead table 이라고 가정하지 않는다. 현재는 static constant cluster 내부 슬롯일 가능성이 더 높다.
 17. location/world-map bundle tail 을 무조건 `0x184A0B` 에서 끝난다고 가정하지 않는다. `0x184A0C` 이후 table 도 live ref 가 있다.
 18. `0x184A0C` 를 텍스트 후보나 포인터 배열로 보지 않는다. 현재는 fixed-size effect/overlay parameter row 로 보는 편이 맞다.
+19. `0x06B8B0` 시작부의 `strb #0` 을 `0x03005FF8` 초기화로 보지 않는다. 그 위치의 literal 은 `0x03005FE8` 쪽이다.
+20. `0x06A5B2` 의 `strb #2` 를 `0x03005FF8` write 로 보지 않는다. 이 코드는 state byte `0x03006018 = 2` 를 설정한다.
 
 ## 지금 가장 유력한 다음 질문
 
-1. `field3` 가 정확히 palette bank 인지, 또는 palette + subtype 복합 값인지 더 좁힐 수 있는가
+1. `0x184A0C` row 의 `word0` / `word3` 이 `0x047A88` 내부에서 정확히 어떤 효과를 갖는가
 2. `0x1849A0` handler table 의 단일 static cluster 슬롯을 실제로 소비하는 코드는 어디인가
-3. `0x03005FF8` effect/overlay table index 를 어떤 코드가 최종 선택하는가
-4. `0x184A0C` row 의 `word0` / `word3` 이 `0x047A88` 내부에서 정확히 어떤 효과를 갖는가
-5. `0x47EB0` 가 `0x3E1..0x3EF` 를 어떤 종류의 런타임 객체로 바꾸는가
-6. `0x561D4` hotspot helper 반환값이 실제 맵 좌표계에서 어떤 단위를 의미하는가
-7. `0x093D` binary table 은 `0x093E` 재료 문자열 뱅크와 어떤 관계인가
-8. `0x094B` / `0x12DF8(0x63)` 경로는 어떤 게임 데이터 분류를 읽는가
+3. `field3` 가 정확히 palette bank 인지, 또는 palette + subtype 복합 값인지 더 좁힐 수 있는가
+4. `0x47EB0` 가 `0x3E1..0x3EF` 를 어떤 종류의 런타임 객체로 바꾸는가
+5. `0x561D4` hotspot helper 반환값이 실제 맵 좌표계에서 어떤 단위를 의미하는가
+6. `0x093D` binary table 은 `0x093E` 재료 문자열 뱅크와 어떤 관계인가
+7. `0x094B` / `0x12DF8(0x63)` 경로는 어떤 게임 데이터 분류를 읽는가
 
 ## 문서 사용 규칙
 
