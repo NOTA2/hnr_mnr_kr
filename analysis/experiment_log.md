@@ -304,3 +304,52 @@
   - 세 caller 는 공통적으로 `u16` index 를 읽어 `0x03E8` 을 호출하고, 반환 포인터를 구조체 `+0x8` 필드에 저장한다.
 - 판정: `성공`
 - 교훈: `0x17C7E4` 는 generic 허브 밖의 별도 direct helper 축으로 실제 사용된다. 따라서 `selector=0` 부재는 `0x17785C` 전용 helper 로 설명 가능하고, 현재 상위 registry 중 concrete access route 가 가장 비어 있는 축은 `Registry B (0x17C384)` 다.
+
+### 실험 32
+
+- 가설: `Registry B (0x17C384)` 는 실제 access route 가 없는 dead registry 가 아니라, 다른 ROM 위치에 있는 미러 테이블과 전용 loader helper 를 통해 소비될 수 있다.
+- 시도:
+  - `inspect-chunk-table` 로 `0x17C384` 부터 `115`개 `pointer-length` 엔트리를 [registry_b_entries.json](/Users/user/test/analysis/registry_b_entries.json), [registry_b_entries_textscan.json](/Users/user/test/analysis/registry_b_entries_textscan.json) 으로 분리했다.
+  - 각 엔트리 포인터의 외부 xref 를 전수 조사해 [registry_b_pointer_xrefs.json](/Users/user/test/analysis/registry_b_pointer_xrefs.json) 으로 저장했다.
+  - `0x183D50` 부근 raw table 을 직접 확인해 원본 `Registry B` 와 entry pointer / length 가 완전히 일치하는지 비교했고, 결과를 [registry_b_mirror_summary.json](/Users/user/test/analysis/registry_b_mirror_summary.json) 에 기록했다.
+  - `0x183D50` direct ref 와 literal pool 이 걸리는 `0x068D20..0x068E80` 슬라이스를 ARMv4T 오브젝트로 재조립해 Thumb 흐름을 확인했다.
+  - `find-thumb-bl 0x68DF8` 로 공용 helper caller 를 수집해 [thumb_bl_to_68df8.json](/Users/user/test/analysis/thumb_bl_to_68df8.json) 을 생성했다.
+- 결과:
+  - `Registry B` 엔트리 `115 / 115`개가 `0x183D50` 에 정확히 같은 `pointer-length` 미러 테이블로 다시 존재했다.
+  - 원본 엔트리 포인터는 외부에서 모두 정확히 한 번씩 이 미러 테이블 위치에 다시 나타났다.
+  - `0x183D50` base 자체는 direct ref `22`개가 확인되었고, `0x17C384` 원본 base 는 허브 참조 외에 거의 사용 흔적이 없다.
+  - helper `0x068DF8` 는 `0x183D50 + index * 8` 엔트리를 읽고, 선두 2바이트가 `ZP` 인지 검사해 decode helper (`0x068E40` 부근) 또는 raw fallback (`0x068D54`) 로 분기한다.
+  - `0x068DF8` BL caller 는 `38`개였다.
+  - 미러 엔트리 `50 / 115`개는 `ZP00` 또는 `ZP01` 로 시작했다.
+- 판정: `성공`
+- 교훈: `Registry B` 는 "selector=2 generic caller 가 안 보이는 미해결 축" 이 아니라, **hub base 와 다른 미러/loader 계층** 에서 소비되는 live asset bank 로 봐야 한다. 다음 질문은 access route 존재 여부가 아니라, `0x68DF8` caller 들이 실제로 어떤 index 군과 companion descriptor 를 쓰는가다.
+
+### 실험 33
+
+- 가설: `0x068DF8` caller 는 모두 같은 성격의 direct asset lookup 이 아니라, fixed index 경로와 descriptor-driven 경로가 섞여 있을 수 있다.
+- 시도:
+  - caller 가 몰린 cluster (`0x061A40..0x061E10`, `0x064C40..0x065930`, `0x0662F0..0x0663C0`, `0x067E90..0x068620`, `0x06A090..0x06A120`, `0x06D070..0x06D100`) 를 ARMv4T 오브젝트로 재조립해 Thumb 흐름을 확인했다.
+  - 각 cluster 에서 `0x068DF8` 호출 직전 `r1` 설정 방식을 추적했다.
+- 결과:
+  - 여러 cluster 에서 fixed index 호출이 직접 확인되었다. 대표적으로 `0x5A`, `0x29`, `0x28`, `0x13`, `0x0B`, `0x0E`, `0x0A`, `0x38`, `0x36`, `0x4A` 가 보인다.
+  - 반면 다른 경로에서는 global byte 나 테이블 엔트리에서 읽은 값을 가공해 index 로 사용한다.
+  - `0x06A0FC` / `0x06D0D8` 계열은 `16-byte` descriptor row 의 `+4` 필드 값을 `0x068DF8` index 로 넘기는 루프 구조를 가진다.
+  - `0x061D18` 계열은 테이블 값에 `-1` 보정을 걸어 index 로 쓰는 동적 경로를 가진다.
+- 판정: `성공`
+- 교훈: `0x068DF8` 는 단순 고정 sprite loader 하나가 아니라, **fixed bootstrap asset + descriptor-driven asset selection** 이 섞인 공용 helper 다. 따라서 다음 단계는 단순 caller 수집보다 descriptor table 원본과 global state 의미를 정리하는 쪽이 더 가치가 크다.
+
+### 실험 34
+
+- 가설: `0x183D50` 미러 테이블 바로 뒤 `0x1840E8` 영역은 Registry B asset 을 목적지 메모리로 배치하는 companion descriptor block 일 수 있다.
+- 시도:
+  - `0x1840E8..0x1842C8` raw 값을 직접 확인해 VRAM (`0x0601xxxx`) / palette RAM (`0x050002xx`) 패턴을 찾았다.
+  - `find-pointers` 로 `0x1840E8`, `0x1841E8` direct ref 를 각각 조사했다.
+  - `registry_b_entries.json` 와 대조해 descriptor 안의 index 값이 실제 Registry B 엔트리로 이어지는지 확인했다.
+- 결과:
+  - `0x1840F8..0x1841E7` 에 `15 * 16-byte` row 가 존재하며, `destination_vram + registry_b_index + dim_a + dim_b` 로 읽는 해석이 가장 자연스럽다.
+  - `0x1841E8..0x18421F` 에 `7 * 8-byte` row 가 존재하며, `registry_b_index + destination_palette_ram` 로 읽는 해석이 가장 자연스럽다.
+  - 타일 descriptor 의 index 는 `0x59`, `0x57`, `0x58`, `0x56`, `0x4E`, `0x4F`, `0x4B`, `0x4D`, `0x53`, `0x55`, `0x51`, `0x4C`, `0x52`, `0x54`, `0x6F` 였다.
+  - palette descriptor 의 index 는 `0x61`, `0x60`, `0x5F`, `0x5C`, `0x5D`, `0x5E`, `0x70` 였다.
+  - `0x184220` 이후에는 다른 metadata 와 문자열이 이어져, 전체 `0x1840E8..` 영역이 uniform struct 는 아니라는 경계도 확인되었다.
+- 판정: `성공`
+- 교훈: 미러 테이블 뒤를 한 덩어리로 취급하지 말고, 최소한 `tile descriptor array`, `palette descriptor array`, `metadata/string tail` 로 나눠서 추적해야 한다.

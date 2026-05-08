@@ -5,6 +5,11 @@
 근거 산출물:
 
 - [resource_registry_summary.json](/Users/user/test/analysis/resource_registry_summary.json)
+- [registry_b_entries.json](/Users/user/test/analysis/registry_b_entries.json)
+- [registry_b_entries_textscan.json](/Users/user/test/analysis/registry_b_entries_textscan.json)
+- [registry_b_pointer_xrefs.json](/Users/user/test/analysis/registry_b_pointer_xrefs.json)
+- [registry_b_mirror_summary.json](/Users/user/test/analysis/registry_b_mirror_summary.json)
+- [registry_b_companion_descriptors.json](/Users/user/test/analysis/registry_b_companion_descriptors.json)
 - [resource_chunk_directory.md](/Users/user/test/analysis/resource_chunk_directory.md)
 - [registry_accessor_helpers.md](/Users/user/test/analysis/registry_accessor_helpers.md)
 
@@ -97,7 +102,45 @@
 - 특징:
   - 대부분 바이너리성 리소스로 보인다.
   - 현재 필터 기준으로는 텍스트성이 강한 엔트리가 거의 없다.
-  - 현재까지는 허브 내부 포인터 외 concrete accessor/helper 경로가 확인되지 않았다.
+  - `0x183D50` 에 완전히 같은 `pointer-length` 미러 테이블이 한 번 더 존재한다.
+  - 미러 테이블 엔트리 `50 / 115`개는 선두가 `ZP00` 또는 `ZP01` 이다.
+  - 즉 이 registry 는 "거의 안 쓰이는 binary bank" 보다 **mixed compressed/raw asset bank** 로 보는 편이 맞다.
+
+## Registry B Mirror Table
+
+- base: `0x183D50`
+- 레이아웃: `pointer-length`
+- 엔트리 수: `115`
+- 검증:
+  - 원본 `Registry B` 와 entry pointer / length 가 `115 / 115` 전부 일치한다.
+  - 각 원본 엔트리 포인터는 외부에서 정확히 한 번씩 `0x183D50 + index * 8` 위치에 다시 나타난다.
+- direct ref:
+  - `0x17C384` base 자체는 허브 항목 `0x076538` 외 direct ref 가 사실상 없었다.
+  - 반면 `0x183D50` base 는 현재 `22`개 direct ref 가 확인되었다.
+  - 대표 code/literal ref: `0x0630A4`, `0x0632B0`, `0x0634C8`, `0x066FD0`, `0x068DAC`, `0x068E2C`
+  - 대표 data descriptor ref: `0x08B510`, `0x08B518`, `0x08BAEC`, `0x08BC4C`
+
+이 차이 때문에 현재는 `0x17C384` 원본보다 `0x183D50` 미러 쪽을 **실제 소비되는 live table** 로 보는 해석이 더 강하다.
+
+## Registry B Companion Descriptor Blocks
+
+- `0x1840E8` 전체는 한 가지 uniform struct 라기보다, 앞쪽 header 값과 뒤쪽 복수 descriptor 배열이 섞인 companion area 로 보는 편이 안전하다.
+- `0x1840F8..0x1841E7`:
+  - `15 * 16-byte`
+  - 현재 해석: `destination_vram + registry_b_index + dim_a + dim_b`
+  - 목적지 예시: `0x06010000`, `0x06013000`, `0x06013180`, `0x06010200`
+  - registry index 예시: `0x59`, `0x57`, `0x58`, `0x56`, `0x4E`, `0x4F`, `0x4B`, `0x4D`, `0x53`, `0x55`, `0x51`, `0x4C`, `0x52`, `0x54`, `0x6F`
+- `0x1841E8..0x18421F`:
+  - `7 * 8-byte`
+  - 현재 해석: `registry_b_index + destination_palette_ram`
+  - 목적지 예시: `0x05000200..0x050002C0`
+  - registry index: `0x61`, `0x60`, `0x5F`, `0x5C`, `0x5D`, `0x5E`, `0x70`
+- direct ref:
+  - `0x1840E8` 를 가리키는 직접 포인터: `0x06A984`, `0x08C0A8`
+  - `0x1841E8` 를 가리키는 직접 포인터: `0x06A17C`, `0x06D158`, `0x08BFF8`, `0x08C210`
+- 중요한 경계:
+  - `0x184220` 이후에는 다른 metadata 와 문자열이 이어지기 시작한다.
+  - 따라서 `0x1840E8..` 전체를 uniform struct 로 다루면 안 된다.
 
 ### Registry C
 
@@ -126,6 +169,7 @@
 
 - `0x17785C` 레지스트리는 `0x03BC`, `0x0414` helper 함수로 직접 접근하는 코드 경로가 확인되었다.
 - `0x17C7E4` 레지스트리도 `0x03E8` direct helper 와 `3`개 BL caller 가 확인되어, generic family 밖의 별도 accessor 축으로 보는 근거가 생겼다.
+- `Registry B` 는 원본 base `0x17C384` 쪽 direct helper 가 아니라, `0x183D50` 미러 테이블과 그 주변 helper family 쪽에서 실제로 소비되는 것으로 보인다.
 
 현재 가장 안전한 해석은 아래와 같다.
 
@@ -134,7 +178,7 @@
 - `0x076530` 허브도 단일 평면 구조가 아니라, 최소한 "generic selector 가 쓰는 첫 4엔트리" 와 "별도 direct helper 로 빠지는 `0x17C7E4` 축" 으로 분리해서 봐야 한다.
 - 또한 generic accessor 의 실제 direct 사용은 현재 `Registry A` 와 `Registry C` 로 편중되어 있다.
 - `selector=0` direct generic 사용이 안 보이는 점은 `0x17785C` 전용 helper (`0x03BC`, `0x0414`) 로 설명 가능하다.
-- 그 결과 현재 상위 registry 중 concrete access route 가 비어 있는 축은 사실상 `Registry B (0x17C384)` 뿐이다.
+- `Registry B` 역시 이제는 "concrete access route 가 비어 있는 축" 이 아니라, **hub base 와 다른 미러/loader 계층을 통해 접근되는 축** 으로 재분류하는 편이 맞다.
 
 ## 추가 관찰
 
@@ -144,6 +188,6 @@
 
 ## 다음 유력 작업
 
-1. `Registry B (0x17C384)` 의 concrete access route 찾기
+1. `0x184220` 이후 tail metadata/string block 과 `0x08BFF8` / `0x08C0A8` / `0x08C210` data descriptor ref 패턴 분류
 2. `0x17C1C0` 이 왜 이 공통 레지스트리 묶음 밖에 있는지 설명할 상위 데이터 찾기
 3. `0x093D` / `0x094B` 고정 인덱스 binary resource 의미 분리

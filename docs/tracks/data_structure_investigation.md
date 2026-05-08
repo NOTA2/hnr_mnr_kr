@@ -47,6 +47,15 @@
 - `0x00033C` 의 알려진 BL 호출자 `6`개는 현재 모두 `selector=3` 을 넘긴다.
 - `0x17C7E4` 에 대해서는 별도 direct helper `0x03E8` 이 확인되었고, literal base `0x17C7E4` + `index * 8` 의 첫 `u32` 를 읽는 pointer accessor 로 보인다.
 - `0x03E8` BL 호출자는 `0x0106E6`, `0x010798`, `0x010892` 총 `3`개다.
+- `Registry B (0x17C384)` 의 `115`개 엔트리는 `0x183D50` 에 완전히 같은 `pointer-length` 미러 테이블로 한 번 더 저장되어 있다.
+- `0x183D50` 에 대한 direct pointer ref 는 현재 `22`개가 확인되었다.
+- 공용 helper `0x068DF8` 는 `0x183D50 + index * 8` 에서 엔트리 포인터를 읽고, 선두 2바이트가 `ZP` 인지 검사한 뒤 decode helper (`0x068E40`) 또는 raw fallback (`0x068D54`) 로 분기한다.
+- `0x068DF8` BL 호출자는 현재 `38`개다.
+- 미러 엔트리 중 `50 / 115`개는 `ZP00` 또는 `ZP01` 헤더를 가진다.
+- `0x068DF8` caller 패턴은 mixed 다. 일부는 fixed index (`0x5A`, `0x29`, `0x28`, `0x13`, `0x0B`, `0x0E`, `0x0A`, `0x38`, `0x36`, `0x4A`) 를 직접 넘기고, 일부는 global byte 또는 `16-byte` descriptor row 에서 index 를 읽어 온다.
+- `0x1840F8..0x1841E7` 구간에는 `15`개의 `16-byte` companion descriptor 가 존재하며, 현재 해석은 `destination_vram + registry_b_index + dim_a + dim_b` 다.
+- `0x1841E8..0x18421F` 구간에는 `7`개의 `8-byte` companion descriptor 가 존재하며, 현재 해석은 `registry_b_index + destination_palette_ram` 다.
+- `0x184220` 이후에는 별도 metadata 와 문자열이 섞이기 시작하므로, 이 전체 구간을 하나의 struct family 로 다시 묶으면 안 된다.
 - `0x17CE98` 부근은 청크 디스크립터보다 주소 배열에 더 가깝다.
 - `0x17785C` 레지스트리는 `0x03BC` / `0x0414` Thumb helper 로 직접 접근되는 것이 확인되었다.
 - 수동 해석 기준으로 `0x03BC` 는 포인터 필드, `0x0414` 는 길이 필드 accessor 에 가깝다.
@@ -83,7 +92,8 @@
 - 반면 `0x17C7E4` 는 허브에 포함되어도 `0x000290` family 가 복사하는 4엔트리 바깥에 있어, 상위 registry 묶음 안에서도 별도 취급되는 예외 축으로 보인다.
 - 또한 현재 관찰된 generic hub accessor 사용은 모든 registry 에 고르게 퍼져 있지 않다. direct `0x0002CC` 는 `Registry A` 와 `Registry C` 에만 고정으로 붙어 있다.
 - `selector=0` direct 사용이 안 보이는 점은 `0x17785C` 전용 helper (`0x03BC`, `0x0414`) 가 이미 널리 쓰인다는 점으로 어느 정도 설명된다.
-- 그리고 `0x17C7E4` 도 별도 direct helper (`0x03E8`) 가 확인되었기 때문에, 현재 상위 registry 중 concrete access route 가 비어 있는 축은 사실상 `Registry B (0x17C384)` 뿐이다.
+- 그리고 `Registry B` 역시 실제로는 `0x17C384` 원본 base 가 아니라 `0x183D50` 미러 테이블과 `0x068DF8` 공용 helper family 쪽에서 소비되는 것으로 보인다.
+- 따라서 이제 미해결점은 "Registry B 에 concrete access route 가 있는가"가 아니라, "caller 들이 어떤 index 군과 companion descriptor 를 쓰는가"와 "`0x184220` 이후 tail 이 어떤 상위 descriptor 에 묶이는가"로 바뀌었다.
 
 ## 근거 문서
 
@@ -92,13 +102,14 @@
 
 ## 다음 할 일
 
-1. `Registry B (0x17C384)` 의 concrete access route 찾기
-2. `0x093D` 와 `0x094B` binary table 이 각각 어떤 게임 데이터 분류를 담는지 분리
-3. 왜 `0x17C1C0` 이 상위 허브와 다른 레이아웃을 유지하는지 설명할 구조 찾기
-4. 겹치는 엔트리의 관계를 부모/자식/메타데이터 관점에서 분류
-5. `0x3D2036` 전투 기술 뱅크 참조 방식 확인
-6. `0x3D327E` 대형 능력 뱅크 참조 방식 확인
-7. 폰트 조사에 들어가기 전 텍스트 뱅크 유형 분류 확정
+1. `0x184220` 이후 tail metadata/string block 구조 확인
+2. `0x08BFF8` / `0x08C0A8` / `0x08C210` data descriptor 와 `0x183D50` / `0x1840E8` / `0x1841E8` 연결 구조 확인
+3. `0x093D` 와 `0x094B` binary table 이 각각 어떤 게임 데이터 분류를 담는지 분리
+4. 왜 `0x17C1C0` 이 상위 허브와 다른 레이아웃을 유지하는지 설명할 구조 찾기
+5. 겹치는 엔트리의 관계를 부모/자식/메타데이터 관점에서 분류
+6. `0x3D2036` 전투 기술 뱅크 참조 방식 확인
+7. `0x3D327E` 대형 능력 뱅크 참조 방식 확인
+8. 폰트 조사에 들어가기 전 텍스트 뱅크 유형 분류 확정
 
 ## 진행 로그
 
@@ -122,3 +133,9 @@
 - `0x076530` 허브가 `0x0002C0` literal 을 통해 `0x000290` helper 에서 직접 쓰이며, `0x0002CC` / `0x000304` generic registry accessor 의 기반이라는 점을 확인
 - direct `0x0002CC` 호출들이 `selector=1` 과 `3` 두 군집으로 갈리고, `0x000304` 는 `0x00033C` wrapper 내부 길이 조회로만 보인다는 점을 확인
 - `0x17C7E4` 전용 helper 는 `0x03E4` 가 아니라 `0x03E8` 이며, BL caller `3`개와 `pointer accessor` 패턴이 실제로 확인된다는 점을 확인
+- `Registry B` 원본 테이블이 `0x183D50` 에 완전히 같은 미러 테이블로 한 번 더 저장되며, 이 쪽이 실제 live access path 로 보인다는 점을 확인
+- `0x068DF8` helper 가 `0x183D50` 엔트리 선두의 `ZP` magic 을 검사해 decode 또는 raw fallback 으로 분기하고, BL caller `38`개를 가진다는 점을 확인
+- `0x068DF8` caller 들이 fixed index 경로와 descriptor/global 기반 동적 index 경로로 나뉜다는 점을 확인
+- `0x1840F8..0x1841E7` 구간이 `15 * 16-byte` 타일 companion descriptor 배열이며, Registry B index 와 VRAM 목적지를 함께 담는다는 점을 확인
+- `0x1841E8..0x18421F` 구간이 `7 * 8-byte` palette companion descriptor 배열이며, Registry B index 와 palette RAM 목적지를 함께 담는다는 점을 확인
+- `0x184220` 이후부터는 별도 metadata 와 문자열 tail 이 섞이기 시작한다는 점을 확인

@@ -29,7 +29,7 @@
 
 ## 지금 가장 좋은 다음 한 단계
 
-1. `Registry B (0x17C384)` 가 왜 허브 참조 외 concrete accessor 흔적 없이 남는지 확인
+1. `0x184220` 이후 tail metadata/string block 과 `0x08BFF8` / `0x08C0A8` / `0x08C210` descriptor ref 의미 분리
 2. `0x093D` / `0x094B` 와 연결된 고정 인덱스 resource 의미 추가 분리
 3. 대사/이벤트 평문 구간 추가 탐색
 

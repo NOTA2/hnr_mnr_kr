@@ -17,7 +17,7 @@
 
 ## 현재 최우선 과제
 
-1. `Registry B (0x17C384)` 의 concrete accessor 경로 찾기
+1. `0x184220` 이후 tail metadata/string block 과 `0x08BFF8` / `0x08C0A8` / `0x08C210` descriptor ref 분리
 2. `0x093D` / `0x093E` / `0x094B` 고정 인덱스 리소스와 주변 helper 의미를 더 분리
 3. 대사/이벤트 평문 구간 추가 탐색
 4. 폰트 조사로 넘어갈 수 있을 만큼 텍스트 구조를 더 분리
@@ -47,6 +47,13 @@
 - `0x000304` 의 유일한 BL 호출자는 `0x000392` 이고, 이는 `0x00033C` wrapper 내부 길이 조회라는 점 확인
 - `0x17C7E4` 전용 helper 가 기존 추정 `0x03E4` 가 아니라 실제 BL 호출이 있는 `0x03E8` 이며, `0x0106E6`, `0x010798`, `0x010892` 3개 caller 를 가진다는 점 확인
 - `0x03E8` 는 `0x17C7E4 + index * 8` 의 첫 `u32` 를 읽는 pointer accessor 로 보이며, 이로 인해 현재 concrete access route 가 비어 있는 상위 registry 는 사실상 `0x17C384` 뿐이라는 점 확인
+- `Registry B (0x17C384)` 의 `115`개 엔트리가 `0x183D50` 에 동일한 `pointer-length` 미러 테이블로 한 번 더 저장된다는 점 확인
+- `0x183D50` 은 direct ref `22`개를 가지며, 공용 helper `0x068DF8` 가 `38`개 caller 를 통해 이 미러 테이블을 실제로 소비한다는 점 확인
+- `0x068DF8` 는 엔트리 선두 `ZP` magic 을 검사해 decode 또는 raw fallback 으로 분기하며, `Registry B` 가 mixed compressed/raw asset bank 라는 근거를 제공한다는 점 확인
+- `0x068DF8` caller 들이 고정 index 호출과 descriptor/global 기반 동적 index 호출로 나뉜다는 점 확인
+- `0x1840F8..0x1841E7` 이 `15 * 16-byte` companion descriptor 배열이며, `destination_vram + registry_b_index + 2개 치수값` 패턴으로 읽힌다는 점 확인
+- `0x1841E8..0x18421F` 이 `7 * 8-byte` palette companion descriptor 배열이며, `registry_b_index + destination_palette_ram` 패턴으로 읽힌다는 점 확인
+- `0x184220` 이후에는 다른 metadata 와 문자열이 섞여 시작하므로, `0x1840E8..` 전체를 uniform struct 로 보면 안 된다는 경계 확인
 - 세이브/진행 메뉴 텍스트와 크레딧 텍스트 추출
 
 ## 작업 후 최소 갱신 규칙

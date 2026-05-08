@@ -8,6 +8,7 @@
 - [thumb_bl_to_0414.json](/Users/user/test/analysis/thumb_bl_to_0414.json)
 - [thumb_bl_to_03e4.json](/Users/user/test/analysis/thumb_bl_to_03e4.json)
 - [thumb_bl_to_03e8.json](/Users/user/test/analysis/thumb_bl_to_03e8.json)
+- [thumb_bl_to_68df8.json](/Users/user/test/analysis/thumb_bl_to_68df8.json)
 
 ## Helper 1: `0x03BC`
 
@@ -228,6 +229,54 @@ caller 관찰 메모:
 - [thumb_bl_to_03e4.json](/Users/user/test/analysis/thumb_bl_to_03e4.json) 는 `0x03E4` 가 실제 callable helper 라는 가설을 검증하다 실패한 산출물이다.
 - 현재는 `0x03E8` 이 올바른 helper entry 로 보는 편이 맞다.
 
+## Helper 4: `0x68DF8`
+
+수동 Thumb 해석 기준으로 아래 성격에 가깝다.
+
+- literal base: `0x183D50`
+- 입력 index 를 `index * 8` 오프셋으로 변환해 **Registry B mirror table** 엔트리를 읽는다.
+- 엔트리 포인터 선두 2바이트가 `0x5A 0x50` (`"ZP"`) 인지 검사한다.
+- `ZP` 가 맞으면 내부 decode 경로 (`0x68E40` 부근) 로, 아니면 raw fallback (`0x68D54`) 로 분기한다.
+
+즉, 이 helper 는 `Registry B` 미러 테이블 전용의 **ZP-aware resource accessor/loader** 로 보는 해석이 가장 자연스럽다.
+
+호출자 수:
+
+- `38`개 BL 호출 확인
+
+대표 호출 위치:
+
+- `0x061A6E`
+- `0x064C5E`
+- `0x067EAA`
+- `0x06847A`
+- `0x06A0AA`
+- `0x06D086`
+
+보조 관찰:
+
+- `0x68D54` 는 `0x68DF8` 의 raw fallback 경로로만 BL 호출 `1`개가 확인되었다. (`0x068E34`)
+- 따라서 public/shared entry 는 사실상 `0x68DF8` 쪽으로 보는 편이 맞다.
+- `0x183D50` 미러 테이블 엔트리 `50 / 115`개가 `ZP00` 또는 `ZP01` 로 시작하므로, 이 helper 가 compressed/raw mixed bank 를 처리한다는 정황과 맞아떨어진다.
+- 이 helper 주변에는 미러 테이블 바로 뒤의 companion descriptor block 도 붙어 있다.
+  - `0x1840F8..0x1841E7`: `destination_vram + registry_b_index + dim_a + dim_b`
+  - `0x1841E8..0x18421F`: `registry_b_index + destination_palette_ram`
+  - `0x184220` 이후는 별도 metadata/string tail 로 보이므로, 같은 구조가 아니다.
+
+caller 패턴 요약:
+
+- fixed index 직접 호출 예:
+  - `0x061A6E` cluster: `0x5A`, `0x29`, `0x28`, `0x13`, `0x0B`
+  - `0x064C5E` cluster: `0x5A`, `0x0E`, `0x0B`
+  - `0x06630E` / `0x067EAA` cluster: `0x0A`
+  - `0x06A0AA` / `0x06D086` cluster: `0x38`, `0x36`, `0x4A`
+- dynamic / table-driven 호출 예:
+  - `0x061D18` cluster: 테이블 엔트리에서 읽은 값에 `-1` 보정 후 index 로 사용
+  - `0x067F1E` cluster: global byte 를 읽어 파생된 테이블 경로와 함께 index 를 선택
+  - `0x06A0FC` / `0x06D0D8` cluster: `16-byte` descriptor row 의 `+4` 필드 값을 index 로 사용
+
+즉 `0x68DF8` caller 는 단순한 고정 asset lookup 하나가 아니라, **fixed asset bootstrap + descriptor-driven asset selection** 두 계층이 섞여 있다.
+
 ## 현재 해석
 
 - `0x17785C` 는 상위 레지스트리 중에서도 실제 코드 accessor 가 이미 확인된 핵심 `pointer-length` 레지스트리다.
@@ -235,12 +284,12 @@ caller 관찰 메모:
 - `0x17C7E4` 역시 상위 허브 바깥 예외 축이지만, 이제는 `0x03E8` direct helper 와 `3`개 caller 가 확인되어 실제 accessor 사용 근거가 충분하다.
 - 그리고 `0x17785C` 는 전용 helper (`0x03BC`, `0x0414`) 뿐 아니라, `0x076530` 허브 generic family 의 selector `0` 으로도 접근될 수 있다.
 - 따라서 `selector=0` direct generic caller 가 안 보이는 점은 큰 이상이라기보다, 이미 전용 helper family 가 널리 쓰인 결과일 가능성이 높다.
-- 반면 현재 상위 registry 중 concrete access route 가 가장 비어 있는 축은 `Registry B (0x17C384)` 다.
+- `Registry B` 도 이제는 concrete access route 가 비어 있는 축이 아니라, `0x183D50` 미러 테이블과 `0x68DF8` helper family 를 통해 직접 소비되는 축으로 보는 편이 맞다.
 - 또 `0x000304` 는 사실상 `0x00033C` wrapper 뒤에서만 보이므로, generic `pointer+length` pair 사용도 모든 registry 에 고르게 퍼져 있지 않다.
 - `0x03BC` 단독 호출은 "텍스트 아님" 또는 "문자열 포인터 직접 반환" 둘 중 하나로 단순화할 수 없다.
 - 실제로는 binary table, mixed record directory, in-bank 상대 문자열 포인터가 섞여 있다.
 
 ## 다음 유력 작업
 
-1. `Registry B (0x17C384)` 의 concrete access route 찾기
+1. `0x68DF8` caller 들이 참조하는 descriptor table / global state 정리
 2. `0x093D` / `0x094B` binary table 이 어떤 게임 분류를 담는지 추가 분리

@@ -29,7 +29,16 @@
 21. `0x000304` 의 유일한 BL 호출자는 `0x000392` 이며, 이는 `0x00033C` wrapper 내부 길이 조회다.
 22. `0x00033C` 호출자 `6`개는 현재 모두 `selector=3` 을 넘긴다.
 23. `selector=0` direct generic caller 부재는 `0x17785C` 전용 helper (`0x03BC`, `0x0414`) 가 이미 널리 쓰인다는 점으로 설명 가능하다.
-24. 상위 registry 중 현재 concrete access route 가 허브 참조 외에 거의 안 잡히는 축은 사실상 `Registry B (0x17C384)` 뿐이다.
+24. `Registry B (0x17C384)` 의 `115`개 엔트리는 `0x183D50` 에 완전히 같은 `pointer-length` 미러 테이블로 한 번 더 저장되어 있다.
+25. `0x183D50` 미러 테이블은 direct 포인터 참조 `22`개가 확인되며, 이는 `0x17C384` 의 허브 참조 `1`건보다 훨씬 강한 live access 근거다.
+26. 공용 helper `0x068DF8` 는 `0x183D50 + index * 8` 엔트리를 읽고, 선두 2바이트가 `ZP` 인지 검사해 decode 또는 raw fallback 으로 분기한다.
+27. `0x068DF8` BL 호출자는 현재 `38`개다.
+28. `0x183D50` 미러 엔트리 중 `50 / 115`개가 `ZP00` 또는 `ZP01` 로 시작한다.
+29. 따라서 `Registry B` 는 concrete access route 가 비어 있는 축이 아니라, **미러 테이블 + ZP-aware helper** 경로로 접근되는 mixed compressed/raw asset bank 로 보는 편이 맞다.
+30. `0x068DF8` caller 들은 전부 같은 성격이 아니며, 고정 index 호출과 descriptor/global 기반 동적 index 호출이 섞여 있다.
+31. `0x1840F8..0x1841E7` 구간은 `15 * 16-byte` companion descriptor 배열로 읽히며, 각 row 는 `destination_vram + registry_b_index + dim_a + dim_b` 패턴을 가진다.
+32. `0x1841E8..0x18421F` 구간은 `7 * 8-byte` companion descriptor 배열로 읽히며, 각 row 는 `registry_b_index + destination_palette_ram` 패턴을 가진다.
+33. `0x184220` 이후에는 다른 metadata 와 문자열이 섞이기 시작하므로, `0x1840E8..` 전체를 한 가지 uniform struct 로 다시 다루면 안 된다.
 
 ## 지금 반복하면 안 되는 가정
 
@@ -41,12 +50,14 @@
 6. `0x03BC` 단독 호출부가 곧바로 순수 문자열 포인터를 반환한다고 가정하지 않는다.
 7. `0x076530` 허브의 모든 포인터가 같은 helper family 에서 직접 사용된다고 가정하지 않는다.
 8. `0x0002CC` generic accessor 가 모든 registry selector 를 비슷한 빈도로 쓸 거라고 가정하지 않는다.
+9. `0x1840E8..` 전체를 한 종류의 descriptor 배열이라고 가정하지 않는다.
 
 ## 지금 가장 유력한 다음 질문
 
-1. 왜 `Registry B (0x17C384)` 는 허브 참조 외 concrete access route 가 거의 안 보이는가
-2. `0x093D` binary table 은 `0x093E` 재료 문자열 뱅크와 어떤 관계인가
-3. `0x094B` / `0x12DF8(0x63)` 경로는 어떤 게임 데이터 분류를 읽는가
+1. `0x184220` 이후 tail block 은 정확히 어디서 끝나고, 어떤 metadata/string 구조로 갈라지는가
+2. `0x08BFF8` / `0x08C0A8` / `0x08C210` data descriptor 는 `0x183D50`, `0x1840E8`, `0x1841E8` 을 어떻게 묶는가
+3. `0x093D` binary table 은 `0x093E` 재료 문자열 뱅크와 어떤 관계인가
+4. `0x094B` / `0x12DF8(0x63)` 경로는 어떤 게임 데이터 분류를 읽는가
 
 ## 문서 사용 규칙
 

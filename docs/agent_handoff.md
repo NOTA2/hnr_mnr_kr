@@ -31,12 +31,23 @@
 - `0x17C7E4` 는 허브에 들어 있지만 generic `0x000290` family 가 복사하는 첫 4엔트리 바깥에 남아 있고, 별도 direct helper `0x03E8` 계열로 접근된다.
 - `0x03E8` helper 는 literal base `0x17C7E4` 를 읽고 `base + index * 8` 위치의 첫 `u32` 를 반환하는 pointer accessor 로 보인다.
 - `0x03E8` BL 호출자는 `0x0106E6`, `0x010798`, `0x010892` 총 `3`개다.
-- 따라서 `selector=0` direct generic caller 부재는 `0x17785C` 의 전용 helper (`0x03BC`, `0x0414`) 때문일 가능성이 높고, 현재 상위 registry 중 concrete access route 가 비어 있는 축은 사실상 `Registry B (0x17C384)` 뿐이다.
+- `Registry B (0x17C384)` 의 `115`개 엔트리는 `0x183D50` 에 완전히 같은 `pointer-length` 미러 테이블로 한 번 더 저장되어 있다.
+- `0x183D50` 은 direct 포인터 참조 `22`개가 잡히며, code literal 과 data descriptor 배열 양쪽에서 실제로 소비된다.
+- 공용 helper `0x068DF8` 는 `0x183D50 + index * 8` 에서 엔트리 포인터를 읽고, 선두 2바이트가 `ZP` 인지 검사한 뒤 `ZP`면 내부 decode 경로(`0x068E40`), 아니면 raw fallback (`0x068D54`) 로 분기한다.
+- `0x068DF8` BL 호출자는 현재 `38`개가 확인되었다.
+- 미러 테이블 엔트리 `50 / 115`개는 `ZP00` 또는 `ZP01` 헤더로 시작한다.
+- `0x068DF8` caller 는 한 종류가 아니다. 일부 cluster 는 고정 index (`0x5A`, `0x29`, `0x28`, `0x13`, `0x0B`, `0x0E`, `0x0A`, `0x38`, `0x36`, `0x4A`) 를 직접 넘기고, 다른 cluster 는 global byte / 16-byte descriptor row 에서 index 를 읽어 온다.
+- `0x1840F8..0x1841E7` 구간에는 `15`개의 `16-byte` companion descriptor 가 있으며, 현재 해석은 `destination_vram + registry_b_index + dim_a + dim_b` 다.
+- 이 `15`개 descriptor 는 Registry B index `0x59`, `0x57`, `0x58`, `0x56`, `0x4E`, `0x4F`, `0x4B`, `0x4D`, `0x53`, `0x55`, `0x51`, `0x4C`, `0x52`, `0x54`, `0x6F` 를 사용한다.
+- `0x1841E8..0x18421F` 구간에는 `7`개의 `8-byte` companion descriptor 가 있으며, 현재 해석은 `registry_b_index + destination_palette_ram` 다.
+- 이 `7`개 palette descriptor 는 Registry B index `0x61`, `0x60`, `0x5F`, `0x5C`, `0x5D`, `0x5E`, `0x70` 를 사용한다.
+- `0x184220` 이후에는 다른 metadata 와 문자열이 섞이기 시작하므로, `0x1840E8..` 전체를 한 가지 uniform struct 로 다시 가정하면 안 된다.
+- 따라서 `selector=0` direct generic caller 부재는 `0x17785C` 의 전용 helper (`0x03BC`, `0x0414`) 로 설명 가능하고, `Registry B` 역시 dead registry 가 아니라 **미러 테이블 + ZP-aware helper family** 경로로 접근되는 live asset bank 로 보는 편이 맞다.
 - 일부 메뉴/진행 메시지는 일반 `00` 종단 평문이 아니라 명령 스트림 내부 문자열이다.
 
 ## 다음 한 단계 후보
 
-1. `Registry B (0x17C384)` 의 concrete access route 찾기
+1. `0x184220` 이후 tail metadata/string block 과 `0x08BFF8` / `0x08C0A8` / `0x08C210` data descriptor ref 를 분리하기
 2. `0x093D` / `0x094B` binary resource 의미를 더 분리하기
 3. 대사/이벤트 평문 구간을 추가로 찾기
 
@@ -52,6 +63,8 @@
 
 - 리소스 레지스트리 구조: [resource_registry_map.md](/Users/user/test/analysis/resource_registry_map.md)
 - accessor 함수 메모: [registry_accessor_helpers.md](/Users/user/test/analysis/registry_accessor_helpers.md)
+- Registry B 미러 산출물: [registry_b_mirror_summary.json](/Users/user/test/analysis/registry_b_mirror_summary.json)
+- Registry B companion descriptor 산출물: [registry_b_companion_descriptors.json](/Users/user/test/analysis/registry_b_companion_descriptors.json)
 - 리소스 청크 예외 테이블: [resource_chunk_directory.md](/Users/user/test/analysis/resource_chunk_directory.md)
 - 전체 참고 맵: [reference_map.md](/Users/user/test/docs/reference_map.md)
 

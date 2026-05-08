@@ -1,0 +1,441 @@
+{
+  "mirror_base_offset": 1588560,
+  "mirror_base_rom_address": 135806288,
+  "entry_count": 115,
+  "exact_match": true,
+  "mismatch_count": 0,
+  "mismatches": [],
+  "zp_entry_count": 50,
+  "zp_entries": [
+    {
+      "index": 0,
+      "file_offset": 8167424,
+      "length": 1047,
+      "header": "ZP01"
+    },
+    {
+      "index": 3,
+      "file_offset": 8170552,
+      "length": 1324,
+      "header": "ZP01"
+    },
+    {
+      "index": 4,
+      "file_offset": 8171876,
+      "length": 976,
+      "header": "ZP01"
+    },
+    {
+      "index": 5,
+      "file_offset": 8172852,
+      "length": 1183,
+      "header": "ZP01"
+    },
+    {
+      "index": 6,
+      "file_offset": 8174036,
+      "length": 950,
+      "header": "ZP01"
+    },
+    {
+      "index": 7,
+      "file_offset": 8174988,
+      "length": 1365,
+      "header": "ZP01"
+    },
+    {
+      "index": 8,
+      "file_offset": 8176356,
+      "length": 1306,
+      "header": "ZP01"
+    },
+    {
+      "index": 9,
+      "file_offset": 8177664,
+      "length": 987,
+      "header": "ZP01"
+    },
+    {
+      "index": 10,
+      "file_offset": 8178652,
+      "length": 1279,
+      "header": "ZP01"
+    },
+    {
+      "index": 11,
+      "file_offset": 8179932,
+      "length": 1425,
+      "header": "ZP00"
+    },
+    {
+      "index": 12,
+      "file_offset": 8181360,
+      "length": 122,
+      "header": "ZP01"
+    },
+    {
+      "index": 14,
+      "file_offset": 8184268,
+      "length": 729,
+      "header": "ZP00"
+    },
+    {
+      "index": 15,
+      "file_offset": 8185000,
+      "length": 349,
+      "header": "ZP01"
+    },
+    {
+      "index": 16,
+      "file_offset": 8185352,
+      "length": 639,
+      "header": "ZP01"
+    },
+    {
+      "index": 17,
+      "file_offset": 8185992,
+      "length": 1049,
+      "header": "ZP01"
+    },
+    {
+      "index": 18,
+      "file_offset": 8187044,
+      "length": 796,
+      "header": "ZP01"
+    },
+    {
+      "index": 19,
+      "file_offset": 8187840,
+      "length": 778,
+      "header": "ZP01"
+    },
+    {
+      "index": 37,
+      "file_offset": 8189164,
+      "length": 112,
+      "header": "ZP01"
+    },
+    {
+      "index": 38,
+      "file_offset": 8189276,
+      "length": 146,
+      "header": "ZP01"
+    },
+    {
+      "index": 39,
+      "file_offset": 8189424,
+      "length": 261,
+      "header": "ZP01"
+    },
+    {
+      "index": 40,
+      "file_offset": 8189688,
+      "length": 276,
+      "header": "ZP01"
+    },
+    {
+      "index": 41,
+      "file_offset": 8189964,
+      "length": 716,
+      "header": "ZP01"
+    },
+    {
+      "index": 56,
+      "file_offset": 8218664,
+      "length": 2091,
+      "header": "ZP01"
+    },
+    {
+      "index": 59,
+      "file_offset": 8226860,
+      "length": 1321,
+      "header": "ZP01"
+    },
+    {
+      "index": 62,
+      "file_offset": 8234120,
+      "length": 1321,
+      "header": "ZP01"
+    },
+    {
+      "index": 63,
+      "file_offset": 8235444,
+      "length": 3387,
+      "header": "ZP01"
+    },
+    {
+      "index": 64,
+      "file_offset": 8238832,
+      "length": 2478,
+      "header": "ZP01"
+    },
+    {
+      "index": 65,
+      "file_offset": 8241312,
+      "length": 177,
+      "header": "ZP01"
+    },
+    {
+      "index": 66,
+      "file_offset": 8241492,
+      "length": 168,
+      "header": "ZP01"
+    },
+    {
+      "index": 67,
+      "file_offset": 8241660,
+      "length": 93,
+      "header": "ZP01"
+    },
+    {
+      "index": 68,
+      "file_offset": 8241756,
+      "length": 152,
+      "header": "ZP01"
+    },
+    {
+      "index": 69,
+      "file_offset": 8241908,
+      "length": 146,
+      "header": "ZP01"
+    },
+    {
+      "index": 70,
+      "file_offset": 8242056,
+      "length": 97,
+      "header": "ZP01"
+    },
+    {
+      "index": 71,
+      "file_offset": 8242156,
+      "length": 141,
+      "header": "ZP01"
+    },
+    {
+      "index": 72,
+      "file_offset": 8242300,
+      "length": 111,
+      "header": "ZP01"
+    },
+    {
+      "index": 73,
+      "file_offset": 8242412,
+      "length": 159,
+      "header": "ZP01"
+    },
+    {
+      "index": 74,
+      "file_offset": 8242572,
+      "length": 114,
+      "header": "ZP01"
+    },
+    {
+      "index": 75,
+      "file_offset": 8242688,
+      "length": 181,
+      "header": "ZP01"
+    },
+    {
+      "index": 76,
+      "file_offset": 8242872,
+      "length": 195,
+      "header": "ZP01"
+    },
+    {
+      "index": 77,
+      "file_offset": 8243068,
+      "length": 207,
+      "header": "ZP01"
+    },
+    {
+      "index": 78,
+      "file_offset": 8243276,
+      "length": 412,
+      "header": "ZP01"
+    },
+    {
+      "index": 79,
+      "file_offset": 8243688,
+      "length": 183,
+      "header": "ZP01"
+    },
+    {
+      "index": 80,
+      "file_offset": 8243872,
+      "length": 229,
+      "header": "ZP01"
+    },
+    {
+      "index": 81,
+      "file_offset": 8244104,
+      "length": 392,
+      "header": "ZP01"
+    },
+    {
+      "index": 82,
+      "file_offset": 8244496,
+      "length": 209,
+      "header": "ZP01"
+    },
+    {
+      "index": 83,
+      "file_offset": 8244708,
+      "length": 251,
+      "header": "ZP00"
+    },
+    {
+      "index": 84,
+      "file_offset": 8244960,
+      "length": 212,
+      "header": "ZP01"
+    },
+    {
+      "index": 85,
+      "file_offset": 8245172,
+      "length": 455,
+      "header": "ZP01"
+    },
+    {
+      "index": 91,
+      "file_offset": 8248520,
+      "length": 482,
+      "header": "ZP01"
+    },
+    {
+      "index": 111,
+      "file_offset": 8251780,
+      "length": 482,
+      "header": "ZP01"
+    }
+  ],
+  "mirror_entries": [
+    {
+      "index": 0,
+      "table_offset": 1588560,
+      "rom_address": 142385152,
+      "file_offset": 8167424,
+      "length": 1047,
+      "header_ascii": "ZP01"
+    },
+    {
+      "index": 1,
+      "table_offset": 1588568,
+      "rom_address": 142386200,
+      "file_offset": 8168472,
+      "length": 32,
+      "header_ascii": "..@."
+    },
+    {
+      "index": 2,
+      "table_offset": 1588576,
+      "rom_address": 142386232,
+      "file_offset": 8168504,
+      "length": 2048,
+      "header_ascii": "&..."
+    },
+    {
+      "index": 3,
+      "table_offset": 1588584,
+      "rom_address": 142388280,
+      "file_offset": 8170552,
+      "length": 1324,
+      "header_ascii": "ZP01"
+    },
+    {
+      "index": 4,
+      "table_offset": 1588592,
+      "rom_address": 142389604,
+      "file_offset": 8171876,
+      "length": 976,
+      "header_ascii": "ZP01"
+    },
+    {
+      "index": 5,
+      "table_offset": 1588600,
+      "rom_address": 142390580,
+      "file_offset": 8172852,
+      "length": 1183,
+      "header_ascii": "ZP01"
+    },
+    {
+      "index": 6,
+      "table_offset": 1588608,
+      "rom_address": 142391764,
+      "file_offset": 8174036,
+      "length": 950,
+      "header_ascii": "ZP01"
+    },
+    {
+      "index": 7,
+      "table_offset": 1588616,
+      "rom_address": 142392716,
+      "file_offset": 8174988,
+      "length": 1365,
+      "header_ascii": "ZP01"
+    },
+    {
+      "index": 8,
+      "table_offset": 1588624,
+      "rom_address": 142394084,
+      "file_offset": 8176356,
+      "length": 1306,
+      "header_ascii": "ZP01"
+    },
+    {
+      "index": 9,
+      "table_offset": 1588632,
+      "rom_address": 142395392,
+      "file_offset": 8177664,
+      "length": 987,
+      "header_ascii": "ZP01"
+    },
+    {
+      "index": 10,
+      "table_offset": 1588640,
+      "rom_address": 142396380,
+      "file_offset": 8178652,
+      "length": 1279,
+      "header_ascii": "ZP01"
+    },
+    {
+      "index": 11,
+      "table_offset": 1588648,
+      "rom_address": 142397660,
+      "file_offset": 8179932,
+      "length": 1425,
+      "header_ascii": "ZP00"
+    },
+    {
+      "index": 12,
+      "table_offset": 1588656,
+      "rom_address": 142399088,
+      "file_offset": 8181360,
+      "length": 122,
+      "header_ascii": "ZP01"
+    },
+    {
+      "index": 13,
+      "table_offset": 1588664,
+      "rom_address": 142399212,
+      "file_offset": 8181484,
+      "length": 2784,
+      "header_ascii": "...."
+    },
+    {
+      "index": 14,
+      "table_offset": 1588672,
+      "rom_address": 142401996,
+      "file_offset": 8184268,
+      "length": 729,
+      "header_ascii": "ZP00"
+    },
+    {
+      "index": 15,
+      "table_offset": 1588680,
+      "rom_address": 142402728,
+      "file_offset": 8185000,
+      "length": 349,
+      "header_ascii": "ZP01"
+    }
+  ]
+}

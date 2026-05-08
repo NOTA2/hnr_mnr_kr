@@ -131,7 +131,15 @@
 - `0x17785C` 레지스트리에는 실제 Thumb helper accessor (`0x03BC`, `0x0414`) 가 존재하며, 각각 포인터 필드와 길이 필드를 읽는 함수로 보인다.
 - `0x03BC` 는 BL 호출자 `77`개, `0x0414` 는 `4`개가 확인되었다.
 - 따라서 `selector=0` direct generic caller 부재는 `0x17785C` 전용 helper family 가 이미 널리 쓰인다는 점으로 설명 가능하다.
-- 현재 상위 registry 중 concrete access route 가 허브 참조 외에 거의 안 잡히는 축은 사실상 `Registry B (0x17C384)` 뿐이다.
+- `Registry B (0x17C384)` 의 `115`개 엔트리는 `0x183D50` 에 완전히 같은 `pointer-length` 미러 테이블로 한 번 더 저장되어 있다.
+- `0x183D50` 에 대한 direct ref 는 `22`개가 확인되며, shared helper `0x068DF8` 는 `38`개 caller 를 가진다.
+- `0x068DF8` 는 `0x183D50 + index * 8` 엔트리 선두의 `ZP` magic 을 검사해 decode helper 또는 raw fallback 으로 분기한다.
+- 미러 엔트리 `50 / 115`개가 `ZP00` / `ZP01` 로 시작하므로, `Registry B` 는 mixed compressed/raw asset bank 로 보는 편이 맞다.
+- `0x068DF8` caller 는 모두 같은 방식이 아니며, fixed index 호출과 descriptor/global 기반 동적 index 호출이 섞여 있다.
+- `0x1840F8..0x1841E7` 구간에는 `15 * 16-byte` companion descriptor 배열이 있고, `destination_vram + registry_b_index + 2개 치수값` 패턴으로 읽힌다.
+- `0x1841E8..0x18421F` 구간에는 `7 * 8-byte` palette companion descriptor 배열이 있고, `registry_b_index + destination_palette_ram` 패턴으로 읽힌다.
+- 이 두 배열은 Registry B 미러 asset 을 VRAM / palette RAM 으로 배치하는 동반 metadata 로 보는 해석이 가장 자연스럽다.
+- 반면 `0x184220` 이후에는 다른 metadata 와 문자열이 이어지므로, `0x1840E8..` 전체를 한 종류 구조로 취급하면 안 된다.
 - `0x03BC` 단독 호출부 중 일부는 고정 index 로 특정 리소스 엔트리를 읽는다.
   - `0x093D -> 0x3D2A40` (`0x0320`, binary 4-byte record table)
   - `0x093E -> 0x3D2D60` (`0x06C0`, 재료 문자열 뱅크 + 앞단 7-byte record directory)
@@ -140,7 +148,7 @@
 
 ## 다음 우선순위
 
-1. `Registry B (0x17C384)` 의 concrete access route 를 확인한다.
+1. `0x184220` 이후 tail metadata/string block 과 `0x08BFF8` / `0x08C0A8` / `0x08C210` descriptor ref 패턴을 확인한다.
 2. `0x093D` / `0x094B` binary table 이 어떤 게임 데이터 분류인지 확인한다.
 3. 폰트 타일과 문자 폭 테이블을 찾아 한글 글리프 삽입 준비를 시작한다.
 4. 수정된 추출본을 기준으로 번역 대상 JSON을 정리한다.
