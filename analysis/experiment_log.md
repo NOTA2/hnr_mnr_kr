@@ -707,3 +707,16 @@
   - 따라서 `+0x33E` 는 purely derived field 가 아니라, 상위 state 흐름에서 explicit reset 을 받는 tracked slot field 로 더 좁혀졌다.
 - 판정: `성공`
 - 교훈: writer 탐색이 막힐 때는 consumer helper 주변만 돌지 말고, 상태 전환 루틴이 몰린 상위 range 를 좁혀 보는 편이 효율적이다.
+
+### 실험 57
+
+- 가설: `0x33C` 가 literal scan 에 거의 안 잡히는 이유는 "미사용" 이 아니라, `0xCF << 2` 같은 계산식 접근 때문일 수 있다.
+- 시도:
+  - `0x04F000..0x051200` 전체 window 를 다시 덤프하고, `21CF/20CF/22CF/23CF/24CF` 패턴을 grep 해서 `0xCF << 2` 접근 후보만 따로 모았다.
+  - 그중 `0x050F3E..0x050F56` 과 `0x04F4BA..0x04F524` 를 다시 읽어 `0x33C` consumer 와 slot maintenance 루프 연관성을 점검했다.
+- 결과:
+  - `0x050F3E..0x050F56` 는 base `0x03005014` 에 `0xCF << 2` 를 더해 얻은 halfword 를 읽고, 다른 slot id 와 함께 `0x044320` 으로 넘긴다.
+  - `0x04F4BA..0x04F524` 도 같은 `0xCF << 2` 접근 뒤 `+8` 보정 비교를 사용해 slot clearing 루프에서 제외 대상을 고른다.
+  - 따라서 `0x33C` 계열은 literal `0x0000033C` hit 가 없어도 실제로는 활성 consumer 경로에 들어 있으며, 이 field 는 `0x033E` 와 마찬가지로 tracked raw slot 축으로 보는 해석이 더 강해졌다.
+- 판정: `성공`
+- 교훈: `find-u32-refs` 는 매우 유용하지만, 구조 필드가 작은 곱셈/shift 조합으로 만들어지는 경우에는 별도 immediate-pattern 검색이 필요하다.

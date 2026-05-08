@@ -60,6 +60,7 @@
 - literal pool 값만 보고 code entry 로 취급하지 않는다. 실제 `ldr` instruction 의 PC-relative target 을 확인한다.
 - detached Thumb slice 를 `.org 0` 으로 디스어셈블했을 때는 BL target 을 그대로 ROM 주소로 읽지 않는다. 필요하면 `actual = slice_start + local_target` 으로 다시 맞춘다.
 - `cmp` / `cmn` 같은 register ALU opcode 는 즉시값 비교처럼 보일 수 있으니, `0x4000` 계열 Thumb ALU op 를 따로 확인한다.
+- `0x33C` 처럼 literal hit 가 안 보이는 field 는 `0xCF << 2` 같은 계산식으로 접근할 수 있다. literal scan 결과만으로 "writer/read가 없다"고 결론내리지 않는다.
 
 ## 유용한 명령
 

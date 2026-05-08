@@ -30,6 +30,7 @@
 - `0x06A5B2` 의 `strb #2` 를 `0x03005FF8` write 로 기록하지 않는다. 해당 write 는 `0x03006018 = 2` state 전환이다.
 - 특정 global 의 writer/reader 를 분리할 때는 `find-u32-refs` 결과의 `access=write_byte/read_byte` 를 먼저 확인한 뒤 수동 disassembly 로 보강한다.
 - Thumb register-ALU (`0x4000` 계열) 는 `.hword` 로 넘기지 않는다. `cmp` 와 `cmn` 을 혼동하면 sentinel 해석이 뒤집힐 수 있다.
+- literal hit 가 없는 field 도 곧바로 배제하지 않는다. `0x33C` 처럼 `0xCF << 2` 같은 계산식으로 접근하는 경우는 별도 패턴 검색으로 다시 본다.
 
 ## 작업 전 최소 체크
 
