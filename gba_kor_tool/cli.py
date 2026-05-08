@@ -222,6 +222,41 @@ def iter_delimited_chunks(
             yield start, data[start:], None
 
 
+def iter_sliding_terminated_strings(
+    data: bytes,
+    *,
+    start: int,
+    end: int,
+    terminators: Sequence[int],
+    max_bytes: int,
+) -> Iterable[Tuple[int, bytes, Optional[int]]]:
+    if start < 0 or end > len(data) or start >= end:
+        raise ToolError("잘못된 스캔 범위입니다.")
+    terminator_set = set(terminators)
+    sjis_lead_bytes = set(range(0x81, 0xA0)) | set(range(0xE0, 0xFD))
+    for offset in range(start, end):
+        if data[offset] in terminator_set or data[offset] in (0x00, 0xFF):
+            continue
+        if offset > start and data[offset - 1] in sjis_lead_bytes:
+            continue
+        if offset > start and data[offset - 1] not in terminator_set and data[offset - 1] not in (0x00, 0xFF):
+            continue
+        stop = min(end, offset + max_bytes + 1)
+        found_at: Optional[int] = None
+        found_byte: Optional[int] = None
+        for index in range(offset, stop):
+            b = data[index]
+            if b in terminator_set:
+                found_at = index
+                found_byte = b
+                break
+        if found_at is None:
+            continue
+        if found_at == offset:
+            continue
+        yield offset, data[offset:found_at], found_byte
+
+
 def extract_range_records(
     data: bytes,
     *,
@@ -662,7 +697,27 @@ def cmd_scan_text(args: argparse.Namespace) -> int:
     data = load_rom(rom_path)
     table = TableCodec.from_path(Path(args.table)) if args.table else None
     records = []
-    for offset, payload, terminator in iter_delimited_chunks(data, read_terminators(args.terminator), max_bytes=args.max_bytes):
+    start = parse_offset(args.start) if args.start else 0
+    end = parse_offset(args.end) if args.end else len(data)
+    terminators = read_terminators(args.terminator)
+    if args.sliding and (args.start is None or args.end is None):
+        raise ToolError("--sliding 사용 시 --start/--end 범위를 반드시 지정해야 합니다.")
+
+    if args.sliding:
+        iterator = iter_sliding_terminated_strings(
+            data,
+            start=start,
+            end=end,
+            terminators=terminators,
+            max_bytes=args.max_bytes,
+        )
+    else:
+        if start < 0 or end > len(data) or start >= end:
+            raise ToolError("잘못된 스캔 범위입니다.")
+        iterator = iter_delimited_chunks(data[start:end], terminators, max_bytes=args.max_bytes)
+
+    for rel_offset, payload, terminator in iterator:
+        offset = rel_offset if args.sliding else (start + rel_offset)
         try:
             text, unknown = decode_payload(
                 payload,
@@ -1096,6 +1151,9 @@ def build_parser() -> argparse.ArgumentParser:
     scan_text.add_argument("--min-chars", type=int, default=4)
     scan_text.add_argument("--max-bytes", type=int, default=96)
     scan_text.add_argument("--limit", type=int, default=100)
+    scan_text.add_argument("--start", help="스캔 시작 오프셋 (예: 0x700000)")
+    scan_text.add_argument("--end", help="스캔 끝 오프셋 (exclusive)")
+    scan_text.add_argument("--sliding", action="store_true", help="각 바이트 오프셋에서 종료 바이트까지 슬라이딩 스캔 (범위 필수)")
     scan_text.add_argument("--require-non-ascii", action="store_true", default=True)
     scan_text.add_argument("--require-japanese", action="store_true")
     scan_text.add_argument("--min-japanese-ratio", type=float, default=0.5)

@@ -51,6 +51,15 @@
 - 파일: [ui_skill_texts.json](/Users/user/test/analysis/ui_skill_texts.json)
 - 범위: `0x08B62C` ~ `0x08B809`
 
+### 세이브/진행 관련 메뉴 메시지
+
+- 파일: [save_menu_texts.json](/Users/user/test/analysis/save_menu_texts.json)
+- 범위(블록): `0x772E00` ~ `0x773260`
+- 특징:
+  - 일반적인 `00` 종단 평문 블록이 아니라, **명령 스트림 내부에 박힌 `cp932` 문자열**로 보임
+  - 해당 블록에서는 `0x10` 이 문자열 종단(또는 구분) 역할을 하는 것으로 관측됨
+  - `extract-range` 로는 잡히지 않아 `scan-text --sliding` 으로 추출함
+
 ### 리소스 디스크립터 테이블 덤프
 
 - 파일: [resource_chunks.json](/Users/user/test/analysis/resource_chunks.json)
@@ -84,6 +93,7 @@
 - 전투 기술명/설명 추출
 - 대형 능력 텍스트 뱅크 추출
 - UI 기술 텍스트 추출
+- 세이브 관련 메뉴 메시지 추출(명령 스트림 내 `cp932`, 종단 바이트 `0x10`)
 - 전투/능력 텍스트 뱅크 시작점과 누락 문자열을 재보정
 - 청크 디렉터리 기반으로 재료/속성 텍스트 뱅크를 별도 추출
 - `inspect-chunk-table` 로 리소스 디스크립터 테이블 덤프 생성
