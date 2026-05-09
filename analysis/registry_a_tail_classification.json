@@ -1,0 +1,74 @@
+[
+  {
+    "index": 9,
+    "file_offset": 7811656,
+    "end_offset_exclusive": 8005220,
+    "length": 193564,
+    "status": "no_confirmed_text_source",
+    "note": "plain/sliding/prefixed/fc-script 규칙 기준 유효 text source 미확인"
+  },
+  {
+    "index": 10,
+    "file_offset": 8005220,
+    "end_offset_exclusive": 8014064,
+    "length": 8844,
+    "status": "no_confirmed_text_source",
+    "note": "plain/sliding/prefixed/fc-script 규칙 기준 유효 text source 미확인"
+  },
+  {
+    "index": 11,
+    "file_offset": 8014064,
+    "end_offset_exclusive": 8025356,
+    "length": 11292,
+    "status": "no_confirmed_text_source",
+    "note": "plain/sliding/prefixed/fc-script 규칙 기준 유효 text source 미확인"
+  },
+  {
+    "index": 12,
+    "file_offset": 8025356,
+    "end_offset_exclusive": 8031896,
+    "length": 6540,
+    "status": "active_text_source",
+    "note": "plain gameplay/item text 22건 회수"
+  },
+  {
+    "index": 13,
+    "file_offset": 8031896,
+    "end_offset_exclusive": 8038184,
+    "length": 6288,
+    "status": "no_confirmed_text_source",
+    "note": "plain/sliding/prefixed/fc-script 규칙 기준 유효 text source 미확인"
+  },
+  {
+    "index": 14,
+    "file_offset": 8038184,
+    "end_offset_exclusive": 8051292,
+    "length": 13108,
+    "status": "no_confirmed_text_source",
+    "note": "plain/sliding/prefixed/fc-script 규칙 기준 유효 text source 미확인"
+  },
+  {
+    "index": 15,
+    "file_offset": 8051292,
+    "end_offset_exclusive": 8118340,
+    "length": 67048,
+    "status": "likely_binary_false_positive",
+    "note": "대형 binary 구간 안의 짧은 cp932 우연 decode 3건만 관찰"
+  },
+  {
+    "index": 16,
+    "file_offset": 8118340,
+    "end_offset_exclusive": 8120556,
+    "length": 2216,
+    "status": "no_confirmed_text_source",
+    "note": "plain/sliding/prefixed/fc-script 규칙 기준 유효 text source 미확인"
+  },
+  {
+    "index": 17,
+    "file_offset": 8120556,
+    "end_offset_exclusive": 8129756,
+    "length": 9200,
+    "status": "no_confirmed_text_source",
+    "note": "plain/sliding/prefixed/fc-script 규칙 기준 유효 text source 미확인"
+  }
+]

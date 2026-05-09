@@ -155,11 +155,13 @@
 - 범위: `0x7A750C` ~ `0x7A8E98`
 - 파일:
   - [registry_a_entry12_texts.json](/Users/user/test/analysis/registry_a_entry12_texts.json)
+  - [registry_a_tail_classification.json](/Users/user/test/analysis/registry_a_tail_classification.json)
 - 현재 확인:
-  - plain `cp932 + 00` 추출로 현재 `20`건이 잡힌다.
+  - sliding/정규화 기준으로 현재 `22`건이 잡힌다.
   - 회복약 설명, 이벤트 해결 증표, 파츠, 전달 서류 같은 gameplay/item 계열이 섞여 있다.
-  - 현재 `20`건 중 `14`건은 기존 [item_texts.json](/Users/user/test/analysis/item_texts.json) / gameplay workset 과 중복이고, `6`건은 아직 gameplay workset 에 없는 텍스트다.
+  - 현재 `22`건 중 `16`건은 기존 [item_texts.json](/Users/user/test/analysis/item_texts.json) / gameplay terms 와 중복이고, `6`건은 기존 gameplay terms workset 에 없던 텍스트다.
   - 따라서 entry `12` 는 완전 신규 대형 bank 라기보다, **기존 gameplay/item 텍스트 공급원의 상위 registry source** 로 보는 편이 안전하다.
+  - tail 전체 `9..17` 기준으로는 entry `12` 만 active text source 로 보이고, entry `15` 는 short false-positive 후보, 나머지는 no confirmed text source 로 분류했다.
 
 ### 크레딧(타이틀) 텍스트
 
@@ -182,6 +184,7 @@
 - Registry D 는 슬라이딩 스캔만으로 끝나는 구간이 아니라, `FC 00 ... FC` anchor 규칙을 쓰는 mixed-format 스크립트 자원이라는 점이 더 분명해졌다.
 - Registry A entry 8 분석으로 `0x10` 종단 command-stream 대사 bank 가 훨씬 크게 존재한다는 근거가 생겼고, 지금은 `01 FF <문자수>` 헤더 기반으로 clean extraction 이 가능해졌다.
 - Registry A tail 쪽에서도 entry `12` 처럼 실제 gameplay/item 텍스트 source 가 따로 보이므로, 추출 완료 판정은 상위 registry entry inventory 기준으로 해야 한다.
+- [translation_workset_gameplay_terms.json](/Users/user/test/analysis/translation_workset_gameplay_terms.json) 도 entry `12` 의 신규 `6`건을 포함하도록 갱신되었다.
 - 같은 prefixed 규칙을 상위 registry A/B/C/D 전체에 대입해 본 결과, 현재는 Registry A entry `8` 하나만 강하게 맞는다.
 - 전각 공백 필터 문제를 수정하면서 `battle/ability` 추출본의 누락 문자열을 회수했다.
 - 상위 리소스 청크 기준으로 보았을 때 `material_texts` 라는 별도 텍스트 묶음도 확인되었다.

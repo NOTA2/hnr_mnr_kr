@@ -39,8 +39,9 @@
 
 - Registry A (`18` entries)
   - entry `8`: `01 FF <u16 문자수>` 규칙으로 대형 mixed script bank 추출 완료
-  - entry `12`: plain text hit `20`건 확인. [registry_a_entry12_texts.json](/Users/user/test/analysis/registry_a_entry12_texts.json) 으로 별도 확보
-  - entry `12` 의 `20`건 중 `14`건은 기존 `item_texts` / gameplay terms 와 중복이고, `6`건은 현재 workset 에 아직 없는 텍스트다.
+  - entry `12`: gameplay/item text `22`건 확인. [registry_a_entry12_texts.json](/Users/user/test/analysis/registry_a_entry12_texts.json) 으로 별도 확보
+  - entry `12` 의 `22`건 중 `16`건은 기존 `item_texts` / gameplay terms 와 중복이고, `6`건은 기존 workset 에 없던 텍스트다.
+  - tail `9..17` 의 현재 분류는 [registry_a_tail_classification.json](/Users/user/test/analysis/registry_a_tail_classification.json) 에 정리했다.
   - entry `9..11`, `13..17` 은 현재 기준으로 clean text 공급원이라고 확정되지 않았다.
 - Registry B (`115` entries)
   - 현 단계에서는 live text bank 근거가 약하다.

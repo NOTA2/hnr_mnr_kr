@@ -3,6 +3,8 @@
     "offset": 8029588,
     "rom_address": 142247316,
     "byte_length": 30,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
     "text": "回復薬２体力を１００回復する薬",
     "translation": ""
   },
@@ -10,6 +12,8 @@
     "offset": 8029732,
     "rom_address": 142247460,
     "byte_length": 30,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
     "text": "回復薬４体力を３００回復する薬",
     "translation": ""
   },
@@ -17,6 +21,8 @@
     "offset": 8029804,
     "rom_address": 142247532,
     "byte_length": 30,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
     "text": "回復薬５体力を５００回復する薬",
     "translation": ""
   },
@@ -24,6 +30,8 @@
     "offset": 8029944,
     "rom_address": 142247672,
     "byte_length": 14,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
     "text": "アルが拾った猫",
     "translation": ""
   },
@@ -31,48 +39,44 @@
     "offset": 8030000,
     "rom_address": 142247728,
     "byte_length": 10,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
     "text": "リオライト",
-    "translation": ""
-  },
-  {
-    "offset": 8030012,
-    "rom_address": 142247740,
-    "byte_length": 24,
-    "text": "幻の機械鎧の素材　１／５",
     "translation": ""
   },
   {
     "offset": 8030076,
     "rom_address": 142247804,
     "byte_length": 39,
-    "text": "ヴィリジウム幻の機械鎧の素材　２／５",
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "ヴィリジウム幻の機械鎧の素材　２／５\n\u00188",
     "translation": ""
   },
   {
     "offset": 8030152,
     "rom_address": 142247880,
     "byte_length": 10,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
     "text": "レドニウム",
-    "translation": ""
-  },
-  {
-    "offset": 8030164,
-    "rom_address": 142247892,
-    "byte_length": 24,
-    "text": "幻の機械鎧の素材　３／５",
     "translation": ""
   },
   {
     "offset": 8030228,
     "rom_address": 142247956,
     "byte_length": 39,
-    "text": "ソリタリウム幻の機械鎧の素材　４／５",
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "ソリタリウム幻の機械鎧の素材　４／５\n\u00188",
     "translation": ""
   },
   {
     "offset": 8030304,
     "rom_address": 142248032,
     "byte_length": 10,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
     "text": "クルジウム",
     "translation": ""
   },
@@ -80,20 +84,26 @@
     "offset": 8030556,
     "rom_address": 142248284,
     "byte_length": 31,
-    "text": "爆破されたアルを元に戻した証",
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "爆破されたアルを元に戻した証\u000e 8",
     "translation": ""
   },
   {
     "offset": 8030640,
     "rom_address": 142248368,
     "byte_length": 35,
-    "text": "ブラックハヤテ号誘拐事件解決の証",
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "ブラックハヤテ号誘拐事件解決の証\u000e 8",
     "translation": ""
   },
   {
     "offset": 8030900,
     "rom_address": 142248628,
     "byte_length": 30,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
     "text": "エリシアちゃん誘拐事件解決の証",
     "translation": ""
   },
@@ -101,6 +111,8 @@
     "offset": 8031072,
     "rom_address": 142248800,
     "byte_length": 30,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
     "text": "マスタング大佐　ああ無能！の証",
     "translation": ""
   },
@@ -108,6 +120,8 @@
     "offset": 8031244,
     "rom_address": 142248972,
     "byte_length": 30,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
     "text": "すべてのイベントをクリアした証",
     "translation": ""
   },
@@ -115,6 +129,8 @@
     "offset": 8031316,
     "rom_address": 142249044,
     "byte_length": 10,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
     "text": "アルの右腕",
     "translation": ""
   },
@@ -122,6 +138,8 @@
     "offset": 8031396,
     "rom_address": 142249124,
     "byte_length": 10,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
     "text": "アルの左腕",
     "translation": ""
   },
@@ -129,6 +147,8 @@
     "offset": 8031476,
     "rom_address": 142249204,
     "byte_length": 10,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
     "text": "アルの右足",
     "translation": ""
   },
@@ -136,6 +156,8 @@
     "offset": 8031556,
     "rom_address": 142249284,
     "byte_length": 10,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
     "text": "アルの左足",
     "translation": ""
   },
@@ -143,6 +165,8 @@
     "offset": 8031644,
     "rom_address": 142249372,
     "byte_length": 30,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
     "text": "ブラッドレイ大総統に届ける書類",
     "translation": ""
   },
@@ -150,7 +174,36 @@
     "offset": 8031864,
     "rom_address": 142249592,
     "byte_length": 30,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
     "text": "花束古城の最上階に咲いていた花",
+    "translation": ""
+  },
+  {
+    "offset": 8101198,
+    "rom_address": 142318926,
+    "byte_length": 8,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "祿絣膤薐",
+    "translation": ""
+  },
+  {
+    "offset": 8101207,
+    "rom_address": 142318935,
+    "byte_length": 8,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "誡軛鐫餝",
+    "translation": ""
+  },
+  {
+    "offset": 8101587,
+    "rom_address": 142319315,
+    "byte_length": 8,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "慨鬼郡拘",
     "translation": ""
   }
 ]

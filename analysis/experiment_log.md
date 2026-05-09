@@ -1012,3 +1012,19 @@
   - 따라서 Registry A tail 도 전부 dead/binary 로 단정하면 안 되며, 추출 완료 판정은 **"현재까지 뽑은 파일 수"가 아니라 상위 source inventory 를 모두 점검했는가**로 판단해야 한다는 점이 더 분명해졌다.
 - 판정: `성공`
 - 교훈: 텍스트 커버리지를 말할 때는 "총 문자열 수"를 찾으려 하기보다, 렌더러와 loader 가 공급받는 bank / registry entry 목록을 먼저 닫아야 한다. 새로운 entry-level text source 가 발견되면, 그 즉시 coverage 문서와 inventory 기준을 같이 갱신해야 한다.
+
+### 실험 46
+
+- 가설: Registry A tail entry `12` 는 plain extract 만으로는 일부 문자열을 놓칠 수 있고, tail 전체 `9..17` 도 text source / binary / false-positive 후보로 한 번 더 분류해야 coverage 판단이 흔들리지 않는다.
+- 시도:
+  - tail 전체 `0x773248..0x7C0CDC` 범위에 대해 `prefixed`, `fc-script`, `sliding`, `plain extract` 를 교차 적용했다.
+  - entry `12` 는 sliding scan 결과를 기준으로 다시 정규화해 [registry_a_entry12_texts.json](/Users/user/test/analysis/registry_a_entry12_texts.json) 을 갱신했다.
+  - tail `9..17` 전체는 [registry_a_tail_classification.json](/Users/user/test/analysis/registry_a_tail_classification.json) 으로 분류했다.
+  - 이어서 [translation_workset_gameplay_terms.json](/Users/user/test/analysis/translation_workset_gameplay_terms.json) 에 entry `12` 신규 텍스트를 합쳤다.
+- 결과:
+  - `prefixed` / `fc-script` 규칙은 tail `9..17` 에서 추가 hit `0` 이었다.
+  - entry `12` 는 `20 -> 22` 건으로 보정됐고, 누락되던 `幻の機械鎧の素材　１／５`, `幻の機械鎧の素材　３／５` 도 회수됐다.
+  - entry `15` 에서 보이던 `8-byte` 3건은 대형 binary 구간 안의 short cp932 false-positive 후보로 분류했고, tail 나머지 `9..11`, `13..14`, `16..17` 은 현재 기준 no confirmed text source 로 정리했다.
+  - gameplay terms workset 는 entry `12` 신규 `6`건이 반영되도록 갱신됐다.
+- 판정: `성공`
+- 교훈: coverage audit 에서는 "새 규칙이 더 먹히는가"와 "이미 잡힌 bank 의 추출본이 완전한가"를 같이 봐야 한다. 특히 작은 bank 는 plain extract 결과를 그대로 확정하지 말고, sliding 결과와 대조해 누락 여부를 한 번 더 확인하는 편이 안전하다.

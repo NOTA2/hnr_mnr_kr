@@ -33,7 +33,8 @@
 - Registry A entry `8` (`0x6B594C..0x773248`) 는 지역명만 담긴 entry 가 아니라, `0x10` 종단 command-stream 대사/이벤트/메뉴가 함께 섞인 대형 mixed script bank 후보다.
 - `Registry A entry 8` 안의 많은 대사는 `01 FF <u16 문자수>` 헤더 뒤에 `cp932` 본문이 오는 command-stream 구조로 보인다.
 - 이 규칙으로 재추출한 [registry_a_entry8_prefixed_texts.json](/Users/user/test/analysis/registry_a_entry8_prefixed_texts.json) 은 현재 `9823`건이며, 초반 리오르 대사부터 진행 힌트/플래그 문구, save/menu 일부까지 광범위하게 포함한다.
-- Registry A tail 중 entry `12` (`0x7A750C..0x7A8E98`) 은 plain text hit `20`건이 확인되어 [registry_a_entry12_texts.json](/Users/user/test/analysis/registry_a_entry12_texts.json) 으로 별도 확보했다.
+- Registry A tail 중 entry `12` (`0x7A750C..0x7A8E98`) 은 현재 `22`건이 확인되어 [registry_a_entry12_texts.json](/Users/user/test/analysis/registry_a_entry12_texts.json) 으로 별도 확보했다.
+- Registry A tail `9..17` 의 현재 분류는 [registry_a_tail_classification.json](/Users/user/test/analysis/registry_a_tail_classification.json) 에 정리했다.
 - 상위 registry 단위 재검사 결과, 현재 `01 FF <u16 문자수>` 규칙이 강하게 잡힌 곳은 [prefixed_registry_scan_summary.json](/Users/user/test/analysis/prefixed_registry_scan_summary.json) 기준으로 **Registry A entry 8 하나뿐**이다.
 - 따라서 다른 미추출 대사 구간은 같은 규칙의 반복이 아니라, 별도 mixed format / command stream 으로 우선 취급하는 편이 안전하다.
 - Registry A entry 8 작업용 분할 지도는 [registry_a_entry8_cluster_summary.json](/Users/user/test/analysis/registry_a_entry8_cluster_summary.json) 에 있다.
