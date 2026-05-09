@@ -46,6 +46,13 @@
   - `0x03EB78 / 0x03ECCC / 0x03EDB8` helper family 는 일반 일본어 렌더러가 아니라, `0x03003008` tilemap base 에 **ASCII/숫자 UI glyph** 를 찍는 쪽으로 보인다.
   - 따라서 이 helper family 는 **한글 폰트 원본/문자폭 경로 후보에서 우선 제외**한다.
   - world-map Registry B raw companion 엔트리 `86..89` 는 헤더 뒤를 바로 4bpp 로 덤프해도 글자판이 아니라 잡음이라, **직접 폰트 raw tiles** 후보에서는 우선 제외한다.
+  - world-map 지역명 표시는 `0x06A95A..0x06A972` 에서 `0x18425C + location * 0x2C` 문자열 필드를 `0x014A98 -> 0x014ED0` 로 넘긴다.
+  - `0x014A98` 는 문자 디코더라기보다 **text object / window entry setup helper** 에 가깝다.
+  - `0x014ED0` 는 문자열 바이트를 직접 읽으며 `0x81..0x9F`, `0xE0..0xEF` 를 Shift-JIS multibyte lead byte 후보로, `0x20..0x7E` 를 ASCII / halfwidth 로 분기한다.
+  - `0x015A4C..0x015A80` 는 `0x03001540 + index * 0x2C` text object `11`개를 순회하며 `0x014ED0` 을 호출한다.
+  - `0x0152A2..0x0152C4` 는 현재 문자코드 `u16` 를 `obj + 0x04` lookup table 로 바꾼 뒤, `obj + 0x1A` stride 와 `obj + 0x08` glyph base 로 실제 glyph source pointer 를 계산한다.
+  - `0x01570C / 0x01578C / 0x01580C / 0x01588C` 는 이 glyph source 를 tile target 으로 복사하는 writer family 이고, `0x01590C` / `0x015984` 가 그 하위 halfword writer 다.
+  - 따라서 현재 가장 유력한 공통 일본어 텍스트 경로는 **`0x014A98 / 0x014ED0 / 0x015A4C` family** 다.
 - 따라서 현재 병목은 데이터 구조보다 **폰트/문자 매핑/문자폭** 쪽이다.
 
 ## 분석 보존 위치
@@ -72,6 +79,7 @@
 - 넓은 슬라이딩 스캔은 기본 `--limit 100` 에 걸릴 수 있으니, 전체 회수를 원할 때는 `--limit` 을 명시한다.
 - `0x10` 종단 전역 스캔은 앞쪽 바이너리 잡음도 섞으므로, 클러스터 범위와 상위 registry entry 를 함께 확인한다.
 - `0x03EB78 / 0x03ECCC / 0x03EDB8` 를 general font renderer 로 되짚지 않는다. 현재 증거는 ASCII/숫자 tilemap helper 쪽이다.
+- 공통 일본어 텍스트 경로를 따라갈 때는 `0x014ED0` 의 multibyte / ASCII 분기 아래 glyph lookup 과 width 누적만 우선 추적한다.
 - literal scan 결과만으로 "더 조사할 게 없다"고 결론내리지 않지만, 실제 한글화와 직접 연결되지 않는 deep dive 도 늘리지 않는다.
 
 ## 유용한 명령

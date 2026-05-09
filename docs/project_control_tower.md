@@ -36,6 +36,8 @@
 - Registry A entry `8` 은 [registry_a_entry8_cluster_summary.json](/Users/user/test/analysis/registry_a_entry8_cluster_summary.json) 기준 gap threshold `0x400` 으로 `72`개 작업 cluster 로 나눌 수 있다.
 - 폰트 쪽에서는 `0x0514xx` UI cluster 가 direct renderer 가 아니라 layout / slot setup 경로에 가깝고, Registry B raw companion 엔트리 `86..88` 도 direct raw font tile 후보가 아니라는 점을 먼저 정리했다.
 - 폰트 쪽에서는 `0x03EB78 / 0x03ECCC / 0x03EDB8` helper family 도 일반 일본어 렌더러가 아니라 ASCII/숫자 UI glyph tilemap writer 쪽으로 좁혀졌다.
+- world-map 지역명 caller `0x06A95A..0x06A972` 를 따라가 `0x014A98 -> 0x014ED0 -> 0x015A4C` 공통 text object family 를 찾았고, `0x014ED0` 가 Shift-JIS lead byte 범위를 직접 검사하는 general Japanese text loop 후보라는 점을 확인했다.
+- 이어서 `0x0152A2..0x0152C4` 에서 문자코드가 `obj + 0x04` lookup table, `obj + 0x08` glyph base, `obj + 0x1A` stride 를 통해 glyph source pointer 로 바뀌는 흐름과 `0x01570C..0x015984` writer family 도 확인했다.
 
 - `0x184A0C..0x184AD3` 을 `10 * 0x14` effect/overlay parameter table 후보로 분리했다.
 - `0x03005FF8` 은 world-map 선택/hover location index byte 로 보는 해석이 강해졌다.

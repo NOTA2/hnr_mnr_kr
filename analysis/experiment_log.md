@@ -840,3 +840,34 @@
   - 따라서 `0x33C` 계열은 literal `0x0000033C` hit 가 없어도 실제로는 활성 consumer 경로에 들어 있으며, 이 field 는 `0x033E` 와 마찬가지로 tracked raw slot 축으로 보는 해석이 더 강해졌다.
 - 판정: `성공`
 - 교훈: `find-u32-refs` 는 매우 유용하지만, 구조 필드가 작은 곱셈/shift 조합으로 만들어지는 경우에는 별도 immediate-pattern 검색이 필요하다.
+
+### 실험 35
+
+- 가설: 일반 일본어 텍스트 렌더러는 `0x03EB78` ASCII/숫자 helper family 와 별개로 존재하며, world-map 지역명 표시 경로를 따라가면 공통 text object engine 을 잡을 수 있을 것이다.
+- 시도:
+  - world-map location 선택 경로 `0x06A95A..0x06A972` 를 다시 읽어 지역명 필드가 어떤 helper 로 넘어가는지 확인했다.
+  - `0x014A98`, `0x014ED0`, `0x015A4C..0x015A80` 를 직접 덤프해 object field 접근과 문자열 바이트 분기 여부를 비교했다.
+  - `find-thumb-bl` 로 `0x014A98`, `0x014ED0` caller 를 전역 확인해 특정 화면 전용인지 shared family 인지 점검했다.
+- 결과:
+  - `0x06A95A..0x06A972` 는 `0x18425C + selected_location * 0x2C` 문자열 필드를 `0x03005FA0` object 와 함께 `0x014A98` 에 넘긴 뒤, 바로 `0x014ED0` 을 호출한다.
+  - `0x014A98` 는 object field `+0x10`, `+0x14`, `+0x20..+0x24` 주변을 세팅하는 setup helper 로 보이며, 직접적인 문자 디코더로 읽히지 않는다.
+  - `0x014ED0` 는 object `+0x0C` 문자열 포인터에서 현재 바이트를 읽고, `0x81..0x9F` / `0xE0..0xEF` 를 Shift-JIS multibyte lead byte 후보로, `0x20..0x7E` 를 ASCII / halfwidth 로 분기한다.
+  - `0x015A4C..0x015A80` 는 `0x03001540 + index * 0x2C` text object `11`개를 순회하며 `0x014ED0` 을 호출한다.
+  - 따라서 현재 가장 유력한 general Japanese text renderer 후보는 `0x03EB78` family 가 아니라 **`0x014A98 / 0x014ED0 / 0x015A4C` family** 다.
+- 판정: `성공`
+- 교훈: 폰트 조사에서는 "문자열 길이를 재는 UI helper" 와 "실제 바이트 인코딩을 분기하는 text engine" 을 분리해야 한다. 인코딩 범위를 직접 비교하는 루프를 먼저 잡아야 glyph table 과 width lookup 으로 안정적으로 내려갈 수 있다.
+
+### 실험 36
+
+- 가설: `0x014ED0` 아래에는 문자코드를 glyph source pointer 로 바꾸는 공통 lookup 이 있을 것이고, 이를 잡으면 한글 폰트 치환의 핵심 object field 를 식별할 수 있을 것이다.
+- 시도:
+  - `0x015220..0x015640` 을 직접 읽어 `0x014ED0` 내부에서 현재 문자코드가 어디에 쓰이는지 추적했다.
+  - 이어서 `0x015608`, `0x01570C`, `0x01578C`, `0x01580C`, `0x01588C`, `0x01590C`, `0x015984` 를 덤프해 glyph copy writer 구조를 비교했다.
+- 결과:
+  - `0x0152A2..0x0152C4` 에서 현재 문자코드 `u16` 는 `obj + 0x04` 기반 `u16` lookup table 로 조회된다.
+  - 조회값은 `obj + 0x1A` (`ldrh [obj + 26]`) 와 곱해지고, `obj + 0x08` base pointer 에 더해져 glyph source pointer 가 된다.
+  - 현재 가장 안전한 해석은 `obj + 0x04 = char_code -> glyph index/offset table`, `obj + 0x08 = glyph data base`, `obj + 0x1A = glyph stride` 다.
+  - `0x01570C / 0x01578C / 0x01580C / 0x01588C` 는 이 glyph source 를 tile target 으로 풀어쓰는 writer family 이고, 실제 low-level halfword writer 는 `0x01590C` / `0x015984` 두 종류로 갈린다.
+  - `0x015608` 은 `obj + 0x1F` 와 `obj + 0x10` 을 사용해 `obj + 0x14` destination pointer 를 다시 계산하므로, text object 가 tile page 단위 cursor/state 를 별도로 가진다는 점도 확인됐다.
+- 판정: `성공`
+- 교훈: font/encoding 조사에서는 "문자열을 어떻게 읽는가" 다음에 "문자코드를 어떤 object field 조합으로 glyph source 로 바꾸는가"를 잡아야 실제 치환 설계가 가능해진다. lookup table, glyph base, stride, destination cursor 를 분리해서 기록하는 편이 재탐색을 줄인다.

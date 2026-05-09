@@ -38,13 +38,24 @@
   - 이 helper family 는 한글 폰트 원본/문자폭 조사 대상에서 우선 제외한다.
 - world-map Registry B raw companion 엔트리 `86`, `87`, `88` 을 헤더 뒤에서 바로 4bpp 덤프한 결과는 [registry_b_entry_86_tiles.png](/Users/user/test/analysis/registry_b_entry_86_tiles.png), [registry_b_entry_87_tiles.png](/Users/user/test/analysis/registry_b_entry_87_tiles.png), [registry_b_entry_88_tiles.png](/Users/user/test/analysis/registry_b_entry_88_tiles.png) 처럼 잡음에 가깝다.
 - 그래서 현재는 이 raw companion 엔트리들을 **직접 폰트 raw tile 후보에서 우선 제외**한다.
+- world-map 지역명 경로 `0x06A95A..0x06A972` 에서 `0x18425C + selected_location * 0x2C` 문자열 필드가 `0x014A98 -> 0x014ED0` 로 직접 전달된다.
+- `0x014A98` 는 object field 와 플래그를 세팅하는 **text object / window entry setup helper** 에 가깝고, 실제 바이트 디코더로 보이지 않는다.
+- `0x014ED0` 는 object `+0x0C` 문자열 포인터에서 현재 바이트를 읽으며:
+  - `0x81..0x9F`, `0xE0..0xEF`: Shift-JIS multibyte lead byte 후보
+  - `0x20..0x7E`: ASCII / halfwidth 경로
+  - `0x00`: 문자열 종료
+- `0x015A4C..0x015A80` 는 `0x03001540 + index * 0x2C` text object `11`개를 순회하며 `0x014ED0` 을 호출하므로, 이 함수는 single-shot helper 가 아니라 **공용 text object update/render engine** 에 가깝다.
+- 따라서 이제 general Japanese text renderer 후보는 `0x03EB78` family 가 아니라 **`0x014A98 / 0x014ED0 / 0x015A4C` family** 로 본다.
+- `0x0152A2..0x0152C4` 에서는 현재 문자코드 `u16` 를 `obj + 0x04` 기반 `u16` lookup table 로 조회한 뒤, `obj + 0x1A` stride 와 `obj + 0x08` glyph base 를 이용해 실제 glyph source pointer 를 계산한다.
+- 이후 `0x01570C / 0x01578C / 0x01580C / 0x01588C` writer family 가 glyph source 를 target 으로 복사하고, low-level halfword writer 는 `0x01590C` / `0x015984` 두 종류로 갈린다.
+- `0x015608` 은 `obj + 0x1F` 와 `obj + 0x10` 을 사용해 `obj + 0x14` destination pointer 를 재계산하므로, text object 가 tile page 단위 cursor/state 를 따로 가진다는 점도 보였다.
 
 ## 다음 할 일
 
-1. 일본어 문자열을 직접 순회하는 일반 텍스트 렌더러가 `0x03EB78` family 밖 어디에 있는지 찾기
-2. 글자 폭 테이블 존재 여부 확인
-3. 지역명/메뉴 표시용 폰트가 공용인지 확인
-4. ZP/raw graphics 중 폰트 후보 asset 분리
+1. `obj + 0x04` glyph lookup table 과 `obj + 0x08` glyph base 를 세팅하는 initializer 찾기
+2. `0x014ED0` 또는 그 하위 helper 에서 width/advance 누적 field 확인
+3. `0x01570C / 0x01578C / 0x01580C / 0x01588C` 네 writer variant 차이 확인
+4. `0x014A98` caller 화면군이 공통 font asset 을 쓰는지 확인
 
 ## 진행 로그
 
@@ -58,3 +69,5 @@
 - `0x0514xx` UI cluster 와 `0x058720` 을 따라가 본 결과, 이 경로는 문자 렌더링보다 layout / position 보조 루틴에 가깝다는 점을 확인
 - Registry B raw companion 엔트리 `86..88` 을 4bpp 로 직접 덤프했지만 글자판이 아니라 잡음에 가까워, direct raw font 후보에서는 우선 제외
 - `0x03EB78 / 0x03ECCC / 0x03EDB8` 를 추가로 따라가 본 결과, 이 helper family 는 일반 일본어 폰트가 아니라 ASCII/숫자 UI glyph tilemap writer 쪽이라는 점을 확인
+- world-map 지역명 표시 경로에서 `0x014A98 -> 0x014ED0` 공통 text object family 를 잡았고, `0x014ED0` 가 Shift-JIS lead byte 범위를 직접 검사하는 general Japanese text loop 후보라는 점을 확인
+- `0x0152A2..0x0152C4` 에서 문자코드가 `obj + 0x04` lookup table 과 `obj + 0x08` glyph base 를 거쳐 glyph source pointer 로 바뀌는 흐름을 확인
