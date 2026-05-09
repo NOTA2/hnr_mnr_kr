@@ -967,3 +967,18 @@
   - 따라서 이 텍스트 엔진은 **fullwidth / halfwidth 혼합 가변폭형 레이아웃** 으로 보는 해석이 가장 강하다.
 - 판정: `성공`
 - 교훈: 한글화에서 폭 처리가 걱정된다고 해서 곧바로 새 width table 부터 만들 필요는 없다. 먼저 기존 엔진이 어떤 단위로 advance 를 누적하는지 잡아 두면, 한글 glyph 를 fullwidth 그룹으로 맞출지 halfwidth 계열로 변형할지 훨씬 명확해진다.
+
+### 실험 43
+
+- 가설: Registry D 에서 plain terminator sliding scan 으로만 보이던 대사 상당수는, 실제로 `FC` 제어 바이트가 섞인 mixed-format 스크립트 안에 있고 `FC 00` anchor 뒤를 기준으로 더 깔끔하게 추출될 것이다.
+- 시도:
+  - `registry_d_entries_scan.json` 과 실제 엔트리 raw bytes 를 다시 대조해 `text_hits == 0` 인 큰 엔트리들의 시작 패턴을 확인했다.
+  - 그 결과 다수 엔트리에서 `FC 00` 뒤에 `cp932` 본문이 오고, 다음 `FC` 이전에 `0D 0C`, `0A 0B` 같은 줄/페이지 제어가 섞인다는 점을 잡았다.
+  - 이를 바탕으로 `scan-fc-script-text` CLI 를 추가하고, Registry D 전체 물리 범위 `0x7F3000..0x7F96E9` 에 직접 적용했다.
+- 결과:
+  - Registry D `100`개 엔트리 중 `82`개는 `FC 00` anchor 를 포함했고, 실제 clean extraction 은 `81 / 100` 엔트리에서 성립했다.
+  - [registry_d_fc_script_texts.json](/Users/user/test/analysis/registry_d_fc_script_texts.json) 에 현재 `240`건이 정리됐고, 줄바꿈/페이지 제어 바이트는 사람이 읽기 쉬운 줄바꿈으로 정규화됐다.
+  - top entry 분포는 `0=20`, `92=17`, `33=15`, `47=10`, `24=7`, `32=7`, `54=7` 이다.
+  - 따라서 기존 [registry_d_full_sliding_texts.json](/Users/user/test/analysis/registry_d_full_sliding_texts.json) `305`건은 discovery coverage 용, `FC` anchor 추출본 `240`건은 실제 작업용 원본이라는 역할 분리가 가능해졌다.
+- 판정: `성공`
+- 교훈: mixed-format 대사 뱅크에서는 plain terminator scan 만 반복하지 말고, 먼저 엔트리 시작 패턴과 제어 바이트 빈도를 확인해 전용 extractor 후보를 세우는 편이 훨씬 빠르다. 특히 Registry D 는 이제 "추가 구조 분석이 필요한 미해결 구간"이 아니라, **전용 추출 규칙이 확보된 active extraction 구간** 으로 취급해야 한다.

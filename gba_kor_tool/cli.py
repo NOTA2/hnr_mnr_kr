@@ -423,6 +423,100 @@ def scan_prefixed_text_records(
             return records
 
 
+def normalize_fc_script_payload(payload: bytes) -> bytes:
+    normalized = payload
+    while normalized.endswith((b"\x00", b"\x0c", b"\x0d")):
+        normalized = normalized[:-1]
+    normalized = normalized.replace(b"\x0d\x0c", b"\n")
+    normalized = normalized.replace(b"\x0a\x0b", b"\n")
+    normalized = normalized.replace(b"\x0d", b"")
+    normalized = normalized.replace(b"\x0c", b"")
+    normalized = normalized.replace(b"\x0a", b"\n")
+    normalized = normalized.replace(b"\x0b", b"")
+    return normalized
+
+
+def scan_fc_script_text_records(
+    data: bytes,
+    *,
+    start: int,
+    end: int,
+    anchor: bytes,
+    stop_byte: int,
+    encoding: str,
+    min_chars: int,
+    require_non_ascii: bool,
+    require_japanese_text: bool,
+    min_japanese_ratio: float,
+    limit: Optional[int],
+    preview_bytes: int,
+) -> List[dict]:
+    if start < 0 or end > len(data) or start >= end:
+        raise ToolError("잘못된 스캔 범위입니다.")
+    if not anchor:
+        raise ToolError("anchor는 최소 1바이트 이상이어야 합니다.")
+
+    records: List[dict] = []
+    cursor = start
+
+    while True:
+        anchor_offset = data.find(anchor, cursor, end)
+        if anchor_offset == -1:
+            return records
+        cursor = anchor_offset + 1
+        text_offset = anchor_offset + len(anchor)
+        if text_offset >= end:
+            continue
+
+        stop_offset = data.find(bytes([stop_byte]), text_offset, end)
+        if stop_offset == -1:
+            stop_offset = end
+        if stop_offset <= text_offset:
+            continue
+
+        raw_payload = data[text_offset:stop_offset]
+        payload = normalize_fc_script_payload(raw_payload)
+        if not payload:
+            continue
+
+        try:
+            text = payload.decode(encoding)
+        except UnicodeDecodeError:
+            continue
+
+        if len(text) < min_chars:
+            continue
+        if not is_plausible_text(
+            text.replace("\n", ""),
+            require_non_ascii,
+            require_japanese_text,
+            min_japanese_ratio,
+        ):
+            continue
+
+        before_start = max(start, anchor_offset - preview_bytes)
+        after_end = min(end, stop_offset + 1 + preview_bytes)
+        records.append(
+            {
+                "anchor_offset": anchor_offset,
+                "anchor_rom_address": ROM_BASE + anchor_offset,
+                "offset": text_offset,
+                "rom_address": ROM_BASE + text_offset,
+                "anchor": " ".join(f"{byte:02X}" for byte in anchor),
+                "stop_byte": f"0x{stop_byte:02X}",
+                "byte_length": len(payload),
+                "raw_byte_length": len(raw_payload),
+                "before_bytes": data[before_start:anchor_offset].hex(" "),
+                "raw_bytes": raw_payload.hex(" "),
+                "after_bytes": data[stop_offset:after_end].hex(" "),
+                "text": text,
+                "translation": "",
+            }
+        )
+        if limit is not None and len(records) >= limit:
+            return records
+
+
 def find_all(data: bytes, needle: bytes) -> List[int]:
     hits: List[int] = []
     cursor = 0
@@ -1285,6 +1379,37 @@ def cmd_scan_prefixed_text(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_scan_fc_script_text(args: argparse.Namespace) -> int:
+    rom_path = Path(args.rom)
+    data = load_rom(rom_path)
+    records = scan_fc_script_text_records(
+        data,
+        start=parse_offset(args.start),
+        end=parse_offset(args.end),
+        anchor=bytes(parse_hex_byte(part) for part in args.anchor.split()),
+        stop_byte=parse_hex_byte(args.stop_byte),
+        encoding=args.encoding,
+        min_chars=args.min_chars,
+        require_non_ascii=args.require_non_ascii,
+        require_japanese_text=args.require_japanese,
+        min_japanese_ratio=args.min_japanese_ratio,
+        limit=args.limit,
+        preview_bytes=args.preview_bytes,
+    )
+    if args.output:
+        write_json(Path(args.output), records)
+
+    for item in records:
+        print(
+            f"{format_offset(item['anchor_offset'])} -> "
+            f"{format_offset(item['offset'])} "
+            f"[raw {item['raw_byte_length']} bytes / normalized {item['byte_length']} bytes] "
+            f"{item['text']}"
+        )
+    print(f"hits: {len(records)}")
+    return 0
+
+
 def cmd_extract_range(args: argparse.Namespace) -> int:
     rom_path = Path(args.rom)
     data = load_rom(rom_path)
@@ -1947,6 +2072,25 @@ def build_parser() -> argparse.ArgumentParser:
     scan_prefixed_text.add_argument("--min-japanese-ratio", type=float, default=0.5)
     scan_prefixed_text.add_argument("--output")
     scan_prefixed_text.set_defaults(func=cmd_scan_prefixed_text)
+
+    scan_fc_script = sub.add_parser(
+        "scan-fc-script-text",
+        help="FC 제어 바이트가 섞인 스크립트 자원에서 FC 00 anchor 뒤 텍스트를 추출합니다.",
+    )
+    scan_fc_script.add_argument("rom")
+    scan_fc_script.add_argument("--start", required=True, help="스캔 시작 오프셋")
+    scan_fc_script.add_argument("--end", required=True, help="스캔 끝 오프셋 (exclusive)")
+    scan_fc_script.add_argument("--anchor", default="FC 00", help="텍스트 시작 anchor 바이트들")
+    scan_fc_script.add_argument("--stop-byte", default="FC", help="다음 command 시작으로 취급할 바이트")
+    scan_fc_script.add_argument("--encoding", default="cp932")
+    scan_fc_script.add_argument("--min-chars", type=int, default=4)
+    scan_fc_script.add_argument("--limit", type=int)
+    scan_fc_script.add_argument("--preview-bytes", type=int, default=12)
+    scan_fc_script.add_argument("--require-non-ascii", action="store_true", default=True)
+    scan_fc_script.add_argument("--require-japanese", action="store_true")
+    scan_fc_script.add_argument("--min-japanese-ratio", type=float, default=0.5)
+    scan_fc_script.add_argument("--output")
+    scan_fc_script.set_defaults(func=cmd_scan_fc_script_text)
 
     extract_range = sub.add_parser("extract-range", help="지정한 ROM 구간에서 문자열을 추출합니다.")
     extract_range.add_argument("rom")

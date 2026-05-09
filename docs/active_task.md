@@ -25,6 +25,10 @@
 - Registry D (`0x17C7E4..0x17CB04`) 는 아직 덜 추출된 대사/이벤트 텍스트의 핵심 후보다.
 - Registry D 물리 범위 `0x7F3000..0x7F96E9` 를 슬라이딩 스캔하면 현재 `305`개 대사성 문자열이 잡힌다.
 - 전체본은 [registry_d_full_sliding_texts.json](/Users/user/test/analysis/registry_d_full_sliding_texts.json), 번역용 작업 세트는 [translation_workset_registry_d_dialogue.json](/Users/user/test/analysis/translation_workset_registry_d_dialogue.json) 에 있다.
+- Registry D 의 많은 엔트리는 plain terminator 문자열이 아니라 `FC` 제어 바이트가 섞인 mixed script 형식이다.
+- `scan-fc-script-text` 로 `FC 00 ... FC` anchor 기반 추출을 하면 [registry_d_fc_script_texts.json](/Users/user/test/analysis/registry_d_fc_script_texts.json) `240`건이 clean extraction 된다.
+- 위 `240`건은 `81 / 100` 엔트리에서 나오고, per-entry 요약은 [registry_d_fc_script_summary.json](/Users/user/test/analysis/registry_d_fc_script_summary.json) 에 있다.
+- 따라서 Registry D 는 이제 "나중에 다시 볼 미해결 대사 뱅크"가 아니라, **mixed-format 전용 추출 규칙이 잡힌 active extraction 대상** 이다.
 - Registry A entry `8` (`0x6B594C..0x773248`) 는 지역명만 담긴 entry 가 아니라, `0x10` 종단 command-stream 대사/이벤트/메뉴가 함께 섞인 대형 mixed script bank 후보다.
 - `Registry A entry 8` 안의 많은 대사는 `01 FF <u16 문자수>` 헤더 뒤에 `cp932` 본문이 오는 command-stream 구조로 보인다.
 - 이 규칙으로 재추출한 [registry_a_entry8_prefixed_texts.json](/Users/user/test/analysis/registry_a_entry8_prefixed_texts.json) 은 현재 `9823`건이며, 초반 리오르 대사부터 진행 힌트/플래그 문구, save/menu 일부까지 광범위하게 포함한다.
@@ -40,7 +44,7 @@
   - 자유 공간 주입
   - 포인터 갱신
   - `apply-translations` 일괄 반영
-- 아직 **한글을 실제 ROM에 표시할 폰트/인코딩 경로는 확보되지 않았다.**
+- 아직 **한글을 실제 ROM에 표시할 문자 매핑/재삽입 전략은 확보되지 않았다.**
 - 다만 최근 확인으로는:
   - `0x0514xx` UI cluster 는 실제 문자 렌더러보다 **문자열 길이 기반 layout / slot setup** 경로에 가깝다.
   - `0x03EB78 / 0x03ECCC / 0x03EDB8` helper family 는 일반 일본어 렌더러가 아니라, `0x03003008` tilemap base 에 **ASCII/숫자 UI glyph** 를 찍는 쪽으로 보인다.
@@ -116,6 +120,14 @@ python3 -m gba_kor_tool scan-text \
   --limit 500 \
   --output analysis/registry_d_full_sliding_texts.json
 
+python3 -m gba_kor_tool scan-fc-script-text \
+  "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
+  --start 0x7F3000 \
+  --end 0x7F96E9 \
+  --require-japanese \
+  --min-japanese-ratio 0.3 \
+  --output analysis/registry_d_fc_script_texts.json
+
 python3 -m gba_kor_tool scan-text \
   "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
   --start 0x6B594C \
@@ -138,6 +150,7 @@ python3 -m gba_kor_tool scan-prefixed-text \
 ## 완료 조건
 
 - Registry A entry `8` / Registry D 계열 대사 추출본을 더 구조화한다.
+- Registry D mixed script 쪽은 `scan-fc-script-text` 기반 clean extraction 을 기본 원본으로 올린다.
 - Registry A entry `8` 72개 클러스터를 장면/용도 기준으로 조금 더 이름 붙여 관리한다.
 - `01 FF <문자수>` 규칙이 안 통하는 나머지 mixed resource 대사 뱅크 형식을 찾는다.
 - 번역 단계에 들어가기 전까지는 추출본과 구조 근거를 계속 분리 정리한다.

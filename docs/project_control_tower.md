@@ -28,6 +28,7 @@
 - `save_menu_texts` 처럼 `0x10` 종단을 쓰는 명령 스트림형 텍스트도 이제 같은 번역 workset 흐름에 넣을 수 있다.
 - Registry D (`0x17C7E4..0x17CB04`) 전체 물리 범위 `0x7F3000..0x7F96E9` 를 넓은 슬라이딩 스캔으로 다시 훑어 `305`개 대사성 문자열을 확보했다.
 - 위 결과를 [translation_workset_registry_d_dialogue.json](/Users/user/test/analysis/translation_workset_registry_d_dialogue.json) 으로 정리해, 튜토리얼/이벤트/전투 전후 대사를 바로 번역 가능한 workset 으로 전환했다.
+- 이어서 `scan-fc-script-text` CLI 를 추가해 Registry D mixed script 형식 `FC 00 ... FC` anchor 에서 [registry_d_fc_script_texts.json](/Users/user/test/analysis/registry_d_fc_script_texts.json) `240`건을 clean extraction 했고, [registry_d_fc_script_summary.json](/Users/user/test/analysis/registry_d_fc_script_summary.json) 으로 `81 / 100` 엔트리 분포도 정리했다.
 - 넓은 범위 `scan-text` 는 기본 `--limit 100` 으로 잘릴 수 있다는 운영 함정을 확인했고, 이후 wide scan 에서는 limit 을 명시해야 한다.
 - `scan-prefixed-text` CLI 를 추가해 `01 FF <u16 문자수>` command-stream 텍스트를 직접 추출할 수 있게 했다.
 - Registry A entry `8` (`0x6B594C..0x773248`) 는 이제 [registry_a_entry8_prefixed_texts.json](/Users/user/test/analysis/registry_a_entry8_prefixed_texts.json) `9823`건으로 clean extraction 이 가능하다.
