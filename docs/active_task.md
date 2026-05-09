@@ -60,6 +60,7 @@
   - 현재까지 확인한 주요 text object 초기화 경로는 모두 `0x0002CC(0, 1)` 뒤 `0x01499C` 를 호출하므로, registry slot `1` entry `0` 공통 font resource 를 공유하는 해석이 가장 강하다.
   - writer loop 와 stride 를 함께 보면, 현재 가장 강한 해석은 `glyph 1개 = 0x48 bytes = 12x12 4bpp 계열` 이다.
   - `dump-fnt-glyph` 로 `'あ'`, `'ア'`, `'日'` 를 실제 덤프했을 때 12x12 문자 형태가 드러나므로, 이 경로는 샘플 글자 수준까지 검증됐다.
+  - `inspect-fnt` 로 공통 `fnt` payload 전체 mapping manifest [common_fnt_manifest.json](/Users/user/test/analysis/common_fnt_manifest.json) 도 생성 가능하며, 현재 nonzero mapping `1698`개가 실제 문자/glyph index 쌍으로 정리된다.
   - 따라서 현재 가장 유력한 공통 일본어 텍스트 경로는 **`0x014A98 / 0x014ED0 / 0x015A4C` family** 다.
 - 따라서 현재 병목은 데이터 구조보다 **폰트/문자 매핑/문자폭** 쪽이다.
 

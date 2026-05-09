@@ -937,3 +937,18 @@
   - 따라서 `lookup -> glyph index -> glyph_base + index * 0x48 -> 12x12 계열 glyph` 흐름은 샘플 글자 형태까지 확인된 상태가 되었다.
 - 판정: `성공`
 - 교훈: 글자 자산 분석은 숫자와 포인터만으로 끝내지 않는 편이 좋다. 샘플 glyph 를 바로 덤프해 보면 잘못된 stride/row packing 가설을 빨리 걸러낼 수 있고, 한글 폰트 삽입 대상이 진짜 맞는지도 빠르게 확인할 수 있다.
+
+### 실험 41
+
+- 가설: 공통 `fnt` payload 는 샘플 glyph 몇 개만 덤프 가능한 수준이 아니라, 전체 lookup mapping 자체를 JSON 추출본으로 뽑을 수 있을 것이다. 이게 되면 폰트 쪽도 "검증"이 아니라 실제 추출 단계로 올릴 수 있다.
+- 시도:
+  - `inspect-fnt` CLI 를 추가해 payload header, lookup base, glyph base, stride 를 읽고 전체 `0x10000` 코드 공간을 스캔하도록 했다.
+  - 공통 payload `0x3E0000` 에 대해 manifest 를 [common_fnt_manifest.json](/Users/user/test/analysis/common_fnt_manifest.json) 으로 출력했다.
+- 결과:
+  - 공통 `fnt` payload 전체 mapping에서 nonzero entry `1698`개가 실제로 추출되었다.
+  - decoded entry 기준으로 `ASCII 11`, `non-ASCII 1687`, `undecodable 0` 이다.
+  - 최대 glyph index 는 `0x06A2`, glyph coverage end 는 `0x41DDE8` 로 계산되었다.
+  - preview 상으로도 `0x0030 ('0') -> 0x0001`, `0x8141 ('、') -> 0x000C`, `0x8341 ('ア') -> 0x00B7` 같은 mapping 이 바로 확인된다.
+  - 따라서 폰트 쪽도 이제는 "공통 font mapping 전체를 실제 추출본으로 확보한 단계" 라고 말할 수 있다.
+- 판정: `성공`
+- 교훈: 한글화 준비에서 "텍스트는 추출됐지만 폰트는 아직 감" 같은 애매한 상태를 오래 끌지 않는 편이 좋다. 공통 font asset 에 대해 전체 manifest 를 한 번 뽑아 두면, 이후 작업은 구조 추정이 아니라 glyph 배치/대체 전략 문제로 빠르게 전환된다.

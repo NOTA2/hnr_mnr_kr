@@ -96,6 +96,15 @@
   - PGM 뷰어 제약 때문에 ASCII preview 로 확인했을 때, `'日'` 은 12x12 사각 프레임형 획이 꽤 분명했고 `'ア'` 도 대각선/수직형 패턴이 드러났다.
   - 따라서 `lookup -> glyph index -> stride 0x48 -> 12x12 계열 glyph` 해석은 이제 단순 수치 추정이 아니라 **샘플 글자 형태 검증까지 거친 가설** 이다.
 
+- 전체 manifest 추출:
+  - [common_fnt_manifest.json](/Users/user/test/analysis/common_fnt_manifest.json) 은 `inspect-fnt` 로 생성한 공통 `fnt` payload 전체 mapping dump 다.
+  - 현재 요약:
+    - nonzero mappings: `1698`
+    - decoded entries: `ASCII 11`, `non-ASCII 1687`, `undecodable 0`
+    - max glyph index: `0x06A2`
+    - glyph coverage end: `0x41DDE8`
+  - 따라서 font 쪽도 이제는 “가능성 검증”만이 아니라, **공통 mapping 전체를 실제 추출본으로 다룰 수 있는 단계** 다.
+
 - page / cursor update 쪽:
   - `0x015608` 은 `obj + 0x1F` byte 를 갱신하고, `obj + 0x10` base 와 결합해 `obj + 0x14` current destination pointer 를 다시 계산한다.
   - 계산에는 `obj + 0x1F << 10` 계열이 보이므로, text object 가 0x400-byte tile page 단위로 이동하는 해석이 강하다.
@@ -131,4 +140,4 @@
 1. slot `1` 을 이전 문서의 Registry A/B/C/D 분류와 어떻게 대응시킬지 명시적으로 정리
 2. width/advance 값은 object field (`+0x18`, `+0x1A`, `+0x1C`, `+0x20` 부근) 중 어디에 누적되는가?
 3. `0x01570C / 0x01578C / 0x01580C / 0x01588C` 네 variant 가 가로/세로 또는 8x4 / 4x8 복사 중 어떤 역할 차이를 갖는가?
-4. `0x3E0000` font payload glyph 를 PNG 등으로 더 보기 쉽게 시각화할지 여부
+4. common manifest 기준으로 한글용 신규/대체 glyph index 전략을 어떻게 세울지

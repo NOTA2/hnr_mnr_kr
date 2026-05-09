@@ -1160,6 +1160,14 @@ def render_fnt_glyph(
     return bytes(pixels)
 
 
+def decode_cp932_code(code: int) -> str:
+    payload = bytes([code]) if code <= 0xFF else bytes([(code >> 8) & 0xFF, code & 0xFF])
+    try:
+        return payload.decode("cp932")
+    except UnicodeDecodeError:
+        return ""
+
+
 def cmd_info(args: argparse.Namespace) -> int:
     rom_path = Path(args.rom)
     header = parse_header(rom_path, load_rom(rom_path))
@@ -1508,6 +1516,86 @@ def cmd_dump_fnt_glyph(args: argparse.Namespace) -> int:
         f"glyph_index=0x{glyph_index:04X} glyph_offset={format_offset(glyph_offset)} "
         f"stride=0x{header['stride']:X} flags=0x{header['flags']:02X}"
     )
+    return 0
+
+
+def cmd_inspect_fnt(args: argparse.Namespace) -> int:
+    rom_path = Path(args.rom)
+    data = load_rom(rom_path)
+    payload_offset = parse_offset(args.payload)
+    header = read_fnt_header(data, payload_offset=payload_offset)
+    records: List[Dict[str, object]] = []
+    max_glyph_index = 0
+    nonzero_count = 0
+
+    for code in range(0x10000):
+        lookup_offset = header["lookup_base"] + code * 2
+        if lookup_offset + 2 > len(data):
+            break
+        glyph_index = struct.unpack_from("<H", data, lookup_offset)[0]
+        if glyph_index == 0:
+            if args.include_zero:
+                records.append(
+                    {
+                        "code": code,
+                        "code_hex": f"0x{code:04X}",
+                        "text": decode_cp932_code(code),
+                        "glyph_index": 0,
+                        "glyph_offset": None,
+                    }
+                )
+            continue
+        nonzero_count += 1
+        max_glyph_index = max(max_glyph_index, glyph_index)
+        records.append(
+            {
+                "code": code,
+                "code_hex": f"0x{code:04X}",
+                "text": decode_cp932_code(code),
+                "glyph_index": glyph_index,
+                "glyph_offset": header["glyph_base"] + glyph_index * header["stride"],
+            }
+        )
+
+    result = {
+        "payload_offset": payload_offset,
+        "payload_rom_address": ROM_BASE + payload_offset,
+        "flags": header["flags"],
+        "flags_hex": f"0x{header['flags']:02X}",
+        "stride": header["stride"],
+        "stride_hex": f"0x{header['stride']:X}",
+        "lookup_base": header["lookup_base"],
+        "glyph_base": header["glyph_base"],
+        "nonzero_count": nonzero_count,
+        "max_glyph_index": max_glyph_index,
+        "max_glyph_index_hex": f"0x{max_glyph_index:04X}",
+        "glyph_end": header["glyph_base"] + (max_glyph_index + 1) * header["stride"],
+        "entries": records,
+    }
+    if args.output:
+        write_json(Path(args.output), result)
+
+    print(
+        f"payload={format_offset(payload_offset)} "
+        f"lookup={format_offset(header['lookup_base'])} "
+        f"glyph_base={format_offset(header['glyph_base'])} "
+        f"stride=0x{header['stride']:X} flags=0x{header['flags']:02X}"
+    )
+    print(f"nonzero glyph mappings: {nonzero_count}")
+    print(f"max glyph index: 0x{max_glyph_index:04X}")
+    preview = records[: args.preview]
+    for item in preview:
+        text = item["text"] if item["text"] else "<undecodable>"
+        glyph_offset = item["glyph_offset"]
+        glyph_desc = "None" if glyph_offset is None else format_offset(int(glyph_offset))
+        print(
+            f"  {item['code_hex']} {text!r} -> "
+            f"0x{int(item['glyph_index']):04X} @ {glyph_desc}"
+        )
+    if len(records) > args.preview:
+        print(f"  ... {len(records) - args.preview} more")
+    if args.output:
+        print(f"wrote: {args.output}")
     return 0
 
 
@@ -1975,6 +2063,14 @@ def build_parser() -> argparse.ArgumentParser:
     dump_fnt.add_argument("--row-bytes", type=int)
     dump_fnt.add_argument("--output", required=True)
     dump_fnt.set_defaults(func=cmd_dump_fnt_glyph)
+
+    inspect_fnt = sub.add_parser("inspect-fnt", help="공통 fnt payload 의 lookup/glyph 매핑 현황을 JSON/텍스트로 출력합니다.")
+    inspect_fnt.add_argument("rom")
+    inspect_fnt.add_argument("payload")
+    inspect_fnt.add_argument("--include-zero", action="store_true")
+    inspect_fnt.add_argument("--preview", type=int, default=40)
+    inspect_fnt.add_argument("--output")
+    inspect_fnt.set_defaults(func=cmd_inspect_fnt)
 
     replace_text = sub.add_parser("replace-text", help="기존 위치에 문자열을 같은 길이 이하로 교체합니다.")
     replace_text.add_argument("rom")
