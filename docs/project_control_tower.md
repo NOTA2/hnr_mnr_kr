@@ -33,6 +33,7 @@
 - 넓은 범위 `scan-text` 는 기본 `--limit 100` 으로 잘릴 수 있다는 운영 함정을 확인했고, 이후 wide scan 에서는 limit 을 명시해야 한다.
 - `scan-prefixed-text` CLI 를 추가해 `01 FF <u16 문자수>` command-stream 텍스트를 직접 추출할 수 있게 했다.
 - Registry A entry `8` (`0x6B594C..0x773248`) 는 이제 [registry_a_entry8_prefixed_texts.json](/Users/user/test/analysis/registry_a_entry8_prefixed_texts.json) `9823`건으로 clean extraction 이 가능하다.
+- Registry A tail 에서도 entry `12` (`0x7A750C..0x7A8E98`) 의 plain gameplay/item text `20`건을 [registry_a_entry12_texts.json](/Users/user/test/analysis/registry_a_entry12_texts.json) 으로 확보해, coverage 판단을 상위 registry inventory 기준으로 갱신하기 시작했다.
 - save/menu block `0x772E00..0x773260` 도 같은 규칙으로 [save_menu_prefixed_texts.json](/Users/user/test/analysis/save_menu_prefixed_texts.json) `12`건이 정리되었다.
 - 상위 registry 재검사 결과, `01 FF <u16 문자수>` 규칙이 강하게 맞는 곳은 현재 Registry A entry `8` 하나뿐이며, 요약은 [prefixed_registry_scan_summary.json](/Users/user/test/analysis/prefixed_registry_scan_summary.json) 에 있다.
 - Registry A entry `8` 은 [registry_a_entry8_cluster_summary.json](/Users/user/test/analysis/registry_a_entry8_cluster_summary.json) 기준 gap threshold `0x400` 으로 `72`개 작업 cluster 로 나눌 수 있다.

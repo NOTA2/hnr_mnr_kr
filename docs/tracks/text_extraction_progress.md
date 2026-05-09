@@ -150,6 +150,17 @@
     - `前の記録に上書きしてもいい？`
   - 따라서 `save_menu_texts.json` 의 `0x10` 종단 스캔본은 발견용/비교용, 실제 작업용 원본은 prefixed 추출본이 더 정확하다.
 
+### Registry A entry 12 gameplay/item bank
+
+- 범위: `0x7A750C` ~ `0x7A8E98`
+- 파일:
+  - [registry_a_entry12_texts.json](/Users/user/test/analysis/registry_a_entry12_texts.json)
+- 현재 확인:
+  - plain `cp932 + 00` 추출로 현재 `20`건이 잡힌다.
+  - 회복약 설명, 이벤트 해결 증표, 파츠, 전달 서류 같은 gameplay/item 계열이 섞여 있다.
+  - 현재 `20`건 중 `14`건은 기존 [item_texts.json](/Users/user/test/analysis/item_texts.json) / gameplay workset 과 중복이고, `6`건은 아직 gameplay workset 에 없는 텍스트다.
+  - 따라서 entry `12` 는 완전 신규 대형 bank 라기보다, **기존 gameplay/item 텍스트 공급원의 상위 registry source** 로 보는 편이 안전하다.
+
 ### 크레딧(타이틀) 텍스트
 
 - 파일: [credits_texts.json](/Users/user/test/analysis/credits_texts.json)
@@ -170,6 +181,7 @@
 - Registry D 분석으로 본편성 대사/튜토리얼 텍스트가 대량으로 추가 확보되었고, 남은 미해결 엔트리도 대부분 비대사 control stub 로 좁혀졌다.
 - Registry D 는 슬라이딩 스캔만으로 끝나는 구간이 아니라, `FC 00 ... FC` anchor 규칙을 쓰는 mixed-format 스크립트 자원이라는 점이 더 분명해졌다.
 - Registry A entry 8 분석으로 `0x10` 종단 command-stream 대사 bank 가 훨씬 크게 존재한다는 근거가 생겼고, 지금은 `01 FF <문자수>` 헤더 기반으로 clean extraction 이 가능해졌다.
+- Registry A tail 쪽에서도 entry `12` 처럼 실제 gameplay/item 텍스트 source 가 따로 보이므로, 추출 완료 판정은 상위 registry entry inventory 기준으로 해야 한다.
 - 같은 prefixed 규칙을 상위 registry A/B/C/D 전체에 대입해 본 결과, 현재는 Registry A entry `8` 하나만 강하게 맞는다.
 - 전각 공백 필터 문제를 수정하면서 `battle/ability` 추출본의 누락 문자열을 회수했다.
 - 상위 리소스 청크 기준으로 보았을 때 `material_texts` 라는 별도 텍스트 묶음도 확인되었다.
@@ -183,6 +195,7 @@
 2. Registry D `244`개 clean extraction 본을 장면/용도 기준으로 더 묶기
 3. `01 FF <문자수>` / `FC 00 ... FC` 둘 다 안 통하는 다른 mixed resource 대사 형식을 찾기
 4. 메뉴 관련 텍스트 뱅크를 더 분리하기
+5. 추출 완료 판정용 coverage inventory 를 계속 갱신하기
 
 ## 진행 로그
 

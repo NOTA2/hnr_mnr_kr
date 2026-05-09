@@ -997,3 +997,18 @@
   - 남은 non-hit `18`개는 [registry_d_unresolved_entries.json](/Users/user/test/analysis/registry_d_unresolved_entries.json) 으로 분리했고, 대부분 `2-byte sentinel/control stub` 이다.
 - 판정: `성공`
 - 교훈: command/script extractor 에서 제어 바이트 하나를 stop marker 로 쓰더라도, Shift-JIS 같은 multibyte 인코딩에서는 그 바이트가 텍스트 본문에 trailing byte 로 나타날 수 있다. 따라서 mixed-format 추출기에는 **stop 조건에도 인코딩 awareness** 를 넣어야 같은 누락을 반복하지 않는다.
+
+### 실험 45
+
+- 가설: "텍스트 100% 추출" 여부는 총개수 카운터보다 상위 registry/source inventory 로 판단해야 하며, Registry A tail 에도 아직 별도 text source 가 남아 있을 수 있다.
+- 시도:
+  - Registry A 전체 `18`개 엔트리를 다시 경계 기준으로 확인했다.
+  - tail 영역 `entry 9..17` 에 대해 plain text hit 를 재스캔했고, 특히 `entry 12 (0x7A750C..0x7A8E98)` 를 별도로 추출했다.
+  - 추출본을 기존 [item_texts.json](/Users/user/test/analysis/item_texts.json) 및 [translation_workset_gameplay_terms.json](/Users/user/test/analysis/translation_workset_gameplay_terms.json) 과 대조했다.
+- 결과:
+  - entry `12` 에서 [registry_a_entry12_texts.json](/Users/user/test/analysis/registry_a_entry12_texts.json) `20`건이 실제로 잡혔다.
+  - 내용은 회복약 설명, 이벤트 해결 증표, 파츠, 전달 서류 같은 gameplay/item 계열이다.
+  - `20`건 중 `14`건은 기존 `item_texts` / gameplay workset 과 중복이고, `6`건은 아직 gameplay workset 에 없는 텍스트였다.
+  - 따라서 Registry A tail 도 전부 dead/binary 로 단정하면 안 되며, 추출 완료 판정은 **"현재까지 뽑은 파일 수"가 아니라 상위 source inventory 를 모두 점검했는가**로 판단해야 한다는 점이 더 분명해졌다.
+- 판정: `성공`
+- 교훈: 텍스트 커버리지를 말할 때는 "총 문자열 수"를 찾으려 하기보다, 렌더러와 loader 가 공급받는 bank / registry entry 목록을 먼저 닫아야 한다. 새로운 entry-level text source 가 발견되면, 그 즉시 coverage 문서와 inventory 기준을 같이 갱신해야 한다.
