@@ -51,6 +51,7 @@
   - 이후 `obj + 0x08 = (obj + 0x04) + 0x20000`
   - `obj + 0x16` byte 에는 `resource[7] & 0x1F` 가 저장된다.
   - `obj + 0x1A` halfword 에는 `resource[8]` 값이 저장되며, 현재 glyph stride 후보로 쓰인다.
+  - `obj + 0x20` byte 에는 setup 인자 `r3` 가 그대로 저장되지 않고, **`floor(3 * r3 / 2)` 형태로 변환된 값** 이 들어간다.
   - `obj + 0x1C`, `obj + 0x1D` 에는 initializer 인자 `r2` 가 복제된다.
   - `0x08088318` 에는 `"FONT INITIALIZE ERROR"` 문자열이 있어, 함수 역할과도 잘 맞는다.
   - 따라서 현재 가장 안전한 resource header 해석은:
@@ -77,6 +78,21 @@
   - 두 helper 는 glyph source 의 halfword 3개를 target 주변에 배치하되, 쓰는 위치가 약간 달라서 서로 다른 tile orientation / layout variant 후보로 보인다.
   - writer loop 를 보면 source 는 한 번에 `+6` byte, 총 `8 + 4 = 12` 행을 소비하므로, 현재 가장 강한 해석은 **glyph 1개 = `12 rows * 6 bytes = 0x48` bytes = 12x12 4bpp 계열 포맷** 이다.
   - 이는 `resource[8] = 0x48` stride 와도 정확히 맞는다.
+
+- width / advance 쪽:
+  - `0x01502C` multibyte Shift-JIS 경로는 `obj + 0x18` halfword 에 `+0x18` 을 누적한다.
+  - `0x0150CC` single-byte / halfwidth 경로는 `obj + 0x18` halfword 에 `+0x10` 을 누적한다.
+  - `0x01525E..0x015278` 은 `(obj + 0x18) >> 4` 값을 `obj + 0x20` byte 와 비교해, overflow 시 `0x015608` 으로 page/cursor 전환을 건다.
+  - world-map 지역명 caller 는 `r3 = 0x0C` 로 `0x014A98` 를 부르고, 위 변환을 거치면 `obj + 0x20 = 0x12 (18)` 이 된다.
+  - 다른 대표 caller `0x062182`, `0x065AA4`, `0x06718A` 는 모두 `r3 = 20 (0x14)` 로 `0x014A98` 를 부른다.
+  - 이 경우 같은 변환을 거치면 `obj + 0x20 = 30 (0x1E)` 이 되므로, 해석상 `fullwidth 20자` 또는 `halfwidth 30자` 한도와 맞는다.
+  - 이 한도에서는:
+    - fullwidth 문자는 `+0x18` 씩이므로 `12`자에서 한계에 닿는다.
+    - halfwidth 문자는 `+0x10` 씩이므로 `18`자까지 들어간다.
+  - 따라서 현재 가장 안전한 해석은:
+    - `obj + 0x18`: horizontal advance accumulator
+    - `obj + 0x20`: line capacity in mixed-width units
+  - 즉 이 엔진은 단순 고정폭이 아니라, **fullwidth / halfwidth 를 서로 다른 advance 로 취급하는 가변폭형 레이아웃** 을 이미 가지고 있다.
 
 - 샘플 lookup 확인:
   - `'0' (0x30) -> glyph index 0x0001`
@@ -138,6 +154,6 @@
 ## 다음 질문
 
 1. slot `1` 을 이전 문서의 Registry A/B/C/D 분류와 어떻게 대응시킬지 명시적으로 정리
-2. width/advance 값은 object field (`+0x18`, `+0x1A`, `+0x1C`, `+0x20` 부근) 중 어디에 누적되는가?
+2. `obj + 0x18 / +0x20` 해석을 실제 다른 caller 들의 화면 너비와 더 대조할지
 3. `0x01570C / 0x01578C / 0x01580C / 0x01588C` 네 variant 가 가로/세로 또는 8x4 / 4x8 복사 중 어떤 역할 차이를 갖는가?
 4. common manifest 기준으로 한글용 신규/대체 glyph index 전략을 어떻게 세울지

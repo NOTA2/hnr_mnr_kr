@@ -952,3 +952,18 @@
   - 따라서 폰트 쪽도 이제는 "공통 font mapping 전체를 실제 추출본으로 확보한 단계" 라고 말할 수 있다.
 - 판정: `성공`
 - 교훈: 한글화 준비에서 "텍스트는 추출됐지만 폰트는 아직 감" 같은 애매한 상태를 오래 끌지 않는 편이 좋다. 공통 font asset 에 대해 전체 manifest 를 한 번 뽑아 두면, 이후 작업은 구조 추정이 아니라 glyph 배치/대체 전략 문제로 빠르게 전환된다.
+
+### 실험 42
+
+- 가설: 공통 text engine 은 단순 고정폭이 아니라 fullwidth / halfwidth 를 다르게 누적하는 레이아웃 구조를 이미 가지고 있을 것이다. 이게 맞으면 한글 폭 설계는 새 엔진 추가보다 기존 advance 규칙에 맞추는 쪽으로 갈 수 있다.
+- 시도:
+  - `0x014ED0..0x01525E`, `0x015220..0x015278` 을 다시 읽어 `obj + 0x18`, `obj + 0x20` 관련 연산을 정리했다.
+  - 대표 caller `0x06A972` 와 `0x062182`, `0x065AA4`, `0x06718A` 의 `r3` 인자를 비교했다.
+- 결과:
+  - multibyte Shift-JIS 경로는 `obj + 0x18 += 0x18`, single-byte / halfwidth 경로는 `obj + 0x18 += 0x10` 이다.
+  - `(obj + 0x18) >> 4` 값이 `obj + 0x20` 과 비교되고, 넘치면 `0x015608` 으로 page/cursor 전환이 일어난다.
+  - `0x014A98` 는 setup 인자 `r3` 를 `floor(3 * r3 / 2)` 로 변환해 `obj + 0x20` 에 넣는다.
+  - world-map 지역명 `r3=0x0C` 는 capacity `18`, 대표 일반 화면군 `r3=20` 은 capacity `30` 으로 변환되므로, 해석상 각각 `fullwidth 12자 / halfwidth 18자`, `fullwidth 20자 / halfwidth 30자` 한도와 맞는다.
+  - 따라서 이 텍스트 엔진은 **fullwidth / halfwidth 혼합 가변폭형 레이아웃** 으로 보는 해석이 가장 강하다.
+- 판정: `성공`
+- 교훈: 한글화에서 폭 처리가 걱정된다고 해서 곧바로 새 width table 부터 만들 필요는 없다. 먼저 기존 엔진이 어떤 단위로 advance 를 누적하는지 잡아 두면, 한글 glyph 를 fullwidth 그룹으로 맞출지 halfwidth 계열로 변형할지 훨씬 명확해진다.

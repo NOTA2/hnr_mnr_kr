@@ -77,11 +77,19 @@
   - glyph coverage end: `0x41DDE8`
   - decoded entries: `ASCII 11`, `non-ASCII 1687`, `undecodable 0`
 - 따라서 폰트 쪽도 이제는 “될 것 같은 경로를 검증” 수준을 넘어, **공통 font mapping을 실제 JSON 추출본으로 확보한 단계** 다.
+- width/advance 쪽도 한 단계 좁혀졌다.
+  - `0x01502C` multibyte 경로는 `obj + 0x18 += 0x18`
+  - `0x0150CC` single-byte 경로는 `obj + 0x18 += 0x10`
+  - `0x01525E..0x015278` 은 `(obj + 0x18) >> 4` 를 `obj + 0x20` 과 비교해 overflow 시 `0x015608` 으로 넘긴다.
+  - `0x014A98` 는 setup 인자 `r3` 를 그대로 저장하는 대신 `floor(3 * r3 / 2)` 로 바꿔 `obj + 0x20` 에 넣는다.
+  - world-map 지역명 화면의 `r3=0x0C` 는 `obj + 0x20=18` 로 변환되므로, 현재 해석상 `fullwidth 12자` 또는 `halfwidth 18자` 정도의 capacity 와 맞는다.
+  - 다른 대표 caller `0x062182`, `0x065AA4`, `0x06718A` 는 `r3=20` 을 쓰므로, 같은 규칙이면 `obj + 0x20=30` 이고 `fullwidth 20자` / `halfwidth 30자` 한도와 맞는다.
+- 따라서 이 텍스트 엔진은 단순 고정폭이 아니라, **fullwidth / halfwidth 를 다른 advance 로 취급하는 가변폭형 레이아웃** 을 가진다.
 
 ## 다음 할 일
 
 1. slot `1` 을 기존 Registry A/B/C/D 분류와 충돌 없이 다시 명시
-2. `0x014ED0` 또는 그 하위 helper 에서 width/advance 누적 field 확인
+2. `obj + 0x18 / +0x20` 해석을 실제 UI 줄폭/박스 크기와 더 대조
 3. `0x01570C / 0x01578C / 0x01580C / 0x01588C` 네 writer variant 차이 확인
 4. common `fnt` manifest 를 바탕으로 한글용 빈 glyph index / 재사용 전략을 세우기
 
@@ -104,3 +112,4 @@
 - 공통 font resource 가 실제로 `0x17C2F4` table entry `0` -> ROM `0x3E0000` `fnt` payload 로 이어지고, `resource[8]=0x48` 과 writer loop 로부터 12x12 계열 glyph 포맷 후보를 얻었다
 - `dump-fnt-glyph` CLI 를 추가해 `'あ'`, `'ア'`, `'日'` 샘플 glyph 를 실제로 덤프했고, 형태 확인까지 마쳤다
 - `inspect-fnt` CLI 를 추가해 [common_fnt_manifest.json](/Users/user/test/analysis/common_fnt_manifest.json) 을 생성했고, 공통 `fnt` payload 전체 mapping 1698개를 실제 추출본으로 확보했다
+- `obj + 0x18` / `obj + 0x20` 기반 width/advance 누적 구조를 잡고, world-map `r3=0x0C` 와 일반 화면군 `r3=20` caller 비교로 가변폭형 레이아웃 해석도 교차검증했다

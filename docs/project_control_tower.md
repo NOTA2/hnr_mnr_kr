@@ -43,6 +43,7 @@
 - 추가로 공통 font resource 가 `0x17C2F4` table entry `0` -> ROM `0x3E0000` `fnt` payload 로 이어지고, `resource[8]=0x48` 및 writer loop 로부터 12x12 계열 glyph 포맷 후보까지 얻었다.
 - `dump-fnt-glyph` 도구로 `'あ'`, `'ア'`, `'日'` 샘플 glyph 를 직접 덤프해 형태 확인까지 마쳤다.
 - `inspect-fnt` 도구로 공통 `fnt` payload 전체 mapping manifest 를 추출해, 공통 font 쪽도 실제 추출본 확보 단계로 들어갔다.
+- width/advance 도 `obj + 0x18` 누적, `obj + 0x20` capacity 구조로 좁혀졌고, 대표 caller 비교로 fullwidth/halfwidth 혼합 가변폭 레이아웃 해석도 교차검증했다.
 
 - `0x184A0C..0x184AD3` 을 `10 * 0x14` effect/overlay parameter table 후보로 분리했다.
 - `0x03005FF8` 은 world-map 선택/hover location index byte 로 보는 해석이 강해졌다.
