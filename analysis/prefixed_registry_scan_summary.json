@@ -1,0 +1,46 @@
+{
+  "prefix": "01 FF",
+  "count_size": 2,
+  "count_endian": "little",
+  "min_chars": 4,
+  "registries": {
+    "A": {
+      "table_start": 1557236,
+      "table_end": 1557380,
+      "entry_count": 18,
+      "entries_with_hits": 1,
+      "hit_entries": [
+        {
+          "index": 8,
+          "start": 7035212,
+          "end": 7811656,
+          "length": 776444,
+          "hit_count": 9823,
+          "first_text": "医者になりたいんだけど、",
+          "last_text": "このまま旅を続けるか？"
+        }
+      ]
+    },
+    "B": {
+      "table_start": 1557380,
+      "table_end": 1558300,
+      "entry_count": 115,
+      "entries_with_hits": 0,
+      "hit_entries": []
+    },
+    "C": {
+      "table_start": 1558300,
+      "table_end": 1558500,
+      "entry_count": 25,
+      "entries_with_hits": 0,
+      "hit_entries": []
+    },
+    "D": {
+      "table_start": 1558500,
+      "table_end": 1559300,
+      "entry_count": 100,
+      "entries_with_hits": 0,
+      "hit_entries": []
+    }
+  }
+}

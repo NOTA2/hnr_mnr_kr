@@ -224,10 +224,10 @@
 - 가설: Registry A entry `8` 의 `0x10` 종단 mixed script 대사는 `01 FF <u16 문자수>` 헤더를 가진 command-stream 문자열일 수 있다.
 - 시도:
   - `scan-prefixed-text` CLI 를 추가했다.
-  - `0x6B594C..0x772E58` 범위를 `prefix=01 FF`, `count-size=2`, `little-endian`, `cp932` 로 스캔했다.
+  - 최종 확인 기준으로 실제 entry `8` 범위 `0x6B594C..0x773248` 를 `prefix=01 FF`, `count-size=2`, `little-endian`, `cp932` 로 스캔했다.
   - 같은 규칙을 `0x772E00..0x773260` save/menu block 에도 적용했다.
 - 결과:
-  - Registry A entry `8` 에서 [registry_a_entry8_prefixed_texts.json](/Users/user/test/analysis/registry_a_entry8_prefixed_texts.json) `9811`건이 clean 하게 추출되었다.
+  - Registry A entry `8` 에서 [registry_a_entry8_prefixed_texts.json](/Users/user/test/analysis/registry_a_entry8_prefixed_texts.json) `9823`건이 clean 하게 추출되었다.
   - 초반 리오르 대사 `医者になりたいんだけど、`, `教えてくれる？` 부터 후반 진행 힌트와 디버그성 플래그 문구까지 한 규칙으로 회수되었다.
   - save/menu block 도 [save_menu_prefixed_texts.json](/Users/user/test/analysis/save_menu_prefixed_texts.json) `12`건이 정리되었다.
 - 판정: `성공`
@@ -242,6 +242,42 @@
   - 원인은 lead byte 시험 과정에서 같은 바이트가 decoder state 에 중복 투입된 것이었다.
 - 판정: `실패`
 - 교훈: `cp932` 문자수 헤더 추출에서는 상태형 incremental decode 를 쓰지 말고, 현재 위치의 짧은 바이트 조각을 독립적으로 strict decode 하며 전진해야 한다.
+
+### 실험 28
+
+- 가설: `01 FF <u16 문자수>` 규칙은 Registry A entry `8` 뿐 아니라 Registry B/C/D 의 다른 mixed resource 대사 뱅크에도 재사용될 수 있다.
+- 시도:
+  - Registry A (`0x17C2F4..0x17C384`), B (`0x17C384..0x17C71C`), C (`0x17C71C..0x17C7E4`), D (`0x17C7E4..0x17CB04`) 각 엔트리 전체에 같은 prefixed scan 조건을 적용했다.
+  - 결과는 [prefixed_registry_scan_summary.json](/Users/user/test/analysis/prefixed_registry_scan_summary.json) 에 저장했다.
+- 결과:
+  - 현재 히트가 강하게 나온 곳은 Registry A entry `8` 하나뿐이었다.
+  - Registry B/C/D 에서는 같은 규칙으로 유의미한 일본어 텍스트 묶음이 잡히지 않았다.
+- 판정: `부분 성공`
+- 교훈: `01 FF <문자수>` 는 지금 단계에서는 범용 command-stream 규칙이 아니라, Registry A entry `8` 계열 전용 포맷으로 우선 취급하는 편이 안전하다.
+
+### 실험 29
+
+- 가설: Registry A entry `8` 의 `9823`건은 하나의 거대한 작업 단위로 두기보다 gap 기반 cluster 로 나누면 후속 번역/검수/재삽입이 쉬워질 것이다.
+- 시도:
+  - [registry_a_entry8_prefixed_texts.json](/Users/user/test/analysis/registry_a_entry8_prefixed_texts.json) 의 offset 차이를 기준으로 여러 threshold 를 시험했다.
+  - `0x400` gap 을 넘을 때 새 cluster 로 분리하는 요약을 [registry_a_entry8_cluster_summary.json](/Users/user/test/analysis/registry_a_entry8_cluster_summary.json) 으로 만들었다.
+- 결과:
+  - threshold `0x400` 기준 `72`개 cluster 가 만들어졌다.
+  - 각 cluster 는 `start/end/count/first_text/last_text` 만 가진 compact summary 라서 작업 단위 지도 역할을 하기에 적당했다.
+- 판정: `성공`
+- 교훈: 대형 mixed bank 는 바로 번역 세트로 던지기보다, gap-cluster 요약을 중간 레이어로 두는 편이 이후 토큰 사용과 작업 추적 모두에 유리하다.
+
+### 실험 30
+
+- 가설: `0x03EB78 / 0x03ECCC / 0x03EDB8` helper family 는 일본어 폰트 렌더러가 아니라 UI 숫자/ASCII glyph writer 일 수 있다.
+- 시도:
+  - 해당 함수들과 호출부 `0x051700`, `0x051820` 부근을 짧게 디스어셈블했다.
+  - `0x03EB78` 의 문자 범위 비교와 `0x03ECCC -> 0x033658 -> 0x03EDB8` 흐름을 확인했다.
+- 결과:
+  - `0x03EB78` 은 `A-Z`, `a-z`, `0-9` 범위를 비교하며 `0x03003008` base 에 halfword tile index 를 쓴다.
+  - `0x03ECCC` 는 값을 4-byte 버퍼로 만든 뒤 `0x03EDB8` 을 통해 같은 타일맵 base 에 숫자/기호를 배치한다.
+- 판정: `성공`
+- 교훈: 이 helper family 는 일반 일본어/한글 폰트 경로가 아니라 ASCII/숫자 UI helper 로 먼저 제외해야 한다. 같은 경로를 general font renderer 로 다시 의심하면 시간을 낭비한다.
 - 교훈: "새 텍스트 뱅크 발견 → 범위 추출 → 포인터 검증" 흐름을 유지하면, 메뉴/대사 계열도 같은 방식으로 확장할 수 있다.
 
 ### 실험 26
@@ -298,7 +334,7 @@
 - 시도:
   - ROM 전체를 `scan-text --sliding --terminator 0x10 --min-chars 4 --require-japanese --limit 400` 조건으로 훑었다.
   - 결과를 오프셋 클러스터로 묶어 늦은 구간의 밀집 영역을 확인했다.
-  - 이후 Registry A entry `8` 범위 `0x6B594C..0x772E58` 를 같은 조건으로 다시 스캔했다.
+  - 이후 Registry A entry `8` 범위 `0x6B594C..0x773248` 를 같은 조건으로 다시 스캔했다.
 - 결과:
   - 전역 `0x10` 스캔에서 `0x6B7B44` 이후 대사성 문자열이 대량으로 나타났다.
   - Registry A entry `8` 재스캔에서는 현재 `1200`건까지 회수되었고, 이미 limit 에 걸렸다.

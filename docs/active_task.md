@@ -25,9 +25,13 @@
 - Registry D (`0x17C7E4..0x17CB04`) 는 아직 덜 추출된 대사/이벤트 텍스트의 핵심 후보다.
 - Registry D 물리 범위 `0x7F3000..0x7F96E9` 를 슬라이딩 스캔하면 현재 `305`개 대사성 문자열이 잡힌다.
 - 전체본은 [registry_d_full_sliding_texts.json](/Users/user/test/analysis/registry_d_full_sliding_texts.json), 번역용 작업 세트는 [translation_workset_registry_d_dialogue.json](/Users/user/test/analysis/translation_workset_registry_d_dialogue.json) 에 있다.
-- Registry A entry `8` (`0x6B594C..0x772E58`) 는 지역명만 담긴 entry 가 아니라, `0x10` 종단 command-stream 대사/이벤트/메뉴가 함께 섞인 대형 mixed script bank 후보다.
+- Registry A entry `8` (`0x6B594C..0x773248`) 는 지역명만 담긴 entry 가 아니라, `0x10` 종단 command-stream 대사/이벤트/메뉴가 함께 섞인 대형 mixed script bank 후보다.
 - `Registry A entry 8` 안의 많은 대사는 `01 FF <u16 문자수>` 헤더 뒤에 `cp932` 본문이 오는 command-stream 구조로 보인다.
-- 이 규칙으로 재추출한 [registry_a_entry8_prefixed_texts.json](/Users/user/test/analysis/registry_a_entry8_prefixed_texts.json) 은 현재 `9811`건이며, 초반 리오르 대사부터 진행 힌트/플래그 문구까지 광범위하게 포함한다.
+- 이 규칙으로 재추출한 [registry_a_entry8_prefixed_texts.json](/Users/user/test/analysis/registry_a_entry8_prefixed_texts.json) 은 현재 `9823`건이며, 초반 리오르 대사부터 진행 힌트/플래그 문구, save/menu 일부까지 광범위하게 포함한다.
+- 상위 registry 단위 재검사 결과, 현재 `01 FF <u16 문자수>` 규칙이 강하게 잡힌 곳은 [prefixed_registry_scan_summary.json](/Users/user/test/analysis/prefixed_registry_scan_summary.json) 기준으로 **Registry A entry 8 하나뿐**이다.
+- 따라서 다른 미추출 대사 구간은 같은 규칙의 반복이 아니라, 별도 mixed format / command stream 으로 우선 취급하는 편이 안전하다.
+- Registry A entry 8 작업용 분할 지도는 [registry_a_entry8_cluster_summary.json](/Users/user/test/analysis/registry_a_entry8_cluster_summary.json) 에 있다.
+- 현재 gap threshold `0x400` 기준 `72`개 클러스터로 나뉘며, 이후 번역/검수/재삽입은 이 클러스터 단위로 다루는 편이 좋다.
 - 기존 [registry_a_entry8_terminator_10_texts.json](/Users/user/test/analysis/registry_a_entry8_terminator_10_texts.json) `1200`건은 entry 8 발견용 정찰 결과로 보관하고, 실제 작업은 prefixed 추출본을 우선한다.
 - `save_menu_texts.json` 류는 종단 바이트가 `0x10` 이라서 일반 `00` 종단 문자열과 분리해서 다뤄야 한다.
 - save/menu block `0x772E00..0x773260` 도 같은 규칙으로 [save_menu_prefixed_texts.json](/Users/user/test/analysis/save_menu_prefixed_texts.json) `12`건이 정리된다.
@@ -39,6 +43,8 @@
 - 아직 **한글을 실제 ROM에 표시할 폰트/인코딩 경로는 확보되지 않았다.**
 - 다만 최근 확인으로는:
   - `0x0514xx` UI cluster 는 실제 문자 렌더러보다 **문자열 길이 기반 layout / slot setup** 경로에 가깝다.
+  - `0x03EB78 / 0x03ECCC / 0x03EDB8` helper family 는 일반 일본어 렌더러가 아니라, `0x03003008` tilemap base 에 **ASCII/숫자 UI glyph** 를 찍는 쪽으로 보인다.
+  - 따라서 이 helper family 는 **한글 폰트 원본/문자폭 경로 후보에서 우선 제외**한다.
   - world-map Registry B raw companion 엔트리 `86..89` 는 헤더 뒤를 바로 4bpp 로 덤프해도 글자판이 아니라 잡음이라, **직접 폰트 raw tiles** 후보에서는 우선 제외한다.
 - 따라서 현재 병목은 데이터 구조보다 **폰트/문자 매핑/문자폭** 쪽이다.
 
@@ -65,6 +71,7 @@
 - `01 FF <문자수>` 구조를 찾을 때는 incremental decode 같은 상태형 해석을 쓰지 말고, 현재 바이트 조각을 독립 `cp932` decode 로 판정한다.
 - 넓은 슬라이딩 스캔은 기본 `--limit 100` 에 걸릴 수 있으니, 전체 회수를 원할 때는 `--limit` 을 명시한다.
 - `0x10` 종단 전역 스캔은 앞쪽 바이너리 잡음도 섞으므로, 클러스터 범위와 상위 registry entry 를 함께 확인한다.
+- `0x03EB78 / 0x03ECCC / 0x03EDB8` 를 general font renderer 로 되짚지 않는다. 현재 증거는 ASCII/숫자 tilemap helper 쪽이다.
 - literal scan 결과만으로 "더 조사할 게 없다"고 결론내리지 않지만, 실제 한글화와 직접 연결되지 않는 deep dive 도 늘리지 않는다.
 
 ## 유용한 명령
@@ -93,7 +100,7 @@ python3 -m gba_kor_tool scan-text \
 python3 -m gba_kor_tool scan-text \
   "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
   --start 0x6B594C \
-  --end 0x772E58 \
+  --end 0x773248 \
   --sliding \
   --terminator 0x10 \
   --min-chars 4 \
@@ -104,7 +111,7 @@ python3 -m gba_kor_tool scan-text \
 python3 -m gba_kor_tool scan-prefixed-text \
   "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
   --start 0x6B594C \
-  --end 0x772E58 \
+  --end 0x773248 \
   --require-japanese \
   --output analysis/registry_a_entry8_prefixed_texts.json
 ```
@@ -112,7 +119,8 @@ python3 -m gba_kor_tool scan-prefixed-text \
 ## 완료 조건
 
 - Registry A entry `8` / Registry D 계열 대사 추출본을 더 구조화한다.
-- `01 FF <문자수>` 규칙이 통하는 다른 command-stream 대사 뱅크가 더 있는지 확인한다.
+- Registry A entry `8` 72개 클러스터를 장면/용도 기준으로 조금 더 이름 붙여 관리한다.
+- `01 FF <문자수>` 규칙이 안 통하는 나머지 mixed resource 대사 뱅크 형식을 찾는다.
 - 번역 단계에 들어가기 전까지는 추출본과 구조 근거를 계속 분리 정리한다.
 - 한글 표시를 위해 필요한 폰트/인코딩 경로를 최소 1개 확보한다.
 - 첫 번째 실제 한글 패치 테스트 경로를 잡는다.

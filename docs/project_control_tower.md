@@ -30,9 +30,12 @@
 - 위 결과를 [translation_workset_registry_d_dialogue.json](/Users/user/test/analysis/translation_workset_registry_d_dialogue.json) 으로 정리해, 튜토리얼/이벤트/전투 전후 대사를 바로 번역 가능한 workset 으로 전환했다.
 - 넓은 범위 `scan-text` 는 기본 `--limit 100` 으로 잘릴 수 있다는 운영 함정을 확인했고, 이후 wide scan 에서는 limit 을 명시해야 한다.
 - `scan-prefixed-text` CLI 를 추가해 `01 FF <u16 문자수>` command-stream 텍스트를 직접 추출할 수 있게 했다.
-- Registry A entry `8` (`0x6B594C..0x772E58`) 는 이제 [registry_a_entry8_prefixed_texts.json](/Users/user/test/analysis/registry_a_entry8_prefixed_texts.json) `9811`건으로 clean extraction 이 가능하다.
+- Registry A entry `8` (`0x6B594C..0x773248`) 는 이제 [registry_a_entry8_prefixed_texts.json](/Users/user/test/analysis/registry_a_entry8_prefixed_texts.json) `9823`건으로 clean extraction 이 가능하다.
 - save/menu block `0x772E00..0x773260` 도 같은 규칙으로 [save_menu_prefixed_texts.json](/Users/user/test/analysis/save_menu_prefixed_texts.json) `12`건이 정리되었다.
+- 상위 registry 재검사 결과, `01 FF <u16 문자수>` 규칙이 강하게 맞는 곳은 현재 Registry A entry `8` 하나뿐이며, 요약은 [prefixed_registry_scan_summary.json](/Users/user/test/analysis/prefixed_registry_scan_summary.json) 에 있다.
+- Registry A entry `8` 은 [registry_a_entry8_cluster_summary.json](/Users/user/test/analysis/registry_a_entry8_cluster_summary.json) 기준 gap threshold `0x400` 으로 `72`개 작업 cluster 로 나눌 수 있다.
 - 폰트 쪽에서는 `0x0514xx` UI cluster 가 direct renderer 가 아니라 layout / slot setup 경로에 가깝고, Registry B raw companion 엔트리 `86..88` 도 direct raw font tile 후보가 아니라는 점을 먼저 정리했다.
+- 폰트 쪽에서는 `0x03EB78 / 0x03ECCC / 0x03EDB8` helper family 도 일반 일본어 렌더러가 아니라 ASCII/숫자 UI glyph tilemap writer 쪽으로 좁혀졌다.
 
 - `0x184A0C..0x184AD3` 을 `10 * 0x14` effect/overlay parameter table 후보로 분리했다.
 - `0x03005FF8` 은 world-map 선택/hover location index byte 로 보는 해석이 강해졌다.

@@ -109,7 +109,7 @@
 - 상위 entry:
   - registry: `A`
   - index: `8`
-  - 범위: `0x6B594C` ~ `0x772E58`
+  - 범위: `0x6B594C` ~ `0x773248`
 - 파일:
   - [registry_a_entry8_prefixed_texts.json](/Users/user/test/analysis/registry_a_entry8_prefixed_texts.json)
   - [registry_a_entry8_terminator_10_texts.json](/Users/user/test/analysis/registry_a_entry8_terminator_10_texts.json)
@@ -117,8 +117,11 @@
   - [terminator_10_global_hits.json](/Users/user/test/analysis/terminator_10_global_hits.json)
 - 현재 확인:
   - 많은 레코드가 `01 FF <u16 문자수>` 헤더 뒤에 `cp932` 본문이 오는 command-stream 구조를 가진다.
-  - 이 규칙으로 재추출한 [registry_a_entry8_prefixed_texts.json](/Users/user/test/analysis/registry_a_entry8_prefixed_texts.json) 은 현재 `9811`건이다.
+  - 이 규칙으로 재추출한 [registry_a_entry8_prefixed_texts.json](/Users/user/test/analysis/registry_a_entry8_prefixed_texts.json) 은 현재 `9823`건이다.
   - 초반 리오르 대사, 진행 힌트, 플래그 미스 디버그성 문구, 후반 이벤트 대사까지 한 규칙으로 연속 회수된다.
+  - 상위 registry 재검사 결과는 [prefixed_registry_scan_summary.json](/Users/user/test/analysis/prefixed_registry_scan_summary.json) 에 정리했다.
+  - 현재 `Registry A/B/C/D` 중 이 규칙이 강하게 확인된 곳은 **A entry 8 하나뿐**이다.
+  - 작업 단위 분할용 gap-cluster 지도는 [registry_a_entry8_cluster_summary.json](/Users/user/test/analysis/registry_a_entry8_cluster_summary.json) 에 있으며, threshold `0x400` 기준 `72`개 클러스터다.
   - 기존 `0x10` terminator 슬라이딩 스캔은 `1200`건에서 limit 에 걸렸고, entry 8 발견 및 밀집 구간 확인용 정찰 데이터로 유지한다.
   - `0x6B7B44` 이후로는 리오르/코넬로 초반부처럼 보이는 이벤트 대사가 밀집한다.
   - `0x772E00` save menu block 도 이 entry 안쪽에 포함되므로, entry 8 은 **대사 + 메뉴 + command-stream text** 가 섞인 대형 mixed script bank 후보로 보는 해석이 강하다.
@@ -158,6 +161,7 @@
 - 아직 대사/이벤트 본문 텍스트는 충분히 확보되지 않았다.
 - Registry D 분석으로 본편성 대사/튜토리얼 텍스트가 대량으로 추가 확보되었다.
 - Registry A entry 8 분석으로 `0x10` 종단 command-stream 대사 bank 가 훨씬 크게 존재한다는 근거가 생겼고, 지금은 `01 FF <문자수>` 헤더 기반으로 clean extraction 이 가능해졌다.
+- 같은 prefixed 규칙을 상위 registry A/B/C/D 전체에 대입해 본 결과, 현재는 Registry A entry `8` 하나만 강하게 맞는다.
 - 전각 공백 필터 문제를 수정하면서 `battle/ability` 추출본의 누락 문자열을 회수했다.
 - 상위 리소스 청크 기준으로 보았을 때 `material_texts` 라는 별도 텍스트 묶음도 확인되었다.
 - `material_texts` 뱅크는 순수 문자열 덩어리가 아니라, 앞단 binary record 와 뒷단 문자열 본문이 결합된 mixed resource 로 보인다.
@@ -166,9 +170,9 @@
 
 ## 다음 할 일
 
-1. `01 FF <문자수>` 규칙이 Registry A entry `8` 외 다른 command-stream 뱅크에도 통하는지 확인하기
-2. Registry A entry `8` 의 `9811`건을 장면/용도 기준으로 분할할지 결정하기
-3. Registry D `305`개 대사를 장면/용도 기준으로 더 묶기
+1. Registry A entry `8` 의 `72`개 cluster 요약에 장면/용도 라벨을 붙이기
+2. Registry D `305`개 대사를 장면/용도 기준으로 더 묶기
+3. `01 FF <문자수>` 가 통하지 않는 다른 mixed resource 대사 형식을 찾기
 4. 메뉴 관련 텍스트 뱅크를 더 분리하기
 
 ## 진행 로그

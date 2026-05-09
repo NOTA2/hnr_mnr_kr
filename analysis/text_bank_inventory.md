@@ -100,14 +100,17 @@
 
 ### Registry A entry 8 command-stream 대사/메뉴 bank
 
-- 범위: `0x6B594C` ~ `0x772E58`
+- 범위: `0x6B594C` ~ `0x773248`
 - 파일:
   - [registry_a_entry8_prefixed_texts.json](/Users/user/test/analysis/registry_a_entry8_prefixed_texts.json)
+  - [registry_a_entry8_cluster_summary.json](/Users/user/test/analysis/registry_a_entry8_cluster_summary.json)
   - [registry_a_entry8_terminator_10_texts.json](/Users/user/test/analysis/registry_a_entry8_terminator_10_texts.json)
   - [terminator_10_late_dialogue_hits.json](/Users/user/test/analysis/terminator_10_late_dialogue_hits.json)
 - 특징:
   - 많은 레코드가 `01 FF <u16 문자수>` 헤더 뒤에 `cp932` 본문이 오는 command-stream 구조를 가진다.
-  - 이 규칙으로 [registry_a_entry8_prefixed_texts.json](/Users/user/test/analysis/registry_a_entry8_prefixed_texts.json) `9811`건을 회수했다.
+  - 이 규칙으로 [registry_a_entry8_prefixed_texts.json](/Users/user/test/analysis/registry_a_entry8_prefixed_texts.json) `9823`건을 회수했다.
+  - [prefixed_registry_scan_summary.json](/Users/user/test/analysis/prefixed_registry_scan_summary.json) 기준으로, 현재 상위 registry A/B/C/D 중 이 규칙이 강하게 확인된 곳은 entry `8` 하나뿐이다.
+  - gap threshold `0x400` 기준 `72`개 cluster 요약을 별도 파일로 정리했다.
   - 기존 `0x10` 종단 슬라이딩 스캔은 entry 밀집 구간을 찾는 정찰용이고, 실제 작업에는 prefixed 추출본이 더 적합하다.
   - `0x772E00` save menu block 도 같은 entry 안쪽에 포함된다.
   - 현재는 **대형 mixed script bank** 로 보는 해석이 가장 강하다.
