@@ -922,3 +922,18 @@
   - 따라서 이 payload 는 더 이상 막연한 “텍스트 관련 blob”이 아니라, **공통 일본어 폰트 resource** 로 취급해도 될 만큼 좁혀졌다.
 - 판정: `성공`
 - 교훈: 공통 font payload 의 magic/header/lookup sample 을 함께 확인하면, 이후 한글화 작업은 “맞을지도 모르는 후보”를 파는 단계에서 벗어나 실제 교체 대상 asset 을 다루는 단계로 넘어갈 수 있다.
+
+### 실험 40
+
+- 가설: `0x3E0000` 공통 `fnt` payload 의 glyph 가 정말 12x12 계열이라면, 샘플 문자 몇 개를 직접 덤프했을 때 적어도 대략적인 획 형태가 보여야 한다.
+- 시도:
+  - `dump-fnt-glyph` CLI 를 `gba_kor_tool` 에 추가해 `fnt` header, lookup table, glyph base, stride 를 자동 해석하도록 했다.
+  - 공통 payload `0x3E0000` 에서 `--code 0x82A0 ('あ')`, `0x8341 ('ア')`, `0x93FA ('日')` 를 실제로 덤프했다.
+  - PGM 뷰어 제약 때문에 결과는 ASCII preview 로 다시 확인했다.
+- 결과:
+  - `fnt_glyph_82A0_ah.pgm`, `fnt_glyph_8341_a_katakana.pgm`, `fnt_glyph_93FA_day.pgm` 이 생성되었고, 모두 `12x12`, `stride=0x48`, 올바른 glyph index / glyph offset 으로 출력되었다.
+  - ASCII preview 기준으로 `'日'` 은 사각 프레임형 획이 분명했고, `'ア'` 도 상단 가로획과 대각/수직 계열 패턴이 드러났다.
+  - `'あ'` 는 작은 해상도라 획이 더 뭉개지지만, 적어도 무작위 노이즈가 아니라 문자형 패턴을 유지한다.
+  - 따라서 `lookup -> glyph index -> glyph_base + index * 0x48 -> 12x12 계열 glyph` 흐름은 샘플 글자 형태까지 확인된 상태가 되었다.
+- 판정: `성공`
+- 교훈: 글자 자산 분석은 숫자와 포인터만으로 끝내지 않는 편이 좋다. 샘플 glyph 를 바로 덤프해 보면 잘못된 stride/row packing 가설을 빨리 걸러낼 수 있고, 한글 폰트 삽입 대상이 진짜 맞는지도 빠르게 확인할 수 있다.

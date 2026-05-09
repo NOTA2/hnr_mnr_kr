@@ -33,7 +33,7 @@
   - 따라서 `0x014ED0` 는 single-shot helper 가 아니라 **공용 text object update/render engine** 에 가깝고, 그 앞단 font initializer 도 bulk slot 흐름을 가진다.
 
 - resource loader 쪽:
-  - `0x000290(registry_slot)` 은 hub `0x08076530` 에서 32-bit pointer table 을 읽고, 선택한 registry base pointer 를 돌려준다.
+- `0x000290(registry_slot)` 은 hub `0x08076530` 에서 32-bit pointer table 을 읽고, 선택한 registry base pointer 를 돌려준다.
   - `0x0002CC(entry_index, registry_slot)` 은 위 registry base 에서 `entry_index * 0x0A` record 를 계산한 뒤, record `+0x00` 의 pointer field 를 돌려준다.
   - `0x000304(entry_index, registry_slot)` 은 같은 record `+0x04` 의 length field 를 돌려준다.
   - `0x00033C(dest, entry_index, registry_slot)` 은 DMA3 를 기다린 뒤 `0x0002CC`, `0x000304` 결과를 써서 resource payload 를 `dest` 로 복사한다.
@@ -41,7 +41,7 @@
     - `+0x00`: payload pointer
     - `+0x04`: payload length
     - record size: `0x0A`
-  - 이 loader 축은 이전에 잡아 둔 hub `0x076530` / registry B 계열 조사와 자연스럽게 이어진다.
+  - 이 loader 축은 이전에 잡아 둔 hub `0x076530` / registry 조사와 자연스럽게 이어진다.
 
 - font initializer `0x01499C`:
   - `obj + 0x00 = resource_ptr`
@@ -91,6 +91,11 @@
   - 첫 nonzero lookup 들도 `0x30..0x39 -> 1..10`, `0x78 -> 11`, 이후 `0x8141` 계열 순으로 이어진다.
   - 따라서 공통 font resource 는 ASCII 전부를 포괄한다기보다, **숫자 + 일본어 중심의 custom code map** 으로 보는 편이 안전하다.
 
+- glyph dump 검증:
+  - [fnt_glyph_82A0_ah.pgm](/Users/user/test/analysis/fnt_glyph_82A0_ah.pgm), [fnt_glyph_8341_a_katakana.pgm](/Users/user/test/analysis/fnt_glyph_8341_a_katakana.pgm), [fnt_glyph_93FA_day.pgm](/Users/user/test/analysis/fnt_glyph_93FA_day.pgm) 을 `dump-fnt-glyph` 로 실제 덤프했다.
+  - PGM 뷰어 제약 때문에 ASCII preview 로 확인했을 때, `'日'` 은 12x12 사각 프레임형 획이 꽤 분명했고 `'ア'` 도 대각선/수직형 패턴이 드러났다.
+  - 따라서 `lookup -> glyph index -> stride 0x48 -> 12x12 계열 glyph` 해석은 이제 단순 수치 추정이 아니라 **샘플 글자 형태 검증까지 거친 가설** 이다.
+
 - page / cursor update 쪽:
   - `0x015608` 은 `obj + 0x1F` byte 를 갱신하고, `obj + 0x10` base 와 결합해 `obj + 0x14` current destination pointer 를 다시 계산한다.
   - 계산에는 `obj + 0x1F << 10` 계열이 보이므로, text object 가 0x400-byte tile page 단위로 이동하는 해석이 강하다.
@@ -126,4 +131,4 @@
 1. slot `1` 을 이전 문서의 Registry A/B/C/D 분류와 어떻게 대응시킬지 명시적으로 정리
 2. width/advance 값은 object field (`+0x18`, `+0x1A`, `+0x1C`, `+0x20` 부근) 중 어디에 누적되는가?
 3. `0x01570C / 0x01578C / 0x01580C / 0x01588C` 네 variant 가 가로/세로 또는 8x4 / 4x8 복사 중 어떤 역할 차이를 갖는가?
-4. `0x3E0000` font payload 의 lookup 영역과 glyph 영역을 실제 덤프로 더 시각화할지 여부
+4. `0x3E0000` font payload glyph 를 PNG 등으로 더 보기 쉽게 시각화할지 여부

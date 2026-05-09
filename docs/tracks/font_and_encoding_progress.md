@@ -67,13 +67,15 @@
   - `0x838A ('リ') -> 0x00FF`
   - `0x93FA ('日') -> 0x051C`
 - 따라서 이 공통 font resource 는 범용 ASCII 폰트보다 **숫자 + 일본어 중심 custom lookup font** 로 보는 편이 안전하다.
+- [fnt_glyph_82A0_ah.pgm](/Users/user/test/analysis/fnt_glyph_82A0_ah.pgm), [fnt_glyph_8341_a_katakana.pgm](/Users/user/test/analysis/fnt_glyph_8341_a_katakana.pgm), [fnt_glyph_93FA_day.pgm](/Users/user/test/analysis/fnt_glyph_93FA_day.pgm) 를 `dump-fnt-glyph` 로 직접 덤프했고, ASCII preview 기준으로 `'日'` / `'ア'` 형태가 드러난다.
+- 따라서 현재는 `slot 1 entry 0 -> fnt payload -> lookup table -> 12x12 glyph` 흐름을 **실제 샘플 글자까지 확인된 공통 폰트 경로** 로 본다.
 
 ## 다음 할 일
 
 1. slot `1` 을 기존 Registry A/B/C/D 분류와 충돌 없이 다시 명시
 2. `0x014ED0` 또는 그 하위 helper 에서 width/advance 누적 field 확인
 3. `0x01570C / 0x01578C / 0x01580C / 0x01588C` 네 writer variant 차이 확인
-4. `0x3E0000` payload 의 lookup / glyph 영역을 더 시각화하거나 덤프해 확인
+4. `dump-fnt-glyph` 결과를 PNG 등 더 보기 쉬운 형식으로 확장할지 검토
 
 ## 진행 로그
 
@@ -92,3 +94,4 @@
 - `0x01499C` 가 font resource header 를 해석해 object 에 lookup base, glyph base, stride 를 심는 initializer 라는 점과, 주요 text object 화면이 모두 `0x0002CC(0, 1)` 공통 resource 를 쓴다는 점을 확인
 - `0x000290 / 0x0002CC / 0x000304 / 0x00033C` loader family 가 hub `0x076530` 쪽 registry record 를 통해 이 공통 font resource 를 공급한다는 점을 확인
 - 공통 font resource 가 실제로 `0x17C2F4` table entry `0` -> ROM `0x3E0000` `fnt` payload 로 이어지고, `resource[8]=0x48` 과 writer loop 로부터 12x12 계열 glyph 포맷 후보를 얻었다
+- `dump-fnt-glyph` CLI 를 추가해 `'あ'`, `'ア'`, `'日'` 샘플 glyph 를 실제로 덤프했고, 형태 확인까지 마쳤다

@@ -1094,6 +1094,72 @@ def render_4bpp_tiles(data: bytes, *, offset: int, tiles: int, columns: int) -> 
     return bytes(image), width, height
 
 
+def read_fnt_header(data: bytes, *, payload_offset: int) -> Dict[str, int]:
+    if payload_offset + 0x10 > len(data):
+        raise ToolError("fnt payload 시작이 ROM 범위를 벗어납니다.")
+    if data[payload_offset:payload_offset + 4] != b"fnt\x00":
+        raise ToolError("지정한 offset 에서 fnt\\0 magic 을 찾지 못했습니다.")
+    flags = data[payload_offset + 7]
+    stride = struct.unpack_from("<H", data, payload_offset + 8)[0]
+    lookup_base = payload_offset + 0x10 + (0x40000 if (flags & 0x80) else 0)
+    glyph_base = lookup_base + 0x20000
+    return {
+        "payload_offset": payload_offset,
+        "flags": flags,
+        "stride": stride,
+        "lookup_base": lookup_base,
+        "glyph_base": glyph_base,
+    }
+
+
+def resolve_fnt_glyph_index(
+    data: bytes,
+    *,
+    header: Dict[str, int],
+    glyph_index: Optional[int],
+    code: Optional[int],
+) -> int:
+    if glyph_index is not None and code is not None:
+        raise ToolError("--glyph-index 와 --code 는 동시에 쓸 수 없습니다.")
+    if glyph_index is None and code is None:
+        raise ToolError("--glyph-index 또는 --code 중 하나는 필요합니다.")
+    if glyph_index is not None:
+        return glyph_index
+    assert code is not None
+    lookup_offset = header["lookup_base"] + code * 2
+    if lookup_offset + 2 > len(data):
+        raise ToolError("lookup table 범위를 벗어났습니다.")
+    return struct.unpack_from("<H", data, lookup_offset)[0]
+
+
+def render_fnt_glyph(
+    data: bytes,
+    *,
+    glyph_offset: int,
+    width: int,
+    height: int,
+    row_bytes: int,
+) -> bytes:
+    expected_size = height * row_bytes
+    glyph = data[glyph_offset:glyph_offset + expected_size]
+    if len(glyph) < expected_size:
+        raise ToolError("glyph 데이터가 ROM 끝을 넘어갑니다.")
+    pixels = bytearray(width * height)
+    for row in range(height):
+        row_data = glyph[row * row_bytes:(row + 1) * row_bytes]
+        x = 0
+        for byte in row_data:
+            low = byte & 0x0F
+            high = byte >> 4
+            if x < width:
+                pixels[row * width + x] = low * 17
+                x += 1
+            if x < width:
+                pixels[row * width + x] = high * 17
+                x += 1
+    return bytes(pixels)
+
+
 def cmd_info(args: argparse.Namespace) -> int:
     rom_path = Path(args.rom)
     header = parse_header(rom_path, load_rom(rom_path))
@@ -1407,6 +1473,41 @@ def cmd_dump_4bpp(args: argparse.Namespace) -> int:
     output_path = Path(args.output)
     write_pgm(output_path, pixels, width, height)
     print(f"wrote: {output_path} ({width}x{height})")
+    return 0
+
+
+def cmd_dump_fnt_glyph(args: argparse.Namespace) -> int:
+    rom_path = Path(args.rom)
+    data = load_rom(rom_path)
+    payload_offset = parse_offset(args.payload)
+    header = read_fnt_header(data, payload_offset=payload_offset)
+    glyph_index = resolve_fnt_glyph_index(
+        data,
+        header=header,
+        glyph_index=args.glyph_index,
+        code=parse_offset(args.code) if args.code else None,
+    )
+    glyph_offset = header["glyph_base"] + glyph_index * header["stride"]
+    width = args.width or 12
+    height = args.height or 12
+    row_bytes = args.row_bytes or max(1, math.ceil(width / 2))
+    pixels = render_fnt_glyph(
+        data,
+        glyph_offset=glyph_offset,
+        width=width,
+        height=height,
+        row_bytes=row_bytes,
+    )
+    output_path = Path(args.output)
+    write_pgm(output_path, pixels, width, height)
+    print(
+        f"wrote: {output_path} ({width}x{height}) "
+        f"payload={format_offset(payload_offset)} "
+        f"lookup={format_offset(header['lookup_base'])} "
+        f"glyph_base={format_offset(header['glyph_base'])} "
+        f"glyph_index=0x{glyph_index:04X} glyph_offset={format_offset(glyph_offset)} "
+        f"stride=0x{header['stride']:X} flags=0x{header['flags']:02X}"
+    )
     return 0
 
 
@@ -1863,6 +1964,17 @@ def build_parser() -> argparse.ArgumentParser:
     dump_4bpp.add_argument("--columns", type=int, default=16)
     dump_4bpp.add_argument("--output", required=True)
     dump_4bpp.set_defaults(func=cmd_dump_4bpp)
+
+    dump_fnt = sub.add_parser("dump-fnt-glyph", help="공통 fnt payload 에서 glyph 하나를 PGM 으로 덤프합니다.")
+    dump_fnt.add_argument("rom")
+    dump_fnt.add_argument("payload")
+    dump_fnt.add_argument("--glyph-index", type=lambda value: int(value, 0))
+    dump_fnt.add_argument("--code", help="lookup table 에 넣을 문자 코드 (예: 0x82A0)")
+    dump_fnt.add_argument("--width", type=int)
+    dump_fnt.add_argument("--height", type=int)
+    dump_fnt.add_argument("--row-bytes", type=int)
+    dump_fnt.add_argument("--output", required=True)
+    dump_fnt.set_defaults(func=cmd_dump_fnt_glyph)
 
     replace_text = sub.add_parser("replace-text", help="기존 위치에 문자열을 같은 길이 이하로 교체합니다.")
     replace_text.add_argument("rom")

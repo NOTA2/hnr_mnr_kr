@@ -59,6 +59,7 @@
   - `0x01570C / 0x01578C / 0x01580C / 0x01588C` 는 이 glyph source 를 tile target 으로 복사하는 writer family 이고, `0x01590C` / `0x015984` 가 그 하위 halfword writer 다.
   - 현재까지 확인한 주요 text object 초기화 경로는 모두 `0x0002CC(0, 1)` 뒤 `0x01499C` 를 호출하므로, registry slot `1` entry `0` 공통 font resource 를 공유하는 해석이 가장 강하다.
   - writer loop 와 stride 를 함께 보면, 현재 가장 강한 해석은 `glyph 1개 = 0x48 bytes = 12x12 4bpp 계열` 이다.
+  - `dump-fnt-glyph` 로 `'あ'`, `'ア'`, `'日'` 를 실제 덤프했을 때 12x12 문자 형태가 드러나므로, 이 경로는 샘플 글자 수준까지 검증됐다.
   - 따라서 현재 가장 유력한 공통 일본어 텍스트 경로는 **`0x014A98 / 0x014ED0 / 0x015A4C` family** 다.
 - 따라서 현재 병목은 데이터 구조보다 **폰트/문자 매핑/문자폭** 쪽이다.
 
