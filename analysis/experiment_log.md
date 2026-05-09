@@ -9,6 +9,8 @@
 - 각 항목은 `가설`, `시도`, `결과`, `판정`, `교훈`을 포함합니다.
 - 실패도 성공만큼 중요하게 기록합니다.
 - 다시 같은 시도를 할 때는 무엇이 달라졌는지 명시합니다.
+- 실험 번호는 **각 날짜 섹션 안에서만** 순차 증가합니다.
+- 새 항목은 해당 날짜 섹션의 **맨 끝에만 append** 하고, 기존 항목 중간에 끼워 넣지 않습니다.
 
 ## 2026-05-08
 
@@ -75,14 +77,17 @@
 
 - 가설: `0x3D329C` 능력 뱅크는 `이름+0x0B+설명` 형태의 순차 문자열 목록일 수 있다.
 - 시도: `0x3D327E` 부근의 0종단 문자열을 필터 없이 복원했다.
-- 결과: `黒曜石　　　　　火山岩の一種`, `ブラックペーパー因縁がある黒い紙` 같은 결합 문자열 레코드가 연속 확인되었다.
+- 결과: `黒曜石　　　　　
+火山岩の一種`, `ブラックペーパー
+因縁がある黒い紙` 같은 결합 문자열 레코드가 연속 확인되었다.
 - 판정: `성공`
 - 교훈: 이 뱅크는 설명이 별도 포인터로 떨어진 구조가 아니라 결합 레코드 구조일 가능성이 높다.
 
 ### 실험 9
 
 - 가설: `battle/ability` 뱅크에서 일부 레코드가 빠지는 이유는 추출 범위보다 필터 쪽 문제일 수 있다.
-- 시도: 누락된 선두 레코드 `黒曜石　　　　　火山岩の一種` 의 printable 비율을 직접 계산했다.
+- 시도: 누락된 선두 레코드 `黒曜石　　　　　
+火山岩の一種` 의 printable 비율을 직접 계산했다.
 - 결과: 전각 공백 `U+3000` 이 비정상 문자처럼 계산되어 printable 비율이 `0.6` 까지 떨어졌다.
 - 판정: `성공`
 - 교훈: 추출 필터에서 전각 공백을 허용 문자로 취급해야 패딩이 있는 일본어 설명 문자열을 놓치지 않는다.
@@ -278,9 +283,8 @@
   - `0x03ECCC` 는 값을 4-byte 버퍼로 만든 뒤 `0x03EDB8` 을 통해 같은 타일맵 base 에 숫자/기호를 배치한다.
 - 판정: `성공`
 - 교훈: 이 helper family 는 일반 일본어/한글 폰트 경로가 아니라 ASCII/숫자 UI helper 로 먼저 제외해야 한다. 같은 경로를 general font renderer 로 다시 의심하면 시간을 낭비한다.
-- 교훈: "새 텍스트 뱅크 발견 → 범위 추출 → 포인터 검증" 흐름을 유지하면, 메뉴/대사 계열도 같은 방식으로 확장할 수 있다.
 
-### 실험 26
+### 실험 31
 
 - 가설: `0x017ED8` / `0x017EEC` 호출부는 같은 index 에 대해 `0x03BC` / `0x0414` 를 조회한 뒤 실제 리소스 로드나 복사를 수행하는 공용 루틴일 수 있다.
 - 시도:
@@ -293,15 +297,17 @@
 - 판정: `성공`
 - 교훈: `0x17785C` 의 `pointer+length` 경로는 적어도 이 호출부에서는 텍스트 로더가 아니라 그래픽/타일맵 리소스 DMA 경로다. 다음 accessor 해석은 `0x03BC` 단독 호출부를 우선 봐야 한다.
 
-### 실험 27
+### 실험 32
 
 - 가설: 세션 시작 때 긴 문서와 전체 로그를 매번 읽는 구조는 토큰 낭비가 크고, 실제 필요한 문서만 읽도록 라우팅을 분리하는 편이 더 효율적이다.
 - 시도: 시작용 요약 문서 `session_start.md`, 현재 제약 요약 `current_constraints.md`, 작업별 참고 맵 `reference_map.md` 를 만들고, 총괄/핸드오프/반복 방지 문서를 더 짧게 압축했다.
 - 결과: 매 세션의 기본 읽기 경로를 `session_start -> agent_handoff -> current_constraints -> 활성 트랙 문서` 로 줄일 수 있게 되었다.
+- 판정: `성공`
+- 교훈: 세션 시작 경로는 append-only 로그와 분리해서 작게 유지해야 자동화와 후속 세션의 토큰 낭비를 줄일 수 있다.
 
 ## 2026-05-09
 
-### 실험 28
+### 실험 1
 
 - 가설: Registry D (`0x17C7E4..0x17CB04`) 는 몇 개의 샘플 대사만 들어 있는 예외 엔트리가 아니라, 아직 추출되지 않은 튜토리얼/이벤트 대사를 넓게 담고 있을 수 있다.
 - 시도:
@@ -315,7 +321,7 @@
 - 판정: `성공`
 - 교훈: "sample_text_entries 몇 개만 텍스트"처럼 보이는 registry 라도, mixed resource 구조에서는 전체 물리 범위를 슬라이딩 스캔해야 실제 텍스트량이 보인다.
 
-### 실험 29
+### 실험 2
 
 - 가설: Registry D 전체 대사를 한 번에 스캔하면 그대로 번역 workset 으로 올릴 수 있을 것이다.
 - 시도:
@@ -328,7 +334,7 @@
 - 판정: `성공`
 - 교훈: 넓은 범위 스캔 결과를 근거 문서로 삼기 전에는 기본 limit 에 잘리지 않았는지 먼저 확인해야 한다.
 
-### 실험 30
+### 실험 3
 
 - 가설: `save_menu_texts` 에서 보인 `0x10` terminator command-stream 형식은 국지적인 예외가 아니라, 더 큰 대사/메뉴 bank 에 반복 사용될 수 있다.
 - 시도:
@@ -342,7 +348,7 @@
 - 판정: `성공`
 - 교훈: `0x10` 종단 텍스트는 save menu 예외가 아니라, 상위 mixed script bank 안에 넓게 퍼진 형식이다. 전역 스캔만 믿지 말고, registry entry 범위로 다시 좁혀 재추출해야 한다.
 
-### 실험 31
+### 실험 4
 
 - 가설: 최근 따라간 `0x0514xx` UI cluster 가 실제 폰트/문자 매핑 렌더러에 바로 닿을 수 있다.
 - 시도:
@@ -354,10 +360,8 @@
   - raw companion 엔트리 `86..88` 4bpp 덤프는 글자판이 아니라 잡음에 가까웠다.
 - 판정: `부분 성공`
 - 교훈: UI layout 경로와 실제 문자 렌더러를 섞어 보면 폰트 추적이 빗나간다. raw companion asset 도 헤더/압축/별도 포맷 가능성을 먼저 배제해야 한다.
-- 판정: `성공`
-- 교훈: 전체 로그와 모든 참고 문서는 기본 입력이 아니라 선택적 참조로 두는 편이 장기 자동화와 후속 세션에 더 적합하다.
 
-### 실험 28
+### 실험 5
 
 - 가설: `0x007578`, `0x007760`, `0x007824` 같은 `0x03BC` 단독 호출부는 모두 단순 binary table 이 아니라, 일부는 텍스트 뱅크 앞단 메타데이터와 문자열 본문을 함께 읽을 수 있다.
 - 시도:
@@ -372,7 +376,7 @@
 - 판정: `성공`
 - 교훈: `0x03BC` 단독 호출부를 "텍스트 아님" 또는 "문자열 포인터 직접 반환" 둘 중 하나로 단정하면 안 된다. binary record directory 와 in-bank 상대 문자열 포인터를 함께 보는 mixed resource 관점이 필요하다.
 
-### 실험 29
+### 실험 6
 
 - 가설: `0x076530` 허브는 단순 데이터 묶음이 아니라, ROM 초반의 공용 helper 가 직접 참조하는 상위 registry selector 구조일 수 있다.
 - 시도:
@@ -389,7 +393,7 @@
 - 판정: `성공`
 - 교훈: `0x076530` 허브는 "상위 registry selector + generic accessor family" 관점으로 다뤄야 한다. 또한 허브 전체가 단일한 규칙으로 소비된다고 가정하면 안 되고, `0x17C7E4` 같은 예외 축은 별도로 추적해야 한다.
 
-### 실험 30
+### 실험 7
 
 - 가설: `0x0002CC` direct caller 들은 registry selector 값 몇 개에 집중될 수 있고, 그 분포를 보면 어떤 상위 registry 가 실제로 공용 accessor family 를 쓰는지 좁힐 수 있다.
 - 시도:
@@ -405,7 +409,7 @@
 - 판정: `성공`
 - 교훈: generic hub accessor family 의 실제 사용은 전체 registry 에 고르게 퍼져 있지 않다. 현재 direct caller 기준으로는 `Registry A` 와 `Registry C` 로 편중되어 있고, `selector=0` / `2` 경로는 다른 helper 나 다른 상위 흐름을 통해 접근할 가능성을 우선 의심해야 한다.
 
-### 실험 31
+### 실험 8
 
 - 가설: `0x17C7E4` direct helper 가 없다는 이전 결론은 helper entry 주소를 `0x03E4` 로 잘못 잡은 결과일 수 있다.
 - 시도:
@@ -421,7 +425,7 @@
 - 판정: `성공`
 - 교훈: `0x17C7E4` 는 generic 허브 밖의 별도 direct helper 축으로 실제 사용된다. 따라서 `selector=0` 부재는 `0x17785C` 전용 helper 로 설명 가능하고, 현재 상위 registry 중 concrete access route 가 가장 비어 있는 축은 `Registry B (0x17C384)` 다.
 
-### 실험 32
+### 실험 9
 
 - 가설: `Registry B (0x17C384)` 는 실제 access route 가 없는 dead registry 가 아니라, 다른 ROM 위치에 있는 미러 테이블과 전용 loader helper 를 통해 소비될 수 있다.
 - 시도:
@@ -440,7 +444,7 @@
 - 판정: `성공`
 - 교훈: `Registry B` 는 "selector=2 generic caller 가 안 보이는 미해결 축" 이 아니라, **hub base 와 다른 미러/loader 계층** 에서 소비되는 live asset bank 로 봐야 한다. 다음 질문은 access route 존재 여부가 아니라, `0x68DF8` caller 들이 실제로 어떤 index 군과 companion descriptor 를 쓰는가다.
 
-### 실험 33
+### 실험 10
 
 - 가설: `0x068DF8` caller 는 모두 같은 성격의 direct asset lookup 이 아니라, fixed index 경로와 descriptor-driven 경로가 섞여 있을 수 있다.
 - 시도:
@@ -454,7 +458,7 @@
 - 판정: `성공`
 - 교훈: `0x068DF8` 는 단순 고정 sprite loader 하나가 아니라, **fixed bootstrap asset + descriptor-driven asset selection** 이 섞인 공용 helper 다. 따라서 다음 단계는 단순 caller 수집보다 descriptor table 원본과 global state 의미를 정리하는 쪽이 더 가치가 크다.
 
-### 실험 34
+### 실험 11
 
 - 가설: `0x183D50` 미러 테이블 바로 뒤 `0x1840E8` 영역은 Registry B asset 을 목적지 메모리로 배치하는 companion descriptor block 일 수 있다.
 - 시도:
@@ -470,7 +474,7 @@
 - 판정: `성공`
 - 교훈: 미러 테이블 뒤를 한 덩어리로 취급하지 말고, 최소한 `tile descriptor array`, `palette descriptor array`, `metadata/string tail` 로 나눠서 추적해야 한다.
 
-### 실험 35
+### 실험 12
 
 - 가설: `0x184220` 이후 tail 은 잡다한 문자열 뭉치가 아니라, order table 과 fixed-size location record table 로 이어질 수 있다.
 - 시도:
@@ -486,7 +490,7 @@
 - 판정: `성공`
 - 교훈: 이미 문자열이 추출되었다고 해서 그 구간을 곧바로 standalone text bank 로 확정하면 안 된다. fixed-size record 안의 name field 일 수 있으므로, stride 와 base pointer 를 함께 확인해야 한다.
 
-### 실험 36
+### 실험 13
 
 - 가설: `location record table` 뒤쪽 tail 은 추가적인 world-map/location bundle 로 이어지고, 이 안에는 route/script/handler 성격의 여러 하위 테이블이 함께 들어 있을 수 있다.
 - 시도:
@@ -505,7 +509,7 @@
 - 판정: `성공`
 - 교훈: location/world-map 계열 데이터는 문자열, 좌표, 이동 규칙, handler 가 한 묶음으로 저장될 수 있다. 이후에는 `string bank` 만 보는 접근보다 **bundle 단위 구조화**가 훨씬 효율적이다.
 
-### 실험 37
+### 실험 14
 
 - 가설: `0x184888` route block table 이 가리키는 `0x1844B0..0x1847F7` 시퀀스는 opcode script 가 아니라, `13`개 node 위에서 목적지까지 이동 경로를 나열한 path list 일 수 있다.
 - 시도:
@@ -521,7 +525,7 @@
 - 판정: `성공`
 - 교훈: 겉보기에는 bytecode 처럼 보여도, 실제로는 opcode 가 아니라 그래프 경로 데이터일 수 있다. 특히 값 범위가 작고 self-slot null 패턴이 강할 때는 script 보다 path matrix 가능성을 먼저 검토해야 한다.
 
-### 실험 38
+### 실험 15
 
 - 가설: `0x184420` 의 `18 * (u32, u32)` table 은 route graph edge 목록이 아니라, world-map hit-test 결과를 location index 로 바꾸는 lookup table 일 수 있다.
 - 시도:
@@ -534,7 +538,7 @@
 - 판정: `성공`
 - 교훈: `0x184420` 은 route path matrix 와 같은 성격이 아니다. 현재는 **hotspot/cell id -> location index lookup** 으로 보는 해석이 가장 강하다.
 
-### 실험 39
+### 실험 16
 
 - 가설: location record 의 `field1/field2` 는 단순 node 좌표가 아니라, 실제 world-map icon / hotspot hit box 원점일 수 있고 `field0/field3/field4` 는 draw helper 파라미터일 수 있다.
 - 시도:
@@ -549,7 +553,7 @@
 - 판정: `성공`
 - 교훈: location record 는 "문자열 + 메타데이터" 정도가 아니라, 실제 world-map 선택/표시 로직에 직접 물리는 UI struct 다.
 
-### 실험 40
+### 실험 17
 
 - 가설: `0x1849D4` special pair table 은 단순 숫자 목록이 아니라, special location 과 event/script/message ID 를 이어 주는 매핑일 수 있다.
 - 시도:
@@ -562,7 +566,7 @@
 - 판정: `성공`
 - 교훈: `special_pair_table` 은 현재 **location index -> special event/script/message id** 매핑으로 보는 편이 가장 강하다. 또한 location 활성/비활성은 record field 가 아니라 별도 runtime array 가 맡는다.
 
-### 실험 41
+### 실험 18
 
 - 가설: location record `field3` / `field4` 의 정확한 역할은 caller 쪽 값 분포만으로는 부족하고, draw helper 내부에서 어느 sprite bitfield 에 꽂히는지 봐야 더 좁힐 수 있다.
 - 시도:
@@ -577,7 +581,7 @@
 - 판정: `성공`
 - 교훈: draw field 는 막연한 metadata 가 아니라, 실제 sprite template bitfield 로 바로 연결된다. 이후에는 값 분포보다 **register/bitfield 연결**을 우선 본다.
 
-### 실험 42
+### 실험 19
 
 - 가설: location/world-map bundle 하위 table 들은 개별 direct ref 만으로 소비되지 않고, 더 큰 정적 constant cluster 안에서 runtime global 과 함께 재조합될 수 있다.
 - 시도:
@@ -591,7 +595,7 @@
 - 판정: `성공`
 - 교훈: direct ref 수가 적다고 dead table 로 치면 안 된다. 특히 location/world-map 계열은 **static constant cluster + runtime global** 묶음으로 소비되는 경로를 같이 봐야 한다.
 
-### 실험 43
+### 실험 20
 
 - 가설: `0x184A0C` numeric tail 은 단순 미해석 꼬리가 아니라, 고정 크기 effect/overlay parameter table 일 수 있다.
 - 시도:
@@ -608,7 +612,7 @@
 - 판정: `성공`
 - 교훈: literal pool 주소를 code entry 로 착각하지 말고, 참조한 instruction 까지 역으로 따라가야 한다. `0x184A0C` 는 이제 "미해석 tail" 이 아니라 별도 fixed-size parameter table 로 다룬다.
 
-### 실험 44
+### 실험 21
 
 - 가설: `0x03005FF8` 은 `0x184A0C` effect table 만을 위한 독립 index 가 아니라, world-map 선택/hover location index 로 먼저 정해지고 여러 경로에서 재사용될 수 있다.
 - 시도:
@@ -626,7 +630,7 @@
 - 판정: `성공`
 - 교훈: `0x03005FF8` 은 현재 **선택/hover location index byte** 로 보는 편이 가장 강하다. effect table 의 row 수 `10`은 location 수 `10`과 정렬되며, 앞으로는 이 값 자체보다 `0x184A0C` row 내부 파라미터 의미를 좁히는 것이 더 유리하다.
 
-### 실험 45
+### 실험 22
 
 - 가설: 세션 시작 시 읽는 문서를 `session_start.md -> agent_handoff.md -> current_constraints.md -> 활성 트랙 문서` 로 유지하면, 실제 작업 전부터 불필요한 컨텍스트를 과하게 소비한다.
 - 시도:
@@ -641,7 +645,7 @@
 - 판정: `성공`
 - 교훈: 장기 프로젝트 문서는 "얼마나 많이 기록했는가"보다 "기본 경로에서 무엇을 읽지 않는가"가 더 중요하다. 증거는 보존하되, hot path 에는 현재 next step 과 금지 가정만 둔다.
 
-### 실험 46
+### 실험 23
 
 - 가설: `0x184A0C` effect/overlay row 의 `word0` 은 effect asset id 자체가 아니라, location/world-map 선택 체계에서 쓰는 hotspot/cell id 일 수 있다.
 - 시도:
@@ -659,7 +663,7 @@
 - 판정: `성공`
 - 교훈: effect table 의 첫 word 는 새 asset namespace 가 아니라 이미 확인된 hotspot/location namespace 와 재결합될 수 있다. `word3` 은 별도 3-bit object/subresource variant 축으로 이어서 보면 된다.
 
-### 실험 47
+### 실험 24
 
 - 가설: `0x184A0C` effect/overlay row 의 `word3` 은 막연한 effect subtype 이 아니라, `0x03CA68` 이 돌려준 공통 descriptor 안에서 **어느 field 를 읽을지 고르는 selector** 일 수 있다.
 - 시도:
@@ -676,7 +680,7 @@
 - 판정: `성공`
 - 교훈: `word3` 은 frame 번호처럼 독립 의미를 가진 값보다, 공통 descriptor 안의 **필드 선택축** 으로 보는 편이 훨씬 안전하다. 다음은 이 descriptor 를 고르는 `word1 low nibble` 과 `word2` 의미를 좁히는 것이 가장 효율적이다.
 
-### 실험 48
+### 실험 25
 
 - 가설: `0x184A0C` row 의 `word1 low nibble` 은 단순 플래그가 아니라, `0x03CA68` 이 사용하는 descriptor family 내부 field / slot selector 일 수 있다.
 - 시도:
@@ -693,7 +697,7 @@
 - 판정: `성공`
 - 교훈: `word1` 은 16가지 완전 독립 타입보다, `0..3` direct field + `4..15` shared range selector 구조로 보는 편이 훨씬 자연스럽다. 다음은 `word2` 와 `word1` 상위 비트를 좁히는 것이 가장 효율적이다.
 
-### 실험 49
+### 실험 26
 
 - 가설: `0x184A0C` row 의 `word1` / `word2` 는 descriptor selector 와 별개로, 실제 object positioning 에 쓰이는 raw coordinate pair 일 수 있다.
 - 시도:
@@ -712,7 +716,7 @@
 - 판정: `성공`
 - 교훈: `word1 low nibble` selector 분석과 `word1` 전체 좌표 역할은 동시에 참일 수 있다. 같은 word 가 selector bit 와 raw position encoding 을 함께 담는 packed field 일 가능성을 열어 두고 진행한다.
 
-### 실험 50
+### 실험 27
 
 - 가설: `0x0587BC` 가 부르는 `0x075560` 은 좌표값을 어떤 bespoke fixed-point 로 바꾸는 것이 아니라, signed int 를 직접 float 비트패턴으로 포장하는 helper 일 수 있다.
 - 시도:
@@ -728,7 +732,7 @@
 - 판정: `성공`
 - 교훈: detached slice 분석에서는 내부 BL target 재환산이 매우 중요하다. 좌표계 해석을 할 때는 “어떤 수치 형식으로 저장되는가”와 “원본 데이터가 packed metadata 를 함께 담는가”를 분리해서 봐야 한다.
 
-### 실험 51
+### 실험 28
 
 - 가설: `0x03CA68` dispatch table 분석을 effect row `word1 low nibble` 에 직접 연결한 것은 caller 경로를 충분히 확인하지 않은 오해일 수 있다. 대신 `word4 != 0` side-path 가 실제 overlay slot maintenance 를 수행할 가능성이 높다.
 - 시도:
@@ -745,7 +749,7 @@
 - 판정: `성공`
 - 교훈: helper-family 차원의 구조 해석과 특정 caller 경로의 실제 인자 전달은 반드시 분리해서 적어야 한다. caller 직전 레지스터를 보지 않으면 같은 실수를 반복하게 된다.
 
-### 실험 52
+### 실험 29
 
 - 가설: `word4 != 0` side-path 가 읽는 `0x03001450 + 0x33C/+0x33E` 는 막연한 상태값이 아니라, 실제 slot `8..23` clearing 루프와 짝을 이루는 tracked raw slot id 필드일 수 있다.
 - 시도:
@@ -762,7 +766,7 @@
 - 판정: `성공`
 - 교훈: slot clearing 루프는 단순 memset 범위를 보는 것만으로는 부족하다. loop index 와 tracked field 를 같은 좌표계로 환산하는 비교식 (`raw slot + 8`) 까지 확인해야 “상태값”과 “slot id” 를 구분할 수 있다.
 
-### 실험 53
+### 실험 30
 
 - 가설: `0x03D6F0` 첫 분기에서 보였던 `+0x33E == 1` 비교는 register ALU opcode 를 잘못 읽은 착시일 수 있다. 올바르게 읽으면 second tracked slot 의 sentinel 의미가 드러날 가능성이 있다.
 - 시도:
@@ -777,7 +781,7 @@
 - 판정: `성공`
 - 교훈: Thumb ALU register opcode (`0x4000` 계열) 를 `.hword` 로 흘리면 sentinel 해석이 완전히 뒤집힐 수 있다. `cmp` 와 `cmn` 구분은 특히 tracked state / sentinel 분석에서 반드시 직접 확인해야 한다.
 
-### 실험 54
+### 실험 31
 
 - 가설: `0x33C/+0x33E` tracked field 는 passive state 가 아니라, 별도 allocator 가 피해야 하는 reserved slot set 으로 쓰일 수 있다. 이 경우 allocator 출력 버퍼와 consumer 를 함께 보면 구조가 더 명확해질 것이다.
 - 시도:
@@ -794,7 +798,7 @@
 - 판정: `성공`
 - 교훈: tracked field 를 이해하려면 read/clear helper만 보면 부족하다. allocator (`iterate -> exclude tracked -> emit candidate`) 와 consumer (`candidate buffer`) 를 함께 봐야 실제 lifecycle 이 보인다.
 
-### 실험 55
+### 실험 32
 
 - 가설: `0x03005240` 은 막연한 scratch 가 아니라 allocator 전용 `16 * 4-byte` per-slot state table 이며, `0x03005284` candidate 는 별도 pending pair 로 한 단계 더 승격될 수 있다.
 - 시도:
@@ -811,7 +815,7 @@
 - 판정: `성공`
 - 교훈: allocator 결과를 곧바로 tracked field 에 연결하려고 하면 중간 staging pair 를 놓치기 쉽다. candidate buffer, derived companion, tracked field 를 서로 다른 단계로 나눠 보는 편이 안정적이다.
 
-### 실험 56
+### 실험 33
 
 - 가설: `0x33E` 는 읽기 전용 상태가 아니라 상위 state 전환 함수에서 sentinel 로 직접 초기화될 수 있다.
 - 시도:
@@ -824,7 +828,7 @@
 - 판정: `성공`
 - 교훈: writer 탐색이 막힐 때는 consumer helper 주변만 돌지 말고, 상태 전환 루틴이 몰린 상위 range 를 좁혀 보는 편이 효율적이다.
 
-### 실험 57
+### 실험 34
 
 - 가설: `0x33C` 가 literal scan 에 거의 안 잡히는 이유는 "미사용" 이 아니라, `0xCF << 2` 같은 계산식 접근 때문일 수 있다.
 - 시도:
