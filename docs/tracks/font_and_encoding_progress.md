@@ -56,13 +56,24 @@
 - `0x000290(registry_slot)` 은 hub `0x08076530` table 에서 registry base pointer 를 고르고, `0x0002CC(entry_index, registry_slot)` 은 그 registry 의 `0x0A` record 에서 payload pointer 를 돌려준다.
 - `0x000304(entry_index, registry_slot)` 은 같은 record 의 length 를 돌려주고, `0x00033C(dest, entry_index, registry_slot)` 은 DMA3 로 payload 를 `dest` 로 복사한다.
 - 현재까지 확인한 주요 caller (`0x015A28`, `0x0618A4`, `0x064B5C`, `0x069D72`) 는 모두 `0x0002CC(0, 1)` 뒤 `0x01499C` 를 호출하므로, **registry slot 1 entry 0 공통 font resource** 가 여러 text object 화면에서 재사용된다는 해석이 가장 강하다.
+- hub 실제 값 기준 `slot 1 -> table base 0x17C2F4` 이고, entry `0` 은 `ptr=0x083E0000`, `len=0x3DDE8` 이다.
+- 이 payload 시작부에는 `fnt\\0` magic 이 보이고, header 바이트는 `66 6E 74 00 0C 0F 00 0A 48 00 ...` 형태다.
+- `resource[8] = 0x48` 과 writer loop 구조를 함께 보면, 현재 가장 강한 해석은 **glyph 1개 = 0x48 bytes = 12 rows * 6 bytes = 12x12 4bpp 계열** 이다.
+- 샘플 lookup 확인 결과:
+  - `0x30 ('0') -> 0x0001`
+  - `0x82A0 ('あ') -> 0x0067`
+  - `0x8341 ('ア') -> 0x00B7`
+  - `0x835A ('セ') -> 0x00D0`
+  - `0x838A ('リ') -> 0x00FF`
+  - `0x93FA ('日') -> 0x051C`
+- 따라서 이 공통 font resource 는 범용 ASCII 폰트보다 **숫자 + 일본어 중심 custom lookup font** 로 보는 편이 안전하다.
 
 ## 다음 할 일
 
-1. `0x0002CC(0, 1)` 의 registry slot `1` 이 기존 Registry B 분류와 정확히 대응하는지 확인
+1. slot `1` 을 기존 Registry A/B/C/D 분류와 충돌 없이 다시 명시
 2. `0x014ED0` 또는 그 하위 helper 에서 width/advance 누적 field 확인
 3. `0x01570C / 0x01578C / 0x01580C / 0x01588C` 네 writer variant 차이 확인
-4. slot `1` entry `0` payload 원본의 raw tile / lookup 배치를 확인
+4. `0x3E0000` payload 의 lookup / glyph 영역을 더 시각화하거나 덤프해 확인
 
 ## 진행 로그
 
@@ -80,3 +91,4 @@
 - `0x0152A2..0x0152C4` 에서 문자코드가 `obj + 0x04` lookup table 과 `obj + 0x08` glyph base 를 거쳐 glyph source pointer 로 바뀌는 흐름을 확인
 - `0x01499C` 가 font resource header 를 해석해 object 에 lookup base, glyph base, stride 를 심는 initializer 라는 점과, 주요 text object 화면이 모두 `0x0002CC(0, 1)` 공통 resource 를 쓴다는 점을 확인
 - `0x000290 / 0x0002CC / 0x000304 / 0x00033C` loader family 가 hub `0x076530` 쪽 registry record 를 통해 이 공통 font resource 를 공급한다는 점을 확인
+- 공통 font resource 가 실제로 `0x17C2F4` table entry `0` -> ROM `0x3E0000` `fnt` payload 로 이어지고, `resource[8]=0x48` 과 writer loop 로부터 12x12 계열 glyph 포맷 후보를 얻었다

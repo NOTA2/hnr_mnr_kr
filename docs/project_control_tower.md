@@ -40,6 +40,7 @@
 - 이어서 `0x0152A2..0x0152C4` 에서 문자코드가 `obj + 0x04` lookup table, `obj + 0x08` glyph base, `obj + 0x1A` stride 를 통해 glyph source pointer 로 바뀌는 흐름과 `0x01570C..0x015984` writer family 도 확인했다.
 - `0x01499C` 가 font resource header 를 해석해 object 에 lookup base / glyph base / stride 를 심는 initializer 라는 점과, 주요 text object caller 가 공통 `0x0002CC(0, 1)` resource 를 공유한다는 점도 확인했다.
 - 이어서 `0x000290 / 0x0002CC / 0x000304 / 0x00033C` loader family 가 hub `0x076530` pointer table 과 `0x0A` record 구조를 통해 이 공통 font resource 를 공급한다는 점도 확인했다.
+- 추가로 공통 font resource 가 `0x17C2F4` table entry `0` -> ROM `0x3E0000` `fnt` payload 로 이어지고, `resource[8]=0x48` 및 writer loop 로부터 12x12 계열 glyph 포맷 후보까지 얻었다.
 
 - `0x184A0C..0x184AD3` 을 `10 * 0x14` effect/overlay parameter table 후보로 분리했다.
 - `0x03005FF8` 은 world-map 선택/hover location index byte 로 보는 해석이 강해졌다.

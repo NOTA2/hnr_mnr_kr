@@ -54,10 +54,14 @@
   - `obj + 0x1C`, `obj + 0x1D` 에는 initializer 인자 `r2` 가 복제된다.
   - `0x08088318` 에는 `"FONT INITIALIZE ERROR"` 문자열이 있어, 함수 역할과도 잘 맞는다.
   - 따라서 현재 가장 안전한 resource header 해석은:
+    - `+0x00..+0x03`: magic `"fnt\\0"`
+    - `+0x04`: width-like field 후보 `0x0C`
+    - `+0x05`: height/line-like field 후보 `0x0F`
     - `+0x07`: font flags / layout bits
     - `+0x08`: glyph stride
     - `+0x10...`: lookup table region
     - `+0x20010...` 또는 `+0x60010...`: glyph data region
+  - 실제 공통 resource payload 시작 `0x3E0000` 에서는 `66 6E 74 00 0C 0F 00 0A 48 00 ...` 가 보인다.
 
 - glyph lookup / writer 쪽:
   - `0x0152A2..0x0152C4` 에서 현재 문자코드 `u16` 를 `obj + 0x04` 기반 `u16` 테이블로 조회한다.
@@ -71,6 +75,21 @@
     - `0x01590C`
     - `0x015984`
   - 두 helper 는 glyph source 의 halfword 3개를 target 주변에 배치하되, 쓰는 위치가 약간 달라서 서로 다른 tile orientation / layout variant 후보로 보인다.
+  - writer loop 를 보면 source 는 한 번에 `+6` byte, 총 `8 + 4 = 12` 행을 소비하므로, 현재 가장 강한 해석은 **glyph 1개 = `12 rows * 6 bytes = 0x48` bytes = 12x12 4bpp 계열 포맷** 이다.
+  - 이는 `resource[8] = 0x48` stride 와도 정확히 맞는다.
+
+- 샘플 lookup 확인:
+  - `'0' (0x30) -> glyph index 0x0001`
+  - `'あ' (0x82A0) -> 0x0067`
+  - `'ア' (0x8341) -> 0x00B7`
+  - `'セ' (0x835A) -> 0x00D0`
+  - `'リ' (0x838A) -> 0x00FF`
+  - `'漢' (0x8ABF) -> 0x01C6`
+  - `'字' (0x8E9A) -> 0x032F`
+  - `'日' (0x93FA) -> 0x051C`
+  - `'本' (0x967B) -> 0x05DA`
+  - 첫 nonzero lookup 들도 `0x30..0x39 -> 1..10`, `0x78 -> 11`, 이후 `0x8141` 계열 순으로 이어진다.
+  - 따라서 공통 font resource 는 ASCII 전부를 포괄한다기보다, **숫자 + 일본어 중심의 custom code map** 으로 보는 편이 안전하다.
 
 - page / cursor update 쪽:
   - `0x015608` 은 `obj + 0x1F` byte 를 갱신하고, `obj + 0x10` base 와 결합해 `obj + 0x14` current destination pointer 를 다시 계산한다.
@@ -79,7 +98,9 @@
 - 공통 폰트 resource 가설:
   - `0x015A28`, `0x0618A4`, `0x064B5C`, `0x069D72` 는 모두 `0x0002CC(0, 1)` 뒤 `0x01499C` 를 호출한다.
   - `0x0002CC` 내부를 보면 두 번째 인자 `1` 은 hub `0x076530` pointer table 의 slot 선택, 첫 번째 인자 `0` 은 해당 registry 안의 `0x0A` record index 로 읽힌다.
-  - 따라서 현재까지 확인된 주요 text object 초기화 경로는 **registry slot `1` entry `0` 공통 font resource** 를 공유하는 해석이 가장 강하다.
+  - hub table 실제 값은 `slot 1 -> 0x17C2F4`, `slot 2 -> 0x17C384`, `slot 3 -> 0x17C71C`, `slot 6 -> 0x17C7E4` 이다.
+  - 따라서 현재까지 확인된 주요 text object 초기화 경로는 **registry slot `1` entry `0` = table base `0x17C2F4` 의 entry 0** 공통 font resource 를 공유하는 해석이 가장 강하다.
+  - 이 entry 는 pointer-length 기준 `ptr=0x083E0000`, `len=0x3DDE8` 이며, file offset 으로는 `0x3E0000..0x41DDE7` 이다.
 
 ## `0x014ED0` 에서 보인 문자 분기
 
@@ -102,7 +123,7 @@
 
 ## 다음 질문
 
-1. `0x0002CC(0, 1)` 의 registry slot `1` 이 이전 분류 기준 Registry B 와 정확히 1:1로 대응하는지 확인
+1. slot `1` 을 이전 문서의 Registry A/B/C/D 분류와 어떻게 대응시킬지 명시적으로 정리
 2. width/advance 값은 object field (`+0x18`, `+0x1A`, `+0x1C`, `+0x20` 부근) 중 어디에 누적되는가?
 3. `0x01570C / 0x01578C / 0x01580C / 0x01588C` 네 variant 가 가로/세로 또는 8x4 / 4x8 복사 중 어떤 역할 차이를 갖는가?
-4. `entry 0 of slot 1` resource payload 원본이 실제 ROM 어디에 있는지, 그리고 raw tile / lookup 구성이 어떻게 배치되는지 확인
+4. `0x3E0000` font payload 의 lookup 영역과 glyph 영역을 실제 덤프로 더 시각화할지 여부

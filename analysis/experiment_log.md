@@ -905,3 +905,20 @@
   - 이 구조를 적용하면 `0x01499C` 가 쓰는 공통 font resource 는 **registry slot `1` entry `0`** 으로 읽는 편이 가장 자연스럽다.
 - 판정: `성공`
 - 교훈: lower-level text engine 분석과 상위 registry loader 분석을 분리해 두면 각각 애매할 수 있다. 하지만 둘을 연결하면 “공통 font asset이 어떤 entry인가”까지 바로 내려가므로, 다음 단계인 raw tile / lookup 배치 확인이 훨씬 짧아진다.
+
+### 실험 39
+
+- 가설: `slot 1 / entry 0` 공통 font resource 는 실제로 `fnt` 형식 payload 일 것이고, header 와 glyph stride 를 보면 glyph 포맷까지 어느 정도 역산할 수 있을 것이다.
+- 시도:
+  - `0x17C2F4` table entry `0` pointer/length 를 실제 ROM offset 로 환산했다.
+  - payload 시작 `0x3E0000` 과 lookup/glyph 후보 구간을 raw hex 로 확인했다.
+  - 샘플 문자 몇 개를 `cp932` 코드로 바꿔 `obj + 0x04` lookup table 값도 직접 읽었다.
+- 결과:
+  - entry `0` 은 `ptr=0x083E0000`, `len=0x3DDE8` 이므로 실제 payload 범위는 `0x3E0000..0x41DDE7` 이다.
+  - payload 시작부에는 `66 6E 74 00` 즉 `fnt\\0` magic 이 보이고, 앞 12바이트는 `66 6E 74 00 0C 0F 00 0A 48 00 DE 77` 형태다.
+  - `resource[8] = 0x48` 은 `0x01499C` 가 object stride 로 복사하는 값과 정확히 일치한다.
+  - writer loop 는 source 를 한 번에 `+6` byte, 총 `8 + 4 = 12` 행 소비하므로 현재 가장 강한 해석은 **glyph 1개 = `12 rows * 6 bytes = 0x48` bytes = 12x12 4bpp 계열 포맷** 이다.
+  - 샘플 lookup 값도 실제 일본어 문자에서 유효하게 나온다. 예를 들어 `0x82A0 ('あ') -> 0x0067`, `0x8341 ('ア') -> 0x00B7`, `0x835A ('セ') -> 0x00D0`, `0x838A ('リ') -> 0x00FF`, `0x93FA ('日') -> 0x051C` 다.
+  - 따라서 이 payload 는 더 이상 막연한 “텍스트 관련 blob”이 아니라, **공통 일본어 폰트 resource** 로 취급해도 될 만큼 좁혀졌다.
+- 판정: `성공`
+- 교훈: 공통 font payload 의 magic/header/lookup sample 을 함께 확인하면, 이후 한글화 작업은 “맞을지도 모르는 후보”를 파는 단계에서 벗어나 실제 교체 대상 asset 을 다루는 단계로 넘어갈 수 있다.
