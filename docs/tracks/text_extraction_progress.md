@@ -97,14 +97,17 @@
   - [registry_d_full_sliding_texts.json](/Users/user/test/analysis/registry_d_full_sliding_texts.json)
   - [registry_d_fc_script_texts.json](/Users/user/test/analysis/registry_d_fc_script_texts.json)
   - [registry_d_fc_script_summary.json](/Users/user/test/analysis/registry_d_fc_script_summary.json)
+  - [registry_d_unresolved_entries.json](/Users/user/test/analysis/registry_d_unresolved_entries.json)
   - [registry_d_tutorial_dialogue_texts.json](/Users/user/test/analysis/registry_d_tutorial_dialogue_texts.json)
   - [registry_d_battle_dialogue_texts.json](/Users/user/test/analysis/registry_d_battle_dialogue_texts.json)
 - 현재 확인:
   - Registry D 전체 물리 범위를 `scan-text --sliding` + terminator `0x0D/0x0C/0x00` 으로 보면 `305`개 텍스트가 잡힌다.
-  - 텍스트가 확인된 엔트리는 현재 `81 / 100` 개다.
-  - 많은 엔트리가 `FC` 제어 바이트가 섞인 mixed script 형식이며, `FC 00 ... FC` anchor 기반 [registry_d_fc_script_texts.json](/Users/user/test/analysis/registry_d_fc_script_texts.json) 은 현재 `240`건을 clean extraction 한다.
-  - 이 `240`건도 `81 / 100` 엔트리에서 나오며, top entry 는 `0=20`, `92=17`, `33=15`, `47=10`, `24=7`, `32=7`, `54=7` 순이다.
+  - 텍스트가 확인된 엔트리는 현재 `82 / 100` 개다.
+  - 많은 엔트리가 `FC` 제어 바이트가 섞인 mixed script 형식이며, `FC 00 ... FC` anchor 기반 [registry_d_fc_script_texts.json](/Users/user/test/analysis/registry_d_fc_script_texts.json) 은 현재 `244`건을 clean extraction 한다.
+  - stop byte `FC` 가 Shift-JIS 2바이트 문자의 trailing byte 로 들어갈 수 있어 SJIS-aware stop 처리까지 넣었고, 이 보정으로 entry `8` 대사 `4`건이 추가 회수되었다.
+  - 이 `244`건도 `82 / 100` 엔트리에서 나오며, top entry 는 `0=20`, `92=17`, `33=15`, `47=10`, `1=7`, `24=7`, `32=7`, `54=7` 순이다.
   - `registry_d_full_sliding_texts.json` 의 `305`건은 discovery coverage 용으로 유지하고, 실제 작업용 원본은 `registry_d_fc_script_texts.json` 쪽이 더 깨끗하다.
+  - 남은 [registry_d_unresolved_entries.json](/Users/user/test/analysis/registry_d_unresolved_entries.json) `18`개 중 대부분은 `2-byte sentinel/control stub` 이고, 텍스트 미회수 관점에서 실제로 다시 볼 가치는 entry `70` control-only script table 후보 정도다.
   - entry `0` / `92` 는 튜토리얼 계열 중복/변형 대사 묶음으로 보인다.
   - entry `33`, `47` 같은 큰 엔트리도 대사성 문자열을 다수 포함한다.
   - 초기 전수 스캔 때는 `scan-text` 기본 `--limit 100` 에 걸려 일부만 보였으므로, 넓은 범위 스캔에서는 반드시 limit 을 올려야 한다.
@@ -164,7 +167,7 @@
 - 번역 가능한 텍스트 뱅크는 이미 여러 개 확보되었다.
 - 아이템/기술/지역/UI가 서로 다른 파일로 분리되기 시작해서 작업 관리가 쉬워졌다.
 - 아직 대사/이벤트 본문 텍스트는 충분히 확보되지 않았다.
-- Registry D 분석으로 본편성 대사/튜토리얼 텍스트가 대량으로 추가 확보되었다.
+- Registry D 분석으로 본편성 대사/튜토리얼 텍스트가 대량으로 추가 확보되었고, 남은 미해결 엔트리도 대부분 비대사 control stub 로 좁혀졌다.
 - Registry D 는 슬라이딩 스캔만으로 끝나는 구간이 아니라, `FC 00 ... FC` anchor 규칙을 쓰는 mixed-format 스크립트 자원이라는 점이 더 분명해졌다.
 - Registry A entry 8 분석으로 `0x10` 종단 command-stream 대사 bank 가 훨씬 크게 존재한다는 근거가 생겼고, 지금은 `01 FF <문자수>` 헤더 기반으로 clean extraction 이 가능해졌다.
 - 같은 prefixed 규칙을 상위 registry A/B/C/D 전체에 대입해 본 결과, 현재는 Registry A entry `8` 하나만 강하게 맞는다.
@@ -177,7 +180,7 @@
 ## 다음 할 일
 
 1. Registry A entry `8` 의 `72`개 cluster 요약에 장면/용도 라벨을 붙이기
-2. Registry D `240`개 clean extraction 본을 장면/용도 기준으로 더 묶기
+2. Registry D `244`개 clean extraction 본을 장면/용도 기준으로 더 묶기
 3. `01 FF <문자수>` / `FC 00 ... FC` 둘 다 안 통하는 다른 mixed resource 대사 형식을 찾기
 4. 메뉴 관련 텍스트 뱅크를 더 분리하기
 

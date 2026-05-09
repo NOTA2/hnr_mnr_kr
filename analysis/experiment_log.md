@@ -982,3 +982,18 @@
   - 따라서 기존 [registry_d_full_sliding_texts.json](/Users/user/test/analysis/registry_d_full_sliding_texts.json) `305`건은 discovery coverage 용, `FC` anchor 추출본 `240`건은 실제 작업용 원본이라는 역할 분리가 가능해졌다.
 - 판정: `성공`
 - 교훈: mixed-format 대사 뱅크에서는 plain terminator scan 만 반복하지 말고, 먼저 엔트리 시작 패턴과 제어 바이트 빈도를 확인해 전용 extractor 후보를 세우는 편이 훨씬 빠르다. 특히 Registry D 는 이제 "추가 구조 분석이 필요한 미해결 구간"이 아니라, **전용 추출 규칙이 확보된 active extraction 구간** 으로 취급해야 한다.
+
+### 실험 44
+
+- 가설: `scan-fc-script-text` 의 stop byte `FC` 처리는 Shift-JIS 2바이트 문자의 trailing byte 와 충돌할 수 있고, 이 경우 일부 Registry D 엔트리 대사가 잘려서 누락될 것이다.
+- 시도:
+  - `FC` 추출 non-hit 엔트리 중 길이가 남아 있는 entry `8` 과 `70` 을 raw bytes 로 다시 확인했다.
+  - entry `8` 에서 `... 8B 43 8D 87 93 FC 82 EA ...` 처럼 `0xFC` 가 실제 문자 바이트로 등장하는 케이스를 확인했다.
+  - 이를 반영해 `scan-fc-script-text` stop 탐색을 SJIS-aware 로 바꿔, 바로 앞 바이트가 lead byte 면 stop 으로 취급하지 않게 수정한 뒤 Registry D 전체를 재추출했다.
+- 결과:
+  - [registry_d_fc_script_texts.json](/Users/user/test/analysis/registry_d_fc_script_texts.json) 은 `240 -> 244` 건으로 늘었고, [registry_d_fc_script_summary.json](/Users/user/test/analysis/registry_d_fc_script_summary.json) 기준 hit 엔트리도 `81 -> 82` 로 증가했다.
+  - entry `8` 에서 `こいつで最後か！\n気合入れて\nとっとと片付けるッ`, `よろしくお願いします`, `全力で向かってきなさい` 등 `4`건이 추가 회수됐다.
+  - 반면 entry `70` 은 `FC` 바이트가 지나치게 조밀한 control-only script table 형태로 남아, plausible cp932 대사가 없다는 점이 더 강해졌다.
+  - 남은 non-hit `18`개는 [registry_d_unresolved_entries.json](/Users/user/test/analysis/registry_d_unresolved_entries.json) 으로 분리했고, 대부분 `2-byte sentinel/control stub` 이다.
+- 판정: `성공`
+- 교훈: command/script extractor 에서 제어 바이트 하나를 stop marker 로 쓰더라도, Shift-JIS 같은 multibyte 인코딩에서는 그 바이트가 텍스트 본문에 trailing byte 로 나타날 수 있다. 따라서 mixed-format 추출기에는 **stop 조건에도 인코딩 awareness** 를 넣어야 같은 누락을 반복하지 않는다.

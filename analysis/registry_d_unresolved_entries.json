@@ -1,0 +1,164 @@
+[
+  {
+    "index": 44,
+    "file_offset": 8349436,
+    "end_offset_exclusive": 8349438,
+    "length": 2,
+    "class": "2-byte sentinel/control stub",
+    "first_bytes": "fc ff",
+    "note": "실질 텍스트 없음; 후속 엔트리 구분용 더미 후보"
+  },
+  {
+    "index": 45,
+    "file_offset": 8349440,
+    "end_offset_exclusive": 8349442,
+    "length": 2,
+    "class": "2-byte sentinel/control stub",
+    "first_bytes": "fc ff",
+    "note": "실질 텍스트 없음; 후속 엔트리 구분용 더미 후보"
+  },
+  {
+    "index": 46,
+    "file_offset": 8349444,
+    "end_offset_exclusive": 8349446,
+    "length": 2,
+    "class": "2-byte sentinel/control stub",
+    "first_bytes": "fc ff",
+    "note": "실질 텍스트 없음; 후속 엔트리 구분용 더미 후보"
+  },
+  {
+    "index": 48,
+    "file_offset": 8350616,
+    "end_offset_exclusive": 8350627,
+    "length": 11,
+    "class": "tiny control block",
+    "first_bytes": "fc 04 04 fc 16 01 00 00 00 fc ff",
+    "note": "FC 제어 바이트와 종료만 있는 초소형 스크립트 블록"
+  },
+  {
+    "index": 49,
+    "file_offset": 8350628,
+    "end_offset_exclusive": 8350642,
+    "length": 14,
+    "class": "tiny control block",
+    "first_bytes": "fc 02 05 fc 16 01 00 00 00 fc 02 05 fc ff",
+    "note": "FC 제어 바이트와 종료만 있는 초소형 스크립트 블록"
+  },
+  {
+    "index": 70,
+    "file_offset": 8356456,
+    "end_offset_exclusive": 8356739,
+    "length": 283,
+    "class": "control-only script table",
+    "first_bytes": "fc 04 00 fc 03 4b fc 1a 0a 01 37 fc 1b 10 1f fc 02 02 fc 1b 00 1f fc 02 02 fc 1a 0a 02 69 fc 1b",
+    "note": "FC 바이트가 매우 조밀하고 좌표/명령열처럼 보이며 plausible cp932 대사가 없음"
+  },
+  {
+    "index": 87,
+    "file_offset": 8360712,
+    "end_offset_exclusive": 8360714,
+    "length": 2,
+    "class": "2-byte sentinel/control stub",
+    "first_bytes": "fc ff",
+    "note": "실질 텍스트 없음; 후속 엔트리 구분용 더미 후보"
+  },
+  {
+    "index": 88,
+    "file_offset": 8360716,
+    "end_offset_exclusive": 8360718,
+    "length": 2,
+    "class": "2-byte sentinel/control stub",
+    "first_bytes": "fc ff",
+    "note": "실질 텍스트 없음; 후속 엔트리 구분용 더미 후보"
+  },
+  {
+    "index": 89,
+    "file_offset": 8360720,
+    "end_offset_exclusive": 8360722,
+    "length": 2,
+    "class": "2-byte sentinel/control stub",
+    "first_bytes": "fc ff",
+    "note": "실질 텍스트 없음; 후속 엔트리 구분용 더미 후보"
+  },
+  {
+    "index": 90,
+    "file_offset": 8360724,
+    "end_offset_exclusive": 8360726,
+    "length": 2,
+    "class": "2-byte sentinel/control stub",
+    "first_bytes": "fc ff",
+    "note": "실질 텍스트 없음; 후속 엔트리 구분용 더미 후보"
+  },
+  {
+    "index": 91,
+    "file_offset": 8360728,
+    "end_offset_exclusive": 8360730,
+    "length": 2,
+    "class": "2-byte sentinel/control stub",
+    "first_bytes": "fc ff",
+    "note": "실질 텍스트 없음; 후속 엔트리 구분용 더미 후보"
+  },
+  {
+    "index": 93,
+    "file_offset": 8361680,
+    "end_offset_exclusive": 8361682,
+    "length": 2,
+    "class": "2-byte sentinel/control stub",
+    "first_bytes": "fc ff",
+    "note": "실질 텍스트 없음; 후속 엔트리 구분용 더미 후보"
+  },
+  {
+    "index": 94,
+    "file_offset": 8361684,
+    "end_offset_exclusive": 8361686,
+    "length": 2,
+    "class": "2-byte sentinel/control stub",
+    "first_bytes": "fc ff",
+    "note": "실질 텍스트 없음; 후속 엔트리 구분용 더미 후보"
+  },
+  {
+    "index": 95,
+    "file_offset": 8361688,
+    "end_offset_exclusive": 8361690,
+    "length": 2,
+    "class": "2-byte sentinel/control stub",
+    "first_bytes": "fc ff",
+    "note": "실질 텍스트 없음; 후속 엔트리 구분용 더미 후보"
+  },
+  {
+    "index": 96,
+    "file_offset": 8361692,
+    "end_offset_exclusive": 8361694,
+    "length": 2,
+    "class": "2-byte sentinel/control stub",
+    "first_bytes": "fc ff",
+    "note": "실질 텍스트 없음; 후속 엔트리 구분용 더미 후보"
+  },
+  {
+    "index": 97,
+    "file_offset": 8361696,
+    "end_offset_exclusive": 8361698,
+    "length": 2,
+    "class": "2-byte sentinel/control stub",
+    "first_bytes": "fc ff",
+    "note": "실질 텍스트 없음; 후속 엔트리 구분용 더미 후보"
+  },
+  {
+    "index": 98,
+    "file_offset": 8361700,
+    "end_offset_exclusive": 8361702,
+    "length": 2,
+    "class": "2-byte sentinel/control stub",
+    "first_bytes": "fc ff",
+    "note": "실질 텍스트 없음; 후속 엔트리 구분용 더미 후보"
+  },
+  {
+    "index": 99,
+    "file_offset": 8361704,
+    "end_offset_exclusive": 8361706,
+    "length": 2,
+    "class": "2-byte sentinel/control stub",
+    "first_bytes": "fc ff",
+    "note": "실질 텍스트 없음; 후속 엔트리 구분용 더미 후보"
+  }
+]

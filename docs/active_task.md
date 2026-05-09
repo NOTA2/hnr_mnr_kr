@@ -26,8 +26,9 @@
 - Registry D 물리 범위 `0x7F3000..0x7F96E9` 를 슬라이딩 스캔하면 현재 `305`개 대사성 문자열이 잡힌다.
 - 전체본은 [registry_d_full_sliding_texts.json](/Users/user/test/analysis/registry_d_full_sliding_texts.json), 번역용 작업 세트는 [translation_workset_registry_d_dialogue.json](/Users/user/test/analysis/translation_workset_registry_d_dialogue.json) 에 있다.
 - Registry D 의 많은 엔트리는 plain terminator 문자열이 아니라 `FC` 제어 바이트가 섞인 mixed script 형식이다.
-- `scan-fc-script-text` 로 `FC 00 ... FC` anchor 기반 추출을 하면 [registry_d_fc_script_texts.json](/Users/user/test/analysis/registry_d_fc_script_texts.json) `240`건이 clean extraction 된다.
-- 위 `240`건은 `81 / 100` 엔트리에서 나오고, per-entry 요약은 [registry_d_fc_script_summary.json](/Users/user/test/analysis/registry_d_fc_script_summary.json) 에 있다.
+- `scan-fc-script-text` 로 `FC 00 ... FC` anchor 기반 추출을 하면 [registry_d_fc_script_texts.json](/Users/user/test/analysis/registry_d_fc_script_texts.json) `244`건이 clean extraction 된다.
+- 위 `244`건은 `82 / 100` 엔트리에서 나오고, per-entry 요약은 [registry_d_fc_script_summary.json](/Users/user/test/analysis/registry_d_fc_script_summary.json) 에 있다.
+- 남은 [registry_d_unresolved_entries.json](/Users/user/test/analysis/registry_d_unresolved_entries.json) `18`개는 대부분 `2-byte sentinel/control stub` 이고, 실질적인 미추출 대사 후보는 entry `70` 정도만 남는다.
 - 따라서 Registry D 는 이제 "나중에 다시 볼 미해결 대사 뱅크"가 아니라, **mixed-format 전용 추출 규칙이 잡힌 active extraction 대상** 이다.
 - Registry A entry `8` (`0x6B594C..0x773248`) 는 지역명만 담긴 entry 가 아니라, `0x10` 종단 command-stream 대사/이벤트/메뉴가 함께 섞인 대형 mixed script bank 후보다.
 - `Registry A entry 8` 안의 많은 대사는 `01 FF <u16 문자수>` 헤더 뒤에 `cp932` 본문이 오는 command-stream 구조로 보인다.

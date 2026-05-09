@@ -32,6 +32,7 @@
 - Thumb register-ALU (`0x4000` 계열) 는 `.hword` 로 넘기지 않는다. `cmp` 와 `cmn` 을 혼동하면 sentinel 해석이 뒤집힐 수 있다.
 - literal hit 가 없는 field 도 곧바로 배제하지 않는다. `0x33C` 처럼 `0xCF << 2` 같은 계산식으로 접근하는 경우는 별도 패턴 검색으로 다시 본다.
 - `scan-text` 의 기본 `--limit` 은 `100` 이다. 넓은 범위를 전수 스캔할 때는 결과가 잘렸는지 먼저 확인하고, 필요하면 `--limit` 을 명시한다.
+- script/control extractor 에서 stop byte 하나로 문자열을 끊을 때는, 해당 바이트가 Shift-JIS trailing byte 로 등장하는지 먼저 확인한다. `FC` 같은 값은 SJIS-aware stop 처리 없이 바로 구분자로 쓰면 entry `8` 같은 대사가 잘릴 수 있다.
 
 ## 작업 전 최소 체크
 

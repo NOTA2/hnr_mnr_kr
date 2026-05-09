@@ -436,6 +436,19 @@ def normalize_fc_script_payload(payload: bytes) -> bytes:
     return normalized
 
 
+def find_next_script_stop(data: bytes, *, start: int, end: int, stop_byte: int) -> int:
+    sjis_lead_bytes = set(range(0x81, 0xA0)) | set(range(0xE0, 0xFD))
+    cursor = start
+    while True:
+        stop_offset = data.find(bytes([stop_byte]), cursor, end)
+        if stop_offset == -1:
+            return end
+        if stop_offset > start and data[stop_offset - 1] in sjis_lead_bytes:
+            cursor = stop_offset + 1
+            continue
+        return stop_offset
+
+
 def scan_fc_script_text_records(
     data: bytes,
     *,
@@ -468,9 +481,12 @@ def scan_fc_script_text_records(
         if text_offset >= end:
             continue
 
-        stop_offset = data.find(bytes([stop_byte]), text_offset, end)
-        if stop_offset == -1:
-            stop_offset = end
+        stop_offset = find_next_script_stop(
+            data,
+            start=text_offset,
+            end=end,
+            stop_byte=stop_byte,
+        )
         if stop_offset <= text_offset:
             continue
 
