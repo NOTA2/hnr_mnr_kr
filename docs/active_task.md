@@ -73,11 +73,17 @@
   - writer loop 와 stride 를 함께 보면, 현재 가장 강한 해석은 `glyph 1개 = 0x48 bytes = 12x12 4bpp 계열` 이다.
   - `dump-fnt-glyph` 로 `'あ'`, `'ア'`, `'日'` 를 실제 덤프했을 때 12x12 문자 형태가 드러나므로, 이 경로는 샘플 글자 수준까지 검증됐다.
   - `inspect-fnt` 로 공통 `fnt` payload 전체 mapping manifest [common_fnt_manifest.json](/Users/user/test/analysis/common_fnt_manifest.json) 도 생성 가능하며, 현재 nonzero mapping `1698`개가 실제 문자/glyph index 쌍으로 정리된다.
+  - 새 `audit-fnt-usage` 집계 기준 [common_fnt_usage_audit.json](/Users/user/test/analysis/common_fnt_usage_audit.json) 에서, 현재 추출본 `105707`자 기준 mapped code `1698` 중 `1411`이 실제로 쓰였고 `287`은 아직 안 쓰였다.
+  - 하지만 glyph index `1..1698` 에 **빈칸이 전혀 없고**, payload 길이 `0x3DDE8` 기준 tail free bytes 도 `0` 이다.
+  - 즉 한글 code point 는 lookup zero slot 에 추가할 수 있어도, **glyph 자체는 payload 확장/재배치 없이는 본격 추가가 어렵다.**
+  - decoder 허용 Shift-JIS lead byte 공간 (`0x81..0x9F`, `0xE0..0xEF`) 안에는 아직 free code 가 `7337`개 있으므로, 병목은 code space 가 아니라 glyph space 다.
+  - 요약 전략은 [common_fnt_hangul_strategy.md](/Users/user/test/analysis/common_fnt_hangul_strategy.md) 에 정리했다.
   - width/advance 는 `obj + 0x18` 에 누적되며, multibyte 는 `+0x18`, halfwidth 는 `+0x10` 이다. `(obj + 0x18) >> 4` 와 `obj + 0x20` 비교로 줄 수용량을 판단한다.
   - world-map `r3=0x0C` 는 capacity `18`, 대표 일반 화면군 `r3=20` 은 capacity `30` 으로 변환되어, 이 엔진이 fullwidth / halfwidth 혼합 가변폭형 레이아웃을 가진다는 해석이 강하다.
   - 따라서 현재 가장 유력한 공통 일본어 텍스트 경로는 **`0x014A98 / 0x014ED0 / 0x015A4C` family** 다.
 - 따라서 현재 병목은 데이터 구조보다 **폰트/문자 매핑/문자폭** 쪽이다.
 - 폰트/문자 매핑 작업은 중단한 것이 아니라, 텍스트 source inventory 를 거의 닫은 뒤 **첫 실제 한글 재삽입 테스트 직전 단계**로 다시 올린다.
+- 현재 판단상 첫 실제 한글 재삽입 테스트는 "unused glyph 일부 치환" 또는 "공통 fnt payload 확장/재배치" 두 갈래 중 하나를 택해 진행해야 한다.
 - "텍스트를 100% 다 뽑았는가?"에 대한 현재 판정 기준과 상태는 [text_extraction_coverage.md](/Users/user/test/analysis/text_extraction_coverage.md) 에 정리했다.
 
 ## 분석 보존 위치

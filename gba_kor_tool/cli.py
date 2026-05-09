@@ -1409,6 +1409,29 @@ def decode_cp932_code(code: int) -> str:
         return ""
 
 
+def encode_cp932_char(ch: str) -> Optional[int]:
+    try:
+        payload = ch.encode("cp932")
+    except UnicodeEncodeError:
+        return None
+    if len(payload) == 1:
+        return payload[0]
+    if len(payload) == 2:
+        return (payload[0] << 8) | payload[1]
+    return None
+
+
+def iter_text_fields_from_json(path: Path) -> Iterable[str]:
+    records = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(records, list):
+        raise ToolError(f"{path}: JSON 배열이 아닙니다.")
+    for record in records:
+        if isinstance(record, dict):
+            text = record.get("text")
+            if isinstance(text, str):
+                yield text
+
+
 def cmd_info(args: argparse.Namespace) -> int:
     rom_path = Path(args.rom)
     header = parse_header(rom_path, load_rom(rom_path))
@@ -1893,6 +1916,199 @@ def cmd_inspect_fnt(args: argparse.Namespace) -> int:
         )
     if len(records) > args.preview:
         print(f"  ... {len(records) - args.preview} more")
+    if args.output:
+        print(f"wrote: {args.output}")
+    return 0
+
+
+def cmd_audit_fnt_usage(args: argparse.Namespace) -> int:
+    rom_path = Path(args.rom)
+    data = load_rom(rom_path)
+    payload_offset = parse_offset(args.payload)
+    header = read_fnt_header(data, payload_offset=payload_offset)
+
+    manifest_entries: List[Dict[str, object]] = []
+    code_to_entry: Dict[int, Dict[str, object]] = {}
+    max_glyph_index = 0
+
+    for code in range(0x10000):
+        lookup_offset = header["lookup_base"] + code * 2
+        if lookup_offset + 2 > len(data):
+            break
+        glyph_index = struct.unpack_from("<H", data, lookup_offset)[0]
+        if glyph_index == 0:
+            continue
+        max_glyph_index = max(max_glyph_index, glyph_index)
+        entry = {
+            "code": code,
+            "code_hex": f"0x{code:04X}",
+            "text": decode_cp932_code(code),
+            "glyph_index": glyph_index,
+            "glyph_offset": header["glyph_base"] + glyph_index * header["stride"],
+        }
+        manifest_entries.append(entry)
+        code_to_entry[code] = entry
+
+    counts: Dict[int, int] = {}
+    total_chars_scanned = 0
+    per_file: List[Dict[str, object]] = []
+    for raw_path in args.inputs:
+        source_path = Path(raw_path)
+        local_counts: Dict[int, int] = {}
+        file_total_chars = 0
+        for text in iter_text_fields_from_json(source_path):
+            for ch in text:
+                code = encode_cp932_char(ch)
+                if code is None:
+                    continue
+                file_total_chars += 1
+                local_counts[code] = local_counts.get(code, 0) + 1
+                counts[code] = counts.get(code, 0) + 1
+                total_chars_scanned += 1
+        per_file.append(
+            {
+                "path": str(source_path),
+                "char_count": file_total_chars,
+                "unique_code_count": len(local_counts),
+            }
+        )
+
+    unused_mapped_entries = [entry for entry in manifest_entries if counts.get(int(entry["code"]), 0) == 0]
+    rare_used_entries = []
+    for entry in manifest_entries:
+        usage_count = counts.get(int(entry["code"]), 0)
+        if 0 < usage_count <= args.rare_threshold:
+            item = dict(entry)
+            item["usage_count"] = usage_count
+            rare_used_entries.append(item)
+    rare_used_entries.sort(key=lambda item: (int(item["usage_count"]), int(item["code"])))
+
+    top_used_entries = []
+    for code, usage_count in sorted(counts.items(), key=lambda item: item[1], reverse=True):
+        entry = code_to_entry.get(code)
+        if entry is None:
+            continue
+        item = dict(entry)
+        item["usage_count"] = usage_count
+        top_used_entries.append(item)
+        if len(top_used_entries) >= args.top_used:
+            break
+
+    used_mapped_codes = {int(entry["code"]) for entry in manifest_entries if counts.get(int(entry["code"]), 0) > 0}
+    unused_code_ranges = []
+    range_start: Optional[int] = None
+    for code in range(0x20, 0x10000):
+        is_free = code not in code_to_entry
+        if is_free and range_start is None:
+            range_start = code
+            continue
+        if (not is_free) and range_start is not None:
+            if code - range_start >= args.min_free_code_range:
+                unused_code_ranges.append(
+                    {
+                        "start": range_start,
+                        "start_hex": f"0x{range_start:04X}",
+                        "end": code - 1,
+                        "end_hex": f"0x{code - 1:04X}",
+                        "length": code - range_start,
+                    }
+                )
+            range_start = None
+    if range_start is not None and 0x10000 - range_start >= args.min_free_code_range:
+        unused_code_ranges.append(
+            {
+                "start": range_start,
+                "start_hex": f"0x{range_start:04X}",
+                "end": 0xFFFF,
+                "end_hex": "0xFFFF",
+                "length": 0x10000 - range_start,
+            }
+        )
+
+    used_glyphs = {int(entry["glyph_index"]) for entry in manifest_entries}
+    glyph_gaps = []
+    gap_start: Optional[int] = None
+    for glyph_index in range(1, max_glyph_index + 1):
+        is_free = glyph_index not in used_glyphs
+        if is_free and gap_start is None:
+            gap_start = glyph_index
+            continue
+        if (not is_free) and gap_start is not None:
+            glyph_gaps.append(
+                {
+                    "start": gap_start,
+                    "end": glyph_index - 1,
+                    "length": glyph_index - gap_start,
+                }
+            )
+            gap_start = None
+    if gap_start is not None:
+        glyph_gaps.append(
+            {
+                "start": gap_start,
+                "end": max_glyph_index,
+                "length": max_glyph_index + 1 - gap_start,
+            }
+        )
+
+    payload_length = parse_offset(args.payload_length) if args.payload_length else None
+    glyph_end = header["glyph_base"] + (max_glyph_index + 1) * header["stride"]
+    tail_free_bytes = None
+    if payload_length is not None:
+        tail_free_bytes = max(0, payload_offset + payload_length - glyph_end)
+
+    result = {
+        "payload_offset": payload_offset,
+        "payload_rom_address": ROM_BASE + payload_offset,
+        "payload_length": payload_length,
+        "payload_length_hex": None if payload_length is None else f"0x{payload_length:X}",
+        "flags": header["flags"],
+        "flags_hex": f"0x{header['flags']:02X}",
+        "stride": header["stride"],
+        "stride_hex": f"0x{header['stride']:X}",
+        "lookup_base": header["lookup_base"],
+        "glyph_base": header["glyph_base"],
+        "glyph_end": glyph_end,
+        "mapped_code_count": len(manifest_entries),
+        "mapped_code_count_used_in_inputs": len(used_mapped_codes),
+        "mapped_code_count_unused_in_inputs": len(unused_mapped_entries),
+        "max_glyph_index": max_glyph_index,
+        "glyph_gap_count": len(glyph_gaps),
+        "tail_free_bytes": tail_free_bytes,
+        "total_chars_scanned": total_chars_scanned,
+        "source_files": per_file,
+        "unused_code_ranges": unused_code_ranges,
+        "unused_mapped_entries": unused_mapped_entries,
+        "rare_used_entries": rare_used_entries,
+        "top_used_entries": top_used_entries,
+        "glyph_gaps": glyph_gaps,
+    }
+    if args.output:
+        write_json(Path(args.output), result)
+
+    print(
+        f"payload={format_offset(payload_offset)} "
+        f"lookup={format_offset(header['lookup_base'])} "
+        f"glyph_base={format_offset(header['glyph_base'])} "
+        f"stride=0x{header['stride']:X} mapped={len(manifest_entries)}"
+    )
+    print(f"chars scanned: {total_chars_scanned}")
+    print(f"mapped codes used in inputs: {len(used_mapped_codes)}")
+    print(f"mapped codes unused in inputs: {len(unused_mapped_entries)}")
+    print(f"glyph gaps: {len(glyph_gaps)}")
+    if tail_free_bytes is not None:
+        print(f"tail free bytes: {tail_free_bytes}")
+    print("top used preview:")
+    for item in top_used_entries[: min(10, len(top_used_entries))]:
+        text = item["text"] if item["text"] else "<undecodable>"
+        print(
+            f"  {item['code_hex']} {text!r} "
+            f"count={item['usage_count']} glyph=0x{int(item['glyph_index']):04X}"
+        )
+    print("unused mapped preview:")
+    for item in unused_mapped_entries[: args.unused_preview]:
+        text = item["text"] if item["text"] else "<undecodable>"
+        print(f"  {item['code_hex']} {text!r} glyph=0x{int(item['glyph_index']):04X}")
     if args.output:
         print(f"wrote: {args.output}")
     return 0
@@ -2400,6 +2616,21 @@ def build_parser() -> argparse.ArgumentParser:
     inspect_fnt.add_argument("--preview", type=int, default=40)
     inspect_fnt.add_argument("--output")
     inspect_fnt.set_defaults(func=cmd_inspect_fnt)
+
+    audit_fnt = sub.add_parser(
+        "audit-fnt-usage",
+        help="공통 fnt 매핑이 현재 추출 텍스트에서 얼마나 쓰이는지 집계하고, 재사용 후보를 정리합니다.",
+    )
+    audit_fnt.add_argument("rom")
+    audit_fnt.add_argument("payload")
+    audit_fnt.add_argument("inputs", nargs="+")
+    audit_fnt.add_argument("--payload-length")
+    audit_fnt.add_argument("--rare-threshold", type=int, default=2)
+    audit_fnt.add_argument("--top-used", type=int, default=40)
+    audit_fnt.add_argument("--unused-preview", type=int, default=40)
+    audit_fnt.add_argument("--min-free-code-range", type=int, default=8)
+    audit_fnt.add_argument("--output")
+    audit_fnt.set_defaults(func=cmd_audit_fnt_usage)
 
     replace_text = sub.add_parser("replace-text", help="기존 위치에 문자열을 같은 길이 이하로 교체합니다.")
     replace_text.add_argument("rom")

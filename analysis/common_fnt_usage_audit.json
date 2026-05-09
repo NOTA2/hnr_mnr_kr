@@ -1,0 +1,6048 @@
+{
+  "payload_offset": 4063232,
+  "payload_rom_address": 138280960,
+  "payload_length": 253416,
+  "payload_length_hex": "0x3DDE8",
+  "flags": 10,
+  "flags_hex": "0x0A",
+  "stride": 72,
+  "stride_hex": "0x48",
+  "lookup_base": 4063248,
+  "glyph_base": 4194320,
+  "glyph_end": 4316648,
+  "mapped_code_count": 1698,
+  "mapped_code_count_used_in_inputs": 1411,
+  "mapped_code_count_unused_in_inputs": 287,
+  "max_glyph_index": 1698,
+  "glyph_gap_count": 0,
+  "tail_free_bytes": 0,
+  "total_chars_scanned": 105707,
+  "source_files": [
+    {
+      "path": "analysis/system_messages.json",
+      "char_count": 68,
+      "unique_code_count": 39
+    },
+    {
+      "path": "analysis/item_texts.json",
+      "char_count": 425,
+      "unique_code_count": 151
+    },
+    {
+      "path": "analysis/location_texts.json",
+      "char_count": 57,
+      "unique_code_count": 29
+    },
+    {
+      "path": "analysis/battle_texts.json",
+      "char_count": 644,
+      "unique_code_count": 154
+    },
+    {
+      "path": "analysis/ability_texts.json",
+      "char_count": 4314,
+      "unique_code_count": 359
+    },
+    {
+      "path": "analysis/material_texts.json",
+      "char_count": 693,
+      "unique_code_count": 203
+    },
+    {
+      "path": "analysis/ui_skill_texts.json",
+      "char_count": 198,
+      "unique_code_count": 101
+    },
+    {
+      "path": "analysis/credits_texts.json",
+      "char_count": 201,
+      "unique_code_count": 61
+    },
+    {
+      "path": "analysis/save_menu_prefixed_texts.json",
+      "char_count": 119,
+      "unique_code_count": 46
+    },
+    {
+      "path": "analysis/registry_d_fc_script_texts.json",
+      "char_count": 4979,
+      "unique_code_count": 458
+    },
+    {
+      "path": "analysis/registry_a_entry8_prefixed_texts.json",
+      "char_count": 93757,
+      "unique_code_count": 1298
+    },
+    {
+      "path": "analysis/registry_a_entry12_texts.json",
+      "char_count": 252,
+      "unique_code_count": 104
+    }
+  ],
+  "unused_code_ranges": [
+    {
+      "start": 32,
+      "start_hex": "0x0020",
+      "end": 47,
+      "end_hex": "0x002F",
+      "length": 16
+    },
+    {
+      "start": 58,
+      "start_hex": "0x003A",
+      "end": 119,
+      "end_hex": "0x0077",
+      "length": 62
+    },
+    {
+      "start": 121,
+      "start_hex": "0x0079",
+      "end": 33088,
+      "end_hex": "0x8140",
+      "length": 32968
+    },
+    {
+      "start": 33098,
+      "start_hex": "0x814A",
+      "end": 33111,
+      "end_hex": "0x8157",
+      "length": 14
+    },
+    {
+      "start": 33131,
+      "start_hex": "0x816B",
+      "end": 33140,
+      "end_hex": "0x8174",
+      "length": 10
+    },
+    {
+      "start": 33149,
+      "start_hex": "0x817D",
+      "end": 33166,
+      "end_hex": "0x818E",
+      "length": 18
+    },
+    {
+      "start": 33182,
+      "start_hex": "0x819E",
+      "end": 33267,
+      "end_hex": "0x81F3",
+      "length": 86
+    },
+    {
+      "start": 33269,
+      "start_hex": "0x81F5",
+      "end": 33358,
+      "end_hex": "0x824E",
+      "length": 90
+    },
+    {
+      "start": 33522,
+      "start_hex": "0x82F2",
+      "end": 33599,
+      "end_hex": "0x833F",
+      "length": 78
+    },
+    {
+      "start": 33685,
+      "start_hex": "0x8395",
+      "end": 34623,
+      "end_hex": "0x873F",
+      "length": 939
+    },
+    {
+      "start": 34629,
+      "start_hex": "0x8745",
+      "end": 34974,
+      "end_hex": "0x889E",
+      "length": 346
+    },
+    {
+      "start": 34999,
+      "start_hex": "0x88B7",
+      "end": 35007,
+      "end_hex": "0x88BF",
+      "length": 9
+    },
+    {
+      "start": 35066,
+      "start_hex": "0x88FA",
+      "end": 35135,
+      "end_hex": "0x893F",
+      "length": 70
+    },
+    {
+      "start": 35155,
+      "start_hex": "0x8953",
+      "end": 35163,
+      "end_hex": "0x895B",
+      "length": 9
+    },
+    {
+      "start": 35325,
+      "start_hex": "0x89FD",
+      "end": 35393,
+      "end_hex": "0x8A41",
+      "length": 69
+    },
+    {
+      "start": 35476,
+      "start_hex": "0x8A94",
+      "end": 35489,
+      "end_hex": "0x8AA1",
+      "length": 14
+    },
+    {
+      "start": 35579,
+      "start_hex": "0x8AFB",
+      "end": 35647,
+      "end_hex": "0x8B3F",
+      "length": 69
+    },
+    {
+      "start": 35837,
+      "start_hex": "0x8BFD",
+      "end": 35903,
+      "end_hex": "0x8C3F",
+      "length": 67
+    },
+    {
+      "start": 36093,
+      "start_hex": "0x8CFD",
+      "end": 36163,
+      "end_hex": "0x8D43",
+      "length": 71
+    },
+    {
+      "start": 36212,
+      "start_hex": "0x8D74",
+      "end": 36219,
+      "end_hex": "0x8D7B",
+      "length": 8
+    },
+    {
+      "start": 36348,
+      "start_hex": "0x8DFC",
+      "end": 36415,
+      "end_hex": "0x8E3F",
+      "length": 68
+    },
+    {
+      "start": 36605,
+      "start_hex": "0x8EFD",
+      "end": 36671,
+      "end_hex": "0x8F3F",
+      "length": 67
+    },
+    {
+      "start": 36857,
+      "start_hex": "0x8FF9",
+      "end": 36928,
+      "end_hex": "0x9040",
+      "length": 72
+    },
+    {
+      "start": 37017,
+      "start_hex": "0x9099",
+      "end": 37024,
+      "end_hex": "0x90A0",
+      "length": 8
+    },
+    {
+      "start": 37117,
+      "start_hex": "0x90FD",
+      "end": 37188,
+      "end_hex": "0x9144",
+      "length": 72
+    },
+    {
+      "start": 37204,
+      "start_hex": "0x9154",
+      "end": 37214,
+      "end_hex": "0x915E",
+      "length": 11
+    },
+    {
+      "start": 37369,
+      "start_hex": "0x91F9",
+      "end": 37439,
+      "end_hex": "0x923F",
+      "length": 71
+    },
+    {
+      "start": 37499,
+      "start_hex": "0x927B",
+      "end": 37506,
+      "end_hex": "0x9282",
+      "length": 8
+    },
+    {
+      "start": 37579,
+      "start_hex": "0x92CB",
+      "end": 37590,
+      "end_hex": "0x92D6",
+      "length": 12
+    },
+    {
+      "start": 37592,
+      "start_hex": "0x92D8",
+      "end": 37601,
+      "end_hex": "0x92E1",
+      "length": 10
+    },
+    {
+      "start": 37627,
+      "start_hex": "0x92FB",
+      "end": 37695,
+      "end_hex": "0x933F",
+      "length": 69
+    },
+    {
+      "start": 37838,
+      "start_hex": "0x93CE",
+      "end": 37845,
+      "end_hex": "0x93D5",
+      "length": 8
+    },
+    {
+      "start": 37847,
+      "start_hex": "0x93D7",
+      "end": 37855,
+      "end_hex": "0x93DF",
+      "length": 9
+    },
+    {
+      "start": 37885,
+      "start_hex": "0x93FD",
+      "end": 37951,
+      "end_hex": "0x943F",
+      "length": 67
+    },
+    {
+      "start": 38021,
+      "start_hex": "0x9485",
+      "end": 38028,
+      "end_hex": "0x948C",
+      "length": 8
+    },
+    {
+      "start": 38067,
+      "start_hex": "0x94B3",
+      "end": 38074,
+      "end_hex": "0x94BA",
+      "length": 8
+    },
+    {
+      "start": 38141,
+      "start_hex": "0x94FD",
+      "end": 38210,
+      "end_hex": "0x9542",
+      "length": 70
+    },
+    {
+      "start": 38396,
+      "start_hex": "0x95FC",
+      "end": 38463,
+      "end_hex": "0x963F",
+      "length": 68
+    },
+    {
+      "start": 38540,
+      "start_hex": "0x968C",
+      "end": 38547,
+      "end_hex": "0x9693",
+      "length": 8
+    },
+    {
+      "start": 38653,
+      "start_hex": "0x96FD",
+      "end": 38721,
+      "end_hex": "0x9741",
+      "length": 69
+    },
+    {
+      "start": 38908,
+      "start_hex": "0x97FC",
+      "end": 38976,
+      "end_hex": "0x9840",
+      "length": 69
+    },
+    {
+      "start": 39015,
+      "start_hex": "0x9867",
+      "end": 39025,
+      "end_hex": "0x9871",
+      "length": 11
+    },
+    {
+      "start": 39027,
+      "start_hex": "0x9873",
+      "end": 39295,
+      "end_hex": "0x997F",
+      "length": 269
+    },
+    {
+      "start": 39297,
+      "start_hex": "0x9981",
+      "end": 39400,
+      "end_hex": "0x99E8",
+      "length": 104
+    },
+    {
+      "start": 39408,
+      "start_hex": "0x99F0",
+      "end": 39499,
+      "end_hex": "0x9A4B",
+      "length": 92
+    },
+    {
+      "start": 39501,
+      "start_hex": "0x9A4D",
+      "end": 39553,
+      "end_hex": "0x9A81",
+      "length": 53
+    },
+    {
+      "start": 39555,
+      "start_hex": "0x9A83",
+      "end": 39631,
+      "end_hex": "0x9ACF",
+      "length": 77
+    },
+    {
+      "start": 39633,
+      "start_hex": "0x9AD1",
+      "end": 39671,
+      "end_hex": "0x9AF7",
+      "length": 39
+    },
+    {
+      "start": 39673,
+      "start_hex": "0x9AF9",
+      "end": 40032,
+      "end_hex": "0x9C60",
+      "length": 360
+    },
+    {
+      "start": 40034,
+      "start_hex": "0x9C62",
+      "end": 40081,
+      "end_hex": "0x9C91",
+      "length": 48
+    },
+    {
+      "start": 40083,
+      "start_hex": "0x9C93",
+      "end": 40136,
+      "end_hex": "0x9CC8",
+      "length": 54
+    },
+    {
+      "start": 40138,
+      "start_hex": "0x9CCA",
+      "end": 40147,
+      "end_hex": "0x9CD3",
+      "length": 10
+    },
+    {
+      "start": 40149,
+      "start_hex": "0x9CD5",
+      "end": 40600,
+      "end_hex": "0x9E98",
+      "length": 452
+    },
+    {
+      "start": 40602,
+      "start_hex": "0x9E9A",
+      "end": 57429,
+      "end_hex": "0xE055",
+      "length": 16828
+    },
+    {
+      "start": 57431,
+      "start_hex": "0xE057",
+      "end": 57566,
+      "end_hex": "0xE0DE",
+      "length": 136
+    },
+    {
+      "start": 57575,
+      "start_hex": "0xE0E7",
+      "end": 57591,
+      "end_hex": "0xE0F7",
+      "length": 17
+    },
+    {
+      "start": 57593,
+      "start_hex": "0xE0F9",
+      "end": 57730,
+      "end_hex": "0xE182",
+      "length": 138
+    },
+    {
+      "start": 57732,
+      "start_hex": "0xE184",
+      "end": 57745,
+      "end_hex": "0xE191",
+      "length": 14
+    },
+    {
+      "start": 57747,
+      "start_hex": "0xE193",
+      "end": 57800,
+      "end_hex": "0xE1C8",
+      "length": 54
+    },
+    {
+      "start": 57802,
+      "start_hex": "0xE1CA",
+      "end": 57928,
+      "end_hex": "0xE248",
+      "length": 127
+    },
+    {
+      "start": 57930,
+      "start_hex": "0xE24A",
+      "end": 58185,
+      "end_hex": "0xE349",
+      "length": 256
+    },
+    {
+      "start": 58187,
+      "start_hex": "0xE34B",
+      "end": 58280,
+      "end_hex": "0xE3A8",
+      "length": 94
+    },
+    {
+      "start": 58282,
+      "start_hex": "0xE3AA",
+      "end": 58304,
+      "end_hex": "0xE3C0",
+      "length": 23
+    },
+    {
+      "start": 58310,
+      "start_hex": "0xE3C6",
+      "end": 59207,
+      "end_hex": "0xE747",
+      "length": 898
+    },
+    {
+      "start": 59209,
+      "start_hex": "0xE749",
+      "end": 59314,
+      "end_hex": "0xE7B2",
+      "length": 106
+    },
+    {
+      "start": 59316,
+      "start_hex": "0xE7B4",
+      "end": 59578,
+      "end_hex": "0xE8BA",
+      "length": 263
+    },
+    {
+      "start": 59580,
+      "start_hex": "0xE8BC",
+      "end": 59598,
+      "end_hex": "0xE8CE",
+      "length": 19
+    },
+    {
+      "start": 59600,
+      "start_hex": "0xE8D0",
+      "end": 65535,
+      "end_hex": "0xFFFF",
+      "length": 5936
+    }
+  ],
+  "unused_mapped_entries": [
+    {
+      "code": 48,
+      "code_hex": "0x0030",
+      "text": "0",
+      "glyph_index": 1,
+      "glyph_offset": 4194392
+    },
+    {
+      "code": 49,
+      "code_hex": "0x0031",
+      "text": "1",
+      "glyph_index": 2,
+      "glyph_offset": 4194464
+    },
+    {
+      "code": 50,
+      "code_hex": "0x0032",
+      "text": "2",
+      "glyph_index": 3,
+      "glyph_offset": 4194536
+    },
+    {
+      "code": 51,
+      "code_hex": "0x0033",
+      "text": "3",
+      "glyph_index": 4,
+      "glyph_offset": 4194608
+    },
+    {
+      "code": 52,
+      "code_hex": "0x0034",
+      "text": "4",
+      "glyph_index": 5,
+      "glyph_offset": 4194680
+    },
+    {
+      "code": 53,
+      "code_hex": "0x0035",
+      "text": "5",
+      "glyph_index": 6,
+      "glyph_offset": 4194752
+    },
+    {
+      "code": 54,
+      "code_hex": "0x0036",
+      "text": "6",
+      "glyph_index": 7,
+      "glyph_offset": 4194824
+    },
+    {
+      "code": 55,
+      "code_hex": "0x0037",
+      "text": "7",
+      "glyph_index": 8,
+      "glyph_offset": 4194896
+    },
+    {
+      "code": 56,
+      "code_hex": "0x0038",
+      "text": "8",
+      "glyph_index": 9,
+      "glyph_offset": 4194968
+    },
+    {
+      "code": 57,
+      "code_hex": "0x0039",
+      "text": "9",
+      "glyph_index": 10,
+      "glyph_offset": 4195040
+    },
+    {
+      "code": 120,
+      "code_hex": "0x0078",
+      "text": "x",
+      "glyph_index": 11,
+      "glyph_offset": 4195112
+    },
+    {
+      "code": 33094,
+      "code_hex": "0x8146",
+      "text": "：",
+      "glyph_index": 15,
+      "glyph_offset": 4195400
+    },
+    {
+      "code": 33147,
+      "code_hex": "0x817B",
+      "text": "＋",
+      "glyph_index": 27,
+      "glyph_offset": 4196264
+    },
+    {
+      "code": 33167,
+      "code_hex": "0x818F",
+      "text": "￥",
+      "glyph_index": 29,
+      "glyph_offset": 4196408
+    },
+    {
+      "code": 33171,
+      "code_hex": "0x8193",
+      "text": "％",
+      "glyph_index": 31,
+      "glyph_offset": 4196552
+    },
+    {
+      "code": 33172,
+      "code_hex": "0x8194",
+      "text": "＃",
+      "glyph_index": 32,
+      "glyph_offset": 4196624
+    },
+    {
+      "code": 33173,
+      "code_hex": "0x8195",
+      "text": "＆",
+      "glyph_index": 33,
+      "glyph_offset": 4196696
+    },
+    {
+      "code": 33178,
+      "code_hex": "0x819A",
+      "text": "★",
+      "glyph_index": 35,
+      "glyph_offset": 4196840
+    },
+    {
+      "code": 33180,
+      "code_hex": "0x819C",
+      "text": "●",
+      "glyph_index": 37,
+      "glyph_offset": 4196984
+    },
+    {
+      "code": 33181,
+      "code_hex": "0x819D",
+      "text": "◎",
+      "glyph_index": 38,
+      "glyph_offset": 4197056
+    },
+    {
+      "code": 33368,
+      "code_hex": "0x8258",
+      "text": "９",
+      "glyph_index": 49,
+      "glyph_offset": 4197848
+    },
+    {
+      "code": 33377,
+      "code_hex": "0x8261",
+      "text": "Ｂ",
+      "glyph_index": 51,
+      "glyph_offset": 4197992
+    },
+    {
+      "code": 33378,
+      "code_hex": "0x8262",
+      "text": "Ｃ",
+      "glyph_index": 52,
+      "glyph_offset": 4198064
+    },
+    {
+      "code": 33379,
+      "code_hex": "0x8263",
+      "text": "Ｄ",
+      "glyph_index": 53,
+      "glyph_offset": 4198136
+    },
+    {
+      "code": 33380,
+      "code_hex": "0x8264",
+      "text": "Ｅ",
+      "glyph_index": 54,
+      "glyph_offset": 4198208
+    },
+    {
+      "code": 33381,
+      "code_hex": "0x8265",
+      "text": "Ｆ",
+      "glyph_index": 55,
+      "glyph_offset": 4198280
+    },
+    {
+      "code": 33382,
+      "code_hex": "0x8266",
+      "text": "Ｇ",
+      "glyph_index": 56,
+      "glyph_offset": 4198352
+    },
+    {
+      "code": 33384,
+      "code_hex": "0x8268",
+      "text": "Ｉ",
+      "glyph_index": 58,
+      "glyph_offset": 4198496
+    },
+    {
+      "code": 33385,
+      "code_hex": "0x8269",
+      "text": "Ｊ",
+      "glyph_index": 59,
+      "glyph_offset": 4198568
+    },
+    {
+      "code": 33386,
+      "code_hex": "0x826A",
+      "text": "Ｋ",
+      "glyph_index": 60,
+      "glyph_offset": 4198640
+    },
+    {
+      "code": 33387,
+      "code_hex": "0x826B",
+      "text": "Ｌ",
+      "glyph_index": 61,
+      "glyph_offset": 4198712
+    },
+    {
+      "code": 33388,
+      "code_hex": "0x826C",
+      "text": "Ｍ",
+      "glyph_index": 62,
+      "glyph_offset": 4198784
+    },
+    {
+      "code": 33389,
+      "code_hex": "0x826D",
+      "text": "Ｎ",
+      "glyph_index": 63,
+      "glyph_offset": 4198856
+    },
+    {
+      "code": 33390,
+      "code_hex": "0x826E",
+      "text": "Ｏ",
+      "glyph_index": 64,
+      "glyph_offset": 4198928
+    },
+    {
+      "code": 33392,
+      "code_hex": "0x8270",
+      "text": "Ｑ",
+      "glyph_index": 66,
+      "glyph_offset": 4199072
+    },
+    {
+      "code": 33395,
+      "code_hex": "0x8273",
+      "text": "Ｔ",
+      "glyph_index": 69,
+      "glyph_offset": 4199288
+    },
+    {
+      "code": 33396,
+      "code_hex": "0x8274",
+      "text": "Ｕ",
+      "glyph_index": 70,
+      "glyph_offset": 4199360
+    },
+    {
+      "code": 33397,
+      "code_hex": "0x8275",
+      "text": "Ｖ",
+      "glyph_index": 71,
+      "glyph_offset": 4199432
+    },
+    {
+      "code": 33398,
+      "code_hex": "0x8276",
+      "text": "Ｗ",
+      "glyph_index": 72,
+      "glyph_offset": 4199504
+    },
+    {
+      "code": 33399,
+      "code_hex": "0x8277",
+      "text": "Ｘ",
+      "glyph_index": 73,
+      "glyph_offset": 4199576
+    },
+    {
+      "code": 33400,
+      "code_hex": "0x8278",
+      "text": "Ｙ",
+      "glyph_index": 74,
+      "glyph_offset": 4199648
+    },
+    {
+      "code": 33401,
+      "code_hex": "0x8279",
+      "text": "Ｚ",
+      "glyph_index": 75,
+      "glyph_offset": 4199720
+    },
+    {
+      "code": 33409,
+      "code_hex": "0x8281",
+      "text": "ａ",
+      "glyph_index": 76,
+      "glyph_offset": 4199792
+    },
+    {
+      "code": 33410,
+      "code_hex": "0x8282",
+      "text": "ｂ",
+      "glyph_index": 77,
+      "glyph_offset": 4199864
+    },
+    {
+      "code": 33411,
+      "code_hex": "0x8283",
+      "text": "ｃ",
+      "glyph_index": 78,
+      "glyph_offset": 4199936
+    },
+    {
+      "code": 33412,
+      "code_hex": "0x8284",
+      "text": "ｄ",
+      "glyph_index": 79,
+      "glyph_offset": 4200008
+    },
+    {
+      "code": 33413,
+      "code_hex": "0x8285",
+      "text": "ｅ",
+      "glyph_index": 80,
+      "glyph_offset": 4200080
+    },
+    {
+      "code": 33414,
+      "code_hex": "0x8286",
+      "text": "ｆ",
+      "glyph_index": 81,
+      "glyph_offset": 4200152
+    },
+    {
+      "code": 33415,
+      "code_hex": "0x8287",
+      "text": "ｇ",
+      "glyph_index": 82,
+      "glyph_offset": 4200224
+    },
+    {
+      "code": 33416,
+      "code_hex": "0x8288",
+      "text": "ｈ",
+      "glyph_index": 83,
+      "glyph_offset": 4200296
+    },
+    {
+      "code": 33417,
+      "code_hex": "0x8289",
+      "text": "ｉ",
+      "glyph_index": 84,
+      "glyph_offset": 4200368
+    },
+    {
+      "code": 33418,
+      "code_hex": "0x828A",
+      "text": "ｊ",
+      "glyph_index": 85,
+      "glyph_offset": 4200440
+    },
+    {
+      "code": 33419,
+      "code_hex": "0x828B",
+      "text": "ｋ",
+      "glyph_index": 86,
+      "glyph_offset": 4200512
+    },
+    {
+      "code": 33420,
+      "code_hex": "0x828C",
+      "text": "ｌ",
+      "glyph_index": 87,
+      "glyph_offset": 4200584
+    },
+    {
+      "code": 33421,
+      "code_hex": "0x828D",
+      "text": "ｍ",
+      "glyph_index": 88,
+      "glyph_offset": 4200656
+    },
+    {
+      "code": 33422,
+      "code_hex": "0x828E",
+      "text": "ｎ",
+      "glyph_index": 89,
+      "glyph_offset": 4200728
+    },
+    {
+      "code": 33423,
+      "code_hex": "0x828F",
+      "text": "ｏ",
+      "glyph_index": 90,
+      "glyph_offset": 4200800
+    },
+    {
+      "code": 33424,
+      "code_hex": "0x8290",
+      "text": "ｐ",
+      "glyph_index": 91,
+      "glyph_offset": 4200872
+    },
+    {
+      "code": 33425,
+      "code_hex": "0x8291",
+      "text": "ｑ",
+      "glyph_index": 92,
+      "glyph_offset": 4200944
+    },
+    {
+      "code": 33426,
+      "code_hex": "0x8292",
+      "text": "ｒ",
+      "glyph_index": 93,
+      "glyph_offset": 4201016
+    },
+    {
+      "code": 33427,
+      "code_hex": "0x8293",
+      "text": "ｓ",
+      "glyph_index": 94,
+      "glyph_offset": 4201088
+    },
+    {
+      "code": 33428,
+      "code_hex": "0x8294",
+      "text": "ｔ",
+      "glyph_index": 95,
+      "glyph_offset": 4201160
+    },
+    {
+      "code": 33429,
+      "code_hex": "0x8295",
+      "text": "ｕ",
+      "glyph_index": 96,
+      "glyph_offset": 4201232
+    },
+    {
+      "code": 33430,
+      "code_hex": "0x8296",
+      "text": "ｖ",
+      "glyph_index": 97,
+      "glyph_offset": 4201304
+    },
+    {
+      "code": 33431,
+      "code_hex": "0x8297",
+      "text": "ｗ",
+      "glyph_index": 98,
+      "glyph_offset": 4201376
+    },
+    {
+      "code": 33432,
+      "code_hex": "0x8298",
+      "text": "ｘ",
+      "glyph_index": 99,
+      "glyph_offset": 4201448
+    },
+    {
+      "code": 33433,
+      "code_hex": "0x8299",
+      "text": "ｙ",
+      "glyph_index": 100,
+      "glyph_offset": 4201520
+    },
+    {
+      "code": 33434,
+      "code_hex": "0x829A",
+      "text": "ｚ",
+      "glyph_index": 101,
+      "glyph_offset": 4201592
+    },
+    {
+      "code": 33472,
+      "code_hex": "0x82C0",
+      "text": "ぢ",
+      "glyph_index": 135,
+      "glyph_offset": 4204040
+    },
+    {
+      "code": 33490,
+      "code_hex": "0x82D2",
+      "text": "ぴ",
+      "glyph_index": 153,
+      "glyph_offset": 4205336
+    },
+    {
+      "code": 33496,
+      "code_hex": "0x82D8",
+      "text": "ぺ",
+      "glyph_index": 159,
+      "glyph_offset": 4205768
+    },
+    {
+      "code": 33633,
+      "code_hex": "0x8361",
+      "text": "ヂ",
+      "glyph_index": 215,
+      "glyph_offset": 4209800
+    },
+    {
+      "code": 33636,
+      "code_hex": "0x8364",
+      "text": "ヅ",
+      "glyph_index": 218,
+      "glyph_offset": 4210016
+    },
+    {
+      "code": 33643,
+      "code_hex": "0x836B",
+      "text": "ヌ",
+      "glyph_index": 225,
+      "glyph_offset": 4210520
+    },
+    {
+      "code": 33682,
+      "code_hex": "0x8392",
+      "text": "ヲ",
+      "glyph_index": 260,
+      "glyph_offset": 4213040
+    },
+    {
+      "code": 34627,
+      "code_hex": "0x8743",
+      "text": "④",
+      "glyph_index": 266,
+      "glyph_offset": 4213472
+    },
+    {
+      "code": 34628,
+      "code_hex": "0x8744",
+      "text": "⑤",
+      "glyph_index": 267,
+      "glyph_offset": 4213544
+    },
+    {
+      "code": 34975,
+      "code_hex": "0x889F",
+      "text": "亜",
+      "glyph_index": 268,
+      "glyph_offset": 4213616
+    },
+    {
+      "code": 34976,
+      "code_hex": "0x88A0",
+      "text": "唖",
+      "glyph_index": 269,
+      "glyph_offset": 4213688
+    },
+    {
+      "code": 34978,
+      "code_hex": "0x88A2",
+      "text": "阿",
+      "glyph_index": 270,
+      "glyph_offset": 4213760
+    },
+    {
+      "code": 34995,
+      "code_hex": "0x88B3",
+      "text": "圧",
+      "glyph_index": 276,
+      "glyph_offset": 4214192
+    },
+    {
+      "code": 35017,
+      "code_hex": "0x88C9",
+      "text": "伊",
+      "glyph_index": 284,
+      "glyph_offset": 4214768
+    },
+    {
+      "code": 35028,
+      "code_hex": "0x88D4",
+      "text": "慰",
+      "glyph_index": 292,
+      "glyph_offset": 4215344
+    },
+    {
+      "code": 35030,
+      "code_hex": "0x88D6",
+      "text": "椅",
+      "glyph_index": 294,
+      "glyph_offset": 4215488
+    },
+    {
+      "code": 35036,
+      "code_hex": "0x88DC",
+      "text": "緯",
+      "glyph_index": 298,
+      "glyph_offset": 4215776
+    },
+    {
+      "code": 35044,
+      "code_hex": "0x88E4",
+      "text": "井",
+      "glyph_index": 302,
+      "glyph_offset": 4216064
+    },
+    {
+      "code": 35054,
+      "code_hex": "0x88EE",
+      "text": "稲",
+      "glyph_index": 307,
+      "glyph_offset": 4216424
+    },
+    {
+      "code": 35142,
+      "code_hex": "0x8946",
+      "text": "宇",
+      "glyph_index": 317,
+      "glyph_offset": 4217144
+    },
+    {
+      "code": 35143,
+      "code_hex": "0x8947",
+      "text": "烏",
+      "glyph_index": 318,
+      "glyph_offset": 4217216
+    },
+    {
+      "code": 35148,
+      "code_hex": "0x894C",
+      "text": "鵜",
+      "glyph_index": 321,
+      "glyph_offset": 4217432
+    },
+    {
+      "code": 35192,
+      "code_hex": "0x8978",
+      "text": "悦",
+      "glyph_index": 335,
+      "glyph_offset": 4218440
+    },
+    {
+      "code": 35205,
+      "code_hex": "0x8985",
+      "text": "怨",
+      "glyph_index": 338,
+      "glyph_offset": 4218656
+    },
+    {
+      "code": 35212,
+      "code_hex": "0x898C",
+      "text": "煙",
+      "glyph_index": 342,
+      "glyph_offset": 4218944
+    },
+    {
+      "code": 35222,
+      "code_hex": "0x8996",
+      "text": "塩",
+      "glyph_index": 346,
+      "glyph_offset": 4219232
+    },
+    {
+      "code": 35242,
+      "code_hex": "0x89AA",
+      "text": "岡",
+      "glyph_index": 357,
+      "glyph_offset": 4220024
+    },
+    {
+      "code": 35255,
+      "code_hex": "0x89B7",
+      "text": "温",
+      "glyph_index": 362,
+      "glyph_offset": 4220384
+    },
+    {
+      "code": 35267,
+      "code_hex": "0x89C3",
+      "text": "嘉",
+      "glyph_index": 373,
+      "glyph_offset": 4221176
+    },
+    {
+      "code": 35277,
+      "code_hex": "0x89CD",
+      "text": "河",
+      "glyph_index": 381,
+      "glyph_offset": 4221752
+    },
+    {
+      "code": 35287,
+      "code_hex": "0x89D7",
+      "text": "荷",
+      "glyph_index": 385,
+      "glyph_offset": 4222040
+    },
+    {
+      "code": 35288,
+      "code_hex": "0x89D8",
+      "text": "華",
+      "glyph_index": 386,
+      "glyph_offset": 4222112
+    },
+    {
+      "code": 35307,
+      "code_hex": "0x89EB",
+      "text": "雅",
+      "glyph_index": 391,
+      "glyph_offset": 4222472
+    },
+    {
+      "code": 35399,
+      "code_hex": "0x8A47",
+      "text": "絵",
+      "glyph_index": 410,
+      "glyph_offset": 4223840
+    },
+    {
+      "code": 35419,
+      "code_hex": "0x8A5B",
+      "text": "骸",
+      "glyph_index": 418,
+      "glyph_offset": 4224416
+    },
+    {
+      "code": 35423,
+      "code_hex": "0x8A5F",
+      "text": "垣",
+      "glyph_index": 419,
+      "glyph_offset": 4224488
+    },
+    {
+      "code": 35431,
+      "code_hex": "0x8A67",
+      "text": "拡",
+      "glyph_index": 420,
+      "glyph_offset": 4224560
+    },
+    {
+      "code": 35453,
+      "code_hex": "0x8A7D",
+      "text": "笠",
+      "glyph_index": 431,
+      "glyph_offset": 4225352
+    },
+    {
+      "code": 35466,
+      "code_hex": "0x8A8A",
+      "text": "滑",
+      "glyph_index": 435,
+      "glyph_offset": 4225640
+    },
+    {
+      "code": 35475,
+      "code_hex": "0x8A93",
+      "text": "鞄",
+      "glyph_index": 438,
+      "glyph_offset": 4225856
+    },
+    {
+      "code": 35504,
+      "code_hex": "0x8AB0",
+      "text": "寛",
+      "glyph_index": 445,
+      "glyph_offset": 4226360
+    },
+    {
+      "code": 35506,
+      "code_hex": "0x8AB2",
+      "text": "幹",
+      "glyph_index": 447,
+      "glyph_offset": 4226504
+    },
+    {
+      "code": 35535,
+      "code_hex": "0x8ACF",
+      "text": "観",
+      "glyph_index": 461,
+      "glyph_offset": 4227512
+    },
+    {
+      "code": 35558,
+      "code_hex": "0x8AE6",
+      "text": "頑",
+      "glyph_index": 472,
+      "glyph_offset": 4228304
+    },
+    {
+      "code": 35570,
+      "code_hex": "0x8AF2",
+      "text": "岐",
+      "glyph_index": 483,
+      "glyph_offset": 4229096
+    },
+    {
+      "code": 35572,
+      "code_hex": "0x8AF4",
+      "text": "幾",
+      "glyph_index": 485,
+      "glyph_offset": 4229240
+    },
+    {
+      "code": 35650,
+      "code_hex": "0x8B42",
+      "text": "毅",
+      "glyph_index": 494,
+      "glyph_offset": 4229888
+    },
+    {
+      "code": 35656,
+      "code_hex": "0x8B48",
+      "text": "稀",
+      "glyph_index": 497,
+      "glyph_offset": 4230104
+    },
+    {
+      "code": 35657,
+      "code_hex": "0x8B49",
+      "text": "紀",
+      "glyph_index": 498,
+      "glyph_offset": 4230176
+    },
+    {
+      "code": 35666,
+      "code_hex": "0x8B52",
+      "text": "騎",
+      "glyph_index": 504,
+      "glyph_offset": 4230608
+    },
+    {
+      "code": 35668,
+      "code_hex": "0x8B54",
+      "text": "亀",
+      "glyph_index": 506,
+      "glyph_offset": 4230752
+    },
+    {
+      "code": 35687,
+      "code_hex": "0x8B67",
+      "text": "吉",
+      "glyph_index": 514,
+      "glyph_offset": 4231328
+    },
+    {
+      "code": 35707,
+      "code_hex": "0x8B7B",
+      "text": "宮",
+      "glyph_index": 524,
+      "glyph_offset": 4232048
+    },
+    {
+      "code": 35729,
+      "code_hex": "0x8B91",
+      "text": "拒",
+      "glyph_index": 540,
+      "glyph_offset": 4233200
+    },
+    {
+      "code": 35735,
+      "code_hex": "0x8B97",
+      "text": "距",
+      "glyph_index": 544,
+      "glyph_offset": 4233488
+    },
+    {
+      "code": 35737,
+      "code_hex": "0x8B99",
+      "text": "漁",
+      "glyph_index": 545,
+      "glyph_offset": 4233560
+    },
+    {
+      "code": 35792,
+      "code_hex": "0x8BD0",
+      "text": "巾",
+      "glyph_index": 572,
+      "glyph_offset": 4235504
+    },
+    {
+      "code": 35830,
+      "code_hex": "0x8BF6",
+      "text": "遇",
+      "glyph_index": 589,
+      "glyph_offset": 4236728
+    },
+    {
+      "code": 35831,
+      "code_hex": "0x8BF7",
+      "text": "隅",
+      "glyph_index": 590,
+      "glyph_offset": 4236800
+    },
+    {
+      "code": 35904,
+      "code_hex": "0x8C40",
+      "text": "掘",
+      "glyph_index": 592,
+      "glyph_offset": 4236944
+    },
+    {
+      "code": 35907,
+      "code_hex": "0x8C43",
+      "text": "靴",
+      "glyph_index": 593,
+      "glyph_offset": 4237016
+    },
+    {
+      "code": 35910,
+      "code_hex": "0x8C46",
+      "text": "熊",
+      "glyph_index": 594,
+      "glyph_offset": 4237088
+    },
+    {
+      "code": 35913,
+      "code_hex": "0x8C49",
+      "text": "栗",
+      "glyph_index": 595,
+      "glyph_offset": 4237160
+    },
+    {
+      "code": 35914,
+      "code_hex": "0x8C4A",
+      "text": "繰",
+      "glyph_index": 596,
+      "glyph_offset": 4237232
+    },
+    {
+      "code": 35921,
+      "code_hex": "0x8C51",
+      "text": "群",
+      "glyph_index": 599,
+      "glyph_offset": 4237448
+    },
+    {
+      "code": 35938,
+      "code_hex": "0x8C62",
+      "text": "恵",
+      "glyph_index": 606,
+      "glyph_offset": 4237952
+    },
+    {
+      "code": 35942,
+      "code_hex": "0x8C66",
+      "text": "掲",
+      "glyph_index": 607,
+      "glyph_offset": 4238024
+    },
+    {
+      "code": 35972,
+      "code_hex": "0x8C84",
+      "text": "隙",
+      "glyph_index": 620,
+      "glyph_offset": 4238960
+    },
+    {
+      "code": 35973,
+      "code_hex": "0x8C85",
+      "text": "桁",
+      "glyph_index": 621,
+      "glyph_offset": 4239032
+    },
+    {
+      "code": 35982,
+      "code_hex": "0x8C8E",
+      "text": "月",
+      "glyph_index": 629,
+      "glyph_offset": 4239608
+    },
+    {
+      "code": 35995,
+      "code_hex": "0x8C9B",
+      "text": "憲",
+      "glyph_index": 636,
+      "glyph_offset": 4240112
+    },
+    {
+      "code": 36050,
+      "code_hex": "0x8CD2",
+      "text": "股",
+      "glyph_index": 667,
+      "glyph_offset": 4242344
+    },
+    {
+      "code": 36051,
+      "code_hex": "0x8CD3",
+      "text": "胡",
+      "glyph_index": 668,
+      "glyph_offset": 4242416
+    },
+    {
+      "code": 36060,
+      "code_hex": "0x8CDC",
+      "text": "五",
+      "glyph_index": 670,
+      "glyph_offset": 4242560
+    },
+    {
+      "code": 36065,
+      "code_hex": "0x8CE1",
+      "text": "吾",
+      "glyph_index": 673,
+      "glyph_offset": 4242776
+    },
+    {
+      "code": 36166,
+      "code_hex": "0x8D46",
+      "text": "孝",
+      "glyph_index": 688,
+      "glyph_offset": 4243856
+    },
+    {
+      "code": 36175,
+      "code_hex": "0x8D4F",
+      "text": "弘",
+      "glyph_index": 693,
+      "glyph_offset": 4244216
+    },
+    {
+      "code": 36183,
+      "code_hex": "0x8D57",
+      "text": "晃",
+      "glyph_index": 697,
+      "glyph_offset": 4244504
+    },
+    {
+      "code": 36189,
+      "code_hex": "0x8D5D",
+      "text": "江",
+      "glyph_index": 701,
+      "glyph_offset": 4244792
+    },
+    {
+      "code": 36191,
+      "code_hex": "0x8D5F",
+      "text": "浩",
+      "glyph_index": 702,
+      "glyph_offset": 4244864
+    },
+    {
+      "code": 36225,
+      "code_hex": "0x8D81",
+      "text": "香",
+      "glyph_index": 710,
+      "glyph_offset": 4245440
+    },
+    {
+      "code": 36264,
+      "code_hex": "0x8DA8",
+      "text": "昏",
+      "glyph_index": 731,
+      "glyph_offset": 4246952
+    },
+    {
+      "code": 36270,
+      "code_hex": "0x8DAE",
+      "text": "紺",
+      "glyph_index": 734,
+      "glyph_offset": 4247168
+    },
+    {
+      "code": 36294,
+      "code_hex": "0x8DC6",
+      "text": "哉",
+      "glyph_index": 746,
+      "glyph_offset": 4248032
+    },
+    {
+      "code": 36295,
+      "code_hex": "0x8DC7",
+      "text": "塞",
+      "glyph_index": 747,
+      "glyph_offset": 4248104
+    },
+    {
+      "code": 36298,
+      "code_hex": "0x8DCA",
+      "text": "彩",
+      "glyph_index": 749,
+      "glyph_offset": 4248248
+    },
+    {
+      "code": 36328,
+      "code_hex": "0x8DE8",
+      "text": "崎",
+      "glyph_index": 763,
+      "glyph_offset": 4249256
+    },
+    {
+      "code": 36347,
+      "code_hex": "0x8DFB",
+      "text": "冊",
+      "glyph_index": 768,
+      "glyph_offset": 4249616
+    },
+    {
+      "code": 36456,
+      "code_hex": "0x8E68",
+      "text": "刺",
+      "glyph_index": 784,
+      "glyph_offset": 4250768
+    },
+    {
+      "code": 36458,
+      "code_hex": "0x8E6A",
+      "text": "史",
+      "glyph_index": 786,
+      "glyph_offset": 4250912
+    },
+    {
+      "code": 36460,
+      "code_hex": "0x8E6C",
+      "text": "四",
+      "glyph_index": 787,
+      "glyph_offset": 4250984
+    },
+    {
+      "code": 36507,
+      "code_hex": "0x8E9B",
+      "text": "寺",
+      "glyph_index": 816,
+      "glyph_offset": 4253072
+    },
+    {
+      "code": 36525,
+      "code_hex": "0x8EAD",
+      "text": "鹿",
+      "glyph_index": 825,
+      "glyph_offset": 4253720
+    },
+    {
+      "code": 36539,
+      "code_hex": "0x8EBB",
+      "text": "悉",
+      "glyph_index": 831,
+      "glyph_offset": 4254152
+    },
+    {
+      "code": 36558,
+      "code_hex": "0x8ECE",
+      "text": "斜",
+      "glyph_index": 842,
+      "glyph_offset": 4254944
+    },
+    {
+      "code": 36587,
+      "code_hex": "0x8EEB",
+      "text": "狩",
+      "glyph_index": 858,
+      "glyph_offset": 4256096
+    },
+    {
+      "code": 36672,
+      "code_hex": "0x8F40",
+      "text": "宗",
+      "glyph_index": 869,
+      "glyph_offset": 4256888
+    },
+    {
+      "code": 36680,
+      "code_hex": "0x8F48",
+      "text": "秋",
+      "glyph_index": 875,
+      "glyph_offset": 4257320
+    },
+    {
+      "code": 36690,
+      "code_hex": "0x8F52",
+      "text": "蹴",
+      "glyph_index": 881,
+      "glyph_offset": 4257752
+    },
+    {
+      "code": 36721,
+      "code_hex": "0x8F71",
+      "text": "述",
+      "glyph_index": 895,
+      "glyph_offset": 4258760
+    },
+    {
+      "code": 36722,
+      "code_hex": "0x8F72",
+      "text": "俊",
+      "glyph_index": 896,
+      "glyph_offset": 4258832
+    },
+    {
+      "code": 36724,
+      "code_hex": "0x8F74",
+      "text": "春",
+      "glyph_index": 897,
+      "glyph_offset": 4258904
+    },
+    {
+      "code": 36778,
+      "code_hex": "0x8FAA",
+      "text": "宵",
+      "glyph_index": 921,
+      "glyph_offset": 4260632
+    },
+    {
+      "code": 36782,
+      "code_hex": "0x8FAE",
+      "text": "尚",
+      "glyph_index": 925,
+      "glyph_offset": 4260920
+    },
+    {
+      "code": 36786,
+      "code_hex": "0x8FB2",
+      "text": "彰",
+      "glyph_index": 927,
+      "glyph_offset": 4261064
+    },
+    {
+      "code": 36789,
+      "code_hex": "0x8FB5",
+      "text": "招",
+      "glyph_index": 929,
+      "glyph_offset": 4261208
+    },
+    {
+      "code": 36796,
+      "code_hex": "0x8FBC",
+      "text": "松",
+      "glyph_index": 933,
+      "glyph_offset": 4261496
+    },
+    {
+      "code": 36853,
+      "code_hex": "0x8FF5",
+      "text": "穣",
+      "glyph_index": 959,
+      "glyph_offset": 4263368
+    },
+    {
+      "code": 36938,
+      "code_hex": "0x904A",
+      "text": "辱",
+      "glyph_index": 968,
+      "glyph_offset": 4264016
+    },
+    {
+      "code": 36952,
+      "code_hex": "0x9058",
+      "text": "森",
+      "glyph_index": 977,
+      "glyph_offset": 4264664
+    },
+    {
+      "code": 36973,
+      "code_hex": "0x906D",
+      "text": "仁",
+      "glyph_index": 988,
+      "glyph_offset": 4265456
+    },
+    {
+      "code": 36975,
+      "code_hex": "0x906F",
+      "text": "塵",
+      "glyph_index": 990,
+      "glyph_offset": 4265600
+    },
+    {
+      "code": 37016,
+      "code_hex": "0x9098",
+      "text": "据",
+      "glyph_index": 1004,
+      "glyph_offset": 4266608
+    },
+    {
+      "code": 37025,
+      "code_hex": "0x90A1",
+      "text": "寸",
+      "glyph_index": 1005,
+      "glyph_offset": 4266680
+    },
+    {
+      "code": 37029,
+      "code_hex": "0x90A5",
+      "text": "是",
+      "glyph_index": 1007,
+      "glyph_offset": 4266824
+    },
+    {
+      "code": 37044,
+      "code_hex": "0x90B4",
+      "text": "清",
+      "glyph_index": 1017,
+      "glyph_offset": 4267544
+    },
+    {
+      "code": 37051,
+      "code_hex": "0x90BB",
+      "text": "製",
+      "glyph_index": 1024,
+      "glyph_offset": 4268048
+    },
+    {
+      "code": 37056,
+      "code_hex": "0x90C0",
+      "text": "逝",
+      "glyph_index": 1027,
+      "glyph_offset": 4268264
+    },
+    {
+      "code": 37060,
+      "code_hex": "0x90C4",
+      "text": "斉",
+      "glyph_index": 1030,
+      "glyph_offset": 4268480
+    },
+    {
+      "code": 37064,
+      "code_hex": "0x90C8",
+      "text": "席",
+      "glyph_index": 1032,
+      "glyph_offset": 4268624
+    },
+    {
+      "code": 37087,
+      "code_hex": "0x90DF",
+      "text": "節",
+      "glyph_index": 1047,
+      "glyph_offset": 4269704
+    },
+    {
+      "code": 37095,
+      "code_hex": "0x90E7",
+      "text": "千",
+      "glyph_index": 1051,
+      "glyph_offset": 4269992
+    },
+    {
+      "code": 37098,
+      "code_hex": "0x90EA",
+      "text": "専",
+      "glyph_index": 1054,
+      "glyph_offset": 4270208
+    },
+    {
+      "code": 37106,
+      "code_hex": "0x90F2",
+      "text": "泉",
+      "glyph_index": 1057,
+      "glyph_offset": 4270424
+    },
+    {
+      "code": 37233,
+      "code_hex": "0x9171",
+      "text": "倉",
+      "glyph_index": 1077,
+      "glyph_offset": 4271864
+    },
+    {
+      "code": 37244,
+      "code_hex": "0x917C",
+      "text": "掃",
+      "glyph_index": 1081,
+      "glyph_offset": 4272152
+    },
+    {
+      "code": 37246,
+      "code_hex": "0x917E",
+      "text": "掻",
+      "glyph_index": 1082,
+      "glyph_offset": 4272224
+    },
+    {
+      "code": 37259,
+      "code_hex": "0x918B",
+      "text": "窓",
+      "glyph_index": 1088,
+      "glyph_offset": 4272656
+    },
+    {
+      "code": 37272,
+      "code_hex": "0x9198",
+      "text": "遭",
+      "glyph_index": 1095,
+      "glyph_offset": 4273160
+    },
+    {
+      "code": 37281,
+      "code_hex": "0x91A1",
+      "text": "贈",
+      "glyph_index": 1102,
+      "glyph_offset": 4273664
+    },
+    {
+      "code": 37287,
+      "code_hex": "0x91A7",
+      "text": "息",
+      "glyph_index": 1106,
+      "glyph_offset": 4273952
+    },
+    {
+      "code": 37299,
+      "code_hex": "0x91B3",
+      "text": "袖",
+      "glyph_index": 1114,
+      "glyph_offset": 4274528
+    },
+    {
+      "code": 37340,
+      "code_hex": "0x91DC",
+      "text": "袋",
+      "glyph_index": 1137,
+      "glyph_offset": 4276184
+    },
+    {
+      "code": 37354,
+      "code_hex": "0x91EA",
+      "text": "滝",
+      "glyph_index": 1147,
+      "glyph_offset": 4276904
+    },
+    {
+      "code": 37367,
+      "code_hex": "0x91F7",
+      "text": "濁",
+      "glyph_index": 1151,
+      "glyph_offset": 4277192
+    },
+    {
+      "code": 37368,
+      "code_hex": "0x91F8",
+      "text": "諾",
+      "glyph_index": 1152,
+      "glyph_offset": 4277264
+    },
+    {
+      "code": 37441,
+      "code_hex": "0x9241",
+      "text": "但",
+      "glyph_index": 1154,
+      "glyph_offset": 4277408
+    },
+    {
+      "code": 37449,
+      "code_hex": "0x9249",
+      "text": "棚",
+      "glyph_index": 1158,
+      "glyph_offset": 4277696
+    },
+    {
+      "code": 37463,
+      "code_hex": "0x9257",
+      "text": "淡",
+      "glyph_index": 1164,
+      "glyph_offset": 4278128
+    },
+    {
+      "code": 37489,
+      "code_hex": "0x9271",
+      "text": "智",
+      "glyph_index": 1181,
+      "glyph_offset": 4279352
+    },
+    {
+      "code": 37507,
+      "code_hex": "0x9283",
+      "text": "茶",
+      "glyph_index": 1186,
+      "glyph_offset": 4279712
+    },
+    {
+      "code": 37512,
+      "code_hex": "0x9288",
+      "text": "宙",
+      "glyph_index": 1190,
+      "glyph_offset": 4280000
+    },
+    {
+      "code": 37523,
+      "code_hex": "0x9293",
+      "text": "駐",
+      "glyph_index": 1194,
+      "glyph_offset": 4280288
+    },
+    {
+      "code": 37526,
+      "code_hex": "0x9296",
+      "text": "猪",
+      "glyph_index": 1195,
+      "glyph_offset": 4280360
+    },
+    {
+      "code": 37561,
+      "code_hex": "0x92B9",
+      "text": "鳥",
+      "glyph_index": 1207,
+      "glyph_offset": 4281224
+    },
+    {
+      "code": 37574,
+      "code_hex": "0x92C6",
+      "text": "槌",
+      "glyph_index": 1214,
+      "glyph_offset": 4281728
+    },
+    {
+      "code": 37602,
+      "code_hex": "0x92E2",
+      "text": "停",
+      "glyph_index": 1220,
+      "glyph_offset": 4282160
+    },
+    {
+      "code": 37710,
+      "code_hex": "0x934E",
+      "text": "哲",
+      "glyph_index": 1237,
+      "glyph_offset": 4283384
+    },
+    {
+      "code": 37716,
+      "code_hex": "0x9354",
+      "text": "典",
+      "glyph_index": 1240,
+      "glyph_offset": 4283600
+    },
+    {
+      "code": 37719,
+      "code_hex": "0x9357",
+      "text": "展",
+      "glyph_index": 1242,
+      "glyph_offset": 4283744
+    },
+    {
+      "code": 37731,
+      "code_hex": "0x9363",
+      "text": "田",
+      "glyph_index": 1249,
+      "glyph_offset": 4284248
+    },
+    {
+      "code": 37735,
+      "code_hex": "0x9367",
+      "text": "堵",
+      "glyph_index": 1252,
+      "glyph_offset": 4284464
+    },
+    {
+      "code": 37736,
+      "code_hex": "0x9368",
+      "text": "塗",
+      "glyph_index": 1253,
+      "glyph_offset": 4284536
+    },
+    {
+      "code": 37739,
+      "code_hex": "0x936B",
+      "text": "徒",
+      "glyph_index": 1254,
+      "glyph_offset": 4284608
+    },
+    {
+      "code": 37758,
+      "code_hex": "0x937E",
+      "text": "冬",
+      "glyph_index": 1266,
+      "glyph_offset": 4285472
+    },
+    {
+      "code": 37770,
+      "code_hex": "0x938A",
+      "text": "投",
+      "glyph_index": 1269,
+      "glyph_offset": 4285688
+    },
+    {
+      "code": 37815,
+      "code_hex": "0x93B7",
+      "text": "胴",
+      "glyph_index": 1290,
+      "glyph_offset": 4287200
+    },
+    {
+      "code": 37846,
+      "code_hex": "0x93D6",
+      "text": "敦",
+      "glyph_index": 1300,
+      "glyph_offset": 4287920
+    },
+    {
+      "code": 37952,
+      "code_hex": "0x9440",
+      "text": "如",
+      "glyph_index": 1311,
+      "glyph_offset": 4288712
+    },
+    {
+      "code": 37974,
+      "code_hex": "0x9456",
+      "text": "之",
+      "glyph_index": 1322,
+      "glyph_offset": 4289504
+    },
+    {
+      "code": 37984,
+      "code_hex": "0x9460",
+      "text": "覗",
+      "glyph_index": 1326,
+      "glyph_offset": 4289792
+    },
+    {
+      "code": 38002,
+      "code_hex": "0x9472",
+      "text": "排",
+      "glyph_index": 1334,
+      "glyph_offset": 4290368
+    },
+    {
+      "code": 38030,
+      "code_hex": "0x948E",
+      "text": "博",
+      "glyph_index": 1344,
+      "glyph_offset": 4291088
+    },
+    {
+      "code": 38038,
+      "code_hex": "0x9496",
+      "text": "薄",
+      "glyph_index": 1347,
+      "glyph_offset": 4291304
+    },
+    {
+      "code": 38055,
+      "code_hex": "0x94A7",
+      "text": "肌",
+      "glyph_index": 1353,
+      "glyph_offset": 4291736
+    },
+    {
+      "code": 38058,
+      "code_hex": "0x94AA",
+      "text": "八",
+      "glyph_index": 1355,
+      "glyph_offset": 4291880
+    },
+    {
+      "code": 38084,
+      "code_hex": "0x94C4",
+      "text": "汎",
+      "glyph_index": 1361,
+      "glyph_offset": 4292312
+    },
+    {
+      "code": 38094,
+      "code_hex": "0x94CE",
+      "text": "釆",
+      "glyph_index": 1366,
+      "glyph_offset": 4292672
+    },
+    {
+      "code": 38213,
+      "code_hex": "0x9545",
+      "text": "髭",
+      "glyph_index": 1388,
+      "glyph_offset": 4294256
+    },
+    {
+      "code": 38214,
+      "code_hex": "0x9546",
+      "text": "彦",
+      "glyph_index": 1389,
+      "glyph_offset": 4294328
+    },
+    {
+      "code": 38217,
+      "code_hex": "0x9549",
+      "text": "肘",
+      "glyph_index": 1391,
+      "glyph_offset": 4294472
+    },
+    {
+      "code": 38231,
+      "code_hex": "0x9557",
+      "text": "標",
+      "glyph_index": 1394,
+      "glyph_offset": 4294688
+    },
+    {
+      "code": 38242,
+      "code_hex": "0x9562",
+      "text": "秒",
+      "glyph_index": 1398,
+      "glyph_offset": 4294976
+    },
+    {
+      "code": 38253,
+      "code_hex": "0x956D",
+      "text": "瀕",
+      "glyph_index": 1400,
+      "glyph_offset": 4295120
+    },
+    {
+      "code": 38257,
+      "code_hex": "0x9571",
+      "text": "敏",
+      "glyph_index": 1402,
+      "glyph_offset": 4295264
+    },
+    {
+      "code": 38287,
+      "code_hex": "0x958F",
+      "text": "撫",
+      "glyph_index": 1417,
+      "glyph_offset": 4296344
+    },
+    {
+      "code": 38306,
+      "code_hex": "0x95A2",
+      "text": "覆",
+      "glyph_index": 1430,
+      "glyph_offset": 4297280
+    },
+    {
+      "code": 38324,
+      "code_hex": "0x95B4",
+      "text": "紛",
+      "glyph_index": 1435,
+      "glyph_offset": 4297640
+    },
+    {
+      "code": 38331,
+      "code_hex": "0x95BB",
+      "text": "塀",
+      "glyph_index": 1440,
+      "glyph_offset": 4298000
+    },
+    {
+      "code": 38345,
+      "code_hex": "0x95C9",
+      "text": "碧",
+      "glyph_index": 1447,
+      "glyph_offset": 4298504
+    },
+    {
+      "code": 38484,
+      "code_hex": "0x9654",
+      "text": "傍",
+      "glyph_index": 1479,
+      "glyph_offset": 4300808
+    },
+    {
+      "code": 38488,
+      "code_hex": "0x9658",
+      "text": "帽",
+      "glyph_index": 1482,
+      "glyph_offset": 4301024
+    },
+    {
+      "code": 38505,
+      "code_hex": "0x9669",
+      "text": "吠",
+      "glyph_index": 1491,
+      "glyph_offset": 4301672
+    },
+    {
+      "code": 38512,
+      "code_hex": "0x9670",
+      "text": "朴",
+      "glyph_index": 1495,
+      "glyph_offset": 4301960
+    },
+    {
+      "code": 38532,
+      "code_hex": "0x9684",
+      "text": "埋",
+      "glyph_index": 1500,
+      "glyph_offset": 4302320
+    },
+    {
+      "code": 38539,
+      "code_hex": "0x968B",
+      "text": "幕",
+      "glyph_index": 1504,
+      "glyph_offset": 4302608
+    },
+    {
+      "code": 38548,
+      "code_hex": "0x9694",
+      "text": "又",
+      "glyph_index": 1505,
+      "glyph_offset": 4302680
+    },
+    {
+      "code": 38554,
+      "code_hex": "0x969A",
+      "text": "繭",
+      "glyph_index": 1508,
+      "glyph_offset": 4302896
+    },
+    {
+      "code": 38611,
+      "code_hex": "0x96D3",
+      "text": "盲",
+      "glyph_index": 1537,
+      "glyph_offset": 4304984
+    },
+    {
+      "code": 38628,
+      "code_hex": "0x96E4",
+      "text": "紋",
+      "glyph_index": 1544,
+      "glyph_offset": 4305488
+    },
+    {
+      "code": 38631,
+      "code_hex": "0x96E7",
+      "text": "也",
+      "glyph_index": 1546,
+      "glyph_offset": 4305632
+    },
+    {
+      "code": 38634,
+      "code_hex": "0x96EA",
+      "text": "爺",
+      "glyph_index": 1548,
+      "glyph_offset": 4305776
+    },
+    {
+      "code": 38758,
+      "code_hex": "0x9766",
+      "text": "庸",
+      "glyph_index": 1578,
+      "glyph_offset": 4307936
+    },
+    {
+      "code": 38765,
+      "code_hex": "0x976D",
+      "text": "洋",
+      "glyph_index": 1582,
+      "glyph_offset": 4308224
+    },
+    {
+      "code": 38786,
+      "code_hex": "0x9782",
+      "text": "翌",
+      "glyph_index": 1592,
+      "glyph_offset": 4308944
+    },
+    {
+      "code": 38802,
+      "code_hex": "0x9792",
+      "text": "嵐",
+      "glyph_index": 1601,
+      "glyph_offset": 4309592
+    },
+    {
+      "code": 38809,
+      "code_hex": "0x9799",
+      "text": "吏",
+      "glyph_index": 1604,
+      "glyph_offset": 4309808
+    },
+    {
+      "code": 38820,
+      "code_hex": "0x97A4",
+      "text": "陸",
+      "glyph_index": 1609,
+      "glyph_offset": 4310168
+    },
+    {
+      "code": 38826,
+      "code_hex": "0x97AA",
+      "text": "略",
+      "glyph_index": 1613,
+      "glyph_offset": 4310456
+    },
+    {
+      "code": 38829,
+      "code_hex": "0x97AD",
+      "text": "溜",
+      "glyph_index": 1615,
+      "glyph_offset": 4310600
+    },
+    {
+      "code": 38834,
+      "code_hex": "0x97B2",
+      "text": "隆",
+      "glyph_index": 1618,
+      "glyph_offset": 4310816
+    },
+    {
+      "code": 38865,
+      "code_hex": "0x97D1",
+      "text": "林",
+      "glyph_index": 1630,
+      "glyph_offset": 4311680
+    },
+    {
+      "code": 38889,
+      "code_hex": "0x97E9",
+      "text": "鈴",
+      "glyph_index": 1641,
+      "glyph_offset": 4312472
+    },
+    {
+      "code": 38895,
+      "code_hex": "0x97EF",
+      "text": "暦",
+      "glyph_index": 1644,
+      "glyph_offset": 4312688
+    },
+    {
+      "code": 38988,
+      "code_hex": "0x984C",
+      "text": "廊",
+      "glyph_index": 1656,
+      "glyph_offset": 4313552
+    },
+    {
+      "code": 38995,
+      "code_hex": "0x9853",
+      "text": "牢",
+      "glyph_index": 1658,
+      "glyph_offset": 4313696
+    },
+    {
+      "code": 39013,
+      "code_hex": "0x9865",
+      "text": "脇",
+      "glyph_index": 1667,
+      "glyph_offset": 4314344
+    },
+    {
+      "code": 39296,
+      "code_hex": "0x9980",
+      "text": "凰",
+      "glyph_index": 1670,
+      "glyph_offset": 4314560
+    },
+    {
+      "code": 39500,
+      "code_hex": "0x9A4C",
+      "text": "哭",
+      "glyph_index": 1673,
+      "glyph_offset": 4314776
+    },
+    {
+      "code": 39632,
+      "code_hex": "0x9AD0",
+      "text": "墟",
+      "glyph_index": 1675,
+      "glyph_offset": 4314920
+    },
+    {
+      "code": 39672,
+      "code_hex": "0x9AF8",
+      "text": "奢",
+      "glyph_index": 1676,
+      "glyph_offset": 4314992
+    },
+    {
+      "code": 40082,
+      "code_hex": "0x9C92",
+      "text": "恍",
+      "glyph_index": 1678,
+      "glyph_offset": 4315136
+    },
+    {
+      "code": 40148,
+      "code_hex": "0x9CD4",
+      "text": "慟",
+      "glyph_index": 1680,
+      "glyph_offset": 4315280
+    },
+    {
+      "code": 57430,
+      "code_hex": "0xE056",
+      "text": "澤",
+      "glyph_index": 1682,
+      "glyph_offset": 4315424
+    },
+    {
+      "code": 57731,
+      "code_hex": "0xE183",
+      "text": "痺",
+      "glyph_index": 1686,
+      "glyph_offset": 4315712
+    },
+    {
+      "code": 57801,
+      "code_hex": "0xE1C9",
+      "text": "睨",
+      "glyph_index": 1688,
+      "glyph_offset": 4315856
+    },
+    {
+      "code": 58281,
+      "code_hex": "0xE3A9",
+      "text": "罠",
+      "glyph_index": 1691,
+      "glyph_offset": 4316072
+    },
+    {
+      "code": 58305,
+      "code_hex": "0xE3C1",
+      "text": "翆",
+      "glyph_index": 1692,
+      "glyph_offset": 4316144
+    },
+    {
+      "code": 59315,
+      "code_hex": "0xE7B3",
+      "text": "邉",
+      "glyph_index": 1696,
+      "glyph_offset": 4316432
+    }
+  ],
+  "rare_used_entries": [
+    {
+      "code": 33179,
+      "code_hex": "0x819B",
+      "text": "○",
+      "glyph_index": 36,
+      "glyph_offset": 4196912,
+      "usage_count": 1
+    },
+    {
+      "code": 33499,
+      "code_hex": "0x82DB",
+      "text": "ぽ",
+      "glyph_index": 162,
+      "glyph_offset": 4205984,
+      "usage_count": 1
+    },
+    {
+      "code": 33604,
+      "code_hex": "0x8344",
+      "text": "ゥ",
+      "glyph_index": 186,
+      "glyph_offset": 4207712,
+      "usage_count": 1
+    },
+    {
+      "code": 33629,
+      "code_hex": "0x835D",
+      "text": "ゾ",
+      "glyph_index": 211,
+      "glyph_offset": 4209512,
+      "usage_count": 1
+    },
+    {
+      "code": 33670,
+      "code_hex": "0x8386",
+      "text": "ユ",
+      "glyph_index": 251,
+      "glyph_offset": 4212392,
+      "usage_count": 1
+    },
+    {
+      "code": 34626,
+      "code_hex": "0x8742",
+      "text": "③",
+      "glyph_index": 265,
+      "glyph_offset": 4213400,
+      "usage_count": 1
+    },
+    {
+      "code": 34981,
+      "code_hex": "0x88A5",
+      "text": "挨",
+      "glyph_index": 273,
+      "glyph_offset": 4213976,
+      "usage_count": 1
+    },
+    {
+      "code": 34998,
+      "code_hex": "0x88B6",
+      "text": "宛",
+      "glyph_index": 278,
+      "glyph_offset": 4214336,
+      "usage_count": 1
+    },
+    {
+      "code": 35019,
+      "code_hex": "0x88CB",
+      "text": "依",
+      "glyph_index": 286,
+      "glyph_offset": 4214912,
+      "usage_count": 1
+    },
+    {
+      "code": 35029,
+      "code_hex": "0x88D5",
+      "text": "易",
+      "glyph_index": 293,
+      "glyph_offset": 4215416,
+      "usage_count": 1
+    },
+    {
+      "code": 35031,
+      "code_hex": "0x88D7",
+      "text": "為",
+      "glyph_index": 295,
+      "glyph_offset": 4215560,
+      "usage_count": 1
+    },
+    {
+      "code": 35043,
+      "code_hex": "0x88E3",
+      "text": "医",
+      "glyph_index": 301,
+      "glyph_offset": 4215992,
+      "usage_count": 1
+    },
+    {
+      "code": 35046,
+      "code_hex": "0x88E6",
+      "text": "域",
+      "glyph_index": 303,
+      "glyph_offset": 4216136,
+      "usage_count": 1
+    },
+    {
+      "code": 35053,
+      "code_hex": "0x88ED",
+      "text": "逸",
+      "glyph_index": 306,
+      "glyph_offset": 4216352,
+      "usage_count": 1
+    },
+    {
+      "code": 35059,
+      "code_hex": "0x88F3",
+      "text": "印",
+      "glyph_index": 308,
+      "glyph_offset": 4216496,
+      "usage_count": 1
+    },
+    {
+      "code": 35137,
+      "code_hex": "0x8941",
+      "text": "陰",
+      "glyph_index": 314,
+      "glyph_offset": 4216928,
+      "usage_count": 1
+    },
+    {
+      "code": 35146,
+      "code_hex": "0x894A",
+      "text": "雨",
+      "glyph_index": 320,
+      "glyph_offset": 4217360,
+      "usage_count": 1
+    },
+    {
+      "code": 35174,
+      "code_hex": "0x8966",
+      "text": "映",
+      "glyph_index": 328,
+      "glyph_offset": 4217936,
+      "usage_count": 1
+    },
+    {
+      "code": 35176,
+      "code_hex": "0x8968",
+      "text": "栄",
+      "glyph_index": 329,
+      "glyph_offset": 4218008,
+      "usage_count": 1
+    },
+    {
+      "code": 35185,
+      "code_hex": "0x8971",
+      "text": "衛",
+      "glyph_index": 331,
+      "glyph_offset": 4218152,
+      "usage_count": 1
+    },
+    {
+      "code": 35188,
+      "code_hex": "0x8974",
+      "text": "液",
+      "glyph_index": 332,
+      "glyph_offset": 4218224,
+      "usage_count": 1
+    },
+    {
+      "code": 35198,
+      "code_hex": "0x897E",
+      "text": "円",
+      "glyph_index": 337,
+      "glyph_offset": 4218584,
+      "usage_count": 1
+    },
+    {
+      "code": 35209,
+      "code_hex": "0x8989",
+      "text": "演",
+      "glyph_index": 340,
+      "glyph_offset": 4218800,
+      "usage_count": 1
+    },
+    {
+      "code": 35224,
+      "code_hex": "0x8998",
+      "text": "汚",
+      "glyph_index": 347,
+      "glyph_offset": 4219304,
+      "usage_count": 1
+    },
+    {
+      "code": 35229,
+      "code_hex": "0x899D",
+      "text": "往",
+      "glyph_index": 350,
+      "glyph_offset": 4219520,
+      "usage_count": 1
+    },
+    {
+      "code": 35264,
+      "code_hex": "0x89C0",
+      "text": "佳",
+      "glyph_index": 370,
+      "glyph_offset": 4220960,
+      "usage_count": 1
+    },
+    {
+      "code": 35276,
+      "code_hex": "0x89CC",
+      "text": "歌",
+      "glyph_index": 380,
+      "glyph_offset": 4221680,
+      "usage_count": 1
+    },
+    {
+      "code": 35317,
+      "code_hex": "0x89F5",
+      "text": "快",
+      "glyph_index": 398,
+      "glyph_offset": 4222976,
+      "usage_count": 1
+    },
+    {
+      "code": 35322,
+      "code_hex": "0x89FA",
+      "text": "戒",
+      "glyph_index": 402,
+      "glyph_offset": 4223264,
+      "usage_count": 1
+    },
+    {
+      "code": 35440,
+      "code_hex": "0x8A70",
+      "text": "角",
+      "glyph_index": 425,
+      "glyph_offset": 4224920,
+      "usage_count": 1
+    },
+    {
+      "code": 35465,
+      "code_hex": "0x8A89",
+      "text": "渇",
+      "glyph_index": 434,
+      "glyph_offset": 4225568,
+      "usage_count": 1
+    },
+    {
+      "code": 35499,
+      "code_hex": "0x8AAB",
+      "text": "喚",
+      "glyph_index": 442,
+      "glyph_offset": 4226144,
+      "usage_count": 1
+    },
+    {
+      "code": 35505,
+      "code_hex": "0x8AB1",
+      "text": "干",
+      "glyph_index": 446,
+      "glyph_offset": 4226432,
+      "usage_count": 1
+    },
+    {
+      "code": 35507,
+      "code_hex": "0x8AB3",
+      "text": "患",
+      "glyph_index": 448,
+      "glyph_offset": 4226576,
+      "usage_count": 1
+    },
+    {
+      "code": 35517,
+      "code_hex": "0x8ABD",
+      "text": "歓",
+      "glyph_index": 452,
+      "glyph_offset": 4226864,
+      "usage_count": 1
+    },
+    {
+      "code": 35519,
+      "code_hex": "0x8ABF",
+      "text": "漢",
+      "glyph_index": 454,
+      "glyph_offset": 4227008,
+      "usage_count": 1
+    },
+    {
+      "code": 35522,
+      "code_hex": "0x8AC2",
+      "text": "環",
+      "glyph_index": 455,
+      "glyph_offset": 4227080,
+      "usage_count": 1
+    },
+    {
+      "code": 35532,
+      "code_hex": "0x8ACC",
+      "text": "肝",
+      "glyph_index": 460,
+      "glyph_offset": 4227440,
+      "usage_count": 1
+    },
+    {
+      "code": 35538,
+      "code_hex": "0x8AD2",
+      "text": "還",
+      "glyph_index": 463,
+      "glyph_offset": 4227656,
+      "usage_count": 1
+    },
+    {
+      "code": 35548,
+      "code_hex": "0x8ADC",
+      "text": "含",
+      "glyph_index": 469,
+      "glyph_offset": 4228088,
+      "usage_count": 1
+    },
+    {
+      "code": 35576,
+      "code_hex": "0x8AF8",
+      "text": "旗",
+      "glyph_index": 489,
+      "glyph_offset": 4229528,
+      "usage_count": 1
+    },
+    {
+      "code": 35705,
+      "code_hex": "0x8B79",
+      "text": "及",
+      "glyph_index": 522,
+      "glyph_offset": 4231904,
+      "usage_count": 1
+    },
+    {
+      "code": 35708,
+      "code_hex": "0x8B7C",
+      "text": "弓",
+      "glyph_index": 525,
+      "glyph_offset": 4232120,
+      "usage_count": 1
+    },
+    {
+      "code": 35712,
+      "code_hex": "0x8B80",
+      "text": "朽",
+      "glyph_index": 528,
+      "glyph_offset": 4232336,
+      "usage_count": 1
+    },
+    {
+      "code": 35755,
+      "code_hex": "0x8BAB",
+      "text": "境",
+      "glyph_index": 551,
+      "glyph_offset": 4233992,
+      "usage_count": 1
+    },
+    {
+      "code": 35770,
+      "code_hex": "0x8BBA",
+      "text": "脅",
+      "glyph_index": 560,
+      "glyph_offset": 4234640,
+      "usage_count": 1
+    },
+    {
+      "code": 35774,
+      "code_hex": "0x8BBE",
+      "text": "鏡",
+      "glyph_index": 563,
+      "glyph_offset": 4234856,
+      "usage_count": 1
+    },
+    {
+      "code": 35775,
+      "code_hex": "0x8BBF",
+      "text": "響",
+      "glyph_index": 564,
+      "glyph_offset": 4234928,
+      "usage_count": 1
+    },
+    {
+      "code": 35813,
+      "code_hex": "0x8BE5",
+      "text": "句",
+      "glyph_index": 579,
+      "glyph_offset": 4236008,
+      "usage_count": 1
+    },
+    {
+      "code": 35820,
+      "code_hex": "0x8BEC",
+      "text": "駆",
+      "glyph_index": 583,
+      "glyph_offset": 4236296,
+      "usage_count": 1
+    },
+    {
+      "code": 35822,
+      "code_hex": "0x8BEE",
+      "text": "駒",
+      "glyph_index": 584,
+      "glyph_offset": 4236368,
+      "usage_count": 1
+    },
+    {
+      "code": 35836,
+      "code_hex": "0x8BFC",
+      "text": "屈",
+      "glyph_index": 591,
+      "glyph_offset": 4236872,
+      "usage_count": 1
+    },
+    {
+      "code": 35945,
+      "code_hex": "0x8C69",
+      "text": "景",
+      "glyph_index": 609,
+      "glyph_offset": 4238168,
+      "usage_count": 1
+    },
+    {
+      "code": 35964,
+      "code_hex": "0x8C7C",
+      "text": "芸",
+      "glyph_index": 615,
+      "glyph_offset": 4238600,
+      "usage_count": 1
+    },
+    {
+      "code": 35974,
+      "code_hex": "0x8C86",
+      "text": "傑",
+      "glyph_index": 622,
+      "glyph_offset": 4239104,
+      "usage_count": 1
+    },
+    {
+      "code": 35996,
+      "code_hex": "0x8C9C",
+      "text": "懸",
+      "glyph_index": 637,
+      "glyph_offset": 4240184,
+      "usage_count": 1
+    },
+    {
+      "code": 36043,
+      "code_hex": "0x8CCB",
+      "text": "戸",
+      "glyph_index": 665,
+      "glyph_offset": 4242200,
+      "usage_count": 1
+    },
+    {
+      "code": 36059,
+      "code_hex": "0x8CDB",
+      "text": "鼓",
+      "glyph_index": 669,
+      "glyph_offset": 4242488,
+      "usage_count": 1
+    },
+    {
+      "code": 36062,
+      "code_hex": "0x8CDE",
+      "text": "伍",
+      "glyph_index": 672,
+      "glyph_offset": 4242704,
+      "usage_count": 1
+    },
+    {
+      "code": 36086,
+      "code_hex": "0x8CF6",
+      "text": "公",
+      "glyph_index": 682,
+      "glyph_offset": 4243424,
+      "usage_count": 1
+    },
+    {
+      "code": 36087,
+      "code_hex": "0x8CF7",
+      "text": "功",
+      "glyph_index": 683,
+      "glyph_offset": 4243496,
+      "usage_count": 1
+    },
+    {
+      "code": 36177,
+      "code_hex": "0x8D51",
+      "text": "慌",
+      "glyph_index": 694,
+      "glyph_offset": 4244288,
+      "usage_count": 1
+    },
+    {
+      "code": 36184,
+      "code_hex": "0x8D58",
+      "text": "更",
+      "glyph_index": 698,
+      "glyph_offset": 4244576,
+      "usage_count": 1
+    },
+    {
+      "code": 36186,
+      "code_hex": "0x8D5A",
+      "text": "校",
+      "glyph_index": 699,
+      "glyph_offset": 4244648,
+      "usage_count": 1
+    },
+    {
+      "code": 36228,
+      "code_hex": "0x8D84",
+      "text": "剛",
+      "glyph_index": 712,
+      "glyph_offset": 4245584,
+      "usage_count": 1
+    },
+    {
+      "code": 36251,
+      "code_hex": "0x8D9B",
+      "text": "惚",
+      "glyph_index": 724,
+      "glyph_offset": 4246448,
+      "usage_count": 1
+    },
+    {
+      "code": 36252,
+      "code_hex": "0x8D9C",
+      "text": "骨",
+      "glyph_index": 725,
+      "glyph_offset": 4246520,
+      "usage_count": 1
+    },
+    {
+      "code": 36262,
+      "code_hex": "0x8DA6",
+      "text": "恨",
+      "glyph_index": 730,
+      "glyph_offset": 4246880,
+      "usage_count": 1
+    },
+    {
+      "code": 36279,
+      "code_hex": "0x8DB7",
+      "text": "差",
+      "glyph_index": 738,
+      "glyph_offset": 4247456,
+      "usage_count": 1
+    },
+    {
+      "code": 36291,
+      "code_hex": "0x8DC3",
+      "text": "催",
+      "glyph_index": 743,
+      "glyph_offset": 4247816,
+      "usage_count": 1
+    },
+    {
+      "code": 36304,
+      "code_hex": "0x8DD0",
+      "text": "災",
+      "glyph_index": 753,
+      "glyph_offset": 4248536,
+      "usage_count": 1
+    },
+    {
+      "code": 36315,
+      "code_hex": "0x8DDB",
+      "text": "際",
+      "glyph_index": 758,
+      "glyph_offset": 4248896,
+      "usage_count": 1
+    },
+    {
+      "code": 36341,
+      "code_hex": "0x8DF5",
+      "text": "索",
+      "glyph_index": 767,
+      "glyph_offset": 4249544,
+      "usage_count": 1
+    },
+    {
+      "code": 36417,
+      "code_hex": "0x8E41",
+      "text": "拶",
+      "glyph_index": 770,
+      "glyph_offset": 4249760,
+      "usage_count": 1
+    },
+    {
+      "code": 36427,
+      "code_hex": "0x8E4B",
+      "text": "錆",
+      "glyph_index": 773,
+      "glyph_offset": 4249976,
+      "usage_count": 1
+    },
+    {
+      "code": 36435,
+      "code_hex": "0x8E53",
+      "text": "惨",
+      "glyph_index": 777,
+      "glyph_offset": 4250264,
+      "usage_count": 1
+    },
+    {
+      "code": 36467,
+      "code_hex": "0x8E73",
+      "text": "市",
+      "glyph_index": 792,
+      "glyph_offset": 4251344,
+      "usage_count": 1
+    },
+    {
+      "code": 36475,
+      "code_hex": "0x8E7B",
+      "text": "施",
+      "glyph_index": 798,
+      "glyph_offset": 4251776,
+      "usage_count": 1
+    },
+    {
+      "code": 36489,
+      "code_hex": "0x8E89",
+      "text": "脂",
+      "glyph_index": 804,
+      "glyph_offset": 4252208,
+      "usage_count": 1
+    },
+    {
+      "code": 36501,
+      "code_hex": "0x8E95",
+      "text": "歯",
+      "glyph_index": 810,
+      "glyph_offset": 4252640,
+      "usage_count": 1
+    },
+    {
+      "code": 36504,
+      "code_hex": "0x8E98",
+      "text": "侍",
+      "glyph_index": 813,
+      "glyph_offset": 4252856,
+      "usage_count": 1
+    },
+    {
+      "code": 36520,
+      "code_hex": "0x8EA8",
+      "text": "耳",
+      "glyph_index": 822,
+      "glyph_offset": 4253504,
+      "usage_count": 1
+    },
+    {
+      "code": 36523,
+      "code_hex": "0x8EAB",
+      "text": "辞",
+      "glyph_index": 824,
+      "glyph_offset": 4253648,
+      "usage_count": 1
+    },
+    {
+      "code": 36527,
+      "code_hex": "0x8EAF",
+      "text": "識",
+      "glyph_index": 827,
+      "glyph_offset": 4253864,
+      "usage_count": 1
+    },
+    {
+      "code": 36535,
+      "code_hex": "0x8EB7",
+      "text": "執",
+      "glyph_index": 828,
+      "glyph_offset": 4253936,
+      "usage_count": 1
+    },
+    {
+      "code": 36540,
+      "code_hex": "0x8EBC",
+      "text": "湿",
+      "glyph_index": 832,
+      "glyph_offset": 4254224,
+      "usage_count": 1
+    },
+    {
+      "code": 36542,
+      "code_hex": "0x8EBE",
+      "text": "疾",
+      "glyph_index": 834,
+      "glyph_offset": 4254368,
+      "usage_count": 1
+    },
+    {
+      "code": 36549,
+      "code_hex": "0x8EC5",
+      "text": "芝",
+      "glyph_index": 837,
+      "glyph_offset": 4254584,
+      "usage_count": 1
+    },
+    {
+      "code": 36560,
+      "code_hex": "0x8ED0",
+      "text": "社",
+      "glyph_index": 843,
+      "glyph_offset": 4255016,
+      "usage_count": 1
+    },
+    {
+      "code": 36572,
+      "code_hex": "0x8EDC",
+      "text": "灼",
+      "glyph_index": 849,
+      "glyph_offset": 4255448,
+      "usage_count": 1
+    },
+    {
+      "code": 36593,
+      "code_hex": "0x8EF1",
+      "text": "首",
+      "glyph_index": 862,
+      "glyph_offset": 4256384,
+      "usage_count": 1
+    },
+    {
+      "code": 36673,
+      "code_hex": "0x8F41",
+      "text": "就",
+      "glyph_index": 870,
+      "glyph_offset": 4256960,
+      "usage_count": 1
+    },
+    {
+      "code": 36676,
+      "code_hex": "0x8F44",
+      "text": "愁",
+      "glyph_index": 872,
+      "glyph_offset": 4257104,
+      "usage_count": 1
+    },
+    {
+      "code": 36679,
+      "code_hex": "0x8F47",
+      "text": "秀",
+      "glyph_index": 874,
+      "glyph_offset": 4257248,
+      "usage_count": 1
+    },
+    {
+      "code": 36701,
+      "code_hex": "0x8F5D",
+      "text": "従",
+      "glyph_index": 885,
+      "glyph_offset": 4258040,
+      "usage_count": 1
+    },
+    {
+      "code": 36706,
+      "code_hex": "0x8F62",
+      "text": "獣",
+      "glyph_index": 887,
+      "glyph_offset": 4258184,
+      "usage_count": 1
+    },
+    {
+      "code": 36714,
+      "code_hex": "0x8F6A",
+      "text": "祝",
+      "glyph_index": 891,
+      "glyph_offset": 4258472,
+      "usage_count": 1
+    },
+    {
+      "code": 36715,
+      "code_hex": "0x8F6B",
+      "text": "縮",
+      "glyph_index": 892,
+      "glyph_offset": 4258544,
+      "usage_count": 1
+    },
+    {
+      "code": 36729,
+      "code_hex": "0x8F79",
+      "text": "准",
+      "glyph_index": 899,
+      "glyph_offset": 4259048,
+      "usage_count": 1
+    },
+    {
+      "code": 36730,
+      "code_hex": "0x8F7A",
+      "text": "循",
+      "glyph_index": 900,
+      "glyph_offset": 4259120,
+      "usage_count": 1
+    },
+    {
+      "code": 36739,
+      "code_hex": "0x8F83",
+      "text": "純",
+      "glyph_index": 903,
+      "glyph_offset": 4259336,
+      "usage_count": 1
+    },
+    {
+      "code": 36740,
+      "code_hex": "0x8F84",
+      "text": "巡",
+      "glyph_index": 904,
+      "glyph_offset": 4259408,
+      "usage_count": 1
+    },
+    {
+      "code": 36756,
+      "code_hex": "0x8F94",
+      "text": "諸",
+      "glyph_index": 912,
+      "glyph_offset": 4259984,
+      "usage_count": 1
+    },
+    {
+      "code": 36760,
+      "code_hex": "0x8F98",
+      "text": "序",
+      "glyph_index": 915,
+      "glyph_offset": 4260200,
+      "usage_count": 1
+    },
+    {
+      "code": 36805,
+      "code_hex": "0x8FC5",
+      "text": "焦",
+      "glyph_index": 936,
+      "glyph_offset": 4261712,
+      "usage_count": 1
+    },
+    {
+      "code": 36813,
+      "code_hex": "0x8FCD",
+      "text": "章",
+      "glyph_index": 940,
+      "glyph_offset": 4262000,
+      "usage_count": 1
+    },
+    {
+      "code": 36816,
+      "code_hex": "0x8FD0",
+      "text": "紹",
+      "glyph_index": 942,
+      "glyph_offset": 4262144,
+      "usage_count": 1
+    },
+    {
+      "code": 36833,
+      "code_hex": "0x8FE1",
+      "text": "障",
+      "glyph_index": 947,
+      "glyph_offset": 4262504,
+      "usage_count": 1
+    },
+    {
+      "code": 36856,
+      "code_hex": "0x8FF8",
+      "text": "醸",
+      "glyph_index": 960,
+      "glyph_offset": 4263440,
+      "usage_count": 1
+    },
+    {
+      "code": 36932,
+      "code_hex": "0x9044",
+      "text": "織",
+      "glyph_index": 963,
+      "glyph_offset": 4263656,
+      "usage_count": 1
+    },
+    {
+      "code": 36942,
+      "code_hex": "0x904E",
+      "text": "侵",
+      "glyph_index": 972,
+      "glyph_offset": 4264304,
+      "usage_count": 1
+    },
+    {
+      "code": 36949,
+      "code_hex": "0x9055",
+      "text": "振",
+      "glyph_index": 975,
+      "glyph_offset": 4264520,
+      "usage_count": 1
+    },
+    {
+      "code": 36968,
+      "code_hex": "0x9068",
+      "text": "辛",
+      "glyph_index": 984,
+      "glyph_offset": 4265168,
+      "usage_count": 1
+    },
+    {
+      "code": 36996,
+      "code_hex": "0x9084",
+      "text": "推",
+      "glyph_index": 997,
+      "glyph_offset": 4266104,
+      "usage_count": 1
+    },
+    {
+      "code": 37000,
+      "code_hex": "0x9088",
+      "text": "粋",
+      "glyph_index": 999,
+      "glyph_offset": 4266248,
+      "usage_count": 1
+    },
+    {
+      "code": 37001,
+      "code_hex": "0x9089",
+      "text": "翠",
+      "glyph_index": 1000,
+      "glyph_offset": 4266320,
+      "usage_count": 1
+    },
+    {
+      "code": 37004,
+      "code_hex": "0x908C",
+      "text": "酔",
+      "glyph_index": 1002,
+      "glyph_offset": 4266464,
+      "usage_count": 1
+    },
+    {
+      "code": 37047,
+      "code_hex": "0x90B7",
+      "text": "盛",
+      "glyph_index": 1020,
+      "glyph_offset": 4267760,
+      "usage_count": 1
+    },
+    {
+      "code": 37048,
+      "code_hex": "0x90B8",
+      "text": "精",
+      "glyph_index": 1021,
+      "glyph_offset": 4267832,
+      "usage_count": 1
+    },
+    {
+      "code": 37049,
+      "code_hex": "0x90B9",
+      "text": "聖",
+      "glyph_index": 1022,
+      "glyph_offset": 4267904,
+      "usage_count": 1
+    },
+    {
+      "code": 37069,
+      "code_hex": "0x90CD",
+      "text": "析",
+      "glyph_index": 1035,
+      "glyph_offset": 4268840,
+      "usage_count": 1
+    },
+    {
+      "code": 37073,
+      "code_hex": "0x90D1",
+      "text": "績",
+      "glyph_index": 1038,
+      "glyph_offset": 4269056,
+      "usage_count": 1
+    },
+    {
+      "code": 37083,
+      "code_hex": "0x90DB",
+      "text": "摂",
+      "glyph_index": 1044,
+      "glyph_offset": 4269488,
+      "usage_count": 1
+    },
+    {
+      "code": 37086,
+      "code_hex": "0x90DE",
+      "text": "窃",
+      "glyph_index": 1046,
+      "glyph_offset": 4269632,
+      "usage_count": 1
+    },
+    {
+      "code": 37096,
+      "code_hex": "0x90E8",
+      "text": "占",
+      "glyph_index": 1052,
+      "glyph_offset": 4270064,
+      "usage_count": 1
+    },
+    {
+      "code": 37097,
+      "code_hex": "0x90E9",
+      "text": "宣",
+      "glyph_index": 1053,
+      "glyph_offset": 4270136,
+      "usage_count": 1
+    },
+    {
+      "code": 37100,
+      "code_hex": "0x90EC",
+      "text": "川",
+      "glyph_index": 1055,
+      "glyph_offset": 4270280,
+      "usage_count": 1
+    },
+    {
+      "code": 37113,
+      "code_hex": "0x90F9",
+      "text": "旋",
+      "glyph_index": 1061,
+      "glyph_offset": 4270712,
+      "usage_count": 1
+    },
+    {
+      "code": 37189,
+      "code_hex": "0x9145",
+      "text": "薦",
+      "glyph_index": 1063,
+      "glyph_offset": 4270856,
+      "usage_count": 1
+    },
+    {
+      "code": 37190,
+      "code_hex": "0x9146",
+      "text": "詮",
+      "glyph_index": 1064,
+      "glyph_offset": 4270928,
+      "usage_count": 1
+    },
+    {
+      "code": 37200,
+      "code_hex": "0x9150",
+      "text": "善",
+      "glyph_index": 1068,
+      "glyph_offset": 4271216,
+      "usage_count": 1
+    },
+    {
+      "code": 37226,
+      "code_hex": "0x916A",
+      "text": "阻",
+      "glyph_index": 1074,
+      "glyph_offset": 4271648,
+      "usage_count": 1
+    },
+    {
+      "code": 37243,
+      "code_hex": "0x917B",
+      "text": "捜",
+      "glyph_index": 1080,
+      "glyph_offset": 4272080,
+      "usage_count": 1
+    },
+    {
+      "code": 37269,
+      "code_hex": "0x9195",
+      "text": "装",
+      "glyph_index": 1092,
+      "glyph_offset": 4272944,
+      "usage_count": 1
+    },
+    {
+      "code": 37279,
+      "code_hex": "0x919F",
+      "text": "臓",
+      "glyph_index": 1100,
+      "glyph_offset": 4273520,
+      "usage_count": 1
+    },
+    {
+      "code": 37280,
+      "code_hex": "0x91A0",
+      "text": "蔵",
+      "glyph_index": 1101,
+      "glyph_offset": 4273592,
+      "usage_count": 1
+    },
+    {
+      "code": 37298,
+      "code_hex": "0x91B2",
+      "text": "卒",
+      "glyph_index": 1113,
+      "glyph_offset": 4274456,
+      "usage_count": 1
+    },
+    {
+      "code": 37301,
+      "code_hex": "0x91B5",
+      "text": "揃",
+      "glyph_index": 1115,
+      "glyph_offset": 4274600,
+      "usage_count": 1
+    },
+    {
+      "code": 37314,
+      "code_hex": "0x91C2",
+      "text": "堕",
+      "glyph_index": 1124,
+      "glyph_offset": 4275248,
+      "usage_count": 1
+    },
+    {
+      "code": 37334,
+      "code_hex": "0x91D6",
+      "text": "替",
+      "glyph_index": 1134,
+      "glyph_offset": 4275968,
+      "usage_count": 1
+    },
+    {
+      "code": 37335,
+      "code_hex": "0x91D7",
+      "text": "泰",
+      "glyph_index": 1135,
+      "glyph_offset": 4276040,
+      "usage_count": 1
+    },
+    {
+      "code": 37360,
+      "code_hex": "0x91F0",
+      "text": "択",
+      "glyph_index": 1149,
+      "glyph_offset": 4277048,
+      "usage_count": 1
+    },
+    {
+      "code": 37457,
+      "code_hex": "0x9251",
+      "text": "嘆",
+      "glyph_index": 1161,
+      "glyph_offset": 4277912,
+      "usage_count": 1
+    },
+    {
+      "code": 37466,
+      "code_hex": "0x925A",
+      "text": "短",
+      "glyph_index": 1166,
+      "glyph_offset": 4278272,
+      "usage_count": 1
+    },
+    {
+      "code": 37471,
+      "code_hex": "0x925F",
+      "text": "胆",
+      "glyph_index": 1168,
+      "glyph_offset": 4278416,
+      "usage_count": 1
+    },
+    {
+      "code": 37475,
+      "code_hex": "0x9263",
+      "text": "団",
+      "glyph_index": 1170,
+      "glyph_offset": 4278560,
+      "usage_count": 1
+    },
+    {
+      "code": 37476,
+      "code_hex": "0x9264",
+      "text": "壇",
+      "glyph_index": 1171,
+      "glyph_offset": 4278632,
+      "usage_count": 1
+    },
+    {
+      "code": 37488,
+      "code_hex": "0x9270",
+      "text": "恥",
+      "glyph_index": 1180,
+      "glyph_offset": 4279280,
+      "usage_count": 1
+    },
+    {
+      "code": 37513,
+      "code_hex": "0x9289",
+      "text": "忠",
+      "glyph_index": 1191,
+      "glyph_offset": 4280072,
+      "usage_count": 1
+    },
+    {
+      "code": 37516,
+      "code_hex": "0x928C",
+      "text": "柱",
+      "glyph_index": 1192,
+      "glyph_offset": 4280144,
+      "usage_count": 1
+    },
+    {
+      "code": 37530,
+      "code_hex": "0x929A",
+      "text": "丁",
+      "glyph_index": 1196,
+      "glyph_offset": 4280432,
+      "usage_count": 1
+    },
+    {
+      "code": 37550,
+      "code_hex": "0x92AE",
+      "text": "聴",
+      "glyph_index": 1201,
+      "glyph_offset": 4280792,
+      "usage_count": 1
+    },
+    {
+      "code": 37557,
+      "code_hex": "0x92B5",
+      "text": "跳",
+      "glyph_index": 1204,
+      "glyph_offset": 4281008,
+      "usage_count": 1
+    },
+    {
+      "code": 37569,
+      "code_hex": "0x92C1",
+      "text": "鎮",
+      "glyph_index": 1211,
+      "glyph_offset": 4281512,
+      "usage_count": 1
+    },
+    {
+      "code": 37572,
+      "code_hex": "0x92C4",
+      "text": "墜",
+      "glyph_index": 1213,
+      "glyph_offset": 4281656,
+      "usage_count": 1
+    },
+    {
+      "code": 37605,
+      "code_hex": "0x92E5",
+      "text": "貞",
+      "glyph_index": 1221,
+      "glyph_offset": 4282232,
+      "usage_count": 1
+    },
+    {
+      "code": 37696,
+      "code_hex": "0x9340",
+      "text": "邸",
+      "glyph_index": 1231,
+      "glyph_offset": 4282952,
+      "usage_count": 1
+    },
+    {
+      "code": 37711,
+      "code_hex": "0x934F",
+      "text": "徹",
+      "glyph_index": 1238,
+      "glyph_offset": 4283456,
+      "usage_count": 1
+    },
+    {
+      "code": 37746,
+      "code_hex": "0x9372",
+      "text": "途",
+      "glyph_index": 1257,
+      "glyph_offset": 4284824,
+      "usage_count": 1
+    },
+    {
+      "code": 37751,
+      "code_hex": "0x9377",
+      "text": "努",
+      "glyph_index": 1259,
+      "glyph_offset": 4284968,
+      "usage_count": 1
+    },
+    {
+      "code": 37762,
+      "code_hex": "0x9382",
+      "text": "唐",
+      "glyph_index": 1268,
+      "glyph_offset": 4285616,
+      "usage_count": 1
+    },
+    {
+      "code": 37790,
+      "code_hex": "0x939E",
+      "text": "到",
+      "glyph_index": 1277,
+      "glyph_offset": 4286264,
+      "usage_count": 1
+    },
+    {
+      "code": 37860,
+      "code_hex": "0x93E4",
+      "text": "謎",
+      "glyph_index": 1302,
+      "glyph_offset": 4288064,
+      "usage_count": 1
+    },
+    {
+      "code": 38000,
+      "code_hex": "0x9470",
+      "text": "廃",
+      "glyph_index": 1332,
+      "glyph_offset": 4290224,
+      "usage_count": 1
+    },
+    {
+      "code": 38011,
+      "code_hex": "0x947B",
+      "text": "倍",
+      "glyph_index": 1340,
+      "glyph_offset": 4290800,
+      "usage_count": 1
+    },
+    {
+      "code": 38039,
+      "code_hex": "0x9497",
+      "text": "迫",
+      "glyph_index": 1348,
+      "glyph_offset": 4291376,
+      "usage_count": 1
+    },
+    {
+      "code": 38048,
+      "code_hex": "0x94A0",
+      "text": "箱",
+      "glyph_index": 1352,
+      "glyph_offset": 4291664,
+      "usage_count": 1
+    },
+    {
+      "code": 38056,
+      "code_hex": "0x94A8",
+      "text": "畑",
+      "glyph_index": 1354,
+      "glyph_offset": 4291808,
+      "usage_count": 1
+    },
+    {
+      "code": 38107,
+      "code_hex": "0x94DB",
+      "text": "否",
+      "glyph_index": 1370,
+      "glyph_offset": 4292960,
+      "usage_count": 1
+    },
+    {
+      "code": 38114,
+      "code_hex": "0x94E2",
+      "text": "披",
+      "glyph_index": 1374,
+      "glyph_offset": 4293248,
+      "usage_count": 1
+    },
+    {
+      "code": 38116,
+      "code_hex": "0x94E4",
+      "text": "比",
+      "glyph_index": 1375,
+      "glyph_offset": 4293320,
+      "usage_count": 1
+    },
+    {
+      "code": 38119,
+      "code_hex": "0x94E7",
+      "text": "皮",
+      "glyph_index": 1377,
+      "glyph_offset": 4293464,
+      "usage_count": 1
+    },
+    {
+      "code": 38211,
+      "code_hex": "0x9543",
+      "text": "匹",
+      "glyph_index": 1387,
+      "glyph_offset": 4294184,
+      "usage_count": 1
+    },
+    {
+      "code": 38215,
+      "code_hex": "0x9547",
+      "text": "膝",
+      "glyph_index": 1390,
+      "glyph_offset": 4294400,
+      "usage_count": 1
+    },
+    {
+      "code": 38227,
+      "code_hex": "0x9553",
+      "text": "百",
+      "glyph_index": 1393,
+      "glyph_offset": 4294616,
+      "usage_count": 1
+    },
+    {
+      "code": 38240,
+      "code_hex": "0x9560",
+      "text": "描",
+      "glyph_index": 1396,
+      "glyph_offset": 4294832,
+      "usage_count": 1
+    },
+    {
+      "code": 38256,
+      "code_hex": "0x9570",
+      "text": "頻",
+      "glyph_index": 1401,
+      "glyph_offset": 4295192,
+      "usage_count": 1
+    },
+    {
+      "code": 38277,
+      "code_hex": "0x9585",
+      "text": "腐",
+      "glyph_index": 1414,
+      "glyph_offset": 4296128,
+      "usage_count": 1
+    },
+    {
+      "code": 38283,
+      "code_hex": "0x958B",
+      "text": "赴",
+      "glyph_index": 1416,
+      "glyph_offset": 4296272,
+      "usage_count": 1
+    },
+    {
+      "code": 38301,
+      "code_hex": "0x959D",
+      "text": "幅",
+      "glyph_index": 1425,
+      "glyph_offset": 4296920,
+      "usage_count": 1
+    },
+    {
+      "code": 38303,
+      "code_hex": "0x959F",
+      "text": "福",
+      "glyph_index": 1427,
+      "glyph_offset": 4297064,
+      "usage_count": 1
+    },
+    {
+      "code": 38316,
+      "code_hex": "0x95AC",
+      "text": "噴",
+      "glyph_index": 1434,
+      "glyph_offset": 4297568,
+      "usage_count": 1
+    },
+    {
+      "code": 38344,
+      "code_hex": "0x95C8",
+      "text": "癖",
+      "glyph_index": 1446,
+      "glyph_offset": 4298432,
+      "usage_count": 1
+    },
+    {
+      "code": 38370,
+      "code_hex": "0x95E2",
+      "text": "補",
+      "glyph_index": 1460,
+      "glyph_offset": 4299440,
+      "usage_count": 1
+    },
+    {
+      "code": 38383,
+      "code_hex": "0x95EF",
+      "text": "包",
+      "glyph_index": 1464,
+      "glyph_offset": 4299728,
+      "usage_count": 1
+    },
+    {
+      "code": 38384,
+      "code_hex": "0x95F0",
+      "text": "呆",
+      "glyph_index": 1465,
+      "glyph_offset": 4299800,
+      "usage_count": 1
+    },
+    {
+      "code": 38390,
+      "code_hex": "0x95F6",
+      "text": "崩",
+      "glyph_index": 1468,
+      "glyph_offset": 4300016,
+      "usage_count": 1
+    },
+    {
+      "code": 38469,
+      "code_hex": "0x9645",
+      "text": "胞",
+      "glyph_index": 1474,
+      "glyph_offset": 4300448,
+      "usage_count": 1
+    },
+    {
+      "code": 38476,
+      "code_hex": "0x964C",
+      "text": "豊",
+      "glyph_index": 1476,
+      "glyph_offset": 4300592,
+      "usage_count": 1
+    },
+    {
+      "code": 38479,
+      "code_hex": "0x964F",
+      "text": "飽",
+      "glyph_index": 1477,
+      "glyph_offset": 4300664,
+      "usage_count": 1
+    },
+    {
+      "code": 38487,
+      "code_hex": "0x9657",
+      "text": "妨",
+      "glyph_index": 1481,
+      "glyph_offset": 4300952,
+      "usage_count": 1
+    },
+    {
+      "code": 38491,
+      "code_hex": "0x965B",
+      "text": "房",
+      "glyph_index": 1485,
+      "glyph_offset": 4301240,
+      "usage_count": 1
+    },
+    {
+      "code": 38495,
+      "code_hex": "0x965F",
+      "text": "棒",
+      "glyph_index": 1488,
+      "glyph_offset": 4301456,
+      "usage_count": 1
+    },
+    {
+      "code": 38500,
+      "code_hex": "0x9664",
+      "text": "謀",
+      "glyph_index": 1489,
+      "glyph_offset": 4301528,
+      "usage_count": 1
+    },
+    {
+      "code": 38504,
+      "code_hex": "0x9668",
+      "text": "防",
+      "glyph_index": 1490,
+      "glyph_offset": 4301600,
+      "usage_count": 1
+    },
+    {
+      "code": 38518,
+      "code_hex": "0x9676",
+      "text": "没",
+      "glyph_index": 1496,
+      "glyph_offset": 4302032,
+      "usage_count": 1
+    },
+    {
+      "code": 38520,
+      "code_hex": "0x9678",
+      "text": "堀",
+      "glyph_index": 1497,
+      "glyph_offset": 4302104,
+      "usage_count": 1
+    },
+    {
+      "code": 38549,
+      "code_hex": "0x9695",
+      "text": "抹",
+      "glyph_index": 1506,
+      "glyph_offset": 4302752,
+      "usage_count": 1
+    },
+    {
+      "code": 38559,
+      "code_hex": "0x969F",
+      "text": "漫",
+      "glyph_index": 1512,
+      "glyph_offset": 4303184,
+      "usage_count": 1
+    },
+    {
+      "code": 38572,
+      "code_hex": "0x96AC",
+      "text": "脈",
+      "glyph_index": 1516,
+      "glyph_offset": 4303472,
+      "usage_count": 1
+    },
+    {
+      "code": 38576,
+      "code_hex": "0x96B0",
+      "text": "眠",
+      "glyph_index": 1519,
+      "glyph_offset": 4303688,
+      "usage_count": 1
+    },
+    {
+      "code": 38587,
+      "code_hex": "0x96BB",
+      "text": "冥",
+      "glyph_index": 1525,
+      "glyph_offset": 4304120,
+      "usage_count": 1
+    },
+    {
+      "code": 38593,
+      "code_hex": "0x96C1",
+      "text": "銘",
+      "glyph_index": 1530,
+      "glyph_offset": 4304480,
+      "usage_count": 1
+    },
+    {
+      "code": 38598,
+      "code_hex": "0x96C6",
+      "text": "免",
+      "glyph_index": 1533,
+      "glyph_offset": 4304696,
+      "usage_count": 1
+    },
+    {
+      "code": 38605,
+      "code_hex": "0x96CD",
+      "text": "模",
+      "glyph_index": 1535,
+      "glyph_offset": 4304840,
+      "usage_count": 1
+    },
+    {
+      "code": 38607,
+      "code_hex": "0x96CF",
+      "text": "妄",
+      "glyph_index": 1536,
+      "glyph_offset": 4304912,
+      "usage_count": 1
+    },
+    {
+      "code": 38612,
+      "code_hex": "0x96D4",
+      "text": "網",
+      "glyph_index": 1538,
+      "glyph_offset": 4305056,
+      "usage_count": 1
+    },
+    {
+      "code": 38729,
+      "code_hex": "0x9749",
+      "text": "悠",
+      "glyph_index": 1562,
+      "glyph_offset": 4306784,
+      "usage_count": 1
+    },
+    {
+      "code": 38740,
+      "code_hex": "0x9754",
+      "text": "裕",
+      "glyph_index": 1565,
+      "glyph_offset": 4307000,
+      "usage_count": 1
+    },
+    {
+      "code": 38745,
+      "code_hex": "0x9759",
+      "text": "雄",
+      "glyph_index": 1568,
+      "glyph_offset": 4307216,
+      "usage_count": 1
+    },
+    {
+      "code": 38747,
+      "code_hex": "0x975B",
+      "text": "夕",
+      "glyph_index": 1570,
+      "glyph_offset": 4307360,
+      "usage_count": 1
+    },
+    {
+      "code": 38751,
+      "code_hex": "0x975F",
+      "text": "誉",
+      "glyph_index": 1574,
+      "glyph_offset": 4307648,
+      "usage_count": 1
+    },
+    {
+      "code": 38755,
+      "code_hex": "0x9763",
+      "text": "幼",
+      "glyph_index": 1576,
+      "glyph_offset": 4307792,
+      "usage_count": 1
+    },
+    {
+      "code": 38785,
+      "code_hex": "0x9781",
+      "text": "浴",
+      "glyph_index": 1591,
+      "glyph_offset": 4308872,
+      "usage_count": 1
+    },
+    {
+      "code": 38791,
+      "code_hex": "0x9787",
+      "text": "裸",
+      "glyph_index": 1594,
+      "glyph_offset": 4309088,
+      "usage_count": 1
+    },
+    {
+      "code": 38807,
+      "code_hex": "0x9797",
+      "text": "覧",
+      "glyph_index": 1602,
+      "glyph_offset": 4309664,
+      "usage_count": 1
+    },
+    {
+      "code": 38818,
+      "code_hex": "0x97A2",
+      "text": "里",
+      "glyph_index": 1607,
+      "glyph_offset": 4310024,
+      "usage_count": 1
+    },
+    {
+      "code": 38822,
+      "code_hex": "0x97A6",
+      "text": "率",
+      "glyph_index": 1611,
+      "glyph_offset": 4310312,
+      "usage_count": 1
+    },
+    {
+      "code": 38860,
+      "code_hex": "0x97CC",
+      "text": "領",
+      "glyph_index": 1627,
+      "glyph_offset": 4311464,
+      "usage_count": 1
+    },
+    {
+      "code": 38869,
+      "code_hex": "0x97D5",
+      "text": "臨",
+      "glyph_index": 1631,
+      "glyph_offset": 4311752,
+      "usage_count": 1
+    },
+    {
+      "code": 38871,
+      "code_hex": "0x97D7",
+      "text": "隣",
+      "glyph_index": 1633,
+      "glyph_offset": 4311896,
+      "usage_count": 1
+    },
+    {
+      "code": 38876,
+      "code_hex": "0x97DC",
+      "text": "涙",
+      "glyph_index": 1634,
+      "glyph_offset": 4311968,
+      "usage_count": 1
+    },
+    {
+      "code": 38883,
+      "code_hex": "0x97E3",
+      "text": "励",
+      "glyph_index": 1639,
+      "glyph_offset": 4312328,
+      "usage_count": 1
+    },
+    {
+      "code": 38891,
+      "code_hex": "0x97EB",
+      "text": "零",
+      "glyph_index": 1642,
+      "glyph_offset": 4312544,
+      "usage_count": 1
+    },
+    {
+      "code": 38894,
+      "code_hex": "0x97EE",
+      "text": "齢",
+      "glyph_index": 1643,
+      "glyph_offset": 4312616,
+      "usage_count": 1
+    },
+    {
+      "code": 38979,
+      "code_hex": "0x9843",
+      "text": "呂",
+      "glyph_index": 1652,
+      "glyph_offset": 4313264,
+      "usage_count": 1
+    },
+    {
+      "code": 38985,
+      "code_hex": "0x9849",
+      "text": "露",
+      "glyph_index": 1654,
+      "glyph_offset": 4313408,
+      "usage_count": 1
+    },
+    {
+      "code": 38989,
+      "code_hex": "0x984D",
+      "text": "弄",
+      "glyph_index": 1657,
+      "glyph_offset": 4313624,
+      "usage_count": 1
+    },
+    {
+      "code": 38996,
+      "code_hex": "0x9854",
+      "text": "狼",
+      "glyph_index": 1659,
+      "glyph_offset": 4313768,
+      "usage_count": 1
+    },
+    {
+      "code": 38998,
+      "code_hex": "0x9856",
+      "text": "老",
+      "glyph_index": 1660,
+      "glyph_offset": 4313840,
+      "usage_count": 1
+    },
+    {
+      "code": 39002,
+      "code_hex": "0x985A",
+      "text": "六",
+      "glyph_index": 1662,
+      "glyph_offset": 4313984,
+      "usage_count": 1
+    },
+    {
+      "code": 39401,
+      "code_hex": "0x99E9",
+      "text": "咎",
+      "glyph_index": 1671,
+      "glyph_offset": 4314632,
+      "usage_count": 1
+    },
+    {
+      "code": 39407,
+      "code_hex": "0x99EF",
+      "text": "呻",
+      "glyph_index": 1672,
+      "glyph_offset": 4314704,
+      "usage_count": 1
+    },
+    {
+      "code": 40033,
+      "code_hex": "0x9C61",
+      "text": "彗",
+      "glyph_index": 1677,
+      "glyph_offset": 4315064,
+      "usage_count": 1
+    },
+    {
+      "code": 40137,
+      "code_hex": "0x9CC9",
+      "text": "慄",
+      "glyph_index": 1679,
+      "glyph_offset": 4315208,
+      "usage_count": 1
+    },
+    {
+      "code": 57592,
+      "code_hex": "0xE0F8",
+      "text": "璧",
+      "glyph_index": 1685,
+      "glyph_offset": 4315640,
+      "usage_count": 1
+    },
+    {
+      "code": 57746,
+      "code_hex": "0xE192",
+      "text": "癇",
+      "glyph_index": 1687,
+      "glyph_offset": 4315784,
+      "usage_count": 1
+    },
+    {
+      "code": 58186,
+      "code_hex": "0xE34A",
+      "text": "絆",
+      "glyph_index": 1690,
+      "glyph_offset": 4316000,
+      "usage_count": 1
+    },
+    {
+      "code": 58308,
+      "code_hex": "0xE3C4",
+      "text": "翔",
+      "glyph_index": 1693,
+      "glyph_offset": 4316216,
+      "usage_count": 1
+    },
+    {
+      "code": 58309,
+      "code_hex": "0xE3C5",
+      "text": "翡",
+      "glyph_index": 1694,
+      "glyph_offset": 4316288,
+      "usage_count": 1
+    },
+    {
+      "code": 59208,
+      "code_hex": "0xE748",
+      "text": "踪",
+      "glyph_index": 1695,
+      "glyph_offset": 4316360,
+      "usage_count": 1
+    },
+    {
+      "code": 33367,
+      "code_hex": "0x8257",
+      "text": "８",
+      "glyph_index": 48,
+      "glyph_offset": 4197776,
+      "usage_count": 2
+    },
+    {
+      "code": 33393,
+      "code_hex": "0x8271",
+      "text": "Ｒ",
+      "glyph_index": 67,
+      "glyph_offset": 4199144,
+      "usage_count": 2
+    },
+    {
+      "code": 35034,
+      "code_hex": "0x88DA",
+      "text": "移",
+      "glyph_index": 297,
+      "glyph_offset": 4215704,
+      "usage_count": 2
+    },
+    {
+      "code": 35062,
+      "code_hex": "0x88F6",
+      "text": "因",
+      "glyph_index": 310,
+      "glyph_offset": 4216640,
+      "usage_count": 2
+    },
+    {
+      "code": 35154,
+      "code_hex": "0x8952",
+      "text": "嘘",
+      "glyph_index": 322,
+      "glyph_offset": 4217504,
+      "usage_count": 2
+    },
+    {
+      "code": 35167,
+      "code_hex": "0x895F",
+      "text": "雲",
+      "glyph_index": 325,
+      "glyph_offset": 4217720,
+      "usage_count": 2
+    },
+    {
+      "code": 35173,
+      "code_hex": "0x8965",
+      "text": "影",
+      "glyph_index": 327,
+      "glyph_offset": 4217864,
+      "usage_count": 2
+    },
+    {
+      "code": 35184,
+      "code_hex": "0x8970",
+      "text": "英",
+      "glyph_index": 330,
+      "glyph_offset": 4218080,
+      "usage_count": 2
+    },
+    {
+      "code": 35190,
+      "code_hex": "0x8976",
+      "text": "益",
+      "glyph_index": 333,
+      "glyph_offset": 4218296,
+      "usage_count": 2
+    },
+    {
+      "code": 35220,
+      "code_hex": "0x8994",
+      "text": "鉛",
+      "glyph_index": 345,
+      "glyph_offset": 4219160,
+      "usage_count": 2
+    },
+    {
+      "code": 35233,
+      "code_hex": "0x89A1",
+      "text": "横",
+      "glyph_index": 353,
+      "glyph_offset": 4219736,
+      "usage_count": 2
+    },
+    {
+      "code": 35236,
+      "code_hex": "0x89A4",
+      "text": "王",
+      "glyph_index": 355,
+      "glyph_offset": 4219880,
+      "usage_count": 2
+    },
+    {
+      "code": 35256,
+      "code_hex": "0x89B8",
+      "text": "穏",
+      "glyph_index": 363,
+      "glyph_offset": 4220456,
+      "usage_count": 2
+    },
+    {
+      "code": 35269,
+      "code_hex": "0x89C5",
+      "text": "嫁",
+      "glyph_index": 374,
+      "glyph_offset": 4221248,
+      "usage_count": 2
+    },
+    {
+      "code": 35304,
+      "code_hex": "0x89E8",
+      "text": "芽",
+      "glyph_index": 390,
+      "glyph_offset": 4222400,
+      "usage_count": 2
+    },
+    {
+      "code": 35314,
+      "code_hex": "0x89F2",
+      "text": "塊",
+      "glyph_index": 396,
+      "glyph_offset": 4222832,
+      "usage_count": 2
+    },
+    {
+      "code": 35395,
+      "code_hex": "0x8A43",
+      "text": "海",
+      "glyph_index": 406,
+      "glyph_offset": 4223552,
+      "usage_count": 2
+    },
+    {
+      "code": 35435,
+      "code_hex": "0x8A6B",
+      "text": "殻",
+      "glyph_index": 422,
+      "glyph_offset": 4224704,
+      "usage_count": 2
+    },
+    {
+      "code": 35467,
+      "code_hex": "0x8A8B",
+      "text": "葛",
+      "glyph_index": 436,
+      "glyph_offset": 4225712,
+      "usage_count": 2
+    },
+    {
+      "code": 35469,
+      "code_hex": "0x8A8D",
+      "text": "轄",
+      "glyph_index": 437,
+      "glyph_offset": 4225784,
+      "usage_count": 2
+    },
+    {
+      "code": 35490,
+      "code_hex": "0x8AA2",
+      "text": "瓦",
+      "glyph_index": 439,
+      "glyph_offset": 4225928,
+      "usage_count": 2
+    },
+    {
+      "code": 35518,
+      "code_hex": "0x8ABE",
+      "text": "汗",
+      "glyph_index": 453,
+      "glyph_offset": 4226936,
+      "usage_count": 2
+    },
+    {
+      "code": 35543,
+      "code_hex": "0x8AD7",
+      "text": "陥",
+      "glyph_index": 466,
+      "glyph_offset": 4227872,
+      "usage_count": 2
+    },
+    {
+      "code": 35553,
+      "code_hex": "0x8AE1",
+      "text": "眼",
+      "glyph_index": 470,
+      "glyph_offset": 4228160,
+      "usage_count": 2
+    },
+    {
+      "code": 35561,
+      "code_hex": "0x8AE9",
+      "text": "企",
+      "glyph_index": 475,
+      "glyph_offset": 4228520,
+      "usage_count": 2
+    },
+    {
+      "code": 35571,
+      "code_hex": "0x8AF3",
+      "text": "希",
+      "glyph_index": 484,
+      "glyph_offset": 4229168,
+      "usage_count": 2
+    },
+    {
+      "code": 35574,
+      "code_hex": "0x8AF6",
+      "text": "揮",
+      "glyph_index": 487,
+      "glyph_offset": 4229384,
+      "usage_count": 2
+    },
+    {
+      "code": 35577,
+      "code_hex": "0x8AF9",
+      "text": "既",
+      "glyph_index": 490,
+      "glyph_offset": 4229600,
+      "usage_count": 2
+    },
+    {
+      "code": 35680,
+      "code_hex": "0x8B60",
+      "text": "義",
+      "glyph_index": 512,
+      "glyph_offset": 4231184,
+      "usage_count": 2
+    },
+    {
+      "code": 35692,
+      "code_hex": "0x8B6C",
+      "text": "詰",
+      "glyph_index": 515,
+      "glyph_offset": 4231400,
+      "usage_count": 2
+    },
+    {
+      "code": 35696,
+      "code_hex": "0x8B70",
+      "text": "却",
+      "glyph_index": 516,
+      "glyph_offset": 4231472,
+      "usage_count": 2
+    },
+    {
+      "code": 35721,
+      "code_hex": "0x8B89",
+      "text": "級",
+      "glyph_index": 533,
+      "glyph_offset": 4232696,
+      "usage_count": 2
+    },
+    {
+      "code": 35724,
+      "code_hex": "0x8B8C",
+      "text": "旧",
+      "glyph_index": 535,
+      "glyph_offset": 4232840,
+      "usage_count": 2
+    },
+    {
+      "code": 35725,
+      "code_hex": "0x8B8D",
+      "text": "牛",
+      "glyph_index": 536,
+      "glyph_offset": 4232912,
+      "usage_count": 2
+    },
+    {
+      "code": 35733,
+      "code_hex": "0x8B95",
+      "text": "虚",
+      "glyph_index": 542,
+      "glyph_offset": 4233344,
+      "usage_count": 2
+    },
+    {
+      "code": 35749,
+      "code_hex": "0x8BA5",
+      "text": "凶",
+      "glyph_index": 548,
+      "glyph_offset": 4233776,
+      "usage_count": 2
+    },
+    {
+      "code": 35753,
+      "code_hex": "0x8BA9",
+      "text": "叫",
+      "glyph_index": 550,
+      "glyph_offset": 4233920,
+      "usage_count": 2
+    },
+    {
+      "code": 35766,
+      "code_hex": "0x8BB6",
+      "text": "狂",
+      "glyph_index": 557,
+      "glyph_offset": 4234424,
+      "usage_count": 2
+    },
+    {
+      "code": 35777,
+      "code_hex": "0x8BC1",
+      "text": "驚",
+      "glyph_index": 565,
+      "glyph_offset": 4235000,
+      "usage_count": 2
+    },
+    {
+      "code": 35823,
+      "code_hex": "0x8BEF",
+      "text": "具",
+      "glyph_index": 585,
+      "glyph_offset": 4236440,
+      "usage_count": 2
+    },
+    {
+      "code": 35952,
+      "code_hex": "0x8C70",
+      "text": "継",
+      "glyph_index": 611,
+      "glyph_offset": 4238312,
+      "usage_count": 2
+    },
+    {
+      "code": 35968,
+      "code_hex": "0x8C80",
+      "text": "劇",
+      "glyph_index": 617,
+      "glyph_offset": 4238744,
+      "usage_count": 2
+    },
+    {
+      "code": 35975,
+      "code_hex": "0x8C87",
+      "text": "欠",
+      "glyph_index": 623,
+      "glyph_offset": 4239176,
+      "usage_count": 2
+    },
+    {
+      "code": 35977,
+      "code_hex": "0x8C89",
+      "text": "潔",
+      "glyph_index": 625,
+      "glyph_offset": 4239320,
+      "usage_count": 2
+    },
+    {
+      "code": 35978,
+      "code_hex": "0x8C8A",
+      "text": "穴",
+      "glyph_index": 626,
+      "glyph_offset": 4239392,
+      "usage_count": 2
+    },
+    {
+      "code": 35986,
+      "code_hex": "0x8C92",
+      "text": "健",
+      "glyph_index": 631,
+      "glyph_offset": 4239752,
+      "usage_count": 2
+    },
+    {
+      "code": 36000,
+      "code_hex": "0x8CA0",
+      "text": "権",
+      "glyph_index": 640,
+      "glyph_offset": 4240400,
+      "usage_count": 2
+    },
+    {
+      "code": 36025,
+      "code_hex": "0x8CB9",
+      "text": "源",
+      "glyph_index": 655,
+      "glyph_offset": 4241480,
+      "usage_count": 2
+    },
+    {
+      "code": 36174,
+      "code_hex": "0x8D4E",
+      "text": "康",
+      "glyph_index": 692,
+      "glyph_offset": 4244144,
+      "usage_count": 2
+    },
+    {
+      "code": 36199,
+      "code_hex": "0x8D67",
+      "text": "紅",
+      "glyph_index": 704,
+      "glyph_offset": 4245008,
+      "usage_count": 2
+    },
+    {
+      "code": 36268,
+      "code_hex": "0x8DAC",
+      "text": "混",
+      "glyph_index": 733,
+      "glyph_offset": 4247096,
+      "usage_count": 2
+    },
+    {
+      "code": 36288,
+      "code_hex": "0x8DC0",
+      "text": "座",
+      "glyph_index": 742,
+      "glyph_offset": 4247744,
+      "usage_count": 2
+    },
+    {
+      "code": 36296,
+      "code_hex": "0x8DC8",
+      "text": "妻",
+      "glyph_index": 748,
+      "glyph_offset": 4248176,
+      "usage_count": 2
+    },
+    {
+      "code": 36310,
+      "code_hex": "0x8DD6",
+      "text": "斎",
+      "glyph_index": 755,
+      "glyph_offset": 4248680,
+      "usage_count": 2
+    },
+    {
+      "code": 36423,
+      "code_hex": "0x8E47",
+      "text": "雑",
+      "glyph_index": 772,
+      "glyph_offset": 4249904,
+      "usage_count": 2
+    },
+    {
+      "code": 36486,
+      "code_hex": "0x8E86",
+      "text": "紙",
+      "glyph_index": 802,
+      "glyph_offset": 4252064,
+      "usage_count": 2
+    },
+    {
+      "code": 36541,
+      "code_hex": "0x8EBD",
+      "text": "漆",
+      "glyph_index": 833,
+      "glyph_offset": 4254296,
+      "usage_count": 2
+    },
+    {
+      "code": 36578,
+      "code_hex": "0x8EE2",
+      "text": "寂",
+      "glyph_index": 851,
+      "glyph_offset": 4255592,
+      "usage_count": 2
+    },
+    {
+      "code": 36589,
+      "code_hex": "0x8EED",
+      "text": "種",
+      "glyph_index": 859,
+      "glyph_offset": 4256168,
+      "usage_count": 2
+    },
+    {
+      "code": 36591,
+      "code_hex": "0x8EEF",
+      "text": "趣",
+      "glyph_index": 860,
+      "glyph_offset": 4256240,
+      "usage_count": 2
+    },
+    {
+      "code": 36592,
+      "code_hex": "0x8EF0",
+      "text": "酒",
+      "glyph_index": 861,
+      "glyph_offset": 4256312,
+      "usage_count": 2
+    },
+    {
+      "code": 36599,
+      "code_hex": "0x8EF7",
+      "text": "樹",
+      "glyph_index": 865,
+      "glyph_offset": 4256600,
+      "usage_count": 2
+    },
+    {
+      "code": 36602,
+      "code_hex": "0x8EFA",
+      "text": "囚",
+      "glyph_index": 866,
+      "glyph_offset": 4256672,
+      "usage_count": 2
+    },
+    {
+      "code": 36684,
+      "code_hex": "0x8F4C",
+      "text": "臭",
+      "glyph_index": 878,
+      "glyph_offset": 4257536,
+      "usage_count": 2
+    },
+    {
+      "code": 36703,
+      "code_hex": "0x8F5F",
+      "text": "柔",
+      "glyph_index": 886,
+      "glyph_offset": 4258112,
+      "usage_count": 2
+    },
+    {
+      "code": 36725,
+      "code_hex": "0x8F75",
+      "text": "瞬",
+      "glyph_index": 898,
+      "glyph_offset": 4258976,
+      "usage_count": 2
+    },
+    {
+      "code": 36738,
+      "code_hex": "0x8F82",
+      "text": "盾",
+      "glyph_index": 902,
+      "glyph_offset": 4259264,
+      "usage_count": 2
+    },
+    {
+      "code": 36743,
+      "code_hex": "0x8F87",
+      "text": "順",
+      "glyph_index": 905,
+      "glyph_offset": 4259480,
+      "usage_count": 2
+    },
+    {
+      "code": 36764,
+      "code_hex": "0x8F9C",
+      "text": "除",
+      "glyph_index": 916,
+      "glyph_offset": 4260272,
+      "usage_count": 2
+    },
+    {
+      "code": 36768,
+      "code_hex": "0x8FA0",
+      "text": "匠",
+      "glyph_index": 919,
+      "glyph_offset": 4260488,
+      "usage_count": 2
+    },
+    {
+      "code": 36784,
+      "code_hex": "0x8FB0",
+      "text": "床",
+      "glyph_index": 926,
+      "glyph_offset": 4260992,
+      "usage_count": 2
+    },
+    {
+      "code": 36827,
+      "code_hex": "0x8FDB",
+      "text": "象",
+      "glyph_index": 946,
+      "glyph_offset": 4262432,
+      "usage_count": 2
+    },
+    {
+      "code": 36839,
+      "code_hex": "0x8FE7",
+      "text": "冗",
+      "glyph_index": 951,
+      "glyph_offset": 4262792,
+      "usage_count": 2
+    },
+    {
+      "code": 36930,
+      "code_hex": "0x9042",
+      "text": "殖",
+      "glyph_index": 962,
+      "glyph_offset": 4263584,
+      "usage_count": 2
+    },
+    {
+      "code": 36933,
+      "code_hex": "0x9045",
+      "text": "職",
+      "glyph_index": 964,
+      "glyph_offset": 4263728,
+      "usage_count": 2
+    },
+    {
+      "code": 36939,
+      "code_hex": "0x904B",
+      "text": "尻",
+      "glyph_index": 969,
+      "glyph_offset": 4264088,
+      "usage_count": 2
+    },
+    {
+      "code": 36974,
+      "code_hex": "0x906E",
+      "text": "刃",
+      "glyph_index": 989,
+      "glyph_offset": 4265528,
+      "usage_count": 2
+    },
+    {
+      "code": 36993,
+      "code_hex": "0x9081",
+      "text": "吹",
+      "glyph_index": 996,
+      "glyph_offset": 4266032,
+      "usage_count": 2
+    },
+    {
+      "code": 37038,
+      "code_hex": "0x90AE",
+      "text": "整",
+      "glyph_index": 1013,
+      "glyph_offset": 4267256,
+      "usage_count": 2
+    },
+    {
+      "code": 37071,
+      "code_hex": "0x90CF",
+      "text": "積",
+      "glyph_index": 1037,
+      "glyph_offset": 4268984,
+      "usage_count": 2
+    },
+    {
+      "code": 37076,
+      "code_hex": "0x90D4",
+      "text": "赤",
+      "glyph_index": 1040,
+      "glyph_offset": 4269200,
+      "usage_count": 2
+    },
+    {
+      "code": 37085,
+      "code_hex": "0x90DD",
+      "text": "設",
+      "glyph_index": 1045,
+      "glyph_offset": 4269560,
+      "usage_count": 2
+    },
+    {
+      "code": 37108,
+      "code_hex": "0x90F4",
+      "text": "洗",
+      "glyph_index": 1058,
+      "glyph_offset": 4270496,
+      "usage_count": 2
+    },
+    {
+      "code": 37198,
+      "code_hex": "0x914E",
+      "text": "鮮",
+      "glyph_index": 1066,
+      "glyph_offset": 4271072,
+      "usage_count": 2
+    },
+    {
+      "code": 37215,
+      "code_hex": "0x915F",
+      "text": "狙",
+      "glyph_index": 1071,
+      "glyph_offset": 4271432,
+      "usage_count": 2
+    },
+    {
+      "code": 37231,
+      "code_hex": "0x916F",
+      "text": "双",
+      "glyph_index": 1076,
+      "glyph_offset": 4271792,
+      "usage_count": 2
+    },
+    {
+      "code": 37278,
+      "code_hex": "0x919E",
+      "text": "憎",
+      "glyph_index": 1099,
+      "glyph_offset": 4273448,
+      "usage_count": 2
+    },
+    {
+      "code": 37303,
+      "code_hex": "0x91B7",
+      "text": "孫",
+      "glyph_index": 1117,
+      "glyph_offset": 4274744,
+      "usage_count": 2
+    },
+    {
+      "code": 37304,
+      "code_hex": "0x91B8",
+      "text": "尊",
+      "glyph_index": 1118,
+      "glyph_offset": 4274816,
+      "usage_count": 2
+    },
+    {
+      "code": 37322,
+      "code_hex": "0x91CA",
+      "text": "駄",
+      "glyph_index": 1126,
+      "glyph_offset": 4275392,
+      "usage_count": 2
+    },
+    {
+      "code": 37327,
+      "code_hex": "0x91CF",
+      "text": "耐",
+      "glyph_index": 1129,
+      "glyph_offset": 4275608,
+      "usage_count": 2
+    },
+    {
+      "code": 37329,
+      "code_hex": "0x91D1",
+      "text": "帯",
+      "glyph_index": 1130,
+      "glyph_offset": 4275680,
+      "usage_count": 2
+    },
+    {
+      "code": 37333,
+      "code_hex": "0x91D5",
+      "text": "戴",
+      "glyph_index": 1133,
+      "glyph_offset": 4275896,
+      "usage_count": 2
+    },
+    {
+      "code": 37363,
+      "code_hex": "0x91F3",
+      "text": "濯",
+      "glyph_index": 1150,
+      "glyph_offset": 4277120,
+      "usage_count": 2
+    },
+    {
+      "code": 37459,
+      "code_hex": "0x9253",
+      "text": "担",
+      "glyph_index": 1162,
+      "glyph_offset": 4277984,
+      "usage_count": 2
+    },
+    {
+      "code": 37465,
+      "code_hex": "0x9259",
+      "text": "炭",
+      "glyph_index": 1165,
+      "glyph_offset": 4278200,
+      "usage_count": 2
+    },
+    {
+      "code": 37467,
+      "code_hex": "0x925B",
+      "text": "端",
+      "glyph_index": 1167,
+      "glyph_offset": 4278344,
+      "usage_count": 2
+    },
+    {
+      "code": 37494,
+      "code_hex": "0x9276",
+      "text": "致",
+      "glyph_index": 1183,
+      "glyph_offset": 4279496,
+      "usage_count": 2
+    },
+    {
+      "code": 37498,
+      "code_hex": "0x927A",
+      "text": "築",
+      "glyph_index": 1185,
+      "glyph_offset": 4279640,
+      "usage_count": 2
+    },
+    {
+      "code": 37566,
+      "code_hex": "0x92BE",
+      "text": "沈",
+      "glyph_index": 1209,
+      "glyph_offset": 4281368,
+      "usage_count": 2
+    },
+    {
+      "code": 37610,
+      "code_hex": "0x92EA",
+      "text": "底",
+      "glyph_index": 1223,
+      "glyph_offset": 4282376,
+      "usage_count": 2
+    },
+    {
+      "code": 37617,
+      "code_hex": "0x92F1",
+      "text": "提",
+      "glyph_index": 1227,
+      "glyph_offset": 4282664,
+      "usage_count": 2
+    },
+    {
+      "code": 37700,
+      "code_hex": "0x9344",
+      "text": "泥",
+      "glyph_index": 1232,
+      "glyph_offset": 4283024,
+      "usage_count": 2
+    },
+    {
+      "code": 37707,
+      "code_hex": "0x934B",
+      "text": "適",
+      "glyph_index": 1236,
+      "glyph_offset": 4283312,
+      "usage_count": 2
+    },
+    {
+      "code": 37722,
+      "code_hex": "0x935A",
+      "text": "纏",
+      "glyph_index": 1244,
+      "glyph_offset": 4283888,
+      "usage_count": 2
+    },
+    {
+      "code": 37734,
+      "code_hex": "0x9366",
+      "text": "吐",
+      "glyph_index": 1251,
+      "glyph_offset": 4284392,
+      "usage_count": 2
+    },
+    {
+      "code": 37793,
+      "code_hex": "0x93A1",
+      "text": "藤",
+      "glyph_index": 1278,
+      "glyph_offset": 4286336,
+      "usage_count": 2
+    },
+    {
+      "code": 37794,
+      "code_hex": "0x93A2",
+      "text": "討",
+      "glyph_index": 1279,
+      "glyph_offset": 4286408,
+      "usage_count": 2
+    },
+    {
+      "code": 37797,
+      "code_hex": "0x93A5",
+      "text": "踏",
+      "glyph_index": 1281,
+      "glyph_offset": 4286552,
+      "usage_count": 2
+    },
+    {
+      "code": 37805,
+      "code_hex": "0x93AD",
+      "text": "働",
+      "glyph_index": 1285,
+      "glyph_offset": 4286840,
+      "usage_count": 2
+    },
+    {
+      "code": 37808,
+      "code_hex": "0x93B0",
+      "text": "堂",
+      "glyph_index": 1288,
+      "glyph_offset": 4287056,
+      "usage_count": 2
+    },
+    {
+      "code": 37809,
+      "code_hex": "0x93B1",
+      "text": "導",
+      "glyph_index": 1289,
+      "glyph_offset": 4287128,
+      "usage_count": 2
+    },
+    {
+      "code": 37830,
+      "code_hex": "0x93C6",
+      "text": "独",
+      "glyph_index": 1296,
+      "glyph_offset": 4287632,
+      "usage_count": 2
+    },
+    {
+      "code": 37870,
+      "code_hex": "0x93EE",
+      "text": "軟",
+      "glyph_index": 1304,
+      "glyph_offset": 4288208,
+      "usage_count": 2
+    },
+    {
+      "code": 37883,
+      "code_hex": "0x93FB",
+      "text": "乳",
+      "glyph_index": 1309,
+      "glyph_offset": 4288568,
+      "usage_count": 2
+    },
+    {
+      "code": 37957,
+      "code_hex": "0x9445",
+      "text": "忍",
+      "glyph_index": 1313,
+      "glyph_offset": 4288856,
+      "usage_count": 2
+    },
+    {
+      "code": 37971,
+      "code_hex": "0x9453",
+      "text": "粘",
+      "glyph_index": 1321,
+      "glyph_offset": 4289432,
+      "usage_count": 2
+    },
+    {
+      "code": 37987,
+      "code_hex": "0x9463",
+      "text": "把",
+      "glyph_index": 1327,
+      "glyph_offset": 4289864,
+      "usage_count": 2
+    },
+    {
+      "code": 38001,
+      "code_hex": "0x9471",
+      "text": "拝",
+      "glyph_index": 1333,
+      "glyph_offset": 4290296,
+      "usage_count": 2
+    },
+    {
+      "code": 38041,
+      "code_hex": "0x9499",
+      "text": "漠",
+      "glyph_index": 1349,
+      "glyph_offset": 4291448,
+      "usage_count": 2
+    },
+    {
+      "code": 38090,
+      "code_hex": "0x94CA",
+      "text": "般",
+      "glyph_index": 1364,
+      "glyph_offset": 4292528,
+      "usage_count": 2
+    },
+    {
+      "code": 38093,
+      "code_hex": "0x94CD",
+      "text": "範",
+      "glyph_index": 1365,
+      "glyph_offset": 4292600,
+      "usage_count": 2
+    },
+    {
+      "code": 38097,
+      "code_hex": "0x94D1",
+      "text": "飯",
+      "glyph_index": 1367,
+      "glyph_offset": 4292744,
+      "usage_count": 2
+    },
+    {
+      "code": 38099,
+      "code_hex": "0x94D3",
+      "text": "晩",
+      "glyph_index": 1368,
+      "glyph_offset": 4292816,
+      "usage_count": 2
+    },
+    {
+      "code": 38274,
+      "code_hex": "0x9582",
+      "text": "浮",
+      "glyph_index": 1412,
+      "glyph_offset": 4295984,
+      "usage_count": 2
+    },
+    {
+      "code": 38275,
+      "code_hex": "0x9583",
+      "text": "父",
+      "glyph_index": 1413,
+      "glyph_offset": 4296056,
+      "usage_count": 2
+    },
+    {
+      "code": 38293,
+      "code_hex": "0x9595",
+      "text": "封",
+      "glyph_index": 1421,
+      "glyph_offset": 4296632,
+      "usage_count": 2
+    },
+    {
+      "code": 38302,
+      "code_hex": "0x959E",
+      "text": "服",
+      "glyph_index": 1426,
+      "glyph_offset": 4296992,
+      "usage_count": 2
+    },
+    {
+      "code": 38304,
+      "code_hex": "0x95A0",
+      "text": "腹",
+      "glyph_index": 1428,
+      "glyph_offset": 4297136,
+      "usage_count": 2
+    },
+    {
+      "code": 38309,
+      "code_hex": "0x95A5",
+      "text": "払",
+      "glyph_index": 1431,
+      "glyph_offset": 4297352,
+      "usage_count": 2
+    },
+    {
+      "code": 38325,
+      "code_hex": "0x95B5",
+      "text": "雰",
+      "glyph_index": 1436,
+      "glyph_offset": 4297712,
+      "usage_count": 2
+    },
+    {
+      "code": 38336,
+      "code_hex": "0x95C0",
+      "text": "並",
+      "glyph_index": 1443,
+      "glyph_offset": 4298216,
+      "usage_count": 2
+    },
+    {
+      "code": 38358,
+      "code_hex": "0x95D6",
+      "text": "便",
+      "glyph_index": 1454,
+      "glyph_offset": 4299008,
+      "usage_count": 2
+    },
+    {
+      "code": 38475,
+      "code_hex": "0x964B",
+      "text": "訪",
+      "glyph_index": 1475,
+      "glyph_offset": 4300520,
+      "usage_count": 2
+    },
+    {
+      "code": 38508,
+      "code_hex": "0x966C",
+      "text": "僕",
+      "glyph_index": 1493,
+      "glyph_offset": 4301816,
+      "usage_count": 2
+    },
+    {
+      "code": 38510,
+      "code_hex": "0x966E",
+      "text": "墨",
+      "glyph_index": 1494,
+      "glyph_offset": 4301888,
+      "usage_count": 2
+    },
+    {
+      "code": 38581,
+      "code_hex": "0x96B5",
+      "text": "矛",
+      "glyph_index": 1523,
+      "glyph_offset": 4303976,
+      "usage_count": 2
+    },
+    {
+      "code": 38594,
+      "code_hex": "0x96C2",
+      "text": "鳴",
+      "glyph_index": 1531,
+      "glyph_offset": 4304552,
+      "usage_count": 2
+    },
+    {
+      "code": 38629,
+      "code_hex": "0x96E5",
+      "text": "門",
+      "glyph_index": 1545,
+      "glyph_offset": 4305560,
+      "usage_count": 2
+    },
+    {
+      "code": 38722,
+      "code_hex": "0x9742",
+      "text": "唯",
+      "glyph_index": 1558,
+      "glyph_offset": 4306496,
+      "usage_count": 2
+    },
+    {
+      "code": 38725,
+      "code_hex": "0x9745",
+      "text": "勇",
+      "glyph_index": 1560,
+      "glyph_offset": 4306640,
+      "usage_count": 2
+    },
+    {
+      "code": 38762,
+      "code_hex": "0x976A",
+      "text": "曜",
+      "glyph_index": 1580,
+      "glyph_offset": 4308080,
+      "usage_count": 2
+    },
+    {
+      "code": 38781,
+      "code_hex": "0x977D",
+      "text": "抑",
+      "glyph_index": 1589,
+      "glyph_offset": 4308728,
+      "usage_count": 2
+    },
+    {
+      "code": 38789,
+      "code_hex": "0x9785",
+      "text": "羅",
+      "glyph_index": 1593,
+      "glyph_offset": 4309016,
+      "usage_count": 2
+    },
+    {
+      "code": 38835,
+      "code_hex": "0x97B3",
+      "text": "竜",
+      "glyph_index": 1619,
+      "glyph_offset": 4310888,
+      "usage_count": 2
+    },
+    {
+      "code": 38838,
+      "code_hex": "0x97B6",
+      "text": "慮",
+      "glyph_index": 1620,
+      "glyph_offset": 4310960,
+      "usage_count": 2
+    },
+    {
+      "code": 38862,
+      "code_hex": "0x97CE",
+      "text": "緑",
+      "glyph_index": 1629,
+      "glyph_offset": 4311608,
+      "usage_count": 2
+    },
+    {
+      "code": 38870,
+      "code_hex": "0x97D6",
+      "text": "輪",
+      "glyph_index": 1632,
+      "glyph_offset": 4311824,
+      "usage_count": 2
+    },
+    {
+      "code": 39554,
+      "code_hex": "0x9A82",
+      "text": "嘯",
+      "glyph_index": 1674,
+      "glyph_offset": 4314848,
+      "usage_count": 2
+    },
+    {
+      "code": 57567,
+      "code_hex": "0xE0DF",
+      "text": "珀",
+      "glyph_index": 1683,
+      "glyph_offset": 4315496,
+      "usage_count": 2
+    },
+    {
+      "code": 57574,
+      "code_hex": "0xE0E6",
+      "text": "琥",
+      "glyph_index": 1684,
+      "glyph_offset": 4315568,
+      "usage_count": 2
+    },
+    {
+      "code": 57929,
+      "code_hex": "0xE249",
+      "text": "礫",
+      "glyph_index": 1689,
+      "glyph_offset": 4315928,
+      "usage_count": 2
+    },
+    {
+      "code": 59599,
+      "code_hex": "0xE8CF",
+      "text": "靠",
+      "glyph_index": 1698,
+      "glyph_offset": 4316576,
+      "usage_count": 2
+    }
+  ],
+  "top_used_entries": [
+    {
+      "code": 33442,
+      "code_hex": "0x82A2",
+      "text": "い",
+      "glyph_index": 105,
+      "glyph_offset": 4201880,
+      "usage_count": 3586
+    },
+    {
+      "code": 33480,
+      "code_hex": "0x82C8",
+      "text": "な",
+      "glyph_index": 143,
+      "glyph_offset": 4204616,
+      "usage_count": 3403
+    },
+    {
+      "code": 33484,
+      "code_hex": "0x82CC",
+      "text": "の",
+      "glyph_index": 147,
+      "glyph_offset": 4204904,
+      "usage_count": 3094
+    },
+    {
+      "code": 33089,
+      "code_hex": "0x8141",
+      "text": "、",
+      "glyph_index": 12,
+      "glyph_offset": 4195184,
+      "usage_count": 2819
+    },
+    {
+      "code": 33473,
+      "code_hex": "0x82C1",
+      "text": "っ",
+      "glyph_index": 136,
+      "glyph_offset": 4204112,
+      "usage_count": 2525
+    },
+    {
+      "code": 33476,
+      "code_hex": "0x82C4",
+      "text": "て",
+      "glyph_index": 139,
+      "glyph_offset": 4204328,
+      "usage_count": 2515
+    },
+    {
+      "code": 33521,
+      "code_hex": "0x82F1",
+      "text": "ん",
+      "glyph_index": 181,
+      "glyph_offset": 4207352,
+      "usage_count": 2289
+    },
+    {
+      "code": 33449,
+      "code_hex": "0x82A9",
+      "text": "か",
+      "glyph_index": 112,
+      "glyph_offset": 4202384,
+      "usage_count": 2281
+    },
+    {
+      "code": 33469,
+      "code_hex": "0x82BD",
+      "text": "た",
+      "glyph_index": 132,
+      "glyph_offset": 4203824,
+      "usage_count": 2124
+    },
+    {
+      "code": 33470,
+      "code_hex": "0x82BE",
+      "text": "だ",
+      "glyph_index": 133,
+      "glyph_offset": 4203896,
+      "usage_count": 2069
+    },
+    {
+      "code": 33461,
+      "code_hex": "0x82B5",
+      "text": "し",
+      "glyph_index": 124,
+      "glyph_offset": 4203248,
+      "usage_count": 1921
+    },
+    {
+      "code": 33481,
+      "code_hex": "0x82C9",
+      "text": "に",
+      "glyph_index": 144,
+      "glyph_offset": 4204688,
+      "usage_count": 1914
+    },
+    {
+      "code": 33477,
+      "code_hex": "0x82C5",
+      "text": "で",
+      "glyph_index": 140,
+      "glyph_offset": 4204400,
+      "usage_count": 1793
+    },
+    {
+      "code": 33485,
+      "code_hex": "0x82CD",
+      "text": "は",
+      "glyph_index": 148,
+      "glyph_offset": 4204976,
+      "usage_count": 1785
+    },
+    {
+      "code": 33444,
+      "code_hex": "0x82A4",
+      "text": "う",
+      "glyph_index": 107,
+      "glyph_offset": 4202024,
+      "usage_count": 1642
+    },
+    {
+      "code": 33513,
+      "code_hex": "0x82E9",
+      "text": "る",
+      "glyph_index": 176,
+      "glyph_offset": 4206992,
+      "usage_count": 1623
+    },
+    {
+      "code": 33097,
+      "code_hex": "0x8149",
+      "text": "！",
+      "glyph_index": 17,
+      "glyph_offset": 4195544,
+      "usage_count": 1613
+    },
+    {
+      "code": 33478,
+      "code_hex": "0x82C6",
+      "text": "と",
+      "glyph_index": 141,
+      "glyph_offset": 4204472,
+      "usage_count": 1591
+    },
+    {
+      "code": 33450,
+      "code_hex": "0x82AA",
+      "text": "が",
+      "glyph_index": 113,
+      "glyph_offset": 4202456,
+      "usage_count": 1404
+    },
+    {
+      "code": 33520,
+      "code_hex": "0x82F0",
+      "text": "を",
+      "glyph_index": 180,
+      "glyph_offset": 4207280,
+      "usage_count": 1386
+    },
+    {
+      "code": 33457,
+      "code_hex": "0x82B1",
+      "text": "こ",
+      "glyph_index": 120,
+      "glyph_offset": 4202960,
+      "usage_count": 1380
+    },
+    {
+      "code": 33123,
+      "code_hex": "0x8163",
+      "text": "…",
+      "glyph_index": 22,
+      "glyph_offset": 4195904,
+      "usage_count": 1317
+    },
+    {
+      "code": 33511,
+      "code_hex": "0x82E7",
+      "text": "ら",
+      "glyph_index": 174,
+      "glyph_offset": 4206848,
+      "usage_count": 1313
+    },
+    {
+      "code": 33504,
+      "code_hex": "0x82E0",
+      "text": "も",
+      "glyph_index": 167,
+      "glyph_offset": 4206344,
+      "usage_count": 1231
+    },
+    {
+      "code": 33510,
+      "code_hex": "0x82E6",
+      "text": "よ",
+      "glyph_index": 173,
+      "glyph_offset": 4206776,
+      "usage_count": 1229
+    },
+    {
+      "code": 33463,
+      "code_hex": "0x82B7",
+      "text": "す",
+      "glyph_index": 126,
+      "glyph_offset": 4203392,
+      "usage_count": 1201
+    },
+    {
+      "code": 33096,
+      "code_hex": "0x8148",
+      "text": "？",
+      "glyph_index": 16,
+      "glyph_offset": 4195472,
+      "usage_count": 1130
+    },
+    {
+      "code": 33514,
+      "code_hex": "0x82EA",
+      "text": "れ",
+      "glyph_index": 177,
+      "glyph_offset": 4207064,
+      "usage_count": 1129
+    },
+    {
+      "code": 33500,
+      "code_hex": "0x82DC",
+      "text": "ま",
+      "glyph_index": 163,
+      "glyph_offset": 4206056,
+      "usage_count": 1126
+    },
+    {
+      "code": 33115,
+      "code_hex": "0x815B",
+      "text": "ー",
+      "glyph_index": 19,
+      "glyph_offset": 4195688,
+      "usage_count": 1072
+    },
+    {
+      "code": 33440,
+      "code_hex": "0x82A0",
+      "text": "あ",
+      "glyph_index": 103,
+      "glyph_offset": 4201736,
+      "usage_count": 1005
+    },
+    {
+      "code": 33459,
+      "code_hex": "0x82B3",
+      "text": "さ",
+      "glyph_index": 122,
+      "glyph_offset": 4203104,
+      "usage_count": 993
+    },
+    {
+      "code": 33467,
+      "code_hex": "0x82BB",
+      "text": "そ",
+      "glyph_index": 130,
+      "glyph_offset": 4203680,
+      "usage_count": 989
+    },
+    {
+      "code": 33090,
+      "code_hex": "0x8142",
+      "text": "。",
+      "glyph_index": 13,
+      "glyph_offset": 4195256,
+      "usage_count": 973
+    },
+    {
+      "code": 33453,
+      "code_hex": "0x82AD",
+      "text": "く",
+      "glyph_index": 116,
+      "glyph_offset": 4202672,
+      "usage_count": 847
+    },
+    {
+      "code": 33455,
+      "code_hex": "0x82AF",
+      "text": "け",
+      "glyph_index": 118,
+      "glyph_offset": 4202816,
+      "usage_count": 690
+    },
+    {
+      "code": 33512,
+      "code_hex": "0x82E8",
+      "text": "り",
+      "glyph_index": 175,
+      "glyph_offset": 4206920,
+      "usage_count": 687
+    },
+    {
+      "code": 33483,
+      "code_hex": "0x82CB",
+      "text": "ね",
+      "glyph_index": 146,
+      "glyph_offset": 4204832,
+      "usage_count": 647
+    },
+    {
+      "code": 33505,
+      "code_hex": "0x82E1",
+      "text": "ゃ",
+      "glyph_index": 168,
+      "glyph_offset": 4206416,
+      "usage_count": 646
+    },
+    {
+      "code": 33471,
+      "code_hex": "0x82BF",
+      "text": "ち",
+      "glyph_index": 134,
+      "glyph_offset": 4203968,
+      "usage_count": 622
+    }
+  ],
+  "glyph_gaps": []
+}

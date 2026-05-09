@@ -77,6 +77,25 @@
   - glyph coverage end: `0x41DDE8`
   - decoded entries: `ASCII 11`, `non-ASCII 1687`, `undecodable 0`
 - 따라서 폰트 쪽도 이제는 “될 것 같은 경로를 검증” 수준을 넘어, **공통 font mapping을 실제 JSON 추출본으로 확보한 단계** 다.
+- 새 [common_fnt_usage_audit.json](/Users/user/test/analysis/common_fnt_usage_audit.json) 도 생성 가능하다.
+- 이 audit 는 현재 추출 텍스트 `105707`자 기준으로:
+  - mapped code `1698`
+  - 실제 사용 mapped code `1411`
+  - 현재 미사용 mapped code `287`
+  - rare used (`<=2회`) mapped code `394`
+  - glyph gap `0`
+  - payload tail free bytes `0`
+  를 집계한다.
+- 즉 **현재 payload 안에는 한글 glyph 를 그대로 추가할 여유가 없고**, 본격 한글화는 `unused glyph 일부 치환` 또는 `payload 확장/재배치` 전략이 필요하다.
+- 반면 decoder 허용 Shift-JIS lead byte 공간 (`0x81..0x9F`, `0xE0..0xEF`) 안의 free code 는 여전히 많아서, 병목은 code space 가 아니라 glyph space 다.
+- 큰 free code block 예:
+  - `0x8440..0x84FF`
+  - `0x8540..0x85FF`
+  - `0x8640..0x86FF`
+  - `0xE940..0xE9FF`
+  - `0xEA40..0xEAFF`
+- 따라서 code point 설계보다 먼저 glyph 저장 전략을 결정해야 한다.
+- 전략 요약은 [common_fnt_hangul_strategy.md](/Users/user/test/analysis/common_fnt_hangul_strategy.md) 에 있다.
 - width/advance 쪽도 한 단계 좁혀졌다.
   - `0x01502C` multibyte 경로는 `obj + 0x18 += 0x18`
   - `0x0150CC` single-byte 경로는 `obj + 0x18 += 0x10`
@@ -91,8 +110,9 @@
 1. slot `1` 을 기존 Registry A/B/C/D 분류와 충돌 없이 다시 명시
 2. `obj + 0x18 / +0x20` 해석을 실제 UI 줄폭/박스 크기와 더 대조
 3. `0x01570C / 0x01578C / 0x01580C / 0x01588C` 네 writer variant 차이 확인
-4. common `fnt` manifest 를 바탕으로 한글용 빈 glyph index / 재사용 전략을 세우기
-5. 텍스트 source inventory 가 거의 닫힌 시점에 첫 실제 한글 재삽입 테스트용 문자 매핑 계획으로 전환
+4. common `fnt` audit 를 바탕으로 `unused glyph 일부 치환` 과 `payload 확장/재배치` 중 첫 테스트 전략 선택
+5. decoder 허용 free code block 중 한글용 code range 를 1개 정하기
+6. 텍스트 source inventory 가 거의 닫힌 시점에 첫 실제 한글 재삽입 테스트용 문자 매핑 계획으로 전환
 
 ## 진행 로그
 
@@ -115,3 +135,5 @@
 - `inspect-fnt` CLI 를 추가해 [common_fnt_manifest.json](/Users/user/test/analysis/common_fnt_manifest.json) 을 생성했고, 공통 `fnt` payload 전체 mapping 1698개를 실제 추출본으로 확보했다
 - `obj + 0x18` / `obj + 0x20` 기반 width/advance 누적 구조를 잡고, world-map `r3=0x0C` 와 일반 화면군 `r3=20` caller 비교로 가변폭형 레이아웃 해석도 교차검증했다
 - 이후 텍스트 추출 쪽은 coverage audit 위주로 잠깐 우선했고, 폰트/문자 매핑은 **첫 실제 한글 재삽입 테스트 직전 단계**로 다시 올릴 계획을 명시했다
+- `audit-fnt-usage` CLI 를 추가해 실제 추출 텍스트 기준 font usage audit 을 재현 가능하게 만들었고, 그 결과 glyph gap `0`, payload tail free `0`, decoder-space free code `7337` 이라는 결론을 고정했다
+- 따라서 지금 시점의 핵심 판단은 "한글 code point 는 충분히 배정 가능하지만, glyph 는 payload 확장/재배치 없이는 full-game 규모로 넣기 어렵다" 이다

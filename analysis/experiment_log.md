@@ -1058,3 +1058,19 @@
   - Registry D entry `70` 은 `FC 04 00 FC 03 4B ...` 같은 짧은 제어 명령이 과도하게 반복되고, plausible cp932 대사가 전혀 잡히지 않아 control-only script table 해석이 더 강해졌다.
 - 판정: `성공`
 - 교훈: 자동 태그는 작업 진입점으로는 유용하지만, 실제 source 경계와 1:1 대응한다고 가정하면 안 된다. 또 "마지막 미해결 텍스트 후보"처럼 보이는 엔트리도 raw command density 를 직접 보면 빠르게 control-only 로 닫을 수 있다.
+
+### 실험 49
+
+- 가설: 공통 `fnt` payload 는 lookup code 공간보다 glyph 저장 공간이 먼저 한계에 닿았을 가능성이 크다. 이게 맞으면 한글화의 병목은 새 code point 설계가 아니라 glyph 확장/재배치가 된다.
+- 시도:
+  - `audit-fnt-usage` CLI 를 `gba_kor_tool` 에 추가했다.
+  - 공통 payload `0x3E0000`, 길이 `0x3DDE8` 에 대해 현재 확보한 주요 추출본 전체를 입력으로 usage audit 을 돌렸다.
+  - 동시에 decoder 가 실제로 받는 Shift-JIS lead byte 공간 (`0x81..0x9F`, `0xE0..0xEF`) 안의 free code block 도 따로 집계했다.
+  - ROM 전체 `0xFF` 자유 공간도 길이별로 다시 훑어 payload 확장이 기존 빈칸만으로 가능한지 점검했다.
+- 결과:
+  - [common_fnt_usage_audit.json](/Users/user/test/analysis/common_fnt_usage_audit.json) 기준 mapped code 는 `1698`, 현재 추출 텍스트 `105707`자 중 실제 사용 mapped code 는 `1411`, 현재 미사용 mapped code 는 `287`, rare used (`<=2회`) mapped code 는 `394`였다.
+  - 하지만 glyph index 는 `1..1698` 이 **빈칸 없이 연속** 이고, payload 길이 `0x3DDE8` 기준 tail free bytes 도 `0` 이었다.
+  - 반면 decoder 허용 공간 안의 free code 는 `7337`개였고, `0x8440..0x84FF`, `0x8540..0x85FF`, `0xE940..0xE9FF` 같은 큰 빈 block 들도 확인됐다.
+  - ROM 안의 기존 `0xFF` 자유 공간은 최대 `0xF84` 바이트 수준이라, in-place 여유 공간만으로는 full-game 한글 glyph inventory 를 넣기 어렵다는 점도 확인됐다.
+- 판정: `성공`
+- 교훈: 공통 font 를 볼 때 "빈 code point 가 있는가"와 "glyph 를 저장할 물리 공간이 있는가"를 분리해서 봐야 한다. 이 게임은 전자가 아니라 후자가 먼저 막히므로, 다음 단계는 code table 추가보다 **payload 확장/재배치 전략** 쪽으로 가야 한다.
