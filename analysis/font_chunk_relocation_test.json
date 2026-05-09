@@ -1,0 +1,21 @@
+{
+  "table_offset": 1557236,
+  "layout": "pointer-length",
+  "index": 0,
+  "entry_offset": 1557236,
+  "old_rom_address": 138280960,
+  "old_file_offset": 4063232,
+  "old_length": 253416,
+  "new_rom_address": 142606336,
+  "new_file_offset": 8388608,
+  "new_length": 270336,
+  "mirror_updates": [
+    {
+      "table_offset": 1581984,
+      "entry_offset": 1581984,
+      "old_rom_address": 138280960,
+      "old_length": 253416
+    }
+  ],
+  "output_rom": "/private/tmp/hnr_font_expand_test_mirror.gba"
+}

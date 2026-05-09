@@ -1074,3 +1074,20 @@
   - ROM 안의 기존 `0xFF` 자유 공간은 최대 `0xF84` 바이트 수준이라, in-place 여유 공간만으로는 full-game 한글 glyph inventory 를 넣기 어렵다는 점도 확인됐다.
 - 판정: `성공`
 - 교훈: 공통 font 를 볼 때 "빈 code point 가 있는가"와 "glyph 를 저장할 물리 공간이 있는가"를 분리해서 봐야 한다. 이 게임은 전자가 아니라 후자가 먼저 막히므로, 다음 단계는 code table 추가보다 **payload 확장/재배치 전략** 쪽으로 가야 한다.
+
+### 실험 50
+
+- 가설: 공통 font payload 는 registry entry pointer/length 를 더 큰 위치로 옮기는 방식으로 확장 가능할 것이다. 다만 실제로는 상위 registry table 외에 mirror table 도 함께 갱신해야 할 수 있다.
+- 시도:
+  - `relocate-chunk` CLI 를 `gba_kor_tool` 에 추가했다.
+  - 먼저 `0x17C2F4` entry `0` 만 `0x800000`, `len=0x42000` 으로 옮기는 테스트 ROM 을 만들었다.
+  - 이어서 원본 `0x083E0000` literal hit 를 전역 검색해 추가 direct 참조를 점검했다.
+  - 그 결과 `0x1823A0` 가 `0x17C2F4` 와 동일한 pointer-length 엔트리 배열이라는 점을 확인했고, mirror table 갱신 옵션을 도구에 추가했다.
+  - 최종적으로 `0x17C2F4` entry `0` + `0x1823A0` entry `0` 을 함께 `0x08800000`, `len=0x42000` 으로 갱신한 테스트 ROM 을 다시 생성했다.
+- 결과:
+  - [font_chunk_relocation_test.json](/Users/user/test/analysis/font_chunk_relocation_test.json) 기준으로 공통 font payload 는 새 위치 `0x800000` 에 정상 복사됐고, 새 pointer/length 가 기록되었다.
+  - `inspect-fnt /private/tmp/hnr_font_expand_test_mirror.gba 0x800000` 결과도 정상이라, 새 위치 payload 자체는 올바른 `fnt` 로 읽힌다.
+  - 원본 `0x083E0000` word hit 는 `3`개였고, 의미 있는 갱신 대상은 최소 `0x17C2F4`, `0x1823A0` 두 곳으로 좁혀졌다.
+  - `0x1823A0` 는 단일 descriptor 가 아니라 `0x17C2F4` 와 같은 pointer-length 엔트리 배열의 mirror 로 확인되었다.
+- 판정: `성공`
+- 교훈: resource relocation 은 pointer 하나만 바꾸는 작업으로 보면 안 된다. 이 게임처럼 registry mirror/accessor table 이 별도로 존재할 수 있으므로, 실제 payload 재배치 전에는 **literal hit -> mirror 구조 -> 동시 갱신 대상** 을 먼저 닫아야 한다.

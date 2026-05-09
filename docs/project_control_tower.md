@@ -53,6 +53,8 @@
 - 이어서 `audit-fnt-usage` CLI 로 현재 추출 텍스트 기준 공통 font usage audit 을 고정했고, mapped code `1698` 중 현재 사용 `1411`, 미사용 `287`, glyph gap `0`, payload tail free `0` 이라는 결론을 얻었다.
 - decoder 허용 Shift-JIS lead byte 공간 안에는 free code 가 많이 남아 있어, 현재 한글화 병목은 code space 가 아니라 **glyph 저장 공간** 으로 정리됐다.
 - 그래서 공통 font 쪽 다음 단계는 `unused glyph 일부 치환` 과 `payload 확장/재배치` 중 첫 실제 테스트 전략을 고르는 것이다.
+- `relocate-chunk` CLI 도 추가했고, 공통 font entry `0` 을 `0x800000`, `len=0x42000` 으로 옮긴 테스트 ROM 생성까지 검증했다.
+- 이 과정에서 공통 font pointer 는 `0x17C2F4` entry `0` 뿐 아니라 mirror table `0x1823A0` entry `0` 도 함께 갱신해야 한다는 점을 확인했다.
 
 - `0x184A0C..0x184AD3` 을 `10 * 0x14` effect/overlay parameter table 후보로 분리했다.
 - `0x03005FF8` 은 world-map 선택/hover location index byte 로 보는 해석이 강해졌다.

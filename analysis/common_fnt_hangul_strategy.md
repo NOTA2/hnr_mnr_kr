@@ -95,6 +95,18 @@
 
 1. 한글용 code range 를 decoder 허용 공간 안에서 1개 정한다.
 권장 시작 후보: `0xE940..`
-2. 공통 `fnt` payload 를 확장/재배치하는 patch 절차를 설계한다.
-3. 최소 `10~20` 글자 정도의 테스트용 한글 glyph 를 붙여 첫 표시 실험을 한다.
-4. 그 뒤에 실제 번역문에서 필요한 glyph inventory 규모를 계산한다.
+2. 공통 `fnt` payload 를 확장/재배치하는 patch 절차를 실행한다.
+현재 [font_chunk_relocation_test.json](/Users/user/test/analysis/font_chunk_relocation_test.json) 기준으로, `relocate-chunk` 로 font entry `0` 을 `0x800000`, `len=0x42000` 로 옮기는 실험은 성공했다.
+3. 단, 이때는 `0x17C2F4` entry `0` 만 바꾸면 끝이 아니라, 같은 entry 를 담은 mirror table `0x1823A0` 도 함께 갱신해야 한다.
+4. 최소 `10~20` 글자 정도의 테스트용 한글 glyph 를 붙여 첫 표시 실험을 한다.
+5. 그 뒤에 실제 번역문에서 필요한 glyph inventory 규모를 계산한다.
+
+## 재배치 실험에서 확인된 점
+
+- `relocate-chunk` 로 공통 font payload 를 ROM 끝 `0x800000` 으로 복사하고 길이를 `0x42000` 으로 늘린 테스트 ROM 을 만들 수 있다.
+- 이 테스트 ROM 은 `inspect-fnt 0x800000` 기준으로 여전히 정상 `fnt` payload 로 읽힌다.
+- 원본 `0x083E0000` direct word hit 는 `3`개였고:
+  - `0x17C2F4`: 상위 registry table entry
+  - `0x1823A0`: 같은 pointer-length 엔트리의 mirror table
+  - `0x51B1A0`: 현재는 코드보다 raw data 성격이 강한 잔여 hit
+- 따라서 실제 patch 경로에서는 최소한 **registry entry + mirror table** 동시 갱신을 기본 규칙으로 삼아야 한다.

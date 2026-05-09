@@ -1309,6 +1309,43 @@ def inspect_chunk_table(
     }
 
 
+def read_chunk_entry(data: bytes, *, table_offset: int, index: int, layout: str) -> Dict[str, int]:
+    entry_offset = table_offset + index * 8
+    if entry_offset + 8 > len(data):
+        raise ToolError("청크 엔트리 위치가 ROM 끝을 넘어갑니다.")
+    raw_first, raw_second = struct.unpack_from("<II", data, entry_offset)
+    length, rom_address = unpack_chunk_table_entry(raw_first, raw_second, layout)
+    if not is_valid_chunk_entry(len(data), length=length, rom_address=rom_address):
+        raise ToolError("유효한 청크 엔트리가 아닙니다.")
+    file_offset = rom_address - ROM_BASE
+    return {
+        "entry_offset": entry_offset,
+        "raw_first_u32": raw_first,
+        "raw_second_u32": raw_second,
+        "length": length,
+        "rom_address": rom_address,
+        "file_offset": file_offset,
+        "end_offset_exclusive": file_offset + length,
+    }
+
+
+def write_chunk_entry(
+    data: bytearray,
+    *,
+    entry_offset: int,
+    layout: str,
+    rom_address: int,
+    length: int,
+) -> None:
+    if layout == "pointer-length":
+        struct.pack_into("<II", data, entry_offset, rom_address, length)
+        return
+    if layout == "length-pointer":
+        struct.pack_into("<II", data, entry_offset, length, rom_address)
+        return
+    raise ToolError(f"지원하지 않는 청크 레이아웃입니다: {layout}")
+
+
 def render_4bpp_tiles(data: bytes, *, offset: int, tiles: int, columns: int) -> Tuple[bytes, int, int]:
     width = columns * 8
     rows = math.ceil(tiles / columns)
@@ -2185,6 +2222,106 @@ def cmd_inspect_chunk_table(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_relocate_chunk(args: argparse.Namespace) -> int:
+    rom_path = Path(args.rom)
+    output_path = Path(args.output_rom)
+    data = bytearray(load_rom(rom_path))
+    table_offset = parse_offset(args.table)
+    entry = read_chunk_entry(
+        data,
+        table_offset=table_offset,
+        index=args.index,
+        layout=args.layout,
+    )
+    old_length = entry["length"]
+    new_length = parse_offset(args.new_length) if args.new_length else old_length
+    if new_length < old_length and not args.allow_shrink:
+        raise ToolError("기본 동작에서는 기존 청크보다 작은 길이로 줄일 수 없습니다. --allow-shrink 를 사용하세요.")
+
+    if args.destination_offset:
+        destination = parse_offset(args.destination_offset)
+    else:
+        destination = align_up(len(data), args.align)
+
+    if destination < len(data):
+        destination = align_up(destination, args.align)
+    if destination > len(data):
+        gap = destination - len(data)
+        data.extend(bytes([parse_hex_byte(args.fill_byte)]) * gap)
+
+    end = destination + new_length
+    if end > len(data):
+        data.extend(bytes([parse_hex_byte(args.fill_byte)]) * (end - len(data)))
+
+    original_payload = bytes(data[entry["file_offset"]:entry["end_offset_exclusive"]])
+    data[destination:destination + old_length] = original_payload
+    if new_length > old_length:
+        data[destination + old_length:end] = bytes([parse_hex_byte(args.fill_byte)]) * (new_length - old_length)
+
+    new_rom_address = ROM_BASE + destination
+    write_chunk_entry(
+        data,
+        entry_offset=entry["entry_offset"],
+        layout=args.layout,
+        rom_address=new_rom_address,
+        length=new_length,
+    )
+    mirror_updates = []
+    for raw_mirror in args.mirror_table:
+        mirror_table_offset = parse_offset(raw_mirror)
+        mirror_entry = read_chunk_entry(
+            data,
+            table_offset=mirror_table_offset,
+            index=args.index,
+            layout=args.layout,
+        )
+        write_chunk_entry(
+            data,
+            entry_offset=mirror_entry["entry_offset"],
+            layout=args.layout,
+            rom_address=new_rom_address,
+            length=new_length,
+        )
+        mirror_updates.append(
+            {
+                "table_offset": mirror_table_offset,
+                "entry_offset": mirror_entry["entry_offset"],
+                "old_rom_address": mirror_entry["rom_address"],
+                "old_length": mirror_entry["length"],
+            }
+        )
+    write_binary(output_path, bytes(data))
+
+    result = {
+        "table_offset": table_offset,
+        "layout": args.layout,
+        "index": args.index,
+        "entry_offset": entry["entry_offset"],
+        "old_rom_address": entry["rom_address"],
+        "old_file_offset": entry["file_offset"],
+        "old_length": old_length,
+        "new_rom_address": new_rom_address,
+        "new_file_offset": destination,
+        "new_length": new_length,
+        "mirror_updates": mirror_updates,
+        "output_rom": str(output_path),
+    }
+    if args.report:
+        write_json(Path(args.report), result)
+
+    print(f"patched     : {output_path}")
+    print(f"table       : {format_offset(table_offset)} ({args.layout})")
+    print(f"entry       : {args.index}")
+    print(f"old_chunk   : {format_offset(entry['file_offset'])} len=0x{old_length:X}")
+    print(f"new_chunk   : {format_offset(destination)} len=0x{new_length:X}")
+    print(f"new_pointer : 0x{new_rom_address:08X}")
+    if mirror_updates:
+        print(f"mirrors     : {', '.join(format_offset(item['table_offset']) for item in mirror_updates)}")
+    if args.report:
+        print(f"report      : {args.report}")
+    return 0
+
+
 def cmd_replace_text(args: argparse.Namespace) -> int:
     rom_path = Path(args.rom)
     output_path = Path(args.output_rom)
@@ -2616,6 +2753,24 @@ def build_parser() -> argparse.ArgumentParser:
     inspect_fnt.add_argument("--preview", type=int, default=40)
     inspect_fnt.add_argument("--output")
     inspect_fnt.set_defaults(func=cmd_inspect_fnt)
+
+    relocate_chunk = sub.add_parser(
+        "relocate-chunk",
+        help="registry 청크를 더 큰 위치로 복사하고 table pointer/length 를 갱신합니다.",
+    )
+    relocate_chunk.add_argument("rom")
+    relocate_chunk.add_argument("output_rom")
+    relocate_chunk.add_argument("--table", required=True)
+    relocate_chunk.add_argument("--index", required=True, type=int)
+    relocate_chunk.add_argument("--layout", choices=["length-pointer", "pointer-length"], required=True)
+    relocate_chunk.add_argument("--new-length")
+    relocate_chunk.add_argument("--destination-offset")
+    relocate_chunk.add_argument("--mirror-table", action="append", default=[])
+    relocate_chunk.add_argument("--fill-byte", default="FF")
+    relocate_chunk.add_argument("--align", type=int, default=4)
+    relocate_chunk.add_argument("--allow-shrink", action="store_true")
+    relocate_chunk.add_argument("--report")
+    relocate_chunk.set_defaults(func=cmd_relocate_chunk)
 
     audit_fnt = sub.add_parser(
         "audit-fnt-usage",

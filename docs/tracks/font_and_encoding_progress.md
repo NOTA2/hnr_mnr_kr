@@ -88,6 +88,15 @@
   를 집계한다.
 - 즉 **현재 payload 안에는 한글 glyph 를 그대로 추가할 여유가 없고**, 본격 한글화는 `unused glyph 일부 치환` 또는 `payload 확장/재배치` 전략이 필요하다.
 - 반면 decoder 허용 Shift-JIS lead byte 공간 (`0x81..0x9F`, `0xE0..0xEF`) 안의 free code 는 여전히 많아서, 병목은 code space 가 아니라 glyph space 다.
+- `relocate-chunk` CLI 도 추가했다.
+- 이 도구로 공통 font entry `0` 을 더 큰 위치로 복사하고 table pointer/length 를 갱신하는 테스트가 가능하다.
+- 실제 검증:
+  - `0x17C2F4` entry `0` 을 `0x800000`, `len=0x42000` 으로 옮긴 테스트 ROM 생성 성공
+  - 새 위치 `0x800000` 는 `inspect-fnt` 기준으로 여전히 정상 `fnt` payload 로 읽힘
+- 중요한 추가 규칙:
+  - 공통 font pointer 는 `0x17C2F4` entry `0` 만 있는 것이 아니다.
+  - `0x1823A0` 에 **같은 pointer-length 엔트리 mirror** 가 있고, 이쪽도 함께 갱신해야 한다.
+- 따라서 실제 한글용 font 확장 patch 는 최소한 `registry entry + mirror table` 동시 갱신을 기본 절차로 삼아야 한다.
 - 큰 free code block 예:
   - `0x8440..0x84FF`
   - `0x8540..0x85FF`
@@ -111,8 +120,9 @@
 2. `obj + 0x18 / +0x20` 해석을 실제 UI 줄폭/박스 크기와 더 대조
 3. `0x01570C / 0x01578C / 0x01580C / 0x01588C` 네 writer variant 차이 확인
 4. common `fnt` audit 를 바탕으로 `unused glyph 일부 치환` 과 `payload 확장/재배치` 중 첫 테스트 전략 선택
-5. decoder 허용 free code block 중 한글용 code range 를 1개 정하기
-6. 텍스트 source inventory 가 거의 닫힌 시점에 첫 실제 한글 재삽입 테스트용 문자 매핑 계획으로 전환
+5. payload 확장/재배치 쪽은 `0x17C2F4 + 0x1823A0` 동시 갱신 기준으로 첫 실제 glyph 삽입 실험 설계
+6. decoder 허용 free code block 중 한글용 code range 를 1개 정하기
+7. 텍스트 source inventory 가 거의 닫힌 시점에 첫 실제 한글 재삽입 테스트용 문자 매핑 계획으로 전환
 
 ## 진행 로그
 
@@ -137,3 +147,4 @@
 - 이후 텍스트 추출 쪽은 coverage audit 위주로 잠깐 우선했고, 폰트/문자 매핑은 **첫 실제 한글 재삽입 테스트 직전 단계**로 다시 올릴 계획을 명시했다
 - `audit-fnt-usage` CLI 를 추가해 실제 추출 텍스트 기준 font usage audit 을 재현 가능하게 만들었고, 그 결과 glyph gap `0`, payload tail free `0`, decoder-space free code `7337` 이라는 결론을 고정했다
 - 따라서 지금 시점의 핵심 판단은 "한글 code point 는 충분히 배정 가능하지만, glyph 는 payload 확장/재배치 없이는 full-game 규모로 넣기 어렵다" 이다
+- `relocate-chunk` CLI 를 추가해 공통 font payload relocation 실험을 재현 가능하게 만들었고, mirror table `0x1823A0` 도 함께 갱신해야 한다는 추가 조건을 확인했다
