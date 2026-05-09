@@ -38,6 +38,8 @@
 - 폰트 쪽에서는 `0x03EB78 / 0x03ECCC / 0x03EDB8` helper family 도 일반 일본어 렌더러가 아니라 ASCII/숫자 UI glyph tilemap writer 쪽으로 좁혀졌다.
 - world-map 지역명 caller `0x06A95A..0x06A972` 를 따라가 `0x014A98 -> 0x014ED0 -> 0x015A4C` 공통 text object family 를 찾았고, `0x014ED0` 가 Shift-JIS lead byte 범위를 직접 검사하는 general Japanese text loop 후보라는 점을 확인했다.
 - 이어서 `0x0152A2..0x0152C4` 에서 문자코드가 `obj + 0x04` lookup table, `obj + 0x08` glyph base, `obj + 0x1A` stride 를 통해 glyph source pointer 로 바뀌는 흐름과 `0x01570C..0x015984` writer family 도 확인했다.
+- `0x01499C` 가 font resource header 를 해석해 object 에 lookup base / glyph base / stride 를 심는 initializer 라는 점과, 주요 text object caller 가 공통 `0x0002CC(0, 1)` resource 를 공유한다는 점도 확인했다.
+- 이어서 `0x000290 / 0x0002CC / 0x000304 / 0x00033C` loader family 가 hub `0x076530` pointer table 과 `0x0A` record 구조를 통해 이 공통 font resource 를 공급한다는 점도 확인했다.
 
 - `0x184A0C..0x184AD3` 을 `10 * 0x14` effect/overlay parameter table 후보로 분리했다.
 - `0x03005FF8` 은 world-map 선택/hover location index byte 로 보는 해석이 강해졌다.

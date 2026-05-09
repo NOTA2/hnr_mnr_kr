@@ -871,3 +871,37 @@
   - `0x015608` 은 `obj + 0x1F` 와 `obj + 0x10` 을 사용해 `obj + 0x14` destination pointer 를 다시 계산하므로, text object 가 tile page 단위 cursor/state 를 별도로 가진다는 점도 확인됐다.
 - 판정: `성공`
 - 교훈: font/encoding 조사에서는 "문자열을 어떻게 읽는가" 다음에 "문자코드를 어떤 object field 조합으로 glyph source 로 바꾸는가"를 잡아야 실제 치환 설계가 가능해진다. lookup table, glyph base, stride, destination cursor 를 분리해서 기록하는 편이 재탐색을 줄인다.
+
+### 실험 37
+
+- 가설: `0x01499C` 는 단순 object clear 가 아니라, 실제 font resource header 를 해석해 lookup table / glyph base / stride 를 object 에 세팅하는 initializer 일 것이다. 주요 화면이 같은 인자로 이 함수를 부르면 공통 font resource 사용 여부도 확인할 수 있다.
+- 시도:
+  - `0x01499C..0x014BAE` 와 이어지는 `0x014AE0..0x014BAE` 를 직접 읽어 object field write 패턴을 정리했다.
+  - `0x015A32`, `0x0618AE`, `0x064B66`, `0x069D7C` caller 를 비교해 `0x0002CC` 인자와 후속 초기화 흐름을 맞춰 봤다.
+  - 보조 근거로 `0x08088318` 주변 ROM 문자열도 확인했다.
+- 결과:
+  - `0x01499C` 는 `obj + 0x00 = resource_ptr`, `obj + 0x04 = lookup base`, `obj + 0x08 = glyph base`, `obj + 0x1A = resource[8] stride` 를 채우는 initializer 로 읽힌다.
+  - `resource[7] & 0x80` 이 켜져 있으면 lookup base 는 `resource + 0x10 + 0x40000` 이 되고, glyph base 는 그 뒤 `+0x20000` 위치가 된다.
+  - `obj + 0x16` 에는 `resource[7] & 0x1F` 가 저장되고, initializer 인자 `r2` 는 `obj + 0x1C`, `obj + 0x1D` 에 복제된다.
+  - `0x08088318` 문자열은 `"FONT INITIALIZE ERROR"` 로 확인되어 함수 역할과 잘 맞는다.
+  - 주요 caller `0x015A28`, `0x0618A4`, `0x064B5C`, `0x069D72` 는 모두 `0x0002CC(0, 1)` 뒤 `0x01499C` 를 호출한다.
+  - 따라서 현재까지 확인된 general text object 화면은 **공통 font resource pair `(0, 1)`** 를 공유하는 해석이 가장 강하다.
+- 판정: `성공`
+- 교훈: font path 조사에서는 text loop 자체만 보면 부족하다. object 생성 시점에서 어떤 resource header 가 lookup table 과 glyph base 를 심는지 먼저 고정해 두면, 이후 한글 글리프 치환은 “런타임 구조 추측”이 아니라 “공통 asset 교체” 문제로 좁혀진다.
+
+### 실험 38
+
+- 가설: `0x0002CC(0, 1)` 는 막연한 allocator 가 아니라, 이미 정리해 둔 hub `0x076530` / registry 계열을 따라 resource pointer 를 꺼내는 공통 loader 일 것이다. 이게 맞으면 text font resource 의 상위 위치도 더 직접적으로 설명할 수 있다.
+- 시도:
+  - `0x000290..0x00033C` 를 직접 읽어 인자 사용 방식과 record stride 를 정리했다.
+  - `0x00033C` 가 `0x0002CC`, `0x000304` 를 어떻게 쓰는지 같이 확인해 pointer / length 역할을 분리했다.
+  - 이를 앞서 확인한 `0x01499C` caller 의 `0x0002CC(0, 1)` 패턴과 연결했다.
+- 결과:
+  - `0x000290(registry_slot)` 은 hub `0x08076530` table 에서 선택한 registry base pointer 를 돌려준다.
+  - `0x0002CC(entry_index, registry_slot)` 은 해당 registry base 에서 `entry_index * 0x0A` record 를 계산하고, record `+0x00` 의 payload pointer 를 돌려준다.
+  - `0x000304(entry_index, registry_slot)` 은 같은 record `+0x04` 의 length 를 돌려준다.
+  - `0x00033C(dest, entry_index, registry_slot)` 은 DMA3 를 기다린 뒤 위 pointer / length 를 사용해 payload 를 `dest` 로 복사한다.
+  - 따라서 현재 가장 안전한 상위 record 해석은 `record size = 0x0A`, `+0x00 = pointer`, `+0x04 = length` 다.
+  - 이 구조를 적용하면 `0x01499C` 가 쓰는 공통 font resource 는 **registry slot `1` entry `0`** 으로 읽는 편이 가장 자연스럽다.
+- 판정: `성공`
+- 교훈: lower-level text engine 분석과 상위 registry loader 분석을 분리해 두면 각각 애매할 수 있다. 하지만 둘을 연결하면 “공통 font asset이 어떤 entry인가”까지 바로 내려가므로, 다음 단계인 raw tile / lookup 배치 확인이 훨씬 짧아진다.

@@ -49,13 +49,20 @@
 - `0x0152A2..0x0152C4` 에서는 현재 문자코드 `u16` 를 `obj + 0x04` 기반 `u16` lookup table 로 조회한 뒤, `obj + 0x1A` stride 와 `obj + 0x08` glyph base 를 이용해 실제 glyph source pointer 를 계산한다.
 - 이후 `0x01570C / 0x01578C / 0x01580C / 0x01588C` writer family 가 glyph source 를 target 으로 복사하고, low-level halfword writer 는 `0x01590C` / `0x015984` 두 종류로 갈린다.
 - `0x015608` 은 `obj + 0x1F` 와 `obj + 0x10` 을 사용해 `obj + 0x14` destination pointer 를 재계산하므로, text object 가 tile page 단위 cursor/state 를 따로 가진다는 점도 보였다.
+- `0x01499C` 는 font resource initializer 후보로, `obj + 0x00 = resource_ptr`, `obj + 0x04 = lookup base`, `obj + 0x08 = glyph base`, `obj + 0x1A = resource[8] stride` 를 채운다.
+- 이 함수는 `resource[7] & 0x80` 에 따라 lookup base 에 `+0x40000` 을 더하고, glyph base 는 그 뒤 `+0x20000` 위치로 잡는다.
+- ROM 문자열 `0x08088318 = "FONT INITIALIZE ERROR"` 도 이 함수 주변에서 참조되어 역할과 맞는다.
+- `0x000290 / 0x0002CC / 0x000304 / 0x00033C` 는 상위 resource loader family 로 보인다.
+- `0x000290(registry_slot)` 은 hub `0x08076530` table 에서 registry base pointer 를 고르고, `0x0002CC(entry_index, registry_slot)` 은 그 registry 의 `0x0A` record 에서 payload pointer 를 돌려준다.
+- `0x000304(entry_index, registry_slot)` 은 같은 record 의 length 를 돌려주고, `0x00033C(dest, entry_index, registry_slot)` 은 DMA3 로 payload 를 `dest` 로 복사한다.
+- 현재까지 확인한 주요 caller (`0x015A28`, `0x0618A4`, `0x064B5C`, `0x069D72`) 는 모두 `0x0002CC(0, 1)` 뒤 `0x01499C` 를 호출하므로, **registry slot 1 entry 0 공통 font resource** 가 여러 text object 화면에서 재사용된다는 해석이 가장 강하다.
 
 ## 다음 할 일
 
-1. `obj + 0x04` glyph lookup table 과 `obj + 0x08` glyph base 를 세팅하는 initializer 찾기
+1. `0x0002CC(0, 1)` 의 registry slot `1` 이 기존 Registry B 분류와 정확히 대응하는지 확인
 2. `0x014ED0` 또는 그 하위 helper 에서 width/advance 누적 field 확인
 3. `0x01570C / 0x01578C / 0x01580C / 0x01588C` 네 writer variant 차이 확인
-4. `0x014A98` caller 화면군이 공통 font asset 을 쓰는지 확인
+4. slot `1` entry `0` payload 원본의 raw tile / lookup 배치를 확인
 
 ## 진행 로그
 
@@ -71,3 +78,5 @@
 - `0x03EB78 / 0x03ECCC / 0x03EDB8` 를 추가로 따라가 본 결과, 이 helper family 는 일반 일본어 폰트가 아니라 ASCII/숫자 UI glyph tilemap writer 쪽이라는 점을 확인
 - world-map 지역명 표시 경로에서 `0x014A98 -> 0x014ED0` 공통 text object family 를 잡았고, `0x014ED0` 가 Shift-JIS lead byte 범위를 직접 검사하는 general Japanese text loop 후보라는 점을 확인
 - `0x0152A2..0x0152C4` 에서 문자코드가 `obj + 0x04` lookup table 과 `obj + 0x08` glyph base 를 거쳐 glyph source pointer 로 바뀌는 흐름을 확인
+- `0x01499C` 가 font resource header 를 해석해 object 에 lookup base, glyph base, stride 를 심는 initializer 라는 점과, 주요 text object 화면이 모두 `0x0002CC(0, 1)` 공통 resource 를 쓴다는 점을 확인
+- `0x000290 / 0x0002CC / 0x000304 / 0x00033C` loader family 가 hub `0x076530` 쪽 registry record 를 통해 이 공통 font resource 를 공급한다는 점을 확인

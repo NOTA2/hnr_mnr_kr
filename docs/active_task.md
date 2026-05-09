@@ -50,8 +50,12 @@
   - `0x014A98` 는 문자 디코더라기보다 **text object / window entry setup helper** 에 가깝다.
   - `0x014ED0` 는 문자열 바이트를 직접 읽으며 `0x81..0x9F`, `0xE0..0xEF` 를 Shift-JIS multibyte lead byte 후보로, `0x20..0x7E` 를 ASCII / halfwidth 로 분기한다.
   - `0x015A4C..0x015A80` 는 `0x03001540 + index * 0x2C` text object `11`개를 순회하며 `0x014ED0` 을 호출한다.
+  - `0x01499C` 는 font resource initializer 후보로, `obj + 0x04 = lookup base`, `obj + 0x08 = glyph base`, `obj + 0x1A = stride` 를 채운다.
+  - 이 함수는 `resource[7] & 0x80` 에 따라 lookup base 에 `+0x40000` 을 더하고, glyph base 는 그 뒤 `+0x20000` 위치로 잡는다.
+  - `0x000290 / 0x0002CC / 0x000304 / 0x00033C` 는 상위 resource loader family 이고, hub `0x076530` pointer table 에서 registry base 를 고른 뒤 `0x0A` record 의 pointer / length 를 꺼내 쓴다.
   - `0x0152A2..0x0152C4` 는 현재 문자코드 `u16` 를 `obj + 0x04` lookup table 로 바꾼 뒤, `obj + 0x1A` stride 와 `obj + 0x08` glyph base 로 실제 glyph source pointer 를 계산한다.
   - `0x01570C / 0x01578C / 0x01580C / 0x01588C` 는 이 glyph source 를 tile target 으로 복사하는 writer family 이고, `0x01590C` / `0x015984` 가 그 하위 halfword writer 다.
+  - 현재까지 확인한 주요 text object 초기화 경로는 모두 `0x0002CC(0, 1)` 뒤 `0x01499C` 를 호출하므로, registry slot `1` entry `0` 공통 font resource 를 공유하는 해석이 가장 강하다.
   - 따라서 현재 가장 유력한 공통 일본어 텍스트 경로는 **`0x014A98 / 0x014ED0 / 0x015A4C` family** 다.
 - 따라서 현재 병목은 데이터 구조보다 **폰트/문자 매핑/문자폭** 쪽이다.
 
