@@ -1091,3 +1091,17 @@
   - `0x1823A0` 는 단일 descriptor 가 아니라 `0x17C2F4` 와 같은 pointer-length 엔트리 배열의 mirror 로 확인되었다.
 - 판정: `성공`
 - 교훈: resource relocation 은 pointer 하나만 바꾸는 작업으로 보면 안 된다. 이 게임처럼 registry mirror/accessor table 이 별도로 존재할 수 있으므로, 실제 payload 재배치 전에는 **literal hit -> mirror 구조 -> 동시 갱신 대상** 을 먼저 닫아야 한다.
+
+### 실험 51
+
+- 가설: 텍스트 추출 쪽은 "아직도 계속 구조 분석을 더 해야 하는 상태"와 "실질적으로 닫히고 폰트/재삽입이 우선인 상태"를 구분해서 문서에 명시해야 한다. 이 구분이 없으면 작업 우선순위가 다시 흔들릴 수 있다.
+- 시도:
+  - [text_extraction_coverage.md](/Users/user/test/analysis/text_extraction_coverage.md), [text_extraction_progress.md](/Users/user/test/docs/tracks/text_extraction_progress.md), [active_task.md](/Users/user/test/docs/active_task.md) 를 다시 읽고 현재 완료 조건 `1~4` 를 재판정했다.
+  - 그 결과를 기준으로 docs/analysis 안내 문서와 legacy handoff 문서도 함께 정리했다.
+- 결과:
+  - Registry A tail (`9..17`) 분류는 현재 실무 기준으로 닫힌 상태로 정리됐다.
+  - Registry D entry `70` 판정도 현재 실무 기준으로 닫힌 상태로 정리됐다.
+  - 남은 핵심 텍스트 추출 과제는 Registry A entry `8` cluster 장면/용도 라벨링과 실제 플레이 검증으로 좁혀졌다.
+  - 따라서 특별한 새 text source 징후가 없는 한, 현재 우선순위는 폰트/재삽입 쪽이라는 점을 문서에 명시했다.
+- 판정: `성공`
+- 교훈: coverage 문서는 단순 현황표가 아니라 **작업 우선순위 전환 기준** 이어야 한다. 닫힌 항목과 아직 열린 항목을 분리해 적지 않으면, 끝난 구조 분석을 다시 반복하기 쉽다.

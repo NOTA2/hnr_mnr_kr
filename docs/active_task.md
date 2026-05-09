@@ -22,13 +22,13 @@
   - [ability_texts.json](/Users/user/test/analysis/ability_texts.json)
 - [translation_workset_core_ui.json](/Users/user/test/analysis/translation_workset_core_ui.json) 는 `system + save + location + ui_skill` 을 합친 첫 작업용 세트다.
 - 위 작업 세트는 `43`개 레코드이며, 시스템/세이브/지역명 앞부분은 이미 한국어 초안이 들어 있다.
-- Registry D (`0x17C7E4..0x17CB04`) 는 아직 덜 추출된 대사/이벤트 텍스트의 핵심 후보다.
+- Registry D (`0x17C7E4..0x17CB04`) 는 한때 덜 추출된 대사/이벤트 텍스트의 핵심 후보였고, 지금은 전용 추출 규칙이 확보된 상태다.
 - Registry D 물리 범위 `0x7F3000..0x7F96E9` 를 슬라이딩 스캔하면 현재 `305`개 대사성 문자열이 잡힌다.
 - 전체본은 [registry_d_full_sliding_texts.json](/Users/user/test/analysis/registry_d_full_sliding_texts.json), 번역용 작업 세트는 [translation_workset_registry_d_dialogue.json](/Users/user/test/analysis/translation_workset_registry_d_dialogue.json) 에 있다.
 - Registry D 의 많은 엔트리는 plain terminator 문자열이 아니라 `FC` 제어 바이트가 섞인 mixed script 형식이다.
 - `scan-fc-script-text` 로 `FC 00 ... FC` anchor 기반 추출을 하면 [registry_d_fc_script_texts.json](/Users/user/test/analysis/registry_d_fc_script_texts.json) `244`건이 clean extraction 된다.
 - 위 `244`건은 `82 / 100` 엔트리에서 나오고, per-entry 요약은 [registry_d_fc_script_summary.json](/Users/user/test/analysis/registry_d_fc_script_summary.json) 에 있다.
-- 남은 [registry_d_unresolved_entries.json](/Users/user/test/analysis/registry_d_unresolved_entries.json) `18`개는 대부분 `2-byte sentinel/control stub` 이고, 실질적인 미추출 대사 후보는 entry `70` 정도만 남는다.
+- 남은 [registry_d_unresolved_entries.json](/Users/user/test/analysis/registry_d_unresolved_entries.json) `18`개는 대부분 `2-byte sentinel/control stub` 이고, 현재 기준 실질적인 미추출 대사 후보는 거의 남지 않았다.
 - entry `70` 도 raw bytes 재확인 결과 `FC` 가 매우 조밀한 command/control table 패턴이라, 현재는 **실질 대사 미추출 후보보다 control-only script table** 로 보는 해석이 더 강하다.
 - 따라서 Registry D 는 이제 "나중에 다시 볼 미해결 대사 뱅크"가 아니라, **mixed-format 전용 추출 규칙이 잡힌 active extraction 대상** 이다.
 - Registry A entry `8` (`0x6B594C..0x773248`) 는 지역명만 담긴 entry 가 아니라, `0x10` 종단 command-stream 대사/이벤트/메뉴가 함께 섞인 대형 mixed script bank 후보다.
@@ -86,6 +86,11 @@
 - 따라서 현재 병목은 데이터 구조보다 **폰트/문자 매핑/문자폭** 쪽이다.
 - 폰트/문자 매핑 작업은 중단한 것이 아니라, 텍스트 source inventory 를 거의 닫은 뒤 **첫 실제 한글 재삽입 테스트 직전 단계**로 다시 올린다.
 - 현재 판단상 첫 실제 한글 재삽입 테스트는 "unused glyph 일부 치환" 또는 "공통 fnt payload 확장/재배치" 두 갈래 중 하나를 택해 진행해야 한다.
+- 즉, 현재는 **특별한 새 text source 징후가 나오지 않는 한** 텍스트 추출용 구조 분석을 더 깊게 파기보다 폰트/재삽입 쪽을 우선한다.
+- 텍스트 추출 구조 분석이 다시 바로 올라오는 조건은:
+  - 실제 플레이에서 새 일본어가 나옴
+  - cluster 라벨링 과정에서 미분류 text source 의심 구간이 튀어 나옴
+  - 재삽입 중 특정 화면이 다른 별도 text bank 를 쓰는 정황이 드러남
 - "텍스트를 100% 다 뽑았는가?"에 대한 현재 판정 기준과 상태는 [text_extraction_coverage.md](/Users/user/test/analysis/text_extraction_coverage.md) 에 정리했다.
 
 ## 분석 보존 위치

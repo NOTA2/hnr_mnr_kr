@@ -7,6 +7,12 @@
 - ROM 안에 **전체 텍스트 총량이 적혀 있는 단일 카운터**가 있다고 가정하면 안 된다.
 - 따라서 `100% 완료`는 숫자 하나를 찾는 문제가 아니라, **텍스트를 공급하는 구조를 전부 식별했는가**의 문제다.
 - 실무적으로는 아래 4가지를 모두 만족할 때 `operational 100%` 에 가깝다고 본다.
+- 현재 기준으로는:
+  - `1. Registry A tail 분류`: **실질 완료**
+  - `2. Registry D entry 70 판정`: **실질 완료**
+  - `3. Registry A entry 8 cluster 장면/용도 라벨링`: **부분 완료**
+  - `4. 실제 플레이에서 새 일본어 미출현 확인`: **미완료**
+- 그래서 지금은 텍스트 추출 구조 분석을 무한히 계속하는 단계가 아니라, **새 text source 징후가 나오지 않는 한 폰트/재삽입 쪽을 우선해도 되는 상태**다.
 
 ## 100% 판정 기준
 
@@ -44,7 +50,8 @@
   - entry `12`: gameplay/item text `22`건 확인. [registry_a_entry12_texts.json](/Users/user/test/analysis/registry_a_entry12_texts.json) 으로 별도 확보
   - entry `12` 의 `22`건 중 `16`건은 기존 `item_texts` / gameplay terms 와 중복이고, `6`건은 기존 workset 에 없던 텍스트다.
   - tail `9..17` 의 현재 분류는 [registry_a_tail_classification.json](/Users/user/test/analysis/registry_a_tail_classification.json) 에 정리했다.
-  - entry `9..11`, `13..17` 은 현재 기준으로 clean text 공급원이라고 확정되지 않았다.
+  - entry `9..11`, `13..17` 은 현재 기준으로 no confirmed text source 쪽이 강하다.
+  - 따라서 Registry A tail (`9..17`) 의 text/no-text 분류는 **현재 실무 기준으로는 닫힌 상태** 로 본다.
 - Registry B (`115` entries)
   - 현 단계에서는 live text bank 근거가 약하다.
   - direct font / asset / companion 소비 쪽 근거가 더 강하며, 텍스트 추출 주력 대상은 아니다.
@@ -55,6 +62,7 @@
   - hit entry `82 / 100`
   - 남은 [registry_d_unresolved_entries.json](/Users/user/test/analysis/registry_d_unresolved_entries.json) `18`개 중 대부분은 `2-byte sentinel/control stub`
   - entry `70` 도 현재는 raw bytes 패턴상 `control-only script table` 로 보는 쪽이 강해, 실질 미확인 대사 후보는 거의 남지 않았다.
+  - 따라서 Registry D unresolved 관점에서 핵심 이슈였던 entry `70` 판정은 **현재 실무 기준으로는 닫힌 상태** 로 본다.
 
 ## 현재 상태 평가
 
@@ -81,10 +89,9 @@
 
 아래를 만족하면 `텍스트 추출 operational 100%` 로 선언해도 무리가 적다.
 
-1. Registry A tail (`9..17`) 의 text/no-text 성격을 더 분류한다.
-2. Registry D unresolved `18`개 중 entry `70` 을 최종적으로 control-only 로 확정하거나 텍스트를 회수한다.
-3. Registry A entry `8` cluster 에 장면/용도 라벨을 붙인다.
-4. 실제 플레이 샘플에서 새 일본어가 더 나오지 않는지 1회 이상 확인한다.
+1. Registry A entry `8` cluster 에 장면/용도 라벨을 더 붙인다.
+2. 실제 플레이 샘플에서 새 일본어가 더 나오지 않는지 1회 이상 확인한다.
+3. 플레이나 추가 추출 과정에서 새 text source 징후가 보이면 그때만 상위 inventory 를 다시 연다.
 
 ## 현재 한 줄 판단
 

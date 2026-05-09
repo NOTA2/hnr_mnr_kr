@@ -12,6 +12,7 @@
 - 장기 대시보드: [project_control_tower.md](/Users/user/test/docs/project_control_tower.md)
 - 데이터 구조 트랙: [data_structure_investigation.md](/Users/user/test/docs/tracks/data_structure_investigation.md)
 - 텍스트 추출 트랙: [text_extraction_progress.md](/Users/user/test/docs/tracks/text_extraction_progress.md)
+- 분석 폴더 안내: [README.md](/Users/user/test/analysis/README.md)
 - 금지 가정: [current_constraints.md](/Users/user/test/analysis/current_constraints.md)
 - 실수 방지 규칙: [repeat_mistake_prevention.md](/Users/user/test/docs/repeat_mistake_prevention.md)
 
@@ -36,6 +37,12 @@
 - 전체 요약: [initial_findings.md](/Users/user/test/analysis/initial_findings.md)
 - 텍스트 뱅크 목록: [text_bank_inventory.md](/Users/user/test/analysis/text_bank_inventory.md)
 - 추출 진행: [text_extraction_progress.md](/Users/user/test/docs/tracks/text_extraction_progress.md)
+- 추출 커버리지 판정: [text_extraction_coverage.md](/Users/user/test/analysis/text_extraction_coverage.md)
+
+## Font
+
+- 렌더러 경로: [text_renderer_path.md](/Users/user/test/analysis/text_renderer_path.md)
+- 한글 전략 요약: [common_fnt_hangul_strategy.md](/Users/user/test/analysis/common_fnt_hangul_strategy.md)
 
 ## Large Data
 
