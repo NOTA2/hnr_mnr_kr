@@ -1028,3 +1028,19 @@
   - gameplay terms workset 는 entry `12` 신규 `6`건이 반영되도록 갱신됐다.
 - 판정: `성공`
 - 교훈: coverage audit 에서는 "새 규칙이 더 먹히는가"와 "이미 잡힌 bank 의 추출본이 완전한가"를 같이 봐야 한다. 특히 작은 bank 는 plain extract 결과를 그대로 확정하지 말고, sliding 결과와 대조해 누락 여부를 한 번 더 확인하는 편이 안전하다.
+
+### 실험 47
+
+- 가설: Registry A entry `8` 은 이미 `9823`건이 추출됐어도 너무 커서 실제 작업 단위로 쓰기 어렵다. 각 cluster 에 자동 태그와 샘플을 붙이면 "미추출 문제"와 "정리 부족 문제"를 분리하는 데 큰 도움이 될 것이다.
+- 시도:
+  - `summarize-text-clusters` CLI 를 `gba_kor_tool` 에 추가했다.
+  - 입력 JSON의 `offset/text` 레코드를 gap threshold 기준으로 cluster 화하고, `sample_texts`, `tags`, `primary_tag` 를 자동으로 붙이게 했다.
+  - 이 도구를 entry `8` 추출본에 적용해 [registry_a_entry8_cluster_catalog.json](/Users/user/test/analysis/registry_a_entry8_cluster_catalog.json) 과 [registry_a_entry8_cluster_catalog.md](/Users/user/test/analysis/registry_a_entry8_cluster_catalog.md) 를 생성했다.
+  - 사람이 빨리 훑는 용도로 [registry_a_entry8_cluster_overview.md](/Users/user/test/analysis/registry_a_entry8_cluster_overview.md), 태그 분포용 [registry_a_entry8_cluster_tag_summary.json](/Users/user/test/analysis/registry_a_entry8_cluster_tag_summary.json) 도 만들었다.
+- 결과:
+  - entry `8` 은 `72`개 cluster 로 재구성됐고, 이제 각 cluster 에 대해 `range`, `record_count`, `primary_tag`, `tags`, `sample_texts` 를 바로 볼 수 있다.
+  - 자동 분포 기준으로 primary tag 는 `military 18`, `central 15`, `east_city 10`, `liore 5`, `bank 5`, `cat_quest 4` 등으로 나뉘었다.
+  - cluster `71` 은 `save_menu` 태그가 붙지만, 실제로는 save/menu 전용이 아니라 후기 진행 prompt 와 일반 이벤트 대사가 함께 섞인 mixed hub 라는 점도 드러났다.
+  - 따라서 entry `8` 은 이제 "큰 bank 하나"가 아니라, **장면/용도 후보를 가진 작업 지도** 로 다룰 수 있게 되었다.
+- 판정: `성공`
+- 교훈: 대형 mixed bank 는 "추출 성공"만으로는 충분하지 않다. 실제 한글화 준비에서는 cluster catalog 같은 중간 레이어가 있어야, 텍스트가 덜 뽑힌 건지 아니면 이미 뽑았는데 정리만 안 된 건지 빠르게 구분할 수 있다.

@@ -39,6 +39,7 @@
 - 따라서 다른 미추출 대사 구간은 같은 규칙의 반복이 아니라, 별도 mixed format / command stream 으로 우선 취급하는 편이 안전하다.
 - Registry A entry 8 작업용 분할 지도는 [registry_a_entry8_cluster_summary.json](/Users/user/test/analysis/registry_a_entry8_cluster_summary.json) 에 있다.
 - 현재 gap threshold `0x400` 기준 `72`개 클러스터로 나뉘며, 이후 번역/검수/재삽입은 이 클러스터 단위로 다루는 편이 좋다.
+- 자동 태그/샘플이 붙은 상세 지도는 [registry_a_entry8_cluster_catalog.json](/Users/user/test/analysis/registry_a_entry8_cluster_catalog.json), 사람이 빠르게 보기 좋은 요약은 [registry_a_entry8_cluster_overview.md](/Users/user/test/analysis/registry_a_entry8_cluster_overview.md) 에 있다.
 - 기존 [registry_a_entry8_terminator_10_texts.json](/Users/user/test/analysis/registry_a_entry8_terminator_10_texts.json) `1200`건은 entry 8 발견용 정찰 결과로 보관하고, 실제 작업은 prefixed 추출본을 우선한다.
 - `save_menu_texts.json` 류는 종단 바이트가 `0x10` 이라서 일반 `00` 종단 문자열과 분리해서 다뤄야 한다.
 - save/menu block `0x772E00..0x773260` 도 같은 규칙으로 [save_menu_prefixed_texts.json](/Users/user/test/analysis/save_menu_prefixed_texts.json) `12`건이 정리된다.
@@ -149,6 +150,11 @@ python3 -m gba_kor_tool scan-prefixed-text \
   --end 0x773248 \
   --require-japanese \
   --output analysis/registry_a_entry8_prefixed_texts.json
+
+python3 -m gba_kor_tool summarize-text-clusters \
+  analysis/registry_a_entry8_prefixed_texts.json \
+  --gap-threshold 0x400 \
+  --output analysis/registry_a_entry8_cluster_catalog.json
 ```
 
 ## 완료 조건

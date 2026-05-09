@@ -533,6 +533,137 @@ def scan_fc_script_text_records(
             return records
 
 
+KEYWORD_TAG_RULES: List[Tuple[str, Tuple[str, ...]]] = [
+    ("save_menu", ("セーブ", "記録", "上書き", "旅を記録")),
+    ("liore", ("リオール", "コーネロ")),
+    ("central", ("セントラル", "中央区画", "北側区画", "西側区画", "南側区画")),
+    ("east_city", ("イーストシティ", "東方軍司令部")),
+    ("hospital", ("病院", "患者", "退院")),
+    ("cat_quest", ("猫", "ネコ")),
+    ("bank", ("銀行", "強盗", "お預け入れ")),
+    ("military", ("軍", "国家錬金術師", "大総統", "マスタング", "ヒューズ", "ホークアイ")),
+    ("elicia", ("エリシア",)),
+    ("armor_parts", ("鎧のパーツ", "アルの右腕", "アルの左腕", "アルの右足", "アルの左足")),
+    ("reward", ("手に入れた", "証", "素材", "書類", "花束")),
+    ("travel_blocked", ("入れない", "閉まってる", "カギが閉まってて")),
+    ("shop_npc", ("いらっしゃい", "ありがとうございます", "寄っておくれ")),
+    ("battle_dialogue", ("覚悟", "勝負", "相手", "負けたら", "滅ぼす", "裁き")),
+    ("tutorial", ("兄さん", "錬成", "手帳", "素材", "カード")),
+    ("debug_or_script", ("ぶんきミス", "強制移動")),
+]
+
+
+def load_text_records(path: Path) -> List[dict]:
+    payload = json.loads(path.read_text(encoding="utf-8"))
+    if not isinstance(payload, list):
+        raise ToolError("입력 JSON은 text record 배열이어야 합니다.")
+    records: List[dict] = []
+    for item in payload:
+        if not isinstance(item, dict):
+            continue
+        if "offset" not in item or "text" not in item:
+            continue
+        records.append(item)
+    if not records:
+        raise ToolError("offset/text 필드를 가진 레코드를 찾지 못했습니다.")
+    return records
+
+
+def infer_cluster_tags(texts: Sequence[str]) -> List[str]:
+    joined = "\n".join(texts)
+    tags: List[str] = []
+    for tag, keywords in KEYWORD_TAG_RULES:
+        if any(keyword in joined for keyword in keywords):
+            tags.append(tag)
+    return tags
+
+
+def choose_primary_tag(tags: Sequence[str]) -> str:
+    if not tags:
+        return "unclassified"
+    priority = [
+        "save_menu",
+        "liore",
+        "central",
+        "east_city",
+        "hospital",
+        "cat_quest",
+        "bank",
+        "elicia",
+        "armor_parts",
+        "military",
+        "reward",
+        "shop_npc",
+        "travel_blocked",
+        "battle_dialogue",
+        "tutorial",
+        "debug_or_script",
+    ]
+    for tag in priority:
+        if tag in tags:
+            return tag
+    return tags[0]
+
+
+def summarize_text_clusters(
+    records: Sequence[dict],
+    *,
+    gap_threshold: int,
+    sample_count: int,
+) -> dict:
+    sorted_records = sorted(records, key=lambda item: int(item["offset"]))
+    clusters: List[List[dict]] = []
+    current: List[dict] = []
+    previous_offset: Optional[int] = None
+
+    for record in sorted_records:
+        offset = int(record["offset"])
+        if previous_offset is None or offset - previous_offset <= gap_threshold:
+            current.append(record)
+        else:
+            clusters.append(current)
+            current = [record]
+        previous_offset = offset
+    if current:
+        clusters.append(current)
+
+    cluster_summaries = []
+    for index, cluster in enumerate(clusters):
+        offsets = [int(item["offset"]) for item in cluster]
+        texts = [str(item["text"]) for item in cluster]
+        tags = infer_cluster_tags(texts)
+        unique_samples: List[str] = []
+        seen = set()
+        for text in texts:
+            if text in seen:
+                continue
+            seen.add(text)
+            unique_samples.append(text)
+            if len(unique_samples) >= sample_count:
+                break
+        cluster_summaries.append(
+            {
+                "cluster_index": index,
+                "start_offset": offsets[0],
+                "start_rom_address": ROM_BASE + offsets[0],
+                "end_offset_exclusive": offsets[-1] + int(cluster[-1].get("byte_length", 0)),
+                "record_count": len(cluster),
+                "first_text": texts[0],
+                "last_text": texts[-1],
+                "sample_texts": unique_samples,
+                "tags": tags,
+                "primary_tag": choose_primary_tag(tags),
+            }
+        )
+
+    return {
+        "gap_threshold": gap_threshold,
+        "record_count": len(sorted_records),
+        "cluster_count": len(cluster_summaries),
+        "clusters": cluster_summaries,
+    }
+
+
 def find_all(data: bytes, needle: bytes) -> List[int]:
     hits: List[int] = []
     cursor = 0
@@ -1426,6 +1557,33 @@ def cmd_scan_fc_script_text(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_summarize_text_clusters(args: argparse.Namespace) -> int:
+    records = load_text_records(Path(args.input))
+    result = summarize_text_clusters(
+        records,
+        gap_threshold=args.gap_threshold,
+        sample_count=args.sample_count,
+    )
+    if args.output:
+        write_json(Path(args.output), result)
+
+    print(f"records: {result['record_count']}")
+    print(f"clusters: {result['cluster_count']}")
+    for cluster in result["clusters"][: args.preview]:
+        tags = ",".join(cluster["tags"]) if cluster["tags"] else "-"
+        print(
+            f"[{cluster['cluster_index']:02d}] "
+            f"{format_offset(cluster['start_offset'])}..{format_offset(cluster['end_offset_exclusive'])} "
+            f"records={cluster['record_count']} tags={tags} "
+            f"first={cluster['first_text'][:40]!r}"
+        )
+    if len(result["clusters"]) > args.preview:
+        print(f"... {len(result['clusters']) - args.preview} more")
+    if args.output:
+        print(f"wrote: {args.output}")
+    return 0
+
+
 def cmd_extract_range(args: argparse.Namespace) -> int:
     rom_path = Path(args.rom)
     data = load_rom(rom_path)
@@ -2107,6 +2265,17 @@ def build_parser() -> argparse.ArgumentParser:
     scan_fc_script.add_argument("--min-japanese-ratio", type=float, default=0.5)
     scan_fc_script.add_argument("--output")
     scan_fc_script.set_defaults(func=cmd_scan_fc_script_text)
+
+    summarize_clusters = sub.add_parser(
+        "summarize-text-clusters",
+        help="텍스트 레코드 JSON을 offset gap 기준 cluster 로 나누고 샘플/태그 요약을 만듭니다.",
+    )
+    summarize_clusters.add_argument("input")
+    summarize_clusters.add_argument("--gap-threshold", type=lambda value: int(value, 0), default=0x400)
+    summarize_clusters.add_argument("--sample-count", type=int, default=3)
+    summarize_clusters.add_argument("--preview", type=int, default=20)
+    summarize_clusters.add_argument("--output")
+    summarize_clusters.set_defaults(func=cmd_summarize_text_clusters)
 
     extract_range = sub.add_parser("extract-range", help="지정한 ROM 구간에서 문자열을 추출합니다.")
     extract_range.add_argument("rom")

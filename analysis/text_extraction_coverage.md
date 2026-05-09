@@ -39,6 +39,7 @@
 
 - Registry A (`18` entries)
   - entry `8`: `01 FF <u16 문자수>` 규칙으로 대형 mixed script bank 추출 완료
+  - entry `8` 은 [registry_a_entry8_cluster_catalog.json](/Users/user/test/analysis/registry_a_entry8_cluster_catalog.json) / [registry_a_entry8_cluster_overview.md](/Users/user/test/analysis/registry_a_entry8_cluster_overview.md) 기준으로 `72`개 cluster 작업 지도로 재구성됐다.
   - entry `12`: gameplay/item text `22`건 확인. [registry_a_entry12_texts.json](/Users/user/test/analysis/registry_a_entry12_texts.json) 으로 별도 확보
   - entry `12` 의 `22`건 중 `16`건은 기존 `item_texts` / gameplay terms 와 중복이고, `6`건은 기존 workset 에 없던 텍스트다.
   - tail `9..17` 의 현재 분류는 [registry_a_tail_classification.json](/Users/user/test/analysis/registry_a_tail_classification.json) 에 정리했다.

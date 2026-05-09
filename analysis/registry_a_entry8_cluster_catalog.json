@@ -1,0 +1,1573 @@
+{
+  "gap_threshold": 1024,
+  "record_count": 9823,
+  "cluster_count": 72,
+  "clusters": [
+    {
+      "cluster_index": 0,
+      "start_offset": 7043638,
+      "start_rom_address": 141261366,
+      "end_offset_exclusive": 7056652,
+      "record_count": 232,
+      "first_text": "医者になりたいんだけど、",
+      "last_text": "カギが閉まってて入れないな…",
+      "sample_texts": [
+        "医者になりたいんだけど、",
+        "どうやったらなれるのかな？",
+        "腹へったぁ…",
+        "のど渇いたぁ…"
+      ],
+      "tags": [
+        "liore",
+        "central",
+        "cat_quest",
+        "military",
+        "reward",
+        "travel_blocked",
+        "tutorial",
+        "debug_or_script"
+      ],
+      "primary_tag": "liore"
+    },
+    {
+      "cluster_index": 1,
+      "start_offset": 7063434,
+      "start_rom_address": 141281162,
+      "end_offset_exclusive": 7070012,
+      "record_count": 122,
+      "first_text": "兄さん、",
+      "last_text": "この動きについてこれて？",
+      "sample_texts": [
+        "兄さん、",
+        "コーネロに会わなくていいの？",
+        "コーネロを追いかけなきゃ！",
+        "こんにちは、教会へようこそ。"
+      ],
+      "tags": [
+        "liore",
+        "military",
+        "shop_npc",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "primary_tag": "liore"
+    },
+    {
+      "cluster_index": 2,
+      "start_offset": 7072642,
+      "start_rom_address": 141290370,
+      "end_offset_exclusive": 7074612,
+      "record_count": 45,
+      "first_text": "ごていねいにお出迎えかよ",
+      "last_text": "コーネロを追いかけないの？",
+      "sample_texts": [
+        "ごていねいにお出迎えかよ",
+        "丸腰でこの人数を相手に",
+        "戦うつもりですか？",
+        "ケガしないうちに"
+      ],
+      "tags": [
+        "liore",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "primary_tag": "liore"
+    },
+    {
+      "cluster_index": 3,
+      "start_offset": 7076882,
+      "start_rom_address": 141294610,
+      "end_offset_exclusive": 7079064,
+      "record_count": 53,
+      "first_text": "あんたの嘘は",
+      "last_text": "見つかったと思ったのになぁ…",
+      "sample_texts": [
+        "あんたの嘘は",
+        "すぐに街中に広まる。",
+        "あきらめろよ",
+        "なにを言うか。"
+      ],
+      "tags": [
+        "liore",
+        "battle_dialogue"
+      ],
+      "primary_tag": "liore"
+    },
+    {
+      "cluster_index": 4,
+      "start_offset": 7086198,
+      "start_rom_address": 141303926,
+      "end_offset_exclusive": 7092964,
+      "record_count": 119,
+      "first_text": "この街にキメラ錬成の犯人が",
+      "last_text": "カギが閉まってて入れないな…",
+      "sample_texts": [
+        "この街にキメラ錬成の犯人が",
+        "いるかもしれないんだな。",
+        "油断しないでいこう",
+        "まずは街の人から怪しい人物が"
+      ],
+      "tags": [
+        "bank",
+        "military",
+        "travel_blocked",
+        "tutorial"
+      ],
+      "primary_tag": "bank"
+    },
+    {
+      "cluster_index": 5,
+      "start_offset": 7094796,
+      "start_rom_address": 141312524,
+      "end_offset_exclusive": 7098482,
+      "record_count": 84,
+      "first_text": "お預け入れですか？",
+      "last_text": "ありがとうございます",
+      "sample_texts": [
+        "お預け入れですか？",
+        "それともご融資とか。",
+        "…そんなわけありませんよね",
+        "いらっしゃいませ"
+      ],
+      "tags": [
+        "east_city",
+        "bank",
+        "military",
+        "shop_npc"
+      ],
+      "primary_tag": "east_city"
+    },
+    {
+      "cluster_index": 6,
+      "start_offset": 7106440,
+      "start_rom_address": 141324168,
+      "end_offset_exclusive": 7110778,
+      "record_count": 64,
+      "first_text": "あなたが銀行強盗さんですね？",
+      "last_text": "ウィンリィのところに戻るか",
+      "sample_texts": [
+        "あなたが銀行強盗さんですね？",
+        "盗んだものを返してください",
+        "あ、すみません。",
+        "返しますね～"
+      ],
+      "tags": [
+        "bank",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "primary_tag": "bank"
+    },
+    {
+      "cluster_index": 7,
+      "start_offset": 7114934,
+      "start_rom_address": 141332662,
+      "end_offset_exclusive": 7118636,
+      "record_count": 63,
+      "first_text": "猫ゲ～ット♪",
+      "last_text": "ここでイーストシティの軍施設に強制移動",
+      "sample_texts": [
+        "猫ゲ～ット♪",
+        "回復薬５を手に入れた",
+        "カギが閉まってて入れないな…",
+        "ここがソリン村か"
+      ],
+      "tags": [
+        "east_city",
+        "cat_quest",
+        "military",
+        "reward",
+        "travel_blocked",
+        "debug_or_script"
+      ],
+      "primary_tag": "east_city"
+    },
+    {
+      "cluster_index": 8,
+      "start_offset": 7120542,
+      "start_rom_address": 141338270,
+      "end_offset_exclusive": 7123888,
+      "record_count": 84,
+      "first_text": "ああ、また悪さをしに",
+      "last_text": "寄っておくれ",
+      "sample_texts": [
+        "ああ、また悪さをしに",
+        "来たんじゃな…",
+        "勘弁して下され",
+        "じいさん。オレたちは"
+      ],
+      "tags": [
+        "cat_quest",
+        "military",
+        "shop_npc",
+        "tutorial"
+      ],
+      "primary_tag": "cat_quest"
+    },
+    {
+      "cluster_index": 9,
+      "start_offset": 7131678,
+      "start_rom_address": 141349406,
+      "end_offset_exclusive": 7140374,
+      "record_count": 155,
+      "first_text": "兄さん、",
+      "last_text": "ぶんきミス",
+      "sample_texts": [
+        "兄さん、",
+        "いま、崖の上の方に",
+        "誰かいなかった？",
+        "気のせいじゃないか？"
+      ],
+      "tags": [
+        "reward",
+        "tutorial",
+        "debug_or_script"
+      ],
+      "primary_tag": "reward"
+    },
+    {
+      "cluster_index": 10,
+      "start_offset": 7147556,
+      "start_rom_address": 141365284,
+      "end_offset_exclusive": 7157778,
+      "record_count": 135,
+      "first_text": "この街に何かご用でも",
+      "last_text": "回復薬３を手に入れた",
+      "sample_texts": [
+        "この街に何かご用でも",
+        "あるの？",
+        "さっきの列車強盗と",
+        "キメラの件をすぐにでも"
+      ],
+      "tags": [
+        "east_city",
+        "bank",
+        "military",
+        "reward",
+        "travel_blocked",
+        "shop_npc",
+        "tutorial"
+      ],
+      "primary_tag": "east_city"
+    },
+    {
+      "cluster_index": 11,
+      "start_offset": 7164810,
+      "start_rom_address": 141382538,
+      "end_offset_exclusive": 7177316,
+      "record_count": 258,
+      "first_text": "相手は子供だ。",
+      "last_text": "いないなぁ、エリシアちゃん",
+      "sample_texts": [
+        "相手は子供だ。",
+        "遠くには行ってないだろ。",
+        "きっとこの区画にいるはずだ",
+        "遠くへは行ってないだろ。"
+      ],
+      "tags": [
+        "central",
+        "east_city",
+        "hospital",
+        "cat_quest",
+        "military",
+        "elicia",
+        "armor_parts",
+        "travel_blocked",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "primary_tag": "central"
+    },
+    {
+      "cluster_index": 12,
+      "start_offset": 7179742,
+      "start_rom_address": 141397470,
+      "end_offset_exclusive": 7180442,
+      "record_count": 15,
+      "first_text": "いらっしゃい。",
+      "last_text": "うそーん！",
+      "sample_texts": [
+        "いらっしゃい。",
+        "泊まっていくかい？",
+        "一泊、２００センズだよ。",
+        "あら、お金が足りないわよ"
+      ],
+      "tags": [
+        "cat_quest",
+        "shop_npc"
+      ],
+      "primary_tag": "cat_quest"
+    },
+    {
+      "cluster_index": 13,
+      "start_offset": 7182528,
+      "start_rom_address": 141400256,
+      "end_offset_exclusive": 7187162,
+      "record_count": 105,
+      "first_text": "　セントラルシティ　中央区画",
+      "last_text": "猫さがしだったか？",
+      "sample_texts": [
+        "　セントラルシティ　中央区画",
+        "結構いい戦いを",
+        "してたと思うんだ！",
+        "ねっ、兄さん"
+      ],
+      "tags": [
+        "central",
+        "cat_quest",
+        "military",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "primary_tag": "central"
+    },
+    {
+      "cluster_index": 14,
+      "start_offset": 7189990,
+      "start_rom_address": 141407718,
+      "end_offset_exclusive": 7194450,
+      "record_count": 102,
+      "first_text": "あら、二人ともお久しぶりね",
+      "last_text": "喜んでるなら、いいかっ！",
+      "sample_texts": [
+        "あら、二人ともお久しぶりね",
+        "分館はセントラルの南側区画よ",
+        "グレイシアさん、",
+        "ヒューズ中佐は？"
+      ],
+      "tags": [
+        "central",
+        "military",
+        "elicia",
+        "shop_npc",
+        "tutorial"
+      ],
+      "primary_tag": "central"
+    },
+    {
+      "cluster_index": 15,
+      "start_offset": 7200576,
+      "start_rom_address": 141418304,
+      "end_offset_exclusive": 7202976,
+      "record_count": 52,
+      "first_text": "鋼の錬金術師殿、",
+      "last_text": "　北側区画",
+      "sample_texts": [
+        "鋼の錬金術師殿、",
+        "何か御用ですか？",
+        "鎧のパーツ？さあ…",
+        "ここから先は中央軍司令部です"
+      ],
+      "tags": [
+        "central",
+        "east_city",
+        "hospital",
+        "military",
+        "armor_parts"
+      ],
+      "primary_tag": "central"
+    },
+    {
+      "cluster_index": 16,
+      "start_offset": 7208222,
+      "start_rom_address": 141425950,
+      "end_offset_exclusive": 7215696,
+      "record_count": 155,
+      "first_text": "兄さん、",
+      "last_text": "カギが閉まってて入れないな…",
+      "sample_texts": [
+        "兄さん、",
+        "コニィの試験は中庭だよ",
+        "鎧ですか？",
+        "軍ではあまり鎧は使いませんね"
+      ],
+      "tags": [
+        "military",
+        "armor_parts",
+        "reward",
+        "travel_blocked",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "primary_tag": "armor_parts"
+    },
+    {
+      "cluster_index": 17,
+      "start_offset": 7217998,
+      "start_rom_address": 141435726,
+      "end_offset_exclusive": 7221978,
+      "record_count": 101,
+      "first_text": "ロイじゃねえか！",
+      "last_text": "なかなか文句も言えないの",
+      "sample_texts": [
+        "ロイじゃねえか！",
+        "セントラルに来るんなら",
+        "ひとこと言ってから来いよ！",
+        "エド、アルはどうした？"
+      ],
+      "tags": [
+        "central",
+        "military",
+        "elicia",
+        "armor_parts",
+        "tutorial"
+      ],
+      "primary_tag": "central"
+    },
+    {
+      "cluster_index": 18,
+      "start_offset": 7227594,
+      "start_rom_address": 141445322,
+      "end_offset_exclusive": 7252004,
+      "record_count": 523,
+      "first_text": "これより、",
+      "last_text": "はいはい…",
+      "sample_texts": [
+        "これより、",
+        "コーニッシュ・ロイスの",
+        "国家錬金術師資格試験を始める",
+        "始め！！"
+      ],
+      "tags": [
+        "east_city",
+        "cat_quest",
+        "military",
+        "shop_npc",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "primary_tag": "east_city"
+    },
+    {
+      "cluster_index": 19,
+      "start_offset": 7254940,
+      "start_rom_address": 141472668,
+      "end_offset_exclusive": 7261576,
+      "record_count": 155,
+      "first_text": "ブラッドレイ大総統に",
+      "last_text": "会いに行こう！",
+      "sample_texts": [
+        "ブラッドレイ大総統に",
+        "会いに行かないとな",
+        "ここから先、用のない方は",
+        "立入禁止…あ、国家錬金術師は"
+      ],
+      "tags": [
+        "military",
+        "shop_npc",
+        "tutorial"
+      ],
+      "primary_tag": "military"
+    },
+    {
+      "cluster_index": 20,
+      "start_offset": 7263738,
+      "start_rom_address": 141481466,
+      "end_offset_exclusive": 7277140,
+      "record_count": 325,
+      "first_text": "鋼の錬金術師よ、",
+      "last_text": "行ってきます！",
+      "sample_texts": [
+        "鋼の錬金術師よ、",
+        "そろそろ、そちらのお嬢さんの",
+        "試験がはじまるぞ",
+        "事件の早期解決を"
+      ],
+      "tags": [
+        "central",
+        "east_city",
+        "military",
+        "reward",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "primary_tag": "central"
+    },
+    {
+      "cluster_index": 21,
+      "start_offset": 7283598,
+      "start_rom_address": 141501326,
+      "end_offset_exclusive": 7288158,
+      "record_count": 86,
+      "first_text": "兄さん、まだセントラルで",
+      "last_text": "閉まってるな…",
+      "sample_texts": [
+        "兄さん、まだセントラルで",
+        "やらなきゃいけないことが",
+        "あるんじゃない？",
+        "兄さん、イーストシティに"
+      ],
+      "tags": [
+        "central",
+        "east_city",
+        "hospital",
+        "military",
+        "armor_parts",
+        "reward",
+        "travel_blocked",
+        "tutorial"
+      ],
+      "primary_tag": "central"
+    },
+    {
+      "cluster_index": 22,
+      "start_offset": 7291372,
+      "start_rom_address": 141509100,
+      "end_offset_exclusive": 7292180,
+      "record_count": 20,
+      "first_text": "さっき上でドカーンって",
+      "last_text": "静かにして下さいね",
+      "sample_texts": [
+        "さっき上でドカーンって",
+        "大きな音がしたんだ！",
+        "なんだったんだろう？",
+        "おじいちゃんの"
+      ],
+      "tags": [
+        "east_city",
+        "hospital",
+        "travel_blocked"
+      ],
+      "primary_tag": "east_city"
+    },
+    {
+      "cluster_index": 23,
+      "start_offset": 7295088,
+      "start_rom_address": 141512816,
+      "end_offset_exclusive": 7297088,
+      "record_count": 38,
+      "first_text": "患者さんが元気に",
+      "last_text": "入れないな…",
+      "sample_texts": [
+        "患者さんが元気に",
+        "退院してくれる時が",
+        "一番嬉しいわ",
+        "夜勤の時に見回りって"
+      ],
+      "tags": [
+        "hospital",
+        "reward",
+        "travel_blocked",
+        "tutorial"
+      ],
+      "primary_tag": "hospital"
+    },
+    {
+      "cluster_index": 24,
+      "start_offset": 7298932,
+      "start_rom_address": 141516660,
+      "end_offset_exclusive": 7299374,
+      "record_count": 9,
+      "first_text": "早く退院したいのぉ。",
+      "last_text": "お外で遊びたいな…",
+      "sample_texts": [
+        "早く退院したいのぉ。",
+        "孫と遊べるように",
+        "なりたいのぉ",
+        "孫が毎日来てくれるんです。"
+      ],
+      "tags": [
+        "hospital"
+      ],
+      "primary_tag": "hospital"
+    },
+    {
+      "cluster_index": 25,
+      "start_offset": 7305430,
+      "start_rom_address": 141523158,
+      "end_offset_exclusive": 7306854,
+      "record_count": 23,
+      "first_text": "お、お兄さん！",
+      "last_text": "それはそうかも…",
+      "sample_texts": [
+        "お、お兄さん！",
+        "いいところに来た！",
+        "ワインもってないですか？",
+        "ワインですよ！"
+      ],
+      "tags": [
+        "hospital",
+        "cat_quest",
+        "tutorial"
+      ],
+      "primary_tag": "hospital"
+    },
+    {
+      "cluster_index": 26,
+      "start_offset": 7314214,
+      "start_rom_address": 141531942,
+      "end_offset_exclusive": 7327154,
+      "record_count": 274,
+      "first_text": "兄さん、まだセントラルで",
+      "last_text": "ヘンな名前つけるなー！",
+      "sample_texts": [
+        "兄さん、まだセントラルで",
+        "やらなきゃいけないことが",
+        "あるんじゃない？",
+        "いつも慌ただしいな"
+      ],
+      "tags": [
+        "central",
+        "east_city",
+        "hospital",
+        "bank",
+        "military",
+        "armor_parts",
+        "tutorial"
+      ],
+      "primary_tag": "central"
+    },
+    {
+      "cluster_index": 27,
+      "start_offset": 7330232,
+      "start_rom_address": 141547960,
+      "end_offset_exclusive": 7333162,
+      "record_count": 59,
+      "first_text": "鎧のパーツ？",
+      "last_text": "そのウワサの真相にせまる！",
+      "sample_texts": [
+        "鎧のパーツ？",
+        "図書館にそんなものが",
+        "あるわけないじゃないですか！",
+        "図書館では静かにしてください"
+      ],
+      "tags": [
+        "military",
+        "armor_parts",
+        "reward",
+        "tutorial"
+      ],
+      "primary_tag": "armor_parts"
+    },
+    {
+      "cluster_index": 28,
+      "start_offset": 7335132,
+      "start_rom_address": 141552860,
+      "end_offset_exclusive": 7341010,
+      "record_count": 148,
+      "first_text": "……読書中です。",
+      "last_text": "何度でも勝負しに来てください",
+      "sample_texts": [
+        "……読書中です。",
+        "邪魔しないでください",
+        "本に囲まれていつまでも",
+        "読んでいていいなんて、"
+      ],
+      "tags": [
+        "central",
+        "cat_quest",
+        "military",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "primary_tag": "central"
+    },
+    {
+      "cluster_index": 29,
+      "start_offset": 7343366,
+      "start_rom_address": 141561094,
+      "end_offset_exclusive": 7343896,
+      "record_count": 9,
+      "first_text": "猫だらけだ…＄",
+      "last_text": "お待たせ、兄さん！",
+      "sample_texts": [
+        "猫だらけだ…＄",
+        "もらっていってもいいかな？",
+        "ダメに決まってるだろ！",
+        "ひとんちの猫なんだから"
+      ],
+      "tags": [
+        "cat_quest",
+        "tutorial"
+      ],
+      "primary_tag": "cat_quest"
+    },
+    {
+      "cluster_index": 30,
+      "start_offset": 7350506,
+      "start_rom_address": 141568234,
+      "end_offset_exclusive": 7354356,
+      "record_count": 59,
+      "first_text": "兄さん、まだセントラルで",
+      "last_text": "　西側区画",
+      "sample_texts": [
+        "兄さん、まだセントラルで",
+        "やらなきゃいけないことが",
+        "あるんじゃない？",
+        "兄さん、イーストシティに"
+      ],
+      "tags": [
+        "central",
+        "east_city",
+        "cat_quest",
+        "military",
+        "reward",
+        "tutorial"
+      ],
+      "primary_tag": "central"
+    },
+    {
+      "cluster_index": 31,
+      "start_offset": 7355796,
+      "start_rom_address": 141573524,
+      "end_offset_exclusive": 7356658,
+      "record_count": 15,
+      "first_text": "　　リゼンブール村",
+      "last_text": "エドワード・エルリックよ…",
+      "sample_texts": [
+        "　　リゼンブール村",
+        "人は何かの犠牲無しに、",
+        "何も得ることはできない",
+        "何かを得るためには、"
+      ],
+      "tags": [
+        "liore"
+      ],
+      "primary_tag": "liore"
+    },
+    {
+      "cluster_index": 32,
+      "start_offset": 7377716,
+      "start_rom_address": 141595444,
+      "end_offset_exclusive": 7385472,
+      "record_count": 138,
+      "first_text": "ここがイーストシティね。",
+      "last_text": "　南側区画",
+      "sample_texts": [
+        "ここがイーストシティね。",
+        "初めての街って、",
+        "ワクワクしますね",
+        "オレは大佐をどうやって"
+      ],
+      "tags": [
+        "central",
+        "east_city",
+        "military",
+        "reward",
+        "travel_blocked",
+        "tutorial"
+      ],
+      "primary_tag": "central"
+    },
+    {
+      "cluster_index": 33,
+      "start_offset": 7387970,
+      "start_rom_address": 141605698,
+      "end_offset_exclusive": 7388404,
+      "record_count": 9,
+      "first_text": "いらっしゃい。",
+      "last_text": "また、きておくれ",
+      "sample_texts": [
+        "いらっしゃい。",
+        "泊まっていくかい？",
+        "一泊、２００センズだよ。",
+        "お金が足りないよ"
+      ],
+      "tags": [
+        "shop_npc"
+      ],
+      "primary_tag": "shop_npc"
+    },
+    {
+      "cluster_index": 34,
+      "start_offset": 7390270,
+      "start_rom_address": 141607998,
+      "end_offset_exclusive": 7396544,
+      "record_count": 166,
+      "first_text": "うひゃー、久しぶりの",
+      "last_text": "なってくれたみたい",
+      "sample_texts": [
+        "うひゃー、久しぶりの",
+        "ふかふかベッドは",
+        "やっぱいいねー",
+        "中佐は軍刑務所暮らしが"
+      ],
+      "tags": [
+        "military",
+        "tutorial"
+      ],
+      "primary_tag": "military"
+    },
+    {
+      "cluster_index": 35,
+      "start_offset": 7399700,
+      "start_rom_address": 141617428,
+      "end_offset_exclusive": 7406932,
+      "record_count": 137,
+      "first_text": "なんだありゃ！",
+      "last_text": "まずは手帳を奪還するのだっ！",
+      "sample_texts": [
+        "なんだありゃ！",
+        "あれはキメラだ。",
+        "そんなことも知らんのか、",
+        "そういう事を"
+      ],
+      "tags": [
+        "central",
+        "east_city",
+        "military",
+        "reward",
+        "tutorial"
+      ],
+      "primary_tag": "central"
+    },
+    {
+      "cluster_index": 36,
+      "start_offset": 7409868,
+      "start_rom_address": 141627596,
+      "end_offset_exclusive": 7415772,
+      "record_count": 109,
+      "first_text": "兄さん、練兵場へ行くなら",
+      "last_text": "カギが閉まってて入れないな…",
+      "sample_texts": [
+        "兄さん、練兵場へ行くなら",
+        "裏口からの方が近いよ！",
+        "鋼の、どこへ行くつもりだ。",
+        "私の部屋はもう目の前だぞ？"
+      ],
+      "tags": [
+        "east_city",
+        "military",
+        "elicia",
+        "reward",
+        "travel_blocked",
+        "tutorial"
+      ],
+      "primary_tag": "east_city"
+    },
+    {
+      "cluster_index": 37,
+      "start_offset": 7418202,
+      "start_rom_address": 141635930,
+      "end_offset_exclusive": 7420518,
+      "record_count": 66,
+      "first_text": "で、あたしの最高傑作を",
+      "last_text": "なっ、アル！",
+      "sample_texts": [
+        "で、あたしの最高傑作を",
+        "壊しちゃったわけ？",
+        "ちゃはーっ、もったいない",
+        "あんなヤバイもん、"
+      ],
+      "tags": [
+        "tutorial"
+      ],
+      "primary_tag": "tutorial"
+    },
+    {
+      "cluster_index": 38,
+      "start_offset": 7421730,
+      "start_rom_address": 141639458,
+      "end_offset_exclusive": 7456036,
+      "record_count": 786,
+      "first_text": "ソリンの事件も違ったか",
+      "last_text": "どこに行ったんでしょうね",
+      "sample_texts": [
+        "ソリンの事件も違ったか",
+        "レドンドとソリンの事件ですが",
+        "いずれも能力の高い錬金術師が",
+        "犯人です"
+      ],
+      "tags": [
+        "central",
+        "east_city",
+        "military",
+        "reward",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "primary_tag": "central"
+    },
+    {
+      "cluster_index": 39,
+      "start_offset": 7458270,
+      "start_rom_address": 141675998,
+      "end_offset_exclusive": 7464342,
+      "record_count": 123,
+      "first_text": "ようやく暇になるかと思えば、",
+      "last_text": "ほら、この書類の山…ハァ",
+      "sample_texts": [
+        "ようやく暇になるかと思えば、",
+        "結局キメラ事件の後始末か。",
+        "…休暇取りてぇなー",
+        "大佐、早いとこ"
+      ],
+      "tags": [
+        "military",
+        "reward"
+      ],
+      "primary_tag": "military"
+    },
+    {
+      "cluster_index": 40,
+      "start_offset": 7470424,
+      "start_rom_address": 141688152,
+      "end_offset_exclusive": 7473556,
+      "record_count": 57,
+      "first_text": "こいつが親玉か！？",
+      "last_text": "なんの同志だよ…？",
+      "sample_texts": [
+        "こいつが親玉か！？",
+        "なるほど。",
+        "このキメラを倒せば、",
+        "一件落着ということか"
+      ],
+      "tags": [
+        "military"
+      ],
+      "primary_tag": "military"
+    },
+    {
+      "cluster_index": 41,
+      "start_offset": 7479324,
+      "start_rom_address": 141697052,
+      "end_offset_exclusive": 7494004,
+      "record_count": 306,
+      "first_text": "大佐ぁ。",
+      "last_text": "　東側区画",
+      "sample_texts": [
+        "大佐ぁ。",
+        "こんなところにいたんですか？",
+        "仕事だと言ったろう。",
+        "さっきの話は断ったはずだ。"
+      ],
+      "tags": [
+        "east_city",
+        "cat_quest",
+        "military",
+        "reward",
+        "battle_dialogue",
+        "tutorial",
+        "debug_or_script"
+      ],
+      "primary_tag": "east_city"
+    },
+    {
+      "cluster_index": 42,
+      "start_offset": 7500240,
+      "start_rom_address": 141717968,
+      "end_offset_exclusive": 7508372,
+      "record_count": 154,
+      "first_text": "お前ら、いったいどこを",
+      "last_text": "　西側区画",
+      "sample_texts": [
+        "お前ら、いったいどこを",
+        "ほっつき歩いてた！？",
+        "ヒューズ中佐がなんでここに？",
+        "中央から何しに来てんの？"
+      ],
+      "tags": [
+        "central",
+        "east_city",
+        "cat_quest",
+        "military",
+        "reward",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "primary_tag": "central"
+    },
+    {
+      "cluster_index": 43,
+      "start_offset": 7511166,
+      "start_rom_address": 141728894,
+      "end_offset_exclusive": 7519828,
+      "record_count": 173,
+      "first_text": "兄さん……ボク…",
+      "last_text": "ふう、救出成功！",
+      "sample_texts": [
+        "兄さん……ボク…",
+        "悪い事をしてないのに…",
+        "悲しいよ…",
+        "作戦だから仕方ないけどよぉ、"
+      ],
+      "tags": [
+        "east_city",
+        "cat_quest",
+        "military",
+        "tutorial"
+      ],
+      "primary_tag": "east_city"
+    },
+    {
+      "cluster_index": 44,
+      "start_offset": 7525100,
+      "start_rom_address": 141742828,
+      "end_offset_exclusive": 7532206,
+      "record_count": 150,
+      "first_text": "何も起きないね…",
+      "last_text": "置いてゆくのかっ！",
+      "sample_texts": [
+        "何も起きないね…",
+        "行き止まりか。",
+        "でも、明らかにこの先だよな",
+        "錬成でチャチャっと"
+      ],
+      "tags": [
+        "military",
+        "tutorial"
+      ],
+      "primary_tag": "military"
+    },
+    {
+      "cluster_index": 45,
+      "start_offset": 7537304,
+      "start_rom_address": 141755032,
+      "end_offset_exclusive": 7542610,
+      "record_count": 115,
+      "first_text": "大佐、意外だと思わない？",
+      "last_text": "何も起きないね",
+      "sample_texts": [
+        "大佐、意外だと思わない？",
+        "何がだ？",
+        "出てくるのはキメラだけ。",
+        "あまりに呆気なさ過ぎると、"
+      ],
+      "tags": [
+        "military",
+        "tutorial"
+      ],
+      "primary_tag": "military"
+    },
+    {
+      "cluster_index": 46,
+      "start_offset": 7547960,
+      "start_rom_address": 141765688,
+      "end_offset_exclusive": 7553764,
+      "record_count": 155,
+      "first_text": "大佐、どうしたんですか？",
+      "last_text": "いるんだろうからね！",
+      "sample_texts": [
+        "大佐、どうしたんですか？",
+        "どうやら少しは骨のある相手が",
+        "お出迎えのようですな",
+        "なーんだ、"
+      ],
+      "tags": [
+        "military",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "primary_tag": "military"
+    },
+    {
+      "cluster_index": 47,
+      "start_offset": 7557030,
+      "start_rom_address": 141774758,
+      "end_offset_exclusive": 7565354,
+      "record_count": 187,
+      "first_text": "あ、マーティンス中佐！",
+      "last_text": "私は役立たず…役立たず",
+      "sample_texts": [
+        "あ、マーティンス中佐！",
+        "お前ら、遅かったじゃねーか！",
+        "タイクツで死にそうだったぜ",
+        "マーティンス中佐っ！"
+      ],
+      "tags": [
+        "military",
+        "battle_dialogue"
+      ],
+      "primary_tag": "military"
+    },
+    {
+      "cluster_index": 48,
+      "start_offset": 7568738,
+      "start_rom_address": 141786466,
+      "end_offset_exclusive": 7572972,
+      "record_count": 71,
+      "first_text": "こりゃもう決まりだな！",
+      "last_text": "じょうだんだよ…",
+      "sample_texts": [
+        "こりゃもう決まりだな！",
+        "いえ、それでもやっぱり",
+        "正々堂々と尋ねるべきです！",
+        "ごめんくださーい！"
+      ],
+      "tags": [
+        "reward",
+        "travel_blocked",
+        "tutorial"
+      ],
+      "primary_tag": "reward"
+    },
+    {
+      "cluster_index": 49,
+      "start_offset": 7579460,
+      "start_rom_address": 141797188,
+      "end_offset_exclusive": 7581718,
+      "record_count": 50,
+      "first_text": "大佐！この部屋！？",
+      "last_text": "イーストシティに戻ろう！",
+      "sample_texts": [
+        "大佐！この部屋！？",
+        "うひょー、",
+        "いきなりビンゴじゃねーかよ！",
+        "やっぱり！！"
+      ],
+      "tags": [
+        "east_city",
+        "military",
+        "tutorial"
+      ],
+      "primary_tag": "east_city"
+    },
+    {
+      "cluster_index": 50,
+      "start_offset": 7589332,
+      "start_rom_address": 141807060,
+      "end_offset_exclusive": 7598394,
+      "record_count": 178,
+      "first_text": "兄さん、見て。",
+      "last_text": "ただの物置だ…",
+      "sample_texts": [
+        "兄さん、見て。",
+        "何にも変わらないよ",
+        "そうだな",
+        "ここがエドとアルの故郷…"
+      ],
+      "tags": [
+        "military",
+        "reward",
+        "tutorial"
+      ],
+      "primary_tag": "military"
+    },
+    {
+      "cluster_index": 51,
+      "start_offset": 7600664,
+      "start_rom_address": 141818392,
+      "end_offset_exclusive": 7602714,
+      "record_count": 43,
+      "first_text": "よし、点検完了！",
+      "last_text": "ワンワンッ！",
+      "sample_texts": [
+        "よし、点検完了！",
+        "サンキュ！",
+        "いい感じだよ",
+        "いくつか部品の交換を"
+      ],
+      "tags": [],
+      "primary_tag": "unclassified"
+    },
+    {
+      "cluster_index": 52,
+      "start_offset": 7605080,
+      "start_rom_address": 141822808,
+      "end_offset_exclusive": 7614458,
+      "record_count": 232,
+      "first_text": "どのくらいの時間が",
+      "last_text": "わーい、ありがとー♪",
+      "sample_texts": [
+        "どのくらいの時間が",
+        "かかるのかな",
+        "細かく調べたいから、",
+        "少し時間がかかるわよ"
+      ],
+      "tags": [
+        "cat_quest",
+        "military",
+        "reward",
+        "tutorial"
+      ],
+      "primary_tag": "cat_quest"
+    },
+    {
+      "cluster_index": 53,
+      "start_offset": 7621852,
+      "start_rom_address": 141839580,
+      "end_offset_exclusive": 7630820,
+      "record_count": 184,
+      "first_text": "ホークアイ中尉、ここかね？",
+      "last_text": "…お、おのれ",
+      "sample_texts": [
+        "ホークアイ中尉、ここかね？",
+        "ダイムラーが逃げ込んだ",
+        "遺跡というのは",
+        "情報ではそうですね"
+      ],
+      "tags": [
+        "military",
+        "reward",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "primary_tag": "military"
+    },
+    {
+      "cluster_index": 54,
+      "start_offset": 7637706,
+      "start_rom_address": 141855434,
+      "end_offset_exclusive": 7640714,
+      "record_count": 53,
+      "first_text": "兄さん、アレ！",
+      "last_text": "ウィンリィのところに戻るか",
+      "sample_texts": [
+        "兄さん、アレ！",
+        "今、岩陰を横切ったの",
+        "ダイムラーじゃない！？",
+        "よっしゃー！"
+      ],
+      "tags": [
+        "reward",
+        "tutorial"
+      ],
+      "primary_tag": "reward"
+    },
+    {
+      "cluster_index": 55,
+      "start_offset": 7644286,
+      "start_rom_address": 141862014,
+      "end_offset_exclusive": 7661472,
+      "record_count": 438,
+      "first_text": "あのう、",
+      "last_text": "この程度のキメラなど…",
+      "sample_texts": [
+        "あのう、",
+        "根本的問題なんですけど",
+        "誰を探してるんですか？",
+        "ダイムラーのヤツを"
+      ],
+      "tags": [
+        "east_city",
+        "bank",
+        "military",
+        "reward",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "primary_tag": "east_city"
+    },
+    {
+      "cluster_index": 56,
+      "start_offset": 7667152,
+      "start_rom_address": 141884880,
+      "end_offset_exclusive": 7669552,
+      "record_count": 51,
+      "first_text": "古めかしい城だな…",
+      "last_text": "先に進もう",
+      "sample_texts": [
+        "古めかしい城だな…",
+        "ずいぶん使われて",
+        "なかったようだけど",
+        "地元の人間すら"
+      ],
+      "tags": [
+        "military",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "primary_tag": "military"
+    },
+    {
+      "cluster_index": 57,
+      "start_offset": 7670684,
+      "start_rom_address": 141888412,
+      "end_offset_exclusive": 7674492,
+      "record_count": 87,
+      "first_text": "小僧、また会ったな！",
+      "last_text": "入城は禁じられてます",
+      "sample_texts": [
+        "小僧、また会ったな！",
+        "またバルド？",
+        "な、なんでバルドのヤツが",
+        "ここに…？"
+      ],
+      "tags": [
+        "bank",
+        "tutorial"
+      ],
+      "primary_tag": "bank"
+    },
+    {
+      "cluster_index": 58,
+      "start_offset": 7680256,
+      "start_rom_address": 141897984,
+      "end_offset_exclusive": 7686198,
+      "record_count": 143,
+      "first_text": "ケイトのヤツは",
+      "last_text": "一発でカタつけてやる！",
+      "sample_texts": [
+        "ケイトのヤツは",
+        "どこにいるんだ！？",
+        "だから、探す相手が違うって、",
+        "探さなきゃならないのは、"
+      ],
+      "tags": [
+        "military",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "primary_tag": "military"
+    },
+    {
+      "cluster_index": 59,
+      "start_offset": 7691444,
+      "start_rom_address": 141909172,
+      "end_offset_exclusive": 7698038,
+      "record_count": 166,
+      "first_text": "いったいいつになったら",
+      "last_text": "なにも起きないね…？",
+      "sample_texts": [
+        "いったいいつになったら",
+        "ケイトのところに着くんだ？",
+        "だから、兄さん、",
+        "探す相手が違うって…"
+      ],
+      "tags": [
+        "military",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "primary_tag": "military"
+    },
+    {
+      "cluster_index": 60,
+      "start_offset": 7703608,
+      "start_rom_address": 141921336,
+      "end_offset_exclusive": 7708134,
+      "record_count": 82,
+      "first_text": "…止まれ",
+      "last_text": "石の６－６だぞ",
+      "sample_texts": [
+        "…止まれ",
+        "何か変な音が聞こえねえか？",
+        "オレには聞こえなかったけど？",
+        "この先に何かワナが"
+      ],
+      "tags": [
+        "military",
+        "tutorial"
+      ],
+      "primary_tag": "military"
+    },
+    {
+      "cluster_index": 61,
+      "start_offset": 7711918,
+      "start_rom_address": 141929646,
+      "end_offset_exclusive": 7732566,
+      "record_count": 483,
+      "first_text": "我が城でずいぶんと",
+      "last_text": "なんでこんなところに…？",
+      "sample_texts": [
+        "我が城でずいぶんと",
+        "騒々しいマネをしてくれるな",
+        "リンカー！",
+        "ついに親玉が登場ってわけか"
+      ],
+      "tags": [
+        "military",
+        "tutorial"
+      ],
+      "primary_tag": "military"
+    },
+    {
+      "cluster_index": 62,
+      "start_offset": 7735754,
+      "start_rom_address": 141953482,
+      "end_offset_exclusive": 7748594,
+      "record_count": 291,
+      "first_text": "やっぱり「賢者の石」って",
+      "last_text": "痛い目にあわせてやる！",
+      "sample_texts": [
+        "やっぱり「賢者の石」って",
+        "なかなか見つからないものだね",
+        "ガセネタばっかりだもんなぁ。",
+        "一度、セントラルシティに"
+      ],
+      "tags": [
+        "central",
+        "bank",
+        "military",
+        "reward",
+        "shop_npc",
+        "tutorial"
+      ],
+      "primary_tag": "central"
+    },
+    {
+      "cluster_index": 63,
+      "start_offset": 7752324,
+      "start_rom_address": 141970052,
+      "end_offset_exclusive": 7753562,
+      "record_count": 19,
+      "first_text": "今朝方、列車強盗にあう夢を",
+      "last_text": "覚悟はいいな！！",
+      "sample_texts": [
+        "今朝方、列車強盗にあう夢を",
+        "見たんです。",
+        "現実になってしまいました",
+        "怖くない。怖くない。"
+      ],
+      "tags": [
+        "bank",
+        "battle_dialogue"
+      ],
+      "primary_tag": "bank"
+    },
+    {
+      "cluster_index": 64,
+      "start_offset": 7756916,
+      "start_rom_address": 141974644,
+      "end_offset_exclusive": 7758238,
+      "record_count": 20,
+      "first_text": "わたしは暴力は反対です。",
+      "last_text": "計画の邪魔はさせねぇ！",
+      "sample_texts": [
+        "わたしは暴力は反対です。",
+        "だから、大人しく",
+        "強盗の言うことをききます",
+        "愛する家族は私が守る！"
+      ],
+      "tags": [
+        "bank"
+      ],
+      "primary_tag": "bank"
+    },
+    {
+      "cluster_index": 65,
+      "start_offset": 7762288,
+      "start_rom_address": 141980016,
+      "end_offset_exclusive": 7762974,
+      "record_count": 13,
+      "first_text": "きっとこの上じゃないかな？",
+      "last_text": "金属の４－４が必要だ",
+      "sample_texts": [
+        "きっとこの上じゃないかな？",
+        "どうする、兄さん？",
+        "錬成でハシゴを作れば",
+        "上にのぼれそうだな"
+      ],
+      "tags": [
+        "tutorial"
+      ],
+      "primary_tag": "tutorial"
+    },
+    {
+      "cluster_index": 66,
+      "start_offset": 7770066,
+      "start_rom_address": 141987794,
+      "end_offset_exclusive": 7771040,
+      "record_count": 27,
+      "first_text": "キサマは！",
+      "last_text": "大丈夫ですか？",
+      "sample_texts": [
+        "キサマは！",
+        "何しに来た？",
+        "決まってんだろ。",
+        "人質を助けに来たんだよ"
+      ],
+      "tags": [
+        "military"
+      ],
+      "primary_tag": "military"
+    },
+    {
+      "cluster_index": 67,
+      "start_offset": 7775492,
+      "start_rom_address": 141993220,
+      "end_offset_exclusive": 7775674,
+      "record_count": 7,
+      "first_text": "いいかげん、",
+      "last_text": "また勝たせてもらうぜ",
+      "sample_texts": [
+        "いいかげん、",
+        "大人しくしてれば良いのになぁ",
+        "そう何度もやられると",
+        "思ってるのか！"
+      ],
+      "tags": [],
+      "primary_tag": "unclassified"
+    },
+    {
+      "cluster_index": 68,
+      "start_offset": 7778808,
+      "start_rom_address": 141996536,
+      "end_offset_exclusive": 7780118,
+      "record_count": 23,
+      "first_text": "肉体の材料はそろえた。",
+      "last_text": "アルぅぅぅぅぅぅ！！",
+      "sample_texts": [
+        "肉体の材料はそろえた。",
+        "母さんを元に戻そう。",
+        "生き返らせるんだ！",
+        "…人体錬成は禁じられてるよ。"
+      ],
+      "tags": [
+        "tutorial"
+      ],
+      "primary_tag": "tutorial"
+    },
+    {
+      "cluster_index": 69,
+      "start_offset": 7781580,
+      "start_rom_address": 141999308,
+      "end_offset_exclusive": 7787016,
+      "record_count": 147,
+      "first_text": "あいたたた…",
+      "last_text": "自然の６－４のカードだ！",
+      "sample_texts": [
+        "あいたたた…",
+        "おーい、みんないるか？",
+        "兄さーん、ボクの右腕、",
+        "どっかに落ちてない？"
+      ],
+      "tags": [
+        "military",
+        "tutorial"
+      ],
+      "primary_tag": "military"
+    },
+    {
+      "cluster_index": 70,
+      "start_offset": 7789906,
+      "start_rom_address": 142007634,
+      "end_offset_exclusive": 7799514,
+      "record_count": 257,
+      "first_text": "…錬成融合。",
+      "last_text": "止まってなんかいられないぜ！",
+      "sample_texts": [
+        "…錬成融合。",
+        "それも自身とこの城を",
+        "融合したというのか",
+        "なんてヤツだよ。"
+      ],
+      "tags": [
+        "military",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "primary_tag": "military"
+    },
+    {
+      "cluster_index": 71,
+      "start_offset": 7800810,
+      "start_rom_address": 142018538,
+      "end_offset_exclusive": 7811530,
+      "record_count": 240,
+      "first_text": "なんか変な街だね。",
+      "last_text": "このまま旅を続けるか？",
+      "sample_texts": [
+        "なんか変な街だね。",
+        "フードショップのおじさんに",
+        "もっと話を聞いてみようか？",
+        "広場でなにかあるみたいだね"
+      ],
+      "tags": [
+        "save_menu",
+        "liore",
+        "central",
+        "east_city",
+        "cat_quest",
+        "bank",
+        "military",
+        "elicia",
+        "reward",
+        "travel_blocked",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "primary_tag": "save_menu"
+    }
+  ]
+}

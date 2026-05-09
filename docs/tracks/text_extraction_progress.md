@@ -121,6 +121,10 @@
 - 파일:
   - [registry_a_entry8_prefixed_texts.json](/Users/user/test/analysis/registry_a_entry8_prefixed_texts.json)
   - [registry_a_entry8_terminator_10_texts.json](/Users/user/test/analysis/registry_a_entry8_terminator_10_texts.json)
+  - [registry_a_entry8_cluster_catalog.json](/Users/user/test/analysis/registry_a_entry8_cluster_catalog.json)
+  - [registry_a_entry8_cluster_catalog.md](/Users/user/test/analysis/registry_a_entry8_cluster_catalog.md)
+  - [registry_a_entry8_cluster_overview.md](/Users/user/test/analysis/registry_a_entry8_cluster_overview.md)
+  - [registry_a_entry8_cluster_tag_summary.json](/Users/user/test/analysis/registry_a_entry8_cluster_tag_summary.json)
   - [terminator_10_late_dialogue_hits.json](/Users/user/test/analysis/terminator_10_late_dialogue_hits.json)
   - [terminator_10_global_hits.json](/Users/user/test/analysis/terminator_10_global_hits.json)
 - 현재 확인:
@@ -130,6 +134,8 @@
   - 상위 registry 재검사 결과는 [prefixed_registry_scan_summary.json](/Users/user/test/analysis/prefixed_registry_scan_summary.json) 에 정리했다.
   - 현재 `Registry A/B/C/D` 중 이 규칙이 강하게 확인된 곳은 **A entry 8 하나뿐**이다.
   - 작업 단위 분할용 gap-cluster 지도는 [registry_a_entry8_cluster_summary.json](/Users/user/test/analysis/registry_a_entry8_cluster_summary.json) 에 있으며, threshold `0x400` 기준 `72`개 클러스터다.
+  - 이제는 [registry_a_entry8_cluster_catalog.json](/Users/user/test/analysis/registry_a_entry8_cluster_catalog.json) / [registry_a_entry8_cluster_catalog.md](/Users/user/test/analysis/registry_a_entry8_cluster_catalog.md) 로 각 cluster 에 `primary_tag`, `tags`, `sample_texts` 까지 붙은 상세 작업 지도를 생성할 수 있다.
+  - 사람이 빠르게 보는 요약은 [registry_a_entry8_cluster_overview.md](/Users/user/test/analysis/registry_a_entry8_cluster_overview.md) 에 두었다.
   - 기존 `0x10` terminator 슬라이딩 스캔은 `1200`건에서 limit 에 걸렸고, entry 8 발견 및 밀집 구간 확인용 정찰 데이터로 유지한다.
   - `0x6B7B44` 이후로는 리오르/코넬로 초반부처럼 보이는 이벤트 대사가 밀집한다.
   - `0x772E00` save menu block 도 이 entry 안쪽에 포함되므로, entry 8 은 **대사 + 메뉴 + command-stream text** 가 섞인 대형 mixed script bank 후보로 보는 해석이 강하다.
@@ -185,6 +191,7 @@
 - Registry A entry 8 분석으로 `0x10` 종단 command-stream 대사 bank 가 훨씬 크게 존재한다는 근거가 생겼고, 지금은 `01 FF <문자수>` 헤더 기반으로 clean extraction 이 가능해졌다.
 - Registry A tail 쪽에서도 entry `12` 처럼 실제 gameplay/item 텍스트 source 가 따로 보이므로, 추출 완료 판정은 상위 registry entry inventory 기준으로 해야 한다.
 - [translation_workset_gameplay_terms.json](/Users/user/test/analysis/translation_workset_gameplay_terms.json) 도 entry `12` 의 신규 `6`건을 포함하도록 갱신되었다.
+- Registry A entry `8` 은 이제 단순히 "큰 bank"가 아니라, cluster catalog 기준으로 장면/용도별 접근이 가능한 상태가 되었다.
 - 같은 prefixed 규칙을 상위 registry A/B/C/D 전체에 대입해 본 결과, 현재는 Registry A entry `8` 하나만 강하게 맞는다.
 - 전각 공백 필터 문제를 수정하면서 `battle/ability` 추출본의 누락 문자열을 회수했다.
 - 상위 리소스 청크 기준으로 보았을 때 `material_texts` 라는 별도 텍스트 묶음도 확인되었다.
@@ -195,6 +202,7 @@
 ## 다음 할 일
 
 1. Registry A entry `8` 의 `72`개 cluster 요약에 장면/용도 라벨을 붙이기
+현재는 자동 태그와 overview 까지 확보됨. 다음은 수동 정밀 라벨링.
 2. Registry D `244`개 clean extraction 본을 장면/용도 기준으로 더 묶기
 3. `01 FF <문자수>` / `FC 00 ... FC` 둘 다 안 통하는 다른 mixed resource 대사 형식을 찾기
 4. 메뉴 관련 텍스트 뱅크를 더 분리하기
