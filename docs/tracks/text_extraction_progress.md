@@ -111,14 +111,33 @@
   - index: `8`
   - 범위: `0x6B594C` ~ `0x772E58`
 - 파일:
+  - [registry_a_entry8_prefixed_texts.json](/Users/user/test/analysis/registry_a_entry8_prefixed_texts.json)
   - [registry_a_entry8_terminator_10_texts.json](/Users/user/test/analysis/registry_a_entry8_terminator_10_texts.json)
   - [terminator_10_late_dialogue_hits.json](/Users/user/test/analysis/terminator_10_late_dialogue_hits.json)
   - [terminator_10_global_hits.json](/Users/user/test/analysis/terminator_10_global_hits.json)
 - 현재 확인:
-  - entry 8 범위를 `0x10` terminator 기준 슬라이딩 스캔하면 현재 `1200`건까지 회수되며, 이미 limit 에 걸린 상태다.
+  - 많은 레코드가 `01 FF <u16 문자수>` 헤더 뒤에 `cp932` 본문이 오는 command-stream 구조를 가진다.
+  - 이 규칙으로 재추출한 [registry_a_entry8_prefixed_texts.json](/Users/user/test/analysis/registry_a_entry8_prefixed_texts.json) 은 현재 `9811`건이다.
+  - 초반 리오르 대사, 진행 힌트, 플래그 미스 디버그성 문구, 후반 이벤트 대사까지 한 규칙으로 연속 회수된다.
+  - 기존 `0x10` terminator 슬라이딩 스캔은 `1200`건에서 limit 에 걸렸고, entry 8 발견 및 밀집 구간 확인용 정찰 데이터로 유지한다.
   - `0x6B7B44` 이후로는 리오르/코넬로 초반부처럼 보이는 이벤트 대사가 밀집한다.
   - `0x772E00` save menu block 도 이 entry 안쪽에 포함되므로, entry 8 은 **대사 + 메뉴 + command-stream text** 가 섞인 대형 mixed script bank 후보로 보는 해석이 강하다.
   - `0x10` 종단 전역 스캔은 앞쪽 잡음이 섞이므로, 실제 사용 시에는 entry 8 같은 상위 범위로 좁혀 재스캔하는 편이 안전하다.
+
+### Save/menu prefixed command-stream block
+
+- 범위: `0x772E00` ~ `0x773260`
+- 파일:
+  - [save_menu_prefixed_texts.json](/Users/user/test/analysis/save_menu_prefixed_texts.json)
+  - [save_menu_texts.json](/Users/user/test/analysis/save_menu_texts.json)
+- 현재 확인:
+  - `save menu` 도 같은 `01 FF <u16 문자수>` 구조로 현재 `12`건이 깔끔하게 잡힌다.
+  - 예:
+    - `今はアルがいないから`
+    - `セーブはできないぞ`
+    - `これまでの旅を記録する？`
+    - `前の記録に上書きしてもいい？`
+  - 따라서 `save_menu_texts.json` 의 `0x10` 종단 스캔본은 발견용/비교용, 실제 작업용 원본은 prefixed 추출본이 더 정확하다.
 
 ### 크레딧(타이틀) 텍스트
 
@@ -138,7 +157,7 @@
 - 아이템/기술/지역/UI가 서로 다른 파일로 분리되기 시작해서 작업 관리가 쉬워졌다.
 - 아직 대사/이벤트 본문 텍스트는 충분히 확보되지 않았다.
 - Registry D 분석으로 본편성 대사/튜토리얼 텍스트가 대량으로 추가 확보되었다.
-- Registry A entry 8 분석으로 `0x10` 종단 command-stream 대사 bank 가 훨씬 크게 존재한다는 근거가 생겼다.
+- Registry A entry 8 분석으로 `0x10` 종단 command-stream 대사 bank 가 훨씬 크게 존재한다는 근거가 생겼고, 지금은 `01 FF <문자수>` 헤더 기반으로 clean extraction 이 가능해졌다.
 - 전각 공백 필터 문제를 수정하면서 `battle/ability` 추출본의 누락 문자열을 회수했다.
 - 상위 리소스 청크 기준으로 보았을 때 `material_texts` 라는 별도 텍스트 묶음도 확인되었다.
 - `material_texts` 뱅크는 순수 문자열 덩어리가 아니라, 앞단 binary record 와 뒷단 문자열 본문이 결합된 mixed resource 로 보인다.
@@ -147,9 +166,9 @@
 
 ## 다음 할 일
 
-1. Registry A entry `8` 의 `1200` hit 를 limit 없이 더 회수할지, 장면 블록 기준으로 분할할지 결정하기
-2. Registry D `305`개 대사를 장면/용도 기준으로 더 묶기
-3. Registry D 외의 남은 command-stream / mixed resource 대사 뱅크를 찾기
+1. `01 FF <문자수>` 규칙이 Registry A entry `8` 외 다른 command-stream 뱅크에도 통하는지 확인하기
+2. Registry A entry `8` 의 `9811`건을 장면/용도 기준으로 분할할지 결정하기
+3. Registry D `305`개 대사를 장면/용도 기준으로 더 묶기
 4. 메뉴 관련 텍스트 뱅크를 더 분리하기
 
 ## 진행 로그

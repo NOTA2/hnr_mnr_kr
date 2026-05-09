@@ -308,6 +308,121 @@ def extract_range_records(
     return records
 
 
+def decode_fixed_char_count(payload: bytes, *, encoding: str, char_count: int) -> Tuple[str, int]:
+    if char_count < 0:
+        raise ToolError("문자 수는 0 이상이어야 합니다.")
+    if char_count == 0:
+        return "", 0
+
+    chars: List[str] = []
+    cursor = 0
+
+    while len(chars) < char_count:
+        progressed = False
+        for end in range(cursor + 1, min(len(payload), cursor + 4) + 1):
+            try:
+                decoded = payload[cursor:end].decode(encoding)
+            except UnicodeDecodeError:
+                continue
+            if not decoded:
+                continue
+            decoded_chars = list(decoded)
+            if len(chars) + len(decoded_chars) > char_count:
+                raise ToolError("헤더 문자 수보다 많이 디코드되었습니다.")
+            chars.extend(decoded_chars)
+            cursor = end
+            progressed = True
+            break
+        if not progressed:
+            raise ToolError("지정된 문자 수만큼 디코드하지 못했습니다.")
+
+    if len(chars) != char_count:
+        raise ToolError("헤더 문자 수와 실제 디코드 길이가 맞지 않습니다.")
+    return "".join(chars), cursor
+
+
+def scan_prefixed_text_records(
+    data: bytes,
+    *,
+    start: int,
+    end: int,
+    prefix: bytes,
+    count_size: int,
+    count_endian: str,
+    encoding: str,
+    min_chars: int,
+    max_chars: int,
+    require_non_ascii: bool,
+    require_japanese_text: bool,
+    min_japanese_ratio: float,
+    limit: Optional[int],
+    preview_bytes: int,
+) -> List[dict]:
+    if start < 0 or end > len(data) or start >= end:
+        raise ToolError("잘못된 스캔 범위입니다.")
+    if not prefix:
+        raise ToolError("prefix는 최소 1바이트 이상이어야 합니다.")
+    if count_size not in {1, 2, 4}:
+        raise ToolError("count-size는 1, 2, 4 중 하나여야 합니다.")
+    if count_endian not in {"little", "big"}:
+        raise ToolError("count-endian은 little 또는 big 이어야 합니다.")
+    if max_chars < min_chars:
+        raise ToolError("max-chars는 min-chars 이상이어야 합니다.")
+
+    records: List[dict] = []
+    cursor = start
+    header_size = len(prefix) + count_size
+
+    while True:
+        offset = data.find(prefix, cursor, end)
+        if offset == -1:
+            return records
+        cursor = offset + 1
+        if offset + header_size > end:
+            continue
+
+        count_bytes = data[offset + len(prefix):offset + header_size]
+        char_count = int.from_bytes(count_bytes, count_endian)
+        if char_count < min_chars or char_count > max_chars:
+            continue
+
+        text_offset = offset + header_size
+        try:
+            text, byte_length = decode_fixed_char_count(
+                data[text_offset:end],
+                encoding=encoding,
+                char_count=char_count,
+            )
+        except ToolError:
+            continue
+
+        if not is_plausible_text(text, require_non_ascii, require_japanese_text, min_japanese_ratio):
+            continue
+
+        after_start = text_offset + byte_length
+        after_end = min(end, after_start + preview_bytes)
+        before_start = max(start, offset - preview_bytes)
+
+        records.append(
+            {
+                "header_offset": offset,
+                "header_rom_address": ROM_BASE + offset,
+                "offset": text_offset,
+                "rom_address": ROM_BASE + text_offset,
+                "prefix": " ".join(f"{byte:02X}" for byte in prefix),
+                "char_count": char_count,
+                "byte_length": byte_length,
+                "header_bytes": data[offset:text_offset].hex(" "),
+                "before_bytes": data[before_start:offset].hex(" "),
+                "after_bytes": data[after_start:after_end].hex(" "),
+                "text": text,
+                "translation": "",
+            }
+        )
+        if limit is not None and len(records) >= limit:
+            return records
+
+
 def find_all(data: bytes, needle: bytes) -> List[int]:
     hits: List[int] = []
     cursor = 0
@@ -1063,6 +1178,39 @@ def cmd_scan_text(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_scan_prefixed_text(args: argparse.Namespace) -> int:
+    rom_path = Path(args.rom)
+    data = load_rom(rom_path)
+    records = scan_prefixed_text_records(
+        data,
+        start=parse_offset(args.start),
+        end=parse_offset(args.end),
+        prefix=bytes(parse_hex_byte(part) for part in args.prefix.split()),
+        count_size=args.count_size,
+        count_endian=args.count_endian,
+        encoding=args.encoding,
+        min_chars=args.min_chars,
+        max_chars=args.max_chars,
+        require_non_ascii=args.require_non_ascii,
+        require_japanese_text=args.require_japanese,
+        min_japanese_ratio=args.min_japanese_ratio,
+        limit=args.limit,
+        preview_bytes=args.preview_bytes,
+    )
+    if args.output:
+        write_json(Path(args.output), records)
+
+    for item in records:
+        print(
+            f"{format_offset(item['header_offset'])} -> "
+            f"{format_offset(item['offset'])} "
+            f"[{item['char_count']} chars / {item['byte_length']} bytes] "
+            f"{item['text']}"
+        )
+    print(f"hits: {len(records)}")
+    return 0
+
+
 def cmd_extract_range(args: argparse.Namespace) -> int:
     rom_path = Path(args.rom)
     data = load_rom(rom_path)
@@ -1584,6 +1732,32 @@ def build_parser() -> argparse.ArgumentParser:
     scan_text.add_argument("--max-unknown-ratio", type=float, default=0.25)
     scan_text.add_argument("--output")
     scan_text.set_defaults(func=cmd_scan_text)
+
+    scan_prefixed_text = sub.add_parser(
+        "scan-prefixed-text",
+        help="prefix + 문자수 헤더를 가진 command-stream 텍스트를 스캔합니다.",
+    )
+    scan_prefixed_text.add_argument("rom")
+    scan_prefixed_text.add_argument("--start", required=True, help="스캔 시작 오프셋")
+    scan_prefixed_text.add_argument("--end", required=True, help="스캔 끝 오프셋 (exclusive)")
+    scan_prefixed_text.add_argument("--prefix", default="01 FF", help="헤더 prefix 바이트들 (예: '01 FF')")
+    scan_prefixed_text.add_argument("--count-size", type=int, default=2, help="문자수 필드 바이트 길이")
+    scan_prefixed_text.add_argument(
+        "--count-endian",
+        choices=["little", "big"],
+        default="little",
+        help="문자수 필드 엔디안",
+    )
+    scan_prefixed_text.add_argument("--encoding", default="cp932")
+    scan_prefixed_text.add_argument("--min-chars", type=int, default=4)
+    scan_prefixed_text.add_argument("--max-chars", type=int, default=128)
+    scan_prefixed_text.add_argument("--limit", type=int)
+    scan_prefixed_text.add_argument("--preview-bytes", type=int, default=12)
+    scan_prefixed_text.add_argument("--require-non-ascii", action="store_true", default=True)
+    scan_prefixed_text.add_argument("--require-japanese", action="store_true")
+    scan_prefixed_text.add_argument("--min-japanese-ratio", type=float, default=0.5)
+    scan_prefixed_text.add_argument("--output")
+    scan_prefixed_text.set_defaults(func=cmd_scan_prefixed_text)
 
     extract_range = sub.add_parser("extract-range", help="지정한 ROM 구간에서 문자열을 추출합니다.")
     extract_range.add_argument("rom")

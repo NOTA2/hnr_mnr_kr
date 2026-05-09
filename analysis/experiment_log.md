@@ -218,6 +218,30 @@
 - 시도: `scan-text --start/--end` 로 `0x08C3AC` 부근의 후보를 확인한 뒤 `extract-range` 로 범위를 추출했다. 이후 `find-pointers` 로 `0x08C3AC` 참조 포인터를 탐색했다.
 - 결과: `0x08C3AC~0x08CE00` 범위에서 크레딧 문자열 `10`건이 추출되었고, `0x184E20` 에서 `0x08C3AC` 를 가리키는 포인터 `1`건이 확인되었다.
 - 판정: `성공`
+
+### 실험 26
+
+- 가설: Registry A entry `8` 의 `0x10` 종단 mixed script 대사는 `01 FF <u16 문자수>` 헤더를 가진 command-stream 문자열일 수 있다.
+- 시도:
+  - `scan-prefixed-text` CLI 를 추가했다.
+  - `0x6B594C..0x772E58` 범위를 `prefix=01 FF`, `count-size=2`, `little-endian`, `cp932` 로 스캔했다.
+  - 같은 규칙을 `0x772E00..0x773260` save/menu block 에도 적용했다.
+- 결과:
+  - Registry A entry `8` 에서 [registry_a_entry8_prefixed_texts.json](/Users/user/test/analysis/registry_a_entry8_prefixed_texts.json) `9811`건이 clean 하게 추출되었다.
+  - 초반 리오르 대사 `医者になりたいんだけど、`, `教えてくれる？` 부터 후반 진행 힌트와 디버그성 플래그 문구까지 한 규칙으로 회수되었다.
+  - save/menu block 도 [save_menu_prefixed_texts.json](/Users/user/test/analysis/save_menu_prefixed_texts.json) `12`건이 정리되었다.
+- 판정: `성공`
+- 교훈: 이 계열 텍스트는 `0x10` terminator 슬라이딩 스캔보다 `01 FF <문자수>` 헤더 기반 추출이 훨씬 정확하다.
+
+### 실험 27
+
+- 가설: `scan-prefixed-text` 초안 구현에서 `cp932` 를 incremental decoder 로 처리해도 정확히 문자 수를 셀 수 있을 것이다.
+- 시도: `01 FF <u16 문자수>` 헤더 뒤 payload 를 incremental decode 하면서 문자 수만큼 읽는 방식으로 구현했다.
+- 결과:
+  - `教えてくれる？` 같은 분명한 샘플이 깨진 문자열로 해석되었다.
+  - 원인은 lead byte 시험 과정에서 같은 바이트가 decoder state 에 중복 투입된 것이었다.
+- 판정: `실패`
+- 교훈: `cp932` 문자수 헤더 추출에서는 상태형 incremental decode 를 쓰지 말고, 현재 위치의 짧은 바이트 조각을 독립적으로 strict decode 하며 전진해야 한다.
 - 교훈: "새 텍스트 뱅크 발견 → 범위 추출 → 포인터 검증" 흐름을 유지하면, 메뉴/대사 계열도 같은 방식으로 확장할 수 있다.
 
 ### 실험 26

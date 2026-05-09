@@ -83,6 +83,7 @@
 - 특징:
   - `00` 종단 평문 덩어리 형태가 아니라, 명령/파라미터 바이트 사이에 `cp932` 텍스트가 삽입된 형태로 보임
   - 문자열 종단/구분 바이트로 `0x10` 사용 사례 확인
+  - 더 정확한 작업용 추출본은 [save_menu_prefixed_texts.json](/Users/user/test/analysis/save_menu_prefixed_texts.json) 이며, `01 FF <u16 문자수>` 헤더 기준으로 `12`건을 회수했다.
 
 ### Registry D 튜토리얼/이벤트 대사
 
@@ -101,11 +102,13 @@
 
 - 범위: `0x6B594C` ~ `0x772E58`
 - 파일:
+  - [registry_a_entry8_prefixed_texts.json](/Users/user/test/analysis/registry_a_entry8_prefixed_texts.json)
   - [registry_a_entry8_terminator_10_texts.json](/Users/user/test/analysis/registry_a_entry8_terminator_10_texts.json)
   - [terminator_10_late_dialogue_hits.json](/Users/user/test/analysis/terminator_10_late_dialogue_hits.json)
 - 특징:
-  - `0x10` 종단 기준 슬라이딩 스캔으로 대사/이벤트/메뉴 문자열이 대량 회수된다.
-  - 현재 추출은 `1200`건에서 limit 에 걸린 상태다.
+  - 많은 레코드가 `01 FF <u16 문자수>` 헤더 뒤에 `cp932` 본문이 오는 command-stream 구조를 가진다.
+  - 이 규칙으로 [registry_a_entry8_prefixed_texts.json](/Users/user/test/analysis/registry_a_entry8_prefixed_texts.json) `9811`건을 회수했다.
+  - 기존 `0x10` 종단 슬라이딩 스캔은 entry 밀집 구간을 찾는 정찰용이고, 실제 작업에는 prefixed 추출본이 더 적합하다.
   - `0x772E00` save menu block 도 같은 entry 안쪽에 포함된다.
   - 현재는 **대형 mixed script bank** 로 보는 해석이 가장 강하다.
 
@@ -115,6 +118,7 @@
 - 모든 텍스트가 같은 참조 방식을 쓰지 않는 것으로 보인다.
 - 즉, 한 개의 "통합 텍스트 삽입 규칙"만으로 끝나지 않을 가능성이 높다.
 - 한글화는 텍스트 뱅크별로 처리 전략을 나눠야 할 수 있다.
+- 적어도 Registry A entry `8` / save menu 계열은 `00` 종단 평문이 아니라 `01 FF <문자수> + cp932 본문` 규칙을 별도로 다뤄야 한다.
 - `0x3Dxxxx` 일부 뱅크는 포인터 테이블보다는 순차적 레코드 배열일 가능성이 높다.
 - `0x17C1C0` 부근에는 `u32 length + u32 rom_address` 리소스 디스크립터 테이블이 있다.
 - 이 테이블은 일부 엔트리가 서로 겹치므로, `battle_texts` / `ability_texts` 범위를 단순한 청크 경계로 오해하면 안 된다.
