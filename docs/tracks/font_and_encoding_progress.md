@@ -92,6 +92,7 @@
 2. `obj + 0x18 / +0x20` 해석을 실제 UI 줄폭/박스 크기와 더 대조
 3. `0x01570C / 0x01578C / 0x01580C / 0x01588C` 네 writer variant 차이 확인
 4. common `fnt` manifest 를 바탕으로 한글용 빈 glyph index / 재사용 전략을 세우기
+5. 텍스트 source inventory 가 거의 닫힌 시점에 첫 실제 한글 재삽입 테스트용 문자 매핑 계획으로 전환
 
 ## 진행 로그
 
@@ -113,3 +114,4 @@
 - `dump-fnt-glyph` CLI 를 추가해 `'あ'`, `'ア'`, `'日'` 샘플 glyph 를 실제로 덤프했고, 형태 확인까지 마쳤다
 - `inspect-fnt` CLI 를 추가해 [common_fnt_manifest.json](/Users/user/test/analysis/common_fnt_manifest.json) 을 생성했고, 공통 `fnt` payload 전체 mapping 1698개를 실제 추출본으로 확보했다
 - `obj + 0x18` / `obj + 0x20` 기반 width/advance 누적 구조를 잡고, world-map `r3=0x0C` 와 일반 화면군 `r3=20` caller 비교로 가변폭형 레이아웃 해석도 교차검증했다
+- 이후 텍스트 추출 쪽은 coverage audit 위주로 잠깐 우선했고, 폰트/문자 매핑은 **첫 실제 한글 재삽입 테스트 직전 단계**로 다시 올릴 계획을 명시했다

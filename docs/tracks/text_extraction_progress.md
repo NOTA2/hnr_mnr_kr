@@ -107,7 +107,8 @@
   - stop byte `FC` 가 Shift-JIS 2바이트 문자의 trailing byte 로 들어갈 수 있어 SJIS-aware stop 처리까지 넣었고, 이 보정으로 entry `8` 대사 `4`건이 추가 회수되었다.
   - 이 `244`건도 `82 / 100` 엔트리에서 나오며, top entry 는 `0=20`, `92=17`, `33=15`, `47=10`, `1=7`, `24=7`, `32=7`, `54=7` 순이다.
   - `registry_d_full_sliding_texts.json` 의 `305`건은 discovery coverage 용으로 유지하고, 실제 작업용 원본은 `registry_d_fc_script_texts.json` 쪽이 더 깨끗하다.
-  - 남은 [registry_d_unresolved_entries.json](/Users/user/test/analysis/registry_d_unresolved_entries.json) `18`개 중 대부분은 `2-byte sentinel/control stub` 이고, 텍스트 미회수 관점에서 실제로 다시 볼 가치는 entry `70` control-only script table 후보 정도다.
+  - 남은 [registry_d_unresolved_entries.json](/Users/user/test/analysis/registry_d_unresolved_entries.json) `18`개 중 대부분은 `2-byte sentinel/control stub` 이다.
+  - entry `70` 도 raw bytes 재확인 결과 `FC` 기반 command/control table 패턴이 매우 조밀하고 plausible cp932 대사가 없어, 현재는 **실질 미추출 대사보다 control-only script table** 로 보는 편이 안전하다.
   - entry `0` / `92` 는 튜토리얼 계열 중복/변형 대사 묶음으로 보인다.
   - entry `33`, `47` 같은 큰 엔트리도 대사성 문자열을 다수 포함한다.
   - 초기 전수 스캔 때는 `scan-text` 기본 `--limit 100` 에 걸려 일부만 보였으므로, 넓은 범위 스캔에서는 반드시 limit 을 올려야 한다.
@@ -125,6 +126,8 @@
   - [registry_a_entry8_cluster_catalog.md](/Users/user/test/analysis/registry_a_entry8_cluster_catalog.md)
   - [registry_a_entry8_cluster_overview.md](/Users/user/test/analysis/registry_a_entry8_cluster_overview.md)
   - [registry_a_entry8_cluster_tag_summary.json](/Users/user/test/analysis/registry_a_entry8_cluster_tag_summary.json)
+  - [registry_a_entry8_cluster71_pre_save_texts.json](/Users/user/test/analysis/registry_a_entry8_cluster71_pre_save_texts.json)
+  - [registry_a_entry8_cluster71_save_segment_texts.json](/Users/user/test/analysis/registry_a_entry8_cluster71_save_segment_texts.json)
   - [terminator_10_late_dialogue_hits.json](/Users/user/test/analysis/terminator_10_late_dialogue_hits.json)
   - [terminator_10_global_hits.json](/Users/user/test/analysis/terminator_10_global_hits.json)
 - 현재 확인:
@@ -136,6 +139,8 @@
   - 작업 단위 분할용 gap-cluster 지도는 [registry_a_entry8_cluster_summary.json](/Users/user/test/analysis/registry_a_entry8_cluster_summary.json) 에 있으며, threshold `0x400` 기준 `72`개 클러스터다.
   - 이제는 [registry_a_entry8_cluster_catalog.json](/Users/user/test/analysis/registry_a_entry8_cluster_catalog.json) / [registry_a_entry8_cluster_catalog.md](/Users/user/test/analysis/registry_a_entry8_cluster_catalog.md) 로 각 cluster 에 `primary_tag`, `tags`, `sample_texts` 까지 붙은 상세 작업 지도를 생성할 수 있다.
   - 사람이 빠르게 보는 요약은 [registry_a_entry8_cluster_overview.md](/Users/user/test/analysis/registry_a_entry8_cluster_overview.md) 에 두었다.
+  - cluster `71` 은 자동 태그만 보면 `save_menu` 로 보이지만, 실제로는 일반 이벤트/진행 힌트 `228`건과 save/menu `12`건이 섞인 mixed hub 다.
+  - [registry_a_entry8_cluster71_save_segment_texts.json](/Users/user/test/analysis/registry_a_entry8_cluster71_save_segment_texts.json) 은 [save_menu_prefixed_texts.json](/Users/user/test/analysis/save_menu_prefixed_texts.json) 과 정확히 일치하므로, save/menu 블록의 source 경계는 사실상 정리된 상태다.
   - 기존 `0x10` terminator 슬라이딩 스캔은 `1200`건에서 limit 에 걸렸고, entry 8 발견 및 밀집 구간 확인용 정찰 데이터로 유지한다.
   - `0x6B7B44` 이후로는 리오르/코넬로 초반부처럼 보이는 이벤트 대사가 밀집한다.
   - `0x772E00` save menu block 도 이 entry 안쪽에 포함되므로, entry 8 은 **대사 + 메뉴 + command-stream text** 가 섞인 대형 mixed script bank 후보로 보는 해석이 강하다.
@@ -202,11 +207,11 @@
 ## 다음 할 일
 
 1. Registry A entry `8` 의 `72`개 cluster 요약에 장면/용도 라벨을 붙이기
-현재는 자동 태그와 overview 까지 확보됨. 다음은 수동 정밀 라벨링.
+현재는 자동 태그와 overview, cluster `71` save/menu 분리까지 확보됨. 다음은 수동 정밀 라벨링.
 2. Registry D `244`개 clean extraction 본을 장면/용도 기준으로 더 묶기
 3. `01 FF <문자수>` / `FC 00 ... FC` 둘 다 안 통하는 다른 mixed resource 대사 형식을 찾기
-4. 메뉴 관련 텍스트 뱅크를 더 분리하기
-5. 추출 완료 판정용 coverage inventory 를 계속 갱신하기
+4. 추출 완료 판정용 coverage inventory 를 계속 갱신하기
+5. 텍스트 source inventory 가 거의 닫히는 시점에 폰트/문자 매핑 단계로 다시 넘어가기
 
 ## 진행 로그
 

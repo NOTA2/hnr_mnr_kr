@@ -84,6 +84,10 @@
   - 진행 유도, 도시별 대화, save/menu prompt 가 함께 뒤섞인 **후기 mixed hub** 후보
 - 주의:
   - 이 cluster 는 `save_menu` 태그가 붙지만, **세이브 메뉴 전용 구간은 아니다.**
+  - 실제로는 `0x772E00` 기준으로 일반 이벤트/진행 힌트 `228`건과 save/menu `12`건으로 분리할 수 있다.
+  - 분리본:
+    - [registry_a_entry8_cluster71_pre_save_texts.json](/Users/user/test/analysis/registry_a_entry8_cluster71_pre_save_texts.json)
+    - [registry_a_entry8_cluster71_save_segment_texts.json](/Users/user/test/analysis/registry_a_entry8_cluster71_save_segment_texts.json)
 
 ## 지금 이 문서의 용도
 

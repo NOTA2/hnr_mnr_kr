@@ -1044,3 +1044,17 @@
   - 따라서 entry `8` 은 이제 "큰 bank 하나"가 아니라, **장면/용도 후보를 가진 작업 지도** 로 다룰 수 있게 되었다.
 - 판정: `성공`
 - 교훈: 대형 mixed bank 는 "추출 성공"만으로는 충분하지 않다. 실제 한글화 준비에서는 cluster catalog 같은 중간 레이어가 있어야, 텍스트가 덜 뽑힌 건지 아니면 이미 뽑았는데 정리만 안 된 건지 빠르게 구분할 수 있다.
+
+### 실험 48
+
+- 가설: Registry A entry `8` 의 cluster `71` 은 자동 태그상 `save_menu` 로 보이지만, 실제로는 save/menu source 와 일반 이벤트 대사가 한데 섞인 mixed hub 일 것이다. 또 Registry D entry `70` 은 끝까지 대사 후보가 아니라 control-only script table 일 가능성이 높다.
+- 시도:
+  - [registry_a_entry8_cluster_catalog.json](/Users/user/test/analysis/registry_a_entry8_cluster_catalog.json) 의 cluster `71` 범위를 기준으로, save/menu block 시작점 `0x772E00` 전후를 나눠 추출본을 재분리했다.
+  - 분리본을 [save_menu_prefixed_texts.json](/Users/user/test/analysis/save_menu_prefixed_texts.json) 과 직접 대조했다.
+  - Registry D entry `70` 은 raw bytes 전체를 다시 덤프해 `FC` 밀집도와 명령 반복 패턴을 확인했다.
+- 결과:
+  - cluster `71` 은 일반 이벤트/진행 힌트 `228`건과 save/menu `12`건으로 분리됐고, save/menu 쪽은 [registry_a_entry8_cluster71_save_segment_texts.json](/Users/user/test/analysis/registry_a_entry8_cluster71_save_segment_texts.json) 이 [save_menu_prefixed_texts.json](/Users/user/test/analysis/save_menu_prefixed_texts.json) 과 정확히 일치했다.
+  - 따라서 cluster `71` 의 `save_menu` 태그는 “이 cluster 안에 save block 이 들어 있다”는 뜻이지, cluster 전체가 save menu 전용이라는 뜻은 아니라는 점이 정리됐다.
+  - Registry D entry `70` 은 `FC 04 00 FC 03 4B ...` 같은 짧은 제어 명령이 과도하게 반복되고, plausible cp932 대사가 전혀 잡히지 않아 control-only script table 해석이 더 강해졌다.
+- 판정: `성공`
+- 교훈: 자동 태그는 작업 진입점으로는 유용하지만, 실제 source 경계와 1:1 대응한다고 가정하면 안 된다. 또 "마지막 미해결 텍스트 후보"처럼 보이는 엔트리도 raw command density 를 직접 보면 빠르게 control-only 로 닫을 수 있다.

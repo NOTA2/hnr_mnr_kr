@@ -40,6 +40,7 @@
 - Registry A (`18` entries)
   - entry `8`: `01 FF <u16 문자수>` 규칙으로 대형 mixed script bank 추출 완료
   - entry `8` 은 [registry_a_entry8_cluster_catalog.json](/Users/user/test/analysis/registry_a_entry8_cluster_catalog.json) / [registry_a_entry8_cluster_overview.md](/Users/user/test/analysis/registry_a_entry8_cluster_overview.md) 기준으로 `72`개 cluster 작업 지도로 재구성됐다.
+  - cluster `71` 은 [registry_a_entry8_cluster71_pre_save_texts.json](/Users/user/test/analysis/registry_a_entry8_cluster71_pre_save_texts.json) `228`건 일반 이벤트/진행 힌트와 [registry_a_entry8_cluster71_save_segment_texts.json](/Users/user/test/analysis/registry_a_entry8_cluster71_save_segment_texts.json) `12`건 save/menu block 으로 다시 분리해 둘 수 있다.
   - entry `12`: gameplay/item text `22`건 확인. [registry_a_entry12_texts.json](/Users/user/test/analysis/registry_a_entry12_texts.json) 으로 별도 확보
   - entry `12` 의 `22`건 중 `16`건은 기존 `item_texts` / gameplay terms 와 중복이고, `6`건은 기존 workset 에 없던 텍스트다.
   - tail `9..17` 의 현재 분류는 [registry_a_tail_classification.json](/Users/user/test/analysis/registry_a_tail_classification.json) 에 정리했다.
@@ -53,7 +54,7 @@
   - `FC 00 ... FC` mixed script 규칙으로 `244`건 추출
   - hit entry `82 / 100`
   - 남은 [registry_d_unresolved_entries.json](/Users/user/test/analysis/registry_d_unresolved_entries.json) `18`개 중 대부분은 `2-byte sentinel/control stub`
-  - 실질 미확인 후보는 entry `70` 정도만 남는다.
+  - entry `70` 도 현재는 raw bytes 패턴상 `control-only script table` 로 보는 쪽이 강해, 실질 미확인 대사 후보는 거의 남지 않았다.
 
 ## 현재 상태 평가
 
@@ -71,6 +72,7 @@
 ### 아직 100%라고 단정하면 안 되는 이유
 
 - Registry A entry `8` 이 매우 큰 bank 라서, 내부 cluster 구조는 잡았지만 장면/용도 라벨링이 아직 덜 됐다.
+- Registry A entry `8` 은 cluster `71` save/menu 분리까지는 끝났지만, 나머지 cluster 수동 라벨링은 아직 덜 됐다.
 - Registry A entry `12` 같이 상위 registry 관점에서 뒤늦게 보이는 text source 가 추가로 있을 수 있다.
 - 대표 렌더러가 읽는 자원은 많이 좁혀졌지만, 실제 플레이 전수 확인은 아직 안 했다.
 - 따라서 지금은 **"대부분의 핵심 텍스트 공급원은 잡았지만, 100% 단정은 이르다"** 가 가장 정확하다.
