@@ -1136,3 +1136,16 @@
   - `search-text /private/tmp/hnr_font_hangul_string_test.gba 가나다 --table analysis/hangul_test.tbl` 는 `0x1842E0` hit `1` 을 반환했다.
 - 판정: `성공`
 - 교훈: 이제 "font 를 옮길 수 있다", "glyph 를 붙일 수 있다" 수준을 넘어서, **공통 font 확장 + 실제 한글 glyph + 실제 문자열 1건 치환** 까지 한 번은 닫혔다. 다음 단계는 같은 길이 치환을 넘어서, 더 긴 한글 문자열의 inject / repoint 와 실제 화면 렌더링 확인이다.
+
+### 실험 54
+
+- 가설: placeholder 품질의 테스트 glyph 를 그대로 정식 제작에 쓰면 품질 문제가 반복된다. 레퍼런스 glyph 를 편집용 `PGM` 세트로 내보내고 외부 픽셀 에디터에서 수정한 뒤 다시 가져오는 workflow 가 필요하다.
+- 시도:
+  - `prepare-fnt-glyph-set` CLI 를 `gba_kor_tool` 에 추가했다.
+  - seed manifest [hangul_reference_seed_manifest.json](/Users/user/test/analysis/hangul_reference_seed_manifest.json) 을 만들고, 기존 일본어 glyph `0x8341`, `0x838A`, `0x93FA` 를 각각 `가/나/다` 작업용 seed 로 연결했다.
+  - 원본 ROM `0x3E0000` 공통 `fnt` payload 기준으로 편집용 작업 폴더 [hangul_reference_workbench](/Users/user/test/analysis/hangul_reference_workbench) 와 [hangul_reference_workbench_report.json](/Users/user/test/analysis/hangul_reference_workbench_report.json) 을 생성했다.
+- 결과:
+  - 편집용 `PGM` 파일 `hangul_ga.pgm`, `hangul_na.pgm`, `hangul_da.pgm` 과 [prepared_manifest.json](/Users/user/test/analysis/hangul_reference_workbench/prepared_manifest.json), [prepared.tbl](/Users/user/test/analysis/hangul_reference_workbench/prepared.tbl) 이 생성되었다.
+  - 따라서 이제는 AI가 대충 만든 block glyph 대신, **외부 픽셀 에디터에서 사람이 다듬은 glyph 자산** 을 다시 `append-fnt-glyph-set` 으로 가져오는 경로가 준비되었다.
+- 판정: `성공`
+- 교훈: 한글 glyph 품질 문제는 렌더러 분석으로 해결되지 않는다. 검증용 placeholder 와 정식 자산 제작 workflow 를 분리하고, 정식 단계에서는 반드시 레퍼런스 기반 외부 편집 산출물을 단일 truth source 로 삼아야 한다.

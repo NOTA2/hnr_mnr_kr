@@ -118,6 +118,10 @@
   - raw bytes: `E940 E941 E942 00`
   - `search-text /private/tmp/hnr_font_hangul_string_test.gba 가나다 --table analysis/hangul_test.tbl` hit `1`
 - 따라서 공통 renderer 경로에 대해 **확장 font + 새 한글 glyph + 실제 문자열 치환** 까지 한 번은 닫혔다.
+- 다만 현재 `가/나/다` 는 품질 검증용 placeholder glyph 이고, 정식 제작용 bitmap 으로 보아서는 안 된다.
+- production 단계에서는 [font_asset_workflow.md](/Users/user/test/docs/font_asset_workflow.md) 기준으로, 레퍼런스 glyph 를 편집용 `PGM` 으로 뽑아 외부 픽셀 에디터에서 다듬고 다시 가져오는 흐름을 기본으로 삼는다.
+- 이를 위해 `prepare-fnt-glyph-set` CLI 를 추가했고, seed manifest 에서 편집용 `PGM` 세트와 `.tbl` 을 생성할 수 있다.
+- 현재 seed manifest 는 [hangul_reference_seed_manifest.json](/Users/user/test/analysis/hangul_reference_seed_manifest.json) 이고, 생성된 작업 폴더는 [hangul_reference_workbench](/Users/user/test/analysis/hangul_reference_workbench) 이다.
 - 큰 free code block 예:
   - `0x8440..0x84FF`
   - `0x8540..0x85FF`
@@ -174,3 +178,4 @@
 - `append-fnt-glyph-set` CLI 와 테스트용 `PGM 12x12` glyph `가/나/다` 세트를 추가해, 실제 한글 glyph 3개를 `0xE940..0xE942` 에 append 했다
 - 테스트용 테이블 [hangul_test.tbl](/Users/user/test/analysis/hangul_test.tbl) 을 만들고, world-map 지역명 `ソリン` (`0x1842E0`) 을 `가나다` 로 제자리 치환한 `/private/tmp/hnr_font_hangul_string_test.gba` 까지 검증했다
 - 따라서 지금은 **font relocation + 한글 glyph append + 실제 문자열 1건 치환** 까지 완료된 상태다
+- 이어서 `prepare-fnt-glyph-set` CLI 와 [hangul_reference_seed_manifest.json](/Users/user/test/analysis/hangul_reference_seed_manifest.json) 를 추가해, 정식 제작용 glyph 작업을 위한 외부 편집 workflow 도 문서화했다

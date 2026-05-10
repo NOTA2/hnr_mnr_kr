@@ -1952,6 +1952,147 @@ def cmd_dump_fnt_glyph(args: argparse.Namespace) -> int:
     return 0
 
 
+def dump_fnt_glyph_image(
+    data: bytes,
+    *,
+    payload_offset: int,
+    glyph_index: Optional[int],
+    code: Optional[int],
+    width: int,
+    height: int,
+    row_bytes: int,
+) -> Dict[str, object]:
+    header = read_fnt_header(data, payload_offset=payload_offset)
+    resolved_glyph_index = resolve_fnt_glyph_index(
+        data,
+        header=header,
+        glyph_index=glyph_index,
+        code=code,
+    )
+    glyph_offset = header["glyph_base"] + resolved_glyph_index * header["stride"]
+    pixels = render_fnt_glyph(
+        data,
+        glyph_offset=glyph_offset,
+        width=width,
+        height=height,
+        row_bytes=row_bytes,
+    )
+    return {
+        "pixels": pixels,
+        "glyph_index": resolved_glyph_index,
+        "glyph_offset": glyph_offset,
+        "header": header,
+    }
+
+
+def cmd_prepare_fnt_glyph_set(args: argparse.Namespace) -> int:
+    rom_path = Path(args.rom)
+    data = load_rom(rom_path)
+    payload_offset = parse_offset(args.payload)
+    width = args.width or 12
+    height = args.height or 12
+    row_bytes = args.row_bytes or max(1, math.ceil(width / 2))
+
+    manifest_path = Path(args.manifest)
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    if not isinstance(manifest, list):
+        raise ToolError("manifest 는 JSON 배열이어야 합니다.")
+
+    output_dir = Path(args.output_dir)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    prepared_manifest_path = output_dir / (args.output_manifest or "prepared_manifest.json")
+    table_path = output_dir / (args.table_name or "prepared.tbl")
+
+    prepared_manifest: List[Dict[str, object]] = []
+    report_entries: List[Dict[str, object]] = []
+    table_lines: List[str] = []
+
+    for index, item in enumerate(manifest):
+        if not isinstance(item, dict):
+            raise ToolError("manifest 항목은 객체여야 합니다.")
+        if "code" not in item:
+            raise ToolError("manifest 항목에는 code 필드가 필요합니다.")
+
+        target_code = parse_offset(str(item["code"]))
+        source_glyph_index = item.get("source_glyph_index")
+        source_code_raw = item.get("source_code")
+        source_code = parse_offset(str(source_code_raw)) if source_code_raw is not None else None
+        char_value = str(item.get("char", "")).strip()
+        stem = item.get("name") or item.get("label") or f"glyph_{target_code:04X}"
+        safe_stem = re.sub(r"[^0-9A-Za-z_.-]+", "_", str(stem)).strip("_") or f"glyph_{target_code:04X}"
+        pgm_filename = f"{safe_stem}.pgm"
+        pgm_path = output_dir / pgm_filename
+
+        if source_glyph_index is None and source_code is None:
+            pixels = bytes(width * height)
+            source_report: Dict[str, object] = {
+                "mode": "blank",
+            }
+        else:
+            image = dump_fnt_glyph_image(
+                data,
+                payload_offset=payload_offset,
+                glyph_index=int(source_glyph_index) if source_glyph_index is not None else None,
+                code=source_code,
+                width=int(item.get("width", width)),
+                height=int(item.get("height", height)),
+                row_bytes=int(item.get("row_bytes", row_bytes)),
+            )
+            pixels = bytes(image["pixels"])
+            source_report = {
+                "mode": "copied",
+                "source_glyph_index": int(image["glyph_index"]),
+                "source_glyph_offset": int(image["glyph_offset"]),
+                "source_code": None if source_code is None else f"0x{source_code:04X}",
+            }
+
+        write_pgm(pgm_path, pixels, width, height)
+        prepared_entry: Dict[str, object] = {
+            "code": f"0x{target_code:04X}",
+            "pgm": str(pgm_path),
+        }
+        if char_value:
+            prepared_entry["char"] = char_value
+            table_lines.append(f"{target_code:04X}={char_value}")
+        prepared_manifest.append(prepared_entry)
+        report_entries.append(
+            {
+                "index": index,
+                "target_code": f"0x{target_code:04X}",
+                "char": char_value,
+                "pgm": str(pgm_path),
+                "width": width,
+                "height": height,
+                "row_bytes": row_bytes,
+                "source": source_report,
+            }
+        )
+
+    write_json(prepared_manifest_path, prepared_manifest)
+    if table_lines:
+        table_path.write_text("\n".join(table_lines) + "\n", encoding="utf-8")
+
+    result = {
+        "manifest": str(manifest_path),
+        "output_dir": str(output_dir),
+        "prepared_manifest": str(prepared_manifest_path),
+        "table": str(table_path) if table_lines else None,
+        "count": len(report_entries),
+        "entries": report_entries,
+    }
+    if args.report:
+        write_json(Path(args.report), result)
+
+    print(f"prepared_dir    : {output_dir}")
+    print(f"prepared_count  : {len(report_entries)}")
+    print(f"prepared_manifest: {prepared_manifest_path}")
+    if table_lines:
+        print(f"table           : {table_path}")
+    if args.report:
+        print(f"report          : {args.report}")
+    return 0
+
+
 def append_fnt_glyph_inplace(
     data: bytearray,
     *,
@@ -3024,6 +3165,22 @@ def build_parser() -> argparse.ArgumentParser:
     dump_fnt.add_argument("--row-bytes", type=int)
     dump_fnt.add_argument("--output", required=True)
     dump_fnt.set_defaults(func=cmd_dump_fnt_glyph)
+
+    prepare_fnt = sub.add_parser(
+        "prepare-fnt-glyph-set",
+        help="외부 툴에서 수정할 편집용 PGM glyph 세트와 manifest/table 을 생성합니다.",
+    )
+    prepare_fnt.add_argument("rom")
+    prepare_fnt.add_argument("payload")
+    prepare_fnt.add_argument("--manifest", required=True)
+    prepare_fnt.add_argument("--output-dir", required=True)
+    prepare_fnt.add_argument("--output-manifest")
+    prepare_fnt.add_argument("--table-name")
+    prepare_fnt.add_argument("--width", type=int)
+    prepare_fnt.add_argument("--height", type=int)
+    prepare_fnt.add_argument("--row-bytes", type=int)
+    prepare_fnt.add_argument("--report")
+    prepare_fnt.set_defaults(func=cmd_prepare_fnt_glyph_set)
 
     append_fnt = sub.add_parser(
         "append-fnt-glyph",

@@ -85,6 +85,9 @@
   - world-map 지역명 `ソリン` (`0x1842E0`) 은 공통 renderer 경로를 직접 타는 짧은 텍스트라서 첫 실제 한글 문자열 적용 대상으로 적합했다.
   - `/private/tmp/hnr_font_hangul_string_test.gba` 에서 위 위치를 `가나다` 로 제자리 치환했고, raw bytes `E940 E941 E942 00` 과 `search-text --table analysis/hangul_test.tbl` hit `1`건으로 검증했다.
   - 따라서 지금은 "첫 실제 한글 재삽입 테스트 직전" 이 아니라, **공통 font 확장 + 한글 glyph append + 한글 문자열 1건 치환** 까지 닫힌 상태다.
+  - 다만 위 `가/나/다` glyph 는 placeholder 품질이므로, production 단계에서는 [font_asset_workflow.md](/Users/user/test/docs/font_asset_workflow.md) 기준으로 **레퍼런스 기반 외부 픽셀 에디터 workflow** 를 사용한다.
+  - 이를 위해 `prepare-fnt-glyph-set` 으로 편집용 `PGM` glyph 세트와 `.tbl` 을 뽑아 외부 툴에서 다듬고 다시 `append-fnt-glyph-set` 으로 가져오는 경로를 추가했다.
+  - 현재 seed manifest 는 [hangul_reference_seed_manifest.json](/Users/user/test/analysis/hangul_reference_seed_manifest.json), 실제 편집용 workbench 는 [prepared_manifest.json](/Users/user/test/analysis/hangul_reference_workbench/prepared_manifest.json), [prepared.tbl](/Users/user/test/analysis/hangul_reference_workbench/prepared.tbl) 기준으로 생성해 두었다.
   - 요약 전략은 [common_fnt_hangul_strategy.md](/Users/user/test/analysis/common_fnt_hangul_strategy.md) 에 정리했다.
   - width/advance 는 `obj + 0x18` 에 누적되며, multibyte 는 `+0x18`, halfwidth 는 `+0x10` 이다. `(obj + 0x18) >> 4` 와 `obj + 0x20` 비교로 줄 수용량을 판단한다.
   - world-map `r3=0x0C` 는 capacity `18`, 대표 일반 화면군 `r3=20` 은 capacity `30` 으로 변환되어, 이 엔진이 fullwidth / halfwidth 혼합 가변폭형 레이아웃을 가진다는 해석이 강하다.
@@ -112,6 +115,7 @@
 - 필수: [text_extraction_progress.md](/Users/user/test/docs/tracks/text_extraction_progress.md)
 - 필요 시: [text_reinsertion_progress.md](/Users/user/test/docs/tracks/text_reinsertion_progress.md)
 - 필요 시: [font_and_encoding_progress.md](/Users/user/test/docs/tracks/font_and_encoding_progress.md)
+- 필요 시: [font_asset_workflow.md](/Users/user/test/docs/font_asset_workflow.md)
 - 추출 구조가 막힐 때만: [data_structure_investigation.md](/Users/user/test/docs/tracks/data_structure_investigation.md)
 
 ## 반복 금지

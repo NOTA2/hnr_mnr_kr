@@ -1,0 +1,54 @@
+{
+  "manifest": "analysis/hangul_reference_seed_manifest.json",
+  "output_dir": "analysis/hangul_reference_workbench",
+  "prepared_manifest": "analysis/hangul_reference_workbench/prepared_manifest.json",
+  "table": "analysis/hangul_reference_workbench/prepared.tbl",
+  "count": 3,
+  "entries": [
+    {
+      "index": 0,
+      "target_code": "0xE940",
+      "char": "가",
+      "pgm": "analysis/hangul_reference_workbench/hangul_ga.pgm",
+      "width": 12,
+      "height": 12,
+      "row_bytes": 6,
+      "source": {
+        "mode": "copied",
+        "source_glyph_index": 183,
+        "source_glyph_offset": 4207496,
+        "source_code": "0x8341"
+      }
+    },
+    {
+      "index": 1,
+      "target_code": "0xE941",
+      "char": "나",
+      "pgm": "analysis/hangul_reference_workbench/hangul_na.pgm",
+      "width": 12,
+      "height": 12,
+      "row_bytes": 6,
+      "source": {
+        "mode": "copied",
+        "source_glyph_index": 255,
+        "source_glyph_offset": 4212680,
+        "source_code": "0x838A"
+      }
+    },
+    {
+      "index": 2,
+      "target_code": "0xE942",
+      "char": "다",
+      "pgm": "analysis/hangul_reference_workbench/hangul_da.pgm",
+      "width": 12,
+      "height": 12,
+      "row_bytes": 6,
+      "source": {
+        "mode": "copied",
+        "source_glyph_index": 1308,
+        "source_glyph_offset": 4288496,
+        "source_code": "0x93FA"
+      }
+    }
+  ]
+}
