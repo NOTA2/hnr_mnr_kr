@@ -136,6 +136,8 @@
   - [hangul_core_ui_workbench](/Users/user/test/analysis/hangul_core_ui_workbench): 80글자, 완성 문장 커버 `19`
 - 상세 기준은 [hangul_core_ui_priority_plan.md](/Users/user/test/analysis/hangul_core_ui_priority_plan.md), 수치 근거는 [hangul_core_ui_priority_coverage.json](/Users/user/test/analysis/hangul_core_ui_priority_coverage.json) 에 있다.
 - 따라서 당장 외부 툴에서 다듬을 첫 production batch 는 `priority48` 로 두는 편이 가장 현실적이다.
+- 이 `priority48` / `full80` 세트는 실제 test ROM 생성까지 이어졌다. 현재 상태는 [core_ui_test_rom_matrix.md](/Users/user/test/analysis/core_ui_test_rom_matrix.md) 에 정리했다.
+- 즉 폰트 쪽은 이제 "glyph 세트를 준비했다" 단계가 아니라, **glyph 세트별로 실제 문자열 배치가 얼마나 들어가는지까지 검증된 단계** 다.
 - 큰 free code block 예:
   - `0x8440..0x84FF`
   - `0x8540..0x85FF`

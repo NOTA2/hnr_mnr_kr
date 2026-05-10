@@ -22,6 +22,8 @@
 - 번역 JSON 일괄 적용 기본 기능
 - `.tbl` 기반 custom 2-byte code 인코딩
 - 확장된 공통 font payload 를 전제로 한 테스트 문자열 치환 1건
+- `.tbl` + 기존 `cp932` fallback 혼합 인코딩
+- core UI batch test ROM 생성 및 적용 리포트
 
 ## 아직 부족한 것
 
@@ -33,11 +35,12 @@
 
 ## 다음 할 일
 
-1. world-map 지명처럼 공통 font 를 직접 쓰는 문자열에 대해 더 긴 한글 inject / repoint 테스트를 1건 수행
-2. `0x3Dxxxx` 계열 문자열에 대한 삽입 가능성 판단
-3. 제어 코드가 섞인 문자열 삽입 테스트
-4. 실패/예외 사례 문서화
-5. 번역 JSON 리포트 개선
+1. `priority48 compact` 또는 `full80 compact` ROM 기준으로 실제 화면 렌더링을 확인
+2. `full80` 기본 번역에서 남은 `4 skipped_no_pointer` save/menu/지명 케이스의 간접 참조 구조를 찾거나 inject/repoint 대안을 만든다
+3. `0x3Dxxxx` 계열 문자열에 대한 삽입 가능성 판단
+4. 제어 코드가 섞인 문자열 삽입 테스트
+5. 실패/예외 사례 문서화
+6. 번역 JSON 리포트 개선
 
 ## 진행 로그
 
@@ -56,3 +59,7 @@
 - 공통 `fnt` 확장본과 [hangul_test.tbl](/Users/user/test/analysis/hangul_test.tbl) 을 이용해, world-map 지역명 `ソリン` (`0x1842E0`) 을 `가나다` 로 제자리 치환한 `/private/tmp/hnr_font_hangul_string_test.gba` 를 만들었다
 - raw bytes `E940 E941 E942 00` 과 `search-text --table analysis/hangul_test.tbl` hit `1` 로 문자열 치환을 검증했다
 - 따라서 재삽입 쪽도 이제 "도구만 준비됨"이 아니라, **확장 font 를 전제로 한 실제 한글 문자열 1건 검증** 단계로 올라왔다
+- `priority48` glyph 세트를 붙인 font ROM `/private/tmp/hnr_font_core_ui_priority48_font.gba` 와 `full80` glyph 세트를 붙인 font ROM `/private/tmp/hnr_font_core_ui_full80_font.gba` 를 만들었다
+- `priority48` 기본 번역 ROM `/private/tmp/hnr_core_ui_priority48_text_test.gba` 는 `4 in_place, 1 skipped_no_pointer`, compact ROM `/private/tmp/hnr_core_ui_priority48_compact_text_test.gba` 는 `5 in_place` 까지 확인했다
+- `full80` 기본 번역 ROM `/private/tmp/hnr_core_ui_full80_text_test.gba` 는 `15 in_place, 4 skipped_no_pointer`, compact ROM `/private/tmp/hnr_core_ui_full80_compact_text_test.gba` 는 `19 in_place` 까지 확인했다
+- 요약 표는 [core_ui_test_rom_matrix.md](/Users/user/test/analysis/core_ui_test_rom_matrix.md) 에 정리했다

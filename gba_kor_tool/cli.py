@@ -196,7 +196,23 @@ def decode_payload(
 
 def encode_text(text: str, *, encoding: Optional[str], table: Optional[TableCodec]) -> bytes:
     if table is not None:
-        return table.encode(text)
+        out = bytearray()
+        i = 0
+        while i < len(text):
+            for token in table.encode_keys:
+                if text.startswith(token, i):
+                    out.extend(table.reverse[token])
+                    i += len(token)
+                    break
+            else:
+                if encoding is None:
+                    raise ToolError(f"테이블에 없는 문자/토큰입니다: {text[i:i + 8]!r}")
+                try:
+                    out.extend(text[i].encode(encoding))
+                except UnicodeEncodeError as exc:
+                    raise ToolError(f"테이블과 {encoding} fallback 으로도 인코딩할 수 없습니다: {text[i:i + 8]!r}") from exc
+                i += 1
+        return bytes(out)
     if encoding is None:
         raise ToolError("encoding 또는 table 중 하나는 반드시 필요합니다.")
     return text.encode(encoding)

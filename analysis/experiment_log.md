@@ -1179,3 +1179,34 @@
   - 따라서 첫 production batch 는 `priority24` 보다 [hangul_core_ui_priority48_workbench](/Users/user/test/analysis/hangul_core_ui_priority48_workbench) 쪽이 더 실용적이라는 결론을 얻었다.
 - 판정: `성공`
 - 교훈: "자주 나오는 글자"만으로 첫 배치를 정하면 실제 화면 문장이 하나도 안 닫힐 수 있다. 첫 glyph 배치는 **빈도 + 완성 문자열 커버** 를 함께 보고 정해야 한다.
+
+### 실험 57
+
+- 가설: 한글 custom code 와 기존 일본어/ASCII/기호가 섞인 문자열을 실제로 넣으려면, `.tbl` 에 없는 문자는 기존 `cp932` 로 fallback 인코딩되어야 한다. 이 조건이 맞으면 priority/full batch test ROM 을 바로 만들 수 있다.
+- 시도:
+  - `encode_text` 를 수정해, table 매칭에 실패한 문자는 지정한 `encoding` 으로 fallback 인코딩되도록 바꿨다.
+  - [core_ui_priority48_coverable_translations.json](/Users/user/test/analysis/core_ui_priority48_coverable_translations.json) `5`건, [core_ui_full80_coverable_translations.json](/Users/user/test/analysis/core_ui_full80_coverable_translations.json) `19`건을 만들었다.
+  - 각각의 glyph set 을 `/private/tmp/hnr_font_core_ui_priority48_font.gba`, `/private/tmp/hnr_font_core_ui_full80_font.gba` 에 append 한 뒤 `apply-translations` 를 실행했다.
+- 결과:
+  - `priority48` 기본 번역은 [core_ui_priority48_apply_report.json](/Users/user/test/analysis/core_ui_priority48_apply_report.json) 기준 `4 in_place, 1 skipped_no_pointer`
+  - `full80` 기본 번역은 [core_ui_full80_apply_report.json](/Users/user/test/analysis/core_ui_full80_apply_report.json) 기준 `15 in_place, 4 skipped_no_pointer`
+  - skip 된 `4`건은 모두 번역이 원문보다 약간 길어 direct pointer 탐색이 필요해진 케이스였다.
+- 판정: `성공`
+- 교훈: 실제 한글화 테스트에서는 table-only 인코딩으로는 부족하다. **custom Hangul mapping + 기존 cp932 fallback** 이 있어야 mixed UI 문자열을 바로 돌려볼 수 있다.
+
+### 실험 58
+
+- 가설: 아직 포인터 구조를 못 찾은 save/menu / 일부 지명 문자열도, 우선 compact test 번역으로 줄이면 전부 in-place 패치가 가능할 수 있다.
+- 시도:
+  - `저장 중이다… -> 저장 중...`
+  - `지금까지의 여정을 저장할까? -> 여정을 저장할까?`
+  - `이대로 여행을 계속할까? -> 여행을 계속할까?`
+  - `크루스 유적 -> 크루스유적`
+  - 위 compact 대체를 반영한 [core_ui_priority48_compact_test_translations.json](/Users/user/test/analysis/core_ui_priority48_compact_test_translations.json), [core_ui_full80_compact_test_translations.json](/Users/user/test/analysis/core_ui_full80_compact_test_translations.json) 을 만들고 다시 `apply-translations` 를 실행했다.
+- 결과:
+  - [core_ui_priority48_compact_apply_report.json](/Users/user/test/analysis/core_ui_priority48_compact_apply_report.json): `5 in_place`
+  - [core_ui_full80_compact_apply_report.json](/Users/user/test/analysis/core_ui_full80_compact_apply_report.json): `19 in_place`
+  - 결과 ROM 은 `/private/tmp/hnr_core_ui_priority48_compact_text_test.gba`, `/private/tmp/hnr_core_ui_full80_compact_text_test.gba`
+  - `search-text` 검증으로 `저장 중...`, `크루스유적`, `이스트 시티` 등 실제 문자열 hit 도 다시 확인했다.
+- 판정: `성공`
+- 교훈: 포인터 구조가 아직 안 닫힌 구간도, **compact test 번역본** 을 병행하면 시각 QA 와 렌더러 확인을 먼저 진행할 수 있다. 구조 조사와 화면 QA 를 완전히 직렬로 둘 필요는 없다.

@@ -91,6 +91,11 @@
   - 또 `build-hangul-seed-manifest` 로 번역 JSON 에서 필요한 한글 글자를 자동 수집할 수 있게 했고, 현재 [translation_workset_core_ui.json](/Users/user/test/analysis/translation_workset_core_ui.json) 기준 `80`글자 seed manifest [hangul_core_ui_seed_manifest.json](/Users/user/test/analysis/hangul_core_ui_seed_manifest.json) 와 workbench [hangul_core_ui_workbench](/Users/user/test/analysis/hangul_core_ui_workbench) 를 생성해 두었다.
   - 여기에 더해 `slice-hangul-seed-manifest` 로 상위 빈도 subset 도 자동 분리할 수 있게 했고, 현재는 [hangul_core_ui_priority24_workbench](/Users/user/test/analysis/hangul_core_ui_priority24_workbench) 와 [hangul_core_ui_priority48_workbench](/Users/user/test/analysis/hangul_core_ui_priority48_workbench) 를 만들었다.
   - coverage 기준으로는 [hangul_core_ui_priority_plan.md](/Users/user/test/analysis/hangul_core_ui_priority_plan.md) 의 `priority48` 이 첫 실제 문자열 테스트용으로 가장 균형이 좋다. 현재 `5`개 문자열을 통째로 커버한다.
+  - 실제 batch test ROM 도 생성했다. 요약은 [core_ui_test_rom_matrix.md](/Users/user/test/analysis/core_ui_test_rom_matrix.md) 에 있고:
+    - `priority48` 기본: `4 in_place`, compact: `5 in_place`
+    - `full80` 기본: `15 in_place`, compact: `19 in_place`
+  - 현재 가장 바로 시각 QA 하기에 좋은 대상은 `/private/tmp/hnr_core_ui_priority48_compact_text_test.gba` 와 `/private/tmp/hnr_core_ui_full80_compact_text_test.gba` 다.
+  - 반대로 `full80` 기본 번역에서 남은 `4 skipped_no_pointer` 는 save/menu command-stream 쪽 간접 참조 구조가 아직 닫히지 않았다는 뜻이므로, 이후 inject/repoint 연구 대상으로 따로 본다.
   - 요약 전략은 [common_fnt_hangul_strategy.md](/Users/user/test/analysis/common_fnt_hangul_strategy.md) 에 정리했다.
   - width/advance 는 `obj + 0x18` 에 누적되며, multibyte 는 `+0x18`, halfwidth 는 `+0x10` 이다. `(obj + 0x18) >> 4` 와 `obj + 0x20` 비교로 줄 수용량을 판단한다.
   - world-map `r3=0x0C` 는 capacity `18`, 대표 일반 화면군 `r3=20` 은 capacity `30` 으로 변환되어, 이 엔진이 fullwidth / halfwidth 혼합 가변폭형 레이아웃을 가진다는 해석이 강하다.
