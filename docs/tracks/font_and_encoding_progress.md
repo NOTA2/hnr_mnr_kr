@@ -129,6 +129,13 @@
   - table: [hangul_core_ui.tbl](/Users/user/test/analysis/hangul_core_ui.tbl)
   - workbench: [hangul_core_ui_workbench](/Users/user/test/analysis/hangul_core_ui_workbench)
 - 즉 이제는 "몇 글자를 먼저 그릴까?"를 감으로 정하지 않고, **현재 번역 초안 기준 실제 필요 글자 세트**를 바로 편집 자산으로 올릴 수 있다.
+- 여기에 더해 `slice-hangul-seed-manifest` CLI 로 상위 빈도 subset 도 자동 분리할 수 있게 했다.
+- 현재 준비된 배치:
+  - [hangul_core_ui_priority24_workbench](/Users/user/test/analysis/hangul_core_ui_priority24_workbench): 24글자, 완성 문장 커버 `0`
+  - [hangul_core_ui_priority48_workbench](/Users/user/test/analysis/hangul_core_ui_priority48_workbench): 48글자, 완성 문장 커버 `5`
+  - [hangul_core_ui_workbench](/Users/user/test/analysis/hangul_core_ui_workbench): 80글자, 완성 문장 커버 `19`
+- 상세 기준은 [hangul_core_ui_priority_plan.md](/Users/user/test/analysis/hangul_core_ui_priority_plan.md), 수치 근거는 [hangul_core_ui_priority_coverage.json](/Users/user/test/analysis/hangul_core_ui_priority_coverage.json) 에 있다.
+- 따라서 당장 외부 툴에서 다듬을 첫 production batch 는 `priority48` 로 두는 편이 가장 현실적이다.
 - 큰 free code block 예:
   - `0x8440..0x84FF`
   - `0x8540..0x85FF`

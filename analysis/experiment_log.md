@@ -1163,3 +1163,19 @@
   - [hangul_core_ui_workbench](/Users/user/test/analysis/hangul_core_ui_workbench) 에 `80`개 `PGM` glyph 와 [prepared_manifest.json](/Users/user/test/analysis/hangul_core_ui_workbench/prepared_manifest.json), [prepared.tbl](/Users/user/test/analysis/hangul_core_ui_workbench/prepared.tbl) 이 생성되었다.
 - 판정: `성공`
 - 교훈: 앞으로 한글 glyph 제작 범위는 감으로 정하지 말고, **현재 번역 초안에서 자동 추출한 character inventory** 를 기준으로 workbench 를 키워야 한다. 이렇게 하면 번역과 폰트 작업이 같은 글자 집합을 보게 된다.
+
+### 실험 56
+
+- 가설: 전체 `80`글자 workbench 는 첫 아트 패스로는 크고, 단순 상위 빈도 `24`글자는 또 너무 작다. 상위 빈도 subset 을 여러 크기로 잘라 문자열 커버를 비교하면, 첫 production batch 크기를 더 현실적으로 정할 수 있다.
+- 시도:
+  - `slice-hangul-seed-manifest` CLI 를 `gba_kor_tool` 에 추가했다.
+  - [hangul_core_ui_seed_report.json](/Users/user/test/analysis/hangul_core_ui_seed_report.json) 기준으로 `priority24`, `priority48` manifest / table / workbench 를 만들었다.
+  - [translation_workset_core_ui.json](/Users/user/test/analysis/translation_workset_core_ui.json) 의 현재 번역 초안을 기준으로, 각 subset 이 완성 문자열을 몇 건까지 전부 커버하는지 [hangul_core_ui_priority_coverage.json](/Users/user/test/analysis/hangul_core_ui_priority_coverage.json) 으로 집계했다.
+- 결과:
+  - `priority24`: 완성 문자열 커버 `0`
+  - `priority48`: 완성 문자열 커버 `5`
+  - `full80`: 완성 문자열 커버 `19`
+  - `priority48` 에서 바로 테스트 가능한 대표 문자열은 `통신 중...`, `저장 중이다…`, `리오르`, `이스트 시티`, `레돈도` 였다.
+  - 따라서 첫 production batch 는 `priority24` 보다 [hangul_core_ui_priority48_workbench](/Users/user/test/analysis/hangul_core_ui_priority48_workbench) 쪽이 더 실용적이라는 결론을 얻었다.
+- 판정: `성공`
+- 교훈: "자주 나오는 글자"만으로 첫 배치를 정하면 실제 화면 문장이 하나도 안 닫힐 수 있다. 첫 glyph 배치는 **빈도 + 완성 문자열 커버** 를 함께 보고 정해야 한다.

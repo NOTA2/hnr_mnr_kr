@@ -24,6 +24,7 @@
 - 테스트 table: [hangul_test.tbl](/Users/user/test/analysis/hangul_test.tbl)
 - core UI seed manifest: [hangul_core_ui_seed_manifest.json](/Users/user/test/analysis/hangul_core_ui_seed_manifest.json)
 - core UI workbench: [hangul_core_ui_workbench](/Users/user/test/analysis/hangul_core_ui_workbench)
+- core UI priority plan: [hangul_core_ui_priority_plan.md](/Users/user/test/analysis/hangul_core_ui_priority_plan.md)
 
 ## 유용한 명령
 
@@ -64,3 +65,4 @@ python3 -m gba_kor_tool prepare-fnt-glyph-set \
 - production 단계에서는 AI가 즉석으로 만든 block glyph 를 다시 사용하지 않는다.
 - 외부 툴에서 수정한 `PGM` 을 단일 truth source 로 보고, ROM 패치는 그 산출물만 사용한다.
 - `build-hangul-seed-manifest` 는 번역 초안에서 실제 필요한 한글 글자를 뽑아 workbench 규모를 자동으로 정하는 용도다.
+- 현재는 `priority48` workbench 가 첫 실제 문자열 테스트용으로 가장 현실적인 크기다.

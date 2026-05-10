@@ -2915,6 +2915,75 @@ def cmd_build_hangul_seed_manifest(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_slice_hangul_seed_manifest(args: argparse.Namespace) -> int:
+    report_path = Path(args.report_input)
+    report = json.loads(report_path.read_text(encoding="utf-8"))
+    if not isinstance(report, dict):
+        raise ToolError("seed report 는 JSON 객체여야 합니다.")
+    char_stats = report.get("char_stats")
+    entries = report.get("entries")
+    if not isinstance(char_stats, list) or not isinstance(entries, list):
+        raise ToolError("seed report 에 char_stats 와 entries 배열이 필요합니다.")
+
+    char_to_entry: Dict[str, Dict[str, object]] = {}
+    for entry in entries:
+        if not isinstance(entry, dict):
+            continue
+        char_value = entry.get("char")
+        if isinstance(char_value, str) and char_value:
+            char_to_entry[char_value] = entry
+
+    selected_chars = char_stats[: args.limit]
+    subset_manifest: List[Dict[str, object]] = []
+    subset_table_lines: List[str] = []
+    subset_report_entries: List[Dict[str, object]] = []
+
+    for item in selected_chars:
+        if not isinstance(item, dict):
+            continue
+        char_value = item.get("char")
+        if not isinstance(char_value, str) or not char_value:
+            continue
+        manifest_entry = char_to_entry.get(char_value)
+        if manifest_entry is None:
+            raise ToolError(f"manifest entry 를 찾지 못했습니다: {char_value!r}")
+        subset_manifest.append(dict(manifest_entry))
+        code_value = str(manifest_entry["code"]).removeprefix("0x").upper()
+        subset_table_lines.append(f"{code_value}={char_value}")
+        subset_report_entries.append(
+            {
+                "char": char_value,
+                "count": int(item.get("count", 0)),
+                "codepoint": item.get("codepoint"),
+                "code": manifest_entry["code"],
+                "name": manifest_entry.get("name"),
+            }
+        )
+
+    output_path = Path(args.output)
+    write_json(output_path, subset_manifest)
+    if args.table_output:
+        Path(args.table_output).write_text("\n".join(subset_table_lines) + "\n", encoding="utf-8")
+
+    result = {
+        "report_input": str(report_path),
+        "source_unique_hangul_chars": int(report.get("unique_hangul_chars", len(char_stats))),
+        "selected_count": len(subset_manifest),
+        "limit": args.limit,
+        "entries": subset_report_entries,
+    }
+    if args.report:
+        write_json(Path(args.report), result)
+
+    print(f"written        : {output_path}")
+    print(f"selected_count : {len(subset_manifest)}")
+    if args.table_output:
+        print(f"table          : {args.table_output}")
+    if args.report:
+        print(f"report         : {args.report}")
+    return 0
+
+
 def cmd_build_translation_set(args: argparse.Namespace) -> int:
     output_path = Path(args.output)
     merged: List[dict] = []
@@ -3395,6 +3464,17 @@ def build_parser() -> argparse.ArgumentParser:
     build_hangul_seed.add_argument("--table-output")
     build_hangul_seed.add_argument("--report")
     build_hangul_seed.set_defaults(func=cmd_build_hangul_seed_manifest)
+
+    slice_hangul_seed = sub.add_parser(
+        "slice-hangul-seed-manifest",
+        help="seed report 에서 상위 빈도 한글 glyph subset manifest 를 만듭니다.",
+    )
+    slice_hangul_seed.add_argument("output")
+    slice_hangul_seed.add_argument("report_input")
+    slice_hangul_seed.add_argument("--limit", type=int, required=True)
+    slice_hangul_seed.add_argument("--table-output")
+    slice_hangul_seed.add_argument("--report")
+    slice_hangul_seed.set_defaults(func=cmd_slice_hangul_seed_manifest)
 
     apply_translations = sub.add_parser("apply-translations", help="번역 JSON 파일을 ROM에 일괄 반영합니다.")
     apply_translations.add_argument("rom")
