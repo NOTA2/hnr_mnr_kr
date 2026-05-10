@@ -22,6 +22,8 @@
 - seed manifest: [hangul_reference_seed_manifest.json](/Users/user/test/analysis/hangul_reference_seed_manifest.json)
 - 테스트 glyph manifest: [hangul_test_manifest.json](/Users/user/test/analysis/hangul_test_manifest.json)
 - 테스트 table: [hangul_test.tbl](/Users/user/test/analysis/hangul_test.tbl)
+- core UI seed manifest: [hangul_core_ui_seed_manifest.json](/Users/user/test/analysis/hangul_core_ui_seed_manifest.json)
+- core UI workbench: [hangul_core_ui_workbench](/Users/user/test/analysis/hangul_core_ui_workbench)
 
 ## 유용한 명령
 
@@ -40,9 +42,25 @@ python3 -m gba_kor_tool append-fnt-glyph-set \
   --payload-length 0x42000 \
   --manifest analysis/hangul_reference_workbench/prepared_manifest.json \
   --report analysis/hangul_artist_append_report.json
+
+python3 -m gba_kor_tool build-hangul-seed-manifest \
+  analysis/hangul_core_ui_seed_manifest.json \
+  analysis/translation_workset_core_ui.json \
+  --field translation \
+  --start-code 0xE940 \
+  --table-output analysis/hangul_core_ui.tbl \
+  --report analysis/hangul_core_ui_seed_report.json
+
+python3 -m gba_kor_tool prepare-fnt-glyph-set \
+  "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
+  0x3E0000 \
+  --manifest analysis/hangul_core_ui_seed_manifest.json \
+  --output-dir analysis/hangul_core_ui_workbench \
+  --report analysis/hangul_core_ui_workbench_report.json
 ```
 
 ## 메모
 
 - production 단계에서는 AI가 즉석으로 만든 block glyph 를 다시 사용하지 않는다.
 - 외부 툴에서 수정한 `PGM` 을 단일 truth source 로 보고, ROM 패치는 그 산출물만 사용한다.
+- `build-hangul-seed-manifest` 는 번역 초안에서 실제 필요한 한글 글자를 뽑아 workbench 규모를 자동으로 정하는 용도다.

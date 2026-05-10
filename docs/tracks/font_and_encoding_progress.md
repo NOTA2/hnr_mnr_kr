@@ -122,6 +122,13 @@
 - production 단계에서는 [font_asset_workflow.md](/Users/user/test/docs/font_asset_workflow.md) 기준으로, 레퍼런스 glyph 를 편집용 `PGM` 으로 뽑아 외부 픽셀 에디터에서 다듬고 다시 가져오는 흐름을 기본으로 삼는다.
 - 이를 위해 `prepare-fnt-glyph-set` CLI 를 추가했고, seed manifest 에서 편집용 `PGM` 세트와 `.tbl` 을 생성할 수 있다.
 - 현재 seed manifest 는 [hangul_reference_seed_manifest.json](/Users/user/test/analysis/hangul_reference_seed_manifest.json) 이고, 생성된 작업 폴더는 [hangul_reference_workbench](/Users/user/test/analysis/hangul_reference_workbench) 이다.
+- 이어서 `build-hangul-seed-manifest` CLI 를 추가해 번역 JSON에서 필요한 한글 글자를 자동 추출할 수 있게 했다.
+- 현재 [translation_workset_core_ui.json](/Users/user/test/analysis/translation_workset_core_ui.json) 기준으로:
+  - unique Hangul chars: `80`
+  - seed manifest: [hangul_core_ui_seed_manifest.json](/Users/user/test/analysis/hangul_core_ui_seed_manifest.json)
+  - table: [hangul_core_ui.tbl](/Users/user/test/analysis/hangul_core_ui.tbl)
+  - workbench: [hangul_core_ui_workbench](/Users/user/test/analysis/hangul_core_ui_workbench)
+- 즉 이제는 "몇 글자를 먼저 그릴까?"를 감으로 정하지 않고, **현재 번역 초안 기준 실제 필요 글자 세트**를 바로 편집 자산으로 올릴 수 있다.
 - 큰 free code block 예:
   - `0x8440..0x84FF`
   - `0x8540..0x85FF`

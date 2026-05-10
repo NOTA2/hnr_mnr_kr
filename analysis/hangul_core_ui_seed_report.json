@@ -1,0 +1,814 @@
+{
+  "inputs": [
+    "analysis/translation_workset_core_ui.json"
+  ],
+  "field": "translation",
+  "source_record_count": 19,
+  "total_hangul_chars": 133,
+  "unique_hangul_chars": 80,
+  "start_code": "0xE940",
+  "entries": [
+    {
+      "code": "0xE940",
+      "char": "이",
+      "name": "hangul_E940_C774"
+    },
+    {
+      "code": "0xE941",
+      "char": "까",
+      "name": "hangul_E941_AE4C"
+    },
+    {
+      "code": "0xE942",
+      "char": "다",
+      "name": "hangul_E942_B2E4"
+    },
+    {
+      "code": "0xE943",
+      "char": "스",
+      "name": "hangul_E943_C2A4"
+    },
+    {
+      "code": "0xE944",
+      "char": "저",
+      "name": "hangul_E944_C800"
+    },
+    {
+      "code": "0xE945",
+      "char": "를",
+      "name": "hangul_E945_B97C"
+    },
+    {
+      "code": "0xE946",
+      "char": "수",
+      "name": "hangul_E946_C218"
+    },
+    {
+      "code": "0xE947",
+      "char": "신",
+      "name": "hangul_E947_C2E0"
+    },
+    {
+      "code": "0xE948",
+      "char": "오",
+      "name": "hangul_E948_C624"
+    },
+    {
+      "code": "0xE949",
+      "char": "을",
+      "name": "hangul_E949_C744"
+    },
+    {
+      "code": "0xE94A",
+      "char": "장",
+      "name": "hangul_E94A_C7A5"
+    },
+    {
+      "code": "0xE94B",
+      "char": "지",
+      "name": "hangul_E94B_C9C0"
+    },
+    {
+      "code": "0xE94C",
+      "char": "통",
+      "name": "hangul_E94C_D1B5"
+    },
+    {
+      "code": "0xE94D",
+      "char": "티",
+      "name": "hangul_E94D_D2F0"
+    },
+    {
+      "code": "0xE94E",
+      "char": "할",
+      "name": "hangul_E94E_D560"
+    },
+    {
+      "code": "0xE94F",
+      "char": "대",
+      "name": "hangul_E94F_B300"
+    },
+    {
+      "code": "0xE950",
+      "char": "데",
+      "name": "hangul_E950_B370"
+    },
+    {
+      "code": "0xE951",
+      "char": "로",
+      "name": "hangul_E951_B85C"
+    },
+    {
+      "code": "0xE952",
+      "char": "류",
+      "name": "hangul_E952_B958"
+    },
+    {
+      "code": "0xE953",
+      "char": "리",
+      "name": "hangul_E953_B9AC"
+    },
+    {
+      "code": "0xE954",
+      "char": "세",
+      "name": "hangul_E954_C138"
+    },
+    {
+      "code": "0xE955",
+      "char": "속",
+      "name": "hangul_E955_C18D"
+    },
+    {
+      "code": "0xE956",
+      "char": "시",
+      "name": "hangul_E956_C2DC"
+    },
+    {
+      "code": "0xE957",
+      "char": "여",
+      "name": "hangul_E957_C5EC"
+    },
+    {
+      "code": "0xE958",
+      "char": "요",
+      "name": "hangul_E958_C694"
+    },
+    {
+      "code": "0xE959",
+      "char": "전",
+      "name": "hangul_E959_C804"
+    },
+    {
+      "code": "0xE95A",
+      "char": "주",
+      "name": "hangul_E95A_C8FC"
+    },
+    {
+      "code": "0xE95B",
+      "char": "중",
+      "name": "hangul_E95B_C911"
+    },
+    {
+      "code": "0xE95C",
+      "char": "터",
+      "name": "hangul_E95C_D130"
+    },
+    {
+      "code": "0xE95D",
+      "char": "트",
+      "name": "hangul_E95D_D2B8"
+    },
+    {
+      "code": "0xE95E",
+      "char": "결",
+      "name": "hangul_E95E_ACB0"
+    },
+    {
+      "code": "0xE95F",
+      "char": "계",
+      "name": "hangul_E95F_ACC4"
+    },
+    {
+      "code": "0xE960",
+      "char": "과",
+      "name": "hangul_E960_ACFC"
+    },
+    {
+      "code": "0xE961",
+      "char": "금",
+      "name": "hangul_E961_AE08"
+    },
+    {
+      "code": "0xE962",
+      "char": "노",
+      "name": "hangul_E962_B178"
+    },
+    {
+      "code": "0xE963",
+      "char": "니",
+      "name": "hangul_E963_B2C8"
+    },
+    {
+      "code": "0xE964",
+      "char": "덮",
+      "name": "hangul_E964_B36E"
+    },
+    {
+      "code": "0xE965",
+      "char": "도",
+      "name": "hangul_E965_B3C4"
+    },
+    {
+      "code": "0xE966",
+      "char": "돈",
+      "name": "hangul_E966_B3C8"
+    },
+    {
+      "code": "0xE967",
+      "char": "러",
+      "name": "hangul_E967_B7EC"
+    },
+    {
+      "code": "0xE968",
+      "char": "럴",
+      "name": "hangul_E968_B7F4"
+    },
+    {
+      "code": "0xE969",
+      "char": "레",
+      "name": "hangul_E969_B808"
+    },
+    {
+      "code": "0xE96A",
+      "char": "루",
+      "name": "hangul_E96A_B8E8"
+    },
+    {
+      "code": "0xE96B",
+      "char": "르",
+      "name": "hangul_E96B_B974"
+    },
+    {
+      "code": "0xE96C",
+      "char": "린",
+      "name": "hangul_E96C_B9B0"
+    },
+    {
+      "code": "0xE96D",
+      "char": "맞",
+      "name": "hangul_E96D_B9DE"
+    },
+    {
+      "code": "0xE96E",
+      "char": "못",
+      "name": "hangul_E96E_BABB"
+    },
+    {
+      "code": "0xE96F",
+      "char": "바",
+      "name": "hangul_E96F_BC14"
+    },
+    {
+      "code": "0xE970",
+      "char": "불",
+      "name": "hangul_E970_BD88"
+    },
+    {
+      "code": "0xE971",
+      "char": "블",
+      "name": "hangul_E971_BE14"
+    },
+    {
+      "code": "0xE972",
+      "char": "비",
+      "name": "hangul_E972_BE44"
+    },
+    {
+      "code": "0xE973",
+      "char": "성",
+      "name": "hangul_E973_C131"
+    },
+    {
+      "code": "0xE974",
+      "char": "센",
+      "name": "hangul_E974_C13C"
+    },
+    {
+      "code": "0xE975",
+      "char": "소",
+      "name": "hangul_E975_C18C"
+    },
+    {
+      "code": "0xE976",
+      "char": "송",
+      "name": "hangul_E976_C1A1"
+    },
+    {
+      "code": "0xE977",
+      "char": "습",
+      "name": "hangul_E977_C2B5"
+    },
+    {
+      "code": "0xE978",
+      "char": "쓸",
+      "name": "hangul_E978_C4F8"
+    },
+    {
+      "code": "0xE979",
+      "char": "어",
+      "name": "hangul_E979_C5B4"
+    },
+    {
+      "code": "0xE97A",
+      "char": "없",
+      "name": "hangul_E97A_C5C6"
+    },
+    {
+      "code": "0xE97B",
+      "char": "연",
+      "name": "hangul_E97B_C5F0"
+    },
+    {
+      "code": "0xE97C",
+      "char": "올",
+      "name": "hangul_E97C_C62C"
+    },
+    {
+      "code": "0xE97D",
+      "char": "유",
+      "name": "hangul_E97D_C720"
+    },
+    {
+      "code": "0xE97E",
+      "char": "의",
+      "name": "hangul_E97E_C758"
+    },
+    {
+      "code": "0xE97F",
+      "char": "인",
+      "name": "hangul_E97F_C778"
+    },
+    {
+      "code": "0xE980",
+      "char": "임",
+      "name": "hangul_E980_C784"
+    },
+    {
+      "code": "0xE981",
+      "char": "적",
+      "name": "hangul_E981_C801"
+    },
+    {
+      "code": "0xE982",
+      "char": "접",
+      "name": "hangul_E982_C811"
+    },
+    {
+      "code": "0xE983",
+      "char": "정",
+      "name": "hangul_E983_C815"
+    },
+    {
+      "code": "0xE984",
+      "char": "젠",
+      "name": "hangul_E984_C820"
+    },
+    {
+      "code": "0xE985",
+      "char": "초",
+      "name": "hangul_E985_CD08"
+    },
+    {
+      "code": "0xE986",
+      "char": "춰",
+      "name": "hangul_E986_CDB0"
+    },
+    {
+      "code": "0xE987",
+      "char": "케",
+      "name": "hangul_E987_CF00"
+    },
+    {
+      "code": "0xE988",
+      "char": "크",
+      "name": "hangul_E988_D06C"
+    },
+    {
+      "code": "0xE989",
+      "char": "택",
+      "name": "hangul_E989_D0DD"
+    },
+    {
+      "code": "0xE98A",
+      "char": "하",
+      "name": "hangul_E98A_D558"
+    },
+    {
+      "code": "0xE98B",
+      "char": "해",
+      "name": "hangul_E98B_D574"
+    },
+    {
+      "code": "0xE98C",
+      "char": "했",
+      "name": "hangul_E98C_D588"
+    },
+    {
+      "code": "0xE98D",
+      "char": "행",
+      "name": "hangul_E98D_D589"
+    },
+    {
+      "code": "0xE98E",
+      "char": "헨",
+      "name": "hangul_E98E_D5E8"
+    },
+    {
+      "code": "0xE98F",
+      "char": "확",
+      "name": "hangul_E98F_D655"
+    }
+  ],
+  "char_stats": [
+    {
+      "char": "이",
+      "count": 7,
+      "codepoint": "U+C774"
+    },
+    {
+      "char": "까",
+      "count": 4,
+      "codepoint": "U+AE4C"
+    },
+    {
+      "char": "다",
+      "count": 4,
+      "codepoint": "U+B2E4"
+    },
+    {
+      "char": "스",
+      "count": 4,
+      "codepoint": "U+C2A4"
+    },
+    {
+      "char": "저",
+      "count": 4,
+      "codepoint": "U+C800"
+    },
+    {
+      "char": "를",
+      "count": 3,
+      "codepoint": "U+B97C"
+    },
+    {
+      "char": "수",
+      "count": 3,
+      "codepoint": "U+C218"
+    },
+    {
+      "char": "신",
+      "count": 3,
+      "codepoint": "U+C2E0"
+    },
+    {
+      "char": "오",
+      "count": 3,
+      "codepoint": "U+C624"
+    },
+    {
+      "char": "을",
+      "count": 3,
+      "codepoint": "U+C744"
+    },
+    {
+      "char": "장",
+      "count": 3,
+      "codepoint": "U+C7A5"
+    },
+    {
+      "char": "지",
+      "count": 3,
+      "codepoint": "U+C9C0"
+    },
+    {
+      "char": "통",
+      "count": 3,
+      "codepoint": "U+D1B5"
+    },
+    {
+      "char": "티",
+      "count": 3,
+      "codepoint": "U+D2F0"
+    },
+    {
+      "char": "할",
+      "count": 3,
+      "codepoint": "U+D560"
+    },
+    {
+      "char": "대",
+      "count": 2,
+      "codepoint": "U+B300"
+    },
+    {
+      "char": "데",
+      "count": 2,
+      "codepoint": "U+B370"
+    },
+    {
+      "char": "로",
+      "count": 2,
+      "codepoint": "U+B85C"
+    },
+    {
+      "char": "류",
+      "count": 2,
+      "codepoint": "U+B958"
+    },
+    {
+      "char": "리",
+      "count": 2,
+      "codepoint": "U+B9AC"
+    },
+    {
+      "char": "세",
+      "count": 2,
+      "codepoint": "U+C138"
+    },
+    {
+      "char": "속",
+      "count": 2,
+      "codepoint": "U+C18D"
+    },
+    {
+      "char": "시",
+      "count": 2,
+      "codepoint": "U+C2DC"
+    },
+    {
+      "char": "여",
+      "count": 2,
+      "codepoint": "U+C5EC"
+    },
+    {
+      "char": "요",
+      "count": 2,
+      "codepoint": "U+C694"
+    },
+    {
+      "char": "전",
+      "count": 2,
+      "codepoint": "U+C804"
+    },
+    {
+      "char": "주",
+      "count": 2,
+      "codepoint": "U+C8FC"
+    },
+    {
+      "char": "중",
+      "count": 2,
+      "codepoint": "U+C911"
+    },
+    {
+      "char": "터",
+      "count": 2,
+      "codepoint": "U+D130"
+    },
+    {
+      "char": "트",
+      "count": 2,
+      "codepoint": "U+D2B8"
+    },
+    {
+      "char": "결",
+      "count": 1,
+      "codepoint": "U+ACB0"
+    },
+    {
+      "char": "계",
+      "count": 1,
+      "codepoint": "U+ACC4"
+    },
+    {
+      "char": "과",
+      "count": 1,
+      "codepoint": "U+ACFC"
+    },
+    {
+      "char": "금",
+      "count": 1,
+      "codepoint": "U+AE08"
+    },
+    {
+      "char": "노",
+      "count": 1,
+      "codepoint": "U+B178"
+    },
+    {
+      "char": "니",
+      "count": 1,
+      "codepoint": "U+B2C8"
+    },
+    {
+      "char": "덮",
+      "count": 1,
+      "codepoint": "U+B36E"
+    },
+    {
+      "char": "도",
+      "count": 1,
+      "codepoint": "U+B3C4"
+    },
+    {
+      "char": "돈",
+      "count": 1,
+      "codepoint": "U+B3C8"
+    },
+    {
+      "char": "러",
+      "count": 1,
+      "codepoint": "U+B7EC"
+    },
+    {
+      "char": "럴",
+      "count": 1,
+      "codepoint": "U+B7F4"
+    },
+    {
+      "char": "레",
+      "count": 1,
+      "codepoint": "U+B808"
+    },
+    {
+      "char": "루",
+      "count": 1,
+      "codepoint": "U+B8E8"
+    },
+    {
+      "char": "르",
+      "count": 1,
+      "codepoint": "U+B974"
+    },
+    {
+      "char": "린",
+      "count": 1,
+      "codepoint": "U+B9B0"
+    },
+    {
+      "char": "맞",
+      "count": 1,
+      "codepoint": "U+B9DE"
+    },
+    {
+      "char": "못",
+      "count": 1,
+      "codepoint": "U+BABB"
+    },
+    {
+      "char": "바",
+      "count": 1,
+      "codepoint": "U+BC14"
+    },
+    {
+      "char": "불",
+      "count": 1,
+      "codepoint": "U+BD88"
+    },
+    {
+      "char": "블",
+      "count": 1,
+      "codepoint": "U+BE14"
+    },
+    {
+      "char": "비",
+      "count": 1,
+      "codepoint": "U+BE44"
+    },
+    {
+      "char": "성",
+      "count": 1,
+      "codepoint": "U+C131"
+    },
+    {
+      "char": "센",
+      "count": 1,
+      "codepoint": "U+C13C"
+    },
+    {
+      "char": "소",
+      "count": 1,
+      "codepoint": "U+C18C"
+    },
+    {
+      "char": "송",
+      "count": 1,
+      "codepoint": "U+C1A1"
+    },
+    {
+      "char": "습",
+      "count": 1,
+      "codepoint": "U+C2B5"
+    },
+    {
+      "char": "쓸",
+      "count": 1,
+      "codepoint": "U+C4F8"
+    },
+    {
+      "char": "어",
+      "count": 1,
+      "codepoint": "U+C5B4"
+    },
+    {
+      "char": "없",
+      "count": 1,
+      "codepoint": "U+C5C6"
+    },
+    {
+      "char": "연",
+      "count": 1,
+      "codepoint": "U+C5F0"
+    },
+    {
+      "char": "올",
+      "count": 1,
+      "codepoint": "U+C62C"
+    },
+    {
+      "char": "유",
+      "count": 1,
+      "codepoint": "U+C720"
+    },
+    {
+      "char": "의",
+      "count": 1,
+      "codepoint": "U+C758"
+    },
+    {
+      "char": "인",
+      "count": 1,
+      "codepoint": "U+C778"
+    },
+    {
+      "char": "임",
+      "count": 1,
+      "codepoint": "U+C784"
+    },
+    {
+      "char": "적",
+      "count": 1,
+      "codepoint": "U+C801"
+    },
+    {
+      "char": "접",
+      "count": 1,
+      "codepoint": "U+C811"
+    },
+    {
+      "char": "정",
+      "count": 1,
+      "codepoint": "U+C815"
+    },
+    {
+      "char": "젠",
+      "count": 1,
+      "codepoint": "U+C820"
+    },
+    {
+      "char": "초",
+      "count": 1,
+      "codepoint": "U+CD08"
+    },
+    {
+      "char": "춰",
+      "count": 1,
+      "codepoint": "U+CDB0"
+    },
+    {
+      "char": "케",
+      "count": 1,
+      "codepoint": "U+CF00"
+    },
+    {
+      "char": "크",
+      "count": 1,
+      "codepoint": "U+D06C"
+    },
+    {
+      "char": "택",
+      "count": 1,
+      "codepoint": "U+D0DD"
+    },
+    {
+      "char": "하",
+      "count": 1,
+      "codepoint": "U+D558"
+    },
+    {
+      "char": "해",
+      "count": 1,
+      "codepoint": "U+D574"
+    },
+    {
+      "char": "했",
+      "count": 1,
+      "codepoint": "U+D588"
+    },
+    {
+      "char": "행",
+      "count": 1,
+      "codepoint": "U+D589"
+    },
+    {
+      "char": "헨",
+      "count": 1,
+      "codepoint": "U+D5E8"
+    },
+    {
+      "char": "확",
+      "count": 1,
+      "codepoint": "U+D655"
+    }
+  ]
+}

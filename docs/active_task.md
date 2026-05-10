@@ -88,6 +88,7 @@
   - 다만 위 `가/나/다` glyph 는 placeholder 품질이므로, production 단계에서는 [font_asset_workflow.md](/Users/user/test/docs/font_asset_workflow.md) 기준으로 **레퍼런스 기반 외부 픽셀 에디터 workflow** 를 사용한다.
   - 이를 위해 `prepare-fnt-glyph-set` 으로 편집용 `PGM` glyph 세트와 `.tbl` 을 뽑아 외부 툴에서 다듬고 다시 `append-fnt-glyph-set` 으로 가져오는 경로를 추가했다.
   - 현재 seed manifest 는 [hangul_reference_seed_manifest.json](/Users/user/test/analysis/hangul_reference_seed_manifest.json), 실제 편집용 workbench 는 [prepared_manifest.json](/Users/user/test/analysis/hangul_reference_workbench/prepared_manifest.json), [prepared.tbl](/Users/user/test/analysis/hangul_reference_workbench/prepared.tbl) 기준으로 생성해 두었다.
+  - 또 `build-hangul-seed-manifest` 로 번역 JSON 에서 필요한 한글 글자를 자동 수집할 수 있게 했고, 현재 [translation_workset_core_ui.json](/Users/user/test/analysis/translation_workset_core_ui.json) 기준 `80`글자 seed manifest [hangul_core_ui_seed_manifest.json](/Users/user/test/analysis/hangul_core_ui_seed_manifest.json) 와 workbench [hangul_core_ui_workbench](/Users/user/test/analysis/hangul_core_ui_workbench) 를 생성해 두었다.
   - 요약 전략은 [common_fnt_hangul_strategy.md](/Users/user/test/analysis/common_fnt_hangul_strategy.md) 에 정리했다.
   - width/advance 는 `obj + 0x18` 에 누적되며, multibyte 는 `+0x18`, halfwidth 는 `+0x10` 이다. `(obj + 0x18) >> 4` 와 `obj + 0x20` 비교로 줄 수용량을 판단한다.
   - world-map `r3=0x0C` 는 capacity `18`, 대표 일반 화면군 `r3=20` 은 capacity `30` 으로 변환되어, 이 엔진이 fullwidth / halfwidth 혼합 가변폭형 레이아웃을 가진다는 해석이 강하다.

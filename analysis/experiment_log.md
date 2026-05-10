@@ -1149,3 +1149,17 @@
   - 따라서 이제는 AI가 대충 만든 block glyph 대신, **외부 픽셀 에디터에서 사람이 다듬은 glyph 자산** 을 다시 `append-fnt-glyph-set` 으로 가져오는 경로가 준비되었다.
 - 판정: `성공`
 - 교훈: 한글 glyph 품질 문제는 렌더러 분석으로 해결되지 않는다. 검증용 placeholder 와 정식 자산 제작 workflow 를 분리하고, 정식 단계에서는 반드시 레퍼런스 기반 외부 편집 산출물을 단일 truth source 로 삼아야 한다.
+
+### 실험 55
+
+- 가설: 정식 한글 workbench 는 손으로 글자 목록을 관리하면 곧 어긋난다. 번역 JSON 초안에서 실제 필요한 한글 글자를 자동 추출해 seed manifest 로 만들면, glyph 제작 범위를 현재 번역 상태와 동기화할 수 있다.
+- 시도:
+  - `build-hangul-seed-manifest` CLI 를 `gba_kor_tool` 에 추가했다.
+  - [translation_workset_core_ui.json](/Users/user/test/analysis/translation_workset_core_ui.json) 의 `translation` 필드에서 한글 음절을 추출해 [hangul_core_ui_seed_manifest.json](/Users/user/test/analysis/hangul_core_ui_seed_manifest.json), [hangul_core_ui.tbl](/Users/user/test/analysis/hangul_core_ui.tbl), [hangul_core_ui_seed_report.json](/Users/user/test/analysis/hangul_core_ui_seed_report.json) 을 생성했다.
+  - 이어서 이 manifest 를 `prepare-fnt-glyph-set` 에 넣어 [hangul_core_ui_workbench](/Users/user/test/analysis/hangul_core_ui_workbench) 편집용 세트를 만들었다.
+- 결과:
+  - 현재 core UI 번역 초안 기준 필요한 한글 음절은 `80`개로 집계되었다.
+  - top 빈도 예시는 `이 7`, `까 4`, `다 4`, `스 4`, `저 4` 였다.
+  - [hangul_core_ui_workbench](/Users/user/test/analysis/hangul_core_ui_workbench) 에 `80`개 `PGM` glyph 와 [prepared_manifest.json](/Users/user/test/analysis/hangul_core_ui_workbench/prepared_manifest.json), [prepared.tbl](/Users/user/test/analysis/hangul_core_ui_workbench/prepared.tbl) 이 생성되었다.
+- 판정: `성공`
+- 교훈: 앞으로 한글 glyph 제작 범위는 감으로 정하지 말고, **현재 번역 초안에서 자동 추출한 character inventory** 를 기준으로 workbench 를 키워야 한다. 이렇게 하면 번역과 폰트 작업이 같은 글자 집합을 보게 된다.

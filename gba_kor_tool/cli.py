@@ -2824,6 +2824,97 @@ def normalize_translation_record(record: dict, *, source_path: Path, source_orde
     return normalized
 
 
+def collect_hangul_char_stats(values: Iterable[str]) -> Tuple[List[Dict[str, object]], int]:
+    counts: Dict[str, int] = {}
+    total_chars = 0
+    for value in values:
+        for ch in value:
+            codepoint = ord(ch)
+            if 0xAC00 <= codepoint <= 0xD7A3:
+                counts[ch] = counts.get(ch, 0) + 1
+                total_chars += 1
+    records = [
+        {
+            "char": ch,
+            "count": count,
+            "codepoint": f"U+{ord(ch):04X}",
+        }
+        for ch, count in sorted(counts.items(), key=lambda item: (-item[1], ord(item[0])))
+    ]
+    return records, total_chars
+
+
+def cmd_build_hangul_seed_manifest(args: argparse.Namespace) -> int:
+    source_paths = [Path(raw) for raw in args.inputs]
+    records: List[dict] = []
+    texts: List[str] = []
+
+    for path in source_paths:
+        payload = json.loads(path.read_text(encoding="utf-8"))
+        if not isinstance(payload, list):
+            raise ToolError(f"{path}: JSON 배열이 아닙니다.")
+        for item in payload:
+            if not isinstance(item, dict):
+                continue
+            value = item.get(args.field, "")
+            if not isinstance(value, str):
+                continue
+            if value:
+                texts.append(value)
+                records.append(
+                    {
+                        "source_file": path.name,
+                        "value": value,
+                    }
+                )
+
+    char_stats, total_chars = collect_hangul_char_stats(texts)
+    if args.limit is not None:
+        char_stats = char_stats[: args.limit]
+
+    start_code = parse_offset(args.start_code)
+    manifest: List[Dict[str, object]] = []
+    table_lines: List[str] = []
+    for index, item in enumerate(char_stats):
+        code = start_code + index
+        char = str(item["char"])
+        manifest.append(
+            {
+                "code": f"0x{code:04X}",
+                "char": char,
+                "name": f"hangul_{code:04X}_{ord(char):04X}",
+            }
+        )
+        table_lines.append(f"{code:04X}={char}")
+
+    result = {
+        "inputs": [str(path) for path in source_paths],
+        "field": args.field,
+        "source_record_count": len(records),
+        "total_hangul_chars": total_chars,
+        "unique_hangul_chars": len(char_stats),
+        "start_code": f"0x{start_code:04X}",
+        "entries": manifest,
+        "char_stats": char_stats,
+    }
+
+    output_path = Path(args.output)
+    write_json(output_path, manifest)
+    if args.report:
+        write_json(Path(args.report), result)
+    if args.table_output:
+        Path(args.table_output).write_text("\n".join(table_lines) + "\n", encoding="utf-8")
+
+    print(f"written        : {output_path}")
+    print(f"unique_hangul  : {len(char_stats)}")
+    print(f"start_code     : 0x{start_code:04X}")
+    if args.table_output:
+        print(f"table          : {args.table_output}")
+    if args.report:
+        print(f"report         : {args.report}")
+    return 0
+
+
 def cmd_build_translation_set(args: argparse.Namespace) -> int:
     output_path = Path(args.output)
     merged: List[dict] = []
@@ -3291,6 +3382,19 @@ def build_parser() -> argparse.ArgumentParser:
     build_translation_set.add_argument("inputs", nargs="+")
     build_translation_set.add_argument("--dedupe-text", action="store_true")
     build_translation_set.set_defaults(func=cmd_build_translation_set)
+
+    build_hangul_seed = sub.add_parser(
+        "build-hangul-seed-manifest",
+        help="번역 JSON 들에서 한글 글자를 추출해 seed manifest 와 table 을 만듭니다.",
+    )
+    build_hangul_seed.add_argument("output")
+    build_hangul_seed.add_argument("inputs", nargs="+")
+    build_hangul_seed.add_argument("--field", default="translation")
+    build_hangul_seed.add_argument("--start-code", default="0xE940")
+    build_hangul_seed.add_argument("--limit", type=int)
+    build_hangul_seed.add_argument("--table-output")
+    build_hangul_seed.add_argument("--report")
+    build_hangul_seed.set_defaults(func=cmd_build_hangul_seed_manifest)
 
     apply_translations = sub.add_parser("apply-translations", help="번역 JSON 파일을 ROM에 일괄 반영합니다.")
     apply_translations.add_argument("rom")
