@@ -1121,3 +1121,18 @@
   - `inspect-fnt` 기준 nonzero mapping 도 `1698 -> 1699` 로 증가했다.
 - 판정: `성공`
 - 교훈: 재배치만으로는 충분하지 않고, **새 code + 새 glyph slot append** 가 실제로 되는지까지 확인해야 진짜 삽입 경로가 닫힌다. 이제 남은 핵심은 glyph append 인프라가 아니라, 실제 한글 bitmap 을 어떤 세트와 순서로 넣을지다.
+
+### 실험 53
+
+- 가설: 공통 `fnt` 확장본에 실제 한글 glyph bitmap 을 붙인 뒤, 공통 renderer 경로를 쓰는 짧은 문자열 하나를 custom `.tbl` 로 치환하면 첫 실제 한글 문자열 테스트 ROM 까지 닫을 수 있다.
+- 시도:
+  - `append-fnt-glyph-set` CLI 를 추가해 [hangul_test_manifest.json](/Users/user/test/analysis/hangul_test_manifest.json) 기준 `가/나/다` `PGM 12x12` glyph 를 free code `0xE940..0xE942` 에 append 했다.
+  - 테스트용 테이블 [hangul_test.tbl](/Users/user/test/analysis/hangul_test.tbl) 을 만들고 `E940=가`, `E941=나`, `E942=다` 로 매핑했다.
+  - 공통 renderer 경로가 이미 잡힌 world-map 지역명 `ソリン` (`0x1842E0`) 을 `/private/tmp/hnr_font_hangul_test.gba` 에서 `가나다` 로 제자리 치환해 `/private/tmp/hnr_font_hangul_string_test.gba` 를 만들었다.
+  - raw bytes 와 `search-text --table analysis/hangul_test.tbl` 로 결과를 다시 확인했다.
+- 결과:
+  - [font_append_hangul_test.json](/Users/user/test/analysis/font_append_hangul_test.json) 기준 새 glyph index `0x06A3..0x06A5` 와 새 code `0xE940..0xE942` 가 기록되었다.
+  - [font_hangul_string_test.json](/Users/user/test/analysis/font_hangul_string_test.json) 기준 문자열 위치 `0x1842E0` 에 raw bytes `E940 E941 E942 00` 이 기록되었다.
+  - `search-text /private/tmp/hnr_font_hangul_string_test.gba 가나다 --table analysis/hangul_test.tbl` 는 `0x1842E0` hit `1` 을 반환했다.
+- 판정: `성공`
+- 교훈: 이제 "font 를 옮길 수 있다", "glyph 를 붙일 수 있다" 수준을 넘어서, **공통 font 확장 + 실제 한글 glyph + 실제 문자열 1건 치환** 까지 한 번은 닫혔다. 다음 단계는 같은 길이 치환을 넘어서, 더 긴 한글 문자열의 inject / repoint 와 실제 화면 렌더링 확인이다.

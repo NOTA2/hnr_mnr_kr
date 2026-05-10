@@ -80,14 +80,18 @@
   - `relocate-chunk` 실험으로 공통 font entry `0` 을 `0x800000`, `len=0x42000` 으로 옮긴 테스트 ROM 을 만들 수 있었고, 새 위치도 `inspect-fnt` 로 정상 해석된다.
   - 다만 이때는 상위 registry table `0x17C2F4` entry `0` 뿐 아니라, 같은 pointer-length 내용을 가진 mirror table `0x1823A0` entry `0` 도 함께 갱신해야 한다.
   - `append-fnt-glyph` 실험으로 확장된 payload 끝에 새 glyph slot `0x06A3` 을 추가하고, free code `0xE940` 를 여기에 연결하는 경로도 검증됐다.
-  - 현재 검증은 source glyph `'日'` 복제 수준이므로, 다음은 실제 한글 glyph bitmap 을 넣는 단계다.
+  - 이어서 `append-fnt-glyph-set` 으로 실제 `PGM 12x12` 테스트 glyph `가/나/다` 를 `0xE940..0xE942` 에 붙였고, [font_append_hangul_test.json](/Users/user/test/analysis/font_append_hangul_test.json) 기준 새 glyph index `0x06A3..0x06A5` 가 기록됐다.
+  - 테스트용 문자 테이블은 [hangul_test.tbl](/Users/user/test/analysis/hangul_test.tbl) 이고, 현재 `E940=가`, `E941=나`, `E942=다` 로 잡혀 있다.
+  - world-map 지역명 `ソリン` (`0x1842E0`) 은 공통 renderer 경로를 직접 타는 짧은 텍스트라서 첫 실제 한글 문자열 적용 대상으로 적합했다.
+  - `/private/tmp/hnr_font_hangul_string_test.gba` 에서 위 위치를 `가나다` 로 제자리 치환했고, raw bytes `E940 E941 E942 00` 과 `search-text --table analysis/hangul_test.tbl` hit `1`건으로 검증했다.
+  - 따라서 지금은 "첫 실제 한글 재삽입 테스트 직전" 이 아니라, **공통 font 확장 + 한글 glyph append + 한글 문자열 1건 치환** 까지 닫힌 상태다.
   - 요약 전략은 [common_fnt_hangul_strategy.md](/Users/user/test/analysis/common_fnt_hangul_strategy.md) 에 정리했다.
   - width/advance 는 `obj + 0x18` 에 누적되며, multibyte 는 `+0x18`, halfwidth 는 `+0x10` 이다. `(obj + 0x18) >> 4` 와 `obj + 0x20` 비교로 줄 수용량을 판단한다.
   - world-map `r3=0x0C` 는 capacity `18`, 대표 일반 화면군 `r3=20` 은 capacity `30` 으로 변환되어, 이 엔진이 fullwidth / halfwidth 혼합 가변폭형 레이아웃을 가진다는 해석이 강하다.
   - 따라서 현재 가장 유력한 공통 일본어 텍스트 경로는 **`0x014A98 / 0x014ED0 / 0x015A4C` family** 다.
 - 따라서 현재 병목은 데이터 구조보다 **폰트/문자 매핑/문자폭** 쪽이다.
-- 폰트/문자 매핑 작업은 중단한 것이 아니라, 텍스트 source inventory 를 거의 닫은 뒤 **첫 실제 한글 재삽입 테스트 직전 단계**로 다시 올린다.
-- 현재 판단상 첫 실제 한글 재삽입 테스트는 "unused glyph 일부 치환" 또는 "공통 fnt payload 확장/재배치" 두 갈래 중 하나를 택해 진행해야 한다.
+- 폰트/문자 매핑 작업은 중단한 것이 아니라, 텍스트 source inventory 를 거의 닫은 뒤 **첫 실제 한글 재삽입 테스트를 이미 1건 검증한 단계** 로 올라왔다.
+- 현재 판단상 다음 실전 과제는 "더 긴 한글 문자열의 repoint/inject" 와 "여러 화면에 공통 font 확장본이 실제로 안전하게 퍼지는지" 확인하는 것이다.
 - 즉, 현재는 **특별한 새 text source 징후가 나오지 않는 한** 텍스트 추출용 구조 분석을 더 깊게 파기보다 폰트/재삽입 쪽을 우선한다.
 - 텍스트 추출 구조 분석이 다시 바로 올라오는 조건은:
   - 실제 플레이에서 새 일본어가 나옴
@@ -185,7 +189,7 @@ python3 -m gba_kor_tool summarize-text-clusters \
 - `01 FF <문자수>` 규칙이 안 통하는 나머지 mixed resource 대사 뱅크 형식을 찾는다.
 - 번역 단계에 들어가기 전까지는 추출본과 구조 근거를 계속 분리 정리한다.
 - 한글 표시를 위해 필요한 폰트/인코딩 경로를 최소 1개 확보한다.
-- 첫 번째 실제 한글 패치 테스트 경로를 잡는다.
+- 첫 번째 실제 한글 패치 테스트를 더 긴 문자열 / repoint 흐름으로 확장한다.
 
 ## 참고 지도
 

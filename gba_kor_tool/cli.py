@@ -1952,21 +1952,28 @@ def cmd_dump_fnt_glyph(args: argparse.Namespace) -> int:
     return 0
 
 
-def cmd_append_fnt_glyph(args: argparse.Namespace) -> int:
-    rom_path = Path(args.rom)
-    output_path = Path(args.output_rom)
-    data = bytearray(load_rom(rom_path))
-    payload_offset = parse_offset(args.payload)
-    payload_length = parse_offset(args.payload_length)
+def append_fnt_glyph_inplace(
+    data: bytearray,
+    *,
+    payload_offset: int,
+    payload_length: int,
+    target_code: int,
+    source_glyph_index: Optional[int],
+    source_code: Optional[str],
+    pgm_path: Optional[str],
+    overwrite_code: bool,
+    width: int,
+    height: int,
+    row_bytes: int,
+) -> Dict[str, object]:
     header = read_fnt_header(data, payload_offset=payload_offset)
-    target_code = parse_offset(args.code)
 
     source_mode_count = sum(
         value is not None
         for value in (
-            args.source_glyph_index,
-            args.source_code,
-            args.pgm,
+            source_glyph_index,
+            source_code,
+            pgm_path,
         )
     )
     if source_mode_count != 1:
@@ -1985,30 +1992,28 @@ def cmd_append_fnt_glyph(args: argparse.Namespace) -> int:
     if target_lookup_offset + 2 > len(data):
         raise ToolError("target code lookup offset 이 ROM 범위를 벗어납니다.")
     existing_target_index = struct.unpack_from("<H", data, target_lookup_offset)[0]
-    if existing_target_index != 0 and not args.overwrite_code:
+    if existing_target_index != 0 and not overwrite_code:
         raise ToolError(
-            f"target code {args.code} 는 이미 glyph 0x{existing_target_index:04X} 에 매핑되어 있습니다. "
+            f"target code 0x{target_code:04X} 는 이미 glyph 0x{existing_target_index:04X} 에 매핑되어 있습니다. "
             "--overwrite-code 를 사용하세요."
         )
 
-    width = args.width or 12
-    height = args.height or 12
-    row_bytes = args.row_bytes or max(1, math.ceil(width / 2))
     glyph_byte_length = height * row_bytes
 
-    if args.source_glyph_index is not None or args.source_code is not None:
+    if source_glyph_index is not None or source_code is not None:
         source_index = resolve_fnt_glyph_index(
             data,
             header=header,
-            glyph_index=args.source_glyph_index,
-            code=parse_offset(args.source_code) if args.source_code else None,
+            glyph_index=source_glyph_index,
+            code=parse_offset(source_code) if source_code else None,
         )
         source_offset = header["glyph_base"] + source_index * header["stride"]
         payload = bytes(data[source_offset:source_offset + glyph_byte_length])
         if len(payload) != glyph_byte_length:
             raise ToolError("source glyph 데이터가 ROM 범위를 벗어납니다.")
     else:
-        pixels, pgm_width, pgm_height, max_value = parse_pgm(Path(args.pgm))
+        assert pgm_path is not None
+        pixels, pgm_width, pgm_height, max_value = parse_pgm(Path(pgm_path))
         if pgm_width != width or pgm_height != height:
             raise ToolError(
                 f"PGM 크기 {pgm_width}x{pgm_height} 가 기대값 {width}x{height} 와 다릅니다."
@@ -2034,8 +2039,7 @@ def cmd_append_fnt_glyph(args: argparse.Namespace) -> int:
         )
     struct.pack_into("<H", data, target_lookup_offset, next_glyph_index)
 
-    write_binary(output_path, bytes(data))
-    result = {
+    return {
         "payload_offset": payload_offset,
         "payload_length": payload_length,
         "target_code": target_code,
@@ -2046,21 +2050,110 @@ def cmd_append_fnt_glyph(args: argparse.Namespace) -> int:
         "glyph_byte_length": glyph_byte_length,
         "stride": header["stride"],
         "source": {
-            "source_glyph_index": args.source_glyph_index,
-            "source_code": args.source_code,
-            "pgm": args.pgm,
+            "source_glyph_index": source_glyph_index,
+            "source_code": source_code,
+            "pgm": pgm_path,
         },
-        "output_rom": str(output_path),
     }
+
+
+def cmd_append_fnt_glyph(args: argparse.Namespace) -> int:
+    rom_path = Path(args.rom)
+    output_path = Path(args.output_rom)
+    data = bytearray(load_rom(rom_path))
+    payload_offset = parse_offset(args.payload)
+    payload_length = parse_offset(args.payload_length)
+    target_code = parse_offset(args.code)
+    width = args.width or 12
+    height = args.height or 12
+    row_bytes = args.row_bytes or max(1, math.ceil(width / 2))
+    result = append_fnt_glyph_inplace(
+        data,
+        payload_offset=payload_offset,
+        payload_length=payload_length,
+        target_code=target_code,
+        source_glyph_index=args.source_glyph_index,
+        source_code=args.source_code,
+        pgm_path=args.pgm,
+        overwrite_code=args.overwrite_code,
+        width=width,
+        height=height,
+        row_bytes=row_bytes,
+    )
+    write_binary(output_path, bytes(data))
+    result["output_rom"] = str(output_path)
     if args.report:
         write_json(Path(args.report), result)
 
     print(f"patched       : {output_path}")
     print(f"target code   : 0x{target_code:04X}")
-    print(f"new glyph idx : 0x{next_glyph_index:04X}")
-    print(f"new glyph off : {format_offset(target_glyph_offset)}")
+    print(f"new glyph idx : 0x{int(result['new_glyph_index']):04X}")
+    print(f"new glyph off : {format_offset(int(result['new_glyph_offset']))}")
     if args.report:
         print(f"report        : {args.report}")
+    return 0
+
+
+def cmd_append_fnt_glyph_set(args: argparse.Namespace) -> int:
+    rom_path = Path(args.rom)
+    output_path = Path(args.output_rom)
+    data = bytearray(load_rom(rom_path))
+    payload_offset = parse_offset(args.payload)
+    payload_length = parse_offset(args.payload_length)
+    width = args.width or 12
+    height = args.height or 12
+    row_bytes = args.row_bytes or max(1, math.ceil(width / 2))
+
+    manifest_path = Path(args.manifest)
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    if not isinstance(manifest, list):
+        raise ToolError("manifest 는 JSON 배열이어야 합니다.")
+
+    reports = []
+    for item in manifest:
+        if not isinstance(item, dict):
+            raise ToolError("manifest 항목은 객체여야 합니다.")
+        if "code" not in item:
+            raise ToolError("manifest 항목에는 code 필드가 필요합니다.")
+        report = append_fnt_glyph_inplace(
+            data,
+            payload_offset=payload_offset,
+            payload_length=payload_length,
+            target_code=parse_offset(str(item["code"])),
+            source_glyph_index=item.get("source_glyph_index"),
+            source_code=item.get("source_code"),
+            pgm_path=item.get("pgm"),
+            overwrite_code=bool(item.get("overwrite_code", False)),
+            width=int(item.get("width", width)),
+            height=int(item.get("height", height)),
+            row_bytes=int(item.get("row_bytes", row_bytes)),
+        )
+        reports.append(report)
+
+    write_binary(output_path, bytes(data))
+    result = {
+        "manifest": str(manifest_path),
+        "payload_offset": payload_offset,
+        "payload_length": payload_length,
+        "appended_count": len(reports),
+        "entries": reports,
+        "output_rom": str(output_path),
+    }
+    if args.report:
+        write_json(Path(args.report), result)
+
+    print(f"patched        : {output_path}")
+    print(f"manifest       : {manifest_path}")
+    print(f"appended_count : {len(reports)}")
+    for report in reports[:10]:
+        print(
+            f"  {report['target_code_hex']} -> "
+            f"0x{int(report['new_glyph_index']):04X} @ {format_offset(int(report['new_glyph_offset']))}"
+        )
+    if len(reports) > 10:
+        print(f"  ... {len(reports) - 10} more")
+    if args.report:
+        print(f"report         : {args.report}")
     return 0
 
 
@@ -2950,6 +3043,21 @@ def build_parser() -> argparse.ArgumentParser:
     append_fnt.add_argument("--row-bytes", type=int)
     append_fnt.add_argument("--report")
     append_fnt.set_defaults(func=cmd_append_fnt_glyph)
+
+    append_fnt_set = sub.add_parser(
+        "append-fnt-glyph-set",
+        help="manifest 에 정의된 여러 glyph 를 확장된 fnt payload 에 순서대로 추가합니다.",
+    )
+    append_fnt_set.add_argument("rom")
+    append_fnt_set.add_argument("output_rom")
+    append_fnt_set.add_argument("payload")
+    append_fnt_set.add_argument("--payload-length", required=True)
+    append_fnt_set.add_argument("--manifest", required=True)
+    append_fnt_set.add_argument("--width", type=int)
+    append_fnt_set.add_argument("--height", type=int)
+    append_fnt_set.add_argument("--row-bytes", type=int)
+    append_fnt_set.add_argument("--report")
+    append_fnt_set.set_defaults(func=cmd_append_fnt_glyph_set)
 
     inspect_fnt = sub.add_parser("inspect-fnt", help="공통 fnt payload 의 lookup/glyph 매핑 현황을 JSON/텍스트로 출력합니다.")
     inspect_fnt.add_argument("rom")

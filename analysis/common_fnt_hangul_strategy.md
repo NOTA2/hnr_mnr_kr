@@ -127,4 +127,21 @@
   - `inspect-fnt` 기준 nonzero mapping 도 `1698 -> 1699` 로 증가
 - 즉, 지금은 **재배치된 payload 위에 새 code/glyph 를 실제로 추가하는 경로까지 검증된 상태** 다.
 
-이제 남은 핵심은 "기존 일본어 glyph 복제"가 아니라 **실제 한글 glyph bitmap 을 넣는 단계** 다.
+## 첫 한글 문자열 실험에서 확인된 점
+
+- `append-fnt-glyph-set` 으로 실제 테스트용 `PGM 12x12` glyph `가/나/다` 를 한 번에 추가하는 경로도 검증됐다.
+- 입력:
+  - manifest: [hangul_test_manifest.json](/Users/user/test/analysis/hangul_test_manifest.json)
+  - table: [hangul_test.tbl](/Users/user/test/analysis/hangul_test.tbl)
+  - target codes: `0xE940=가`, `0xE941=나`, `0xE942=다`
+- 결과:
+  - [font_append_hangul_test.json](/Users/user/test/analysis/font_append_hangul_test.json) 기준 새 glyph index `0x06A3..0x06A5`
+  - `inspect-fnt 0x800000` 기준 nonzero mapping `1701`
+- 이어서 world-map 지역명 `ソリン` (`0x1842E0`) 을 `/private/tmp/hnr_font_hangul_string_test.gba` 에서 `가나다` 로 제자리 치환했다.
+- 검증:
+  - raw bytes `E940 E941 E942 00`
+  - `search-text /private/tmp/hnr_font_hangul_string_test.gba 가나다 --table analysis/hangul_test.tbl` hit `1`
+- 의미:
+  - 이제는 "공통 font payload 를 옮길 수 있다"와 "glyph 를 append 할 수 있다"를 넘어서, **실제 한글 문자열 1건이 공통 renderer 경로에 들어간 테스트 ROM** 까지 확보된 상태다.
+
+이제 남은 핵심은 "기존 일본어 glyph 복제"가 아니라 **더 긴 한글 문자열의 inject / repoint 와 실제 화면 검증** 이다.

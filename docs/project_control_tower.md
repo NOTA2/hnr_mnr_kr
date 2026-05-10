@@ -8,7 +8,7 @@
 
 - 데이터 구조 조사: `PARKED EXCEPT TEXT EXTRACTION TARGETS`
 - 텍스트 추출: `IN PROGRESS`
-- 텍스트 재삽입: `BOOTSTRAPPED`
+- 텍스트 재삽입: `IN PROGRESS`
 - 폰트/문자 매핑: `IN PROGRESS`
 - 이미지 리소스: `NOT STARTED`
 - GUI/작업 워크플로우: `DEFERRED`
@@ -56,6 +56,9 @@
 - 그래서 공통 font 쪽 다음 단계는 `unused glyph 일부 치환` 과 `payload 확장/재배치` 중 첫 실제 테스트 전략을 고르는 것이다.
 - `relocate-chunk` CLI 도 추가했고, 공통 font entry `0` 을 `0x800000`, `len=0x42000` 으로 옮긴 테스트 ROM 생성까지 검증했다.
 - 이 과정에서 공통 font pointer 는 `0x17C2F4` entry `0` 뿐 아니라 mirror table `0x1823A0` entry `0` 도 함께 갱신해야 한다는 점을 확인했다.
+- 이어서 `append-fnt-glyph-set` 과 테스트용 `PGM 12x12` glyph `가/나/다` 를 이용해 free code `0xE940..0xE942` 에 실제 한글 glyph 3개를 append 했다.
+- 그 위에서 world-map 지역명 `ソリン` (`0x1842E0`) 을 `가나다` 로 제자리 치환한 `/private/tmp/hnr_font_hangul_string_test.gba` 도 만들었고, raw bytes 와 table-based `search-text` hit 로 문자열 1건을 검증했다.
+- 따라서 지금은 "첫 실제 한글 재삽입 테스트 준비"가 아니라, **첫 한글 문자열 테스트 ROM 1건을 확보한 상태** 다.
 
 - `0x184A0C..0x184AD3` 을 `10 * 0x14` effect/overlay parameter table 후보로 분리했다.
 - `0x03005FF8` 은 world-map 선택/hover location index byte 로 보는 해석이 강해졌다.

@@ -6,7 +6,7 @@
 
 ## 현재 초점
 
-- 메인: 공통 폰트 확장/재배치 경로 위에서 첫 한글 재삽입 테스트 준비
+- 메인: 공통 폰트 확장/재배치 경로 위에서 첫 한글 문자열 테스트 확장
 - 병행: Registry A entry `8` cluster 라벨링 유지
 - 보류: 새 text source 징후가 없으면 텍스트 추출 구조 분석 deep dive 는 잠시 내림
 
@@ -22,6 +22,7 @@
   - 즉 code space 는 남지만 glyph space 가 먼저 막힌 상태
   - `relocate-chunk` 로 공통 font entry `0` 을 더 큰 위치로 옮기는 테스트는 성공
   - 단, `0x17C2F4` entry `0` 뿐 아니라 mirror table `0x1823A0` entry `0` 도 함께 갱신해야 함
+  - `append-fnt-glyph-set` 과 [hangul_test.tbl](/Users/user/test/analysis/hangul_test.tbl) 로 `가/나/다` glyph 및 문자열 테스트 ROM 1건까지 확보함
 
 ## 바로 열 문서
 

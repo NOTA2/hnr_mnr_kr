@@ -106,6 +106,18 @@
   - `inspect-fnt` 기준 nonzero mapping `1698 -> 1699`
   - 새 glyph bytes 는 source glyph 와 동일
 - 따라서 지금은 **payload 재배치 + 새 code/glyph append** 까지 끝난 상태이고, 다음 실질 과제는 실제 한글 glyph bitmap 입력이다.
+- 이어서 `append-fnt-glyph-set` 으로 실제 테스트용 `PGM 12x12` glyph `가/나/다` 를 한 번에 append 했다.
+- 결과는 [font_append_hangul_test.json](/Users/user/test/analysis/font_append_hangul_test.json) 에 정리했고:
+  - `0xE940 -> glyph 0x06A3`
+  - `0xE941 -> glyph 0x06A4`
+  - `0xE942 -> glyph 0x06A5`
+  - `inspect-fnt` 기준 nonzero mapping `1698 -> 1701`
+- 테스트용 테이블 [hangul_test.tbl](/Users/user/test/analysis/hangul_test.tbl) 도 만들었고, 현재 `E940=가`, `E941=나`, `E942=다` 를 사용한다.
+- 이 상태에서 world-map 지역명 `ソリン` (`0x1842E0`) 을 `/private/tmp/hnr_font_hangul_string_test.gba` 에서 `가나다` 로 제자리 치환했다.
+- 검증:
+  - raw bytes: `E940 E941 E942 00`
+  - `search-text /private/tmp/hnr_font_hangul_string_test.gba 가나다 --table analysis/hangul_test.tbl` hit `1`
+- 따라서 공통 renderer 경로에 대해 **확장 font + 새 한글 glyph + 실제 문자열 치환** 까지 한 번은 닫혔다.
 - 큰 free code block 예:
   - `0x8440..0x84FF`
   - `0x8540..0x85FF`
@@ -128,11 +140,11 @@
 1. slot `1` 을 기존 Registry A/B/C/D 분류와 충돌 없이 다시 명시
 2. `obj + 0x18 / +0x20` 해석을 실제 UI 줄폭/박스 크기와 더 대조
 3. `0x01570C / 0x01578C / 0x01580C / 0x01588C` 네 writer variant 차이 확인
-4. common `fnt` audit 를 바탕으로 `unused glyph 일부 치환` 과 `payload 확장/재배치` 중 첫 테스트 전략 선택
-5. payload 확장/재배치 쪽은 `0x17C2F4 + 0x1823A0` 동시 갱신 기준으로 첫 실제 한글 glyph bitmap 삽입 실험 설계
-6. decoder 허용 free code block 중 한글용 code range 를 1개 정하기
-7. 한글 glyph source 형식은 `PGM 12x12` 기준으로 맞추고 첫 `10~20` 글자 실험 세트를 만든다
-8. 텍스트 source inventory 가 거의 닫힌 시점에 첫 실제 한글 재삽입 테스트용 문자 매핑 계획으로 전환
+4. 공통 renderer 경로가 아닌 다른 대표 화면도 같은 확장 font 를 문제없이 쓰는지 확인
+5. 같은 길이 치환을 넘어서, 더 긴 한글 문자열의 inject / repoint 테스트를 1건 수행
+6. decoder 허용 free code block 중 한글용 code range 를 더 넓게 예약할지 결정
+7. 테스트 glyph `가/나/다` 를 넘어 실제 초반 UI/지명용 `10~20` 글자 세트를 만든다
+8. 필요하면 `0x01570C / 0x01578C / 0x01580C / 0x01588C` writer variant 차이를 다시 확인해 화면별 예외를 줄인다
 
 ## 진행 로그
 
@@ -159,3 +171,6 @@
 - 따라서 지금 시점의 핵심 판단은 "한글 code point 는 충분히 배정 가능하지만, glyph 는 payload 확장/재배치 없이는 full-game 규모로 넣기 어렵다" 이다
 - `relocate-chunk` CLI 를 추가해 공통 font payload relocation 실험을 재현 가능하게 만들었고, mirror table `0x1823A0` 도 함께 갱신해야 한다는 추가 조건을 확인했다
 - `append-fnt-glyph` CLI 를 추가해 확장된 payload 끝에 새 glyph slot과 새 code mapping 을 실제로 append 할 수 있음을 검증했다
+- `append-fnt-glyph-set` CLI 와 테스트용 `PGM 12x12` glyph `가/나/다` 세트를 추가해, 실제 한글 glyph 3개를 `0xE940..0xE942` 에 append 했다
+- 테스트용 테이블 [hangul_test.tbl](/Users/user/test/analysis/hangul_test.tbl) 을 만들고, world-map 지역명 `ソリン` (`0x1842E0`) 을 `가나다` 로 제자리 치환한 `/private/tmp/hnr_font_hangul_string_test.gba` 까지 검증했다
+- 따라서 지금은 **font relocation + 한글 glyph append + 실제 문자열 1건 치환** 까지 완료된 상태다

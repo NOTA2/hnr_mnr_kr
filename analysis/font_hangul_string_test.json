@@ -1,0 +1,36 @@
+{
+  "font_rom": "/private/tmp/hnr_font_hangul_test.gba",
+  "output_rom": "/private/tmp/hnr_font_hangul_string_test.gba",
+  "table": "analysis/hangul_test.tbl",
+  "target": {
+    "context": "world_map_location_name",
+    "offset": "0x1842E0",
+    "original_text": "ソリン",
+    "new_text": "가나다",
+    "max_bytes": 7,
+    "terminator": "00"
+  },
+  "font_codes": [
+    {
+      "code": "0xE940",
+      "glyph_index": "0x06A3",
+      "char": "가"
+    },
+    {
+      "code": "0xE941",
+      "glyph_index": "0x06A4",
+      "char": "나"
+    },
+    {
+      "code": "0xE942",
+      "glyph_index": "0x06A5",
+      "char": "다"
+    }
+  ],
+  "verification": {
+    "raw_bytes_at_target": "E940E941E94200",
+    "table_search_hits": [
+      "0x1842E0"
+    ]
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "manifest": "analysis/hangul_test_manifest.json",
+  "payload_offset": 8388608,
+  "payload_length": 270336,
+  "appended_count": 3,
+  "entries": [
+    {
+      "payload_offset": 8388608,
+      "payload_length": 270336,
+      "target_code": 59712,
+      "target_code_hex": "0xE940",
+      "previous_lookup_value": 0,
+      "new_glyph_index": 1699,
+      "new_glyph_offset": 8642024,
+      "glyph_byte_length": 72,
+      "stride": 72,
+      "source": {
+        "source_glyph_index": null,
+        "source_code": null,
+        "pgm": "analysis/hangul_test_ga.pgm"
+      }
+    },
+    {
+      "payload_offset": 8388608,
+      "payload_length": 270336,
+      "target_code": 59713,
+      "target_code_hex": "0xE941",
+      "previous_lookup_value": 0,
+      "new_glyph_index": 1700,
+      "new_glyph_offset": 8642096,
+      "glyph_byte_length": 72,
+      "stride": 72,
+      "source": {
+        "source_glyph_index": null,
+        "source_code": null,
+        "pgm": "analysis/hangul_test_na.pgm"
+      }
+    },
+    {
+      "payload_offset": 8388608,
+      "payload_length": 270336,
+      "target_code": 59714,
+      "target_code_hex": "0xE942",
+      "previous_lookup_value": 0,
+      "new_glyph_index": 1701,
+      "new_glyph_offset": 8642168,
+      "glyph_byte_length": 72,
+      "stride": 72,
+      "source": {
+        "source_glyph_index": null,
+        "source_code": null,
+        "pgm": "analysis/hangul_test_da.pgm"
+      }
+    }
+  ],
+  "output_rom": "/private/tmp/hnr_font_hangul_test.gba"
+}
