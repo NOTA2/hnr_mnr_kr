@@ -110,3 +110,21 @@
   - `0x1823A0`: 같은 pointer-length 엔트리의 mirror table
   - `0x51B1A0`: 현재는 코드보다 raw data 성격이 강한 잔여 hit
 - 따라서 실제 patch 경로에서는 최소한 **registry entry + mirror table** 동시 갱신을 기본 규칙으로 삼아야 한다.
+
+## append 실험에서 확인된 점
+
+- `append-fnt-glyph` 로 확장된 `fnt` payload 끝에 **새 glyph slot을 append** 하고, free code 에 새 lookup mapping 을 넣는 실험도 성공했다.
+- 테스트:
+  - payload: `0x800000`
+  - payload length: `0x42000`
+  - target code: `0xE940`
+  - source glyph: `0x93FA ('日')`
+- 결과:
+  - 새 glyph index `0x06A3`
+  - 새 glyph offset `0x83DDE8`
+  - `0xE940 -> 0x06A3` lookup 기록 성공
+  - 새 glyph bytes 는 source glyph 와 동일함
+  - `inspect-fnt` 기준 nonzero mapping 도 `1698 -> 1699` 로 증가
+- 즉, 지금은 **재배치된 payload 위에 새 code/glyph 를 실제로 추가하는 경로까지 검증된 상태** 다.
+
+이제 남은 핵심은 "기존 일본어 glyph 복제"가 아니라 **실제 한글 glyph bitmap 을 넣는 단계** 다.

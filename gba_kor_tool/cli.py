@@ -1438,6 +1438,80 @@ def render_fnt_glyph(
     return bytes(pixels)
 
 
+def parse_pgm(path: Path) -> Tuple[bytes, int, int, int]:
+    data = path.read_bytes()
+    if not data.startswith((b"P5", b"P2")):
+        raise ToolError("지원하지 않는 PGM 형식입니다. P5 또는 P2만 지원합니다.")
+
+    index = 2
+
+    def next_token() -> bytes:
+        nonlocal index
+        while index < len(data):
+            byte = data[index]
+            if byte == 0x23:
+                while index < len(data) and data[index] not in (0x0A, 0x0D):
+                    index += 1
+            elif chr(byte).isspace():
+                index += 1
+            else:
+                break
+        start = index
+        while index < len(data) and not chr(data[index]).isspace():
+            index += 1
+        if start == index:
+            raise ToolError("PGM header를 끝까지 읽지 못했습니다.")
+        return data[start:index]
+
+    magic = data[:2]
+    width = int(next_token())
+    height = int(next_token())
+    max_value = int(next_token())
+    if max_value <= 0 or max_value > 255:
+        raise ToolError("PGM max value는 1..255 범위여야 합니다.")
+
+    while index < len(data) and chr(data[index]).isspace():
+        index += 1
+
+    if magic == b"P5":
+        expected = width * height
+        payload = data[index:index + expected]
+        if len(payload) != expected:
+            raise ToolError("PGM binary payload 길이가 부족합니다.")
+        return payload, width, height, max_value
+
+    values = data[index:].split()
+    if len(values) < width * height:
+        raise ToolError("PGM ASCII payload 길이가 부족합니다.")
+    pixels = bytes(int(value) for value in values[: width * height])
+    return pixels, width, height, max_value
+
+
+def pack_fnt_glyph_from_pixels(
+    pixels: bytes,
+    *,
+    width: int,
+    height: int,
+    row_bytes: int,
+    max_value: int,
+) -> bytes:
+    out = bytearray(height * row_bytes)
+    if len(pixels) != width * height:
+        raise ToolError("픽셀 수가 width * height 와 맞지 않습니다.")
+
+    for row in range(height):
+        for col in range(width):
+            pixel = pixels[row * width + col]
+            value = round(pixel * 15 / max_value) if max_value else 0
+            value = max(0, min(15, value))
+            byte_index = row * row_bytes + (col // 2)
+            if col % 2 == 0:
+                out[byte_index] = (out[byte_index] & 0xF0) | value
+            else:
+                out[byte_index] = (out[byte_index] & 0x0F) | (value << 4)
+    return bytes(out)
+
+
 def decode_cp932_code(code: int) -> str:
     payload = bytes([code]) if code <= 0xFF else bytes([(code >> 8) & 0xFF, code & 0xFF])
     try:
@@ -1875,6 +1949,118 @@ def cmd_dump_fnt_glyph(args: argparse.Namespace) -> int:
         f"glyph_index=0x{glyph_index:04X} glyph_offset={format_offset(glyph_offset)} "
         f"stride=0x{header['stride']:X} flags=0x{header['flags']:02X}"
     )
+    return 0
+
+
+def cmd_append_fnt_glyph(args: argparse.Namespace) -> int:
+    rom_path = Path(args.rom)
+    output_path = Path(args.output_rom)
+    data = bytearray(load_rom(rom_path))
+    payload_offset = parse_offset(args.payload)
+    payload_length = parse_offset(args.payload_length)
+    header = read_fnt_header(data, payload_offset=payload_offset)
+    target_code = parse_offset(args.code)
+
+    source_mode_count = sum(
+        value is not None
+        for value in (
+            args.source_glyph_index,
+            args.source_code,
+            args.pgm,
+        )
+    )
+    if source_mode_count != 1:
+        raise ToolError("--source-glyph-index, --source-code, --pgm 중 정확히 하나를 지정해야 합니다.")
+
+    max_glyph_index = 0
+    for code in range(0x10000):
+        lookup_offset = header["lookup_base"] + code * 2
+        if lookup_offset + 2 > len(data):
+            break
+        glyph_index = struct.unpack_from("<H", data, lookup_offset)[0]
+        if glyph_index > max_glyph_index:
+            max_glyph_index = glyph_index
+
+    target_lookup_offset = header["lookup_base"] + target_code * 2
+    if target_lookup_offset + 2 > len(data):
+        raise ToolError("target code lookup offset 이 ROM 범위를 벗어납니다.")
+    existing_target_index = struct.unpack_from("<H", data, target_lookup_offset)[0]
+    if existing_target_index != 0 and not args.overwrite_code:
+        raise ToolError(
+            f"target code {args.code} 는 이미 glyph 0x{existing_target_index:04X} 에 매핑되어 있습니다. "
+            "--overwrite-code 를 사용하세요."
+        )
+
+    width = args.width or 12
+    height = args.height or 12
+    row_bytes = args.row_bytes or max(1, math.ceil(width / 2))
+    glyph_byte_length = height * row_bytes
+
+    if args.source_glyph_index is not None or args.source_code is not None:
+        source_index = resolve_fnt_glyph_index(
+            data,
+            header=header,
+            glyph_index=args.source_glyph_index,
+            code=parse_offset(args.source_code) if args.source_code else None,
+        )
+        source_offset = header["glyph_base"] + source_index * header["stride"]
+        payload = bytes(data[source_offset:source_offset + glyph_byte_length])
+        if len(payload) != glyph_byte_length:
+            raise ToolError("source glyph 데이터가 ROM 범위를 벗어납니다.")
+    else:
+        pixels, pgm_width, pgm_height, max_value = parse_pgm(Path(args.pgm))
+        if pgm_width != width or pgm_height != height:
+            raise ToolError(
+                f"PGM 크기 {pgm_width}x{pgm_height} 가 기대값 {width}x{height} 와 다릅니다."
+            )
+        payload = pack_fnt_glyph_from_pixels(
+            pixels,
+            width=width,
+            height=height,
+            row_bytes=row_bytes,
+            max_value=max_value,
+        )
+
+    next_glyph_index = max_glyph_index + 1
+    target_glyph_offset = header["glyph_base"] + next_glyph_index * header["stride"]
+    payload_end = payload_offset + payload_length
+    if target_glyph_offset + glyph_byte_length > payload_end:
+        raise ToolError("지정한 payload 길이 안에 새 glyph 를 추가할 공간이 없습니다.")
+
+    data[target_glyph_offset:target_glyph_offset + glyph_byte_length] = payload
+    if glyph_byte_length < header["stride"]:
+        data[target_glyph_offset + glyph_byte_length:target_glyph_offset + header["stride"]] = b"\x00" * (
+            header["stride"] - glyph_byte_length
+        )
+    struct.pack_into("<H", data, target_lookup_offset, next_glyph_index)
+
+    write_binary(output_path, bytes(data))
+    result = {
+        "payload_offset": payload_offset,
+        "payload_length": payload_length,
+        "target_code": target_code,
+        "target_code_hex": f"0x{target_code:04X}",
+        "previous_lookup_value": existing_target_index,
+        "new_glyph_index": next_glyph_index,
+        "new_glyph_offset": target_glyph_offset,
+        "glyph_byte_length": glyph_byte_length,
+        "stride": header["stride"],
+        "source": {
+            "source_glyph_index": args.source_glyph_index,
+            "source_code": args.source_code,
+            "pgm": args.pgm,
+        },
+        "output_rom": str(output_path),
+    }
+    if args.report:
+        write_json(Path(args.report), result)
+
+    print(f"patched       : {output_path}")
+    print(f"target code   : 0x{target_code:04X}")
+    print(f"new glyph idx : 0x{next_glyph_index:04X}")
+    print(f"new glyph off : {format_offset(target_glyph_offset)}")
+    if args.report:
+        print(f"report        : {args.report}")
     return 0
 
 
@@ -2745,6 +2931,25 @@ def build_parser() -> argparse.ArgumentParser:
     dump_fnt.add_argument("--row-bytes", type=int)
     dump_fnt.add_argument("--output", required=True)
     dump_fnt.set_defaults(func=cmd_dump_fnt_glyph)
+
+    append_fnt = sub.add_parser(
+        "append-fnt-glyph",
+        help="확장된 fnt payload 끝에 glyph 하나를 추가하고 새 code lookup 을 기록합니다.",
+    )
+    append_fnt.add_argument("rom")
+    append_fnt.add_argument("output_rom")
+    append_fnt.add_argument("payload")
+    append_fnt.add_argument("--payload-length", required=True)
+    append_fnt.add_argument("--code", required=True, help="새 glyph 를 연결할 문자 코드")
+    append_fnt.add_argument("--source-glyph-index", type=lambda value: int(value, 0))
+    append_fnt.add_argument("--source-code", help="기존 glyph 를 복제할 문자 코드")
+    append_fnt.add_argument("--pgm", help="새 glyph 로 쓸 12x12 PGM 파일")
+    append_fnt.add_argument("--overwrite-code", action="store_true")
+    append_fnt.add_argument("--width", type=int)
+    append_fnt.add_argument("--height", type=int)
+    append_fnt.add_argument("--row-bytes", type=int)
+    append_fnt.add_argument("--report")
+    append_fnt.set_defaults(func=cmd_append_fnt_glyph)
 
     inspect_fnt = sub.add_parser("inspect-fnt", help="공통 fnt payload 의 lookup/glyph 매핑 현황을 JSON/텍스트로 출력합니다.")
     inspect_fnt.add_argument("rom")

@@ -79,6 +79,8 @@
   - decoder 허용 Shift-JIS lead byte 공간 (`0x81..0x9F`, `0xE0..0xEF`) 안에는 아직 free code 가 `7337`개 있으므로, 병목은 code space 가 아니라 glyph space 다.
   - `relocate-chunk` 실험으로 공통 font entry `0` 을 `0x800000`, `len=0x42000` 으로 옮긴 테스트 ROM 을 만들 수 있었고, 새 위치도 `inspect-fnt` 로 정상 해석된다.
   - 다만 이때는 상위 registry table `0x17C2F4` entry `0` 뿐 아니라, 같은 pointer-length 내용을 가진 mirror table `0x1823A0` entry `0` 도 함께 갱신해야 한다.
+  - `append-fnt-glyph` 실험으로 확장된 payload 끝에 새 glyph slot `0x06A3` 을 추가하고, free code `0xE940` 를 여기에 연결하는 경로도 검증됐다.
+  - 현재 검증은 source glyph `'日'` 복제 수준이므로, 다음은 실제 한글 glyph bitmap 을 넣는 단계다.
   - 요약 전략은 [common_fnt_hangul_strategy.md](/Users/user/test/analysis/common_fnt_hangul_strategy.md) 에 정리했다.
   - width/advance 는 `obj + 0x18` 에 누적되며, multibyte 는 `+0x18`, halfwidth 는 `+0x10` 이다. `(obj + 0x18) >> 4` 와 `obj + 0x20` 비교로 줄 수용량을 판단한다.
   - world-map `r3=0x0C` 는 capacity `18`, 대표 일반 화면군 `r3=20` 은 capacity `30` 으로 변환되어, 이 엔진이 fullwidth / halfwidth 혼합 가변폭형 레이아웃을 가진다는 해석이 강하다.

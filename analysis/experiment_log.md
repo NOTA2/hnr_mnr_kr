@@ -1105,3 +1105,19 @@
   - 따라서 특별한 새 text source 징후가 없는 한, 현재 우선순위는 폰트/재삽입 쪽이라는 점을 문서에 명시했다.
 - 판정: `성공`
 - 교훈: coverage 문서는 단순 현황표가 아니라 **작업 우선순위 전환 기준** 이어야 한다. 닫힌 항목과 아직 열린 항목을 분리해 적지 않으면, 끝난 구조 분석을 다시 반복하기 쉽다.
+
+### 실험 52
+
+- 가설: 공통 `fnt` payload 재배치가 끝난 뒤에는, 실제로 새 glyph slot 과 새 code lookup 도 append 할 수 있어야 한글 glyph 삽입 실험으로 넘어갈 수 있다.
+- 시도:
+  - `append-fnt-glyph` CLI 를 `gba_kor_tool` 에 추가했다.
+  - 입력 source 는 실제 한글 bitmap 대신 기존 glyph 복제로 먼저 검증하기 위해 `0x93FA ('日')` 를 사용했다.
+  - 재배치 테스트 ROM `/private/tmp/hnr_font_expand_test_mirror.gba` 에서 free code `0xE940` 로 새 glyph append 를 실행했다.
+  - 이후 `inspect-fnt` 와 raw lookup/glyph byte 비교로 결과를 다시 검증했다.
+- 결과:
+  - [font_append_test.json](/Users/user/test/analysis/font_append_test.json) 기준으로 새 glyph index `0x06A3`, 새 glyph offset `0x83DDE8` 이 기록되었다.
+  - `0xE940 -> 0x06A3` lookup 매핑이 실제 ROM에 반영되었다.
+  - 새 glyph bytes 는 source glyph `0x93FA ('日')` 와 완전히 동일했다.
+  - `inspect-fnt` 기준 nonzero mapping 도 `1698 -> 1699` 로 증가했다.
+- 판정: `성공`
+- 교훈: 재배치만으로는 충분하지 않고, **새 code + 새 glyph slot append** 가 실제로 되는지까지 확인해야 진짜 삽입 경로가 닫힌다. 이제 남은 핵심은 glyph append 인프라가 아니라, 실제 한글 bitmap 을 어떤 세트와 순서로 넣을지다.
