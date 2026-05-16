@@ -1521,3 +1521,18 @@
   - 나중에 번역을 시작할 때는 `translation_team_bundle.json` 또는 `translation_team/README.md` 만 보면 바로 진입 가능하다.
 - 판정: `성공`
 - 교훈: 번역팀용 규칙 문서와 실제 작업 데이터가 분리돼 있으면 다음 단계 전환이 느려진다. **규칙 문서와 workset 허브를 같은 프로젝트 안에서 연결해 두는 것** 이 중요하다.
+
+### 실험 82
+
+- 가설: 사용자가 만든 `12x12` 한글 atlas 가 `64`열 row-major `U+AC00..U+D7A3` 순서를 따른다면, giant 문자 목록을 별도 파일로 계속 관리하지 않고도 startup intro 테스트까지 바로 연결할 수 있다.
+- 시도:
+  - atlas 파일을 프로젝트 안 [maruminyahangul_12x12.png](/Users/user/test/third_party/font_atlases/maruminyahangul_12x12.png) 로 복사했다.
+  - [maruminyahangul_12x12.metadata.json](/Users/user/test/third_party/font_atlases/maruminyahangul_12x12.metadata.json) 에 `tile size / columns / rows / unicode range / order` 메타데이터를 기록했다.
+  - [import_hangul_syllable_atlas.py](/Users/user/test/scripts/import_hangul_syllable_atlas.py) 를 추가해 atlas 를 startup intro seed manifest 기준 workbench 로 변환했다.
+  - [build_startup_intro_from_atlas.sh](/Users/user/test/scripts/build_startup_intro_from_atlas.sh) 로 startup intro 테스트 ROM 을 실제 생성했다.
+- 결과:
+  - atlas `768x2100` 는 `12x12`, `64 x 175`, 총 `11200`칸으로 해석되었고, `11172`자 완성형을 담고 `28`칸이 남았다.
+  - startup intro 기준 `14`글자 workbench 와 [hnr_startup_intro_maruminyahangul12.gba](/Users/user/test/patched_roms/font_compare/maruminyahangul12_startup/hnr_startup_intro_maruminyahangul12.gba) 생성까지 완료했다.
+  - 현재 이 atlas 는 giant 문자 목록 대신 메타데이터 파일 하나로 순서 규칙을 안정적으로 관리할 수 있다.
+- 판정: `성공`
+- 교훈: 표준 완성형 순서를 그대로 따르는 atlas 는 별도 문자 전개표보다 **명확한 메타데이터 + importer** 조합이 더 작고 안전한 truth source 가 된다.

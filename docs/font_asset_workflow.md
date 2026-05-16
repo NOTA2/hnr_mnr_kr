@@ -40,6 +40,11 @@ zsh scripts/build_startup_intro_test.sh \
   "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
   patched_roms/rebuild_check
 
+zsh scripts/build_startup_intro_from_atlas.sh \
+  third_party/font_atlases/maruminyahangul_12x12.png \
+  maruminyahangul12_startup \
+  64
+
 python3 scripts/build_startup_intro_variant.py D2Coding 20
 
 python3 scripts/build_startup_intro_variant.py Galmuri11 30
@@ -114,6 +119,8 @@ python3 scripts/render_reference_font_workbench.py \
 - 비교 보존이 정말 필요할 때만 `--output-name <name>` 을 준다.
 - `SourceHanSansKR` / `SourceHanMonoKR` 는 TTF 가 아니라 `third_party/gba_free_fonts/` 아래 `.fnt + atlas png` 를 [import_bmfont_workbench.py](/Users/user/test/scripts/import_bmfont_workbench.py) 로 변환한다.
 - startup intro seed 는 현재 anti-alias grayscale 을 그대로 쓰지 않고, **완전 2단계(`0/34`) binary glyph** 로 만든다.
+- 사용자 제공 atlas 처럼 `U+AC00..U+D7A3` 표준 완성형 순서를 row-major 로 담은 `12x12` atlas 는 [import_hangul_syllable_atlas.py](/Users/user/test/scripts/import_hangul_syllable_atlas.py) 로 바로 workbench 로 변환할 수 있다.
+- 이 경우 giant 문자 목록을 따로 유지하기보다, [maruminyahangul_12x12.metadata.json](/Users/user/test/third_party/font_atlases/maruminyahangul_12x12.metadata.json) 같은 메타데이터 파일에 `tile size / columns / unicode range / order` 를 기록하는 쪽이 더 안전하다.
 
 ## 반복 테스트
 

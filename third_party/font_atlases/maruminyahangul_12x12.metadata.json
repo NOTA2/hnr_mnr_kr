@@ -1,0 +1,20 @@
+{
+  "label": "MaruMinyaHangul 12x12 atlas",
+  "source_png": "third_party/font_atlases/maruminyahangul_12x12.png",
+  "tile_width": 12,
+  "tile_height": 12,
+  "columns": 64,
+  "rows": 175,
+  "tile_count": 11200,
+  "character_order": "unicode_hangul_syllables",
+  "unicode_range": {
+    "start": "U+AC00",
+    "end": "U+D7A3",
+    "count": 11172
+  },
+  "notes": [
+    "The atlas is interpreted row-major.",
+    "Because the order is the standard Hangul syllables block AC00..D7A3, a full explicit character list does not need to be stored separately.",
+    "There are 28 unused tiles at the end of the atlas."
+  ]
+}

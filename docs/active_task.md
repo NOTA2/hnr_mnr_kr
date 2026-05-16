@@ -10,6 +10,10 @@
 - 자동 렌더링 뒤 사람이 손볼 active workbench 와 비교 workflow 를 정리한다.
 - 그 다음 남은 텍스트 추출 마감과 번역 루프로 넘어간다.
 - startup intro 폰트 후보 `10`개는 `zsh scripts/build_all_startup_fonts.sh 20` 으로 한 번에 다시 빌드할 수 있다.
+- 사용자 제공 12x12 atlas 기반 startup intro 테스트 경로도 project-local 로 확보했다.
+- 기준 atlas 파일은 [maruminyahangul_12x12.png](/Users/user/test/third_party/font_atlases/maruminyahangul_12x12.png) 이고, 메타데이터는 [maruminyahangul_12x12.metadata.json](/Users/user/test/third_party/font_atlases/maruminyahangul_12x12.metadata.json) 이다.
+- 위 atlas 는 `12x12`, `64`열, row-major `U+AC00..U+D7A3` 순서라서, 같은 포맷을 계속 쓸 때는 `11172`자 대형 문자 목록을 별도 관리하지 않아도 된다.
+- 위 atlas 기반 startup intro 테스트 ROM 은 [hnr_startup_intro_maruminyahangul12.gba](/Users/user/test/patched_roms/font_compare/maruminyahangul12_startup/hnr_startup_intro_maruminyahangul12.gba) 이다.
 - Registry A entry `8` 은 cluster별 번역 workset 재생성 경로까지 확보했다.
 - 현재까지 확보한 전체 추출본 기준 파일은 [all_extracted_texts_master.json](/Users/user/test/confirmed_data/translation_workspace/all_extracted_texts_master.json) 이다.
 - 전체 번역 작업 허브 인덱스는 [translation_workspace/index.json](/Users/user/test/confirmed_data/translation_workspace/index.json) 이다.

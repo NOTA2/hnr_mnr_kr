@@ -215,3 +215,7 @@
 - 즉 glyph 별 최대 밝기 기준으로 **하위 20%만 잘라내는 비율 컷** 경로다.
 - 비교용 시트는 [startup_font_d2coding_size_sheet.png](/Users/user/test/analysis/startup_font_d2coding_size_sheet.png), [startup_font_candidate_galmuri_sheet.png](/Users/user/test/analysis/startup_font_candidate_galmuri_sheet.png), [startup_font_galmuri11_size_sheet.png](/Users/user/test/analysis/startup_font_galmuri11_size_sheet.png) 에 남겼다.
 - 추가로 `gba-free-fonts` 의 `SourceHanSansKR`, `SourceHanMonoKR` 는 [import_bmfont_workbench.py](/Users/user/test/scripts/import_bmfont_workbench.py) 로 startup intro 에 실제 비교 적용 가능하다는 것을 확인했고, 결과는 [startup_intro_font_compare.md](/Users/user/test/analysis/startup_intro_font_compare.md) 와 [startup_intro_font_compare_sheet.png](/Users/user/test/analysis/startup_intro_font_compare_sheet.png) 에 남겼다.
+- 사용자 제공 atlas [maruminyahangul_12x12.png](/Users/user/test/third_party/font_atlases/maruminyahangul_12x12.png) 도 project-local 로 복사했다.
+- [import_hangul_syllable_atlas.py](/Users/user/test/scripts/import_hangul_syllable_atlas.py) 를 추가해, `12x12`, `64`열, row-major `U+AC00..U+D7A3` atlas 를 startup intro seed manifest 기준 workbench 로 직접 변환할 수 있게 했다.
+- 이 atlas 기반 startup intro 테스트 ROM 은 [hnr_startup_intro_maruminyahangul12.gba](/Users/user/test/patched_roms/font_compare/maruminyahangul12_startup/hnr_startup_intro_maruminyahangul12.gba) 이다.
+- 위 atlas 는 표준 완성형 순서를 그대로 따르므로, 현재는 giant 문자 목록 대신 [maruminyahangul_12x12.metadata.json](/Users/user/test/third_party/font_atlases/maruminyahangul_12x12.metadata.json) 으로 순서 규칙을 관리한다.
