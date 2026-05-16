@@ -1,0 +1,128 @@
+{
+  "workspace_root": "analysis/translation_workspace",
+  "master": {
+    "output": "analysis/translation_workspace/all_extracted_texts_master.json",
+    "record_count": 10752,
+    "source_count": 12,
+    "sources": [
+      {
+        "source_order": 0,
+        "file": "analysis/system_messages.json",
+        "record_count": 4
+      },
+      {
+        "source_order": 1,
+        "file": "analysis/item_texts.json",
+        "record_count": 47
+      },
+      {
+        "source_order": 2,
+        "file": "analysis/location_texts.json",
+        "record_count": 10
+      },
+      {
+        "source_order": 3,
+        "file": "analysis/battle_texts.json",
+        "record_count": 104
+      },
+      {
+        "source_order": 4,
+        "file": "analysis/ability_texts.json",
+        "record_count": 409
+      },
+      {
+        "source_order": 5,
+        "file": "analysis/material_texts.json",
+        "record_count": 43
+      },
+      {
+        "source_order": 6,
+        "file": "analysis/ui_skill_texts.json",
+        "record_count": 24
+      },
+      {
+        "source_order": 7,
+        "file": "analysis/save_menu_prefixed_texts.json",
+        "record_count": 12
+      },
+      {
+        "source_order": 8,
+        "file": "analysis/registry_d_fc_script_texts.json",
+        "record_count": 244
+      },
+      {
+        "source_order": 9,
+        "file": "analysis/registry_a_entry8_prefixed_texts.json",
+        "record_count": 9823
+      },
+      {
+        "source_order": 10,
+        "file": "analysis/registry_a_entry12_texts.json",
+        "record_count": 22
+      },
+      {
+        "source_order": 11,
+        "file": "analysis/credits_texts.json",
+        "record_count": 10
+      }
+    ],
+    "coverage_note": "현재까지 확보한 known extracted text sources를 통합한 작업 기준본이다. 실플레이 기반 누락 회수와 이미지 텍스트는 별도다."
+  },
+  "entry8_clusters": {
+    "cluster_count": 72,
+    "manifest": "analysis/translation_workspace/registry_a_entry8_clusters_manifest.json",
+    "output_dir": "analysis/translation_workspace/registry_a_entry8_clusters",
+    "primary_tags": [
+      "armor_parts",
+      "bank",
+      "cat_quest",
+      "central",
+      "east_city",
+      "hospital",
+      "liore",
+      "military",
+      "reward",
+      "save_menu",
+      "shop_npc",
+      "tutorial",
+      "unclassified"
+    ]
+  },
+  "priority_worksets": [
+    {
+      "label": "core_ui",
+      "file": "analysis/translation_workset_core_ui.json",
+      "record_count": 43,
+      "notes": "시스템/세이브/지역명/UI 기술명 위주의 첫 번역 진입점"
+    },
+    {
+      "label": "gameplay_terms",
+      "file": "analysis/translation_workset_gameplay_terms.json",
+      "record_count": 386,
+      "notes": "아이템/용어/설명 계열"
+    },
+    {
+      "label": "registry_d_dialogue",
+      "file": "analysis/translation_workset_registry_d_dialogue.json",
+      "record_count": 305,
+      "notes": "이벤트/전투 전후 대사 중심"
+    },
+    {
+      "label": "entry8_clusters_manifest",
+      "file": "analysis/translation_workspace/registry_a_entry8_clusters_manifest.json",
+      "record_count": 72,
+      "notes": "대형 스토리/이벤트 뱅크를 72개 cluster로 분할한 인덱스"
+    },
+    {
+      "label": "all_extracted_master",
+      "file": "analysis/translation_workspace/all_extracted_texts_master.json",
+      "record_count": 10752,
+      "notes": "현재까지 확보된 known extracted text source 전체 기준본"
+    }
+  ],
+  "workflow_note": [
+    "폰트 확정 전에는 workset 구조 정리와 번역 준비를 진행한다.",
+    "폰트 확정 후에는 core_ui -> gameplay_terms -> registry_d_dialogue -> entry8 clusters 순으로 번역/검수 루프를 시작한다.",
+    "실플레이에서 새 일본어가 보이면 그때만 extraction inventory를 다시 연다."
+  ]
+}

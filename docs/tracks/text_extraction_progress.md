@@ -23,6 +23,8 @@
 
 - 파일: [all_extracted_texts_master.json](/Users/user/test/analysis/translation_workspace/all_extracted_texts_master.json)
 - manifest: [all_extracted_texts_manifest.json](/Users/user/test/analysis/translation_workspace/all_extracted_texts_manifest.json)
+- workspace index: [translation_workspace/index.json](/Users/user/test/analysis/translation_workspace/index.json)
+- workspace readme: [translation_workspace/README.md](/Users/user/test/analysis/translation_workspace/README.md)
 - 레코드 수: `10752`
 - 구성:
   - system / item / location / battle / ability / material / ui skill

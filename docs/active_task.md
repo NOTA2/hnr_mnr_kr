@@ -12,6 +12,7 @@
 - startup intro 폰트 후보 `10`개는 `zsh scripts/build_all_startup_fonts.sh 20` 으로 한 번에 다시 빌드할 수 있다.
 - Registry A entry `8` 은 cluster별 번역 workset 재생성 경로까지 확보했다.
 - 현재까지 확보한 전체 추출본 기준 파일은 [all_extracted_texts_master.json](/Users/user/test/analysis/translation_workspace/all_extracted_texts_master.json) 이다.
+- 전체 번역 작업 허브 인덱스는 [translation_workspace/index.json](/Users/user/test/analysis/translation_workspace/index.json) 이다.
 
 ## 바로 필요한 사실
 

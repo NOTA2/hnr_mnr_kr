@@ -1482,3 +1482,16 @@
   - 이제 “큰 줄기 텍스트는 다 모은 상태에서 폰트를 고르는 중”이라는 기준점을 명확하게 유지할 수 있다.
 - 판정: `성공`
 - 교훈: 100% 추출 판정과 별개로, **현재 확보분의 안정적인 기준본** 을 갖는 것은 번역/검수/재삽입 모든 단계의 출발점이 된다.
+
+### 실험 79
+
+- 가설: 번역 준비 파일이 늘어날수록 `translation_workspace` 안에도 진입점이 필요하다. master set, cluster worksets, 우선 workset 을 한 군데서 가리키는 index/README 가 있으면 다음 단계 전환이 더 쉬워진다.
+- 시도:
+  - [build_translation_workspace.py](/Users/user/test/scripts/build_translation_workspace.py) 를 추가했다.
+  - 이 스크립트가 [build_master_text_workspace.py](/Users/user/test/scripts/build_master_text_workspace.py) 와 [build_entry8_cluster_worksets.py](/Users/user/test/scripts/build_entry8_cluster_worksets.py) 를 함께 호출하도록 했다.
+  - 결과로 [translation_workspace/index.json](/Users/user/test/analysis/translation_workspace/index.json) 과 [translation_workspace/README.md](/Users/user/test/analysis/translation_workspace/README.md) 를 생성하게 했다.
+- 결과:
+  - 이제 `translation_workspace` 폴더만 열어도 전체 기준본, entry8 cluster 세트, 우선 번역 순서를 한 번에 확인할 수 있다.
+  - 이후 번역/검수 단계는 이 인덱스를 출발점으로 잡으면 된다.
+- 판정: `성공`
+- 교훈: 대형 JSON 을 만드는 것만으로는 충분하지 않고, **사람이 바로 다음 행동을 정할 수 있는 작업 허브** 까지 있어야 실제 생산성이 오른다.
