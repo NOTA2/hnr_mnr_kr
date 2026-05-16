@@ -1,0 +1,68 @@
+{
+  "output": "analysis/translation_workspace/all_extracted_texts_master.json",
+  "record_count": 10752,
+  "source_count": 12,
+  "sources": [
+    {
+      "source_order": 0,
+      "file": "analysis/system_messages.json",
+      "record_count": 4
+    },
+    {
+      "source_order": 1,
+      "file": "analysis/item_texts.json",
+      "record_count": 47
+    },
+    {
+      "source_order": 2,
+      "file": "analysis/location_texts.json",
+      "record_count": 10
+    },
+    {
+      "source_order": 3,
+      "file": "analysis/battle_texts.json",
+      "record_count": 104
+    },
+    {
+      "source_order": 4,
+      "file": "analysis/ability_texts.json",
+      "record_count": 409
+    },
+    {
+      "source_order": 5,
+      "file": "analysis/material_texts.json",
+      "record_count": 43
+    },
+    {
+      "source_order": 6,
+      "file": "analysis/ui_skill_texts.json",
+      "record_count": 24
+    },
+    {
+      "source_order": 7,
+      "file": "analysis/save_menu_prefixed_texts.json",
+      "record_count": 12
+    },
+    {
+      "source_order": 8,
+      "file": "analysis/registry_d_fc_script_texts.json",
+      "record_count": 244
+    },
+    {
+      "source_order": 9,
+      "file": "analysis/registry_a_entry8_prefixed_texts.json",
+      "record_count": 9823
+    },
+    {
+      "source_order": 10,
+      "file": "analysis/registry_a_entry12_texts.json",
+      "record_count": 22
+    },
+    {
+      "source_order": 11,
+      "file": "analysis/credits_texts.json",
+      "record_count": 10
+    }
+  ],
+  "coverage_note": "현재까지 확보한 known extracted text sources를 통합한 작업 기준본이다. 실플레이 기반 누락 회수와 이미지 텍스트는 별도다."
+}

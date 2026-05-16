@@ -19,6 +19,22 @@
 
 ## 작업용 번역 세트
 
+### 전체 추출본 마스터 세트
+
+- 파일: [all_extracted_texts_master.json](/Users/user/test/analysis/translation_workspace/all_extracted_texts_master.json)
+- manifest: [all_extracted_texts_manifest.json](/Users/user/test/analysis/translation_workspace/all_extracted_texts_manifest.json)
+- 레코드 수: `10752`
+- 구성:
+  - system / item / location / battle / ability / material / ui skill
+  - save menu prefixed
+  - Registry D FC script
+  - Registry A entry 8 prefixed
+  - Registry A entry 12
+  - credits
+- 목적:
+  - 현재까지 확보한 known extracted text sources 를 한 번에 보는 기준본
+  - 폰트 확정 후 번역/검수 루프가 바로 붙을 수 있는 master workspace
+
 ### 코어 UI 세트
 
 - 파일: [translation_workset_core_ui.json](/Users/user/test/analysis/translation_workset_core_ui.json)

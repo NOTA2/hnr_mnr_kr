@@ -1469,3 +1469,16 @@
   - 이제 이후 번역은 `entry8 전체 9823건` 을 한 번에 보는 대신, `cluster_00_liore.json` 같은 작은 단위로 바로 시작할 수 있다.
 - 판정: `성공`
 - 교훈: 추출이 충분히 진행된 뒤에는 새 source 를 더 찾는 것보다, **번역자가 실제로 잡을 수 있는 작업 단위로 재구성하는 것** 이 더 큰 진전이다.
+
+### 실험 78
+
+- 가설: “지금까지 뽑힌 전체 텍스트” 기준 파일을 따로 고정해 두면, 폰트 확정과 무관하게 번역/검수 준비를 바로 시작할 수 있다.
+- 시도:
+  - [build_master_text_workspace.py](/Users/user/test/scripts/build_master_text_workspace.py) 를 추가했다.
+  - `system / item / location / battle / ability / material / ui skill / save menu / Registry D / Registry A entry 8 / Registry A entry 12 / credits` `12`개 소스를 합쳐 [all_extracted_texts_master.json](/Users/user/test/analysis/translation_workspace/all_extracted_texts_master.json) 을 생성했다.
+  - source별 개수와 포함 범위를 [all_extracted_texts_manifest.json](/Users/user/test/analysis/translation_workspace/all_extracted_texts_manifest.json) 에 기록했다.
+- 결과:
+  - 현재 known extracted text sources 기준으로 `10752`건 마스터 작업 세트가 생겼다.
+  - 이제 “큰 줄기 텍스트는 다 모은 상태에서 폰트를 고르는 중”이라는 기준점을 명확하게 유지할 수 있다.
+- 판정: `성공`
+- 교훈: 100% 추출 판정과 별개로, **현재 확보분의 안정적인 기준본** 을 갖는 것은 번역/검수/재삽입 모든 단계의 출발점이 된다.
