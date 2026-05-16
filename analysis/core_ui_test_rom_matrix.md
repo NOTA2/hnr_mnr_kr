@@ -1,6 +1,12 @@
 # Core UI Test ROM Matrix
 
-2026-05-10 기준 core UI 한글 표시 테스트 ROM 요약.
+2026-05-16 기준 core UI 한글 표시 테스트 ROM 요약.
+
+중요:
+
+- 스크린샷에서 보였던 이상한 `가` 는 **legacy placeholder test** (`hangul_test_ga.pgm`) 계열이다.
+- 현재 `priority48/full80` production workbench 는 그 자산을 재사용하지 않는다.
+- 최신 테스트 ROM 은 아래 matrix 또는 `scripts/build_core_ui_test_roms.sh` 로 다시 생성한 결과만 기준으로 본다.
 
 ## Priority48
 
@@ -67,3 +73,21 @@ compact 대체 예:
 ## 현재 추천
 
 첫 실제 시각 QA는 `priority48 compact` 또는 `full80 compact` ROM 기준으로 진행하는 편이 가장 안전하다.
+
+## 재생성
+
+```bash
+zsh scripts/build_core_ui_test_roms.sh \
+  "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
+  /private/tmp/hnr_rebuild_check
+```
+
+위 스크립트는 아래 산출물을 한 번에 다시 만든다.
+
+- `font_expand_base.gba`
+- `hnr_font_core_ui_priority48_font.gba`
+- `hnr_font_core_ui_full80_font.gba`
+- `hnr_core_ui_priority48_text_test.gba`
+- `hnr_core_ui_priority48_compact_text_test.gba`
+- `hnr_core_ui_full80_text_test.gba`
+- `hnr_core_ui_full80_compact_text_test.gba`

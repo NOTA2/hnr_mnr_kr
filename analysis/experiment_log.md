@@ -1210,3 +1210,17 @@
   - `search-text` 검증으로 `저장 중...`, `크루스유적`, `이스트 시티` 등 실제 문자열 hit 도 다시 확인했다.
 - 판정: `성공`
 - 교훈: 포인터 구조가 아직 안 닫힌 구간도, **compact test 번역본** 을 병행하면 시각 QA 와 렌더러 확인을 먼저 진행할 수 있다. 구조 조사와 화면 QA 를 완전히 직렬로 둘 필요는 없다.
+
+### 실험 59
+
+- 가설: 최근 본 이상한 `가` 스크린샷은 현재 `priority48/full80` production test 자산이 아니라, 예전 legacy placeholder glyph (`hangul_test_ga.pgm`) 에서 나온 결과일 가능성이 크다. 이 차이를 문서와 재생성 스크립트로 분리해 두면 혼동을 줄일 수 있다.
+- 시도:
+  - `hangul_test_ga.pgm` 내용을 다시 확인했고, 스크린샷 모양과 같은 계열의 단순 block placeholder 임을 재확인했다.
+  - 반대로 현재 `hangul_core_ui_workbench` 의 seed glyph 는 blank template 라는 점도 확인했다.
+  - 최신 compact/basic test ROM 을 원본 ROM에서 다시 만드는 [build_core_ui_test_roms.sh](/Users/user/test/scripts/build_core_ui_test_roms.sh) 를 추가하고, `/private/tmp/hnr_rebuild_check` 에서 끝까지 재생성해 검증했다.
+- 결과:
+  - 재생성 스크립트는 `font_expand_base`, `priority48/full80 font`, `basic/compact test ROM 4종`, 각 apply report 를 한 번에 다시 만들었다.
+  - 따라서 앞으로는 `/private/tmp` 청소 여부와 상관없이 최신 test ROM 을 항상 같은 절차로 다시 만들 수 있다.
+  - 또 현재 production test 기준은 [core_ui_test_rom_matrix.md](/Users/user/test/analysis/core_ui_test_rom_matrix.md) 와 스크립트 재생성 결과로 고정됐다.
+- 판정: `성공`
+- 교훈: placeholder 검증 자산과 production test 자산을 섞어 보면 판단이 흔들린다. 한글 표시 품질을 볼 때는 **legacy placeholder ROM 을 버리고, 재생성 가능한 최신 compact/basic test ROM** 만 기준으로 삼아야 한다.

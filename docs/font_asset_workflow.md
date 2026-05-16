@@ -29,6 +29,10 @@
 ## 유용한 명령
 
 ```bash
+zsh scripts/build_core_ui_test_roms.sh \
+  "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
+  /private/tmp/hnr_rebuild_check
+
 python3 -m gba_kor_tool prepare-fnt-glyph-set \
   "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
   0x3E0000 \
@@ -67,3 +71,4 @@ python3 -m gba_kor_tool prepare-fnt-glyph-set \
 - `build-hangul-seed-manifest` 는 번역 초안에서 실제 필요한 한글 글자를 뽑아 workbench 규모를 자동으로 정하는 용도다.
 - 현재는 `priority48` workbench 가 첫 실제 문자열 테스트용으로 가장 현실적인 크기다.
 - test ROM 적용 결과와 compact 대체 문구 기준은 [core_ui_test_rom_matrix.md](/Users/user/test/analysis/core_ui_test_rom_matrix.md) 를 본다.
+- legacy placeholder glyph (`hangul_test_ga.pgm` 등) 는 더 이상 production test 기준으로 보지 않는다.

@@ -95,6 +95,8 @@
     - `priority48` 기본: `4 in_place`, compact: `5 in_place`
     - `full80` 기본: `15 in_place`, compact: `19 in_place`
   - 현재 가장 바로 시각 QA 하기에 좋은 대상은 `/private/tmp/hnr_core_ui_priority48_compact_text_test.gba` 와 `/private/tmp/hnr_core_ui_full80_compact_text_test.gba` 다.
+  - 위 ROM 들은 `/private/tmp` 정리 후 사라질 수 있으므로, 기준 재생성 경로는 [build_core_ui_test_roms.sh](/Users/user/test/scripts/build_core_ui_test_roms.sh) 다.
+  - 스크린샷에서 보인 이상한 `가` 는 legacy placeholder test (`hangul_test_ga.pgm`) 계열로 보고, 현재 production test 기준에서는 제외한다.
   - 반대로 `full80` 기본 번역에서 남은 `4 skipped_no_pointer` 는 save/menu command-stream 쪽 간접 참조 구조가 아직 닫히지 않았다는 뜻이므로, 이후 inject/repoint 연구 대상으로 따로 본다.
   - 요약 전략은 [common_fnt_hangul_strategy.md](/Users/user/test/analysis/common_fnt_hangul_strategy.md) 에 정리했다.
   - width/advance 는 `obj + 0x18` 에 누적되며, multibyte 는 `+0x18`, halfwidth 는 `+0x10` 이다. `(obj + 0x18) >> 4` 와 `obj + 0x20` 비교로 줄 수용량을 판단한다.
