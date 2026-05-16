@@ -1224,3 +1224,22 @@
   - 또 현재 production test 기준은 [core_ui_test_rom_matrix.md](/Users/user/test/analysis/core_ui_test_rom_matrix.md) 와 스크립트 재생성 결과로 고정됐다.
 - 판정: `성공`
 - 교훈: placeholder 검증 자산과 production test 자산을 섞어 보면 판단이 흔들린다. 한글 표시 품질을 볼 때는 **legacy placeholder ROM 을 버리고, 재생성 가능한 최신 compact/basic test ROM** 만 기준으로 삼아야 한다.
+
+### 실험 60
+
+- 가설: 사용자 입장에서 `priority48` 나 `save/menu` 보다, 게임 시작 직후 바로 보이는 intro 텍스트가 첫 QA 지점으로 훨씬 적합하다. 이 화면의 한글화를 먼저 닫으면 실제 폰트 품질 확인이 쉬워진다.
+- 시도:
+  - 시작 화면에 뜨는 4조각을 [startup_intro_texts.json](/Users/user/test/analysis/startup_intro_texts.json) 으로 분리했다.
+  - 번역:
+    - `大陸暦` -> `대륙력`
+    - `１９１０年　２月` -> `1910년 2월`
+    - `　　リゼンブール村` -> `리젠불 마을`
+    - `　兄１１歳　　弟１０歳` -> `형 11세    동생 10세`
+  - 현재 `full80` glyph 세트에 없는 `륙, 력, 년, 월, 마, 형, 동, 생` 8글자를 [startup_intro_missing_manifest.json](/Users/user/test/analysis/startup_intro_missing_manifest.json) 과 [startup_intro_missing_workbench](/Users/user/test/analysis/startup_intro_missing_workbench) 로 준비했다.
+  - 이를 `full80` font ROM 위에 append 한 뒤, merged table [hangul_core_ui_plus_startup.tbl](/Users/user/test/analysis/hangul_core_ui_plus_startup.tbl) 을 사용해 `/private/tmp/hnr_rebuild_check/hnr_startup_intro_test.gba` 를 만들었다.
+- 결과:
+  - [startup_intro_apply_report.json](/Users/user/test/analysis/startup_intro_apply_report.json) 기준 `4 in_place`
+  - `search-text` 로 `대륙력`, `형 11세    동생 10세` 도 실제 ROM 안에서 다시 확인했다.
+  - 따라서 이제 첫 시각 QA 는 `priority48 compact` 보다도 **시작 화면 intro test ROM** 을 우선 기준으로 잡을 수 있다.
+- 판정: `성공`
+- 교훈: 테스트 지점은 기술적으로 다루기 쉬운 곳보다 **사용자가 바로 접근할 수 있는 화면** 을 우선하는 편이 훨씬 효율적이다. 앞으로 초기 QA 기준점은 시작 화면 intro 를 최우선으로 둔다.

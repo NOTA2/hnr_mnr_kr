@@ -8,6 +8,28 @@
 - 현재 `priority48/full80` production workbench 는 그 자산을 재사용하지 않는다.
 - 최신 테스트 ROM 은 아래 matrix 또는 `scripts/build_core_ui_test_roms.sh` 로 다시 생성한 결과만 기준으로 본다.
 
+## Startup Intro
+
+- font ROM: `/private/tmp/hnr_rebuild_check/hnr_font_core_ui_full80_plus_startup_font.gba`
+- translations: [startup_intro_texts.json](/Users/user/test/analysis/startup_intro_texts.json)
+- extra glyph table: [hangul_core_ui_plus_startup.tbl](/Users/user/test/analysis/hangul_core_ui_plus_startup.tbl)
+- extra glyph workbench: [startup_intro_missing_workbench](/Users/user/test/analysis/startup_intro_missing_workbench)
+
+### 기본 번역
+
+- output ROM: `/private/tmp/hnr_rebuild_check/hnr_startup_intro_test.gba`
+- report: [startup_intro_apply_report.json](/Users/user/test/analysis/startup_intro_apply_report.json)
+- 결과: `4 in_place`
+
+적용 문자열:
+
+- `대륙력`
+- `1910년 2월`
+- `리젠불 마을`
+- `형 11세    동생 10세`
+
+이 화면은 게임 시작 직후 바로 보여서, 현재 **가장 빠른 첫 시각 QA 지점** 으로 추천한다.
+
 ## Priority48
 
 - font ROM: `/private/tmp/hnr_font_core_ui_priority48_font.gba`
@@ -72,7 +94,7 @@ compact 대체 예:
 
 ## 현재 추천
 
-첫 실제 시각 QA는 `priority48 compact` 또는 `full80 compact` ROM 기준으로 진행하는 편이 가장 안전하다.
+첫 실제 시각 QA는 `startup intro` 또는 `priority48 compact` ROM 기준으로 진행하는 편이 가장 안전하다.
 
 ## 재생성
 
@@ -91,3 +113,4 @@ zsh scripts/build_core_ui_test_roms.sh \
 - `hnr_core_ui_priority48_compact_text_test.gba`
 - `hnr_core_ui_full80_text_test.gba`
 - `hnr_core_ui_full80_compact_text_test.gba`
+- `hnr_startup_intro_test.gba`
