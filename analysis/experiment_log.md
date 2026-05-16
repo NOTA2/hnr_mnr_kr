@@ -1508,3 +1508,16 @@
   - 반면 “이 대사가 어떤 캐릭터의 대사인가?”는 현재 추출 구조만으로는 비자의적으로 확정할 수 없다는 경계가 분명해졌다.
 - 판정: `성공`
 - 교훈: 작업 태그와 실제 메타데이터를 섞지 않으려면, **객관적으로 확정 가능한 분류와 아직 미확정인 정보** 를 문서에서 분리해야 한다.
+
+### 실험 81
+
+- 가설: 사용자가 따로 만든 번역/검수 에이전트 MD를 프로젝트 안에 고정하고, 현재 workset 허브와 연결해 두면 나중에 실제 번역 단계로 넘어갈 때 준비 비용이 크게 줄어든다.
+- 시도:
+  - 사용자가 제공한 `common / translation / review` MD `3`개를 [translation_team](/Users/user/test/docs/translation_team) 아래로 복사했다.
+  - [translation_team/README.md](/Users/user/test/docs/translation_team/README.md) 를 추가해 읽는 순서, 권장 workset 시작점, 화자 정보 주의점을 정리했다.
+  - [translation_team_bundle.json](/Users/user/test/analysis/translation_workspace/translation_team_bundle.json) 에 team docs / workspace docs / 추천 작업 순서를 기계적으로 읽기 쉬운 형태로 묶었다.
+- 결과:
+  - 이제 프로젝트 안에서 번역팀 문서와 실제 추출 workset 허브가 연결되었다.
+  - 나중에 번역을 시작할 때는 `translation_team_bundle.json` 또는 `translation_team/README.md` 만 보면 바로 진입 가능하다.
+- 판정: `성공`
+- 교훈: 번역팀용 규칙 문서와 실제 작업 데이터가 분리돼 있으면 다음 단계 전환이 느려진다. **규칙 문서와 workset 허브를 같은 프로젝트 안에서 연결해 두는 것** 이 중요하다.
