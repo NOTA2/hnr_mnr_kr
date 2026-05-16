@@ -44,6 +44,7 @@
 
 - 렌더러 경로: [text_renderer_path.md](/Users/user/test/analysis/text_renderer_path.md)
 - 한글 전략 요약: [common_fnt_hangul_strategy.md](/Users/user/test/analysis/common_fnt_hangul_strategy.md)
+- 폰트 후보 조사: [font_candidate_survey.md](/Users/user/test/analysis/font_candidate_survey.md)
 
 ## Large Data
 

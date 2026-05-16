@@ -35,10 +35,16 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--x-offset", type=int, default=0)
     parser.add_argument("--y-offset", type=int, default=0)
     parser.add_argument(
-        "--native-fnt-levels",
-        action=argparse.BooleanOptionalAction,
-        default=True,
-        help="게임 공통 fnt glyph 와 맞는 3-level(0/17/34) 팔레트로 양자화합니다. 기본값: 켜짐",
+        "--quantization-mode",
+        choices=("native3", "binary2", "grayscale"),
+        default="binary2",
+        help="seed glyph 픽셀 양자화 방식. 기본값: binary2",
+    )
+    parser.add_argument(
+        "--binary-threshold",
+        type=int,
+        default=128,
+        help="binary2 모드에서 획으로 남길 최소 grayscale 값. 기본값: 128",
     )
     parser.add_argument("--report")
     return parser.parse_args()
@@ -60,6 +66,14 @@ def quantize_to_native_fnt_levels(pixels: bytes) -> bytes:
     for index, value in enumerate(pixels):
         level = round(value * 2 / 255)
         out[index] = level * 17
+    return bytes(out)
+
+
+def quantize_to_binary_fnt_levels(pixels: bytes, *, threshold: int) -> bytes:
+    out = bytearray(len(pixels))
+    normalized_threshold = max(0, min(255, threshold))
+    for index, value in enumerate(pixels):
+        out[index] = 34 if value >= normalized_threshold else 0
     return bytes(out)
 
 
@@ -118,8 +132,10 @@ def main() -> int:
             x_offset=args.x_offset,
             y_offset=args.y_offset,
         )
-        if args.native_fnt_levels:
+        if args.quantization_mode == "native3":
             pixels = quantize_to_native_fnt_levels(pixels)
+        elif args.quantization_mode == "binary2":
+            pixels = quantize_to_binary_fnt_levels(pixels, threshold=args.binary_threshold)
         nonzero = sum(1 for value in pixels if value)
         write_pgm(pgm_path, pixels, args.canvas_width, args.canvas_height)
 
@@ -160,7 +176,8 @@ def main() -> int:
         "canvas_height": args.canvas_height,
         "x_offset": args.x_offset,
         "y_offset": args.y_offset,
-        "native_fnt_levels": args.native_fnt_levels,
+        "quantization_mode": args.quantization_mode,
+        "binary_threshold": args.binary_threshold,
         "count": len(report_entries),
         "entries": report_entries,
     }

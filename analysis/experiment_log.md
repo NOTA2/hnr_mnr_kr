@@ -1338,3 +1338,17 @@
   - 따라서 speckle 증상은 폰트 파일 자체보다 **anti-alias grayscale 을 native palette 단계로 제한하지 않았던 seed 생성 흐름** 에서 왔다고 보는 편이 자연스럽다.
 - 판정: `성공`
 - 교훈: 이 게임 공통 font 에 새 glyph 를 넣을 때는 “흰색이면 된다”가 아니라, **원본 glyph 가 실제로 쓰는 palette 단계까지 맞춰서** 넣어야 한다.
+
+### 실험 68
+
+- 가설: startup intro 에서 형태가 무너지는 문제는 단순 회색 단계 때문만이 아니라, `NanumSquareR` 같은 일반 UI 벡터 폰트를 `12x12` binary glyph 로 강하게 축소하는 방식 자체에 더 큰 원인이 있을 수 있다.
+- 시도:
+  - 공식 자료 기준으로 `Galmuri`, `Neo둥근모`, `D2Coding` 같은 한국어 폰트 후보를 다시 조사했다.
+  - 동시에 로컬에 이미 있는 `NanumSquareR`, `NanumGothic`, `NanumBarunGothic`, `NanumSquareRoundR`, `AppleSDGothicNeo`, `D2Coding` 을 같은 `12x12 binary2` 조건으로 비교했다.
+  - 비교 결과를 [font_candidate_survey.md](/Users/user/test/analysis/font_candidate_survey.md) 와 [startup_font_candidate_binary2_sheet.png](/Users/user/test/analysis/startup_font_candidate_binary2_sheet.png) 로 남겼다.
+- 결과:
+  - `NanumSquareR` 는 회색을 없애면 잡티는 줄지만 자소 내부 구조가 쉽게 붕괴했다.
+  - `AppleSDGothicNeo` 는 너무 얇아지는 쪽으로 무너졌고, 로컬 후보 중에서는 `D2Coding` 이 상대적으로 덜 망가졌다.
+  - 공식 성격상 현재 목표와 가장 잘 맞는 장기 후보는 bitmap/pixel 계열인 `Galmuri` 쪽으로 좁혀졌다.
+- 판정: `성공`
+- 교훈: `12x12` GBA 한글화에서 중요한 건 "유명한 한글 폰트"가 아니라, **작은 픽셀 격자에서 무너지지 않는 bitmap/pixel 성격** 이다.

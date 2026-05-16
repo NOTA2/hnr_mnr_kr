@@ -206,3 +206,6 @@
 - 추가 확인으로, 공통 `fnt` 원본 glyph 는 실제로 `0,17,34` 세 값만 쓰는 3-level palette 계열임을 다시 대조했다.
 - 따라서 `NanumSquareR` seed 에서 나온 anti-alias grayscale 을 그대로 append 하면 startup 화면처럼 빨강/파랑 speckle 이 섞일 수 있고, 현재는 seed 생성 단계에서 **native 3-level (`0/17/34`) 양자화** 를 기본값으로 강제한다.
 - startup intro build script 는 이제 blank glyph 검사뿐 아니라 `--allowed-values 0,17,34 --fail-on-disallowed` 검사도 통과해야 한다.
+- 이후 시각 QA 결과, 회색을 줄여도 `NanumSquareR` 는 `12x12` binary glyph 에서 자소 구조가 쉽게 무너졌다.
+- 그래서 현재 startup intro 쪽은 **완전 2단계(`0/34`) binary glyph** 를 기본 실험축으로 돌리면서, 동시에 폰트 후보를 다시 고르는 단계로 넘어갔다.
+- 요약 판단과 외부 조사 결과는 [font_candidate_survey.md](/Users/user/test/analysis/font_candidate_survey.md) 에 정리했다.

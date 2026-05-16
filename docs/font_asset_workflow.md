@@ -83,6 +83,8 @@ python3 scripts/render_reference_font_workbench.py \
   --manifest analysis/startup_intro_seed_manifest.json \
   --output-dir analysis/startup_intro_nanumsquare_workbench \
   --y-offset 0 \
+  --quantization-mode binary2 \
+  --binary-threshold 160 \
   --report analysis/startup_intro_nanumsquare_workbench_report.json
 ```
 
@@ -96,8 +98,9 @@ python3 scripts/render_reference_font_workbench.py \
 - 그래서 이제는 `audit-pgm-glyph-set` 로 **비어 있는 glyph 를 먼저 잡는 것** 을 기본 절차로 둔다.
 - 현재 startup intro 기준 seed 폰트는 `NanumSquareR.ttf` 로 고정한다.
 - startup intro `NanumSquareR` seed 는 현재 `y_offset=0` 을 기준값으로 둔다. `-1` 은 실제 화면에서 1픽셀 위로 뜬 것처럼 보였다.
-- startup intro `NanumSquareR` seed 는 anti-alias grayscale 을 그대로 쓰지 않고, 공통 `fnt` 원본 glyph 와 맞는 `0/17/34` 3-level 값으로 양자화한다.
-- 그래서 startup intro 빌드는 이제 blank glyph 뿐 아니라, `0,17,34` 밖의 픽셀 값이 섞여 있어도 중단된다.
+- startup intro seed 는 현재 anti-alias grayscale 을 그대로 쓰지 않고, **완전 2단계(`0/34`) binary glyph** 로 만든다.
+- 그래서 startup intro 빌드는 이제 blank glyph 뿐 아니라, `0,34` 밖의 픽셀 값이 섞여 있어도 중단된다.
+- 다만 `NanumSquareR` 는 `12x12` binary glyph 에서 형태 붕괴가 심해, 현재는 **bitmap/pixel 계열 폰트 후보 재선정** 을 같이 진행 중이다.
 - 최종 자산은 공개 라이선스 폰트를 기준으로 뽑는 편이 안전하다. 특히 `12x12` 계열에선 픽셀풍인 `Galmuri` 가 유리하고, 일반 UI 기준으론 `Pretendard`, `Noto Sans KR`, `NanumSquare` 를 seed 로 쓴 뒤 수동 보정하는 방식이 현실적이다.
 - test ROM 적용 결과와 compact 대체 문구 기준은 [core_ui_test_rom_matrix.md](/Users/user/test/analysis/core_ui_test_rom_matrix.md) 를 본다.
 - legacy placeholder glyph (`hangul_test_ga.pgm` 등) 는 더 이상 production test 기준으로 보지 않는다.

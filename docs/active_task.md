@@ -97,6 +97,7 @@
   - startup intro 는 [startup_intro_nanumsquare_workbench](/Users/user/test/analysis/startup_intro_nanumsquare_workbench) 기준 `NanumSquareR.ttf` seed glyph 를 쓰는 독립 경로로 전환했다.
   - startup intro `NanumSquareR` seed 는 baseline 을 한 번 다시 조정했고, 현재 기준값은 `y_offset=0` 이다.
   - startup intro `NanumSquareR` seed 는 현재 `0/17/34` native 3-level palette 로 양자화한 뒤 append 한다.
+  - 단, `NanumSquareR` 는 `12x12` binary glyph 에서 자소 구조가 쉽게 무너져, 현재는 **폰트 후보 재선정 단계** 도 함께 진행 중이다. 요약은 [font_candidate_survey.md](/Users/user/test/analysis/font_candidate_survey.md) 를 본다.
   - 실제 batch test ROM 도 생성했다. 요약은 [core_ui_test_rom_matrix.md](/Users/user/test/analysis/core_ui_test_rom_matrix.md) 에 있고:
     - `priority48` 기본: `4 in_place`, compact: `5 in_place`
     - `full80` 기본: `15 in_place`, compact: `19 in_place`
