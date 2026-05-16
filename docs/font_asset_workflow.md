@@ -31,11 +31,11 @@
 ```bash
 zsh scripts/build_startup_intro_test.sh \
   "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
-  /private/tmp/hnr_rebuild_check
+  patched_roms/rebuild_check
 
 zsh scripts/build_core_ui_test_roms.sh \
   "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
-  /private/tmp/hnr_rebuild_check
+  patched_roms/rebuild_check
 
 python3 -m gba_kor_tool prepare-fnt-glyph-set \
   "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
@@ -76,5 +76,5 @@ python3 -m gba_kor_tool prepare-fnt-glyph-set \
 - 현재는 `priority48` workbench 가 첫 실제 문자열 테스트용으로 가장 현실적인 크기다.
 - test ROM 적용 결과와 compact 대체 문구 기준은 [core_ui_test_rom_matrix.md](/Users/user/test/analysis/core_ui_test_rom_matrix.md) 를 본다.
 - legacy placeholder glyph (`hangul_test_ga.pgm` 등) 는 더 이상 production test 기준으로 보지 않는다.
-- 게임 시작 직후 바로 확인할 첫 QA 지점은 [startup_intro_texts.json](/Users/user/test/analysis/startup_intro_texts.json) / `/private/tmp/hnr_rebuild_check/hnr_startup_intro_test.gba` 쪽이다.
+- 게임 시작 직후 바로 확인할 첫 QA 지점은 [startup_intro_texts.json](/Users/user/test/analysis/startup_intro_texts.json) / `/Users/user/test/patched_roms/rebuild_check/hnr_startup_intro_test.gba` 쪽이다.
 - 시작 화면만 빠르게 다시 만들려면 [build_startup_intro_test.sh](/Users/user/test/scripts/build_startup_intro_test.sh) 를 먼저 쓴다.

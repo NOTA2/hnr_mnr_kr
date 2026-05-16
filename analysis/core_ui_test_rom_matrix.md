@@ -10,14 +10,14 @@
 
 ## Startup Intro
 
-- font ROM: `/private/tmp/hnr_rebuild_check/hnr_font_core_ui_full80_plus_startup_font.gba`
+- font ROM: `/Users/user/test/patched_roms/rebuild_check/hnr_font_core_ui_full80_plus_startup_font.gba`
 - translations: [startup_intro_texts.json](/Users/user/test/analysis/startup_intro_texts.json)
 - extra glyph table: [hangul_core_ui_plus_startup.tbl](/Users/user/test/analysis/hangul_core_ui_plus_startup.tbl)
 - extra glyph workbench: [startup_intro_missing_workbench](/Users/user/test/analysis/startup_intro_missing_workbench)
 
 ### 기본 번역
 
-- output ROM: `/private/tmp/hnr_rebuild_check/hnr_startup_intro_test.gba`
+- output ROM: `/Users/user/test/patched_roms/rebuild_check/hnr_startup_intro_test.gba`
 - report: [startup_intro_apply_report.json](/Users/user/test/analysis/startup_intro_apply_report.json)
 - 결과: `4 in_place`
 
@@ -39,19 +39,19 @@
 
 ## Priority48
 
-- font ROM: `/private/tmp/hnr_rebuild_check/hnr_font_core_ui_priority48_font.gba`
+- font ROM: `/Users/user/test/patched_roms/rebuild_check/hnr_font_core_ui_priority48_font.gba`
 - coverable translations: [core_ui_priority48_coverable_translations.json](/Users/user/test/analysis/core_ui_priority48_coverable_translations.json)
 - table: [prepared.tbl](/Users/user/test/analysis/hangul_core_ui_priority48_workbench/prepared.tbl)
 
 ### 기본 번역
 
-- output ROM: `/private/tmp/hnr_rebuild_check/hnr_core_ui_priority48_text_test.gba`
+- output ROM: `/Users/user/test/patched_roms/rebuild_check/hnr_core_ui_priority48_text_test.gba`
 - report: [core_ui_priority48_apply_report.json](/Users/user/test/analysis/core_ui_priority48_apply_report.json)
 - 결과: `4 in_place`, `1 skipped_no_pointer`
 
 ### compact 번역
 
-- output ROM: `/private/tmp/hnr_rebuild_check/hnr_core_ui_priority48_compact_text_test.gba`
+- output ROM: `/Users/user/test/patched_roms/rebuild_check/hnr_core_ui_priority48_compact_text_test.gba`
 - translations: [core_ui_priority48_compact_test_translations.json](/Users/user/test/analysis/core_ui_priority48_compact_test_translations.json)
 - report: [core_ui_priority48_compact_apply_report.json](/Users/user/test/analysis/core_ui_priority48_compact_apply_report.json)
 - 결과: `5 in_place`
@@ -66,13 +66,13 @@
 
 ## Full80
 
-- font ROM: `/private/tmp/hnr_rebuild_check/hnr_font_core_ui_full80_font.gba`
+- font ROM: `/Users/user/test/patched_roms/rebuild_check/hnr_font_core_ui_full80_font.gba`
 - coverable translations: [core_ui_full80_coverable_translations.json](/Users/user/test/analysis/core_ui_full80_coverable_translations.json)
 - table: [prepared.tbl](/Users/user/test/analysis/hangul_core_ui_workbench/prepared.tbl)
 
 ### 기본 번역
 
-- output ROM: `/private/tmp/hnr_rebuild_check/hnr_core_ui_full80_text_test.gba`
+- output ROM: `/Users/user/test/patched_roms/rebuild_check/hnr_core_ui_full80_text_test.gba`
 - report: [core_ui_full80_apply_report.json](/Users/user/test/analysis/core_ui_full80_apply_report.json)
 - 결과: `15 in_place`, `4 skipped_no_pointer`
 
@@ -87,7 +87,7 @@ skip 원인:
 
 ### compact 번역
 
-- output ROM: `/private/tmp/hnr_rebuild_check/hnr_core_ui_full80_compact_text_test.gba`
+- output ROM: `/Users/user/test/patched_roms/rebuild_check/hnr_core_ui_full80_compact_text_test.gba`
 - translations: [core_ui_full80_compact_test_translations.json](/Users/user/test/analysis/core_ui_full80_compact_test_translations.json)
 - report: [core_ui_full80_compact_apply_report.json](/Users/user/test/analysis/core_ui_full80_compact_apply_report.json)
 - 결과: `19 in_place`
@@ -112,7 +112,7 @@ compact 대체 예:
 ```bash
 zsh scripts/build_startup_intro_test.sh \
   "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
-  /private/tmp/hnr_rebuild_check
+  patched_roms/rebuild_check
 ```
 
 전체 matrix 를 한 번에 다시 만들 때:
@@ -120,7 +120,7 @@ zsh scripts/build_startup_intro_test.sh \
 ```bash
 zsh scripts/build_core_ui_test_roms.sh \
   "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
-  /private/tmp/hnr_rebuild_check
+  patched_roms/rebuild_check
 ```
 
 위 스크립트는 아래 산출물을 한 번에 다시 만든다.

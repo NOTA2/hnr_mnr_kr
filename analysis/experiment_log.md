@@ -1269,3 +1269,15 @@
   - archive 를 열지 않아도 현재 한글화 hot path 를 따라가는 데 필요한 파일만 빠르게 찾을 수 있게 됐다.
 - 판정: `성공`
 - 교훈: 증거를 지우는 것보다 **루트 노이즈를 줄이고 archive 경로를 명시하는 것** 이 장기 작업에 훨씬 안전하다.
+
+### 실험 63
+
+- 가설: 패치 ROM 출력이 `/private/tmp` 와 프로젝트 폴더에 섞여 있으면 확인 경로가 흔들린다. 프로젝트 내부 출력 폴더 하나로 고정하고 전체를 gitignore 처리하면 이후 작업이 단순해진다.
+- 시도:
+  - 프로젝트 루트에 `patched_roms/` 폴더를 기준 출력 위치로 정하고, `.gitignore` 에 `patched_roms/*` 와 `!patched_roms/.gitkeep` 규칙을 추가했다.
+  - [core_ui_test_rom_matrix.md](/Users/user/test/analysis/core_ui_test_rom_matrix.md), [active_task.md](/Users/user/test/docs/active_task.md), [font_asset_workflow.md](/Users/user/test/docs/font_asset_workflow.md), [text_reinsertion_progress.md](/Users/user/test/docs/tracks/text_reinsertion_progress.md) 의 예시 경로를 `patched_roms/rebuild_check` 기준으로 갱신했다.
+- 결과:
+  - 앞으로 패치 ROM 은 프로젝트 내부 `patched_roms/` 아래에 두면서도 git 추적에서는 제외할 수 있게 됐다.
+  - 경로 기준이 하나로 고정되어 QA 와 재생성 문서도 덜 흔들리게 됐다.
+- 판정: `성공`
+- 교훈: 산출물 위치를 일찍 고정해 두면, 실제 한글화 반복 테스트에서 경로 혼선이 크게 줄어든다.

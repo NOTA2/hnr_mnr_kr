@@ -6,6 +6,8 @@
 *.ips
 *.ups
 *.bps
+patched_roms/*
+!patched_roms/.gitkeep
 .idea/
 __pycache__/
 .DS_Store
