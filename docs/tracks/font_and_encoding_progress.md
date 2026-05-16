@@ -209,3 +209,6 @@
 - 이후 시각 QA 결과, 회색을 줄여도 `NanumSquareR` 는 `12x12` binary glyph 에서 자소 구조가 쉽게 무너졌다.
 - 그래서 현재 startup intro 쪽은 **완전 2단계(`0/34`) binary glyph** 를 기본 실험축으로 돌리면서, 동시에 폰트 후보를 다시 고르는 단계로 넘어갔다.
 - 요약 판단과 외부 조사 결과는 [font_candidate_survey.md](/Users/user/test/analysis/font_candidate_survey.md) 에 정리했다.
+- 그 후 `Galmuri` 패키지를 받아 `Galmuri11.ttf` 도 실제 후보로 비교했지만, 현재 자동 렌더링 조건에서는 기대만큼 안정적이지 않았다.
+- 그래서 startup intro active workbench 는 지금 [startup_intro_d2coding_workbench](/Users/user/test/analysis/startup_intro_d2coding_workbench) 로 다시 옮겼다.
+- 현재 active 설정은 `font-size=11`, `y_offset=0`, `binary2 threshold=144` 이며, 비교용 시트는 [startup_font_d2coding_size_sheet.png](/Users/user/test/analysis/startup_font_d2coding_size_sheet.png), [startup_font_candidate_galmuri_sheet.png](/Users/user/test/analysis/startup_font_candidate_galmuri_sheet.png), [startup_font_galmuri11_size_sheet.png](/Users/user/test/analysis/startup_font_galmuri11_size_sheet.png) 에 남겼다.

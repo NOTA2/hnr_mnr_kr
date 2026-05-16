@@ -79,13 +79,14 @@ python3 -m gba_kor_tool audit-pgm-glyph-set \
   --fail-on-blank
 
 python3 scripts/render_reference_font_workbench.py \
-  --font-path /Users/user/Library/Fonts/NanumSquareR.ttf \
+  --font-path /Users/user/Library/Fonts/D2Coding-Ver1.3.2-20180524.ttf \
   --manifest analysis/startup_intro_seed_manifest.json \
-  --output-dir analysis/startup_intro_nanumsquare_workbench \
+  --output-dir analysis/startup_intro_d2coding_workbench \
+  --font-size 11 \
   --y-offset 0 \
   --quantization-mode binary2 \
-  --binary-threshold 160 \
-  --report analysis/startup_intro_nanumsquare_workbench_report.json
+  --binary-threshold 144 \
+  --report analysis/startup_intro_d2coding_workbench_report.json
 ```
 
 ## 메모
@@ -96,11 +97,11 @@ python3 scripts/render_reference_font_workbench.py \
 - 현재는 `priority48` workbench 가 첫 실제 문자열 테스트용으로 가장 현실적인 크기다.
 - blank glyph 가 하나라도 남아 있으면, 빌드가 되더라도 화면에서 조용히 빈칸처럼 보일 수 있다.
 - 그래서 이제는 `audit-pgm-glyph-set` 로 **비어 있는 glyph 를 먼저 잡는 것** 을 기본 절차로 둔다.
-- 현재 startup intro 기준 seed 폰트는 `NanumSquareR.ttf` 로 고정한다.
-- startup intro `NanumSquareR` seed 는 현재 `y_offset=0` 을 기준값으로 둔다. `-1` 은 실제 화면에서 1픽셀 위로 뜬 것처럼 보였다.
+- 현재 startup intro active seed 폰트는 `D2Coding-Ver1.3.2-20180524.ttf` 이다.
+- startup intro `D2Coding` seed 는 현재 `font-size=11`, `y_offset=0`, `binary2 threshold=144` 을 기준값으로 둔다.
 - startup intro seed 는 현재 anti-alias grayscale 을 그대로 쓰지 않고, **완전 2단계(`0/34`) binary glyph** 로 만든다.
 - 그래서 startup intro 빌드는 이제 blank glyph 뿐 아니라, `0,34` 밖의 픽셀 값이 섞여 있어도 중단된다.
-- 다만 `NanumSquareR` 는 `12x12` binary glyph 에서 형태 붕괴가 심해, 현재는 **bitmap/pixel 계열 폰트 후보 재선정** 을 같이 진행 중이다.
+- `NanumSquareR` 와 `Galmuri11` 는 조사 기록으로 남기고, 현재 active 경로에서는 내렸다.
 - 최종 자산은 공개 라이선스 폰트를 기준으로 뽑는 편이 안전하다. 특히 `12x12` 계열에선 픽셀풍인 `Galmuri` 가 유리하고, 일반 UI 기준으론 `Pretendard`, `Noto Sans KR`, `NanumSquare` 를 seed 로 쓴 뒤 수동 보정하는 방식이 현실적이다.
 - test ROM 적용 결과와 compact 대체 문구 기준은 [core_ui_test_rom_matrix.md](/Users/user/test/analysis/core_ui_test_rom_matrix.md) 를 본다.
 - legacy placeholder glyph (`hangul_test_ga.pgm` 등) 는 더 이상 production test 기준으로 보지 않는다.

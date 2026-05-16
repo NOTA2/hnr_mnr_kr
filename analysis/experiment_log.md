@@ -1352,3 +1352,32 @@
   - 공식 성격상 현재 목표와 가장 잘 맞는 장기 후보는 bitmap/pixel 계열인 `Galmuri` 쪽으로 좁혀졌다.
 - 판정: `성공`
 - 교훈: `12x12` GBA 한글화에서 중요한 건 "유명한 한글 폰트"가 아니라, **작은 픽셀 격자에서 무너지지 않는 bitmap/pixel 성격** 이다.
+
+### 실험 69
+
+- 가설: `Galmuri11` 같이 원래부터 bitmap 계열 성격이 강한 폰트는 `NanumSquareR` 보다 `12x12` binary glyph 에 더 잘 맞을 가능성이 높다.
+- 시도:
+  - `npm install --no-save galmuri` 로 공식 패키지를 프로젝트 안에 가져왔다.
+  - `Galmuri11`, `Galmuri11-Condensed`, `Galmuri11-Bold`, `GalmuriMono11` 을 같은 `12x12 binary2` 조건으로 비교했다.
+  - 이어서 `Galmuri11.ttf` 에 대해 `font-size 10/11/12` 를 비교하고, [startup_font_candidate_galmuri_sheet.png](/Users/user/test/analysis/startup_font_candidate_galmuri_sheet.png), [startup_font_galmuri11_size_sheet.png](/Users/user/test/analysis/startup_font_galmuri11_size_sheet.png) 로 저장했다.
+  - 최종적으로 `Galmuri11.ttf` `font-size=10` `y_offset=0` `binary2 threshold=160` 으로 [startup_intro_galmuri11_workbench](/Users/user/test/analysis/startup_intro_galmuri11_workbench) 를 만들고, [build_startup_intro_test.sh](/Users/user/test/scripts/build_startup_intro_test.sh) / [build_core_ui_test_roms.sh](/Users/user/test/scripts/build_core_ui_test_roms.sh) 의 startup 경로를 이 세트로 바꿨다.
+- 결과:
+  - `Galmuri11` 계열이 `NanumSquareR` 보다 자소 구조를 덜 잃었고, 현재 기준으로는 `size10` 이 가장 덜 무너졌다.
+  - 새 startup intro ROM [hnr_startup_intro_test.gba](/Users/user/test/patched_roms/rebuild_check/hnr_startup_intro_test.gba) 도 다시 빌드 완료했다.
+  - 따라서 startup intro active 경로는 현재 **NanumSquareR 에서 Galmuri11 으로 전환된 상태** 다.
+- 판정: `성공`
+- 교훈: 실제 GBA 한글화에서는 “벡터 한글 폰트 + 강한 이진화”보다, **애초에 픽셀 구조가 있는 폰트를 작은 칸에 맞추는 쪽** 이 훨씬 유리하다.
+
+### 실험 70
+
+- 가설: `Galmuri` 가 기대만큼 안정적이지 않다면, 현재 로컬 후보 중에서는 `D2Coding` 을 더 공격적으로 튜닝한 쪽이 startup intro 기준 1차 실험에 더 적합할 수 있다.
+- 시도:
+  - `D2Coding-Ver1.3.2-20180524.ttf` 를 `size 9/10/11/12`, threshold `128/144/160/176` 로 다시 비교했다.
+  - 비교 시트를 [startup_font_d2coding_size_sheet.png](/Users/user/test/analysis/startup_font_d2coding_size_sheet.png) 로 저장했다.
+  - 최종적으로 `size=11`, `threshold=144` 를 골라 [startup_intro_d2coding_workbench](/Users/user/test/analysis/startup_intro_d2coding_workbench) 를 만들고, startup build script 의 active 경로를 이 workbench 로 바꿨다.
+  - [build_startup_intro_test.sh](/Users/user/test/scripts/build_startup_intro_test.sh) 로 [hnr_startup_intro_test.gba](/Users/user/test/patched_roms/rebuild_check/hnr_startup_intro_test.gba) 를 다시 빌드했다.
+- 결과:
+  - startup intro active 경로는 현재 `D2Coding size11 threshold144` 기준으로 전환됐다.
+  - 동시에 [run_glyph_editor.py](/Users/user/test/scripts/run_glyph_editor.py) 와 [glyph_editor.html](/Users/user/test/tools/glyph_editor.html) 로, workbench `.pgm` 를 직접 수정할 수 있는 로컬 에디터도 준비했다.
+- 판정: `성공`
+- 교훈: 자동 선택이 계속 마음에 들지 않을 때는 폰트 후보를 바꾸는 것과 별개로, **즉시 수동 보정 가능한 도구** 를 같이 두는 편이 훨씬 낫다.

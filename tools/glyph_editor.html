@@ -1,0 +1,295 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Glyph Editor</title>
+  <style>
+    :root {
+      --bg: #111111;
+      --panel: #1c1c1c;
+      --line: #303030;
+      --text: #f3f3f3;
+      --muted: #a5a5a5;
+      --accent: #8ed1b2;
+      --off: #f7f7f7;
+      --on: #111111;
+    }
+    body {
+      margin: 0;
+      font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      background: radial-gradient(circle at top, #1f3a34, var(--bg) 45%);
+      color: var(--text);
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 280px 1fr;
+      min-height: 100vh;
+    }
+    .sidebar, .main {
+      padding: 20px;
+    }
+    .sidebar {
+      background: rgba(0,0,0,0.25);
+      border-right: 1px solid var(--line);
+      overflow: auto;
+    }
+    .main {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+    h1,h2 {
+      margin: 0 0 12px;
+      font-size: 16px;
+    }
+    .manifest-list {
+      display: grid;
+      gap: 8px;
+    }
+    .entry {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      padding: 10px;
+      cursor: pointer;
+    }
+    .entry.active {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent) inset;
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+    button, select {
+      background: #202020;
+      color: var(--text);
+      border: 1px solid #3c3c3c;
+      padding: 8px 10px;
+      cursor: pointer;
+    }
+    button:hover {
+      border-color: var(--accent);
+    }
+    .canvas-wrap {
+      display: flex;
+      gap: 16px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+    canvas {
+      image-rendering: pixelated;
+      image-rendering: crisp-edges;
+      background: #efefef;
+      border: 1px solid var(--line);
+    }
+    .status {
+      color: var(--muted);
+      font-size: 13px;
+    }
+    .hint {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="sidebar">
+      <h1>Glyph List</h1>
+      <div class="manifest-list" id="manifestList"></div>
+    </aside>
+    <main class="main">
+      <div>
+        <h2 id="title">Loading…</h2>
+        <div class="meta" id="pathInfo"></div>
+      </div>
+      <div class="toolbar">
+        <button id="prevBtn">Prev</button>
+        <button id="nextBtn">Next</button>
+        <select id="toolSelect">
+          <option value="draw">Draw</option>
+          <option value="erase">Erase</option>
+        </select>
+        <button id="clearBtn">Clear</button>
+        <button id="invertBtn">Invert</button>
+        <button id="shiftLeftBtn">← Shift</button>
+        <button id="shiftRightBtn">Shift →</button>
+        <button id="shiftUpBtn">↑ Shift</button>
+        <button id="shiftDownBtn">Shift ↓</button>
+        <button id="saveBtn">Save PGM</button>
+      </div>
+      <div class="canvas-wrap">
+        <canvas id="editor" width="480" height="480"></canvas>
+        <canvas id="preview" width="144" height="144"></canvas>
+      </div>
+      <div class="status" id="status">Ready</div>
+      <div class="hint">
+        클릭/드래그로 픽셀을 켜고 끕니다. 이 에디터는 `0` 또는 `34`만 저장합니다.
+        `Save PGM`을 누르면 서버가 현재 workbench의 `.pgm` 파일을 직접 갱신합니다.
+      </div>
+    </main>
+  </div>
+  <script>
+    const state = {
+      manifest: [],
+      currentIndex: 0,
+      pixels: [],
+      width: 12,
+      height: 12,
+      drawing: false,
+    };
+
+    const editor = document.getElementById("editor");
+    const preview = document.getElementById("preview");
+    const ectx = editor.getContext("2d");
+    const pctx = preview.getContext("2d");
+    const manifestList = document.getElementById("manifestList");
+    const title = document.getElementById("title");
+    const pathInfo = document.getElementById("pathInfo");
+    const statusEl = document.getElementById("status");
+    const toolSelect = document.getElementById("toolSelect");
+
+    function setStatus(text) {
+      statusEl.textContent = text;
+    }
+
+    function valueForTool() {
+      return toolSelect.value === "erase" ? 0 : 34;
+    }
+
+    function drawCanvas() {
+      const cell = editor.width / state.width;
+      ectx.clearRect(0, 0, editor.width, editor.height);
+      for (let y = 0; y < state.height; y++) {
+        for (let x = 0; x < state.width; x++) {
+          const v = state.pixels[y * state.width + x] || 0;
+          ectx.fillStyle = v ? "#111111" : "#f5f5f5";
+          ectx.fillRect(x * cell, y * cell, cell, cell);
+          ectx.strokeStyle = "#bdbdbd";
+          ectx.strokeRect(x * cell, y * cell, cell, cell);
+        }
+      }
+      pctx.clearRect(0, 0, preview.width, preview.height);
+      const pCell = preview.width / state.width;
+      for (let y = 0; y < state.height; y++) {
+        for (let x = 0; x < state.width; x++) {
+          const v = state.pixels[y * state.width + x] || 0;
+          pctx.fillStyle = v ? "#111111" : "#f5f5f5";
+          pctx.fillRect(x * pCell, y * pCell, pCell, pCell);
+        }
+      }
+    }
+
+    function renderManifest() {
+      manifestList.innerHTML = "";
+      state.manifest.forEach((entry, index) => {
+        const div = document.createElement("div");
+        div.className = "entry" + (index === state.currentIndex ? " active" : "");
+        div.innerHTML = `<div>${entry.char || "?"} <span class="meta">${entry.code || ""}</span></div>
+                         <div class="meta">${entry.pgm_path}</div>`;
+        div.onclick = () => loadGlyph(index);
+        manifestList.appendChild(div);
+      });
+    }
+
+    async function fetchJson(url, options) {
+      const response = await fetch(url, options);
+      if (!response.ok) throw new Error(await response.text());
+      return response.json();
+    }
+
+    async function loadManifest() {
+      const data = await fetchJson("/manifest");
+      state.manifest = data.entries;
+      renderManifest();
+      await loadGlyph(0);
+    }
+
+    async function loadGlyph(index) {
+      const data = await fetchJson(`/glyph?index=${index}`);
+      state.currentIndex = index;
+      state.width = data.width;
+      state.height = data.height;
+      state.pixels = data.pixels.slice();
+      title.textContent = `${data.char} ${data.code}`;
+      pathInfo.textContent = data.pgm_path;
+      renderManifest();
+      drawCanvas();
+      setStatus(`Loaded ${data.char} ${data.code}`);
+    }
+
+    async function saveGlyph() {
+      const data = await fetchJson(`/glyph?index=${state.currentIndex}`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ pixels: state.pixels }),
+      });
+      setStatus(`Saved ${data.char} ${data.code}`);
+    }
+
+    function applyAt(clientX, clientY) {
+      const rect = editor.getBoundingClientRect();
+      const cell = editor.width / state.width;
+      const x = Math.floor((clientX - rect.left) / cell);
+      const y = Math.floor((clientY - rect.top) / cell);
+      if (x < 0 || x >= state.width || y < 0 || y >= state.height) return;
+      state.pixels[y * state.width + x] = valueForTool();
+      drawCanvas();
+    }
+
+    function shift(dx, dy) {
+      const next = new Array(state.width * state.height).fill(0);
+      for (let y = 0; y < state.height; y++) {
+        for (let x = 0; x < state.width; x++) {
+          const nx = x + dx;
+          const ny = y + dy;
+          if (nx < 0 || nx >= state.width || ny < 0 || ny >= state.height) continue;
+          next[ny * state.width + nx] = state.pixels[y * state.width + x];
+        }
+      }
+      state.pixels = next;
+      drawCanvas();
+    }
+
+    editor.addEventListener("mousedown", (event) => {
+      state.drawing = true;
+      applyAt(event.clientX, event.clientY);
+    });
+    window.addEventListener("mouseup", () => state.drawing = false);
+    editor.addEventListener("mousemove", (event) => {
+      if (!state.drawing) return;
+      applyAt(event.clientX, event.clientY);
+    });
+
+    document.getElementById("prevBtn").onclick = () => {
+      if (state.currentIndex > 0) loadGlyph(state.currentIndex - 1);
+    };
+    document.getElementById("nextBtn").onclick = () => {
+      if (state.currentIndex + 1 < state.manifest.length) loadGlyph(state.currentIndex + 1);
+    };
+    document.getElementById("clearBtn").onclick = () => {
+      state.pixels = state.pixels.map(() => 0);
+      drawCanvas();
+    };
+    document.getElementById("invertBtn").onclick = () => {
+      state.pixels = state.pixels.map((v) => v ? 0 : 34);
+      drawCanvas();
+    };
+    document.getElementById("shiftLeftBtn").onclick = () => shift(-1, 0);
+    document.getElementById("shiftRightBtn").onclick = () => shift(1, 0);
+    document.getElementById("shiftUpBtn").onclick = () => shift(0, -1);
+    document.getElementById("shiftDownBtn").onclick = () => shift(0, 1);
+    document.getElementById("saveBtn").onclick = () => saveGlyph().catch((error) => setStatus(String(error)));
+
+    loadManifest().catch((error) => setStatus(String(error)));
+  </script>
+</body>
+</html>
