@@ -1,0 +1,90 @@
+{
+  "master_file": "analysis/translation_workspace/all_extracted_texts_master.json",
+  "record_count": 10752,
+  "source_classification": {
+    "system_messages": {
+      "content_type": "system_message",
+      "scope": "objective",
+      "notes": "시스템 상태/통신 등 UI 메시지"
+    },
+    "save_menu_prefixed_texts": {
+      "content_type": "save_menu_message",
+      "scope": "objective",
+      "notes": "세이브/진행 관련 메뉴 문구"
+    },
+    "location_texts": {
+      "content_type": "location_name",
+      "scope": "objective",
+      "notes": "월드맵/지역명"
+    },
+    "ui_skill_texts": {
+      "content_type": "ui_skill_name_or_description",
+      "scope": "objective",
+      "notes": "UI 기술명/설명 계열"
+    },
+    "battle_texts": {
+      "content_type": "battle_skill_name_or_description",
+      "scope": "objective",
+      "notes": "전투 기술명/설명"
+    },
+    "ability_texts": {
+      "content_type": "ability_or_material_description",
+      "scope": "objective",
+      "notes": "능력/재료 설명 계열"
+    },
+    "material_texts": {
+      "content_type": "material_name_or_description",
+      "scope": "objective",
+      "notes": "재료명/재료 설명"
+    },
+    "item_texts": {
+      "content_type": "item_or_event_term",
+      "scope": "objective",
+      "notes": "아이템명과 이벤트 관련 용어가 함께 섞임"
+    },
+    "registry_a_entry12_texts": {
+      "content_type": "gameplay_item_or_event_text",
+      "scope": "objective",
+      "notes": "게임플레이/아이템/이벤트 관련 소형 뱅크"
+    },
+    "registry_d_fc_script_texts": {
+      "content_type": "dialogue_or_tutorial_script",
+      "scope": "objective",
+      "notes": "이벤트/튜토리얼 mixed script 대사"
+    },
+    "registry_a_entry8_prefixed_texts": {
+      "content_type": "dialogue_or_event_script",
+      "scope": "objective",
+      "notes": "대형 스토리/이벤트/메뉴 mixed script"
+    },
+    "credits_texts": {
+      "content_type": "credits_text",
+      "scope": "objective",
+      "notes": "스태프롤/크레딧"
+    }
+  },
+  "counts_by_content_type": {
+    "ability_or_material_description": 409,
+    "battle_skill_name_or_description": 104,
+    "credits_text": 10,
+    "dialogue_or_event_script": 9823,
+    "dialogue_or_tutorial_script": 244,
+    "gameplay_item_or_event_text": 22,
+    "item_or_event_term": 47,
+    "location_name": 10,
+    "material_name_or_description": 43,
+    "save_menu_message": 12,
+    "system_message": 4,
+    "ui_skill_name_or_description": 24
+  },
+  "unknown_source_groups": {},
+  "speaker_metadata": {
+    "explicit_speaker_fields_found": 0,
+    "speaker_identification_status": "not_available_yet",
+    "notes": [
+      "현재 추출 JSON에는 speaker / speaker_id 필드가 없다.",
+      "따라서 대사의 화자를 비자의적으로 확정하려면 script control 구조에서 화자 메타데이터를 별도로 추적해야 한다.",
+      "cluster_primary_tag / cluster_tags 는 작업 보조용 자동 태그이며, 화자 정보로 취급하면 안 된다."
+    ]
+  }
+}

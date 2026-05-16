@@ -1495,3 +1495,16 @@
   - 이후 번역/검수 단계는 이 인덱스를 출발점으로 잡으면 된다.
 - 판정: `성공`
 - 교훈: 대형 JSON 을 만드는 것만으로는 충분하지 않고, **사람이 바로 다음 행동을 정할 수 있는 작업 허브** 까지 있어야 실제 생산성이 오른다.
+
+### 실험 80
+
+- 가설: 현재 추출본에 대해 “이 텍스트가 아이템인지, 대사인지, UI인지” 같은 성격은 source 기준으로 객관적으로 정리할 수 있지만, 화자 정보는 별도 script metadata 분석 없이는 확정할 수 없다.
+- 시도:
+  - [build_text_taxonomy_manifest.py](/Users/user/test/scripts/build_text_taxonomy_manifest.py) 를 추가했다.
+  - [all_extracted_texts_master.json](/Users/user/test/analysis/translation_workspace/all_extracted_texts_master.json) 을 기준으로 source_group -> content_type 매핑을 [text_taxonomy_manifest.json](/Users/user/test/analysis/translation_workspace/text_taxonomy_manifest.json) 에 기록했다.
+  - speaker / speaker_id 같은 명시 필드가 현재 추출 JSON에는 없다는 점도 같이 명시했다.
+- 결과:
+  - source 기반으로는 `system_message`, `location_name`, `save_menu_message`, `dialogue_or_event_script` 같은 객관적 분류표를 만들었다.
+  - 반면 “이 대사가 어떤 캐릭터의 대사인가?”는 현재 추출 구조만으로는 비자의적으로 확정할 수 없다는 경계가 분명해졌다.
+- 판정: `성공`
+- 교훈: 작업 태그와 실제 메타데이터를 섞지 않으려면, **객관적으로 확정 가능한 분류와 아직 미확정인 정보** 를 문서에서 분리해야 한다.

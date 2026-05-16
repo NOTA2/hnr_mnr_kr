@@ -25,6 +25,7 @@
 - manifest: [all_extracted_texts_manifest.json](/Users/user/test/analysis/translation_workspace/all_extracted_texts_manifest.json)
 - workspace index: [translation_workspace/index.json](/Users/user/test/analysis/translation_workspace/index.json)
 - workspace readme: [translation_workspace/README.md](/Users/user/test/analysis/translation_workspace/README.md)
+- taxonomy manifest: [text_taxonomy_manifest.json](/Users/user/test/analysis/translation_workspace/text_taxonomy_manifest.json)
 - 레코드 수: `10752`
 - 구성:
   - system / item / location / battle / ability / material / ui skill
@@ -36,6 +37,7 @@
 - 목적:
   - 현재까지 확보한 known extracted text sources 를 한 번에 보는 기준본
   - 폰트 확정 후 번역/검수 루프가 바로 붙을 수 있는 master workspace
+  - source 기반으로 객관적으로 말할 수 있는 텍스트 성격 분류의 출발점
 
 ### 코어 UI 세트
 
