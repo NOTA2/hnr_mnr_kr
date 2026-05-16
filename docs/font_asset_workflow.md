@@ -85,12 +85,12 @@ python3 -m gba_kor_tool audit-pgm-glyph-set \
 python3 scripts/render_reference_font_workbench.py \
   --font-path /Users/user/Library/Fonts/D2Coding-Ver1.3.2-20180524.ttf \
   --manifest analysis/startup_intro_seed_manifest.json \
-  --output-dir analysis/startup_intro_d2coding_workbench \
+  --output-dir analysis/startup_intro_active_workbench \
   --font-size 11 \
   --y-offset 0 \
   --quantization-mode binary2 \
-  --binary-threshold 144 \
-  --report analysis/startup_intro_d2coding_workbench_report.json
+  --binary-cutoff-ratio 0.2 \
+  --report analysis/startup_intro_active_workbench_report.json
 ```
 
 ## 메모
@@ -106,12 +106,18 @@ python3 scripts/render_reference_font_workbench.py \
 - 즉 glyph 별 최대 밝기 기준으로 **하위 20%만 잘라내고 나머지는 살리는 방식** 이다.
 - 사용자가 직접 다른 컷값을 시험할 때는 [build_startup_intro_variant.py](/Users/user/test/scripts/build_startup_intro_variant.py) 를 우선 쓴다.
 - 예: `python3 scripts/build_startup_intro_variant.py D2Coding 20`
+- `gba-free-fonts` 비교용 preset 도 바로 쓸 수 있다.
+- 예: `python3 scripts/build_startup_intro_variant.py SourceHanSansKR 20`
+- 예: `python3 scripts/build_startup_intro_variant.py SourceHanMonoKR 20`
 - 이 명령은 workbench 생성, glyph audit, font append, startup intro ROM 생성까지 한 번에 수행한다.
+- 기본 실행은 매번 [startup_intro_active_workbench](/Users/user/test/analysis/startup_intro_active_workbench) 와 `/Users/user/test/patched_roms/startup_intro_active/` 를 덮어쓴다.
+- 비교 보존이 정말 필요할 때만 `--output-name <name>` 을 준다.
+- `SourceHanSansKR` / `SourceHanMonoKR` 는 TTF 가 아니라 `third_party/gba_free_fonts/` 아래 `.fnt + atlas png` 를 [import_bmfont_workbench.py](/Users/user/test/scripts/import_bmfont_workbench.py) 로 변환한다.
 - startup intro seed 는 현재 anti-alias grayscale 을 그대로 쓰지 않고, **완전 2단계(`0/34`) binary glyph** 로 만든다.
 - 그래서 startup intro 빌드는 이제 blank glyph 뿐 아니라, `0,34` 밖의 픽셀 값이 섞여 있어도 중단된다.
 - `NanumSquareR` 와 `Galmuri11` 는 조사 기록으로 남기고, 현재 active 경로에서는 내렸다.
 - 최종 자산은 공개 라이선스 폰트를 기준으로 뽑는 편이 안전하다. 특히 `12x12` 계열에선 픽셀풍인 `Galmuri` 가 유리하고, 일반 UI 기준으론 `Pretendard`, `Noto Sans KR`, `NanumSquare` 를 seed 로 쓴 뒤 수동 보정하는 방식이 현실적이다.
 - test ROM 적용 결과와 compact 대체 문구 기준은 [core_ui_test_rom_matrix.md](/Users/user/test/analysis/core_ui_test_rom_matrix.md) 를 본다.
 - legacy placeholder glyph (`hangul_test_ga.pgm` 등) 는 더 이상 production test 기준으로 보지 않는다.
-- 게임 시작 직후 바로 확인할 첫 QA 지점은 [startup_intro_texts.json](/Users/user/test/analysis/startup_intro_texts.json) / `/Users/user/test/patched_roms/rebuild_check/hnr_startup_intro_test.gba` 쪽이다.
+- 게임 시작 직후 바로 확인할 첫 QA 지점은 [startup_intro_texts.json](/Users/user/test/analysis/startup_intro_texts.json) / `/Users/user/test/patched_roms/startup_intro_active/hnr_startup_intro_test.gba` 쪽이다.
 - 시작 화면만 빠르게 다시 만들려면 [build_startup_intro_test.sh](/Users/user/test/scripts/build_startup_intro_test.sh) 를 먼저 쓴다.

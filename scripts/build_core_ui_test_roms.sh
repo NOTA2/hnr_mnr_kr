@@ -15,12 +15,13 @@ mkdir -p "$OUTPUT_DIR"
 BASE_ROM="$OUTPUT_DIR/font_expand_base.gba"
 PRIORITY48_FONT_ROM="$OUTPUT_DIR/hnr_font_core_ui_priority48_font.gba"
 FULL80_FONT_ROM="$OUTPUT_DIR/hnr_font_core_ui_full80_font.gba"
-STARTUP_FONT_ROM="$OUTPUT_DIR/hnr_font_startup_d2coding_font.gba"
+STARTUP_FONT_ROM="$OUTPUT_DIR/hnr_font_startup_active.gba"
 PRIORITY48_BASIC_ROM="$OUTPUT_DIR/hnr_core_ui_priority48_text_test.gba"
 PRIORITY48_COMPACT_ROM="$OUTPUT_DIR/hnr_core_ui_priority48_compact_text_test.gba"
 FULL80_BASIC_ROM="$OUTPUT_DIR/hnr_core_ui_full80_text_test.gba"
 FULL80_COMPACT_ROM="$OUTPUT_DIR/hnr_core_ui_full80_compact_text_test.gba"
 STARTUP_INTRO_ROM="$OUTPUT_DIR/hnr_startup_intro_test.gba"
+ACTIVE_WORKBENCH="analysis/startup_intro_active_workbench"
 
 if [[ "$ALLOW_BLANK_GLYPHS" != "1" ]]; then
   python3 -m gba_kor_tool audit-pgm-glyph-set \
@@ -34,11 +35,11 @@ if [[ "$ALLOW_BLANK_GLYPHS" != "1" ]]; then
     --output "$OUTPUT_DIR/core_ui_full80_glyph_audit.json"
 
   python3 -m gba_kor_tool audit-pgm-glyph-set \
-    analysis/startup_intro_d2coding_workbench/prepared_manifest.json \
+    "$ACTIVE_WORKBENCH/prepared_manifest.json" \
     --fail-on-blank \
     --allowed-values 0,34 \
     --fail-on-disallowed \
-    --output "$OUTPUT_DIR/startup_intro_d2coding_glyph_audit.json"
+    --output "$OUTPUT_DIR/startup_intro_active_glyph_audit.json"
 fi
 
 python3 -m gba_kor_tool relocate-chunk \
@@ -73,8 +74,8 @@ python3 -m gba_kor_tool append-fnt-glyph-set \
   "$STARTUP_FONT_ROM" \
   0x800000 \
   --payload-length 0x42000 \
-  --manifest analysis/startup_intro_d2coding_workbench/prepared_manifest.json \
-  --report "$OUTPUT_DIR/startup_intro_d2coding_font_append_report.json"
+  --manifest "$ACTIVE_WORKBENCH/prepared_manifest.json" \
+  --report "$OUTPUT_DIR/startup_intro_active_font_append_report.json"
 
 python3 -m gba_kor_tool apply-translations \
   "$PRIORITY48_FONT_ROM" \
@@ -112,7 +113,7 @@ python3 -m gba_kor_tool apply-translations \
   "$STARTUP_FONT_ROM" \
   analysis/startup_intro_texts.json \
   "$STARTUP_INTRO_ROM" \
-  --table analysis/startup_intro_d2coding_workbench/prepared.tbl \
+  --table "$ACTIVE_WORKBENCH/prepared.tbl" \
   --encoding cp932 \
   --report "$OUTPUT_DIR/startup_intro_apply_report.json"
 

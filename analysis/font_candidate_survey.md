@@ -21,6 +21,9 @@
 - [D2Coding](https://github.com/naver/d2codingfont)
   - 공식 설명: 작은 크기 `8~18pt` 가독성과 힌팅을 고려한 고정폭 폰트.
   - bitmap 은 아니지만, 현재 로컬에 있고 작은 크기 대응이 비교적 낫다.
+- [laqieer/gba-free-fonts](https://github.com/laqieer/gba-free-fonts)
+  - 공식 설명: GBA 개발에 바로 쓰는 `.fnt + atlas png` 폰트 모음.
+  - `SourceHanSans/KR`, `SourceHanMono/KR` 는 한국어 glyph atlas 가 이미 있어, 현재 프로젝트의 `12x12 PGM workbench` 로 변환해 startup intro 비교 ROM 을 만들 수 있다.
 
 ## 현재 로컬 후보
 
@@ -37,9 +40,12 @@
 - `AppleSDGothicNeo` 는 지나치게 얇아져서 정보량이 부족해진다.
 - `D2Coding` 은 적어도 작은 크기에서 획이 완전히 붕괴하는 정도는 덜하다.
 - 비교 시트: [startup_font_candidate_binary2_sheet.png](/Users/user/test/analysis/startup_font_candidate_binary2_sheet.png)
+- 실제 startup intro 비교 결과는 [startup_intro_font_compare.md](/Users/user/test/analysis/startup_intro_font_compare.md), [startup_intro_font_compare_sheet.png](/Users/user/test/analysis/startup_intro_font_compare_sheet.png) 를 본다.
 
 ## 현재 판단
 
-- 현재 startup intro active 실험축은 **`D2Coding-Ver1.3.2-20180524.ttf` `size11` `binary2 threshold=144`** 이다.
+- 현재 startup intro active 실험축은 **`D2Coding-Ver1.3.2-20180524.ttf` `size11` `binary2 cutoff_ratio=0.2`** 이다.
 - `Galmuri` 는 조사상 유망했지만, 현재 자동 렌더링 조건에서는 기대만큼 안정적이지 않아 보조 후보로 내렸다.
+- `gba-free-fonts` 의 `SourceHanSansKR`, `SourceHanMonoKR` 는 **적용 가능** 하다. 다만 startup intro `12x12` binary 기준에서는 두 후보 모두 밀도가 높아 D2Coding 보다 더 뭉개져 보이는 편이다.
+- `LanaPixel` 은 현재 기준으로 포맷 문제가 아니라 **원본 파일 확보 문제** 다. 파일만 얻으면 같은 workflow 에 넣을 수 있다.
 - 어떤 폰트를 쓰더라도, 최종 단계에서는 자동 렌더링만으로 끝내지 말고 `PGM` 단위 수동 보정이 필요하다.

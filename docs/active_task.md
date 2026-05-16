@@ -96,14 +96,15 @@
   - 이제 [audit-pgm-glyph-set](/Users/user/test/gba_kor_tool/cli.py) 검사로 blank glyph 를 빌드 전에 잡도록 바꿨다.
   - startup intro 는 [startup_intro_nanumsquare_workbench](/Users/user/test/analysis/startup_intro_nanumsquare_workbench) 기준 `NanumSquareR.ttf` seed glyph 를 쓰는 독립 경로로 전환했다.
   - startup intro `NanumSquareR` seed 는 baseline 을 한 번 다시 조정했고, 현재 기준값은 `y_offset=0` 이다.
-  - startup intro active seed 는 현재 [startup_intro_d2coding_workbench](/Users/user/test/analysis/startup_intro_d2coding_workbench) 기준 `D2Coding-Ver1.3.2-20180524.ttf` `size11` `binary2 cutoff_ratio=0.2` 이다.
+  - startup intro active seed 는 현재 [startup_intro_active_workbench](/Users/user/test/analysis/startup_intro_active_workbench) 기준 `D2Coding-Ver1.3.2-20180524.ttf` `size11` `binary2 cutoff_ratio=0.2` 이다.
   - `NanumSquareR` 와 `Galmuri11` 은 historical candidate 로 남기고, 현재는 **D2Coding 우선** 기준으로 실험한다.
+  - `gba-free-fonts` 의 `SourceHanSansKR` / `SourceHanMonoKR` 는 [startup_intro_font_compare.md](/Users/user/test/analysis/startup_intro_font_compare.md) 기준 실제 비교 ROM 생성까지 검증했다.
   - 요약은 [font_candidate_survey.md](/Users/user/test/analysis/font_candidate_survey.md) 를 본다.
   - 실제 batch test ROM 도 생성했다. 요약은 [core_ui_test_rom_matrix.md](/Users/user/test/analysis/core_ui_test_rom_matrix.md) 에 있고:
     - `priority48` 기본: `4 in_place`, compact: `5 in_place`
     - `full80` 기본: `15 in_place`, compact: `19 in_place`
     - `startup intro`: `4 in_place`
-  - 현재 가장 바로 시각 QA 하기에 좋은 대상은 `/Users/user/test/patched_roms/rebuild_check/hnr_startup_intro_test.gba` 다. 게임 시작 직후 바로 확인할 수 있다.
+  - 현재 가장 바로 시각 QA 하기에 좋은 대상은 `/Users/user/test/patched_roms/startup_intro_active/hnr_startup_intro_test.gba` 다. 게임 시작 직후 바로 확인할 수 있다.
   - startup intro 확인 anchor 는 `0x703D70, 0x703D7E, 0x703D94, 0x703DAC` 네 곳이다.
   - 시작 화면만 빠르게 다시 만들고 싶을 때는 [build_startup_intro_test.sh](/Users/user/test/scripts/build_startup_intro_test.sh) 를 우선 쓴다.
   - 위 ROM 들의 기본 보관 위치는 `/Users/user/test/patched_roms/` 이고, 기준 재생성 경로는 [build_core_ui_test_roms.sh](/Users/user/test/scripts/build_core_ui_test_roms.sh) 다.

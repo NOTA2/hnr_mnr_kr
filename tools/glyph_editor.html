@@ -125,12 +125,14 @@
         <button id="shiftUpBtn">↑ Shift</button>
         <button id="shiftDownBtn">Shift ↓</button>
         <button id="saveBtn">Save PGM</button>
+        <button id="rebuildBtn" hidden>Save + Rebuild ROM</button>
       </div>
       <div class="canvas-wrap">
         <canvas id="editor" width="480" height="480"></canvas>
         <canvas id="preview" width="144" height="144"></canvas>
       </div>
       <div class="status" id="status">Ready</div>
+      <div class="meta" id="activeInfo"></div>
       <div class="hint">
         클릭/드래그로 픽셀을 켜고 끕니다. 이 에디터는 `0` 또는 `34`만 저장합니다.
         `Save PGM`을 누르면 서버가 현재 workbench의 `.pgm` 파일을 직접 갱신합니다.
@@ -155,7 +157,9 @@
     const title = document.getElementById("title");
     const pathInfo = document.getElementById("pathInfo");
     const statusEl = document.getElementById("status");
+    const activeInfo = document.getElementById("activeInfo");
     const toolSelect = document.getElementById("toolSelect");
+    const rebuildBtn = document.getElementById("rebuildBtn");
 
     function setStatus(text) {
       statusEl.textContent = text;
@@ -209,6 +213,13 @@
     async function loadManifest() {
       const data = await fetchJson("/manifest");
       state.manifest = data.entries;
+      if (data.can_rebuild_startup_intro) {
+        rebuildBtn.hidden = false;
+        activeInfo.textContent = `Active output: ${data.active_output_dir}/hnr_startup_intro_test.gba`;
+      } else {
+        rebuildBtn.hidden = true;
+        activeInfo.textContent = "";
+      }
       renderManifest();
       await loadGlyph(0);
     }
@@ -233,6 +244,13 @@
         body: JSON.stringify({ pixels: state.pixels }),
       });
       setStatus(`Saved ${data.char} ${data.code}`);
+    }
+
+    async function rebuildStartupIntro() {
+      await saveGlyph();
+      setStatus("Rebuilding startup intro ROM…");
+      const data = await fetchJson("/rebuild", { method: "POST" });
+      setStatus(`Rebuilt: ${data.rom_path}`);
     }
 
     function applyAt(clientX, clientY) {
@@ -288,6 +306,7 @@
     document.getElementById("shiftUpBtn").onclick = () => shift(0, -1);
     document.getElementById("shiftDownBtn").onclick = () => shift(0, 1);
     document.getElementById("saveBtn").onclick = () => saveGlyph().catch((error) => setStatus(String(error)));
+    rebuildBtn.onclick = () => rebuildStartupIntro().catch((error) => setStatus(String(error)));
 
     loadManifest().catch((error) => setStatus(String(error)));
   </script>

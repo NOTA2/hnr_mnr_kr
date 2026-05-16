@@ -24,7 +24,8 @@
 - 한글 전략: [common_fnt_hangul_strategy.md](/Users/user/test/analysis/common_fnt_hangul_strategy.md)
 - 현재 매핑 감사 JSON: [common_fnt_usage_audit.json](/Users/user/test/analysis/common_fnt_usage_audit.json)
 - core UI workbench: [hangul_core_ui_workbench](/Users/user/test/analysis/hangul_core_ui_workbench)
-- 시작 화면 전용 workbench: [startup_intro_nanumsquare_workbench](/Users/user/test/analysis/startup_intro_nanumsquare_workbench)
+- 시작 화면 전용 active workbench: [startup_intro_active_workbench](/Users/user/test/analysis/startup_intro_active_workbench)
+- 시작 화면 폰트 비교: [startup_intro_font_compare.md](/Users/user/test/analysis/startup_intro_font_compare.md)
 
 ## Stable References
 

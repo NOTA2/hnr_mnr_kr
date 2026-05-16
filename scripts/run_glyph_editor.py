@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import subprocess
 import urllib.parse
 from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -12,13 +13,16 @@ from typing import Any
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 EDITOR_HTML = REPO_ROOT / "tools" / "glyph_editor.html"
+ACTIVE_MANIFEST = (REPO_ROOT / "analysis" / "startup_intro_active_workbench" / "prepared_manifest.json").resolve()
+ACTIVE_OUTPUT_DIR = (REPO_ROOT / "patched_roms" / "startup_intro_active").resolve()
+SOURCE_ROM = (REPO_ROOT / "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba").resolve()
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="12x12 PGM glyph editor server")
     parser.add_argument(
         "--manifest",
-        default="analysis/startup_intro_d2coding_workbench/prepared_manifest.json",
+        default="analysis/startup_intro_active_workbench/prepared_manifest.json",
         help="prepared_manifest.json path",
     )
     parser.add_argument("--host", default="127.0.0.1")
@@ -68,7 +72,8 @@ def write_pgm(path: Path, pixels: list[int], width: int, height: int) -> None:
 
 class GlyphStore:
     def __init__(self, manifest_path: Path) -> None:
-        self.manifest_path = manifest_path
+        self.manifest_path = manifest_path.resolve()
+        self.can_rebuild_startup_intro = self.manifest_path == ACTIVE_MANIFEST
         payload = json.loads(manifest_path.read_text(encoding="utf-8"))
         if not isinstance(payload, list):
             raise ValueError("manifest must be a JSON array")
@@ -109,6 +114,28 @@ class GlyphStore:
                 }
             )
         return result
+
+    def rebuild_startup_intro(self) -> dict[str, Any]:
+        if not self.can_rebuild_startup_intro:
+            raise ValueError("rebuild is only enabled for the active startup intro workbench")
+        command = [
+            "zsh",
+            "scripts/build_startup_intro_test.sh",
+            str(SOURCE_ROM),
+            str(ACTIVE_OUTPUT_DIR),
+        ]
+        completed = subprocess.run(
+            command,
+            cwd=REPO_ROOT,
+            text=True,
+            capture_output=True,
+            check=True,
+        )
+        return {
+            "ok": True,
+            "rom_path": str(ACTIVE_OUTPUT_DIR / "hnr_startup_intro_test.gba"),
+            "stdout": completed.stdout,
+        }
 
     def get_entry(self, index: int) -> dict[str, Any]:
         return self.entries[index]
@@ -154,7 +181,14 @@ def make_handler(store: GlyphStore):
                 self.wfile.write(body)
                 return
             if parsed.path == "/manifest":
-                self._json({"entries": store.list_entries(), "manifest": str(store.manifest_path)})
+                self._json(
+                    {
+                        "entries": store.list_entries(),
+                        "manifest": str(store.manifest_path),
+                        "can_rebuild_startup_intro": store.can_rebuild_startup_intro,
+                        "active_output_dir": str(ACTIVE_OUTPUT_DIR),
+                    }
+                )
                 return
             if parsed.path == "/glyph":
                 query = urllib.parse.parse_qs(parsed.query)
@@ -177,6 +211,17 @@ def make_handler(store: GlyphStore):
         def do_POST(self) -> None:
             parsed = urllib.parse.urlparse(self.path)
             if parsed.path != "/glyph":
+                if parsed.path == "/rebuild":
+                    try:
+                        result = store.rebuild_startup_intro()
+                    except subprocess.CalledProcessError as exc:
+                        self.send_error(HTTPStatus.INTERNAL_SERVER_ERROR, exc.stderr or str(exc))
+                        return
+                    except Exception as exc:
+                        self.send_error(HTTPStatus.BAD_REQUEST, str(exc))
+                        return
+                    self._json(result)
+                    return
                 self.send_error(HTTPStatus.NOT_FOUND, "not found")
                 return
             query = urllib.parse.parse_qs(parsed.query)

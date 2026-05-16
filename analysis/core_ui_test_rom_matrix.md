@@ -10,17 +10,17 @@
 
 ## Startup Intro
 
-- font ROM: `/Users/user/test/patched_roms/rebuild_check/hnr_font_startup_nanumsquare_font.gba`
+- font ROM: `/Users/user/test/patched_roms/startup_intro_active/hnr_font_startup_active.gba`
 - translations: [startup_intro_texts.json](/Users/user/test/analysis/startup_intro_texts.json)
-- glyph table: [prepared.tbl](/Users/user/test/analysis/startup_intro_nanumsquare_workbench/prepared.tbl)
-- glyph workbench: [startup_intro_nanumsquare_workbench](/Users/user/test/analysis/startup_intro_nanumsquare_workbench)
-- source font: `NanumSquareR.ttf`
-- current seed baseline: `y_offset=0`
+- glyph table: [prepared.tbl](/Users/user/test/analysis/startup_intro_active_workbench/prepared.tbl)
+- glyph workbench: [startup_intro_active_workbench](/Users/user/test/analysis/startup_intro_active_workbench)
+- source font: `D2Coding-Ver1.3.2-20180524.ttf`
+- current seed baseline: `y_offset=0`, `binary2 cutoff_ratio=0.2`
 
 ### 기본 번역
 
-- output ROM: `/Users/user/test/patched_roms/rebuild_check/hnr_startup_intro_test.gba`
-- report: [startup_intro_apply_report.json](/Users/user/test/analysis/startup_intro_apply_report.json)
+- output ROM: `/Users/user/test/patched_roms/startup_intro_active/hnr_startup_intro_test.gba`
+- report: [startup_intro_apply_report.json](/Users/user/test/patched_roms/startup_intro_active/startup_intro_apply_report.json)
 - 결과: `4 in_place`
 
 적용 문자열:
@@ -130,7 +130,7 @@ zsh scripts/build_core_ui_test_roms.sh \
 - `font_expand_base.gba`
 - `hnr_font_core_ui_priority48_font.gba`
 - `hnr_font_core_ui_full80_font.gba`
-- `hnr_font_startup_nanumsquare_font.gba`
+- `hnr_font_startup_active.gba`
 - `hnr_core_ui_priority48_text_test.gba`
 - `hnr_core_ui_priority48_compact_text_test.gba`
 - `hnr_core_ui_full80_text_test.gba`

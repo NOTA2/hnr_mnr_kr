@@ -1420,3 +1420,39 @@
   - 따라서 이제 startup intro 폰트 실험은 대화 없이도 **`폰트명 + 퍼센트` 한 줄** 로 재현 가능하다.
 - 판정: `성공`
 - 교훈: 비교 실험이 반복될수록, 해석 도구보다 **사용자가 직접 돌릴 수 있는 wrapper script** 가 생산성을 더 크게 올린다.
+
+### 실험 74
+
+- 가설: `폰트명 + 퍼센트` wrapper 가 매번 새 폴더를 만들면 오히려 관리 비용이 커지므로, 기본값은 **단일 active workbench / 단일 output ROM 경로를 덮어쓰는 방식** 이 더 낫다.
+- 시도:
+  - [build_startup_intro_variant.py](/Users/user/test/scripts/build_startup_intro_variant.py) 기본 경로를 [startup_intro_active_workbench](/Users/user/test/analysis/startup_intro_active_workbench) 와 `/Users/user/test/patched_roms/startup_intro_active/` 로 고정했다.
+  - 같은 기준에 맞춰 [build_startup_intro_test.sh](/Users/user/test/scripts/build_startup_intro_test.sh), [build_core_ui_test_roms.sh](/Users/user/test/scripts/build_core_ui_test_roms.sh), [run_glyph_editor.py](/Users/user/test/scripts/run_glyph_editor.py) 의 기본 startup intro 경로도 active 경로로 맞췄다.
+- 결과:
+  - 기본 실험 경로가 더 이상 `font+percent` 별 폴더를 증식시키지 않고, 항상 같은 workbench 와 같은 startup intro ROM 을 갱신하게 됐다.
+  - 비교 보존이 필요할 때만 `--output-name` 을 주는 구조로 정리됐다.
+- 판정: `성공`
+- 교훈: 반복 튜닝 작업은 “비교 파일을 많이 남기는 것”보다 **active 산출물 1세트와 선택적 named snapshot** 구조가 관리에 훨씬 유리하다.
+
+### 실험 75
+
+- 가설: `gba-free-fonts` 의 한국어 atlas 는 우리 게임 포맷에 직접 꽂을 수는 없어도, startup intro `12x12` seed workbench 로 변환하면 **실제 비교 ROM** 까지는 만들 수 있다.
+- 시도:
+  - `SourceHanSans/KR`, `SourceHanMono/KR` 자산과 라이선스를 [third_party/gba_free_fonts](/Users/user/test/third_party/gba_free_fonts) 아래 최소 범위만 복사했다.
+  - [import_bmfont_workbench.py](/Users/user/test/scripts/import_bmfont_workbench.py) 를 추가해 `.fnt + atlas png` 에서 `12x12 PGM workbench` 를 생성하게 했다.
+  - 이 경로를 [build_startup_intro_variant.py](/Users/user/test/scripts/build_startup_intro_variant.py) 에 연결해 `SourceHanSansKR`, `SourceHanMonoKR` preset 으로 startup intro ROM 을 실제 생성했다.
+- 결과:
+  - `SourceHanSansKR`, `SourceHanMonoKR` 둘 다 startup intro `4 in_place` ROM 생성까지 끝났다.
+  - 비교 ROM 은 [startup_intro_font_compare.md](/Users/user/test/analysis/startup_intro_font_compare.md) 와 `/Users/user/test/patched_roms/font_compare/` 아래에 정리했다.
+- 판정: `성공`
+- 교훈: `gba-free-fonts` 는 “직접 적용 불가”가 아니라, **우리 커스텀 fnt 포맷과의 브리지 단계가 필요했던 것** 이다.
+
+### 실험 76
+
+- 가설: startup intro glyph 수정을 빠르게 반복하려면, glyph editor 가 단순 저장만 하는 구조보다 **저장 후 즉시 ROM 재빌드** 까지 포함해야 한다.
+- 시도:
+  - [run_glyph_editor.py](/Users/user/test/scripts/run_glyph_editor.py) 에 `/rebuild` endpoint 를 추가했다.
+  - [glyph_editor.html](/Users/user/test/tools/glyph_editor.html) 에 `Save + Rebuild ROM` 버튼과 active output 경로 표시를 추가했다.
+- 결과:
+  - active startup intro workbench 를 열었을 때는 PGM 저장 직후 [hnr_startup_intro_test.gba](/Users/user/test/patched_roms/startup_intro_active/hnr_startup_intro_test.gba) 를 같은 브라우저 루프 안에서 다시 만들 수 있게 됐다.
+- 판정: `성공`
+- 교훈: startup intro 같은 짧은 QA 루프는 “glyph 수정”과 “실제 ROM 확인”을 붙여야 생산성이 오른다.

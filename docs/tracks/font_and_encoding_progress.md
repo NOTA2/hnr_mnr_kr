@@ -210,7 +210,8 @@
 - 그래서 현재 startup intro 쪽은 **완전 2단계(`0/34`) binary glyph** 를 기본 실험축으로 돌리면서, 동시에 폰트 후보를 다시 고르는 단계로 넘어갔다.
 - 요약 판단과 외부 조사 결과는 [font_candidate_survey.md](/Users/user/test/analysis/font_candidate_survey.md) 에 정리했다.
 - 그 후 `Galmuri` 패키지를 받아 `Galmuri11.ttf` 도 실제 후보로 비교했지만, 현재 자동 렌더링 조건에서는 기대만큼 안정적이지 않았다.
-- 그래서 startup intro active workbench 는 지금 [startup_intro_d2coding_workbench](/Users/user/test/analysis/startup_intro_d2coding_workbench) 로 다시 옮겼다.
+- 그래서 startup intro active workbench 는 지금 [startup_intro_active_workbench](/Users/user/test/analysis/startup_intro_active_workbench) 로 다시 옮겼다.
 - 현재 active 설정은 `font-size=11`, `y_offset=0`, `binary2 cutoff_ratio=0.2` 이다.
 - 즉 glyph 별 최대 밝기 기준으로 **하위 20%만 잘라내는 비율 컷** 경로다.
 - 비교용 시트는 [startup_font_d2coding_size_sheet.png](/Users/user/test/analysis/startup_font_d2coding_size_sheet.png), [startup_font_candidate_galmuri_sheet.png](/Users/user/test/analysis/startup_font_candidate_galmuri_sheet.png), [startup_font_galmuri11_size_sheet.png](/Users/user/test/analysis/startup_font_galmuri11_size_sheet.png) 에 남겼다.
+- 추가로 `gba-free-fonts` 의 `SourceHanSansKR`, `SourceHanMonoKR` 는 [import_bmfont_workbench.py](/Users/user/test/scripts/import_bmfont_workbench.py) 로 startup intro 에 실제 비교 적용 가능하다는 것을 확인했고, 결과는 [startup_intro_font_compare.md](/Users/user/test/analysis/startup_intro_font_compare.md) 와 [startup_intro_font_compare_sheet.png](/Users/user/test/analysis/startup_intro_font_compare_sheet.png) 에 남겼다.

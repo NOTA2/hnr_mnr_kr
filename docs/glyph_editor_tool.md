@@ -6,7 +6,7 @@ startup intro 같은 `12x12` binary glyph 를 직접 고치기 위한 간단한 
 
 ```bash
 python3 scripts/run_glyph_editor.py \
-  --manifest analysis/startup_intro_d2coding_workbench/prepared_manifest.json
+  --manifest analysis/startup_intro_active_workbench/prepared_manifest.json
 ```
 
 기본 주소:
@@ -23,12 +23,14 @@ http://127.0.0.1:8765
 - clear / invert
 - 상하좌우 1픽셀 shift
 - 현재 glyph 를 `.pgm` 파일에 바로 저장
+- active startup intro workbench 를 열었을 때는 `Save + Rebuild ROM` 으로 바로 [hnr_startup_intro_test.gba](/Users/user/test/patched_roms/startup_intro_active/hnr_startup_intro_test.gba) 재생성
 
 ## 의도
 
 - 자동 렌더링으로 1차 seed 를 만든 뒤
 - 사람이 읽기 어려운 자소를 직접 다듬고
 - 다시 startup intro ROM 을 빌드하는 루프를 빠르게 돌리기 위한 도구다.
+- 기본 manifest 는 [startup_intro_active_workbench](/Users/user/test/analysis/startup_intro_active_workbench) 를 연다.
 
 ## 다음 단계
 
@@ -37,6 +39,11 @@ glyph 수정 뒤에는 아래 명령으로 바로 다시 확인한다.
 ```bash
 python3 scripts/build_startup_intro_variant.py D2Coding 20
 ```
+
+기본 실행은 매번 아래 경로를 **덮어쓴다**.
+
+- workbench: [startup_intro_active_workbench](/Users/user/test/analysis/startup_intro_active_workbench)
+- ROM output: `/Users/user/test/patched_roms/startup_intro_active/`
 
 또는 active workbench 기준으로 바로 다시 확인한다.
 
