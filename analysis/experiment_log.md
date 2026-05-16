@@ -1323,3 +1323,18 @@
   - 따라서 이번 증상은 렌더러 버그보다 **seed baseline 설정 문제** 로 보는 편이 자연스럽다.
 - 판정: `성공`
 - 교훈: 참조 폰트 seed 는 "보인다"만으로 끝내지 말고, 실제 픽셀 분포와 화면 확대샷 기준으로 baseline 도 따로 검증해야 한다.
+
+### 실험 67
+
+- 가설: startup intro 에서 빨강/파랑 speckle 처럼 깨져 보인 원인은 `NanumSquareR` 자체보다, anti-alias grayscale 이 그대로 공통 `fnt` 4bpp palette index 로 들어간 탓일 가능성이 높다.
+- 시도:
+  - 공통 원본 glyph dump 들의 실제 픽셀 값을 다시 확인했다.
+  - startup intro seed PGM 과 ROM에 append 된 glyph nibble 값을 각각 대조했다.
+  - [render_reference_font_workbench.py](/Users/user/test/scripts/render_reference_font_workbench.py) 에서 seed 를 기본적으로 `0/17/34` native 3-level 로 양자화하도록 바꾸고, `audit-pgm-glyph-set` 에 허용값 검사 옵션을 추가했다.
+  - [build_startup_intro_test.sh](/Users/user/test/scripts/build_startup_intro_test.sh) 와 [build_core_ui_test_roms.sh](/Users/user/test/scripts/build_core_ui_test_roms.sh) 가 startup intro workbench 에 대해 `--allowed-values 0,17,34 --fail-on-disallowed` 를 강제하도록 묶었다.
+- 결과:
+  - 공통 원본 glyph dump 는 실제로 `0,17,34` 세 값만 썼다.
+  - startup intro seed 도 새 경로에서는 `0,17,34` 만 남고, append 뒤 실제 ROM glyph nibble 도 `0,1,2` 만 쓰는 것으로 확인됐다.
+  - 따라서 speckle 증상은 폰트 파일 자체보다 **anti-alias grayscale 을 native palette 단계로 제한하지 않았던 seed 생성 흐름** 에서 왔다고 보는 편이 자연스럽다.
+- 판정: `성공`
+- 교훈: 이 게임 공통 font 에 새 glyph 를 넣을 때는 “흰색이면 된다”가 아니라, **원본 glyph 가 실제로 쓰는 palette 단계까지 맞춰서** 넣어야 한다.

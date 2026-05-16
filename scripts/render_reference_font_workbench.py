@@ -34,6 +34,12 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--canvas-height", type=int, default=12)
     parser.add_argument("--x-offset", type=int, default=0)
     parser.add_argument("--y-offset", type=int, default=0)
+    parser.add_argument(
+        "--native-fnt-levels",
+        action=argparse.BooleanOptionalAction,
+        default=True,
+        help="게임 공통 fnt glyph 와 맞는 3-level(0/17/34) 팔레트로 양자화합니다. 기본값: 켜짐",
+    )
     parser.add_argument("--report")
     return parser.parse_args()
 
@@ -47,6 +53,14 @@ def write_pgm(path: Path, pixels: bytes, width: int, height: int) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     header = f"P5\n{width} {height}\n255\n".encode("ascii")
     path.write_bytes(header + pixels)
+
+
+def quantize_to_native_fnt_levels(pixels: bytes) -> bytes:
+    out = bytearray(len(pixels))
+    for index, value in enumerate(pixels):
+        level = round(value * 2 / 255)
+        out[index] = level * 17
+    return bytes(out)
 
 
 def render_glyph(
@@ -104,6 +118,8 @@ def main() -> int:
             x_offset=args.x_offset,
             y_offset=args.y_offset,
         )
+        if args.native_fnt_levels:
+            pixels = quantize_to_native_fnt_levels(pixels)
         nonzero = sum(1 for value in pixels if value)
         write_pgm(pgm_path, pixels, args.canvas_width, args.canvas_height)
 
@@ -144,6 +160,7 @@ def main() -> int:
         "canvas_height": args.canvas_height,
         "x_offset": args.x_offset,
         "y_offset": args.y_offset,
+        "native_fnt_levels": args.native_fnt_levels,
         "count": len(report_entries),
         "entries": report_entries,
     }

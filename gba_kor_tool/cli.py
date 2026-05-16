@@ -2137,6 +2137,10 @@ def cmd_audit_pgm_glyph_set(args: argparse.Namespace) -> int:
     entries: List[Dict[str, object]] = []
     blank_entries: List[Dict[str, object]] = []
     missing_entries: List[Dict[str, object]] = []
+    disallowed_entries: List[Dict[str, object]] = []
+    allowed_values = None
+    if args.allowed_values:
+        allowed_values = {int(value, 0) for value in args.allowed_values.split(",") if value.strip()}
 
     for index, item in enumerate(manifest):
         if not isinstance(item, dict):
@@ -2159,15 +2163,23 @@ def cmd_audit_pgm_glyph_set(args: argparse.Namespace) -> int:
 
         pixels, width, height, max_value = parse_pgm(pgm_path)
         stats = summarize_pgm_pixels(pixels)
+        unique_values = sorted(set(pixels))
         entry.update(
             {
                 "status": "blank" if stats["nonzero_pixels"] == 0 else "ok",
                 "width": width,
                 "height": height,
                 "max_value": max_value,
+                "unique_values": unique_values,
                 **stats,
             }
         )
+        if allowed_values is not None:
+            disallowed = [value for value in unique_values if value not in allowed_values]
+            entry["disallowed_values"] = disallowed
+            if disallowed:
+                entry["status"] = "disallowed"
+                disallowed_entries.append(entry)
         if stats["nonzero_pixels"] == 0:
             blank_entries.append(entry)
         entries.append(entry)
@@ -2177,9 +2189,12 @@ def cmd_audit_pgm_glyph_set(args: argparse.Namespace) -> int:
         "count": len(entries),
         "blank_count": len(blank_entries),
         "missing_count": len(missing_entries),
+        "allowed_values": sorted(allowed_values) if allowed_values is not None else None,
+        "disallowed_count": len(disallowed_entries),
         "entries": entries,
         "blank_entries": blank_entries,
         "missing_entries": missing_entries,
+        "disallowed_entries": disallowed_entries,
     }
     if args.output:
         write_json(Path(args.output), result)
@@ -2188,6 +2203,8 @@ def cmd_audit_pgm_glyph_set(args: argparse.Namespace) -> int:
     print(f"glyph_count  : {len(entries)}")
     print(f"blank_count  : {len(blank_entries)}")
     print(f"missing_count: {len(missing_entries)}")
+    if allowed_values is not None:
+        print(f"disallowed_count: {len(disallowed_entries)}")
     preview = blank_entries[: args.preview]
     for entry in preview:
         code = entry.get("code") or "?"
@@ -2196,6 +2213,15 @@ def cmd_audit_pgm_glyph_set(args: argparse.Namespace) -> int:
         print(f"  blank {code}{suffix} -> {entry['pgm']}")
     if len(blank_entries) > args.preview:
         print(f"  ... {len(blank_entries) - args.preview} more blank glyphs")
+    preview_disallowed = disallowed_entries[: args.preview]
+    for entry in preview_disallowed:
+        code = entry.get("code") or "?"
+        char_value = entry.get("char") or ""
+        suffix = f" ({char_value})" if char_value else ""
+        values = ",".join(str(value) for value in entry.get("disallowed_values", []))
+        print(f"  disallowed {code}{suffix} values=[{values}] -> {entry['pgm']}")
+    if len(disallowed_entries) > args.preview:
+        print(f"  ... {len(disallowed_entries) - args.preview} more disallowed glyphs")
     if args.output:
         print(f"report       : {args.output}")
 
@@ -2203,6 +2229,8 @@ def cmd_audit_pgm_glyph_set(args: argparse.Namespace) -> int:
         raise ToolError(f"blank glyph {len(blank_entries)}개가 있어 빌드를 중단합니다.")
     if args.fail_on_missing and missing_entries:
         raise ToolError(f"missing glyph file {len(missing_entries)}개가 있어 빌드를 중단합니다.")
+    if args.fail_on_disallowed and disallowed_entries:
+        raise ToolError(f"허용되지 않은 픽셀 값이 있는 glyph {len(disallowed_entries)}개가 있어 빌드를 중단합니다.")
     return 0
 
 
@@ -3463,6 +3491,8 @@ def build_parser() -> argparse.ArgumentParser:
     audit_pgm_set.add_argument("--preview", type=int, default=12)
     audit_pgm_set.add_argument("--fail-on-blank", action="store_true")
     audit_pgm_set.add_argument("--fail-on-missing", action="store_true")
+    audit_pgm_set.add_argument("--allowed-values", help="허용할 픽셀 값 목록. 예: 0,17,34")
+    audit_pgm_set.add_argument("--fail-on-disallowed", action="store_true")
     audit_pgm_set.add_argument("--output")
     audit_pgm_set.set_defaults(func=cmd_audit_pgm_glyph_set)
 

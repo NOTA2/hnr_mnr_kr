@@ -20,6 +20,8 @@ if [[ "$ALLOW_BLANK_GLYPHS" != "1" ]]; then
   python3 -m gba_kor_tool audit-pgm-glyph-set \
     analysis/startup_intro_nanumsquare_workbench/prepared_manifest.json \
     --fail-on-blank \
+    --allowed-values 0,17,34 \
+    --fail-on-disallowed \
     --output "$OUTPUT_DIR/startup_intro_nanumsquare_glyph_audit.json"
 fi
 

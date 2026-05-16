@@ -203,3 +203,6 @@
 - 이 경로는 최종 글리프 완성본이 아니라 **실제 폰트 기반 seed** 를 만드는 용도이며, 현재 시작점은 `NanumSquareR.ttf` 로 고정했다.
 - startup intro seed 의 첫 설정은 `y_offset=-1` 이었지만, 실제 확대 화면 기준으로 top row 점유가 과하고 bottom row 여백이 2줄 남아 **1픽셀 위로 들린 것처럼 보이는 상태** 였다.
 - 따라서 startup intro `NanumSquareR` seed 기준 baseline 은 현재 `y_offset=0` 으로 다시 맞췄다.
+- 추가 확인으로, 공통 `fnt` 원본 glyph 는 실제로 `0,17,34` 세 값만 쓰는 3-level palette 계열임을 다시 대조했다.
+- 따라서 `NanumSquareR` seed 에서 나온 anti-alias grayscale 을 그대로 append 하면 startup 화면처럼 빨강/파랑 speckle 이 섞일 수 있고, 현재는 seed 생성 단계에서 **native 3-level (`0/17/34`) 양자화** 를 기본값으로 강제한다.
+- startup intro build script 는 이제 blank glyph 검사뿐 아니라 `--allowed-values 0,17,34 --fail-on-disallowed` 검사도 통과해야 한다.

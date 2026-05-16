@@ -96,6 +96,7 @@
   - 이제 [audit-pgm-glyph-set](/Users/user/test/gba_kor_tool/cli.py) 검사로 blank glyph 를 빌드 전에 잡도록 바꿨다.
   - startup intro 는 [startup_intro_nanumsquare_workbench](/Users/user/test/analysis/startup_intro_nanumsquare_workbench) 기준 `NanumSquareR.ttf` seed glyph 를 쓰는 독립 경로로 전환했다.
   - startup intro `NanumSquareR` seed 는 baseline 을 한 번 다시 조정했고, 현재 기준값은 `y_offset=0` 이다.
+  - startup intro `NanumSquareR` seed 는 현재 `0/17/34` native 3-level palette 로 양자화한 뒤 append 한다.
   - 실제 batch test ROM 도 생성했다. 요약은 [core_ui_test_rom_matrix.md](/Users/user/test/analysis/core_ui_test_rom_matrix.md) 에 있고:
     - `priority48` 기본: `4 in_place`, compact: `5 in_place`
     - `full80` 기본: `15 in_place`, compact: `19 in_place`
