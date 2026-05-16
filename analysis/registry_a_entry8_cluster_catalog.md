@@ -2,7 +2,7 @@
 
 자동 태깅된 cluster 작업 지도. 우선 수동 번역/검수/재삽입 단위를 잡기 위한 용도다.
 
-- source: `analysis/registry_a_entry8_prefixed_texts.json`
+- source: `confirmed_data/extracted_texts/registry_a_entry8_prefixed_texts.json`
 - cluster count: `72`
 - record count: `9823`
 

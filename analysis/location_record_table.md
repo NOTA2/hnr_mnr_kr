@@ -3,7 +3,7 @@
 근거 산출물:
 
 - [location_record_table.json](/Users/user/test/analysis/location_record_table.json)
-- [location_texts.json](/Users/user/test/analysis/location_texts.json)
+- [location_texts.json](/Users/user/test/confirmed_data/extracted_texts/location_texts.json)
 - [location_bundle_family.md](/Users/user/test/analysis/location_bundle_family.md)
 
 ## 핵심 결론

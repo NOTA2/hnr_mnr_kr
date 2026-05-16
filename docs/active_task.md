@@ -11,50 +11,50 @@
 - 그 다음 남은 텍스트 추출 마감과 번역 루프로 넘어간다.
 - startup intro 폰트 후보 `10`개는 `zsh scripts/build_all_startup_fonts.sh 20` 으로 한 번에 다시 빌드할 수 있다.
 - Registry A entry `8` 은 cluster별 번역 workset 재생성 경로까지 확보했다.
-- 현재까지 확보한 전체 추출본 기준 파일은 [all_extracted_texts_master.json](/Users/user/test/analysis/translation_workspace/all_extracted_texts_master.json) 이다.
-- 전체 번역 작업 허브 인덱스는 [translation_workspace/index.json](/Users/user/test/analysis/translation_workspace/index.json) 이다.
-- source 기반의 객관적 텍스트 성격 분류표는 [text_taxonomy_manifest.json](/Users/user/test/analysis/translation_workspace/text_taxonomy_manifest.json) 이다.
-- 번역팀용 프로젝트 세팅 문서는 [translation_team/README.md](/Users/user/test/docs/translation_team/README.md) 와 [translation_team_bundle.json](/Users/user/test/analysis/translation_workspace/translation_team_bundle.json) 이다.
+- 현재까지 확보한 전체 추출본 기준 파일은 [all_extracted_texts_master.json](/Users/user/test/confirmed_data/translation_workspace/all_extracted_texts_master.json) 이다.
+- 전체 번역 작업 허브 인덱스는 [translation_workspace/index.json](/Users/user/test/confirmed_data/translation_workspace/index.json) 이다.
+- source 기반의 객관적 텍스트 성격 분류표는 [text_taxonomy_manifest.json](/Users/user/test/confirmed_data/translation_workspace/text_taxonomy_manifest.json) 이다.
+- 번역팀용 프로젝트 세팅 문서는 [translation_team/README.md](/Users/user/test/docs/translation_team/README.md) 와 [translation_team_bundle.json](/Users/user/test/confirmed_data/translation_workspace/translation_team_bundle.json) 이다.
 
 ## 바로 필요한 사실
 
 - 번역용 추출본은 이미 여러 개 있다.
 - 핵심 추출본:
-  - [system_messages.json](/Users/user/test/analysis/system_messages.json)
+  - [system_messages.json](/Users/user/test/confirmed_data/extracted_texts/system_messages.json)
   - [save_menu_texts.json](/Users/user/test/analysis/save_menu_texts.json)
-  - [location_texts.json](/Users/user/test/analysis/location_texts.json)
-  - [ui_skill_texts.json](/Users/user/test/analysis/ui_skill_texts.json)
-  - [item_texts.json](/Users/user/test/analysis/item_texts.json)
-  - [battle_texts.json](/Users/user/test/analysis/battle_texts.json)
-  - [ability_texts.json](/Users/user/test/analysis/ability_texts.json)
-- [translation_workset_core_ui.json](/Users/user/test/analysis/translation_workset_core_ui.json) 는 `system + save + location + ui_skill` 을 합친 첫 작업용 세트다.
+  - [location_texts.json](/Users/user/test/confirmed_data/extracted_texts/location_texts.json)
+  - [ui_skill_texts.json](/Users/user/test/confirmed_data/extracted_texts/ui_skill_texts.json)
+  - [item_texts.json](/Users/user/test/confirmed_data/extracted_texts/item_texts.json)
+  - [battle_texts.json](/Users/user/test/confirmed_data/extracted_texts/battle_texts.json)
+  - [ability_texts.json](/Users/user/test/confirmed_data/extracted_texts/ability_texts.json)
+- [translation_workset_core_ui.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_core_ui.json) 는 `system + save + location + ui_skill` 을 합친 첫 작업용 세트다.
 - 위 작업 세트는 `43`개 레코드이며, 시스템/세이브/지역명 앞부분은 이미 한국어 초안이 들어 있다.
 - Registry D (`0x17C7E4..0x17CB04`) 는 한때 덜 추출된 대사/이벤트 텍스트의 핵심 후보였고, 지금은 전용 추출 규칙이 확보된 상태다.
 - Registry D 물리 범위 `0x7F3000..0x7F96E9` 를 슬라이딩 스캔하면 현재 `305`개 대사성 문자열이 잡힌다.
-- 전체본은 [registry_d_full_sliding_texts.json](/Users/user/test/analysis/registry_d_full_sliding_texts.json), 번역용 작업 세트는 [translation_workset_registry_d_dialogue.json](/Users/user/test/analysis/translation_workset_registry_d_dialogue.json) 에 있다.
+- 전체본은 [registry_d_full_sliding_texts.json](/Users/user/test/analysis/registry_d_full_sliding_texts.json), 번역용 작업 세트는 [translation_workset_registry_d_dialogue.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_registry_d_dialogue.json) 에 있다.
 - Registry D 의 많은 엔트리는 plain terminator 문자열이 아니라 `FC` 제어 바이트가 섞인 mixed script 형식이다.
-- `scan-fc-script-text` 로 `FC 00 ... FC` anchor 기반 추출을 하면 [registry_d_fc_script_texts.json](/Users/user/test/analysis/registry_d_fc_script_texts.json) `244`건이 clean extraction 된다.
+- `scan-fc-script-text` 로 `FC 00 ... FC` anchor 기반 추출을 하면 [registry_d_fc_script_texts.json](/Users/user/test/confirmed_data/extracted_texts/registry_d_fc_script_texts.json) `244`건이 clean extraction 된다.
 - 위 `244`건은 `82 / 100` 엔트리에서 나오고, per-entry 요약은 [registry_d_fc_script_summary.json](/Users/user/test/analysis/registry_d_fc_script_summary.json) 에 있다.
 - 남은 [registry_d_unresolved_entries.json](/Users/user/test/analysis/registry_d_unresolved_entries.json) `18`개는 대부분 `2-byte sentinel/control stub` 이고, 현재 기준 실질적인 미추출 대사 후보는 거의 남지 않았다.
 - entry `70` 도 raw bytes 재확인 결과 `FC` 가 매우 조밀한 command/control table 패턴이라, 현재는 **실질 대사 미추출 후보보다 control-only script table** 로 보는 해석이 더 강하다.
 - 따라서 Registry D 는 이제 "나중에 다시 볼 미해결 대사 뱅크"가 아니라, **mixed-format 전용 추출 규칙이 잡힌 active extraction 대상** 이다.
 - Registry A entry `8` (`0x6B594C..0x773248`) 는 지역명만 담긴 entry 가 아니라, `0x10` 종단 command-stream 대사/이벤트/메뉴가 함께 섞인 대형 mixed script bank 후보다.
 - `Registry A entry 8` 안의 많은 대사는 `01 FF <u16 문자수>` 헤더 뒤에 `cp932` 본문이 오는 command-stream 구조로 보인다.
-- 이 규칙으로 재추출한 [registry_a_entry8_prefixed_texts.json](/Users/user/test/analysis/registry_a_entry8_prefixed_texts.json) 은 현재 `9823`건이며, 초반 리오르 대사부터 진행 힌트/플래그 문구, save/menu 일부까지 광범위하게 포함한다.
-- Registry A tail 중 entry `12` (`0x7A750C..0x7A8E98`) 은 현재 `22`건이 확인되어 [registry_a_entry12_texts.json](/Users/user/test/analysis/registry_a_entry12_texts.json) 으로 별도 확보했다.
+- 이 규칙으로 재추출한 [registry_a_entry8_prefixed_texts.json](/Users/user/test/confirmed_data/extracted_texts/registry_a_entry8_prefixed_texts.json) 은 현재 `9823`건이며, 초반 리오르 대사부터 진행 힌트/플래그 문구, save/menu 일부까지 광범위하게 포함한다.
+- Registry A tail 중 entry `12` (`0x7A750C..0x7A8E98`) 은 현재 `22`건이 확인되어 [registry_a_entry12_texts.json](/Users/user/test/confirmed_data/extracted_texts/registry_a_entry12_texts.json) 으로 별도 확보했다.
 - Registry A tail `9..17` 의 현재 분류는 [registry_a_tail_classification.json](/Users/user/test/analysis/registry_a_tail_classification.json) 에 정리했다.
 - 상위 registry 단위 재검사 결과, 현재 `01 FF <u16 문자수>` 규칙이 강하게 잡힌 곳은 [prefixed_registry_scan_summary.json](/Users/user/test/analysis/prefixed_registry_scan_summary.json) 기준으로 **Registry A entry 8 하나뿐**이다.
 - 따라서 다른 미추출 대사 구간은 같은 규칙의 반복이 아니라, 별도 mixed format / command stream 으로 우선 취급하는 편이 안전하다.
 - Registry A entry 8 작업용 분할 지도는 [registry_a_entry8_cluster_summary.json](/Users/user/test/analysis/registry_a_entry8_cluster_summary.json) 에 있다.
 - 현재 gap threshold `0x400` 기준 `72`개 클러스터로 나뉘며, 이후 번역/검수/재삽입은 이 클러스터 단위로 다루는 편이 좋다.
 - 자동 태그/샘플이 붙은 상세 지도는 [registry_a_entry8_cluster_catalog.json](/Users/user/test/analysis/registry_a_entry8_cluster_catalog.json), 사람이 빠르게 보기 좋은 요약은 [registry_a_entry8_cluster_overview.md](/Users/user/test/analysis/registry_a_entry8_cluster_overview.md) 에 있다.
-- cluster별 번역 JSON 세트는 [build_entry8_cluster_worksets.py](/Users/user/test/scripts/build_entry8_cluster_worksets.py) 로 다시 만들 수 있고, 현재 결과는 [registry_a_entry8_clusters](/Users/user/test/analysis/translation_workspace/registry_a_entry8_clusters), manifest 는 [registry_a_entry8_clusters_manifest.json](/Users/user/test/analysis/translation_workspace/registry_a_entry8_clusters_manifest.json) 에 있다.
+- cluster별 번역 JSON 세트는 [build_entry8_cluster_worksets.py](/Users/user/test/scripts/build_entry8_cluster_worksets.py) 로 다시 만들 수 있고, 현재 결과는 [registry_a_entry8_clusters](/Users/user/test/confirmed_data/translation_workspace/registry_a_entry8_clusters), manifest 는 [registry_a_entry8_clusters_manifest.json](/Users/user/test/confirmed_data/translation_workspace/registry_a_entry8_clusters_manifest.json) 에 있다.
 - cluster `71` 은 자동 태그상 `save_menu` 로 잡히지만, 실제로는 **일반 이벤트/진행 힌트 `228`건 + save/menu `12`건** 이 섞인 mixed hub 다.
-- cluster `71` 의 save/menu 분리본은 [registry_a_entry8_cluster71_save_segment_texts.json](/Users/user/test/analysis/registry_a_entry8_cluster71_save_segment_texts.json) 이고, [save_menu_prefixed_texts.json](/Users/user/test/analysis/save_menu_prefixed_texts.json) 과 내용이 일치한다.
+- cluster `71` 의 save/menu 분리본은 [registry_a_entry8_cluster71_save_segment_texts.json](/Users/user/test/analysis/registry_a_entry8_cluster71_save_segment_texts.json) 이고, [save_menu_prefixed_texts.json](/Users/user/test/confirmed_data/extracted_texts/save_menu_prefixed_texts.json) 과 내용이 일치한다.
 - cluster `71` 의 일반 이벤트/진행 힌트 분리본은 [registry_a_entry8_cluster71_pre_save_texts.json](/Users/user/test/analysis/registry_a_entry8_cluster71_pre_save_texts.json) 이다.
 - 기존 [registry_a_entry8_terminator_10_texts.json](/Users/user/test/analysis/registry_a_entry8_terminator_10_texts.json) `1200`건은 entry 8 발견용 정찰 결과로 보관하고, 실제 작업은 prefixed 추출본을 우선한다.
 - `save_menu_texts.json` 류는 종단 바이트가 `0x10` 이라서 일반 `00` 종단 문자열과 분리해서 다뤄야 한다.
-- save/menu block `0x772E00..0x773260` 도 같은 규칙으로 [save_menu_prefixed_texts.json](/Users/user/test/analysis/save_menu_prefixed_texts.json) `12`건이 정리된다.
+- save/menu block `0x772E00..0x773260` 도 같은 규칙으로 [save_menu_prefixed_texts.json](/Users/user/test/confirmed_data/extracted_texts/save_menu_prefixed_texts.json) `12`건이 정리된다.
 - 재삽입 도구 기본 기능은 이미 있다:
   - 같은 길이 이하 덮어쓰기
   - 자유 공간 주입
@@ -96,7 +96,7 @@
   - 다만 위 `가/나/다` glyph 는 placeholder 품질이므로, production 단계에서는 [font_asset_workflow.md](/Users/user/test/docs/font_asset_workflow.md) 기준으로 **레퍼런스 기반 외부 픽셀 에디터 workflow** 를 사용한다.
   - 이를 위해 `prepare-fnt-glyph-set` 으로 편집용 `PGM` glyph 세트와 `.tbl` 을 뽑아 외부 툴에서 다듬고 다시 `append-fnt-glyph-set` 으로 가져오는 경로를 추가했다.
   - 현재 seed manifest 는 [hangul_reference_seed_manifest.json](/Users/user/test/analysis/hangul_reference_seed_manifest.json), 실제 편집용 workbench 는 [prepared_manifest.json](/Users/user/test/analysis/hangul_reference_workbench/prepared_manifest.json), [prepared.tbl](/Users/user/test/analysis/hangul_reference_workbench/prepared.tbl) 기준으로 생성해 두었다.
-  - 또 `build-hangul-seed-manifest` 로 번역 JSON 에서 필요한 한글 글자를 자동 수집할 수 있게 했고, 현재 [translation_workset_core_ui.json](/Users/user/test/analysis/translation_workset_core_ui.json) 기준 `80`글자 seed manifest [hangul_core_ui_seed_manifest.json](/Users/user/test/analysis/hangul_core_ui_seed_manifest.json) 와 workbench [hangul_core_ui_workbench](/Users/user/test/analysis/hangul_core_ui_workbench) 를 생성해 두었다.
+  - 또 `build-hangul-seed-manifest` 로 번역 JSON 에서 필요한 한글 글자를 자동 수집할 수 있게 했고, 현재 [translation_workset_core_ui.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_core_ui.json) 기준 `80`글자 seed manifest [hangul_core_ui_seed_manifest.json](/Users/user/test/analysis/hangul_core_ui_seed_manifest.json) 와 workbench [hangul_core_ui_workbench](/Users/user/test/analysis/hangul_core_ui_workbench) 를 생성해 두었다.
   - 여기에 더해 `slice-hangul-seed-manifest` 로 상위 빈도 subset 도 자동 분리할 수 있게 했고, 현재는 [hangul_core_ui_priority24_workbench](/Users/user/test/analysis/hangul_core_ui_priority24_workbench) 와 [hangul_core_ui_priority48_workbench](/Users/user/test/analysis/hangul_core_ui_priority48_workbench) 를 만들었다.
   - coverage 기준으로는 [hangul_core_ui_priority_plan.md](/Users/user/test/analysis/hangul_core_ui_priority_plan.md) 의 `priority48` 이 첫 실제 문자열 테스트용으로 가장 균형이 좋다. 현재 `5`개 문자열을 통째로 커버한다.
   - 다만 현재 [hangul_core_ui_workbench](/Users/user/test/analysis/hangul_core_ui_workbench) 의 다수 glyph 는 **아직 비어 있는 템플릿** 이다.
@@ -164,11 +164,11 @@
 
 ```bash
 python3 -m gba_kor_tool build-translation-set \
-  analysis/translation_workset_core_ui.json \
-  analysis/system_messages.json \
+  confirmed_data/translation_worksets/translation_workset_core_ui.json \
+  confirmed_data/extracted_texts/system_messages.json \
   analysis/save_menu_texts.json \
-  analysis/location_texts.json \
-  analysis/ui_skill_texts.json
+  confirmed_data/extracted_texts/location_texts.json \
+  confirmed_data/extracted_texts/ui_skill_texts.json
 
 python3 -m gba_kor_tool scan-text \
   "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
@@ -189,7 +189,7 @@ python3 -m gba_kor_tool scan-fc-script-text \
   --end 0x7F96E9 \
   --require-japanese \
   --min-japanese-ratio 0.3 \
-  --output analysis/registry_d_fc_script_texts.json
+  --output confirmed_data/extracted_texts/registry_d_fc_script_texts.json
 
 python3 -m gba_kor_tool scan-text \
   "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
@@ -207,10 +207,10 @@ python3 -m gba_kor_tool scan-prefixed-text \
   --start 0x6B594C \
   --end 0x773248 \
   --require-japanese \
-  --output analysis/registry_a_entry8_prefixed_texts.json
+  --output confirmed_data/extracted_texts/registry_a_entry8_prefixed_texts.json
 
 python3 -m gba_kor_tool summarize-text-clusters \
-  analysis/registry_a_entry8_prefixed_texts.json \
+  confirmed_data/extracted_texts/registry_a_entry8_prefixed_texts.json \
   --gap-threshold 0x400 \
   --output analysis/registry_a_entry8_cluster_catalog.json
 ```

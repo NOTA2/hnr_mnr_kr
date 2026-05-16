@@ -123,7 +123,7 @@
 - 이를 위해 `prepare-fnt-glyph-set` CLI 를 추가했고, seed manifest 에서 편집용 `PGM` 세트와 `.tbl` 을 생성할 수 있다.
 - 현재 seed manifest 는 [hangul_reference_seed_manifest.json](/Users/user/test/analysis/hangul_reference_seed_manifest.json) 이고, 생성된 작업 폴더는 [hangul_reference_workbench](/Users/user/test/analysis/hangul_reference_workbench) 이다.
 - 이어서 `build-hangul-seed-manifest` CLI 를 추가해 번역 JSON에서 필요한 한글 글자를 자동 추출할 수 있게 했다.
-- 현재 [translation_workset_core_ui.json](/Users/user/test/analysis/translation_workset_core_ui.json) 기준으로:
+- 현재 [translation_workset_core_ui.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_core_ui.json) 기준으로:
   - unique Hangul chars: `80`
   - seed manifest: [hangul_core_ui_seed_manifest.json](/Users/user/test/analysis/hangul_core_ui_seed_manifest.json)
   - table: [hangul_core_ui.tbl](/Users/user/test/analysis/hangul_core_ui.tbl)

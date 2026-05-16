@@ -21,11 +21,11 @@
 
 ### 전체 추출본 마스터 세트
 
-- 파일: [all_extracted_texts_master.json](/Users/user/test/analysis/translation_workspace/all_extracted_texts_master.json)
-- manifest: [all_extracted_texts_manifest.json](/Users/user/test/analysis/translation_workspace/all_extracted_texts_manifest.json)
-- workspace index: [translation_workspace/index.json](/Users/user/test/analysis/translation_workspace/index.json)
-- workspace readme: [translation_workspace/README.md](/Users/user/test/analysis/translation_workspace/README.md)
-- taxonomy manifest: [text_taxonomy_manifest.json](/Users/user/test/analysis/translation_workspace/text_taxonomy_manifest.json)
+- 파일: [all_extracted_texts_master.json](/Users/user/test/confirmed_data/translation_workspace/all_extracted_texts_master.json)
+- manifest: [all_extracted_texts_manifest.json](/Users/user/test/confirmed_data/translation_workspace/all_extracted_texts_manifest.json)
+- workspace index: [translation_workspace/index.json](/Users/user/test/confirmed_data/translation_workspace/index.json)
+- workspace readme: [translation_workspace/README.md](/Users/user/test/confirmed_data/translation_workspace/README.md)
+- taxonomy manifest: [text_taxonomy_manifest.json](/Users/user/test/confirmed_data/translation_workspace/text_taxonomy_manifest.json)
 - 레코드 수: `10752`
 - 구성:
   - system / item / location / battle / ability / material / ui skill
@@ -41,7 +41,7 @@
 
 ### 코어 UI 세트
 
-- 파일: [translation_workset_core_ui.json](/Users/user/test/analysis/translation_workset_core_ui.json)
+- 파일: [translation_workset_core_ui.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_core_ui.json)
 - 구성:
   - `system_messages`
   - `save_menu_texts`
@@ -54,7 +54,7 @@
 
 ### Registry D 대사 세트
 
-- 파일: [translation_workset_registry_d_dialogue.json](/Users/user/test/analysis/translation_workset_registry_d_dialogue.json)
+- 파일: [translation_workset_registry_d_dialogue.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_registry_d_dialogue.json)
 - 소스: [registry_d_full_sliding_texts.json](/Users/user/test/analysis/registry_d_full_sliding_texts.json)
 - 레코드 수: `305`
 - 목적:
@@ -65,34 +65,34 @@
 
 ### 시스템 메시지
 
-- 파일: [system_messages.json](/Users/user/test/analysis/system_messages.json)
+- 파일: [system_messages.json](/Users/user/test/confirmed_data/extracted_texts/system_messages.json)
 - 범위: `0x088540` ~ `0x088620`
 
 ### 아이템/이벤트 문자열
 
-- 파일: [item_texts.json](/Users/user/test/analysis/item_texts.json)
+- 파일: [item_texts.json](/Users/user/test/confirmed_data/extracted_texts/item_texts.json)
 - 범위: `0x08AEFC` ~ `0x08B400`
 
 ### 지역명
 
-- 파일: [location_texts.json](/Users/user/test/analysis/location_texts.json)
+- 파일: [location_texts.json](/Users/user/test/confirmed_data/extracted_texts/location_texts.json)
 - 범위: `0x18425C` ~ `0x1843F3`
 
 ### 전투 기술명/설명
 
-- 파일: [battle_texts.json](/Users/user/test/analysis/battle_texts.json)
+- 파일: [battle_texts.json](/Users/user/test/confirmed_data/extracted_texts/battle_texts.json)
 - 범위: `0x3D2036` ~ `0x3D2557`
 - 현재 추출 수: `104`
 
 ### 대형 능력 텍스트 뱅크
 
-- 파일: [ability_texts.json](/Users/user/test/analysis/ability_texts.json)
+- 파일: [ability_texts.json](/Users/user/test/confirmed_data/extracted_texts/ability_texts.json)
 - 범위: `0x3D327E` ~ `0x3D6277`
 - 현재 추출 수: `409`
 
 ### 재료/속성 텍스트
 
-- 파일: [material_texts.json](/Users/user/test/analysis/material_texts.json)
+- 파일: [material_texts.json](/Users/user/test/confirmed_data/extracted_texts/material_texts.json)
 - 범위: `0x3D2D60` ~ `0x3D3420`
 - 현재 추출 수: `43`
 - 특징:
@@ -100,7 +100,7 @@
 
 ### UI 기술 텍스트
 
-- 파일: [ui_skill_texts.json](/Users/user/test/analysis/ui_skill_texts.json)
+- 파일: [ui_skill_texts.json](/Users/user/test/confirmed_data/extracted_texts/ui_skill_texts.json)
 - 범위: `0x08B62C` ~ `0x08B809`
 
 ### 세이브/진행 관련 메뉴 메시지
@@ -119,7 +119,7 @@
 - 파일:
   - [registry_d_entries_scan.json](/Users/user/test/analysis/registry_d_entries_scan.json)
   - [registry_d_full_sliding_texts.json](/Users/user/test/analysis/registry_d_full_sliding_texts.json)
-  - [registry_d_fc_script_texts.json](/Users/user/test/analysis/registry_d_fc_script_texts.json)
+  - [registry_d_fc_script_texts.json](/Users/user/test/confirmed_data/extracted_texts/registry_d_fc_script_texts.json)
   - [registry_d_fc_script_summary.json](/Users/user/test/analysis/registry_d_fc_script_summary.json)
   - [registry_d_unresolved_entries.json](/Users/user/test/analysis/registry_d_unresolved_entries.json)
   - [registry_d_tutorial_dialogue_texts.json](/Users/user/test/analysis/registry_d_tutorial_dialogue_texts.json)
@@ -127,7 +127,7 @@
 - 현재 확인:
   - Registry D 전체 물리 범위를 `scan-text --sliding` + terminator `0x0D/0x0C/0x00` 으로 보면 `305`개 텍스트가 잡힌다.
   - 텍스트가 확인된 엔트리는 현재 `82 / 100` 개다.
-  - 많은 엔트리가 `FC` 제어 바이트가 섞인 mixed script 형식이며, `FC 00 ... FC` anchor 기반 [registry_d_fc_script_texts.json](/Users/user/test/analysis/registry_d_fc_script_texts.json) 은 현재 `244`건을 clean extraction 한다.
+  - 많은 엔트리가 `FC` 제어 바이트가 섞인 mixed script 형식이며, `FC 00 ... FC` anchor 기반 [registry_d_fc_script_texts.json](/Users/user/test/confirmed_data/extracted_texts/registry_d_fc_script_texts.json) 은 현재 `244`건을 clean extraction 한다.
   - stop byte `FC` 가 Shift-JIS 2바이트 문자의 trailing byte 로 들어갈 수 있어 SJIS-aware stop 처리까지 넣었고, 이 보정으로 entry `8` 대사 `4`건이 추가 회수되었다.
   - 이 `244`건도 `82 / 100` 엔트리에서 나오며, top entry 는 `0=20`, `92=17`, `33=15`, `47=10`, `1=7`, `24=7`, `32=7`, `54=7` 순이다.
   - `registry_d_full_sliding_texts.json` 의 `305`건은 discovery coverage 용으로 유지하고, 실제 작업용 원본은 `registry_d_fc_script_texts.json` 쪽이 더 깨끗하다.
@@ -144,7 +144,7 @@
   - index: `8`
   - 범위: `0x6B594C` ~ `0x773248`
 - 파일:
-  - [registry_a_entry8_prefixed_texts.json](/Users/user/test/analysis/registry_a_entry8_prefixed_texts.json)
+  - [registry_a_entry8_prefixed_texts.json](/Users/user/test/confirmed_data/extracted_texts/registry_a_entry8_prefixed_texts.json)
   - [registry_a_entry8_terminator_10_texts.json](/Users/user/test/analysis/registry_a_entry8_terminator_10_texts.json)
   - [registry_a_entry8_cluster_catalog.json](/Users/user/test/analysis/registry_a_entry8_cluster_catalog.json)
   - [registry_a_entry8_cluster_catalog.md](/Users/user/test/analysis/registry_a_entry8_cluster_catalog.md)
@@ -156,17 +156,17 @@
   - [terminator_10_global_hits.json](/Users/user/test/analysis/terminator_10_global_hits.json)
 - 현재 확인:
   - 많은 레코드가 `01 FF <u16 문자수>` 헤더 뒤에 `cp932` 본문이 오는 command-stream 구조를 가진다.
-  - 이 규칙으로 재추출한 [registry_a_entry8_prefixed_texts.json](/Users/user/test/analysis/registry_a_entry8_prefixed_texts.json) 은 현재 `9823`건이다.
+  - 이 규칙으로 재추출한 [registry_a_entry8_prefixed_texts.json](/Users/user/test/confirmed_data/extracted_texts/registry_a_entry8_prefixed_texts.json) 은 현재 `9823`건이다.
   - 초반 리오르 대사, 진행 힌트, 플래그 미스 디버그성 문구, 후반 이벤트 대사까지 한 규칙으로 연속 회수된다.
   - 상위 registry 재검사 결과는 [prefixed_registry_scan_summary.json](/Users/user/test/analysis/prefixed_registry_scan_summary.json) 에 정리했다.
   - 현재 `Registry A/B/C/D` 중 이 규칙이 강하게 확인된 곳은 **A entry 8 하나뿐**이다.
   - 작업 단위 분할용 gap-cluster 지도는 [registry_a_entry8_cluster_summary.json](/Users/user/test/analysis/registry_a_entry8_cluster_summary.json) 에 있으며, threshold `0x400` 기준 `72`개 클러스터다.
   - 이제는 [registry_a_entry8_cluster_catalog.json](/Users/user/test/analysis/registry_a_entry8_cluster_catalog.json) / [registry_a_entry8_cluster_catalog.md](/Users/user/test/analysis/registry_a_entry8_cluster_catalog.md) 로 각 cluster 에 `primary_tag`, `tags`, `sample_texts` 까지 붙은 상세 작업 지도를 생성할 수 있다.
   - 사람이 빠르게 보는 요약은 [registry_a_entry8_cluster_overview.md](/Users/user/test/analysis/registry_a_entry8_cluster_overview.md) 에 두었다.
-  - 또 [build_entry8_cluster_worksets.py](/Users/user/test/scripts/build_entry8_cluster_worksets.py) 로 entry `8` 추출본을 [registry_a_entry8_clusters](/Users/user/test/analysis/translation_workspace/registry_a_entry8_clusters) 아래 `72`개 번역 workset 으로 자동 분할할 수 있다.
-  - 상위 인덱스는 [registry_a_entry8_clusters_manifest.json](/Users/user/test/analysis/translation_workspace/registry_a_entry8_clusters_manifest.json) 이며, `primary_tag` 기준 파일 목록도 함께 제공한다.
+  - 또 [build_entry8_cluster_worksets.py](/Users/user/test/scripts/build_entry8_cluster_worksets.py) 로 entry `8` 추출본을 [registry_a_entry8_clusters](/Users/user/test/confirmed_data/translation_workspace/registry_a_entry8_clusters) 아래 `72`개 번역 workset 으로 자동 분할할 수 있다.
+  - 상위 인덱스는 [registry_a_entry8_clusters_manifest.json](/Users/user/test/confirmed_data/translation_workspace/registry_a_entry8_clusters_manifest.json) 이며, `primary_tag` 기준 파일 목록도 함께 제공한다.
   - cluster `71` 은 자동 태그만 보면 `save_menu` 로 보이지만, 실제로는 일반 이벤트/진행 힌트 `228`건과 save/menu `12`건이 섞인 mixed hub 다.
-  - [registry_a_entry8_cluster71_save_segment_texts.json](/Users/user/test/analysis/registry_a_entry8_cluster71_save_segment_texts.json) 은 [save_menu_prefixed_texts.json](/Users/user/test/analysis/save_menu_prefixed_texts.json) 과 정확히 일치하므로, save/menu 블록의 source 경계는 사실상 정리된 상태다.
+  - [registry_a_entry8_cluster71_save_segment_texts.json](/Users/user/test/analysis/registry_a_entry8_cluster71_save_segment_texts.json) 은 [save_menu_prefixed_texts.json](/Users/user/test/confirmed_data/extracted_texts/save_menu_prefixed_texts.json) 과 정확히 일치하므로, save/menu 블록의 source 경계는 사실상 정리된 상태다.
   - 기존 `0x10` terminator 슬라이딩 스캔은 `1200`건에서 limit 에 걸렸고, entry 8 발견 및 밀집 구간 확인용 정찰 데이터로 유지한다.
   - `0x6B7B44` 이후로는 리오르/코넬로 초반부처럼 보이는 이벤트 대사가 밀집한다.
   - `0x772E00` save menu block 도 이 entry 안쪽에 포함되므로, entry 8 은 **대사 + 메뉴 + command-stream text** 가 섞인 대형 mixed script bank 후보로 보는 해석이 강하다.
@@ -176,7 +176,7 @@
 
 - 범위: `0x772E00` ~ `0x773260`
 - 파일:
-  - [save_menu_prefixed_texts.json](/Users/user/test/analysis/save_menu_prefixed_texts.json)
+  - [save_menu_prefixed_texts.json](/Users/user/test/confirmed_data/extracted_texts/save_menu_prefixed_texts.json)
   - [save_menu_texts.json](/Users/user/test/analysis/save_menu_texts.json)
 - 현재 확인:
   - `save menu` 도 같은 `01 FF <u16 문자수>` 구조로 현재 `12`건이 깔끔하게 잡힌다.
@@ -191,18 +191,18 @@
 
 - 범위: `0x7A750C` ~ `0x7A8E98`
 - 파일:
-  - [registry_a_entry12_texts.json](/Users/user/test/analysis/registry_a_entry12_texts.json)
+  - [registry_a_entry12_texts.json](/Users/user/test/confirmed_data/extracted_texts/registry_a_entry12_texts.json)
   - [registry_a_tail_classification.json](/Users/user/test/analysis/registry_a_tail_classification.json)
 - 현재 확인:
   - sliding/정규화 기준으로 현재 `22`건이 잡힌다.
   - 회복약 설명, 이벤트 해결 증표, 파츠, 전달 서류 같은 gameplay/item 계열이 섞여 있다.
-  - 현재 `22`건 중 `16`건은 기존 [item_texts.json](/Users/user/test/analysis/item_texts.json) / gameplay terms 와 중복이고, `6`건은 기존 gameplay terms workset 에 없던 텍스트다.
+  - 현재 `22`건 중 `16`건은 기존 [item_texts.json](/Users/user/test/confirmed_data/extracted_texts/item_texts.json) / gameplay terms 와 중복이고, `6`건은 기존 gameplay terms workset 에 없던 텍스트다.
   - 따라서 entry `12` 는 완전 신규 대형 bank 라기보다, **기존 gameplay/item 텍스트 공급원의 상위 registry source** 로 보는 편이 안전하다.
   - tail 전체 `9..17` 기준으로는 entry `12` 만 active text source 로 보이고, entry `15` 는 short false-positive 후보, 나머지는 no confirmed text source 로 분류했다.
 
 ### 크레딧(타이틀) 텍스트
 
-- 파일: [credits_texts.json](/Users/user/test/analysis/credits_texts.json)
+- 파일: [credits_texts.json](/Users/user/test/confirmed_data/extracted_texts/credits_texts.json)
 - 범위: `0x08C3AC` ~ `0x08CE00`
 - 현재 추출 수: `10`
 
@@ -222,7 +222,7 @@
 - Registry A entry 8 분석으로 `0x10` 종단 command-stream 대사 bank 가 훨씬 크게 존재한다는 근거가 생겼고, 지금은 `01 FF <문자수>` 헤더 기반으로 clean extraction 이 가능해졌다.
 - 추가로 entry `8` 은 이제 clean extraction 에서 한 걸음 더 나아가, **번역/검수 시작이 가능한 cluster 단위 작업 세트** 까지 자동 생성할 수 있게 됐다.
 - Registry A tail 쪽에서도 entry `12` 처럼 실제 gameplay/item 텍스트 source 가 따로 보이므로, 추출 완료 판정은 상위 registry entry inventory 기준으로 해야 한다.
-- [translation_workset_gameplay_terms.json](/Users/user/test/analysis/translation_workset_gameplay_terms.json) 도 entry `12` 의 신규 `6`건을 포함하도록 갱신되었다.
+- [translation_workset_gameplay_terms.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_gameplay_terms.json) 도 entry `12` 의 신규 `6`건을 포함하도록 갱신되었다.
 - Registry A entry `8` 은 이제 단순히 "큰 bank"가 아니라, cluster catalog 기준으로 장면/용도별 접근이 가능한 상태가 되었다.
 - 같은 prefixed 규칙을 상위 registry A/B/C/D 전체에 대입해 본 결과, 현재는 Registry A entry `8` 하나만 강하게 맞는다.
 - 전각 공백 필터 문제를 수정하면서 `battle/ability` 추출본의 누락 문자열을 회수했다.

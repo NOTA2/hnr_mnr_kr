@@ -67,7 +67,7 @@ python3 -m gba_kor_tool extract-range \
   0x08B400 \
   --encoding cp932 \
   --terminator 00 \
-  --output analysis/item_texts.json
+  --output confirmed_data/extracted_texts/item_texts.json
 ```
 
 특정 일본어 문자열 검색:
@@ -170,7 +170,7 @@ python3 -m gba_kor_tool inject-text \
 ```bash
 python3 -m gba_kor_tool apply-translations \
   "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
-  analysis/item_texts.json \
+  confirmed_data/extracted_texts/item_texts.json \
   patched.gba \
   --encoding cp932 \
   --search-free-space-from 0x700000 \
@@ -181,11 +181,11 @@ python3 -m gba_kor_tool apply-translations \
 
 ```bash
 python3 -m gba_kor_tool build-translation-set \
-  analysis/translation_workset_core_ui.json \
-  analysis/system_messages.json \
+  confirmed_data/translation_worksets/translation_workset_core_ui.json \
+  confirmed_data/extracted_texts/system_messages.json \
   analysis/save_menu_texts.json \
-  analysis/location_texts.json \
-  analysis/ui_skill_texts.json
+  confirmed_data/extracted_texts/location_texts.json \
+  confirmed_data/extracted_texts/ui_skill_texts.json
 ```
 
 ## `.tbl` 사용

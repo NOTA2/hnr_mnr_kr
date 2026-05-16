@@ -7,10 +7,10 @@ import json
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_SOURCE = REPO_ROOT / "analysis" / "registry_a_entry8_prefixed_texts.json"
+DEFAULT_SOURCE = REPO_ROOT / "confirmed_data" / "extracted_texts" / "registry_a_entry8_prefixed_texts.json"
 DEFAULT_CATALOG = REPO_ROOT / "analysis" / "registry_a_entry8_cluster_catalog.json"
-DEFAULT_OUTPUT_DIR = REPO_ROOT / "analysis" / "translation_workspace" / "registry_a_entry8_clusters"
-DEFAULT_MANIFEST = REPO_ROOT / "analysis" / "translation_workspace" / "registry_a_entry8_clusters_manifest.json"
+DEFAULT_OUTPUT_DIR = REPO_ROOT / "confirmed_data" / "translation_workspace" / "registry_a_entry8_clusters"
+DEFAULT_MANIFEST = REPO_ROOT / "confirmed_data" / "translation_workspace" / "registry_a_entry8_clusters_manifest.json"
 
 
 def slugify(value: str) -> str:

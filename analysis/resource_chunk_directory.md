@@ -51,7 +51,7 @@ python3 -m gba_kor_tool inspect-chunk-table \
 - 엔트리들은 주소 기준으로 대체로 오름차순이지만, 서로 **겹치거나 중첩**된다.
 - 따라서 이 구조를 단순한 "겹치지 않는 청크 분할표"로 보면 안 된다.
 - 또한 같은 근처의 상위 레지스트리 범위들은 대부분 `pointer-length` 레이아웃이라, `0x17C1C0` 은 주변 공통 규칙의 예외처럼 보인다.
-- 현재 추출된 [battle_texts.json](/Users/user/test/analysis/battle_texts.json), [material_texts.json](/Users/user/test/analysis/material_texts.json), [ability_texts.json](/Users/user/test/analysis/ability_texts.json) 은 번역 작업을 위한 편의상 뽑은 범위이며, 테이블 엔트리와 1:1 대응하지 않는다.
+- 현재 추출된 [battle_texts.json](/Users/user/test/confirmed_data/extracted_texts/battle_texts.json), [material_texts.json](/Users/user/test/confirmed_data/extracted_texts/material_texts.json), [ability_texts.json](/Users/user/test/confirmed_data/extracted_texts/ability_texts.json) 은 번역 작업을 위한 편의상 뽑은 범위이며, 테이블 엔트리와 1:1 대응하지 않는다.
 - 특히 `battle_texts.json` 은 `0x3D2036..0x3D2557` 만 모아 둔 보기 쉬운 추출본이지, 단일 디스크립터 하나를 그대로 덤프한 결과가 아니다.
 
 ## 추가 관찰

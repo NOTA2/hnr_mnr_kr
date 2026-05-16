@@ -28,18 +28,18 @@
 ### 이미 추출 규칙이 확보된 공급원
 
 - standalone plain bank
-  - [system_messages.json](/Users/user/test/analysis/system_messages.json): `4`
-  - [item_texts.json](/Users/user/test/analysis/item_texts.json): `47`
-  - [location_texts.json](/Users/user/test/analysis/location_texts.json): `10`
-  - [credits_texts.json](/Users/user/test/analysis/credits_texts.json): `10`
-  - [battle_texts.json](/Users/user/test/analysis/battle_texts.json): `104`
-  - [ability_texts.json](/Users/user/test/analysis/ability_texts.json): `409`
-  - [material_texts.json](/Users/user/test/analysis/material_texts.json): `43`
-  - [ui_skill_texts.json](/Users/user/test/analysis/ui_skill_texts.json): `24`
+  - [system_messages.json](/Users/user/test/confirmed_data/extracted_texts/system_messages.json): `4`
+  - [item_texts.json](/Users/user/test/confirmed_data/extracted_texts/item_texts.json): `47`
+  - [location_texts.json](/Users/user/test/confirmed_data/extracted_texts/location_texts.json): `10`
+  - [credits_texts.json](/Users/user/test/confirmed_data/extracted_texts/credits_texts.json): `10`
+  - [battle_texts.json](/Users/user/test/confirmed_data/extracted_texts/battle_texts.json): `104`
+  - [ability_texts.json](/Users/user/test/confirmed_data/extracted_texts/ability_texts.json): `409`
+  - [material_texts.json](/Users/user/test/confirmed_data/extracted_texts/material_texts.json): `43`
+  - [ui_skill_texts.json](/Users/user/test/confirmed_data/extracted_texts/ui_skill_texts.json): `24`
 - command-stream / mixed bank
-  - [save_menu_prefixed_texts.json](/Users/user/test/analysis/save_menu_prefixed_texts.json): `12`
-  - [registry_d_fc_script_texts.json](/Users/user/test/analysis/registry_d_fc_script_texts.json): `244`
-  - [registry_a_entry8_prefixed_texts.json](/Users/user/test/analysis/registry_a_entry8_prefixed_texts.json): `9823`
+  - [save_menu_prefixed_texts.json](/Users/user/test/confirmed_data/extracted_texts/save_menu_prefixed_texts.json): `12`
+  - [registry_d_fc_script_texts.json](/Users/user/test/confirmed_data/extracted_texts/registry_d_fc_script_texts.json): `244`
+  - [registry_a_entry8_prefixed_texts.json](/Users/user/test/confirmed_data/extracted_texts/registry_a_entry8_prefixed_texts.json): `9823`
 
 ### 상위 registry 관점에서 본 상태
 
@@ -47,7 +47,7 @@
   - entry `8`: `01 FF <u16 문자수>` 규칙으로 대형 mixed script bank 추출 완료
   - entry `8` 은 [registry_a_entry8_cluster_catalog.json](/Users/user/test/analysis/registry_a_entry8_cluster_catalog.json) / [registry_a_entry8_cluster_overview.md](/Users/user/test/analysis/registry_a_entry8_cluster_overview.md) 기준으로 `72`개 cluster 작업 지도로 재구성됐다.
   - cluster `71` 은 [registry_a_entry8_cluster71_pre_save_texts.json](/Users/user/test/analysis/registry_a_entry8_cluster71_pre_save_texts.json) `228`건 일반 이벤트/진행 힌트와 [registry_a_entry8_cluster71_save_segment_texts.json](/Users/user/test/analysis/registry_a_entry8_cluster71_save_segment_texts.json) `12`건 save/menu block 으로 다시 분리해 둘 수 있다.
-  - entry `12`: gameplay/item text `22`건 확인. [registry_a_entry12_texts.json](/Users/user/test/analysis/registry_a_entry12_texts.json) 으로 별도 확보
+  - entry `12`: gameplay/item text `22`건 확인. [registry_a_entry12_texts.json](/Users/user/test/confirmed_data/extracted_texts/registry_a_entry12_texts.json) 으로 별도 확보
   - entry `12` 의 `22`건 중 `16`건은 기존 `item_texts` / gameplay terms 와 중복이고, `6`건은 기존 workset 에 없던 텍스트다.
   - tail `9..17` 의 현재 분류는 [registry_a_tail_classification.json](/Users/user/test/analysis/registry_a_tail_classification.json) 에 정리했다.
   - entry `9..11`, `13..17` 은 현재 기준으로 no confirmed text source 쪽이 강하다.

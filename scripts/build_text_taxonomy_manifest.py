@@ -7,7 +7,7 @@ from collections import Counter
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-WORKSPACE = REPO_ROOT / "analysis" / "translation_workspace"
+WORKSPACE = REPO_ROOT / "confirmed_data" / "translation_workspace"
 MASTER_PATH = WORKSPACE / "all_extracted_texts_master.json"
 OUTPUT_PATH = WORKSPACE / "text_taxonomy_manifest.json"
 
@@ -94,7 +94,7 @@ def main() -> int:
             speaker_candidate_count += 1
 
     payload = {
-        "master_file": "analysis/translation_workspace/all_extracted_texts_master.json",
+        "master_file": "confirmed_data/translation_workspace/all_extracted_texts_master.json",
         "record_count": len(records),
         "source_classification": SOURCE_CLASSIFICATION,
         "counts_by_content_type": dict(sorted(counts.items())),

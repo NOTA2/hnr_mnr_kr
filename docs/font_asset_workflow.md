@@ -65,7 +65,7 @@ python3 -m gba_kor_tool append-fnt-glyph-set \
 
 python3 -m gba_kor_tool build-hangul-seed-manifest \
   analysis/hangul_core_ui_seed_manifest.json \
-  analysis/translation_workset_core_ui.json \
+  confirmed_data/translation_worksets/translation_workset_core_ui.json \
   --field translation \
   --start-code 0xE940 \
   --table-output analysis/hangul_core_ui.tbl \
@@ -150,7 +150,7 @@ zsh scripts/build_all_startup_fonts.sh 20
 - 최종 자산은 공개 라이선스 폰트를 기준으로 뽑는 편이 안전하다. 특히 `12x12` 계열에선 픽셀풍인 `Galmuri` 가 유리하고, 일반 UI 기준으론 `Pretendard`, `Noto Sans KR`, `NanumSquare` 를 seed 로 쓴 뒤 수동 보정하는 방식이 현실적이다.
 - test ROM 적용 결과와 compact 대체 문구 기준은 [core_ui_test_rom_matrix.md](/Users/user/test/analysis/core_ui_test_rom_matrix.md) 를 본다.
 - legacy placeholder glyph (`hangul_test_ga.pgm` 등) 는 더 이상 production test 기준으로 보지 않는다.
-- 게임 시작 직후 바로 확인할 첫 QA 지점은 [startup_intro_texts.json](/Users/user/test/analysis/startup_intro_texts.json) / `/Users/user/test/patched_roms/startup_intro_active/hnr_startup_intro_test.gba` 쪽이다.
+- 게임 시작 직후 바로 확인할 첫 QA 지점은 [startup_intro_texts.json](/Users/user/test/confirmed_data/extracted_texts/startup_intro_texts.json) / `/Users/user/test/patched_roms/startup_intro_active/hnr_startup_intro_test.gba` 쪽이다.
 - 시작 화면만 빠르게 다시 만들려면 [build_startup_intro_test.sh](/Users/user/test/scripts/build_startup_intro_test.sh) 를 먼저 쓴다.
 
 ## 현재 Batch 기준

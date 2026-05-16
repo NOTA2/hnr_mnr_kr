@@ -14,30 +14,30 @@
 
 1. [fma_translation_team_common_final_v4_1.md](/Users/user/test/docs/translation_team/fma_translation_team_common_final_v4_1.md)
 2. [fma_translation_agent_final_v4_1.md](/Users/user/test/docs/translation_team/fma_translation_agent_final_v4_1.md)
-3. [index.json](/Users/user/test/analysis/translation_workspace/index.json)
+3. [index.json](/Users/user/test/confirmed_data/translation_workspace/index.json)
 4. 실제 작업 대상 workset JSON
 
 ### 검수 에이전트
 
 1. [fma_translation_team_common_final_v4_1.md](/Users/user/test/docs/translation_team/fma_translation_team_common_final_v4_1.md)
 2. [fma_review_agent_final_v4_1.md](/Users/user/test/docs/translation_team/fma_review_agent_final_v4_1.md)
-3. [index.json](/Users/user/test/analysis/translation_workspace/index.json)
+3. [index.json](/Users/user/test/confirmed_data/translation_workspace/index.json)
 4. 검수 대상 번역 JSON
 
 ## 현재 프로젝트 기준 작업 허브
 
-- 전체 기준본: [all_extracted_texts_master.json](/Users/user/test/analysis/translation_workspace/all_extracted_texts_master.json)
-- 전체 manifest: [all_extracted_texts_manifest.json](/Users/user/test/analysis/translation_workspace/all_extracted_texts_manifest.json)
-- 작업 허브 인덱스: [index.json](/Users/user/test/analysis/translation_workspace/index.json)
-- Entry 8 cluster 인덱스: [registry_a_entry8_clusters_manifest.json](/Users/user/test/analysis/translation_workspace/registry_a_entry8_clusters_manifest.json)
-- 텍스트 성격 분류표: [text_taxonomy_manifest.json](/Users/user/test/analysis/translation_workspace/text_taxonomy_manifest.json)
+- 전체 기준본: [all_extracted_texts_master.json](/Users/user/test/confirmed_data/translation_workspace/all_extracted_texts_master.json)
+- 전체 manifest: [all_extracted_texts_manifest.json](/Users/user/test/confirmed_data/translation_workspace/all_extracted_texts_manifest.json)
+- 작업 허브 인덱스: [index.json](/Users/user/test/confirmed_data/translation_workspace/index.json)
+- Entry 8 cluster 인덱스: [registry_a_entry8_clusters_manifest.json](/Users/user/test/confirmed_data/translation_workspace/registry_a_entry8_clusters_manifest.json)
+- 텍스트 성격 분류표: [text_taxonomy_manifest.json](/Users/user/test/confirmed_data/translation_workspace/text_taxonomy_manifest.json)
 
 ## 권장 작업 순서
 
-1. [translation_workset_core_ui.json](/Users/user/test/analysis/translation_workset_core_ui.json)
-2. [translation_workset_gameplay_terms.json](/Users/user/test/analysis/translation_workset_gameplay_terms.json)
-3. [translation_workset_registry_d_dialogue.json](/Users/user/test/analysis/translation_workset_registry_d_dialogue.json)
-4. [registry_a_entry8_clusters_manifest.json](/Users/user/test/analysis/translation_workspace/registry_a_entry8_clusters_manifest.json)
+1. [translation_workset_core_ui.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_core_ui.json)
+2. [translation_workset_gameplay_terms.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_gameplay_terms.json)
+3. [translation_workset_registry_d_dialogue.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_registry_d_dialogue.json)
+4. [registry_a_entry8_clusters_manifest.json](/Users/user/test/confirmed_data/translation_workspace/registry_a_entry8_clusters_manifest.json)
 
 ## 화자 정보에 대한 현재 상태
 

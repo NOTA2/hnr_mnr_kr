@@ -106,8 +106,8 @@
 
 이 프로젝트에서는 이미 일부 구간이 JSON으로 추출되어 있습니다.
 
-- [item_texts.json](/Users/user/test/analysis/item_texts.json)
-- [system_messages.json](/Users/user/test/analysis/system_messages.json)
+- [item_texts.json](/Users/user/test/confirmed_data/extracted_texts/item_texts.json)
+- [system_messages.json](/Users/user/test/confirmed_data/extracted_texts/system_messages.json)
 
 ### 5. 텍스트 재삽입 확인
 

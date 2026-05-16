@@ -8,7 +8,9 @@ import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-WORKSPACE = REPO_ROOT / "analysis" / "translation_workspace"
+DATA_ROOT = REPO_ROOT / "confirmed_data"
+WORKSPACE = DATA_ROOT / "translation_workspace"
+WORKSETS = DATA_ROOT / "translation_worksets"
 INDEX_PATH = WORKSPACE / "index.json"
 README_PATH = WORKSPACE / "README.md"
 
@@ -32,43 +34,43 @@ def main() -> int:
     priority_worksets = [
         {
             "label": "core_ui",
-            "file": "analysis/translation_workset_core_ui.json",
-            "record_count": len(load_json(REPO_ROOT / "analysis" / "translation_workset_core_ui.json")),
+            "file": "confirmed_data/translation_worksets/translation_workset_core_ui.json",
+            "record_count": len(load_json(WORKSETS / "translation_workset_core_ui.json")),
             "notes": "시스템/세이브/지역명/UI 기술명 위주의 첫 번역 진입점",
         },
         {
             "label": "gameplay_terms",
-            "file": "analysis/translation_workset_gameplay_terms.json",
-            "record_count": len(load_json(REPO_ROOT / "analysis" / "translation_workset_gameplay_terms.json")),
+            "file": "confirmed_data/translation_worksets/translation_workset_gameplay_terms.json",
+            "record_count": len(load_json(WORKSETS / "translation_workset_gameplay_terms.json")),
             "notes": "아이템/용어/설명 계열",
         },
         {
             "label": "registry_d_dialogue",
-            "file": "analysis/translation_workset_registry_d_dialogue.json",
-            "record_count": len(load_json(REPO_ROOT / "analysis" / "translation_workset_registry_d_dialogue.json")),
+            "file": "confirmed_data/translation_worksets/translation_workset_registry_d_dialogue.json",
+            "record_count": len(load_json(WORKSETS / "translation_workset_registry_d_dialogue.json")),
             "notes": "이벤트/전투 전후 대사 중심",
         },
         {
             "label": "entry8_clusters_manifest",
-            "file": "analysis/translation_workspace/registry_a_entry8_clusters_manifest.json",
+            "file": "confirmed_data/translation_workspace/registry_a_entry8_clusters_manifest.json",
             "record_count": int(entry8_manifest["cluster_count"]),
             "notes": "대형 스토리/이벤트 뱅크를 72개 cluster로 분할한 인덱스",
         },
         {
             "label": "all_extracted_master",
-            "file": "analysis/translation_workspace/all_extracted_texts_master.json",
+            "file": "confirmed_data/translation_workspace/all_extracted_texts_master.json",
             "record_count": int(master_manifest["record_count"]),
             "notes": "현재까지 확보된 known extracted text source 전체 기준본",
         },
     ]
 
     index = {
-        "workspace_root": "analysis/translation_workspace",
+        "workspace_root": "confirmed_data/translation_workspace",
         "master": master_manifest,
         "entry8_clusters": {
             "cluster_count": int(entry8_manifest["cluster_count"]),
-            "manifest": "analysis/translation_workspace/registry_a_entry8_clusters_manifest.json",
-            "output_dir": "analysis/translation_workspace/registry_a_entry8_clusters",
+            "manifest": "confirmed_data/translation_workspace/registry_a_entry8_clusters_manifest.json",
+            "output_dir": "confirmed_data/translation_workspace/registry_a_entry8_clusters",
             "primary_tags": sorted(entry8_manifest["primary_tag_index"].keys()),
         },
         "priority_worksets": priority_worksets,
@@ -86,17 +88,17 @@ def main() -> int:
 
 ## 핵심 파일
 
-- [all_extracted_texts_master.json](/Users/user/test/analysis/translation_workspace/all_extracted_texts_master.json)
-- [all_extracted_texts_manifest.json](/Users/user/test/analysis/translation_workspace/all_extracted_texts_manifest.json)
-- [registry_a_entry8_clusters_manifest.json](/Users/user/test/analysis/translation_workspace/registry_a_entry8_clusters_manifest.json)
-- [index.json](/Users/user/test/analysis/translation_workspace/index.json)
+- [all_extracted_texts_master.json](/Users/user/test/confirmed_data/translation_workspace/all_extracted_texts_master.json)
+- [all_extracted_texts_manifest.json](/Users/user/test/confirmed_data/translation_workspace/all_extracted_texts_manifest.json)
+- [registry_a_entry8_clusters_manifest.json](/Users/user/test/confirmed_data/translation_workspace/registry_a_entry8_clusters_manifest.json)
+- [index.json](/Users/user/test/confirmed_data/translation_workspace/index.json)
 
 ## 권장 시작 순서
 
-1. [translation_workset_core_ui.json](/Users/user/test/analysis/translation_workset_core_ui.json)
-2. [translation_workset_gameplay_terms.json](/Users/user/test/analysis/translation_workset_gameplay_terms.json)
-3. [translation_workset_registry_d_dialogue.json](/Users/user/test/analysis/translation_workset_registry_d_dialogue.json)
-4. [registry_a_entry8_clusters_manifest.json](/Users/user/test/analysis/translation_workspace/registry_a_entry8_clusters_manifest.json)
+1. [translation_workset_core_ui.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_core_ui.json)
+2. [translation_workset_gameplay_terms.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_gameplay_terms.json)
+3. [translation_workset_registry_d_dialogue.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_registry_d_dialogue.json)
+4. [registry_a_entry8_clusters_manifest.json](/Users/user/test/confirmed_data/translation_workspace/registry_a_entry8_clusters_manifest.json)
 
 ## 재생성
 

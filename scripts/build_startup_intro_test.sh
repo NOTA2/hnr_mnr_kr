@@ -47,7 +47,7 @@ python3 -m gba_kor_tool append-fnt-glyph-set \
 
 python3 -m gba_kor_tool apply-translations \
   "$STARTUP_FONT_ROM" \
-  analysis/startup_intro_texts.json \
+  confirmed_data/extracted_texts/startup_intro_texts.json \
   "$STARTUP_INTRO_ROM" \
   --table "$ACTIVE_WORKBENCH/prepared.tbl" \
   --encoding cp932 \

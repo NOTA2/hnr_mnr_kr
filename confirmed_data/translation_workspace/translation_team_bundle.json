@@ -6,16 +6,16 @@
     "readme": "docs/translation_team/README.md"
   },
   "workspace_docs": {
-    "index": "analysis/translation_workspace/index.json",
-    "master_manifest": "analysis/translation_workspace/all_extracted_texts_manifest.json",
-    "entry8_clusters_manifest": "analysis/translation_workspace/registry_a_entry8_clusters_manifest.json",
-    "taxonomy_manifest": "analysis/translation_workspace/text_taxonomy_manifest.json"
+    "index": "confirmed_data/translation_workspace/index.json",
+    "master_manifest": "confirmed_data/translation_workspace/all_extracted_texts_manifest.json",
+    "entry8_clusters_manifest": "confirmed_data/translation_workspace/registry_a_entry8_clusters_manifest.json",
+    "taxonomy_manifest": "confirmed_data/translation_workspace/text_taxonomy_manifest.json"
   },
   "recommended_work_order": [
-    "analysis/translation_workset_core_ui.json",
-    "analysis/translation_workset_gameplay_terms.json",
-    "analysis/translation_workset_registry_d_dialogue.json",
-    "analysis/translation_workspace/registry_a_entry8_clusters_manifest.json"
+    "confirmed_data/translation_worksets/translation_workset_core_ui.json",
+    "confirmed_data/translation_worksets/translation_workset_gameplay_terms.json",
+    "confirmed_data/translation_worksets/translation_workset_registry_d_dialogue.json",
+    "confirmed_data/translation_workspace/registry_a_entry8_clusters_manifest.json"
   ],
   "speaker_status": {
     "objective_speaker_metadata_available": false,

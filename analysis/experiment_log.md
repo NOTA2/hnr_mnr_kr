@@ -232,9 +232,9 @@
   - 최종 확인 기준으로 실제 entry `8` 범위 `0x6B594C..0x773248` 를 `prefix=01 FF`, `count-size=2`, `little-endian`, `cp932` 로 스캔했다.
   - 같은 규칙을 `0x772E00..0x773260` save/menu block 에도 적용했다.
 - 결과:
-  - Registry A entry `8` 에서 [registry_a_entry8_prefixed_texts.json](/Users/user/test/analysis/registry_a_entry8_prefixed_texts.json) `9823`건이 clean 하게 추출되었다.
+  - Registry A entry `8` 에서 [registry_a_entry8_prefixed_texts.json](/Users/user/test/confirmed_data/extracted_texts/registry_a_entry8_prefixed_texts.json) `9823`건이 clean 하게 추출되었다.
   - 초반 리오르 대사 `医者になりたいんだけど、`, `教えてくれる？` 부터 후반 진행 힌트와 디버그성 플래그 문구까지 한 규칙으로 회수되었다.
-  - save/menu block 도 [save_menu_prefixed_texts.json](/Users/user/test/analysis/save_menu_prefixed_texts.json) `12`건이 정리되었다.
+  - save/menu block 도 [save_menu_prefixed_texts.json](/Users/user/test/confirmed_data/extracted_texts/save_menu_prefixed_texts.json) `12`건이 정리되었다.
 - 판정: `성공`
 - 교훈: 이 계열 텍스트는 `0x10` terminator 슬라이딩 스캔보다 `01 FF <문자수>` 헤더 기반 추출이 훨씬 정확하다.
 
@@ -264,7 +264,7 @@
 
 - 가설: Registry A entry `8` 의 `9823`건은 하나의 거대한 작업 단위로 두기보다 gap 기반 cluster 로 나누면 후속 번역/검수/재삽입이 쉬워질 것이다.
 - 시도:
-  - [registry_a_entry8_prefixed_texts.json](/Users/user/test/analysis/registry_a_entry8_prefixed_texts.json) 의 offset 차이를 기준으로 여러 threshold 를 시험했다.
+  - [registry_a_entry8_prefixed_texts.json](/Users/user/test/confirmed_data/extracted_texts/registry_a_entry8_prefixed_texts.json) 의 offset 차이를 기준으로 여러 threshold 를 시험했다.
   - `0x400` gap 을 넘을 때 새 cluster 로 분리하는 요약을 [registry_a_entry8_cluster_summary.json](/Users/user/test/analysis/registry_a_entry8_cluster_summary.json) 으로 만들었다.
 - 결과:
   - threshold `0x400` 기준 `72`개 cluster 가 만들어졌다.
@@ -326,7 +326,7 @@
 - 가설: Registry D 전체 대사를 한 번에 스캔하면 그대로 번역 workset 으로 올릴 수 있을 것이다.
 - 시도:
   - `scan-text` 결과를 [registry_d_full_sliding_texts.json](/Users/user/test/analysis/registry_d_full_sliding_texts.json) 으로 저장했다.
-  - `build-translation-set` 으로 [translation_workset_registry_d_dialogue.json](/Users/user/test/analysis/translation_workset_registry_d_dialogue.json) 을 만들었다.
+  - `build-translation-set` 으로 [translation_workset_registry_d_dialogue.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_registry_d_dialogue.json) 을 만들었다.
   - 첫 전수 스캔 뒤 `records=100` 만 나온 이유를 확인하기 위해 parser default 를 점검했다.
 - 결과:
   - `scan-text` 기본 `--limit` 이 `100` 이라서 첫 wide scan 결과가 잘려 있었다.
@@ -977,7 +977,7 @@
   - 이를 바탕으로 `scan-fc-script-text` CLI 를 추가하고, Registry D 전체 물리 범위 `0x7F3000..0x7F96E9` 에 직접 적용했다.
 - 결과:
   - Registry D `100`개 엔트리 중 `82`개는 `FC 00` anchor 를 포함했고, 실제 clean extraction 은 `81 / 100` 엔트리에서 성립했다.
-  - [registry_d_fc_script_texts.json](/Users/user/test/analysis/registry_d_fc_script_texts.json) 에 현재 `240`건이 정리됐고, 줄바꿈/페이지 제어 바이트는 사람이 읽기 쉬운 줄바꿈으로 정규화됐다.
+  - [registry_d_fc_script_texts.json](/Users/user/test/confirmed_data/extracted_texts/registry_d_fc_script_texts.json) 에 현재 `240`건이 정리됐고, 줄바꿈/페이지 제어 바이트는 사람이 읽기 쉬운 줄바꿈으로 정규화됐다.
   - top entry 분포는 `0=20`, `92=17`, `33=15`, `47=10`, `24=7`, `32=7`, `54=7` 이다.
   - 따라서 기존 [registry_d_full_sliding_texts.json](/Users/user/test/analysis/registry_d_full_sliding_texts.json) `305`건은 discovery coverage 용, `FC` anchor 추출본 `240`건은 실제 작업용 원본이라는 역할 분리가 가능해졌다.
 - 판정: `성공`
@@ -991,7 +991,7 @@
   - entry `8` 에서 `... 8B 43 8D 87 93 FC 82 EA ...` 처럼 `0xFC` 가 실제 문자 바이트로 등장하는 케이스를 확인했다.
   - 이를 반영해 `scan-fc-script-text` stop 탐색을 SJIS-aware 로 바꿔, 바로 앞 바이트가 lead byte 면 stop 으로 취급하지 않게 수정한 뒤 Registry D 전체를 재추출했다.
 - 결과:
-  - [registry_d_fc_script_texts.json](/Users/user/test/analysis/registry_d_fc_script_texts.json) 은 `240 -> 244` 건으로 늘었고, [registry_d_fc_script_summary.json](/Users/user/test/analysis/registry_d_fc_script_summary.json) 기준 hit 엔트리도 `81 -> 82` 로 증가했다.
+  - [registry_d_fc_script_texts.json](/Users/user/test/confirmed_data/extracted_texts/registry_d_fc_script_texts.json) 은 `240 -> 244` 건으로 늘었고, [registry_d_fc_script_summary.json](/Users/user/test/analysis/registry_d_fc_script_summary.json) 기준 hit 엔트리도 `81 -> 82` 로 증가했다.
   - entry `8` 에서 `こいつで最後か！\n気合入れて\nとっとと片付けるッ`, `よろしくお願いします`, `全力で向かってきなさい` 등 `4`건이 추가 회수됐다.
   - 반면 entry `70` 은 `FC` 바이트가 지나치게 조밀한 control-only script table 형태로 남아, plausible cp932 대사가 없다는 점이 더 강해졌다.
   - 남은 non-hit `18`개는 [registry_d_unresolved_entries.json](/Users/user/test/analysis/registry_d_unresolved_entries.json) 으로 분리했고, 대부분 `2-byte sentinel/control stub` 이다.
@@ -1004,9 +1004,9 @@
 - 시도:
   - Registry A 전체 `18`개 엔트리를 다시 경계 기준으로 확인했다.
   - tail 영역 `entry 9..17` 에 대해 plain text hit 를 재스캔했고, 특히 `entry 12 (0x7A750C..0x7A8E98)` 를 별도로 추출했다.
-  - 추출본을 기존 [item_texts.json](/Users/user/test/analysis/item_texts.json) 및 [translation_workset_gameplay_terms.json](/Users/user/test/analysis/translation_workset_gameplay_terms.json) 과 대조했다.
+  - 추출본을 기존 [item_texts.json](/Users/user/test/confirmed_data/extracted_texts/item_texts.json) 및 [translation_workset_gameplay_terms.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_gameplay_terms.json) 과 대조했다.
 - 결과:
-  - entry `12` 에서 [registry_a_entry12_texts.json](/Users/user/test/analysis/registry_a_entry12_texts.json) `20`건이 실제로 잡혔다.
+  - entry `12` 에서 [registry_a_entry12_texts.json](/Users/user/test/confirmed_data/extracted_texts/registry_a_entry12_texts.json) `20`건이 실제로 잡혔다.
   - 내용은 회복약 설명, 이벤트 해결 증표, 파츠, 전달 서류 같은 gameplay/item 계열이다.
   - `20`건 중 `14`건은 기존 `item_texts` / gameplay workset 과 중복이고, `6`건은 아직 gameplay workset 에 없는 텍스트였다.
   - 따라서 Registry A tail 도 전부 dead/binary 로 단정하면 안 되며, 추출 완료 판정은 **"현재까지 뽑은 파일 수"가 아니라 상위 source inventory 를 모두 점검했는가**로 판단해야 한다는 점이 더 분명해졌다.
@@ -1018,9 +1018,9 @@
 - 가설: Registry A tail entry `12` 는 plain extract 만으로는 일부 문자열을 놓칠 수 있고, tail 전체 `9..17` 도 text source / binary / false-positive 후보로 한 번 더 분류해야 coverage 판단이 흔들리지 않는다.
 - 시도:
   - tail 전체 `0x773248..0x7C0CDC` 범위에 대해 `prefixed`, `fc-script`, `sliding`, `plain extract` 를 교차 적용했다.
-  - entry `12` 는 sliding scan 결과를 기준으로 다시 정규화해 [registry_a_entry12_texts.json](/Users/user/test/analysis/registry_a_entry12_texts.json) 을 갱신했다.
+  - entry `12` 는 sliding scan 결과를 기준으로 다시 정규화해 [registry_a_entry12_texts.json](/Users/user/test/confirmed_data/extracted_texts/registry_a_entry12_texts.json) 을 갱신했다.
   - tail `9..17` 전체는 [registry_a_tail_classification.json](/Users/user/test/analysis/registry_a_tail_classification.json) 으로 분류했다.
-  - 이어서 [translation_workset_gameplay_terms.json](/Users/user/test/analysis/translation_workset_gameplay_terms.json) 에 entry `12` 신규 텍스트를 합쳤다.
+  - 이어서 [translation_workset_gameplay_terms.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_gameplay_terms.json) 에 entry `12` 신규 텍스트를 합쳤다.
 - 결과:
   - `prefixed` / `fc-script` 규칙은 tail `9..17` 에서 추가 hit `0` 이었다.
   - entry `12` 는 `20 -> 22` 건으로 보정됐고, 누락되던 `幻の機械鎧の素材　１／５`, `幻の機械鎧の素材　３／５` 도 회수됐다.
@@ -1050,10 +1050,10 @@
 - 가설: Registry A entry `8` 의 cluster `71` 은 자동 태그상 `save_menu` 로 보이지만, 실제로는 save/menu source 와 일반 이벤트 대사가 한데 섞인 mixed hub 일 것이다. 또 Registry D entry `70` 은 끝까지 대사 후보가 아니라 control-only script table 일 가능성이 높다.
 - 시도:
   - [registry_a_entry8_cluster_catalog.json](/Users/user/test/analysis/registry_a_entry8_cluster_catalog.json) 의 cluster `71` 범위를 기준으로, save/menu block 시작점 `0x772E00` 전후를 나눠 추출본을 재분리했다.
-  - 분리본을 [save_menu_prefixed_texts.json](/Users/user/test/analysis/save_menu_prefixed_texts.json) 과 직접 대조했다.
+  - 분리본을 [save_menu_prefixed_texts.json](/Users/user/test/confirmed_data/extracted_texts/save_menu_prefixed_texts.json) 과 직접 대조했다.
   - Registry D entry `70` 은 raw bytes 전체를 다시 덤프해 `FC` 밀집도와 명령 반복 패턴을 확인했다.
 - 결과:
-  - cluster `71` 은 일반 이벤트/진행 힌트 `228`건과 save/menu `12`건으로 분리됐고, save/menu 쪽은 [registry_a_entry8_cluster71_save_segment_texts.json](/Users/user/test/analysis/registry_a_entry8_cluster71_save_segment_texts.json) 이 [save_menu_prefixed_texts.json](/Users/user/test/analysis/save_menu_prefixed_texts.json) 과 정확히 일치했다.
+  - cluster `71` 은 일반 이벤트/진행 힌트 `228`건과 save/menu `12`건으로 분리됐고, save/menu 쪽은 [registry_a_entry8_cluster71_save_segment_texts.json](/Users/user/test/analysis/registry_a_entry8_cluster71_save_segment_texts.json) 이 [save_menu_prefixed_texts.json](/Users/user/test/confirmed_data/extracted_texts/save_menu_prefixed_texts.json) 과 정확히 일치했다.
   - 따라서 cluster `71` 의 `save_menu` 태그는 “이 cluster 안에 save block 이 들어 있다”는 뜻이지, cluster 전체가 save menu 전용이라는 뜻은 아니라는 점이 정리됐다.
   - Registry D entry `70` 은 `FC 04 00 FC 03 4B ...` 같은 짧은 제어 명령이 과도하게 반복되고, plausible cp932 대사가 전혀 잡히지 않아 control-only script table 해석이 더 강해졌다.
 - 판정: `성공`
@@ -1155,7 +1155,7 @@
 - 가설: 정식 한글 workbench 는 손으로 글자 목록을 관리하면 곧 어긋난다. 번역 JSON 초안에서 실제 필요한 한글 글자를 자동 추출해 seed manifest 로 만들면, glyph 제작 범위를 현재 번역 상태와 동기화할 수 있다.
 - 시도:
   - `build-hangul-seed-manifest` CLI 를 `gba_kor_tool` 에 추가했다.
-  - [translation_workset_core_ui.json](/Users/user/test/analysis/translation_workset_core_ui.json) 의 `translation` 필드에서 한글 음절을 추출해 [hangul_core_ui_seed_manifest.json](/Users/user/test/analysis/hangul_core_ui_seed_manifest.json), [hangul_core_ui.tbl](/Users/user/test/analysis/hangul_core_ui.tbl), [hangul_core_ui_seed_report.json](/Users/user/test/analysis/hangul_core_ui_seed_report.json) 을 생성했다.
+  - [translation_workset_core_ui.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_core_ui.json) 의 `translation` 필드에서 한글 음절을 추출해 [hangul_core_ui_seed_manifest.json](/Users/user/test/analysis/hangul_core_ui_seed_manifest.json), [hangul_core_ui.tbl](/Users/user/test/analysis/hangul_core_ui.tbl), [hangul_core_ui_seed_report.json](/Users/user/test/analysis/hangul_core_ui_seed_report.json) 을 생성했다.
   - 이어서 이 manifest 를 `prepare-fnt-glyph-set` 에 넣어 [hangul_core_ui_workbench](/Users/user/test/analysis/hangul_core_ui_workbench) 편집용 세트를 만들었다.
 - 결과:
   - 현재 core UI 번역 초안 기준 필요한 한글 음절은 `80`개로 집계되었다.
@@ -1170,7 +1170,7 @@
 - 시도:
   - `slice-hangul-seed-manifest` CLI 를 `gba_kor_tool` 에 추가했다.
   - [hangul_core_ui_seed_report.json](/Users/user/test/analysis/hangul_core_ui_seed_report.json) 기준으로 `priority24`, `priority48` manifest / table / workbench 를 만들었다.
-  - [translation_workset_core_ui.json](/Users/user/test/analysis/translation_workset_core_ui.json) 의 현재 번역 초안을 기준으로, 각 subset 이 완성 문자열을 몇 건까지 전부 커버하는지 [hangul_core_ui_priority_coverage.json](/Users/user/test/analysis/hangul_core_ui_priority_coverage.json) 으로 집계했다.
+  - [translation_workset_core_ui.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_core_ui.json) 의 현재 번역 초안을 기준으로, 각 subset 이 완성 문자열을 몇 건까지 전부 커버하는지 [hangul_core_ui_priority_coverage.json](/Users/user/test/analysis/hangul_core_ui_priority_coverage.json) 으로 집계했다.
 - 결과:
   - `priority24`: 완성 문자열 커버 `0`
   - `priority48`: 완성 문자열 커버 `5`
@@ -1229,7 +1229,7 @@
 
 - 가설: 사용자 입장에서 `priority48` 나 `save/menu` 보다, 게임 시작 직후 바로 보이는 intro 텍스트가 첫 QA 지점으로 훨씬 적합하다. 이 화면의 한글화를 먼저 닫으면 실제 폰트 품질 확인이 쉬워진다.
 - 시도:
-  - 시작 화면에 뜨는 4조각을 [startup_intro_texts.json](/Users/user/test/analysis/startup_intro_texts.json) 으로 분리했다.
+  - 시작 화면에 뜨는 4조각을 [startup_intro_texts.json](/Users/user/test/confirmed_data/extracted_texts/startup_intro_texts.json) 으로 분리했다.
   - 번역:
     - `大陸暦` -> `대륙력`
     - `１９１０年　２月` -> `1910년 2월`
@@ -1299,7 +1299,7 @@
 
 - 가설: startup intro 는 full80 공용 세트에 묶어 둘 필요가 없다. `NanumSquareR.ttf` 기준 startup 전용 workbench 를 만들면, blank core UI 세트와 분리해서 바로 검증할 수 있다.
 - 시도:
-  - [startup_intro_texts.json](/Users/user/test/analysis/startup_intro_texts.json) 에서 [startup_intro_seed_manifest.json](/Users/user/test/analysis/startup_intro_seed_manifest.json) `14`글자를 다시 만들었다.
+  - [startup_intro_texts.json](/Users/user/test/confirmed_data/extracted_texts/startup_intro_texts.json) 에서 [startup_intro_seed_manifest.json](/Users/user/test/analysis/startup_intro_seed_manifest.json) `14`글자를 다시 만들었다.
   - Swift 경로 대신 [render_reference_font_workbench.py](/Users/user/test/scripts/render_reference_font_workbench.py) 를 추가하고, `/Users/user/Library/Fonts/NanumSquareR.ttf` 를 사용해 [startup_intro_nanumsquare_workbench](/Users/user/test/analysis/startup_intro_nanumsquare_workbench) 를 생성했다.
   - 새 workbench 는 `14 / 14` nonblank glyph 상태임을 `audit-pgm-glyph-set` 로 확인했다.
   - [build_startup_intro_test.sh](/Users/user/test/scripts/build_startup_intro_test.sh) 는 이제 full80 공용 세트 없이, startup 전용 workbench 만 append 해서 ROM 을 만든다.
@@ -1462,8 +1462,8 @@
 - 가설: 폰트가 아직 확정되지 않았더라도, Registry A entry `8` 의 대형 대사 뱅크를 cluster별 번역 workset 으로 먼저 쪼개 두면 이후 번역/검수 루프에 바로 들어갈 수 있다.
 - 시도:
   - [build_entry8_cluster_worksets.py](/Users/user/test/scripts/build_entry8_cluster_worksets.py) 를 추가했다.
-  - [registry_a_entry8_prefixed_texts.json](/Users/user/test/analysis/registry_a_entry8_prefixed_texts.json) 과 [registry_a_entry8_cluster_catalog.json](/Users/user/test/analysis/registry_a_entry8_cluster_catalog.json) 을 입력으로 받아, [registry_a_entry8_clusters](/Users/user/test/analysis/translation_workspace/registry_a_entry8_clusters) 아래 cluster별 번역 JSON을 생성하게 했다.
-  - 상위 인덱스 [registry_a_entry8_clusters_manifest.json](/Users/user/test/analysis/translation_workspace/registry_a_entry8_clusters_manifest.json) 에 `record_count`, `primary_tag`, `sample_texts`, output file 경로를 함께 기록했다.
+  - [registry_a_entry8_prefixed_texts.json](/Users/user/test/confirmed_data/extracted_texts/registry_a_entry8_prefixed_texts.json) 과 [registry_a_entry8_cluster_catalog.json](/Users/user/test/analysis/registry_a_entry8_cluster_catalog.json) 을 입력으로 받아, [registry_a_entry8_clusters](/Users/user/test/confirmed_data/translation_workspace/registry_a_entry8_clusters) 아래 cluster별 번역 JSON을 생성하게 했다.
+  - 상위 인덱스 [registry_a_entry8_clusters_manifest.json](/Users/user/test/confirmed_data/translation_workspace/registry_a_entry8_clusters_manifest.json) 에 `record_count`, `primary_tag`, `sample_texts`, output file 경로를 함께 기록했다.
 - 결과:
   - entry `8` 대형 bank 가 `72`개 cluster 번역 workset 으로 분리되었다.
   - 이제 이후 번역은 `entry8 전체 9823건` 을 한 번에 보는 대신, `cluster_00_liore.json` 같은 작은 단위로 바로 시작할 수 있다.
@@ -1475,8 +1475,8 @@
 - 가설: “지금까지 뽑힌 전체 텍스트” 기준 파일을 따로 고정해 두면, 폰트 확정과 무관하게 번역/검수 준비를 바로 시작할 수 있다.
 - 시도:
   - [build_master_text_workspace.py](/Users/user/test/scripts/build_master_text_workspace.py) 를 추가했다.
-  - `system / item / location / battle / ability / material / ui skill / save menu / Registry D / Registry A entry 8 / Registry A entry 12 / credits` `12`개 소스를 합쳐 [all_extracted_texts_master.json](/Users/user/test/analysis/translation_workspace/all_extracted_texts_master.json) 을 생성했다.
-  - source별 개수와 포함 범위를 [all_extracted_texts_manifest.json](/Users/user/test/analysis/translation_workspace/all_extracted_texts_manifest.json) 에 기록했다.
+  - `system / item / location / battle / ability / material / ui skill / save menu / Registry D / Registry A entry 8 / Registry A entry 12 / credits` `12`개 소스를 합쳐 [all_extracted_texts_master.json](/Users/user/test/confirmed_data/translation_workspace/all_extracted_texts_master.json) 을 생성했다.
+  - source별 개수와 포함 범위를 [all_extracted_texts_manifest.json](/Users/user/test/confirmed_data/translation_workspace/all_extracted_texts_manifest.json) 에 기록했다.
 - 결과:
   - 현재 known extracted text sources 기준으로 `10752`건 마스터 작업 세트가 생겼다.
   - 이제 “큰 줄기 텍스트는 다 모은 상태에서 폰트를 고르는 중”이라는 기준점을 명확하게 유지할 수 있다.
@@ -1489,7 +1489,7 @@
 - 시도:
   - [build_translation_workspace.py](/Users/user/test/scripts/build_translation_workspace.py) 를 추가했다.
   - 이 스크립트가 [build_master_text_workspace.py](/Users/user/test/scripts/build_master_text_workspace.py) 와 [build_entry8_cluster_worksets.py](/Users/user/test/scripts/build_entry8_cluster_worksets.py) 를 함께 호출하도록 했다.
-  - 결과로 [translation_workspace/index.json](/Users/user/test/analysis/translation_workspace/index.json) 과 [translation_workspace/README.md](/Users/user/test/analysis/translation_workspace/README.md) 를 생성하게 했다.
+  - 결과로 [translation_workspace/index.json](/Users/user/test/confirmed_data/translation_workspace/index.json) 과 [translation_workspace/README.md](/Users/user/test/confirmed_data/translation_workspace/README.md) 를 생성하게 했다.
 - 결과:
   - 이제 `translation_workspace` 폴더만 열어도 전체 기준본, entry8 cluster 세트, 우선 번역 순서를 한 번에 확인할 수 있다.
   - 이후 번역/검수 단계는 이 인덱스를 출발점으로 잡으면 된다.
@@ -1501,7 +1501,7 @@
 - 가설: 현재 추출본에 대해 “이 텍스트가 아이템인지, 대사인지, UI인지” 같은 성격은 source 기준으로 객관적으로 정리할 수 있지만, 화자 정보는 별도 script metadata 분석 없이는 확정할 수 없다.
 - 시도:
   - [build_text_taxonomy_manifest.py](/Users/user/test/scripts/build_text_taxonomy_manifest.py) 를 추가했다.
-  - [all_extracted_texts_master.json](/Users/user/test/analysis/translation_workspace/all_extracted_texts_master.json) 을 기준으로 source_group -> content_type 매핑을 [text_taxonomy_manifest.json](/Users/user/test/analysis/translation_workspace/text_taxonomy_manifest.json) 에 기록했다.
+  - [all_extracted_texts_master.json](/Users/user/test/confirmed_data/translation_workspace/all_extracted_texts_master.json) 을 기준으로 source_group -> content_type 매핑을 [text_taxonomy_manifest.json](/Users/user/test/confirmed_data/translation_workspace/text_taxonomy_manifest.json) 에 기록했다.
   - speaker / speaker_id 같은 명시 필드가 현재 추출 JSON에는 없다는 점도 같이 명시했다.
 - 결과:
   - source 기반으로는 `system_message`, `location_name`, `save_menu_message`, `dialogue_or_event_script` 같은 객관적 분류표를 만들었다.
@@ -1515,7 +1515,7 @@
 - 시도:
   - 사용자가 제공한 `common / translation / review` MD `3`개를 [translation_team](/Users/user/test/docs/translation_team) 아래로 복사했다.
   - [translation_team/README.md](/Users/user/test/docs/translation_team/README.md) 를 추가해 읽는 순서, 권장 workset 시작점, 화자 정보 주의점을 정리했다.
-  - [translation_team_bundle.json](/Users/user/test/analysis/translation_workspace/translation_team_bundle.json) 에 team docs / workspace docs / 추천 작업 순서를 기계적으로 읽기 쉬운 형태로 묶었다.
+  - [translation_team_bundle.json](/Users/user/test/confirmed_data/translation_workspace/translation_team_bundle.json) 에 team docs / workspace docs / 추천 작업 순서를 기계적으로 읽기 쉬운 형태로 묶었다.
 - 결과:
   - 이제 프로젝트 안에서 번역팀 문서와 실제 추출 workset 허브가 연결되었다.
   - 나중에 번역을 시작할 때는 `translation_team_bundle.json` 또는 `translation_team/README.md` 만 보면 바로 진입 가능하다.

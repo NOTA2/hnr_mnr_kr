@@ -11,7 +11,7 @@
 ## Startup Intro
 
 - font ROM: `/Users/user/test/patched_roms/startup_intro_active/hnr_font_startup_active.gba`
-- translations: [startup_intro_texts.json](/Users/user/test/analysis/startup_intro_texts.json)
+- translations: [startup_intro_texts.json](/Users/user/test/confirmed_data/extracted_texts/startup_intro_texts.json)
 - glyph table: [prepared.tbl](/Users/user/test/analysis/startup_intro_active_workbench/prepared.tbl)
 - glyph workbench: [startup_intro_active_workbench](/Users/user/test/analysis/startup_intro_active_workbench)
 - source font: `D2Coding-Ver1.3.2-20180524.ttf`

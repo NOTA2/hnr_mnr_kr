@@ -7,21 +7,21 @@
 ### 시스템 메시지
 
 - 범위: `0x088540` ~ `0x088620`
-- 파일: [system_messages.json](/Users/user/test/analysis/system_messages.json)
+- 파일: [system_messages.json](/Users/user/test/confirmed_data/extracted_texts/system_messages.json)
 - 특징: 통신/에러 메시지
 - 포인터 예시: `0x0885F4 -> 0x088558`
 
 ### 아이템/이벤트 문자열
 
 - 범위: `0x08AEFC` ~ `0x08B400`
-- 파일: [item_texts.json](/Users/user/test/analysis/item_texts.json)
+- 파일: [item_texts.json](/Users/user/test/confirmed_data/extracted_texts/item_texts.json)
 - 특징: 이벤트 증표, 부품, 전달 아이템
 - 포인터 예시: `0x18328C -> 0x08AF70`
 
 ### 지역명
 
 - 범위: `0x18425C` ~ `0x1843F3`
-- 파일: [location_texts.json](/Users/user/test/analysis/location_texts.json)
+- 파일: [location_texts.json](/Users/user/test/confirmed_data/extracted_texts/location_texts.json)
 - 특징: 도시/맵/던전 이름
 - 포인터 예시:
   - `0x06A574 -> 0x18425C`
@@ -32,7 +32,7 @@
 ### 크레딧(타이틀) 텍스트
 
 - 범위: `0x08C3AC` ~ `0x08CE00`
-- 파일: [credits_texts.json](/Users/user/test/analysis/credits_texts.json)
+- 파일: [credits_texts.json](/Users/user/test/confirmed_data/extracted_texts/credits_texts.json)
 - 특징: 크레딧 화면에서 쓰이는 직책/회사/이름 문자열
 - 포인터 예시: `0x184E20 -> 0x08C3AC`
 
@@ -41,7 +41,7 @@
 ### 전투 기술명/설명
 
 - 범위: `0x3D2036` ~ `0x3D2557`
-- 파일: [battle_texts.json](/Users/user/test/analysis/battle_texts.json)
+- 파일: [battle_texts.json](/Users/user/test/confirmed_data/extracted_texts/battle_texts.json)
 - 특징: 기술명과 설명이 순차적인 0종단 문자열 목록으로 저장됨
 - 주의: 문자열 내부에 `0x0B` 제어 코드가 섞여 있음
 - 현재 추출 수: `104`
@@ -50,7 +50,7 @@
 ### 대형 기술/능력 텍스트 뱅크
 
 - 범위: `0x3D327E` ~ `0x3D6277`
-- 파일: [ability_texts.json](/Users/user/test/analysis/ability_texts.json)
+- 파일: [ability_texts.json](/Users/user/test/confirmed_data/extracted_texts/ability_texts.json)
 - 특징: `이름+0x0B+설명` 형태의 순차적인 0종단 문자열 목록
 - 주의: 문자열 내부에 `0x0B` 제어 코드가 섞여 있음
 - 현재 추출 수: `409`
@@ -59,7 +59,7 @@
 ### 재료/속성 텍스트
 
 - 범위: `0x3D2D60` ~ `0x3D3420`
-- 파일: [material_texts.json](/Users/user/test/analysis/material_texts.json)
+- 파일: [material_texts.json](/Users/user/test/confirmed_data/extracted_texts/material_texts.json)
 - 특징: 재료명/속성명과 설명이 결합된 문자열
 - 주의: 문자열 내부에 `0x0B` 제어 코드와 전각 공백 패딩이 섞여 있음
 - 현재 추출 수: `43`
@@ -70,7 +70,7 @@
 ### UI 기술 텍스트
 
 - 범위: `0x08B62C` ~ `0x08B809`
-- 파일: [ui_skill_texts.json](/Users/user/test/analysis/ui_skill_texts.json)
+- 파일: [ui_skill_texts.json](/Users/user/test/confirmed_data/extracted_texts/ui_skill_texts.json)
 - 특징: `0x3D2059` 계열과 일부 명칭이 겹치지만 설명 문장이 다름
 - 해석: 메뉴/UI 전용 문자열 복제본일 가능성 있음
 
@@ -83,7 +83,7 @@
 - 특징:
   - `00` 종단 평문 덩어리 형태가 아니라, 명령/파라미터 바이트 사이에 `cp932` 텍스트가 삽입된 형태로 보임
   - 문자열 종단/구분 바이트로 `0x10` 사용 사례 확인
-  - 더 정확한 작업용 추출본은 [save_menu_prefixed_texts.json](/Users/user/test/analysis/save_menu_prefixed_texts.json) 이며, `01 FF <u16 문자수>` 헤더 기준으로 `12`건을 회수했다.
+  - 더 정확한 작업용 추출본은 [save_menu_prefixed_texts.json](/Users/user/test/confirmed_data/extracted_texts/save_menu_prefixed_texts.json) 이며, `01 FF <u16 문자수>` 헤더 기준으로 `12`건을 회수했다.
 
 ### Registry D 튜토리얼/이벤트 대사
 
@@ -91,7 +91,7 @@
 - 물리 범위: `0x7F3000` ~ `0x7F96E9`
 - 파일:
   - [registry_d_full_sliding_texts.json](/Users/user/test/analysis/registry_d_full_sliding_texts.json)
-  - [translation_workset_registry_d_dialogue.json](/Users/user/test/analysis/translation_workset_registry_d_dialogue.json)
+  - [translation_workset_registry_d_dialogue.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_registry_d_dialogue.json)
 - 특징:
   - `pointer-length` Registry D 엔트리 안에 command byte 와 함께 대사가 섞여 있다.
   - `scan-text --sliding` + terminator `0x0D/0x0C/0x00` 로 현재 `305`개 문자열을 회수했다.
@@ -102,13 +102,13 @@
 
 - 범위: `0x6B594C` ~ `0x773248`
 - 파일:
-  - [registry_a_entry8_prefixed_texts.json](/Users/user/test/analysis/registry_a_entry8_prefixed_texts.json)
+  - [registry_a_entry8_prefixed_texts.json](/Users/user/test/confirmed_data/extracted_texts/registry_a_entry8_prefixed_texts.json)
   - [registry_a_entry8_cluster_summary.json](/Users/user/test/analysis/registry_a_entry8_cluster_summary.json)
   - [registry_a_entry8_terminator_10_texts.json](/Users/user/test/analysis/registry_a_entry8_terminator_10_texts.json)
   - [terminator_10_late_dialogue_hits.json](/Users/user/test/analysis/terminator_10_late_dialogue_hits.json)
 - 특징:
   - 많은 레코드가 `01 FF <u16 문자수>` 헤더 뒤에 `cp932` 본문이 오는 command-stream 구조를 가진다.
-  - 이 규칙으로 [registry_a_entry8_prefixed_texts.json](/Users/user/test/analysis/registry_a_entry8_prefixed_texts.json) `9823`건을 회수했다.
+  - 이 규칙으로 [registry_a_entry8_prefixed_texts.json](/Users/user/test/confirmed_data/extracted_texts/registry_a_entry8_prefixed_texts.json) `9823`건을 회수했다.
   - [prefixed_registry_scan_summary.json](/Users/user/test/analysis/prefixed_registry_scan_summary.json) 기준으로, 현재 상위 registry A/B/C/D 중 이 규칙이 강하게 확인된 곳은 entry `8` 하나뿐이다.
   - gap threshold `0x400` 기준 `72`개 cluster 요약을 별도 파일로 정리했다.
   - 기존 `0x10` 종단 슬라이딩 스캔은 entry 밀집 구간을 찾는 정찰용이고, 실제 작업에는 prefixed 추출본이 더 적합하다.

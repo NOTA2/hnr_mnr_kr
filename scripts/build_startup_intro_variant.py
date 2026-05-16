@@ -10,7 +10,7 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 ROM_PATH = REPO_ROOT / "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba"
-TEXTS_PATH = REPO_ROOT / "analysis" / "startup_intro_texts.json"
+TEXTS_PATH = REPO_ROOT / "confirmed_data" / "extracted_texts" / "startup_intro_texts.json"
 SEED_MANIFEST = REPO_ROOT / "analysis" / "startup_intro_seed_manifest.json"
 PATCHED_ROOT = REPO_ROOT / "patched_roms"
 ANALYSIS_ROOT = REPO_ROOT / "analysis"

@@ -8,8 +8,9 @@ import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
-ANALYSIS = REPO_ROOT / "analysis"
-WORKSPACE = ANALYSIS / "translation_workspace"
+DATA_ROOT = REPO_ROOT / "confirmed_data"
+EXTRACTED = DATA_ROOT / "extracted_texts"
+WORKSPACE = DATA_ROOT / "translation_workspace"
 OUTPUT_JSON = WORKSPACE / "all_extracted_texts_master.json"
 OUTPUT_MANIFEST = WORKSPACE / "all_extracted_texts_manifest.json"
 
@@ -32,24 +33,24 @@ SOURCES = [
 def main() -> int:
     WORKSPACE.mkdir(parents=True, exist_ok=True)
     cmd = [sys.executable, "-m", "gba_kor_tool", "build-translation-set", str(OUTPUT_JSON)]
-    cmd.extend(str(ANALYSIS / name) for name in SOURCES)
+    cmd.extend(str(EXTRACTED / name) for name in SOURCES)
     subprocess.run(cmd, cwd=REPO_ROOT, check=True)
 
     merged = json.loads(OUTPUT_JSON.read_text(encoding="utf-8"))
     manifest_sources = []
     for index, name in enumerate(SOURCES):
-        path = ANALYSIS / name
+        path = EXTRACTED / name
         records = json.loads(path.read_text(encoding="utf-8"))
         manifest_sources.append(
             {
                 "source_order": index,
-                "file": f"analysis/{name}",
+                "file": f"confirmed_data/extracted_texts/{name}",
                 "record_count": len(records),
             }
         )
 
     manifest = {
-        "output": "analysis/translation_workspace/all_extracted_texts_master.json",
+        "output": "confirmed_data/translation_workspace/all_extracted_texts_master.json",
         "record_count": len(merged),
         "source_count": len(SOURCES),
         "sources": manifest_sources,

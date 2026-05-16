@@ -15,7 +15,7 @@
 ### 시스템 메시지
 
 - 범위: `0x088540` ~ `0x088620`
-- 산출물: [system_messages.json](/Users/user/test/analysis/system_messages.json)
+- 산출물: [system_messages.json](/Users/user/test/confirmed_data/extracted_texts/system_messages.json)
 
 예시:
 
@@ -25,7 +25,7 @@
 ### 아이템/이벤트 관련 문자열
 
 - 범위: `0x08AEFC` ~ `0x08B400`
-- 산출물: [item_texts.json](/Users/user/test/analysis/item_texts.json)
+- 산출물: [item_texts.json](/Users/user/test/confirmed_data/extracted_texts/item_texts.json)
 
 예시:
 
@@ -36,7 +36,7 @@
 ### 맵/지역명 문자열
 
 - 범위: `0x184248` ~ `0x1843FF` (`10 * 0x2C` fixed-size location record)
-- 산출물: [location_texts.json](/Users/user/test/analysis/location_texts.json)
+- 산출물: [location_texts.json](/Users/user/test/confirmed_data/extracted_texts/location_texts.json)
 - 구조 산출물: [location_record_table.json](/Users/user/test/analysis/location_record_table.json)
 
 예시:
@@ -48,7 +48,7 @@
 ### 전투 기술명/설명 문자열
 
 - 범위: `0x3D2036` ~ `0x3D2557`
-- 산출물: [battle_texts.json](/Users/user/test/analysis/battle_texts.json)
+- 산출물: [battle_texts.json](/Users/user/test/confirmed_data/extracted_texts/battle_texts.json)
 - 현재 추출 수: `104`
 
 예시:
@@ -62,7 +62,7 @@
 ### 대형 기술/능력 텍스트 뱅크
 
 - 범위: `0x3D327E` ~ `0x3D6277`
-- 산출물: [ability_texts.json](/Users/user/test/analysis/ability_texts.json)
+- 산출물: [ability_texts.json](/Users/user/test/confirmed_data/extracted_texts/ability_texts.json)
 - 현재 추출 수: `409`
 
 예시:
@@ -75,7 +75,7 @@
 ### 재료/속성 텍스트 뱅크
 
 - 범위: `0x3D2D60` ~ `0x3D3420`
-- 산출물: [material_texts.json](/Users/user/test/analysis/material_texts.json)
+- 산출물: [material_texts.json](/Users/user/test/confirmed_data/extracted_texts/material_texts.json)
 - 현재 추출 수: `43`
 
 예시:
@@ -87,7 +87,7 @@
 ### UI 기술 텍스트 뱅크
 
 - 범위: `0x08B62C` ~ `0x08B809`
-- 산출물: [ui_skill_texts.json](/Users/user/test/analysis/ui_skill_texts.json)
+- 산출물: [ui_skill_texts.json](/Users/user/test/confirmed_data/extracted_texts/ui_skill_texts.json)
 
 예시:
 

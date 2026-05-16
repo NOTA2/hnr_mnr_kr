@@ -1,6 +1,6 @@
 # Analysis Guide
 
-이 폴더는 **작업 산출물 전체 보관소**지만, 이제는 `hot path` 와 `archive` 를 분리해 두었다.
+이 폴더는 **탐색/가설/실험용 분석 보관소**다. 확정된 canonical 텍스트와 번역 workspace 는 이제 [confirmed_data](/Users/user/test/confirmed_data/README.md) 아래로 분리했다.
 
 토큰을 아끼려면 이 폴더를 통째로 읽지 말고, 아래 순서만 따른다.
 
@@ -16,7 +16,7 @@
 - 뱅크/소스 요약: [text_bank_inventory.md](/Users/user/test/analysis/text_bank_inventory.md)
 - 추출 100% 판정 기준: [text_extraction_coverage.md](/Users/user/test/analysis/text_extraction_coverage.md)
 - Registry A entry `8` 장면 지도: [registry_a_entry8_cluster_overview.md](/Users/user/test/analysis/registry_a_entry8_cluster_overview.md)
-- 시작 화면 첫 QA 세트: [startup_intro_texts.json](/Users/user/test/analysis/startup_intro_texts.json)
+- 확정 추출본은 [confirmed_data/extracted_texts](/Users/user/test/confirmed_data/extracted_texts/README.md) 아래를 본다.
 
 ## Active Font
 
@@ -38,10 +38,11 @@
 ## Archive
 
 - raw disassembly / caller / helper / scratch evidence 는 [archive/README.md](/Users/user/test/analysis/archive/README.md) 아래로 내렸다.
-- 현재 루트에는 **지금도 직접 여는 요약, workbench, 적용 리포트, 주요 추출본** 만 남긴다.
+- 현재 루트에는 **지금도 직접 여는 요약, workbench, 적용 리포트, 탐색 결과** 만 남긴다.
 
 ## 운영 규칙
 
+- canonical 번역 입력 데이터가 필요하면 먼저 [confirmed_data](/Users/user/test/confirmed_data/README.md) 를 연다.
 - `.json` 대형 파일은 직접 열지 말고 필요한 키/범위만 `gba_kor_tool` 이나 짧은 조회 명령으로 본다.
 - raw evidence 가 필요할 때만 `analysis/archive/` 아래를 연다.
 - 새 세션 기본 시작점은 이 폴더가 아니라 [session_start.md](/Users/user/test/docs/session_start.md) 다.
