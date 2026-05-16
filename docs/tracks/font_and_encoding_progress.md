@@ -198,5 +198,6 @@
 - 이후 startup intro 테스트에서 일부 글자만 보이고 나머지가 빈칸처럼 사라진 증상을 다시 확인했다.
 - 원인을 점검한 결과 [hangul_core_ui_workbench](/Users/user/test/analysis/hangul_core_ui_workbench) 는 현재 `80 / 80` blank glyph 상태였고, [startup_intro_missing_workbench](/Users/user/test/analysis/startup_intro_missing_workbench) 의 보충 `8`글자만 nonzero 픽셀이 있었다.
 - 그래서 `audit-pgm-glyph-set` CLI 를 추가해, blank glyph 가 하나라도 있으면 빌드 전에 바로 잡도록 했다.
-- 또 [render_reference_font_workbench.swift](/Users/user/test/scripts/render_reference_font_workbench.swift) 를 추가해, 설치된 레퍼런스 폰트 이름 기준으로 `12x12` seed workbench 를 자동 생성할 수 있게 했다.
-- 이 경로는 최종 글리프 완성본이 아니라 **실제 폰트 기반 seed** 를 만드는 용도이며, `Galmuri` 같은 픽셀 계열이나 `Pretendard` / `Noto Sans KR` 같은 공개 폰트를 기준으로 시작하는 쪽이 훨씬 안전하다.
+- 그 뒤 Swift 경로는 핵심 흐름에서 내리고, [render_reference_font_workbench.py](/Users/user/test/scripts/render_reference_font_workbench.py) 기반 Python 경로로 바꿨다.
+- 현재 startup intro 는 [startup_intro_seed_manifest.json](/Users/user/test/analysis/startup_intro_seed_manifest.json) `14`글자를 [startup_intro_nanumsquare_workbench](/Users/user/test/analysis/startup_intro_nanumsquare_workbench) 로 렌더링해 독립 build 경로를 갖는다.
+- 이 경로는 최종 글리프 완성본이 아니라 **실제 폰트 기반 seed** 를 만드는 용도이며, 현재 시작점은 `NanumSquareR.ttf` 로 고정했다.

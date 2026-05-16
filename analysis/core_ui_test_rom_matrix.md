@@ -10,10 +10,11 @@
 
 ## Startup Intro
 
-- font ROM: `/Users/user/test/patched_roms/rebuild_check/hnr_font_core_ui_full80_plus_startup_font.gba`
+- font ROM: `/Users/user/test/patched_roms/rebuild_check/hnr_font_startup_nanumsquare_font.gba`
 - translations: [startup_intro_texts.json](/Users/user/test/analysis/startup_intro_texts.json)
-- extra glyph table: [hangul_core_ui_plus_startup.tbl](/Users/user/test/analysis/hangul_core_ui_plus_startup.tbl)
-- extra glyph workbench: [startup_intro_missing_workbench](/Users/user/test/analysis/startup_intro_missing_workbench)
+- glyph table: [prepared.tbl](/Users/user/test/analysis/startup_intro_nanumsquare_workbench/prepared.tbl)
+- glyph workbench: [startup_intro_nanumsquare_workbench](/Users/user/test/analysis/startup_intro_nanumsquare_workbench)
+- source font: `NanumSquareR.ttf`
 
 ### 기본 번역
 
@@ -128,6 +129,7 @@ zsh scripts/build_core_ui_test_roms.sh \
 - `font_expand_base.gba`
 - `hnr_font_core_ui_priority48_font.gba`
 - `hnr_font_core_ui_full80_font.gba`
+- `hnr_font_startup_nanumsquare_font.gba`
 - `hnr_core_ui_priority48_text_test.gba`
 - `hnr_core_ui_priority48_compact_text_test.gba`
 - `hnr_core_ui_full80_text_test.gba`

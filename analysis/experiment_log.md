@@ -1294,3 +1294,17 @@
   - 이제는 실제 픽셀이 없는 glyph 세트로는 test ROM 이 조용히 생성되지 않고, blank glyph 수를 먼저 알려 주게 됐다.
 - 판정: `성공`
 - 교훈: 한글 테스트에서 “아무것도 안 보임”은 코드 경로 문제일 수도 있지만, 그 전에 **glyph bitmap 존재 여부를 자동 검사** 해야 한다.
+
+### 실험 65
+
+- 가설: startup intro 는 full80 공용 세트에 묶어 둘 필요가 없다. `NanumSquareR.ttf` 기준 startup 전용 workbench 를 만들면, blank core UI 세트와 분리해서 바로 검증할 수 있다.
+- 시도:
+  - [startup_intro_texts.json](/Users/user/test/analysis/startup_intro_texts.json) 에서 [startup_intro_seed_manifest.json](/Users/user/test/analysis/startup_intro_seed_manifest.json) `14`글자를 다시 만들었다.
+  - Swift 경로 대신 [render_reference_font_workbench.py](/Users/user/test/scripts/render_reference_font_workbench.py) 를 추가하고, `/Users/user/Library/Fonts/NanumSquareR.ttf` 를 사용해 [startup_intro_nanumsquare_workbench](/Users/user/test/analysis/startup_intro_nanumsquare_workbench) 를 생성했다.
+  - 새 workbench 는 `14 / 14` nonblank glyph 상태임을 `audit-pgm-glyph-set` 로 확인했다.
+  - [build_startup_intro_test.sh](/Users/user/test/scripts/build_startup_intro_test.sh) 는 이제 full80 공용 세트 없이, startup 전용 workbench 만 append 해서 ROM 을 만든다.
+- 결과:
+  - `/Users/user/test/patched_roms/startup_nanumsquare_check/hnr_startup_intro_test.gba` 빌드가 다시 통과했고, `대륙력` / `리젠불 마을` search hit 도 유지됐다.
+  - 따라서 startup intro 는 이제 **NanumSquareR 기반 seed glyph 로 독립 검증 가능한 상태** 가 됐다.
+- 판정: `성공`
+- 교훈: 초반 검증 화면은 공용 세트와 분리한 **작은 전용 workbench** 로 닫는 편이 훨씬 안정적이다.

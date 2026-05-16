@@ -92,8 +92,9 @@
   - 여기에 더해 `slice-hangul-seed-manifest` 로 상위 빈도 subset 도 자동 분리할 수 있게 했고, 현재는 [hangul_core_ui_priority24_workbench](/Users/user/test/analysis/hangul_core_ui_priority24_workbench) 와 [hangul_core_ui_priority48_workbench](/Users/user/test/analysis/hangul_core_ui_priority48_workbench) 를 만들었다.
   - coverage 기준으로는 [hangul_core_ui_priority_plan.md](/Users/user/test/analysis/hangul_core_ui_priority_plan.md) 의 `priority48` 이 첫 실제 문자열 테스트용으로 가장 균형이 좋다. 현재 `5`개 문자열을 통째로 커버한다.
   - 다만 현재 [hangul_core_ui_workbench](/Users/user/test/analysis/hangul_core_ui_workbench) 의 다수 glyph 는 **아직 비어 있는 템플릿** 이다.
-  - 그래서 startup intro 처럼 일부만 seed glyph 가 들어간 화면은, 채워진 glyph 만 보이고 나머지는 빈칸으로 보일 수 있다.
+  - 그래서 core UI 공용 세트를 그대로 빌드하면, 일부 화면은 한글이 빈칸처럼 보일 수 있다.
   - 이제 [audit-pgm-glyph-set](/Users/user/test/gba_kor_tool/cli.py) 검사로 blank glyph 를 빌드 전에 잡도록 바꿨다.
+  - startup intro 는 [startup_intro_nanumsquare_workbench](/Users/user/test/analysis/startup_intro_nanumsquare_workbench) 기준 `NanumSquareR.ttf` seed glyph 를 쓰는 독립 경로로 전환했다.
   - 실제 batch test ROM 도 생성했다. 요약은 [core_ui_test_rom_matrix.md](/Users/user/test/analysis/core_ui_test_rom_matrix.md) 에 있고:
     - `priority48` 기본: `4 in_place`, compact: `5 in_place`
     - `full80` 기본: `15 in_place`, compact: `19 in_place`

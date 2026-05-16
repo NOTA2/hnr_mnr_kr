@@ -13,20 +13,14 @@ ALLOW_BLANK_GLYPHS="${ALLOW_BLANK_GLYPHS:-0}"
 mkdir -p "$OUTPUT_DIR"
 
 BASE_ROM="$OUTPUT_DIR/font_expand_base.gba"
-FULL80_FONT_ROM="$OUTPUT_DIR/hnr_font_core_ui_full80_font.gba"
-FULL80_PLUS_STARTUP_FONT_ROM="$OUTPUT_DIR/hnr_font_core_ui_full80_plus_startup_font.gba"
+STARTUP_FONT_ROM="$OUTPUT_DIR/hnr_font_startup_nanumsquare_font.gba"
 STARTUP_INTRO_ROM="$OUTPUT_DIR/hnr_startup_intro_test.gba"
 
 if [[ "$ALLOW_BLANK_GLYPHS" != "1" ]]; then
   python3 -m gba_kor_tool audit-pgm-glyph-set \
-    analysis/hangul_core_ui_workbench/prepared_manifest.json \
+    analysis/startup_intro_nanumsquare_workbench/prepared_manifest.json \
     --fail-on-blank \
-    --output "$OUTPUT_DIR/core_ui_full80_glyph_audit.json"
-
-  python3 -m gba_kor_tool audit-pgm-glyph-set \
-    analysis/startup_intro_missing_workbench/prepared_manifest.json \
-    --fail-on-blank \
-    --output "$OUTPUT_DIR/startup_intro_missing_glyph_audit.json"
+    --output "$OUTPUT_DIR/startup_intro_nanumsquare_glyph_audit.json"
 fi
 
 python3 -m gba_kor_tool relocate-chunk \
@@ -42,25 +36,17 @@ python3 -m gba_kor_tool relocate-chunk \
 
 python3 -m gba_kor_tool append-fnt-glyph-set \
   "$BASE_ROM" \
-  "$FULL80_FONT_ROM" \
+  "$STARTUP_FONT_ROM" \
   0x800000 \
   --payload-length 0x42000 \
-  --manifest analysis/hangul_core_ui_workbench/prepared_manifest.json \
-  --report "$OUTPUT_DIR/core_ui_full80_font_append_report.json"
-
-python3 -m gba_kor_tool append-fnt-glyph-set \
-  "$FULL80_FONT_ROM" \
-  "$FULL80_PLUS_STARTUP_FONT_ROM" \
-  0x800000 \
-  --payload-length 0x42000 \
-  --manifest analysis/startup_intro_missing_workbench/prepared_manifest.json \
-  --report "$OUTPUT_DIR/startup_intro_missing_append_report.json"
+  --manifest analysis/startup_intro_nanumsquare_workbench/prepared_manifest.json \
+  --report "$OUTPUT_DIR/startup_intro_nanumsquare_font_append_report.json"
 
 python3 -m gba_kor_tool apply-translations \
-  "$FULL80_PLUS_STARTUP_FONT_ROM" \
+  "$STARTUP_FONT_ROM" \
   analysis/startup_intro_texts.json \
   "$STARTUP_INTRO_ROM" \
-  --table analysis/hangul_core_ui_plus_startup.tbl \
+  --table analysis/startup_intro_nanumsquare_workbench/prepared.tbl \
   --encoding cp932 \
   --report "$OUTPUT_DIR/startup_intro_apply_report.json"
 
