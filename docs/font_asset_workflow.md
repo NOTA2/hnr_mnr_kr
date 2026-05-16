@@ -82,6 +82,7 @@ python3 scripts/render_reference_font_workbench.py \
   --font-path /Users/user/Library/Fonts/NanumSquareR.ttf \
   --manifest analysis/startup_intro_seed_manifest.json \
   --output-dir analysis/startup_intro_nanumsquare_workbench \
+  --y-offset 0 \
   --report analysis/startup_intro_nanumsquare_workbench_report.json
 ```
 
@@ -94,6 +95,7 @@ python3 scripts/render_reference_font_workbench.py \
 - blank glyph 가 하나라도 남아 있으면, 빌드가 되더라도 화면에서 조용히 빈칸처럼 보일 수 있다.
 - 그래서 이제는 `audit-pgm-glyph-set` 로 **비어 있는 glyph 를 먼저 잡는 것** 을 기본 절차로 둔다.
 - 현재 startup intro 기준 seed 폰트는 `NanumSquareR.ttf` 로 고정한다.
+- startup intro `NanumSquareR` seed 는 현재 `y_offset=0` 을 기준값으로 둔다. `-1` 은 실제 화면에서 1픽셀 위로 뜬 것처럼 보였다.
 - 최종 자산은 공개 라이선스 폰트를 기준으로 뽑는 편이 안전하다. 특히 `12x12` 계열에선 픽셀풍인 `Galmuri` 가 유리하고, 일반 UI 기준으론 `Pretendard`, `Noto Sans KR`, `NanumSquare` 를 seed 로 쓴 뒤 수동 보정하는 방식이 현실적이다.
 - test ROM 적용 결과와 compact 대체 문구 기준은 [core_ui_test_rom_matrix.md](/Users/user/test/analysis/core_ui_test_rom_matrix.md) 를 본다.
 - legacy placeholder glyph (`hangul_test_ga.pgm` 등) 는 더 이상 production test 기준으로 보지 않는다.

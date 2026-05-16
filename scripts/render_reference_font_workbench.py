@@ -33,7 +33,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--canvas-width", type=int, default=12)
     parser.add_argument("--canvas-height", type=int, default=12)
     parser.add_argument("--x-offset", type=int, default=0)
-    parser.add_argument("--y-offset", type=int, default=-1)
+    parser.add_argument("--y-offset", type=int, default=0)
     parser.add_argument("--report")
     return parser.parse_args()
 

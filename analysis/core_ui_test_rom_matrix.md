@@ -15,6 +15,7 @@
 - glyph table: [prepared.tbl](/Users/user/test/analysis/startup_intro_nanumsquare_workbench/prepared.tbl)
 - glyph workbench: [startup_intro_nanumsquare_workbench](/Users/user/test/analysis/startup_intro_nanumsquare_workbench)
 - source font: `NanumSquareR.ttf`
+- current seed baseline: `y_offset=0`
 
 ### 기본 번역
 

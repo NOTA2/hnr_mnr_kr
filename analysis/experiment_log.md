@@ -1308,3 +1308,18 @@
   - 따라서 startup intro 는 이제 **NanumSquareR 기반 seed glyph 로 독립 검증 가능한 상태** 가 됐다.
 - 판정: `성공`
 - 교훈: 초반 검증 화면은 공용 세트와 분리한 **작은 전용 workbench** 로 닫는 편이 훨씬 안정적이다.
+
+### 실험 66
+
+- 가설: startup intro `NanumSquareR` seed 가 화면에서 1픽셀 위로 들려 보이는 이유는 실제 baseline 이 아니라, seed 렌더링 때 `y_offset=-1` 을 준 탓일 가능성이 높다.
+- 시도:
+  - [startup_intro_nanumsquare_workbench_report.json](/Users/user/test/analysis/startup_intro_nanumsquare_workbench_report.json) 의 렌더링 설정을 다시 확인했다.
+  - 대표 glyph 들의 row occupancy 를 계산해 top row 사용과 bottom row 여백을 함께 봤다.
+  - startup intro seed 기준값을 `y_offset=0` 으로 되돌리고, 같은 manifest 로 workbench 와 test ROM 을 다시 만들었다.
+- 결과:
+  - 기존 seed 는 실제로 `y_offset=-1` 이었고, 대표 glyph 다수가 상단 행 점유가 크고 하단 2행이 비는 패턴이었다.
+  - `y_offset=0` 으로 다시 렌더링한 뒤 대표 glyph 분포는 한 줄 아래로 이동했고, [startup_intro_nanumsquare_workbench_report.json](/Users/user/test/analysis/startup_intro_nanumsquare_workbench_report.json) 도 새 기준값을 반영하게 됐다.
+  - 이어서 [build_startup_intro_test.sh](/Users/user/test/scripts/build_startup_intro_test.sh) 로 [hnr_startup_intro_test.gba](/Users/user/test/patched_roms/rebuild_check/hnr_startup_intro_test.gba) 를 다시 빌드했고, 적용 결과는 여전히 `4 in_place` 다.
+  - 따라서 이번 증상은 렌더러 버그보다 **seed baseline 설정 문제** 로 보는 편이 자연스럽다.
+- 판정: `성공`
+- 교훈: 참조 폰트 seed 는 "보인다"만으로 끝내지 말고, 실제 픽셀 분포와 화면 확대샷 기준으로 baseline 도 따로 검증해야 한다.

@@ -201,3 +201,5 @@
 - 그 뒤 Swift 경로는 핵심 흐름에서 내리고, [render_reference_font_workbench.py](/Users/user/test/scripts/render_reference_font_workbench.py) 기반 Python 경로로 바꿨다.
 - 현재 startup intro 는 [startup_intro_seed_manifest.json](/Users/user/test/analysis/startup_intro_seed_manifest.json) `14`글자를 [startup_intro_nanumsquare_workbench](/Users/user/test/analysis/startup_intro_nanumsquare_workbench) 로 렌더링해 독립 build 경로를 갖는다.
 - 이 경로는 최종 글리프 완성본이 아니라 **실제 폰트 기반 seed** 를 만드는 용도이며, 현재 시작점은 `NanumSquareR.ttf` 로 고정했다.
+- startup intro seed 의 첫 설정은 `y_offset=-1` 이었지만, 실제 확대 화면 기준으로 top row 점유가 과하고 bottom row 여백이 2줄 남아 **1픽셀 위로 들린 것처럼 보이는 상태** 였다.
+- 따라서 startup intro `NanumSquareR` seed 기준 baseline 은 현재 `y_offset=0` 으로 다시 맞췄다.
