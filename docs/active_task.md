@@ -9,6 +9,7 @@
 - startup intro / core UI 기준으로 정식 seed 폰트를 고른다.
 - 자동 렌더링 뒤 사람이 손볼 active workbench 와 비교 workflow 를 정리한다.
 - 그 다음 남은 텍스트 추출 마감과 번역 루프로 넘어간다.
+- startup intro 폰트 후보 `10`개는 `zsh scripts/build_all_startup_fonts.sh 20` 으로 한 번에 다시 빌드할 수 있다.
 
 ## 바로 필요한 사실
 

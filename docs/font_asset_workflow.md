@@ -120,7 +120,7 @@ python3 scripts/render_reference_font_workbench.py \
 후보를 여러 개 한 번에 다시 돌리고 싶을 때는:
 
 ```bash
-python3 scripts/build_startup_font_compare.py
+zsh scripts/build_all_startup_fonts.sh 20
 ```
 
 기본 후보 목록은 [startup_intro_font_compare_candidates.json](/Users/user/test/analysis/startup_intro_font_compare_candidates.json) 에 있다.
@@ -152,3 +152,21 @@ python3 scripts/build_startup_font_compare.py
 - legacy placeholder glyph (`hangul_test_ga.pgm` 등) 는 더 이상 production test 기준으로 보지 않는다.
 - 게임 시작 직후 바로 확인할 첫 QA 지점은 [startup_intro_texts.json](/Users/user/test/analysis/startup_intro_texts.json) / `/Users/user/test/patched_roms/startup_intro_active/hnr_startup_intro_test.gba` 쪽이다.
 - 시작 화면만 빠르게 다시 만들려면 [build_startup_intro_test.sh](/Users/user/test/scripts/build_startup_intro_test.sh) 를 먼저 쓴다.
+
+## 현재 Batch 기준
+
+- 한 번에 돌리는 기본 후보는 `10`개다.
+- `D2Coding`
+- `AppleSDGothicNeo`
+- `Galmuri11`
+- `NeoDGM`
+- `NanumSquareR`
+- `NanumSquareB`
+- `NanumSquareEB`
+- `NanumSquareL`
+- `SourceHanSansKR`
+- `SourceHanMonoKR`
+- 가장 간단한 실행은 `zsh scripts/build_all_startup_fonts.sh 20`
+- 위 `20` 은 하위 `20%` 컷이다.
+- 결과 ROM 은 `/Users/user/test/patched_roms/font_compare/p20/` 아래에 글꼴별 1개씩 생성된다.
+- 비교 시트와 요약도 같은 폴더에 함께 생성된다.
