@@ -30,21 +30,28 @@
 
 이 화면은 게임 시작 직후 바로 보여서, 현재 **가장 빠른 첫 시각 QA 지점** 으로 추천한다.
 
+고정 확인 오프셋:
+
+- `0x703D70` -> `대륙력`
+- `0x703D7E` -> `1910년 2월`
+- `0x703D94` -> `리젠불 마을`
+- `0x703DAC` -> `형 11세    동생 10세`
+
 ## Priority48
 
-- font ROM: `/private/tmp/hnr_font_core_ui_priority48_font.gba`
+- font ROM: `/private/tmp/hnr_rebuild_check/hnr_font_core_ui_priority48_font.gba`
 - coverable translations: [core_ui_priority48_coverable_translations.json](/Users/user/test/analysis/core_ui_priority48_coverable_translations.json)
 - table: [prepared.tbl](/Users/user/test/analysis/hangul_core_ui_priority48_workbench/prepared.tbl)
 
 ### 기본 번역
 
-- output ROM: `/private/tmp/hnr_core_ui_priority48_text_test.gba`
+- output ROM: `/private/tmp/hnr_rebuild_check/hnr_core_ui_priority48_text_test.gba`
 - report: [core_ui_priority48_apply_report.json](/Users/user/test/analysis/core_ui_priority48_apply_report.json)
 - 결과: `4 in_place`, `1 skipped_no_pointer`
 
 ### compact 번역
 
-- output ROM: `/private/tmp/hnr_core_ui_priority48_compact_text_test.gba`
+- output ROM: `/private/tmp/hnr_rebuild_check/hnr_core_ui_priority48_compact_text_test.gba`
 - translations: [core_ui_priority48_compact_test_translations.json](/Users/user/test/analysis/core_ui_priority48_compact_test_translations.json)
 - report: [core_ui_priority48_compact_apply_report.json](/Users/user/test/analysis/core_ui_priority48_compact_apply_report.json)
 - 결과: `5 in_place`
@@ -59,13 +66,13 @@
 
 ## Full80
 
-- font ROM: `/private/tmp/hnr_font_core_ui_full80_font.gba`
+- font ROM: `/private/tmp/hnr_rebuild_check/hnr_font_core_ui_full80_font.gba`
 - coverable translations: [core_ui_full80_coverable_translations.json](/Users/user/test/analysis/core_ui_full80_coverable_translations.json)
 - table: [prepared.tbl](/Users/user/test/analysis/hangul_core_ui_workbench/prepared.tbl)
 
 ### 기본 번역
 
-- output ROM: `/private/tmp/hnr_core_ui_full80_text_test.gba`
+- output ROM: `/private/tmp/hnr_rebuild_check/hnr_core_ui_full80_text_test.gba`
 - report: [core_ui_full80_apply_report.json](/Users/user/test/analysis/core_ui_full80_apply_report.json)
 - 결과: `15 in_place`, `4 skipped_no_pointer`
 
@@ -80,7 +87,7 @@ skip 원인:
 
 ### compact 번역
 
-- output ROM: `/private/tmp/hnr_core_ui_full80_compact_text_test.gba`
+- output ROM: `/private/tmp/hnr_rebuild_check/hnr_core_ui_full80_compact_text_test.gba`
 - translations: [core_ui_full80_compact_test_translations.json](/Users/user/test/analysis/core_ui_full80_compact_test_translations.json)
 - report: [core_ui_full80_compact_apply_report.json](/Users/user/test/analysis/core_ui_full80_compact_apply_report.json)
 - 결과: `19 in_place`
@@ -96,7 +103,19 @@ compact 대체 예:
 
 첫 실제 시각 QA는 `startup intro` 또는 `priority48 compact` ROM 기준으로 진행하는 편이 가장 안전하다.
 
+가장 빠른 확인은 `startup intro` 다. 별도 메뉴 진입 없이 게임 시작 직후 바로 본다.
+
 ## 재생성
+
+시작 화면만 빠르게 다시 만들 때:
+
+```bash
+zsh scripts/build_startup_intro_test.sh \
+  "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
+  /private/tmp/hnr_rebuild_check
+```
+
+전체 matrix 를 한 번에 다시 만들 때:
 
 ```bash
 zsh scripts/build_core_ui_test_roms.sh \

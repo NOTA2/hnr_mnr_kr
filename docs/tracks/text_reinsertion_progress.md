@@ -64,3 +64,4 @@
 - `full80` 기본 번역 ROM `/private/tmp/hnr_core_ui_full80_text_test.gba` 는 `15 in_place, 4 skipped_no_pointer`, compact ROM `/private/tmp/hnr_core_ui_full80_compact_text_test.gba` 는 `19 in_place` 까지 확인했다
 - 이어서 시작 화면 전용 문자열 `4`건도 [startup_intro_texts.json](/Users/user/test/analysis/startup_intro_texts.json) 으로 분리했고, 부족한 `8`글자를 보충한 뒤 `/private/tmp/hnr_rebuild_check/hnr_startup_intro_test.gba` 에 `4 in_place` 까지 확인했다
 - 요약 표는 [core_ui_test_rom_matrix.md](/Users/user/test/analysis/core_ui_test_rom_matrix.md) 에 정리했다
+- 이후 반복 검증을 쉽게 하려고, 시작 화면만 빠르게 다시 만드는 [build_startup_intro_test.sh](/Users/user/test/scripts/build_startup_intro_test.sh) 도 추가했다

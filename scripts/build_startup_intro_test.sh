@@ -1,0 +1,54 @@
+#!/bin/zsh
+set -euo pipefail
+
+if [[ $# -lt 2 ]]; then
+  echo "usage: $0 <source-rom> <output-dir>" >&2
+  exit 1
+fi
+
+SOURCE_ROM="$1"
+OUTPUT_DIR="$2"
+
+mkdir -p "$OUTPUT_DIR"
+
+BASE_ROM="$OUTPUT_DIR/font_expand_base.gba"
+FULL80_FONT_ROM="$OUTPUT_DIR/hnr_font_core_ui_full80_font.gba"
+FULL80_PLUS_STARTUP_FONT_ROM="$OUTPUT_DIR/hnr_font_core_ui_full80_plus_startup_font.gba"
+STARTUP_INTRO_ROM="$OUTPUT_DIR/hnr_startup_intro_test.gba"
+
+python3 -m gba_kor_tool relocate-chunk \
+  "$SOURCE_ROM" \
+  "$BASE_ROM" \
+  --table 0x17C2F4 \
+  --index 0 \
+  --layout pointer-length \
+  --new-length 0x42000 \
+  --destination-offset 0x800000 \
+  --mirror-table 0x1823A0 \
+  --report "$OUTPUT_DIR/font_expand_base_report.json"
+
+python3 -m gba_kor_tool append-fnt-glyph-set \
+  "$BASE_ROM" \
+  "$FULL80_FONT_ROM" \
+  0x800000 \
+  --payload-length 0x42000 \
+  --manifest analysis/hangul_core_ui_workbench/prepared_manifest.json \
+  --report "$OUTPUT_DIR/core_ui_full80_font_append_report.json"
+
+python3 -m gba_kor_tool append-fnt-glyph-set \
+  "$FULL80_FONT_ROM" \
+  "$FULL80_PLUS_STARTUP_FONT_ROM" \
+  0x800000 \
+  --payload-length 0x42000 \
+  --manifest analysis/startup_intro_missing_workbench/prepared_manifest.json \
+  --report "$OUTPUT_DIR/startup_intro_missing_append_report.json"
+
+python3 -m gba_kor_tool apply-translations \
+  "$FULL80_PLUS_STARTUP_FONT_ROM" \
+  analysis/startup_intro_texts.json \
+  "$STARTUP_INTRO_ROM" \
+  --table analysis/hangul_core_ui_plus_startup.tbl \
+  --encoding cp932 \
+  --report "$OUTPUT_DIR/startup_intro_apply_report.json"
+
+echo "built: $STARTUP_INTRO_ROM"

@@ -1243,3 +1243,16 @@
   - 따라서 이제 첫 시각 QA 는 `priority48 compact` 보다도 **시작 화면 intro test ROM** 을 우선 기준으로 잡을 수 있다.
 - 판정: `성공`
 - 교훈: 테스트 지점은 기술적으로 다루기 쉬운 곳보다 **사용자가 바로 접근할 수 있는 화면** 을 우선하는 편이 훨씬 효율적이다. 앞으로 초기 QA 기준점은 시작 화면 intro 를 최우선으로 둔다.
+
+### 실험 61
+
+- 가설: 시작 화면 intro 를 첫 QA 기준으로 쓰려면, core UI 전체 matrix 를 다시 만드는 큰 스크립트 말고 **intro 전용 재생성 경로** 가 따로 있어야 반복 검증이 빨라진다.
+- 시도:
+  - [build_startup_intro_test.sh](/Users/user/test/scripts/build_startup_intro_test.sh) 를 추가해, `font_expand_base -> full80 font append -> startup 보충 glyph append -> startup intro apply` 만 수행하도록 분리했다.
+  - [core_ui_test_rom_matrix.md](/Users/user/test/analysis/core_ui_test_rom_matrix.md) 에 startup intro 의 고정 확인 오프셋 `0x703D70, 0x703D7E, 0x703D94, 0x703DAC` 와 새 재생성 명령을 적었다.
+  - [active_task.md](/Users/user/test/docs/active_task.md), [text_reinsertion_progress.md](/Users/user/test/docs/tracks/text_reinsertion_progress.md), [font_asset_workflow.md](/Users/user/test/docs/font_asset_workflow.md) 도 같은 기준으로 맞췄다.
+- 결과:
+  - 앞으로는 시작 화면 QA 를 위해 불필요한 다른 테스트 ROM 들까지 다시 만들 필요가 없어졌다.
+  - startup intro 는 이제 "가장 먼저 보기 좋은 테스트 지점"을 넘어서, **전용 재생성 경로가 있는 1차 QA 기준선** 이 됐다.
+- 판정: `성공`
+- 교훈: 실제 검수에서 자주 보는 화면은, 데이터보다 **재생성 절차가 짧은 전용 루프** 를 먼저 만들어 두는 편이 훨씬 효율적이다.

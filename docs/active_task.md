@@ -96,6 +96,8 @@
     - `full80` 기본: `15 in_place`, compact: `19 in_place`
     - `startup intro`: `4 in_place`
   - 현재 가장 바로 시각 QA 하기에 좋은 대상은 `/private/tmp/hnr_rebuild_check/hnr_startup_intro_test.gba` 다. 게임 시작 직후 바로 확인할 수 있다.
+  - startup intro 확인 anchor 는 `0x703D70, 0x703D7E, 0x703D94, 0x703DAC` 네 곳이다.
+  - 시작 화면만 빠르게 다시 만들고 싶을 때는 [build_startup_intro_test.sh](/Users/user/test/scripts/build_startup_intro_test.sh) 를 우선 쓴다.
   - 위 ROM 들은 `/private/tmp` 정리 후 사라질 수 있으므로, 기준 재생성 경로는 [build_core_ui_test_roms.sh](/Users/user/test/scripts/build_core_ui_test_roms.sh) 다.
   - 스크린샷에서 보인 이상한 `가` 는 legacy placeholder test (`hangul_test_ga.pgm`) 계열로 보고, 현재 production test 기준에서는 제외한다.
   - 반대로 `full80` 기본 번역에서 남은 `4 skipped_no_pointer` 는 save/menu command-stream 쪽 간접 참조 구조가 아직 닫히지 않았다는 뜻이므로, 이후 inject/repoint 연구 대상으로 따로 본다.
