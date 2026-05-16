@@ -143,6 +143,8 @@
   - 작업 단위 분할용 gap-cluster 지도는 [registry_a_entry8_cluster_summary.json](/Users/user/test/analysis/registry_a_entry8_cluster_summary.json) 에 있으며, threshold `0x400` 기준 `72`개 클러스터다.
   - 이제는 [registry_a_entry8_cluster_catalog.json](/Users/user/test/analysis/registry_a_entry8_cluster_catalog.json) / [registry_a_entry8_cluster_catalog.md](/Users/user/test/analysis/registry_a_entry8_cluster_catalog.md) 로 각 cluster 에 `primary_tag`, `tags`, `sample_texts` 까지 붙은 상세 작업 지도를 생성할 수 있다.
   - 사람이 빠르게 보는 요약은 [registry_a_entry8_cluster_overview.md](/Users/user/test/analysis/registry_a_entry8_cluster_overview.md) 에 두었다.
+  - 또 [build_entry8_cluster_worksets.py](/Users/user/test/scripts/build_entry8_cluster_worksets.py) 로 entry `8` 추출본을 [registry_a_entry8_clusters](/Users/user/test/analysis/translation_workspace/registry_a_entry8_clusters) 아래 `72`개 번역 workset 으로 자동 분할할 수 있다.
+  - 상위 인덱스는 [registry_a_entry8_clusters_manifest.json](/Users/user/test/analysis/translation_workspace/registry_a_entry8_clusters_manifest.json) 이며, `primary_tag` 기준 파일 목록도 함께 제공한다.
   - cluster `71` 은 자동 태그만 보면 `save_menu` 로 보이지만, 실제로는 일반 이벤트/진행 힌트 `228`건과 save/menu `12`건이 섞인 mixed hub 다.
   - [registry_a_entry8_cluster71_save_segment_texts.json](/Users/user/test/analysis/registry_a_entry8_cluster71_save_segment_texts.json) 은 [save_menu_prefixed_texts.json](/Users/user/test/analysis/save_menu_prefixed_texts.json) 과 정확히 일치하므로, save/menu 블록의 source 경계는 사실상 정리된 상태다.
   - 기존 `0x10` terminator 슬라이딩 스캔은 `1200`건에서 limit 에 걸렸고, entry 8 발견 및 밀집 구간 확인용 정찰 데이터로 유지한다.
@@ -198,6 +200,7 @@
 - Registry D 분석으로 본편성 대사/튜토리얼 텍스트가 대량으로 추가 확보되었고, 남은 미해결 엔트리도 대부분 비대사 control stub 로 좁혀졌다.
 - Registry D 는 슬라이딩 스캔만으로 끝나는 구간이 아니라, `FC 00 ... FC` anchor 규칙을 쓰는 mixed-format 스크립트 자원이라는 점이 더 분명해졌다.
 - Registry A entry 8 분석으로 `0x10` 종단 command-stream 대사 bank 가 훨씬 크게 존재한다는 근거가 생겼고, 지금은 `01 FF <문자수>` 헤더 기반으로 clean extraction 이 가능해졌다.
+- 추가로 entry `8` 은 이제 clean extraction 에서 한 걸음 더 나아가, **번역/검수 시작이 가능한 cluster 단위 작업 세트** 까지 자동 생성할 수 있게 됐다.
 - Registry A tail 쪽에서도 entry `12` 처럼 실제 gameplay/item 텍스트 source 가 따로 보이므로, 추출 완료 판정은 상위 registry entry inventory 기준으로 해야 한다.
 - [translation_workset_gameplay_terms.json](/Users/user/test/analysis/translation_workset_gameplay_terms.json) 도 entry `12` 의 신규 `6`건을 포함하도록 갱신되었다.
 - Registry A entry `8` 은 이제 단순히 "큰 bank"가 아니라, cluster catalog 기준으로 장면/용도별 접근이 가능한 상태가 되었다.
@@ -211,7 +214,7 @@
 ## 다음 할 일
 
 1. Registry A entry `8` 의 `72`개 cluster 요약에 장면/용도 라벨을 더 붙이기
-현재는 자동 태그와 overview, cluster `71` save/menu 분리까지 확보됨. 다음은 수동 정밀 라벨링.
+현재는 자동 태그와 overview, cluster `71` save/menu 분리, cluster별 번역 workset 생성까지 확보됨. 다음은 수동 정밀 라벨링.
 2. 실제 플레이 검증 전까지는 coverage inventory 를 유지하되, 새 source 징후가 보일 때만 다시 상위 구조 분석을 연다.
 3. 폰트/문자 매핑 및 더 긴 한글 재삽입 테스트 확장을 계속 진행한다.
 

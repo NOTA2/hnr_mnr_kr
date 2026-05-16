@@ -1,0 +1,200 @@
+[
+  {
+    "header_offset": 7387966,
+    "header_rom_address": 141605694,
+    "offset": 7387970,
+    "rom_address": 141605698,
+    "prefix": "01 FF",
+    "char_count": 7,
+    "byte_length": 14,
+    "header_bytes": "01 ff 07 00",
+    "before_bytes": "00 00 06 ff 00 80 06 00 07 ff 00 80",
+    "after_bytes": "04 ff 01 ff 09 00 94 91 82 dc 82 c1",
+    "text": "いらっしゃい。",
+    "translation": "",
+    "notes": "",
+    "source_file": "registry_a_entry8_prefixed_texts.json",
+    "source_group": "registry_a_entry8_prefixed_texts",
+    "cluster_index": 33,
+    "cluster_primary_tag": "shop_npc",
+    "cluster_tags": [
+      "shop_npc"
+    ]
+  },
+  {
+    "header_offset": 7387986,
+    "header_rom_address": 141605714,
+    "offset": 7387990,
+    "rom_address": 141605718,
+    "prefix": "01 FF",
+    "char_count": 9,
+    "byte_length": 18,
+    "header_bytes": "01 ff 09 00",
+    "before_bytes": "82 c1 82 b5 82 e1 82 a2 81 42 04 ff",
+    "after_bytes": "0d ff 02 ff 01 ff 0c 00 88 ea 94 91",
+    "text": "泊まっていくかい？",
+    "translation": "",
+    "notes": "",
+    "source_file": "registry_a_entry8_prefixed_texts.json",
+    "source_group": "registry_a_entry8_prefixed_texts",
+    "cluster_index": 33,
+    "cluster_primary_tag": "shop_npc",
+    "cluster_tags": [
+      "shop_npc"
+    ]
+  },
+  {
+    "header_offset": 7388012,
+    "header_rom_address": 141605740,
+    "offset": 7388016,
+    "rom_address": 141605744,
+    "prefix": "01 FF",
+    "char_count": 12,
+    "byte_length": 24,
+    "header_bytes": "01 ff 0c 00",
+    "before_bytes": "82 ad 82 a9 82 a2 81 48 0d ff 02 ff",
+    "after_bytes": "04 ff 14 ff 08 80 82 00 92 01 00 00",
+    "text": "一泊、２００センズだよ。",
+    "translation": "",
+    "notes": "",
+    "source_file": "registry_a_entry8_prefixed_texts.json",
+    "source_group": "registry_a_entry8_prefixed_texts",
+    "cluster_index": 33,
+    "cluster_primary_tag": "shop_npc",
+    "cluster_tags": [
+      "shop_npc"
+    ]
+  },
+  {
+    "header_offset": 7388110,
+    "header_rom_address": 141605838,
+    "offset": 7388114,
+    "rom_address": 141605842,
+    "prefix": "01 FF",
+    "char_count": 8,
+    "byte_length": 16,
+    "header_bytes": "01 ff 08 00",
+    "before_bytes": "02 14 00 00 b8 00 00 00 02 00 00 00",
+    "after_bytes": "0d ff 07 ff 00 80 22 ff 00 00 13 ff",
+    "text": "お金が足りないよ",
+    "translation": "",
+    "notes": "",
+    "source_file": "registry_a_entry8_prefixed_texts.json",
+    "source_group": "registry_a_entry8_prefixed_texts",
+    "cluster_index": 33,
+    "cluster_primary_tag": "shop_npc",
+    "cluster_tags": [
+      "shop_npc"
+    ]
+  },
+  {
+    "header_offset": 7388154,
+    "header_rom_address": 141605882,
+    "offset": 7388158,
+    "rom_address": 141605886,
+    "prefix": "01 FF",
+    "char_count": 4,
+    "byte_length": 8,
+    "header_bytes": "01 ff 04 00",
+    "before_bytes": "8c 00 1f ff 02 10 00 00 02 00 00 00",
+    "after_bytes": "04 ff 01 ff 0b 00 82 e4 82 c1 82 ad",
+    "text": "はいよ。",
+    "translation": "",
+    "notes": "",
+    "source_file": "registry_a_entry8_prefixed_texts.json",
+    "source_group": "registry_a_entry8_prefixed_texts",
+    "cluster_index": 33,
+    "cluster_primary_tag": "shop_npc",
+    "cluster_tags": [
+      "shop_npc"
+    ]
+  },
+  {
+    "header_offset": 7388168,
+    "header_rom_address": 141605896,
+    "offset": 7388172,
+    "rom_address": 141605900,
+    "prefix": "01 FF",
+    "char_count": 11,
+    "byte_length": 22,
+    "header_bytes": "01 ff 0b 00",
+    "before_bytes": "04 00 82 cd 82 a2 82 e6 81 42 04 ff",
+    "after_bytes": "05 ff 1e 00 1a ff 07 1e 00 00 2d ff",
+    "text": "ゆっくり休んでいきな…",
+    "translation": "",
+    "notes": "",
+    "source_file": "registry_a_entry8_prefixed_texts.json",
+    "source_group": "registry_a_entry8_prefixed_texts",
+    "cluster_index": 33,
+    "cluster_primary_tag": "shop_npc",
+    "cluster_tags": [
+      "shop_npc"
+    ]
+  },
+  {
+    "header_offset": 7388328,
+    "header_rom_address": 141606056,
+    "offset": 7388332,
+    "rom_address": 141606060,
+    "prefix": "01 FF",
+    "char_count": 8,
+    "byte_length": 16,
+    "header_bytes": "01 ff 08 00",
+    "before_bytes": "1e 00 06 ff 00 80 06 00 07 ff 00 80",
+    "after_bytes": "0d ff 07 ff 00 00 22 ff 00 00 16 ff",
+    "text": "また、きておくれ",
+    "translation": "",
+    "notes": "",
+    "source_file": "registry_a_entry8_prefixed_texts.json",
+    "source_group": "registry_a_entry8_prefixed_texts",
+    "cluster_index": 33,
+    "cluster_primary_tag": "shop_npc",
+    "cluster_tags": [
+      "shop_npc"
+    ]
+  },
+  {
+    "header_offset": 7388368,
+    "header_rom_address": 141606096,
+    "offset": 7388372,
+    "rom_address": 141606100,
+    "prefix": "01 FF",
+    "char_count": 5,
+    "byte_length": 10,
+    "header_bytes": "01 ff 05 00",
+    "before_bytes": "00 00 16 ff 56 00 2d ff 28 00 02 ff",
+    "after_bytes": "04 ff 01 ff 08 00 82 dc 82 bd 81 41",
+    "text": "そうかい？",
+    "translation": "",
+    "notes": "",
+    "source_file": "registry_a_entry8_prefixed_texts.json",
+    "source_group": "registry_a_entry8_prefixed_texts",
+    "cluster_index": 33,
+    "cluster_primary_tag": "shop_npc",
+    "cluster_tags": [
+      "shop_npc"
+    ]
+  },
+  {
+    "header_offset": 7388384,
+    "header_rom_address": 141606112,
+    "offset": 7388388,
+    "rom_address": 141606116,
+    "prefix": "01 FF",
+    "char_count": 8,
+    "byte_length": 16,
+    "header_bytes": "01 ff 08 00",
+    "before_bytes": "82 bb 82 a4 82 a9 82 a2 81 48 04 ff",
+    "after_bytes": "0d ff 07 ff 00 00 22 ff 00 00 19 ff",
+    "text": "また、きておくれ",
+    "translation": "",
+    "notes": "",
+    "source_file": "registry_a_entry8_prefixed_texts.json",
+    "source_group": "registry_a_entry8_prefixed_texts",
+    "cluster_index": 33,
+    "cluster_primary_tag": "shop_npc",
+    "cluster_tags": [
+      "shop_npc"
+    ]
+  }
+]

@@ -1456,3 +1456,16 @@
   - active startup intro workbench 를 열었을 때는 PGM 저장 직후 [hnr_startup_intro_test.gba](/Users/user/test/patched_roms/startup_intro_active/hnr_startup_intro_test.gba) 를 같은 브라우저 루프 안에서 다시 만들 수 있게 됐다.
 - 판정: `성공`
 - 교훈: startup intro 같은 짧은 QA 루프는 “glyph 수정”과 “실제 ROM 확인”을 붙여야 생산성이 오른다.
+
+### 실험 77
+
+- 가설: 폰트가 아직 확정되지 않았더라도, Registry A entry `8` 의 대형 대사 뱅크를 cluster별 번역 workset 으로 먼저 쪼개 두면 이후 번역/검수 루프에 바로 들어갈 수 있다.
+- 시도:
+  - [build_entry8_cluster_worksets.py](/Users/user/test/scripts/build_entry8_cluster_worksets.py) 를 추가했다.
+  - [registry_a_entry8_prefixed_texts.json](/Users/user/test/analysis/registry_a_entry8_prefixed_texts.json) 과 [registry_a_entry8_cluster_catalog.json](/Users/user/test/analysis/registry_a_entry8_cluster_catalog.json) 을 입력으로 받아, [registry_a_entry8_clusters](/Users/user/test/analysis/translation_workspace/registry_a_entry8_clusters) 아래 cluster별 번역 JSON을 생성하게 했다.
+  - 상위 인덱스 [registry_a_entry8_clusters_manifest.json](/Users/user/test/analysis/translation_workspace/registry_a_entry8_clusters_manifest.json) 에 `record_count`, `primary_tag`, `sample_texts`, output file 경로를 함께 기록했다.
+- 결과:
+  - entry `8` 대형 bank 가 `72`개 cluster 번역 workset 으로 분리되었다.
+  - 이제 이후 번역은 `entry8 전체 9823건` 을 한 번에 보는 대신, `cluster_00_liore.json` 같은 작은 단위로 바로 시작할 수 있다.
+- 판정: `성공`
+- 교훈: 추출이 충분히 진행된 뒤에는 새 source 를 더 찾는 것보다, **번역자가 실제로 잡을 수 있는 작업 단위로 재구성하는 것** 이 더 큰 진전이다.

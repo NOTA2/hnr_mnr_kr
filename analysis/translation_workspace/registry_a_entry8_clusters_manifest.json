@@ -1,0 +1,1818 @@
+{
+  "source": "analysis/registry_a_entry8_prefixed_texts.json",
+  "catalog": "analysis/registry_a_entry8_cluster_catalog.json",
+  "cluster_count": 72,
+  "output_dir": "analysis/translation_workspace/registry_a_entry8_clusters",
+  "clusters": [
+    {
+      "cluster_index": 0,
+      "primary_tag": "liore",
+      "tags": [
+        "liore",
+        "central",
+        "cat_quest",
+        "military",
+        "reward",
+        "travel_blocked",
+        "tutorial",
+        "debug_or_script"
+      ],
+      "record_count": 232,
+      "range": {
+        "start_offset": 7043638,
+        "end_offset_exclusive": 7056652
+      },
+      "first_text": "医者になりたいんだけど、",
+      "last_text": "カギが閉まってて入れないな…",
+      "sample_texts": [
+        "医者になりたいんだけど、",
+        "どうやったらなれるのかな？",
+        "腹へったぁ…",
+        "のど渇いたぁ…"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_00_liore.json"
+    },
+    {
+      "cluster_index": 1,
+      "primary_tag": "liore",
+      "tags": [
+        "liore",
+        "military",
+        "shop_npc",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "record_count": 122,
+      "range": {
+        "start_offset": 7063434,
+        "end_offset_exclusive": 7070012
+      },
+      "first_text": "兄さん、",
+      "last_text": "この動きについてこれて？",
+      "sample_texts": [
+        "兄さん、",
+        "コーネロに会わなくていいの？",
+        "コーネロを追いかけなきゃ！",
+        "こんにちは、教会へようこそ。"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_01_liore.json"
+    },
+    {
+      "cluster_index": 2,
+      "primary_tag": "liore",
+      "tags": [
+        "liore",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "record_count": 45,
+      "range": {
+        "start_offset": 7072642,
+        "end_offset_exclusive": 7074612
+      },
+      "first_text": "ごていねいにお出迎えかよ",
+      "last_text": "コーネロを追いかけないの？",
+      "sample_texts": [
+        "ごていねいにお出迎えかよ",
+        "丸腰でこの人数を相手に",
+        "戦うつもりですか？",
+        "ケガしないうちに"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_02_liore.json"
+    },
+    {
+      "cluster_index": 3,
+      "primary_tag": "liore",
+      "tags": [
+        "liore",
+        "battle_dialogue"
+      ],
+      "record_count": 53,
+      "range": {
+        "start_offset": 7076882,
+        "end_offset_exclusive": 7079064
+      },
+      "first_text": "あんたの嘘は",
+      "last_text": "見つかったと思ったのになぁ…",
+      "sample_texts": [
+        "あんたの嘘は",
+        "すぐに街中に広まる。",
+        "あきらめろよ",
+        "なにを言うか。"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_03_liore.json"
+    },
+    {
+      "cluster_index": 4,
+      "primary_tag": "bank",
+      "tags": [
+        "bank",
+        "military",
+        "travel_blocked",
+        "tutorial"
+      ],
+      "record_count": 119,
+      "range": {
+        "start_offset": 7086198,
+        "end_offset_exclusive": 7092964
+      },
+      "first_text": "この街にキメラ錬成の犯人が",
+      "last_text": "カギが閉まってて入れないな…",
+      "sample_texts": [
+        "この街にキメラ錬成の犯人が",
+        "いるかもしれないんだな。",
+        "油断しないでいこう",
+        "まずは街の人から怪しい人物が"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_04_bank.json"
+    },
+    {
+      "cluster_index": 5,
+      "primary_tag": "east_city",
+      "tags": [
+        "east_city",
+        "bank",
+        "military",
+        "shop_npc"
+      ],
+      "record_count": 84,
+      "range": {
+        "start_offset": 7094796,
+        "end_offset_exclusive": 7098482
+      },
+      "first_text": "お預け入れですか？",
+      "last_text": "ありがとうございます",
+      "sample_texts": [
+        "お預け入れですか？",
+        "それともご融資とか。",
+        "…そんなわけありませんよね",
+        "いらっしゃいませ"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_05_east_city.json"
+    },
+    {
+      "cluster_index": 6,
+      "primary_tag": "bank",
+      "tags": [
+        "bank",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "record_count": 64,
+      "range": {
+        "start_offset": 7106440,
+        "end_offset_exclusive": 7110778
+      },
+      "first_text": "あなたが銀行強盗さんですね？",
+      "last_text": "ウィンリィのところに戻るか",
+      "sample_texts": [
+        "あなたが銀行強盗さんですね？",
+        "盗んだものを返してください",
+        "あ、すみません。",
+        "返しますね～"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_06_bank.json"
+    },
+    {
+      "cluster_index": 7,
+      "primary_tag": "east_city",
+      "tags": [
+        "east_city",
+        "cat_quest",
+        "military",
+        "reward",
+        "travel_blocked",
+        "debug_or_script"
+      ],
+      "record_count": 63,
+      "range": {
+        "start_offset": 7114934,
+        "end_offset_exclusive": 7118636
+      },
+      "first_text": "猫ゲ～ット♪",
+      "last_text": "ここでイーストシティの軍施設に強制移動",
+      "sample_texts": [
+        "猫ゲ～ット♪",
+        "回復薬５を手に入れた",
+        "カギが閉まってて入れないな…",
+        "ここがソリン村か"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_07_east_city.json"
+    },
+    {
+      "cluster_index": 8,
+      "primary_tag": "cat_quest",
+      "tags": [
+        "cat_quest",
+        "military",
+        "shop_npc",
+        "tutorial"
+      ],
+      "record_count": 84,
+      "range": {
+        "start_offset": 7120542,
+        "end_offset_exclusive": 7123888
+      },
+      "first_text": "ああ、また悪さをしに",
+      "last_text": "寄っておくれ",
+      "sample_texts": [
+        "ああ、また悪さをしに",
+        "来たんじゃな…",
+        "勘弁して下され",
+        "じいさん。オレたちは"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_08_cat_quest.json"
+    },
+    {
+      "cluster_index": 9,
+      "primary_tag": "reward",
+      "tags": [
+        "reward",
+        "tutorial",
+        "debug_or_script"
+      ],
+      "record_count": 155,
+      "range": {
+        "start_offset": 7131678,
+        "end_offset_exclusive": 7140374
+      },
+      "first_text": "兄さん、",
+      "last_text": "ぶんきミス",
+      "sample_texts": [
+        "兄さん、",
+        "いま、崖の上の方に",
+        "誰かいなかった？",
+        "気のせいじゃないか？"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_09_reward.json"
+    },
+    {
+      "cluster_index": 10,
+      "primary_tag": "east_city",
+      "tags": [
+        "east_city",
+        "bank",
+        "military",
+        "reward",
+        "travel_blocked",
+        "shop_npc",
+        "tutorial"
+      ],
+      "record_count": 135,
+      "range": {
+        "start_offset": 7147556,
+        "end_offset_exclusive": 7157778
+      },
+      "first_text": "この街に何かご用でも",
+      "last_text": "回復薬３を手に入れた",
+      "sample_texts": [
+        "この街に何かご用でも",
+        "あるの？",
+        "さっきの列車強盗と",
+        "キメラの件をすぐにでも"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_10_east_city.json"
+    },
+    {
+      "cluster_index": 11,
+      "primary_tag": "central",
+      "tags": [
+        "central",
+        "east_city",
+        "hospital",
+        "cat_quest",
+        "military",
+        "elicia",
+        "armor_parts",
+        "travel_blocked",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "record_count": 258,
+      "range": {
+        "start_offset": 7164810,
+        "end_offset_exclusive": 7177316
+      },
+      "first_text": "相手は子供だ。",
+      "last_text": "いないなぁ、エリシアちゃん",
+      "sample_texts": [
+        "相手は子供だ。",
+        "遠くには行ってないだろ。",
+        "きっとこの区画にいるはずだ",
+        "遠くへは行ってないだろ。"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_11_central.json"
+    },
+    {
+      "cluster_index": 12,
+      "primary_tag": "cat_quest",
+      "tags": [
+        "cat_quest",
+        "shop_npc"
+      ],
+      "record_count": 15,
+      "range": {
+        "start_offset": 7179742,
+        "end_offset_exclusive": 7180442
+      },
+      "first_text": "いらっしゃい。",
+      "last_text": "うそーん！",
+      "sample_texts": [
+        "いらっしゃい。",
+        "泊まっていくかい？",
+        "一泊、２００センズだよ。",
+        "あら、お金が足りないわよ"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_12_cat_quest.json"
+    },
+    {
+      "cluster_index": 13,
+      "primary_tag": "central",
+      "tags": [
+        "central",
+        "cat_quest",
+        "military",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "record_count": 105,
+      "range": {
+        "start_offset": 7182528,
+        "end_offset_exclusive": 7187162
+      },
+      "first_text": "　セントラルシティ　中央区画",
+      "last_text": "猫さがしだったか？",
+      "sample_texts": [
+        "　セントラルシティ　中央区画",
+        "結構いい戦いを",
+        "してたと思うんだ！",
+        "ねっ、兄さん"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_13_central.json"
+    },
+    {
+      "cluster_index": 14,
+      "primary_tag": "central",
+      "tags": [
+        "central",
+        "military",
+        "elicia",
+        "shop_npc",
+        "tutorial"
+      ],
+      "record_count": 102,
+      "range": {
+        "start_offset": 7189990,
+        "end_offset_exclusive": 7194450
+      },
+      "first_text": "あら、二人ともお久しぶりね",
+      "last_text": "喜んでるなら、いいかっ！",
+      "sample_texts": [
+        "あら、二人ともお久しぶりね",
+        "分館はセントラルの南側区画よ",
+        "グレイシアさん、",
+        "ヒューズ中佐は？"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_14_central.json"
+    },
+    {
+      "cluster_index": 15,
+      "primary_tag": "central",
+      "tags": [
+        "central",
+        "east_city",
+        "hospital",
+        "military",
+        "armor_parts"
+      ],
+      "record_count": 52,
+      "range": {
+        "start_offset": 7200576,
+        "end_offset_exclusive": 7202976
+      },
+      "first_text": "鋼の錬金術師殿、",
+      "last_text": "　北側区画",
+      "sample_texts": [
+        "鋼の錬金術師殿、",
+        "何か御用ですか？",
+        "鎧のパーツ？さあ…",
+        "ここから先は中央軍司令部です"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_15_central.json"
+    },
+    {
+      "cluster_index": 16,
+      "primary_tag": "armor_parts",
+      "tags": [
+        "military",
+        "armor_parts",
+        "reward",
+        "travel_blocked",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "record_count": 155,
+      "range": {
+        "start_offset": 7208222,
+        "end_offset_exclusive": 7215696
+      },
+      "first_text": "兄さん、",
+      "last_text": "カギが閉まってて入れないな…",
+      "sample_texts": [
+        "兄さん、",
+        "コニィの試験は中庭だよ",
+        "鎧ですか？",
+        "軍ではあまり鎧は使いませんね"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_16_armor_parts.json"
+    },
+    {
+      "cluster_index": 17,
+      "primary_tag": "central",
+      "tags": [
+        "central",
+        "military",
+        "elicia",
+        "armor_parts",
+        "tutorial"
+      ],
+      "record_count": 101,
+      "range": {
+        "start_offset": 7217998,
+        "end_offset_exclusive": 7221978
+      },
+      "first_text": "ロイじゃねえか！",
+      "last_text": "なかなか文句も言えないの",
+      "sample_texts": [
+        "ロイじゃねえか！",
+        "セントラルに来るんなら",
+        "ひとこと言ってから来いよ！",
+        "エド、アルはどうした？"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_17_central.json"
+    },
+    {
+      "cluster_index": 18,
+      "primary_tag": "east_city",
+      "tags": [
+        "east_city",
+        "cat_quest",
+        "military",
+        "shop_npc",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "record_count": 523,
+      "range": {
+        "start_offset": 7227594,
+        "end_offset_exclusive": 7252004
+      },
+      "first_text": "これより、",
+      "last_text": "はいはい…",
+      "sample_texts": [
+        "これより、",
+        "コーニッシュ・ロイスの",
+        "国家錬金術師資格試験を始める",
+        "始め！！"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_18_east_city.json"
+    },
+    {
+      "cluster_index": 19,
+      "primary_tag": "military",
+      "tags": [
+        "military",
+        "shop_npc",
+        "tutorial"
+      ],
+      "record_count": 155,
+      "range": {
+        "start_offset": 7254940,
+        "end_offset_exclusive": 7261576
+      },
+      "first_text": "ブラッドレイ大総統に",
+      "last_text": "会いに行こう！",
+      "sample_texts": [
+        "ブラッドレイ大総統に",
+        "会いに行かないとな",
+        "ここから先、用のない方は",
+        "立入禁止…あ、国家錬金術師は"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_19_military.json"
+    },
+    {
+      "cluster_index": 20,
+      "primary_tag": "central",
+      "tags": [
+        "central",
+        "east_city",
+        "military",
+        "reward",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "record_count": 325,
+      "range": {
+        "start_offset": 7263738,
+        "end_offset_exclusive": 7277140
+      },
+      "first_text": "鋼の錬金術師よ、",
+      "last_text": "行ってきます！",
+      "sample_texts": [
+        "鋼の錬金術師よ、",
+        "そろそろ、そちらのお嬢さんの",
+        "試験がはじまるぞ",
+        "事件の早期解決を"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_20_central.json"
+    },
+    {
+      "cluster_index": 21,
+      "primary_tag": "central",
+      "tags": [
+        "central",
+        "east_city",
+        "hospital",
+        "military",
+        "armor_parts",
+        "reward",
+        "travel_blocked",
+        "tutorial"
+      ],
+      "record_count": 86,
+      "range": {
+        "start_offset": 7283598,
+        "end_offset_exclusive": 7288158
+      },
+      "first_text": "兄さん、まだセントラルで",
+      "last_text": "閉まってるな…",
+      "sample_texts": [
+        "兄さん、まだセントラルで",
+        "やらなきゃいけないことが",
+        "あるんじゃない？",
+        "兄さん、イーストシティに"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_21_central.json"
+    },
+    {
+      "cluster_index": 22,
+      "primary_tag": "east_city",
+      "tags": [
+        "east_city",
+        "hospital",
+        "travel_blocked"
+      ],
+      "record_count": 20,
+      "range": {
+        "start_offset": 7291372,
+        "end_offset_exclusive": 7292180
+      },
+      "first_text": "さっき上でドカーンって",
+      "last_text": "静かにして下さいね",
+      "sample_texts": [
+        "さっき上でドカーンって",
+        "大きな音がしたんだ！",
+        "なんだったんだろう？",
+        "おじいちゃんの"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_22_east_city.json"
+    },
+    {
+      "cluster_index": 23,
+      "primary_tag": "hospital",
+      "tags": [
+        "hospital",
+        "reward",
+        "travel_blocked",
+        "tutorial"
+      ],
+      "record_count": 38,
+      "range": {
+        "start_offset": 7295088,
+        "end_offset_exclusive": 7297088
+      },
+      "first_text": "患者さんが元気に",
+      "last_text": "入れないな…",
+      "sample_texts": [
+        "患者さんが元気に",
+        "退院してくれる時が",
+        "一番嬉しいわ",
+        "夜勤の時に見回りって"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_23_hospital.json"
+    },
+    {
+      "cluster_index": 24,
+      "primary_tag": "hospital",
+      "tags": [
+        "hospital"
+      ],
+      "record_count": 9,
+      "range": {
+        "start_offset": 7298932,
+        "end_offset_exclusive": 7299374
+      },
+      "first_text": "早く退院したいのぉ。",
+      "last_text": "お外で遊びたいな…",
+      "sample_texts": [
+        "早く退院したいのぉ。",
+        "孫と遊べるように",
+        "なりたいのぉ",
+        "孫が毎日来てくれるんです。"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_24_hospital.json"
+    },
+    {
+      "cluster_index": 25,
+      "primary_tag": "hospital",
+      "tags": [
+        "hospital",
+        "cat_quest",
+        "tutorial"
+      ],
+      "record_count": 23,
+      "range": {
+        "start_offset": 7305430,
+        "end_offset_exclusive": 7306854
+      },
+      "first_text": "お、お兄さん！",
+      "last_text": "それはそうかも…",
+      "sample_texts": [
+        "お、お兄さん！",
+        "いいところに来た！",
+        "ワインもってないですか？",
+        "ワインですよ！"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_25_hospital.json"
+    },
+    {
+      "cluster_index": 26,
+      "primary_tag": "central",
+      "tags": [
+        "central",
+        "east_city",
+        "hospital",
+        "bank",
+        "military",
+        "armor_parts",
+        "tutorial"
+      ],
+      "record_count": 274,
+      "range": {
+        "start_offset": 7314214,
+        "end_offset_exclusive": 7327154
+      },
+      "first_text": "兄さん、まだセントラルで",
+      "last_text": "ヘンな名前つけるなー！",
+      "sample_texts": [
+        "兄さん、まだセントラルで",
+        "やらなきゃいけないことが",
+        "あるんじゃない？",
+        "いつも慌ただしいな"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_26_central.json"
+    },
+    {
+      "cluster_index": 27,
+      "primary_tag": "armor_parts",
+      "tags": [
+        "military",
+        "armor_parts",
+        "reward",
+        "tutorial"
+      ],
+      "record_count": 59,
+      "range": {
+        "start_offset": 7330232,
+        "end_offset_exclusive": 7333162
+      },
+      "first_text": "鎧のパーツ？",
+      "last_text": "そのウワサの真相にせまる！",
+      "sample_texts": [
+        "鎧のパーツ？",
+        "図書館にそんなものが",
+        "あるわけないじゃないですか！",
+        "図書館では静かにしてください"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_27_armor_parts.json"
+    },
+    {
+      "cluster_index": 28,
+      "primary_tag": "central",
+      "tags": [
+        "central",
+        "cat_quest",
+        "military",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "record_count": 148,
+      "range": {
+        "start_offset": 7335132,
+        "end_offset_exclusive": 7341010
+      },
+      "first_text": "……読書中です。",
+      "last_text": "何度でも勝負しに来てください",
+      "sample_texts": [
+        "……読書中です。",
+        "邪魔しないでください",
+        "本に囲まれていつまでも",
+        "読んでいていいなんて、"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_28_central.json"
+    },
+    {
+      "cluster_index": 29,
+      "primary_tag": "cat_quest",
+      "tags": [
+        "cat_quest",
+        "tutorial"
+      ],
+      "record_count": 9,
+      "range": {
+        "start_offset": 7343366,
+        "end_offset_exclusive": 7343896
+      },
+      "first_text": "猫だらけだ…＄",
+      "last_text": "お待たせ、兄さん！",
+      "sample_texts": [
+        "猫だらけだ…＄",
+        "もらっていってもいいかな？",
+        "ダメに決まってるだろ！",
+        "ひとんちの猫なんだから"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_29_cat_quest.json"
+    },
+    {
+      "cluster_index": 30,
+      "primary_tag": "central",
+      "tags": [
+        "central",
+        "east_city",
+        "cat_quest",
+        "military",
+        "reward",
+        "tutorial"
+      ],
+      "record_count": 59,
+      "range": {
+        "start_offset": 7350506,
+        "end_offset_exclusive": 7354356
+      },
+      "first_text": "兄さん、まだセントラルで",
+      "last_text": "　西側区画",
+      "sample_texts": [
+        "兄さん、まだセントラルで",
+        "やらなきゃいけないことが",
+        "あるんじゃない？",
+        "兄さん、イーストシティに"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_30_central.json"
+    },
+    {
+      "cluster_index": 31,
+      "primary_tag": "liore",
+      "tags": [
+        "liore"
+      ],
+      "record_count": 15,
+      "range": {
+        "start_offset": 7355796,
+        "end_offset_exclusive": 7356658
+      },
+      "first_text": "　　リゼンブール村",
+      "last_text": "エドワード・エルリックよ…",
+      "sample_texts": [
+        "　　リゼンブール村",
+        "人は何かの犠牲無しに、",
+        "何も得ることはできない",
+        "何かを得るためには、"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_31_liore.json"
+    },
+    {
+      "cluster_index": 32,
+      "primary_tag": "central",
+      "tags": [
+        "central",
+        "east_city",
+        "military",
+        "reward",
+        "travel_blocked",
+        "tutorial"
+      ],
+      "record_count": 138,
+      "range": {
+        "start_offset": 7377716,
+        "end_offset_exclusive": 7385472
+      },
+      "first_text": "ここがイーストシティね。",
+      "last_text": "　南側区画",
+      "sample_texts": [
+        "ここがイーストシティね。",
+        "初めての街って、",
+        "ワクワクしますね",
+        "オレは大佐をどうやって"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_32_central.json"
+    },
+    {
+      "cluster_index": 33,
+      "primary_tag": "shop_npc",
+      "tags": [
+        "shop_npc"
+      ],
+      "record_count": 9,
+      "range": {
+        "start_offset": 7387970,
+        "end_offset_exclusive": 7388404
+      },
+      "first_text": "いらっしゃい。",
+      "last_text": "また、きておくれ",
+      "sample_texts": [
+        "いらっしゃい。",
+        "泊まっていくかい？",
+        "一泊、２００センズだよ。",
+        "お金が足りないよ"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_33_shop_npc.json"
+    },
+    {
+      "cluster_index": 34,
+      "primary_tag": "military",
+      "tags": [
+        "military",
+        "tutorial"
+      ],
+      "record_count": 166,
+      "range": {
+        "start_offset": 7390270,
+        "end_offset_exclusive": 7396544
+      },
+      "first_text": "うひゃー、久しぶりの",
+      "last_text": "なってくれたみたい",
+      "sample_texts": [
+        "うひゃー、久しぶりの",
+        "ふかふかベッドは",
+        "やっぱいいねー",
+        "中佐は軍刑務所暮らしが"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_34_military.json"
+    },
+    {
+      "cluster_index": 35,
+      "primary_tag": "central",
+      "tags": [
+        "central",
+        "east_city",
+        "military",
+        "reward",
+        "tutorial"
+      ],
+      "record_count": 137,
+      "range": {
+        "start_offset": 7399700,
+        "end_offset_exclusive": 7406932
+      },
+      "first_text": "なんだありゃ！",
+      "last_text": "まずは手帳を奪還するのだっ！",
+      "sample_texts": [
+        "なんだありゃ！",
+        "あれはキメラだ。",
+        "そんなことも知らんのか、",
+        "そういう事を"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_35_central.json"
+    },
+    {
+      "cluster_index": 36,
+      "primary_tag": "east_city",
+      "tags": [
+        "east_city",
+        "military",
+        "elicia",
+        "reward",
+        "travel_blocked",
+        "tutorial"
+      ],
+      "record_count": 109,
+      "range": {
+        "start_offset": 7409868,
+        "end_offset_exclusive": 7415772
+      },
+      "first_text": "兄さん、練兵場へ行くなら",
+      "last_text": "カギが閉まってて入れないな…",
+      "sample_texts": [
+        "兄さん、練兵場へ行くなら",
+        "裏口からの方が近いよ！",
+        "鋼の、どこへ行くつもりだ。",
+        "私の部屋はもう目の前だぞ？"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_36_east_city.json"
+    },
+    {
+      "cluster_index": 37,
+      "primary_tag": "tutorial",
+      "tags": [
+        "tutorial"
+      ],
+      "record_count": 66,
+      "range": {
+        "start_offset": 7418202,
+        "end_offset_exclusive": 7420518
+      },
+      "first_text": "で、あたしの最高傑作を",
+      "last_text": "なっ、アル！",
+      "sample_texts": [
+        "で、あたしの最高傑作を",
+        "壊しちゃったわけ？",
+        "ちゃはーっ、もったいない",
+        "あんなヤバイもん、"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_37_tutorial.json"
+    },
+    {
+      "cluster_index": 38,
+      "primary_tag": "central",
+      "tags": [
+        "central",
+        "east_city",
+        "military",
+        "reward",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "record_count": 786,
+      "range": {
+        "start_offset": 7421730,
+        "end_offset_exclusive": 7456036
+      },
+      "first_text": "ソリンの事件も違ったか",
+      "last_text": "どこに行ったんでしょうね",
+      "sample_texts": [
+        "ソリンの事件も違ったか",
+        "レドンドとソリンの事件ですが",
+        "いずれも能力の高い錬金術師が",
+        "犯人です"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_38_central.json"
+    },
+    {
+      "cluster_index": 39,
+      "primary_tag": "military",
+      "tags": [
+        "military",
+        "reward"
+      ],
+      "record_count": 123,
+      "range": {
+        "start_offset": 7458270,
+        "end_offset_exclusive": 7464342
+      },
+      "first_text": "ようやく暇になるかと思えば、",
+      "last_text": "ほら、この書類の山…ハァ",
+      "sample_texts": [
+        "ようやく暇になるかと思えば、",
+        "結局キメラ事件の後始末か。",
+        "…休暇取りてぇなー",
+        "大佐、早いとこ"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_39_military.json"
+    },
+    {
+      "cluster_index": 40,
+      "primary_tag": "military",
+      "tags": [
+        "military"
+      ],
+      "record_count": 57,
+      "range": {
+        "start_offset": 7470424,
+        "end_offset_exclusive": 7473556
+      },
+      "first_text": "こいつが親玉か！？",
+      "last_text": "なんの同志だよ…？",
+      "sample_texts": [
+        "こいつが親玉か！？",
+        "なるほど。",
+        "このキメラを倒せば、",
+        "一件落着ということか"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_40_military.json"
+    },
+    {
+      "cluster_index": 41,
+      "primary_tag": "east_city",
+      "tags": [
+        "east_city",
+        "cat_quest",
+        "military",
+        "reward",
+        "battle_dialogue",
+        "tutorial",
+        "debug_or_script"
+      ],
+      "record_count": 306,
+      "range": {
+        "start_offset": 7479324,
+        "end_offset_exclusive": 7494004
+      },
+      "first_text": "大佐ぁ。",
+      "last_text": "　東側区画",
+      "sample_texts": [
+        "大佐ぁ。",
+        "こんなところにいたんですか？",
+        "仕事だと言ったろう。",
+        "さっきの話は断ったはずだ。"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_41_east_city.json"
+    },
+    {
+      "cluster_index": 42,
+      "primary_tag": "central",
+      "tags": [
+        "central",
+        "east_city",
+        "cat_quest",
+        "military",
+        "reward",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "record_count": 154,
+      "range": {
+        "start_offset": 7500240,
+        "end_offset_exclusive": 7508372
+      },
+      "first_text": "お前ら、いったいどこを",
+      "last_text": "　西側区画",
+      "sample_texts": [
+        "お前ら、いったいどこを",
+        "ほっつき歩いてた！？",
+        "ヒューズ中佐がなんでここに？",
+        "中央から何しに来てんの？"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_42_central.json"
+    },
+    {
+      "cluster_index": 43,
+      "primary_tag": "east_city",
+      "tags": [
+        "east_city",
+        "cat_quest",
+        "military",
+        "tutorial"
+      ],
+      "record_count": 173,
+      "range": {
+        "start_offset": 7511166,
+        "end_offset_exclusive": 7519828
+      },
+      "first_text": "兄さん……ボク…",
+      "last_text": "ふう、救出成功！",
+      "sample_texts": [
+        "兄さん……ボク…",
+        "悪い事をしてないのに…",
+        "悲しいよ…",
+        "作戦だから仕方ないけどよぉ、"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_43_east_city.json"
+    },
+    {
+      "cluster_index": 44,
+      "primary_tag": "military",
+      "tags": [
+        "military",
+        "tutorial"
+      ],
+      "record_count": 150,
+      "range": {
+        "start_offset": 7525100,
+        "end_offset_exclusive": 7532206
+      },
+      "first_text": "何も起きないね…",
+      "last_text": "置いてゆくのかっ！",
+      "sample_texts": [
+        "何も起きないね…",
+        "行き止まりか。",
+        "でも、明らかにこの先だよな",
+        "錬成でチャチャっと"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_44_military.json"
+    },
+    {
+      "cluster_index": 45,
+      "primary_tag": "military",
+      "tags": [
+        "military",
+        "tutorial"
+      ],
+      "record_count": 115,
+      "range": {
+        "start_offset": 7537304,
+        "end_offset_exclusive": 7542610
+      },
+      "first_text": "大佐、意外だと思わない？",
+      "last_text": "何も起きないね",
+      "sample_texts": [
+        "大佐、意外だと思わない？",
+        "何がだ？",
+        "出てくるのはキメラだけ。",
+        "あまりに呆気なさ過ぎると、"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_45_military.json"
+    },
+    {
+      "cluster_index": 46,
+      "primary_tag": "military",
+      "tags": [
+        "military",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "record_count": 155,
+      "range": {
+        "start_offset": 7547960,
+        "end_offset_exclusive": 7553764
+      },
+      "first_text": "大佐、どうしたんですか？",
+      "last_text": "いるんだろうからね！",
+      "sample_texts": [
+        "大佐、どうしたんですか？",
+        "どうやら少しは骨のある相手が",
+        "お出迎えのようですな",
+        "なーんだ、"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_46_military.json"
+    },
+    {
+      "cluster_index": 47,
+      "primary_tag": "military",
+      "tags": [
+        "military",
+        "battle_dialogue"
+      ],
+      "record_count": 187,
+      "range": {
+        "start_offset": 7557030,
+        "end_offset_exclusive": 7565354
+      },
+      "first_text": "あ、マーティンス中佐！",
+      "last_text": "私は役立たず…役立たず",
+      "sample_texts": [
+        "あ、マーティンス中佐！",
+        "お前ら、遅かったじゃねーか！",
+        "タイクツで死にそうだったぜ",
+        "マーティンス中佐っ！"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_47_military.json"
+    },
+    {
+      "cluster_index": 48,
+      "primary_tag": "reward",
+      "tags": [
+        "reward",
+        "travel_blocked",
+        "tutorial"
+      ],
+      "record_count": 71,
+      "range": {
+        "start_offset": 7568738,
+        "end_offset_exclusive": 7572972
+      },
+      "first_text": "こりゃもう決まりだな！",
+      "last_text": "じょうだんだよ…",
+      "sample_texts": [
+        "こりゃもう決まりだな！",
+        "いえ、それでもやっぱり",
+        "正々堂々と尋ねるべきです！",
+        "ごめんくださーい！"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_48_reward.json"
+    },
+    {
+      "cluster_index": 49,
+      "primary_tag": "east_city",
+      "tags": [
+        "east_city",
+        "military",
+        "tutorial"
+      ],
+      "record_count": 50,
+      "range": {
+        "start_offset": 7579460,
+        "end_offset_exclusive": 7581718
+      },
+      "first_text": "大佐！この部屋！？",
+      "last_text": "イーストシティに戻ろう！",
+      "sample_texts": [
+        "大佐！この部屋！？",
+        "うひょー、",
+        "いきなりビンゴじゃねーかよ！",
+        "やっぱり！！"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_49_east_city.json"
+    },
+    {
+      "cluster_index": 50,
+      "primary_tag": "military",
+      "tags": [
+        "military",
+        "reward",
+        "tutorial"
+      ],
+      "record_count": 178,
+      "range": {
+        "start_offset": 7589332,
+        "end_offset_exclusive": 7598394
+      },
+      "first_text": "兄さん、見て。",
+      "last_text": "ただの物置だ…",
+      "sample_texts": [
+        "兄さん、見て。",
+        "何にも変わらないよ",
+        "そうだな",
+        "ここがエドとアルの故郷…"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_50_military.json"
+    },
+    {
+      "cluster_index": 51,
+      "primary_tag": "unclassified",
+      "tags": [],
+      "record_count": 43,
+      "range": {
+        "start_offset": 7600664,
+        "end_offset_exclusive": 7602714
+      },
+      "first_text": "よし、点検完了！",
+      "last_text": "ワンワンッ！",
+      "sample_texts": [
+        "よし、点検完了！",
+        "サンキュ！",
+        "いい感じだよ",
+        "いくつか部品の交換を"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_51_unclassified.json"
+    },
+    {
+      "cluster_index": 52,
+      "primary_tag": "cat_quest",
+      "tags": [
+        "cat_quest",
+        "military",
+        "reward",
+        "tutorial"
+      ],
+      "record_count": 232,
+      "range": {
+        "start_offset": 7605080,
+        "end_offset_exclusive": 7614458
+      },
+      "first_text": "どのくらいの時間が",
+      "last_text": "わーい、ありがとー♪",
+      "sample_texts": [
+        "どのくらいの時間が",
+        "かかるのかな",
+        "細かく調べたいから、",
+        "少し時間がかかるわよ"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_52_cat_quest.json"
+    },
+    {
+      "cluster_index": 53,
+      "primary_tag": "military",
+      "tags": [
+        "military",
+        "reward",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "record_count": 184,
+      "range": {
+        "start_offset": 7621852,
+        "end_offset_exclusive": 7630820
+      },
+      "first_text": "ホークアイ中尉、ここかね？",
+      "last_text": "…お、おのれ",
+      "sample_texts": [
+        "ホークアイ中尉、ここかね？",
+        "ダイムラーが逃げ込んだ",
+        "遺跡というのは",
+        "情報ではそうですね"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_53_military.json"
+    },
+    {
+      "cluster_index": 54,
+      "primary_tag": "reward",
+      "tags": [
+        "reward",
+        "tutorial"
+      ],
+      "record_count": 53,
+      "range": {
+        "start_offset": 7637706,
+        "end_offset_exclusive": 7640714
+      },
+      "first_text": "兄さん、アレ！",
+      "last_text": "ウィンリィのところに戻るか",
+      "sample_texts": [
+        "兄さん、アレ！",
+        "今、岩陰を横切ったの",
+        "ダイムラーじゃない！？",
+        "よっしゃー！"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_54_reward.json"
+    },
+    {
+      "cluster_index": 55,
+      "primary_tag": "east_city",
+      "tags": [
+        "east_city",
+        "bank",
+        "military",
+        "reward",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "record_count": 438,
+      "range": {
+        "start_offset": 7644286,
+        "end_offset_exclusive": 7661472
+      },
+      "first_text": "あのう、",
+      "last_text": "この程度のキメラなど…",
+      "sample_texts": [
+        "あのう、",
+        "根本的問題なんですけど",
+        "誰を探してるんですか？",
+        "ダイムラーのヤツを"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_55_east_city.json"
+    },
+    {
+      "cluster_index": 56,
+      "primary_tag": "military",
+      "tags": [
+        "military",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "record_count": 51,
+      "range": {
+        "start_offset": 7667152,
+        "end_offset_exclusive": 7669552
+      },
+      "first_text": "古めかしい城だな…",
+      "last_text": "先に進もう",
+      "sample_texts": [
+        "古めかしい城だな…",
+        "ずいぶん使われて",
+        "なかったようだけど",
+        "地元の人間すら"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_56_military.json"
+    },
+    {
+      "cluster_index": 57,
+      "primary_tag": "bank",
+      "tags": [
+        "bank",
+        "tutorial"
+      ],
+      "record_count": 87,
+      "range": {
+        "start_offset": 7670684,
+        "end_offset_exclusive": 7674492
+      },
+      "first_text": "小僧、また会ったな！",
+      "last_text": "入城は禁じられてます",
+      "sample_texts": [
+        "小僧、また会ったな！",
+        "またバルド？",
+        "な、なんでバルドのヤツが",
+        "ここに…？"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_57_bank.json"
+    },
+    {
+      "cluster_index": 58,
+      "primary_tag": "military",
+      "tags": [
+        "military",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "record_count": 143,
+      "range": {
+        "start_offset": 7680256,
+        "end_offset_exclusive": 7686198
+      },
+      "first_text": "ケイトのヤツは",
+      "last_text": "一発でカタつけてやる！",
+      "sample_texts": [
+        "ケイトのヤツは",
+        "どこにいるんだ！？",
+        "だから、探す相手が違うって、",
+        "探さなきゃならないのは、"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_58_military.json"
+    },
+    {
+      "cluster_index": 59,
+      "primary_tag": "military",
+      "tags": [
+        "military",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "record_count": 166,
+      "range": {
+        "start_offset": 7691444,
+        "end_offset_exclusive": 7698038
+      },
+      "first_text": "いったいいつになったら",
+      "last_text": "なにも起きないね…？",
+      "sample_texts": [
+        "いったいいつになったら",
+        "ケイトのところに着くんだ？",
+        "だから、兄さん、",
+        "探す相手が違うって…"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_59_military.json"
+    },
+    {
+      "cluster_index": 60,
+      "primary_tag": "military",
+      "tags": [
+        "military",
+        "tutorial"
+      ],
+      "record_count": 82,
+      "range": {
+        "start_offset": 7703608,
+        "end_offset_exclusive": 7708134
+      },
+      "first_text": "…止まれ",
+      "last_text": "石の６－６だぞ",
+      "sample_texts": [
+        "…止まれ",
+        "何か変な音が聞こえねえか？",
+        "オレには聞こえなかったけど？",
+        "この先に何かワナが"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_60_military.json"
+    },
+    {
+      "cluster_index": 61,
+      "primary_tag": "military",
+      "tags": [
+        "military",
+        "tutorial"
+      ],
+      "record_count": 483,
+      "range": {
+        "start_offset": 7711918,
+        "end_offset_exclusive": 7732566
+      },
+      "first_text": "我が城でずいぶんと",
+      "last_text": "なんでこんなところに…？",
+      "sample_texts": [
+        "我が城でずいぶんと",
+        "騒々しいマネをしてくれるな",
+        "リンカー！",
+        "ついに親玉が登場ってわけか"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_61_military.json"
+    },
+    {
+      "cluster_index": 62,
+      "primary_tag": "central",
+      "tags": [
+        "central",
+        "bank",
+        "military",
+        "reward",
+        "shop_npc",
+        "tutorial"
+      ],
+      "record_count": 291,
+      "range": {
+        "start_offset": 7735754,
+        "end_offset_exclusive": 7748594
+      },
+      "first_text": "やっぱり「賢者の石」って",
+      "last_text": "痛い目にあわせてやる！",
+      "sample_texts": [
+        "やっぱり「賢者の石」って",
+        "なかなか見つからないものだね",
+        "ガセネタばっかりだもんなぁ。",
+        "一度、セントラルシティに"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_62_central.json"
+    },
+    {
+      "cluster_index": 63,
+      "primary_tag": "bank",
+      "tags": [
+        "bank",
+        "battle_dialogue"
+      ],
+      "record_count": 19,
+      "range": {
+        "start_offset": 7752324,
+        "end_offset_exclusive": 7753562
+      },
+      "first_text": "今朝方、列車強盗にあう夢を",
+      "last_text": "覚悟はいいな！！",
+      "sample_texts": [
+        "今朝方、列車強盗にあう夢を",
+        "見たんです。",
+        "現実になってしまいました",
+        "怖くない。怖くない。"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_63_bank.json"
+    },
+    {
+      "cluster_index": 64,
+      "primary_tag": "bank",
+      "tags": [
+        "bank"
+      ],
+      "record_count": 20,
+      "range": {
+        "start_offset": 7756916,
+        "end_offset_exclusive": 7758238
+      },
+      "first_text": "わたしは暴力は反対です。",
+      "last_text": "計画の邪魔はさせねぇ！",
+      "sample_texts": [
+        "わたしは暴力は反対です。",
+        "だから、大人しく",
+        "強盗の言うことをききます",
+        "愛する家族は私が守る！"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_64_bank.json"
+    },
+    {
+      "cluster_index": 65,
+      "primary_tag": "tutorial",
+      "tags": [
+        "tutorial"
+      ],
+      "record_count": 13,
+      "range": {
+        "start_offset": 7762288,
+        "end_offset_exclusive": 7762974
+      },
+      "first_text": "きっとこの上じゃないかな？",
+      "last_text": "金属の４－４が必要だ",
+      "sample_texts": [
+        "きっとこの上じゃないかな？",
+        "どうする、兄さん？",
+        "錬成でハシゴを作れば",
+        "上にのぼれそうだな"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_65_tutorial.json"
+    },
+    {
+      "cluster_index": 66,
+      "primary_tag": "military",
+      "tags": [
+        "military"
+      ],
+      "record_count": 27,
+      "range": {
+        "start_offset": 7770066,
+        "end_offset_exclusive": 7771040
+      },
+      "first_text": "キサマは！",
+      "last_text": "大丈夫ですか？",
+      "sample_texts": [
+        "キサマは！",
+        "何しに来た？",
+        "決まってんだろ。",
+        "人質を助けに来たんだよ"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_66_military.json"
+    },
+    {
+      "cluster_index": 67,
+      "primary_tag": "unclassified",
+      "tags": [],
+      "record_count": 7,
+      "range": {
+        "start_offset": 7775492,
+        "end_offset_exclusive": 7775674
+      },
+      "first_text": "いいかげん、",
+      "last_text": "また勝たせてもらうぜ",
+      "sample_texts": [
+        "いいかげん、",
+        "大人しくしてれば良いのになぁ",
+        "そう何度もやられると",
+        "思ってるのか！"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_67_unclassified.json"
+    },
+    {
+      "cluster_index": 68,
+      "primary_tag": "tutorial",
+      "tags": [
+        "tutorial"
+      ],
+      "record_count": 23,
+      "range": {
+        "start_offset": 7778808,
+        "end_offset_exclusive": 7780118
+      },
+      "first_text": "肉体の材料はそろえた。",
+      "last_text": "アルぅぅぅぅぅぅ！！",
+      "sample_texts": [
+        "肉体の材料はそろえた。",
+        "母さんを元に戻そう。",
+        "生き返らせるんだ！",
+        "…人体錬成は禁じられてるよ。"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_68_tutorial.json"
+    },
+    {
+      "cluster_index": 69,
+      "primary_tag": "military",
+      "tags": [
+        "military",
+        "tutorial"
+      ],
+      "record_count": 147,
+      "range": {
+        "start_offset": 7781580,
+        "end_offset_exclusive": 7787016
+      },
+      "first_text": "あいたたた…",
+      "last_text": "自然の６－４のカードだ！",
+      "sample_texts": [
+        "あいたたた…",
+        "おーい、みんないるか？",
+        "兄さーん、ボクの右腕、",
+        "どっかに落ちてない？"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_69_military.json"
+    },
+    {
+      "cluster_index": 70,
+      "primary_tag": "military",
+      "tags": [
+        "military",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "record_count": 257,
+      "range": {
+        "start_offset": 7789906,
+        "end_offset_exclusive": 7799514
+      },
+      "first_text": "…錬成融合。",
+      "last_text": "止まってなんかいられないぜ！",
+      "sample_texts": [
+        "…錬成融合。",
+        "それも自身とこの城を",
+        "融合したというのか",
+        "なんてヤツだよ。"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_70_military.json"
+    },
+    {
+      "cluster_index": 71,
+      "primary_tag": "save_menu",
+      "tags": [
+        "save_menu",
+        "liore",
+        "central",
+        "east_city",
+        "cat_quest",
+        "bank",
+        "military",
+        "elicia",
+        "reward",
+        "travel_blocked",
+        "battle_dialogue",
+        "tutorial"
+      ],
+      "record_count": 240,
+      "range": {
+        "start_offset": 7800810,
+        "end_offset_exclusive": 7811530
+      },
+      "first_text": "なんか変な街だね。",
+      "last_text": "このまま旅を続けるか？",
+      "sample_texts": [
+        "なんか変な街だね。",
+        "フードショップのおじさんに",
+        "もっと話を聞いてみようか？",
+        "広場でなにかあるみたいだね"
+      ],
+      "output_file": "analysis/translation_workspace/registry_a_entry8_clusters/cluster_71_save_menu.json"
+    }
+  ],
+  "primary_tag_index": {
+    "liore": [
+      "cluster_00_liore.json",
+      "cluster_01_liore.json",
+      "cluster_02_liore.json",
+      "cluster_03_liore.json",
+      "cluster_31_liore.json"
+    ],
+    "bank": [
+      "cluster_04_bank.json",
+      "cluster_06_bank.json",
+      "cluster_57_bank.json",
+      "cluster_63_bank.json",
+      "cluster_64_bank.json"
+    ],
+    "east_city": [
+      "cluster_05_east_city.json",
+      "cluster_07_east_city.json",
+      "cluster_10_east_city.json",
+      "cluster_18_east_city.json",
+      "cluster_22_east_city.json",
+      "cluster_36_east_city.json",
+      "cluster_41_east_city.json",
+      "cluster_43_east_city.json",
+      "cluster_49_east_city.json",
+      "cluster_55_east_city.json"
+    ],
+    "cat_quest": [
+      "cluster_08_cat_quest.json",
+      "cluster_12_cat_quest.json",
+      "cluster_29_cat_quest.json",
+      "cluster_52_cat_quest.json"
+    ],
+    "reward": [
+      "cluster_09_reward.json",
+      "cluster_48_reward.json",
+      "cluster_54_reward.json"
+    ],
+    "central": [
+      "cluster_11_central.json",
+      "cluster_13_central.json",
+      "cluster_14_central.json",
+      "cluster_15_central.json",
+      "cluster_17_central.json",
+      "cluster_20_central.json",
+      "cluster_21_central.json",
+      "cluster_26_central.json",
+      "cluster_28_central.json",
+      "cluster_30_central.json",
+      "cluster_32_central.json",
+      "cluster_35_central.json",
+      "cluster_38_central.json",
+      "cluster_42_central.json",
+      "cluster_62_central.json"
+    ],
+    "armor_parts": [
+      "cluster_16_armor_parts.json",
+      "cluster_27_armor_parts.json"
+    ],
+    "military": [
+      "cluster_19_military.json",
+      "cluster_34_military.json",
+      "cluster_39_military.json",
+      "cluster_40_military.json",
+      "cluster_44_military.json",
+      "cluster_45_military.json",
+      "cluster_46_military.json",
+      "cluster_47_military.json",
+      "cluster_50_military.json",
+      "cluster_53_military.json",
+      "cluster_56_military.json",
+      "cluster_58_military.json",
+      "cluster_59_military.json",
+      "cluster_60_military.json",
+      "cluster_61_military.json",
+      "cluster_66_military.json",
+      "cluster_69_military.json",
+      "cluster_70_military.json"
+    ],
+    "hospital": [
+      "cluster_23_hospital.json",
+      "cluster_24_hospital.json",
+      "cluster_25_hospital.json"
+    ],
+    "shop_npc": [
+      "cluster_33_shop_npc.json"
+    ],
+    "tutorial": [
+      "cluster_37_tutorial.json",
+      "cluster_65_tutorial.json",
+      "cluster_68_tutorial.json"
+    ],
+    "unclassified": [
+      "cluster_51_unclassified.json",
+      "cluster_67_unclassified.json"
+    ],
+    "save_menu": [
+      "cluster_71_save_menu.json"
+    ]
+  }
+}

@@ -10,6 +10,7 @@
 - 자동 렌더링 뒤 사람이 손볼 active workbench 와 비교 workflow 를 정리한다.
 - 그 다음 남은 텍스트 추출 마감과 번역 루프로 넘어간다.
 - startup intro 폰트 후보 `10`개는 `zsh scripts/build_all_startup_fonts.sh 20` 으로 한 번에 다시 빌드할 수 있다.
+- Registry A entry `8` 은 cluster별 번역 workset 재생성 경로까지 확보했다.
 
 ## 바로 필요한 사실
 
@@ -43,6 +44,7 @@
 - Registry A entry 8 작업용 분할 지도는 [registry_a_entry8_cluster_summary.json](/Users/user/test/analysis/registry_a_entry8_cluster_summary.json) 에 있다.
 - 현재 gap threshold `0x400` 기준 `72`개 클러스터로 나뉘며, 이후 번역/검수/재삽입은 이 클러스터 단위로 다루는 편이 좋다.
 - 자동 태그/샘플이 붙은 상세 지도는 [registry_a_entry8_cluster_catalog.json](/Users/user/test/analysis/registry_a_entry8_cluster_catalog.json), 사람이 빠르게 보기 좋은 요약은 [registry_a_entry8_cluster_overview.md](/Users/user/test/analysis/registry_a_entry8_cluster_overview.md) 에 있다.
+- cluster별 번역 JSON 세트는 [build_entry8_cluster_worksets.py](/Users/user/test/scripts/build_entry8_cluster_worksets.py) 로 다시 만들 수 있고, 현재 결과는 [registry_a_entry8_clusters](/Users/user/test/analysis/translation_workspace/registry_a_entry8_clusters), manifest 는 [registry_a_entry8_clusters_manifest.json](/Users/user/test/analysis/translation_workspace/registry_a_entry8_clusters_manifest.json) 에 있다.
 - cluster `71` 은 자동 태그상 `save_menu` 로 잡히지만, 실제로는 **일반 이벤트/진행 힌트 `228`건 + save/menu `12`건** 이 섞인 mixed hub 다.
 - cluster `71` 의 save/menu 분리본은 [registry_a_entry8_cluster71_save_segment_texts.json](/Users/user/test/analysis/registry_a_entry8_cluster71_save_segment_texts.json) 이고, [save_menu_prefixed_texts.json](/Users/user/test/analysis/save_menu_prefixed_texts.json) 과 내용이 일치한다.
 - cluster `71` 의 일반 이벤트/진행 힌트 분리본은 [registry_a_entry8_cluster71_pre_save_texts.json](/Users/user/test/analysis/registry_a_entry8_cluster71_pre_save_texts.json) 이다.
@@ -214,6 +216,7 @@ python3 -m gba_kor_tool summarize-text-clusters \
 - Registry A entry `8` / Registry D 계열 대사 추출본을 더 구조화한다.
 - Registry D mixed script 쪽은 `scan-fc-script-text` 기반 clean extraction 을 기본 원본으로 올린다.
 - Registry A entry `8` 72개 클러스터를 장면/용도 기준으로 조금 더 이름 붙여 관리한다.
+- Registry A entry `8` 클러스터를 번역/검수 가능한 작업 단위로 유지한다.
 - `01 FF <문자수>` 규칙이 안 통하는 나머지 mixed resource 대사 뱅크 형식을 찾는다.
 - 번역 단계에 들어가기 전까지는 추출본과 구조 근거를 계속 분리 정리한다.
 - 한글 표시를 위해 필요한 폰트/인코딩 경로를 최소 1개 확보한다.
