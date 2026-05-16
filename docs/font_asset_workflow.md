@@ -40,6 +40,10 @@ zsh scripts/build_startup_intro_test.sh \
   "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
   patched_roms/rebuild_check
 
+python3 scripts/build_startup_intro_variant.py D2Coding 20
+
+python3 scripts/build_startup_intro_variant.py Galmuri11 30
+
 zsh scripts/build_core_ui_test_roms.sh \
   "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
   patched_roms/rebuild_check
@@ -98,7 +102,11 @@ python3 scripts/render_reference_font_workbench.py \
 - blank glyph 가 하나라도 남아 있으면, 빌드가 되더라도 화면에서 조용히 빈칸처럼 보일 수 있다.
 - 그래서 이제는 `audit-pgm-glyph-set` 로 **비어 있는 glyph 를 먼저 잡는 것** 을 기본 절차로 둔다.
 - 현재 startup intro active seed 폰트는 `D2Coding-Ver1.3.2-20180524.ttf` 이다.
-- startup intro `D2Coding` seed 는 현재 `font-size=11`, `y_offset=0`, `binary2 threshold=144` 을 기준값으로 둔다.
+- startup intro `D2Coding` seed 는 현재 `font-size=11`, `y_offset=0`, `binary2 cutoff_ratio=0.2` 를 기준값으로 둔다.
+- 즉 glyph 별 최대 밝기 기준으로 **하위 20%만 잘라내고 나머지는 살리는 방식** 이다.
+- 사용자가 직접 다른 컷값을 시험할 때는 [build_startup_intro_variant.py](/Users/user/test/scripts/build_startup_intro_variant.py) 를 우선 쓴다.
+- 예: `python3 scripts/build_startup_intro_variant.py D2Coding 20`
+- 이 명령은 workbench 생성, glyph audit, font append, startup intro ROM 생성까지 한 번에 수행한다.
 - startup intro seed 는 현재 anti-alias grayscale 을 그대로 쓰지 않고, **완전 2단계(`0/34`) binary glyph** 로 만든다.
 - 그래서 startup intro 빌드는 이제 blank glyph 뿐 아니라, `0,34` 밖의 픽셀 값이 섞여 있어도 중단된다.
 - `NanumSquareR` 와 `Galmuri11` 는 조사 기록으로 남기고, 현재 active 경로에서는 내렸다.

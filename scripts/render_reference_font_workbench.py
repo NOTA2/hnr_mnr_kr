@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import argparse
+import math
 import json
 import re
 import sys
@@ -46,6 +47,11 @@ def parse_args() -> argparse.Namespace:
         default=128,
         help="binary2 모드에서 획으로 남길 최소 grayscale 값. 기본값: 128",
     )
+    parser.add_argument(
+        "--binary-cutoff-ratio",
+        type=float,
+        help="binary2 모드에서 glyph별 최대 밝기 대비 하위 비율만 잘라냅니다. 예: 0.1, 0.2",
+    )
     parser.add_argument("--report")
     return parser.parse_args()
 
@@ -75,6 +81,18 @@ def quantize_to_binary_fnt_levels(pixels: bytes, *, threshold: int) -> bytes:
     for index, value in enumerate(pixels):
         out[index] = 34 if value >= normalized_threshold else 0
     return bytes(out)
+
+
+def resolve_binary_threshold(pixels: bytes, *, threshold: int, cutoff_ratio: float | None) -> int:
+    if cutoff_ratio is None:
+        return max(0, min(255, threshold))
+    if cutoff_ratio < 0 or cutoff_ratio > 1:
+        raise ValueError("binary_cutoff_ratio must be within 0..1")
+    nonzero_values = [value for value in pixels if value]
+    if not nonzero_values:
+        return max(0, min(255, threshold))
+    max_nonzero = max(nonzero_values)
+    return max(1, min(255, math.ceil(max_nonzero * cutoff_ratio)))
 
 
 def render_glyph(
@@ -132,10 +150,16 @@ def main() -> int:
             x_offset=args.x_offset,
             y_offset=args.y_offset,
         )
+        effective_binary_threshold = None
         if args.quantization_mode == "native3":
             pixels = quantize_to_native_fnt_levels(pixels)
         elif args.quantization_mode == "binary2":
-            pixels = quantize_to_binary_fnt_levels(pixels, threshold=args.binary_threshold)
+            effective_binary_threshold = resolve_binary_threshold(
+                pixels,
+                threshold=args.binary_threshold,
+                cutoff_ratio=args.binary_cutoff_ratio,
+            )
+            pixels = quantize_to_binary_fnt_levels(pixels, threshold=effective_binary_threshold)
         nonzero = sum(1 for value in pixels if value)
         write_pgm(pgm_path, pixels, args.canvas_width, args.canvas_height)
 
@@ -154,6 +178,7 @@ def main() -> int:
                 "char": char,
                 "pgm": str(pgm_path),
                 "nonzero_pixels": nonzero,
+                "effective_binary_threshold": effective_binary_threshold,
             }
         )
 
@@ -178,6 +203,7 @@ def main() -> int:
         "y_offset": args.y_offset,
         "quantization_mode": args.quantization_mode,
         "binary_threshold": args.binary_threshold,
+        "binary_cutoff_ratio": args.binary_cutoff_ratio,
         "count": len(report_entries),
         "entries": report_entries,
     }

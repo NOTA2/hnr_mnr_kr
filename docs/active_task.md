@@ -96,7 +96,7 @@
   - 이제 [audit-pgm-glyph-set](/Users/user/test/gba_kor_tool/cli.py) 검사로 blank glyph 를 빌드 전에 잡도록 바꿨다.
   - startup intro 는 [startup_intro_nanumsquare_workbench](/Users/user/test/analysis/startup_intro_nanumsquare_workbench) 기준 `NanumSquareR.ttf` seed glyph 를 쓰는 독립 경로로 전환했다.
   - startup intro `NanumSquareR` seed 는 baseline 을 한 번 다시 조정했고, 현재 기준값은 `y_offset=0` 이다.
-  - startup intro active seed 는 현재 [startup_intro_d2coding_workbench](/Users/user/test/analysis/startup_intro_d2coding_workbench) 기준 `D2Coding-Ver1.3.2-20180524.ttf` `size11` `binary2 threshold=144` 이다.
+  - startup intro active seed 는 현재 [startup_intro_d2coding_workbench](/Users/user/test/analysis/startup_intro_d2coding_workbench) 기준 `D2Coding-Ver1.3.2-20180524.ttf` `size11` `binary2 cutoff_ratio=0.2` 이다.
   - `NanumSquareR` 와 `Galmuri11` 은 historical candidate 로 남기고, 현재는 **D2Coding 우선** 기준으로 실험한다.
   - 요약은 [font_candidate_survey.md](/Users/user/test/analysis/font_candidate_survey.md) 를 본다.
   - 실제 batch test ROM 도 생성했다. 요약은 [core_ui_test_rom_matrix.md](/Users/user/test/analysis/core_ui_test_rom_matrix.md) 에 있고:

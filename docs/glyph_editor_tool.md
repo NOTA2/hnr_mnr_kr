@@ -35,6 +35,12 @@ http://127.0.0.1:8765
 glyph 수정 뒤에는 아래 명령으로 바로 다시 확인한다.
 
 ```bash
+python3 scripts/build_startup_intro_variant.py D2Coding 20
+```
+
+또는 active workbench 기준으로 바로 다시 확인한다.
+
+```bash
 zsh scripts/build_startup_intro_test.sh \
   "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
   patched_roms/rebuild_check

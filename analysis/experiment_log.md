@@ -1381,3 +1381,42 @@
   - 동시에 [run_glyph_editor.py](/Users/user/test/scripts/run_glyph_editor.py) 와 [glyph_editor.html](/Users/user/test/tools/glyph_editor.html) 로, workbench `.pgm` 를 직접 수정할 수 있는 로컬 에디터도 준비했다.
 - 판정: `성공`
 - 교훈: 자동 선택이 계속 마음에 들지 않을 때는 폰트 후보를 바꾸는 것과 별개로, **즉시 수동 보정 가능한 도구** 를 같이 두는 편이 훨씬 낫다.
+
+### 실험 71
+
+- 가설: `년` 같은 글자에서 빠지는 획이 계속 생기면, threshold 기반 binary 변환보다 **0이 아니면 전부 켜는 쪽** 이 startup intro 1차 확인에는 더 낫다.
+- 시도:
+  - [startup_intro_d2coding_workbench](/Users/user/test/analysis/startup_intro_d2coding_workbench) 를 같은 `D2Coding` `size11` 기준으로 다시 만들되, `binary_threshold=1` 로 낮췄다.
+  - 대표 glyph `년`, `대` 의 nonzero pixel 분포를 다시 확인했고, 이어서 [build_startup_intro_test.sh](/Users/user/test/scripts/build_startup_intro_test.sh) 로 [hnr_startup_intro_test.gba](/Users/user/test/patched_roms/rebuild_check/hnr_startup_intro_test.gba) 를 다시 빌드했다.
+- 결과:
+  - 현재 startup intro D2 workbench 는 사실상 `0이 아니면 전부 켜기` binary glyph 가 됐다.
+  - 실제 append 뒤 ROM glyph nibble 도 여전히 `0,2` 만 유지했고, startup intro ROM 재빌드도 정상 완료했다.
+- 판정: `성공`
+- 교훈: 작은 한글 glyph 에서 획 유실이 심할 때는, 미세한 anti-alias 정리보다 **획 보존 우선 정책** 을 먼저 시험하는 편이 낫다.
+
+### 실험 72
+
+- 가설: `0이 아니면 전부 켜기`는 획은 살리지만 너무 두꺼워질 수 있으므로, glyph 별 최대 밝기 기준으로 **하위 20%만 잘라내는 비율 컷** 이 startup intro 에 더 균형이 좋을 수 있다.
+- 시도:
+  - [render_reference_font_workbench.py](/Users/user/test/scripts/render_reference_font_workbench.py) 의 `binary_cutoff_ratio` 경로를 사용해 [startup_intro_d2coding_workbench](/Users/user/test/analysis/startup_intro_d2coding_workbench) 를 `cutoff_ratio=0.2` 로 다시 생성했다.
+  - `년`, `대` 의 effective threshold 와 row occupancy 를 다시 확인했고, 이어서 [build_startup_intro_test.sh](/Users/user/test/scripts/build_startup_intro_test.sh) 로 [hnr_startup_intro_test.gba](/Users/user/test/patched_roms/rebuild_check/hnr_startup_intro_test.gba) 를 다시 빌드했다.
+- 결과:
+  - 현재 `년`, `대` 의 effective threshold 는 `51` 로 계산되며, `년`의 nonzero pixel 은 `41`, `대`는 `55` 로 다시 올라왔다.
+  - append 뒤 실제 ROM glyph nibble 은 여전히 `0,2` 만 유지했고, startup intro ROM 재빌드도 정상 완료했다.
+- 판정: `성공`
+- 교훈: 고정 threshold 하나보다, glyph 밝기 분포를 따라가는 **비율 컷** 이 작은 한글 glyph 에 더 유연하게 맞는다.
+
+### 실험 73
+
+- 가설: startup intro 폰트 실험을 매번 대화로 지시하면 토큰 낭비가 크므로, `폰트명 + 하위 N%` 만 주면 workbench 와 ROM 이 같이 만들어지는 단일 실행 스크립트가 필요하다.
+- 시도:
+  - [build_startup_intro_variant.py](/Users/user/test/scripts/build_startup_intro_variant.py) 를 추가했다.
+  - 이 스크립트는 `D2Coding`, `Galmuri11`, `NanumSquareR` preset 과 직접 `--font-path` 를 지원한다.
+  - 예시로 `python3 scripts/build_startup_intro_variant.py D2Coding 20` 을 실제 실행해 workbench, glyph audit, font append, startup intro ROM 생성을 끝까지 검증했다.
+- 결과:
+  - 생성 경로:
+    - workbench: [startup_intro_d2coding_p20_workbench](/Users/user/test/analysis/startup_intro_d2coding_p20_workbench)
+    - ROM: [hnr_startup_intro_test.gba](/Users/user/test/patched_roms/startup_variants/d2coding_p20/hnr_startup_intro_test.gba)
+  - 따라서 이제 startup intro 폰트 실험은 대화 없이도 **`폰트명 + 퍼센트` 한 줄** 로 재현 가능하다.
+- 판정: `성공`
+- 교훈: 비교 실험이 반복될수록, 해석 도구보다 **사용자가 직접 돌릴 수 있는 wrapper script** 가 생산성을 더 크게 올린다.
