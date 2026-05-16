@@ -19,11 +19,25 @@ http://127.0.0.1:8765
 
 - manifest 안 glyph 목록 탐색
 - `0 / 34` binary 픽셀 편집
-- draw / erase
+- draw / erase 토글
+- undo / redo
 - clear / invert
 - 상하좌우 1픽셀 shift
 - 현재 glyph 를 `.pgm` 파일에 바로 저장
 - active startup intro workbench 를 열었을 때는 `Save + Rebuild ROM` 으로 바로 [hnr_startup_intro_test.gba](/Users/user/test/patched_roms/startup_intro_active/hnr_startup_intro_test.gba) 재생성
+
+## 단축키
+
+- `D`: Draw
+- `E`: Erase
+- `Cmd/Ctrl + Z`: Undo
+- `Cmd/Ctrl + Shift + Z` 또는 `Cmd/Ctrl + Y`: Redo
+- `Cmd/Ctrl + S`: Save PGM
+- `Cmd/Ctrl + Enter`: Save + Rebuild ROM
+- `[` / `]`: 이전 / 다음 glyph
+- `C`: Clear
+- `I`: Invert
+- `Arrow`: 1픽셀 shift
 
 ## 의도
 

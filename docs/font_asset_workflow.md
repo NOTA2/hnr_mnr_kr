@@ -114,6 +114,37 @@ python3 scripts/render_reference_font_workbench.py \
 - 비교 보존이 정말 필요할 때만 `--output-name <name>` 을 준다.
 - `SourceHanSansKR` / `SourceHanMonoKR` 는 TTF 가 아니라 `third_party/gba_free_fonts/` 아래 `.fnt + atlas png` 를 [import_bmfont_workbench.py](/Users/user/test/scripts/import_bmfont_workbench.py) 로 변환한다.
 - startup intro seed 는 현재 anti-alias grayscale 을 그대로 쓰지 않고, **완전 2단계(`0/34`) binary glyph** 로 만든다.
+
+## 반복 테스트
+
+후보를 여러 개 한 번에 다시 돌리고 싶을 때는:
+
+```bash
+python3 scripts/build_startup_font_compare.py
+```
+
+기본 후보 목록은 [startup_intro_font_compare_candidates.json](/Users/user/test/analysis/startup_intro_font_compare_candidates.json) 에 있다.
+
+- 새 후보를 넣고 싶으면 JSON 에 항목을 추가한다.
+- `굴림체` 같이 직접 가진 폰트를 시험하려면 `font_path` 를 넣는다.
+
+예:
+
+```json
+{
+  "label": "Gulim",
+  "font_name": "Gulim",
+  "font_path": "/path/to/gulim.ttf",
+  "font_size": 11,
+  "cutoff_percent": 20
+}
+```
+
+결과물:
+
+- 비교 ROM: `/Users/user/test/patched_roms/font_compare/`
+- 비교 시트: [startup_intro_font_compare_sheet.png](/Users/user/test/analysis/startup_intro_font_compare_sheet.png)
+- 비교 요약: [startup_intro_font_compare_summary.json](/Users/user/test/analysis/startup_intro_font_compare_summary.json)
 - 그래서 startup intro 빌드는 이제 blank glyph 뿐 아니라, `0,34` 밖의 픽셀 값이 섞여 있어도 중단된다.
 - `NanumSquareR` 와 `Galmuri11` 는 조사 기록으로 남기고, 현재 active 경로에서는 내렸다.
 - 최종 자산은 공개 라이선스 폰트를 기준으로 뽑는 편이 안전하다. 특히 `12x12` 계열에선 픽셀풍인 `Galmuri` 가 유리하고, 일반 UI 기준으론 `Pretendard`, `Noto Sans KR`, `NanumSquare` 를 seed 로 쓴 뒤 수동 보정하는 방식이 현실적이다.
