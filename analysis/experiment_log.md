@@ -1281,3 +1281,16 @@
   - 경로 기준이 하나로 고정되어 QA 와 재생성 문서도 덜 흔들리게 됐다.
 - 판정: `성공`
 - 교훈: 산출물 위치를 일찍 고정해 두면, 실제 한글화 반복 테스트에서 경로 혼선이 크게 줄어든다.
+
+### 실험 64
+
+- 가설: 시작 화면에서 일부 글자만 보이고 나머지가 빈칸처럼 사라진 이유는 렌더러보다 **workbench glyph 자체가 비어 있기 때문** 일 가능성이 높다. blank glyph 를 빌드 전에 자동 검출하면 같은 혼선을 막을 수 있다.
+- 시도:
+  - `hangul_core_ui_workbench/*.pgm` 와 `startup_intro_missing_workbench/*.pgm` 의 nonzero pixel count 를 직접 확인했다.
+  - 그 결과 core UI workbench 쪽은 샘플 `10/10` 이 모두 `nonzero=0`, 반면 startup intro 추가 `8`글자는 모두 nonzero 픽셀이 있었다.
+  - 이어서 `audit-pgm-glyph-set` CLI 를 추가하고, [build_startup_intro_test.sh](/Users/user/test/scripts/build_startup_intro_test.sh) / [build_core_ui_test_roms.sh](/Users/user/test/scripts/build_core_ui_test_roms.sh) 가 기본적으로 blank glyph 검사 후 빌드하도록 바꿨다.
+- 결과:
+  - 원인은 폰트 엔진 자체보다는 **비어 있는 Hangul workbench** 로 확정됐다.
+  - 이제는 실제 픽셀이 없는 glyph 세트로는 test ROM 이 조용히 생성되지 않고, blank glyph 수를 먼저 알려 주게 됐다.
+- 판정: `성공`
+- 교훈: 한글 테스트에서 “아무것도 안 보임”은 코드 경로 문제일 수도 있지만, 그 전에 **glyph bitmap 존재 여부를 자동 검사** 해야 한다.

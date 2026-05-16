@@ -8,6 +8,7 @@ fi
 
 SOURCE_ROM="$1"
 OUTPUT_DIR="$2"
+ALLOW_BLANK_GLYPHS="${ALLOW_BLANK_GLYPHS:-0}"
 
 mkdir -p "$OUTPUT_DIR"
 
@@ -20,6 +21,23 @@ PRIORITY48_COMPACT_ROM="$OUTPUT_DIR/hnr_core_ui_priority48_compact_text_test.gba
 FULL80_BASIC_ROM="$OUTPUT_DIR/hnr_core_ui_full80_text_test.gba"
 FULL80_COMPACT_ROM="$OUTPUT_DIR/hnr_core_ui_full80_compact_text_test.gba"
 STARTUP_INTRO_ROM="$OUTPUT_DIR/hnr_startup_intro_test.gba"
+
+if [[ "$ALLOW_BLANK_GLYPHS" != "1" ]]; then
+  python3 -m gba_kor_tool audit-pgm-glyph-set \
+    analysis/hangul_core_ui_priority48_workbench/prepared_manifest.json \
+    --fail-on-blank \
+    --output "$OUTPUT_DIR/core_ui_priority48_glyph_audit.json"
+
+  python3 -m gba_kor_tool audit-pgm-glyph-set \
+    analysis/hangul_core_ui_workbench/prepared_manifest.json \
+    --fail-on-blank \
+    --output "$OUTPUT_DIR/core_ui_full80_glyph_audit.json"
+
+  python3 -m gba_kor_tool audit-pgm-glyph-set \
+    analysis/startup_intro_missing_workbench/prepared_manifest.json \
+    --fail-on-blank \
+    --output "$OUTPUT_DIR/startup_intro_missing_glyph_audit.json"
+fi
 
 python3 -m gba_kor_tool relocate-chunk \
   "$SOURCE_ROM" \

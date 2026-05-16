@@ -1503,6 +1503,25 @@ def parse_pgm(path: Path) -> Tuple[bytes, int, int, int]:
     return pixels, width, height, max_value
 
 
+def resolve_manifest_file_path(value: str, manifest_path: Path) -> Path:
+    candidate = Path(value)
+    if candidate.is_absolute() or candidate.exists():
+        return candidate
+    relative_to_manifest = manifest_path.parent / candidate
+    if relative_to_manifest.exists():
+        return relative_to_manifest
+    return candidate
+
+
+def summarize_pgm_pixels(pixels: bytes) -> Dict[str, int]:
+    nonzero = sum(1 for pixel in pixels if pixel)
+    return {
+        "pixel_count": len(pixels),
+        "nonzero_pixels": nonzero,
+        "zero_pixels": len(pixels) - nonzero,
+    }
+
+
 def pack_fnt_glyph_from_pixels(
     pixels: bytes,
     *,
@@ -2106,6 +2125,84 @@ def cmd_prepare_fnt_glyph_set(args: argparse.Namespace) -> int:
         print(f"table           : {table_path}")
     if args.report:
         print(f"report          : {args.report}")
+    return 0
+
+
+def cmd_audit_pgm_glyph_set(args: argparse.Namespace) -> int:
+    manifest_path = Path(args.manifest)
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    if not isinstance(manifest, list):
+        raise ToolError("manifest 는 JSON 배열이어야 합니다.")
+
+    entries: List[Dict[str, object]] = []
+    blank_entries: List[Dict[str, object]] = []
+    missing_entries: List[Dict[str, object]] = []
+
+    for index, item in enumerate(manifest):
+        if not isinstance(item, dict):
+            raise ToolError("manifest 항목은 객체여야 합니다.")
+        pgm_value = item.get("pgm")
+        if not pgm_value:
+            continue
+        pgm_path = resolve_manifest_file_path(str(pgm_value), manifest_path)
+        entry: Dict[str, object] = {
+            "index": index,
+            "code": item.get("code"),
+            "char": item.get("char"),
+            "pgm": str(pgm_path),
+        }
+        if not pgm_path.exists():
+            entry["status"] = "missing"
+            missing_entries.append(entry)
+            entries.append(entry)
+            continue
+
+        pixels, width, height, max_value = parse_pgm(pgm_path)
+        stats = summarize_pgm_pixels(pixels)
+        entry.update(
+            {
+                "status": "blank" if stats["nonzero_pixels"] == 0 else "ok",
+                "width": width,
+                "height": height,
+                "max_value": max_value,
+                **stats,
+            }
+        )
+        if stats["nonzero_pixels"] == 0:
+            blank_entries.append(entry)
+        entries.append(entry)
+
+    result = {
+        "manifest": str(manifest_path),
+        "count": len(entries),
+        "blank_count": len(blank_entries),
+        "missing_count": len(missing_entries),
+        "entries": entries,
+        "blank_entries": blank_entries,
+        "missing_entries": missing_entries,
+    }
+    if args.output:
+        write_json(Path(args.output), result)
+
+    print(f"manifest     : {manifest_path}")
+    print(f"glyph_count  : {len(entries)}")
+    print(f"blank_count  : {len(blank_entries)}")
+    print(f"missing_count: {len(missing_entries)}")
+    preview = blank_entries[: args.preview]
+    for entry in preview:
+        code = entry.get("code") or "?"
+        char_value = entry.get("char") or ""
+        suffix = f" ({char_value})" if char_value else ""
+        print(f"  blank {code}{suffix} -> {entry['pgm']}")
+    if len(blank_entries) > args.preview:
+        print(f"  ... {len(blank_entries) - args.preview} more blank glyphs")
+    if args.output:
+        print(f"report       : {args.output}")
+
+    if args.fail_on_blank and blank_entries:
+        raise ToolError(f"blank glyph {len(blank_entries)}개가 있어 빌드를 중단합니다.")
+    if args.fail_on_missing and missing_entries:
+        raise ToolError(f"missing glyph file {len(missing_entries)}개가 있어 빌드를 중단합니다.")
     return 0
 
 
@@ -3357,6 +3454,17 @@ def build_parser() -> argparse.ArgumentParser:
     prepare_fnt.add_argument("--row-bytes", type=int)
     prepare_fnt.add_argument("--report")
     prepare_fnt.set_defaults(func=cmd_prepare_fnt_glyph_set)
+
+    audit_pgm_set = sub.add_parser(
+        "audit-pgm-glyph-set",
+        help="manifest 의 PGM glyph 들이 비어 있는지/없는지 검사합니다.",
+    )
+    audit_pgm_set.add_argument("manifest")
+    audit_pgm_set.add_argument("--preview", type=int, default=12)
+    audit_pgm_set.add_argument("--fail-on-blank", action="store_true")
+    audit_pgm_set.add_argument("--fail-on-missing", action="store_true")
+    audit_pgm_set.add_argument("--output")
+    audit_pgm_set.set_defaults(func=cmd_audit_pgm_glyph_set)
 
     append_fnt = sub.add_parser(
         "append-fnt-glyph",
