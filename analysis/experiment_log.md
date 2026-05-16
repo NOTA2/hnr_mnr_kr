@@ -1256,3 +1256,16 @@
   - startup intro 는 이제 "가장 먼저 보기 좋은 테스트 지점"을 넘어서, **전용 재생성 경로가 있는 1차 QA 기준선** 이 됐다.
 - 판정: `성공`
 - 교훈: 실제 검수에서 자주 보는 화면은, 데이터보다 **재생성 절차가 짧은 전용 루프** 를 먼저 만들어 두는 편이 훨씬 효율적이다.
+
+### 실험 62
+
+- 가설: `analysis/` 루트에 raw evidence 가 너무 많이 남아 있으면, 다음 세션에서 hot file 과 cold file 이 섞여 불필요한 탐색 비용이 커진다. 참조가 거의 없는 raw evidence 만 archive 로 내리면 다음 작업이 더 안정적이다.
+- 시도:
+  - `helper_*.txt`, `helper_cluster_*.txt`, `caller_*.txt`, `read_*.txt`, `write_*.txt`, `refs_*.json`, `init_*.txt`, 위치/문자 보조 스냅샷 등을 [archive/data_structure_raw](/Users/user/test/analysis/archive/data_structure_raw) 로 이동했다.
+  - 루트 진입점 [README.md](/Users/user/test/analysis/README.md) 를 hot path / active text / active font / archive 기준으로 다시 썼다.
+  - archive 안내 문서 [archive/README.md](/Users/user/test/analysis/archive/README.md), [data_structure_raw/README.md](/Users/user/test/analysis/archive/data_structure_raw/README.md) 를 추가하고, [reference_map.md](/Users/user/test/docs/reference_map.md) 에도 archive 진입점을 걸었다.
+- 결과:
+  - `analysis/` 루트에서 지금 직접 여는 파일과 예전 raw evidence 가 분리됐다.
+  - archive 를 열지 않아도 현재 한글화 hot path 를 따라가는 데 필요한 파일만 빠르게 찾을 수 있게 됐다.
+- 판정: `성공`
+- 교훈: 증거를 지우는 것보다 **루트 노이즈를 줄이고 archive 경로를 명시하는 것** 이 장기 작업에 훨씬 안전하다.

@@ -60,6 +60,7 @@
 - 그 위에서 world-map 지역명 `ソリン` (`0x1842E0`) 을 `가나다` 로 제자리 치환한 `/private/tmp/hnr_font_hangul_string_test.gba` 도 만들었고, raw bytes 와 table-based `search-text` hit 로 문자열 1건을 검증했다.
 - 따라서 지금은 "첫 실제 한글 재삽입 테스트 준비"가 아니라, **첫 한글 문자열 테스트 ROM 1건을 확보한 상태** 다.
 - 또 placeholder 품질 glyph 를 정식 자산으로 쓰지 않도록, `prepare-fnt-glyph-set` 과 [font_asset_workflow.md](/Users/user/test/docs/font_asset_workflow.md) 를 추가해 **외부 픽셀 에디터 기반 정식 glyph 제작 경로** 도 열어 두었다.
+- 운영 측면에서는 `analysis/` 루트에서 참조가 거의 없는 raw evidence 묶음을 [analysis/archive/data_structure_raw](/Users/user/test/analysis/archive/data_structure_raw) 로 내리고, [analysis/README.md](/Users/user/test/analysis/README.md) / [analysis/archive/README.md](/Users/user/test/analysis/archive/README.md) 기준으로 hot path 와 cold archive 를 분리했다.
 
 - `0x184A0C..0x184AD3` 을 `10 * 0x14` effect/overlay parameter table 후보로 분리했다.
 - `0x03005FF8` 은 world-map 선택/hover location index byte 로 보는 해석이 강해졌다.

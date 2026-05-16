@@ -13,6 +13,7 @@
 - 데이터 구조 트랙: [data_structure_investigation.md](/Users/user/test/docs/tracks/data_structure_investigation.md)
 - 텍스트 추출 트랙: [text_extraction_progress.md](/Users/user/test/docs/tracks/text_extraction_progress.md)
 - 분석 폴더 안내: [README.md](/Users/user/test/analysis/README.md)
+- 분석 archive 안내: [README.md](/Users/user/test/analysis/archive/README.md)
 - 금지 가정: [current_constraints.md](/Users/user/test/analysis/current_constraints.md)
 - 실수 방지 규칙: [repeat_mistake_prevention.md](/Users/user/test/docs/repeat_mistake_prevention.md)
 
