@@ -1553,3 +1553,32 @@
   - 이제 이후 한글 폰트 작업은 “폰트 후보 비교”가 아니라 **같은 active atlas 로 subset glyph set 을 만들고, 필요한 픽셀만 수동 수정하는 단계** 로 정리되었다.
 - 판정: `성공`
 - 교훈: full-game 한글화에서는 “가장 예쁜 seed 후보 찾기”보다, **하나의 안정적인 atlas source 를 정하고 translation subset -> workbench -> ROM 경로를 고정하는 것** 이 장기적으로 더 큰 진전이다.
+
+### 실험 84
+
+- 가설: 최종 후보군이 `MaruMinyaHangul / Galmuri11 / GalmuriMono` `3`개로 줄어든 지금은, 새 후보 PNG 에서 반드시 필요한 문자 집합과 현재 파이프라인이 실제로 요구하는 비한글 범위를 분리해 적어 두는 편이 낫다.
+- 시도:
+  - [finalist_font_candidates.json](/Users/user/test/confirmed_data/font_assets/finalist_font_candidates.json) 를 추가해 최종 후보군 메타데이터를 프로젝트 안에 고정했다.
+  - [build_font_charset_report.py](/Users/user/test/scripts/build_font_charset_report.py) 로 현재 번역 기준 문자 집합 리포트 [current_translation_charset_report.json](/Users/user/test/confirmed_data/font_assets/current_translation_charset_report.json), [current_translation_charset_non_hangul.txt](/Users/user/test/confirmed_data/font_assets/current_translation_charset_non_hangul.txt) 를 생성했다.
+  - 그 결과를 바탕으로 [finalist_export_recommendation.md](/Users/user/test/confirmed_data/font_assets/finalist_export_recommendation.md) 와 [third_party/font_atlases/finalists/README.md](/Users/user/test/third_party/font_atlases/finalists/README.md) 를 작성했다.
+- 결과:
+  - 현재 파이프라인에서 새 후보 atlas 로 꼭 뽑아야 하는 것은 **한글 완성형 `11,172`자** 라는 점이 분명해졌다.
+  - 숫자/영문/기본 기호는 1차 한글화 기준으로 원본 게임 공통 폰트를 그대로 재사용하면 된다.
+  - 현재 번역 기준 비한글 사용 범위도 별도 리포트로 남겨서, 나중에 “숫자/기호도 같은 스타일로 맞출지”를 따로 판단할 수 있게 되었다.
+- 판정: `성공`
+- 교훈: 폰트 generator preset 은 “많이 들어 있는 것”보다, **현재 삽입 파이프라인이 실제로 무엇을 새로 요구하는지** 에 맞춰 고르는 편이 더 안전하다.
+
+### 실험 85
+
+- 가설: startup intro `4`줄만으로는 폰트 QA 범위가 좁다. 시작 카드 뒤의 인트로 문장과 리오르 표기/호명까지 묶은 workset, 그리고 길이를 줄여 `in_place` 비율을 높인 compact workset 을 함께 준비하면 후보 비교가 훨씬 쉬워진다.
+- 시도:
+  - [translation_workset_intro_full_test.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_intro_full_test.json) 를 만들어 시작 카드 뒤의 인트로 문장 `14`건을 추가로 묶었다.
+  - 빌드 스크립트 [build_intro_full_test.sh](/Users/user/test/scripts/build_intro_full_test.sh) 를 추가해 실제 ROM 적용까지 확인했다.
+  - 길이 문제로 `skipped_no_pointer` 가 남는 줄들을 줄이기 위해 [translation_workset_intro_full_compact_test.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json) 와 [build_intro_full_compact_test.sh](/Users/user/test/scripts/build_intro_full_compact_test.sh) 도 만들었다.
+  - 동시에 예전 vector/font compare 산출물, compact ROM 요약표, placeholder glyph, 오래된 seed manifest 들은 [analysis/archive/font_trials/2026-05-17_finalist_pool_cleanup](/Users/user/test/analysis/archive/font_trials/2026-05-17_finalist_pool_cleanup) 아래로 내렸다.
+- 결과:
+  - 일반 intro 확장 테스트 ROM [intro_full_active_translated.gba](/Users/user/test/patched_roms/intro_full_active/intro_full_active_translated.gba) 는 `10 in_place`
+  - compact intro 테스트 ROM [intro_full_compact_active_translated.gba](/Users/user/test/patched_roms/intro_full_compact_active/intro_full_compact_active_translated.gba) 는 `18 in_place`
+  - `analysis` 루트에는 startup active workbench, generated subset workbench, 현재도 직접 여는 요약만 남도록 정리되었다.
+- 판정: `성공`
+- 교훈: 폰트 QA 는 “정확한 번역”보다 먼저 **실제 화면에서 다양한 자모 조합을 많이 밟는 테스트 세트** 가 있어야 효율이 오른다.

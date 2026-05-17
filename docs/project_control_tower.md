@@ -15,10 +15,10 @@
 
 ## 현재 우선순위
 
-1. 번역 작업용 텍스트 세트 확대와 정리
-2. 한글 표시를 위한 폰트/문자 매핑/문자폭 경로 확보
-3. 첫 번째 실제 한글 재삽입 테스트
-4. 이미지 리소스는 텍스트 루프가 돈 뒤에 착수
+1. 최종 후보 `3`개 bitmap 폰트 startup intro 비교
+2. 폰트 확정 뒤 남은 텍스트 추출 감사 마감
+3. 번역 workset 운영과 재삽입 루프 고정
+4. 이미지 리소스는 폰트 결정과 텍스트 루프 안정화 뒤 착수
 
 ## 최근 핵심 진전
 
@@ -65,6 +65,19 @@
 - 따라서 지금은 "첫 실제 한글 재삽입 테스트 준비"가 아니라, **첫 한글 문자열 테스트 ROM 1건을 확보한 상태** 다.
 - 또 placeholder 품질 glyph 를 정식 자산으로 쓰지 않도록, `prepare-fnt-glyph-set` 과 [font_asset_workflow.md](/Users/user/test/docs/font_asset_workflow.md) 를 추가해 **외부 픽셀 에디터 기반 정식 glyph 제작 경로** 도 열어 두었다.
 - 운영 측면에서는 `analysis/` 루트에서 참조가 거의 없는 raw evidence 묶음을 [analysis/archive/data_structure_raw](/Users/user/test/analysis/archive/data_structure_raw) 로 내리고, [analysis/README.md](/Users/user/test/analysis/README.md) / [analysis/archive/README.md](/Users/user/test/analysis/archive/README.md) 기준으로 hot path 와 cold archive 를 분리했다.
+- 현재 한글 폰트는 “완전 확정”이 아니라 최종 후보 `3`개 비교 단계다:
+  - `MaruMinyaHangul (12px)`
+  - `Galmuri11 (12px)`
+  - `GalmuriMono (12px)`
+- 세 후보에서 새로 뽑아야 하는 bitmap seed 는 현재 파이프라인 기준 **한글 완성형 `11,172`자 atlas** 다.
+- 숫자/영문/기본 기호는 1차 한글화 기준으로 원본 게임 공통 폰트를 그대로 재사용한다.
+- 후보군 메타데이터와 export 기준은 [finalist_font_candidates.json](/Users/user/test/confirmed_data/font_assets/finalist_font_candidates.json), [finalist_export_recommendation.md](/Users/user/test/confirmed_data/font_assets/finalist_export_recommendation.md) 에 있다.
+- startup intro `4`줄만이 아니라, 시작 카드 뒤의 인트로 문장/리오르 표기/호명까지 포함한 [translation_workset_intro_full_test.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_intro_full_test.json) 도 만들었다.
+- 길이 때문에 일부가 `skipped_no_pointer` 로 남는 문제를 피하려고, 폰트 QA 전용 [translation_workset_intro_full_compact_test.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json) 도 만들었고 현재 `18 in_place` 로 확인했다.
+- build script:
+  - [build_intro_full_test.sh](/Users/user/test/scripts/build_intro_full_test.sh)
+  - [build_intro_full_compact_test.sh](/Users/user/test/scripts/build_intro_full_compact_test.sh)
+- 이미지 추출은 “텍스트 추출 이후만 가능”은 아니다. 현재 판단은 **폰트 결정 + 텍스트 루프 안정화 후**, 번역 진행과 병렬로 image inventory / extraction 을 시작하는 편이 맞다.
 
 - `0x184A0C..0x184AD3` 을 `10 * 0x14` effect/overlay parameter table 후보로 분리했다.
 - `0x03005FF8` 은 world-map 선택/hover location index byte 로 보는 해석이 강해졌다.

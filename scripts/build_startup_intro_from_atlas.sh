@@ -13,14 +13,27 @@ EXPECTED_COLUMNS="${3:-64}"
 WORKBENCH_DIR="analysis/startup_intro_${OUTPUT_SLUG}_workbench"
 WORKBENCH_REPORT="analysis/startup_intro_${OUTPUT_SLUG}_workbench_report.json"
 OUTPUT_DIR="patched_roms/font_compare/${OUTPUT_SLUG}"
+PROFILE_JSON="$OUTPUT_DIR/${OUTPUT_SLUG}_profile.json"
 
 mkdir -p "$OUTPUT_DIR"
 
-python3 scripts/import_hangul_syllable_atlas.py \
-  --atlas "$ATLAS_PATH" \
-  --manifest analysis/startup_intro_seed_manifest.json \
-  --output-dir "$WORKBENCH_DIR" \
-  --expected-columns "$EXPECTED_COLUMNS" \
+cat > "$PROFILE_JSON" <<EOF
+{
+  "label": "$OUTPUT_SLUG",
+  "source_png": "$ATLAS_PATH",
+  "tile_width": 12,
+  "tile_height": 12,
+  "columns": $EXPECTED_COLUMNS,
+  "rows": 175,
+  "character_order": "unicode_hangul_syllables"
+}
+EOF
+
+python3 scripts/build_workbench_from_active_atlas.py \
+  "$WORKBENCH_DIR" \
+  confirmed_data/extracted_texts/startup_intro_texts.json \
+  --start-code 0xEA40 \
+  --profile "$PROFILE_JSON" \
   --report "$WORKBENCH_REPORT"
 
 python3 -m gba_kor_tool audit-pgm-glyph-set \

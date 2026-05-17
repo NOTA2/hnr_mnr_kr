@@ -1,0 +1,668 @@
+{
+  "profile": "/Users/user/test/confirmed_data/font_assets/active_hangul_font_profile.json",
+  "atlas": "/Users/user/test/third_party/font_atlases/maruminyahangul_12x12.png",
+  "output_dir": "analysis/generated_workbenches/intro_full_compact_active",
+  "field": "translation",
+  "start_code": "0xE940",
+  "input_files": [
+    "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json"
+  ],
+  "hangul_count": 65,
+  "seed_manifest": "analysis/generated_workbenches/intro_full_compact_active/seed_manifest.json",
+  "prepared_manifest": "analysis/generated_workbenches/intro_full_compact_active/prepared_manifest.json",
+  "prepared_table": "analysis/generated_workbenches/intro_full_compact_active/prepared.tbl",
+  "sources": [
+    {
+      "char": "대",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 0
+    },
+    {
+      "char": "륙",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 0
+    },
+    {
+      "char": "력",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 0
+    },
+    {
+      "char": "년",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 1
+    },
+    {
+      "char": "월",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 1
+    },
+    {
+      "char": "리",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 2
+    },
+    {
+      "char": "젠",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 2
+    },
+    {
+      "char": "불",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 2
+    },
+    {
+      "char": "마",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 2
+    },
+    {
+      "char": "을",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 2
+    },
+    {
+      "char": "형",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 3
+    },
+    {
+      "char": "세",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 3
+    },
+    {
+      "char": "동",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 3
+    },
+    {
+      "char": "생",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 3
+    },
+    {
+      "char": "사",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 4
+    },
+    {
+      "char": "람",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 4
+    },
+    {
+      "char": "은",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 4
+    },
+    {
+      "char": "희",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 4
+    },
+    {
+      "char": "없",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 4
+    },
+    {
+      "char": "이",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 4
+    },
+    {
+      "char": "아",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 5
+    },
+    {
+      "char": "무",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 5
+    },
+    {
+      "char": "것",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 5
+    },
+    {
+      "char": "도",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 5
+    },
+    {
+      "char": "얻",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 5
+    },
+    {
+      "char": "수",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 5
+    },
+    {
+      "char": "다",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 5
+    },
+    {
+      "char": "언",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 6
+    },
+    {
+      "char": "가",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 6
+    },
+    {
+      "char": "를",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 6
+    },
+    {
+      "char": "으",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 6
+    },
+    {
+      "char": "려",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 6
+    },
+    {
+      "char": "면",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 6
+    },
+    {
+      "char": "등",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 7
+    },
+    {
+      "char": "한",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 7
+    },
+    {
+      "char": "필",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 7
+    },
+    {
+      "char": "요",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 7
+    },
+    {
+      "char": "하",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 7
+    },
+    {
+      "char": "그",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 8
+    },
+    {
+      "char": "연",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 8
+    },
+    {
+      "char": "금",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 8
+    },
+    {
+      "char": "술",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 8
+    },
+    {
+      "char": "의",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 8
+    },
+    {
+      "char": "교",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 9
+    },
+    {
+      "char": "환",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 9
+    },
+    {
+      "char": "원",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 9
+    },
+    {
+      "char": "칙",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 9
+    },
+    {
+      "char": "때",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 10
+    },
+    {
+      "char": "우",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 10
+    },
+    {
+      "char": "린",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 10
+    },
+    {
+      "char": "진",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 11
+    },
+    {
+      "char": "실",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 11
+    },
+    {
+      "char": "라",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 11
+    },
+    {
+      "char": "믿",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 12
+    },
+    {
+      "char": "었",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 12
+    },
+    {
+      "char": "방",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 13
+    },
+    {
+      "char": "시",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 13
+    },
+    {
+      "char": "오",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 13
+    },
+    {
+      "char": "르",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 13
+    },
+    {
+      "char": "워",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 14
+    },
+    {
+      "char": "드",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 14
+    },
+    {
+      "char": "릭",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 15
+    },
+    {
+      "char": "여",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 15
+    },
+    {
+      "char": "엘",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 16
+    },
+    {
+      "char": "에",
+      "source_file": "confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json",
+      "record_index": 17
+    }
+  ],
+  "entries": [
+    {
+      "code": "0xE940",
+      "char": "대",
+      "name": "hangul_E940_B300"
+    },
+    {
+      "code": "0xE941",
+      "char": "륙",
+      "name": "hangul_E941_B959"
+    },
+    {
+      "code": "0xE942",
+      "char": "력",
+      "name": "hangul_E942_B825"
+    },
+    {
+      "code": "0xE943",
+      "char": "년",
+      "name": "hangul_E943_B144"
+    },
+    {
+      "code": "0xE944",
+      "char": "월",
+      "name": "hangul_E944_C6D4"
+    },
+    {
+      "code": "0xE945",
+      "char": "리",
+      "name": "hangul_E945_B9AC"
+    },
+    {
+      "code": "0xE946",
+      "char": "젠",
+      "name": "hangul_E946_C820"
+    },
+    {
+      "code": "0xE947",
+      "char": "불",
+      "name": "hangul_E947_BD88"
+    },
+    {
+      "code": "0xE948",
+      "char": "마",
+      "name": "hangul_E948_B9C8"
+    },
+    {
+      "code": "0xE949",
+      "char": "을",
+      "name": "hangul_E949_C744"
+    },
+    {
+      "code": "0xE94A",
+      "char": "형",
+      "name": "hangul_E94A_D615"
+    },
+    {
+      "code": "0xE94B",
+      "char": "세",
+      "name": "hangul_E94B_C138"
+    },
+    {
+      "code": "0xE94C",
+      "char": "동",
+      "name": "hangul_E94C_B3D9"
+    },
+    {
+      "code": "0xE94D",
+      "char": "생",
+      "name": "hangul_E94D_C0DD"
+    },
+    {
+      "code": "0xE94E",
+      "char": "사",
+      "name": "hangul_E94E_C0AC"
+    },
+    {
+      "code": "0xE94F",
+      "char": "람",
+      "name": "hangul_E94F_B78C"
+    },
+    {
+      "code": "0xE950",
+      "char": "은",
+      "name": "hangul_E950_C740"
+    },
+    {
+      "code": "0xE951",
+      "char": "희",
+      "name": "hangul_E951_D76C"
+    },
+    {
+      "code": "0xE952",
+      "char": "없",
+      "name": "hangul_E952_C5C6"
+    },
+    {
+      "code": "0xE953",
+      "char": "이",
+      "name": "hangul_E953_C774"
+    },
+    {
+      "code": "0xE954",
+      "char": "아",
+      "name": "hangul_E954_C544"
+    },
+    {
+      "code": "0xE955",
+      "char": "무",
+      "name": "hangul_E955_BB34"
+    },
+    {
+      "code": "0xE956",
+      "char": "것",
+      "name": "hangul_E956_AC83"
+    },
+    {
+      "code": "0xE957",
+      "char": "도",
+      "name": "hangul_E957_B3C4"
+    },
+    {
+      "code": "0xE958",
+      "char": "얻",
+      "name": "hangul_E958_C5BB"
+    },
+    {
+      "code": "0xE959",
+      "char": "수",
+      "name": "hangul_E959_C218"
+    },
+    {
+      "code": "0xE95A",
+      "char": "다",
+      "name": "hangul_E95A_B2E4"
+    },
+    {
+      "code": "0xE95B",
+      "char": "언",
+      "name": "hangul_E95B_C5B8"
+    },
+    {
+      "code": "0xE95C",
+      "char": "가",
+      "name": "hangul_E95C_AC00"
+    },
+    {
+      "code": "0xE95D",
+      "char": "를",
+      "name": "hangul_E95D_B97C"
+    },
+    {
+      "code": "0xE95E",
+      "char": "으",
+      "name": "hangul_E95E_C73C"
+    },
+    {
+      "code": "0xE95F",
+      "char": "려",
+      "name": "hangul_E95F_B824"
+    },
+    {
+      "code": "0xE960",
+      "char": "면",
+      "name": "hangul_E960_BA74"
+    },
+    {
+      "code": "0xE961",
+      "char": "등",
+      "name": "hangul_E961_B4F1"
+    },
+    {
+      "code": "0xE962",
+      "char": "한",
+      "name": "hangul_E962_D55C"
+    },
+    {
+      "code": "0xE963",
+      "char": "필",
+      "name": "hangul_E963_D544"
+    },
+    {
+      "code": "0xE964",
+      "char": "요",
+      "name": "hangul_E964_C694"
+    },
+    {
+      "code": "0xE965",
+      "char": "하",
+      "name": "hangul_E965_D558"
+    },
+    {
+      "code": "0xE966",
+      "char": "그",
+      "name": "hangul_E966_ADF8"
+    },
+    {
+      "code": "0xE967",
+      "char": "연",
+      "name": "hangul_E967_C5F0"
+    },
+    {
+      "code": "0xE968",
+      "char": "금",
+      "name": "hangul_E968_AE08"
+    },
+    {
+      "code": "0xE969",
+      "char": "술",
+      "name": "hangul_E969_C220"
+    },
+    {
+      "code": "0xE96A",
+      "char": "의",
+      "name": "hangul_E96A_C758"
+    },
+    {
+      "code": "0xE96B",
+      "char": "교",
+      "name": "hangul_E96B_AD50"
+    },
+    {
+      "code": "0xE96C",
+      "char": "환",
+      "name": "hangul_E96C_D658"
+    },
+    {
+      "code": "0xE96D",
+      "char": "원",
+      "name": "hangul_E96D_C6D0"
+    },
+    {
+      "code": "0xE96E",
+      "char": "칙",
+      "name": "hangul_E96E_CE59"
+    },
+    {
+      "code": "0xE96F",
+      "char": "때",
+      "name": "hangul_E96F_B54C"
+    },
+    {
+      "code": "0xE970",
+      "char": "우",
+      "name": "hangul_E970_C6B0"
+    },
+    {
+      "code": "0xE971",
+      "char": "린",
+      "name": "hangul_E971_B9B0"
+    },
+    {
+      "code": "0xE972",
+      "char": "진",
+      "name": "hangul_E972_C9C4"
+    },
+    {
+      "code": "0xE973",
+      "char": "실",
+      "name": "hangul_E973_C2E4"
+    },
+    {
+      "code": "0xE974",
+      "char": "라",
+      "name": "hangul_E974_B77C"
+    },
+    {
+      "code": "0xE975",
+      "char": "믿",
+      "name": "hangul_E975_BBFF"
+    },
+    {
+      "code": "0xE976",
+      "char": "었",
+      "name": "hangul_E976_C5C8"
+    },
+    {
+      "code": "0xE977",
+      "char": "방",
+      "name": "hangul_E977_BC29"
+    },
+    {
+      "code": "0xE978",
+      "char": "시",
+      "name": "hangul_E978_C2DC"
+    },
+    {
+      "code": "0xE979",
+      "char": "오",
+      "name": "hangul_E979_C624"
+    },
+    {
+      "code": "0xE97A",
+      "char": "르",
+      "name": "hangul_E97A_B974"
+    },
+    {
+      "code": "0xE97B",
+      "char": "워",
+      "name": "hangul_E97B_C6CC"
+    },
+    {
+      "code": "0xE97C",
+      "char": "드",
+      "name": "hangul_E97C_B4DC"
+    },
+    {
+      "code": "0xE97D",
+      "char": "릭",
+      "name": "hangul_E97D_B9AD"
+    },
+    {
+      "code": "0xE97E",
+      "char": "여",
+      "name": "hangul_E97E_C5EC"
+    },
+    {
+      "code": "0xE97F",
+      "char": "엘",
+      "name": "hangul_E97F_C5D8"
+    },
+    {
+      "code": "0xE980",
+      "char": "에",
+      "name": "hangul_E980_C5D0"
+    }
+  ]
+}

@@ -13,6 +13,10 @@
 ## 현재 상태
 
 - 상태: `IN PROGRESS`
+- 현재는 단일 확정 폰트가 아니라 **최종 후보 `3`개 비교 단계** 다.
+  - `MaruMinyaHangul (12px)`
+  - `Galmuri11 (12px)`
+  - `GalmuriMono (12px)`
 
 ## 준비된 것
 
@@ -28,11 +32,15 @@
 
 ## 최근 확인
 
-- 현재 프로젝트의 active 한글 glyph source 는 [maruminyahangul_12x12.png](/Users/user/test/third_party/font_atlases/maruminyahangul_12x12.png) 하나로 고정했다.
+- 현재 active 기본값은 [maruminyahangul_12x12.png](/Users/user/test/third_party/font_atlases/maruminyahangul_12x12.png) 이지만, 최종 후보군은 [finalist_font_candidates.json](/Users/user/test/confirmed_data/font_assets/finalist_font_candidates.json) 으로 따로 관리한다.
+- 후보 atlas 에서 지금 꼭 필요한 문자 집합은 **한글 완성형 `11,172`자** 다. 숫자/영문/기호는 1차 한글화 기준 원본 게임 공통 폰트를 그대로 쓴다.
+- export 기준은 [finalist_export_recommendation.md](/Users/user/test/confirmed_data/font_assets/finalist_export_recommendation.md), 보조 리포트는 [current_translation_charset_report.json](/Users/user/test/confirmed_data/font_assets/current_translation_charset_report.json), [current_translation_charset_non_hangul.txt](/Users/user/test/confirmed_data/font_assets/current_translation_charset_non_hangul.txt) 에 있다.
 - 기준 설정은 [active_hangul_font_profile.json](/Users/user/test/confirmed_data/font_assets/active_hangul_font_profile.json) 에 기록했다.
-- startup intro active workbench, core UI `priority48`, core UI `full80` workbench 는 모두 같은 atlas 에서 다시 생성되도록 정리했다.
+- startup intro active workbench 와 일반 번역 subset workbench 는 모두 같은 atlas 경로에서 다시 생성되도록 정리했다.
 - 임의의 번역 JSON 에서 실제 사용 한글만 뽑아 subset workbench 를 만드는 [build_workbench_from_active_atlas.py](/Users/user/test/scripts/build_workbench_from_active_atlas.py) 와, 그 결과를 바로 ROM 에 적용하는 [build_translated_rom_with_active_atlas.sh](/Users/user/test/scripts/build_translated_rom_with_active_atlas.sh) 를 추가했다.
 - 예전 D2Coding / NanumSquare / SourceHan / 비교 시트와 workbench 는 [analysis/archive/font_trials/2026-05-17_pre_bitmap_lock](/Users/user/test/analysis/archive/font_trials/2026-05-17_pre_bitmap_lock) 로 내렸다.
+- startup intro 의 첫 카드 `4`줄만이 아니라, 시작 카드 뒤 인트로 문장/리오르/호명까지 포함한 [translation_workset_intro_full_test.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_intro_full_test.json) 과 [translation_workset_intro_full_compact_test.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json) 도 준비했다.
+- 현재 compact intro 테스트는 [intro_full_compact_active_translated.gba](/Users/user/test/patched_roms/intro_full_compact_active/intro_full_compact_active_translated.gba) 기준 `18 in_place` 까지 확인했다.
 
 - `0x0514xx` UI cluster 는 `0x075DD4` (`strlen`) 과 `0x03EB78` / `0x03ECCC` layout helper 를 반복 호출하는 **UI layout / slot setup 경로**에 가깝다.
 - 같은 클러스터에서 따라간 `0x058720` 은 문자열 렌더러가 아니라, current tracked slot record (`0x714`) 의 좌표를 읽어 넘기는 position helper 다.

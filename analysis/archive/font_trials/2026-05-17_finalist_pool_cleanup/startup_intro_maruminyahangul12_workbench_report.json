@@ -1,0 +1,158 @@
+{
+  "profile": "patched_roms/font_compare/maruminyahangul12/maruminyahangul12_profile.json",
+  "atlas": "/Users/user/test/third_party/font_atlases/maruminyahangul_12x12.png",
+  "output_dir": "analysis/startup_intro_maruminyahangul12_workbench",
+  "field": "translation",
+  "start_code": "0xE940",
+  "input_files": [
+    "confirmed_data/extracted_texts/startup_intro_texts.json"
+  ],
+  "hangul_count": 14,
+  "seed_manifest": "analysis/startup_intro_maruminyahangul12_workbench/seed_manifest.json",
+  "prepared_manifest": "analysis/startup_intro_maruminyahangul12_workbench/prepared_manifest.json",
+  "prepared_table": "analysis/startup_intro_maruminyahangul12_workbench/prepared.tbl",
+  "sources": [
+    {
+      "char": "대",
+      "source_file": "confirmed_data/extracted_texts/startup_intro_texts.json",
+      "record_index": 0
+    },
+    {
+      "char": "륙",
+      "source_file": "confirmed_data/extracted_texts/startup_intro_texts.json",
+      "record_index": 0
+    },
+    {
+      "char": "력",
+      "source_file": "confirmed_data/extracted_texts/startup_intro_texts.json",
+      "record_index": 0
+    },
+    {
+      "char": "년",
+      "source_file": "confirmed_data/extracted_texts/startup_intro_texts.json",
+      "record_index": 1
+    },
+    {
+      "char": "월",
+      "source_file": "confirmed_data/extracted_texts/startup_intro_texts.json",
+      "record_index": 1
+    },
+    {
+      "char": "리",
+      "source_file": "confirmed_data/extracted_texts/startup_intro_texts.json",
+      "record_index": 2
+    },
+    {
+      "char": "젠",
+      "source_file": "confirmed_data/extracted_texts/startup_intro_texts.json",
+      "record_index": 2
+    },
+    {
+      "char": "불",
+      "source_file": "confirmed_data/extracted_texts/startup_intro_texts.json",
+      "record_index": 2
+    },
+    {
+      "char": "마",
+      "source_file": "confirmed_data/extracted_texts/startup_intro_texts.json",
+      "record_index": 2
+    },
+    {
+      "char": "을",
+      "source_file": "confirmed_data/extracted_texts/startup_intro_texts.json",
+      "record_index": 2
+    },
+    {
+      "char": "형",
+      "source_file": "confirmed_data/extracted_texts/startup_intro_texts.json",
+      "record_index": 3
+    },
+    {
+      "char": "세",
+      "source_file": "confirmed_data/extracted_texts/startup_intro_texts.json",
+      "record_index": 3
+    },
+    {
+      "char": "동",
+      "source_file": "confirmed_data/extracted_texts/startup_intro_texts.json",
+      "record_index": 3
+    },
+    {
+      "char": "생",
+      "source_file": "confirmed_data/extracted_texts/startup_intro_texts.json",
+      "record_index": 3
+    }
+  ],
+  "entries": [
+    {
+      "code": "0xE940",
+      "char": "대",
+      "name": "hangul_E940_B300"
+    },
+    {
+      "code": "0xE941",
+      "char": "륙",
+      "name": "hangul_E941_B959"
+    },
+    {
+      "code": "0xE942",
+      "char": "력",
+      "name": "hangul_E942_B825"
+    },
+    {
+      "code": "0xE943",
+      "char": "년",
+      "name": "hangul_E943_B144"
+    },
+    {
+      "code": "0xE944",
+      "char": "월",
+      "name": "hangul_E944_C6D4"
+    },
+    {
+      "code": "0xE945",
+      "char": "리",
+      "name": "hangul_E945_B9AC"
+    },
+    {
+      "code": "0xE946",
+      "char": "젠",
+      "name": "hangul_E946_C820"
+    },
+    {
+      "code": "0xE947",
+      "char": "불",
+      "name": "hangul_E947_BD88"
+    },
+    {
+      "code": "0xE948",
+      "char": "마",
+      "name": "hangul_E948_B9C8"
+    },
+    {
+      "code": "0xE949",
+      "char": "을",
+      "name": "hangul_E949_C744"
+    },
+    {
+      "code": "0xE94A",
+      "char": "형",
+      "name": "hangul_E94A_D615"
+    },
+    {
+      "code": "0xE94B",
+      "char": "세",
+      "name": "hangul_E94B_C138"
+    },
+    {
+      "code": "0xE94C",
+      "char": "동",
+      "name": "hangul_E94C_B3D9"
+    },
+    {
+      "code": "0xE94D",
+      "char": "생",
+      "name": "hangul_E94D_C0DD"
+    }
+  ]
+}
