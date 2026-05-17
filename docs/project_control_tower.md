@@ -21,6 +21,11 @@
 4. 번역 workset 운영과 재삽입 루프 고정
 5. 이미지 리소스는 텍스트 루프 안정화 뒤 착수
 
+## 새 메타데이터 레이어
+
+- [confirmed_data/dialogue_metadata/README.md](/Users/user/test/confirmed_data/dialogue_metadata/README.md)
+  - 추출본을 다시 갈아엎지 않고, dialogue source 옆에 `dialogue_state_token` sidecar 를 붙여 speaker-state 추적을 누적한다.
+
 ## 최근 핵심 진전
 
 - `build-translation-set` CLI 를 추가해 여러 추출 JSON 을 번역 작업용 JSON 한 개로 묶을 수 있게 했다.

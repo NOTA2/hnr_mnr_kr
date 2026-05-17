@@ -1785,3 +1785,18 @@
 - 교훈:
   - 아직 객관적 화자 ID 는 없지만, **text record + 직전 control-gap** 묶음으로 speaker-state 추적을 시작할 수 있다.
   - 번역팀에 들어갈 화자 정보는 당분간 “확정값”이 아니라 `candidate / unresolved` 레이어로 분리하는 편이 안전하다.
+
+### 실험 101
+
+- 가설: 대사 추출본을 처음부터 다시 만들 필요 없이, `entry8` 과 `Registry D` 에 objective `dialogue_state_token` sidecar 를 붙이면 번역 단계에서 화자 후보를 더 매끄럽게 참고할 수 있다.
+- 시도:
+  - [build_dialogue_state_index.py](/Users/user/test/scripts/build_dialogue_state_index.py) 를 추가해 `registry_a_entry8_prefixed_texts` 의 control-gap 에서 `27 FF`, `1B FF`, `2B FF` 계열 마지막 token 을 추출했다.
+  - 같은 스크립트에서 `registry_d_fc_script_texts` 의 `before_bytes` 안 `05 00 XX 00 08 00 98` 패턴을 잡아 `pre98:XX` token 으로 정리했다.
+  - 결과를 [confirmed_data/dialogue_metadata/entry8_dialogue_state_index.json](/Users/user/test/confirmed_data/dialogue_metadata/entry8_dialogue_state_index.json), [confirmed_data/dialogue_metadata/registry_d_dialogue_state_index.json](/Users/user/test/confirmed_data/dialogue_metadata/registry_d_dialogue_state_index.json), [confirmed_data/dialogue_metadata/README.md](/Users/user/test/confirmed_data/dialogue_metadata/README.md) 로 남겼다.
+- 결과:
+  - `entry8` 에서는 `1bff:0100`, `1bff:0B00`, `1bff:0280`, `1bff:0180` 같은 state token 묶음이 대량으로 반복된다.
+  - `Registry D` 에서는 `pre98:3A`, `pre98:3C`, `pre98:3B`, `pre98:0B` 같은 token 이 반복되며, `兄さん、どうやって戦うの？` 와 같은 줄은 `pre98:0B`, `錬成であっさり終わらせる！` 같은 줄은 `pre98:3B` 로 객관적으로 분리된다.
+- 판정: `성공`
+- 교훈:
+  - 화자 추적은 “재추출” 문제가 아니라, **기존 추출본 옆에 붙는 sidecar 메타데이터 설계** 문제로 보는 편이 맞다.
+  - 번역팀이 화자 정보를 참고해야 할 때도, 우선은 `dialogue_state_token` 기반 후보 묶음에서 시작하는 게 가장 안전하다.

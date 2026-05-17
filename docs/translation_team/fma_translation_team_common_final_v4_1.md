@@ -95,6 +95,8 @@
 - 원문에 명시된 줄바꿈/제어문자가 있으면 **보존 우선**으로 본다.
 - 줄바꿈 정보가 없는 일반 대사는 짧고 명확하게 번역하되, 번역자가 임의로 과도한 줄나눔을 넣지 않는다.
 - 길이 제약이 확정된 workset 은 별도 메모나 필드로 관리하고, 그 규칙이 있으면 그 규칙을 최우선한다.
+- 화자 정보가 필요한 경우, 현재는 extracted JSON 안의 명시적 `speaker` 필드 대신 [confirmed_data/dialogue_metadata/README.md](/Users/user/test/confirmed_data/dialogue_metadata/README.md) 의 `dialogue_state_token` sidecar 를 먼저 참고한다.
+- `dialogue_state_token` 은 확정 화자명이 아니라 **동일 portrait/state 후보를 묶는 객관적 제어 표식**으로만 취급한다.
 
 ### 코드 기반으로 강하게 좁혀진 것
 
