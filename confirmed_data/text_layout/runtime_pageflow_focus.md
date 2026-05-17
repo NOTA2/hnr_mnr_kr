@@ -1,6 +1,6 @@
 # Runtime Pageflow Focus
 
-- last_updated: `2026-05-17`
+- last_updated: `2026-05-18`
 
 ## Entry8 Focus
 

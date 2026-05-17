@@ -1948,3 +1948,32 @@
 - 판정: `성공`
 - 교훈:
   - 미확정 범위를 “전체 source”로 두지 말고, **바로 다음 QA 우선순위 목록**까지 내려야 100% 마감 작업이 실제로 가벼워진다.
+
+### 실험 112
+
+- 가설: `entry8` / `Registry D` focus 목록도 여전히 너무 넓으므로, 이를 **objective candidate group** 으로 다시 묶으면 남은 runtime/page-flow 미확정을 더 작은 control-behavior family 로 줄일 수 있다.
+- 시도:
+  - [build_runtime_candidate_groups.py](/Users/user/test/scripts/build_runtime_candidate_groups.py) 를 추가했다.
+  - `entry8` focus cluster 는 `null run / token run / max_run` 기준으로 `null_dominant_script_chain`, `token_mixed_chain`, `mixed_short_chain` 후보군으로 다시 분리했다.
+  - `Registry D` long-multiline focus run 은 `named_token_long_multiline` 과 `null_token_manual_or_tutorial_chain` 으로 다시 분리했다.
+  - 결과를 [runtime_candidate_groups.json](/Users/user/test/confirmed_data/text_layout/runtime_candidate_groups.json), [runtime_candidate_groups.md](/Users/user/test/confirmed_data/text_layout/runtime_candidate_groups.md) 에 남겼다.
+- 결과:
+  - 현재 상위 `entry8` focus cluster 는 대부분 `token_mixed_chain` 으로 모여, 남은 핵심이 “토큰과 null-chain 이 함께 섞인 externally sequenced dialogue” 라는 점이 더 명확해졌다.
+  - `Registry D` 는 `run 140` 만 `null_token_manual_or_tutorial_chain` 이고, 나머지 장문 focus 는 대부분 `named_token_long_multiline` 축으로 모였다.
+- 판정: `성공`
+- 교훈:
+  - 마지막 미확정도 cluster/run 목록이 아니라 **작은 candidate group** 으로 다시 묶어야 실제 QA/번역 가이드에 바로 쓸 수 있다.
+
+### 실험 113
+
+- 가설: “무엇이 아직 안 끝났는가”를 한 파일에 모아 `기계적으로 닫힌 영역`과 `사람 확인이 필요한 gate` 를 분리하면, 100%에 못 닿는 이유가 훨씬 명확해진다.
+- 시도:
+  - [build_runtime_resolution_gates.py](/Users/user/test/scripts/build_runtime_resolution_gates.py) 를 추가했다.
+  - `runtime_dialogue_subprofiles`, `runtime_pageflow_focus`, `extraction_audit_status`, `image_text_inventory` 를 묶어 [runtime_resolution_gates.json](/Users/user/test/confirmed_data/translation_workspace/runtime_resolution_gates.json), [runtime_resolution_gates.md](/Users/user/test/confirmed_data/translation_workspace/runtime_resolution_gates.md) 를 생성했다.
+- 결과:
+  - known source `13`, known record `10756` 기준 구조적 추출은 닫혔고,
+  - machine-closable runtime scope 는 거의 닫혔으며,
+  - 최종적으로 남은 gate 는 `live_playthrough_text_audit`, `visual_page_turn_confirmation`, `baked_image_text_asset_review` 세 축이라는 점이 한 파일로 고정됐다.
+- 판정: `성공`
+- 교훈:
+  - “아직 100%가 아님”을 막연히 남겨 두기보다, **무엇이 기계적으로 끝났고 무엇이 사람 확인을 요구하는지**를 분리해야 프로젝트 종료 조건이 선명해진다.

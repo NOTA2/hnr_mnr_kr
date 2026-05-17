@@ -1,0 +1,48 @@
+{
+  "version": 1,
+  "last_updated": "2026-05-18",
+  "structural_closure": {
+    "status": "closed_for_known_sources",
+    "known_source_count": 13,
+    "known_record_count": 10756
+  },
+  "machine_closable_runtime_scope": {
+    "status": "nearly_closed_except_visual_confirmation",
+    "entry8_focus_cluster_count": 12,
+    "entry8_chain_heavy_clusters": 42,
+    "registry_d_long_multiline_focus_count": 8,
+    "notes": [
+      "The remaining runtime scope is no longer source-wide; it is narrowed to a finite focus set.",
+      "Entry8 is narrowed to chain-heavy externally sequenced short-line clusters.",
+      "Registry D is narrowed to a small long-multiline tier plus page-turn behavior."
+    ]
+  },
+  "image_inventory_scope": {
+    "status": "in_progress",
+    "review_unit_count": 8,
+    "highest_priority_units": [
+      "title_logo_wordmark",
+      "title_screen_static_menu_wordmarks",
+      "event_or_cutscene_text_cards",
+      "dialogue_window_frame_art"
+    ]
+  },
+  "human_verification_blockers": [
+    {
+      "id": "live_playthrough_text_audit",
+      "reason": "Only a real playthrough-style sweep can prove there are no unseen Japanese strings left in unvisited runtime branches."
+    },
+    {
+      "id": "visual_page_turn_confirmation",
+      "reason": "Only runtime visual confirmation can fully close dialogue box/page-flow behavior for entry8 chaining and Registry D long-multiline cases."
+    },
+    {
+      "id": "baked_image_text_asset_review",
+      "reason": "Actual image-backed text still needs asset-by-asset review and later extraction/replacement work."
+    }
+  ],
+  "operational_reading": [
+    "Machine-closable structural extraction is effectively closed for known sources.",
+    "What remains is dominated by human-visible runtime confirmation and image-side review, not unknown text-bank discovery."
+  ]
+}

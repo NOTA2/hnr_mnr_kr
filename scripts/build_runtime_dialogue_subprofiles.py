@@ -4,6 +4,7 @@ from __future__ import annotations
 
 import json
 from collections import Counter, defaultdict
+from datetime import date
 from pathlib import Path
 
 
@@ -138,7 +139,7 @@ def build() -> dict:
     regd = load_json(REGD_RUNS_PATH)
     return {
         "version": 1,
-        "last_updated": "2026-05-17",
+        "last_updated": date.today().isoformat(),
         "scope": "Refined runtime subprofiles for the two remaining high-priority dialogue/page-flow sources.",
         "entry8": build_entry8_summary(entry8),
         "registry_d": build_regd_summary(regd),

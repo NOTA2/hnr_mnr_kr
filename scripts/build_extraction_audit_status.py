@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+from datetime import date
 from pathlib import Path
 
 
@@ -16,7 +17,7 @@ def main() -> int:
     index = json.loads((WORKSPACE / "index.json").read_text(encoding="utf-8"))
     status = {
         "version": 1,
-        "last_updated": "2026-05-17",
+        "last_updated": date.today().isoformat(),
         "known_source_count": int(index["master"]["source_count"]),
         "known_record_count": int(index["master"]["record_count"]),
         "structural_extraction_status": "closed_for_known_sources",

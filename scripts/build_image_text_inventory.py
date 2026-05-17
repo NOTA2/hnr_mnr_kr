@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+from datetime import date
 from pathlib import Path
 
 
@@ -17,7 +18,7 @@ OUT_README = OUT_DIR / "README.md"
 def build() -> dict:
     return {
         "version": 1,
-        "last_updated": "2026-05-17",
+        "last_updated": date.today().isoformat(),
         "status": "in_progress",
         "note": "This is an inventory/status layer, not a completed extraction of image-baked text.",
         "confirmed_non_image_text_contexts": [

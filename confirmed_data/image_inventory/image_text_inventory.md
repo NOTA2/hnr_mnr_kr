@@ -1,7 +1,7 @@
 # Image Text Inventory
 
 - status: `in_progress`
-- last_updated: `2026-05-17`
+- last_updated: `2026-05-18`
 
 ## Confirmed Non-Image Text Contexts
 

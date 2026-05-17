@@ -20,6 +20,8 @@
 - high-priority dialogue runtime 상세는 [runtime_dialogue_family_report.md](/Users/user/test/confirmed_data/text_layout/runtime_dialogue_family_report.md) 를 본다.
 - high-priority dialogue runtime 세부 subprofile 은 [runtime_dialogue_subprofiles.md](/Users/user/test/confirmed_data/text_layout/runtime_dialogue_subprofiles.md) 를 본다.
 - 실제 다음 runtime QA 우선순위는 [runtime_pageflow_focus.md](/Users/user/test/confirmed_data/text_layout/runtime_pageflow_focus.md) 를 본다.
+- 남은 미확정이 기계적으로 어디까지 닫혔는지는 [runtime_resolution_gates.md](/Users/user/test/confirmed_data/translation_workspace/runtime_resolution_gates.md) 를 본다.
+- `entry8` / `Registry D` 의 objective candidate group 은 [runtime_candidate_groups.md](/Users/user/test/confirmed_data/text_layout/runtime_candidate_groups.md) 를 본다.
 - 대사 계열 state token sidecar 는 [confirmed_data/dialogue_metadata/README.md](/Users/user/test/confirmed_data/dialogue_metadata/README.md) 에 둔다.
 - cluster/run 빠른 요약은 [dialogue_state_cluster_summary.md](/Users/user/test/confirmed_data/dialogue_metadata/dialogue_state_cluster_summary.md) 을 본다.
 - save/menu prompt 는 `save_menu_prefixed_01ff` family 로 따로 분리해, `01 FF <u16 char_count>` 헤더와 뒤 제어코드를 보존하는 쪽으로 다룬다.
@@ -29,9 +31,11 @@
 - `Registry D` 의 남은 runtime 불확실성은 이제 source 전체가 아니라 **small long-multiline tier + page-turn behavior** 쪽에 더 몰려 있다.
 - 현재 가장 먼저 볼 `entry8` focus cluster 는 `38, 18, 61, 55, 20, 41, 62, 26, 11, 70` 이다.
 - 현재 가장 먼저 볼 `Registry D` focus run 은 `11, 15, 22, 24, 25, 113, 114, 140` 이다.
+- 구조적으로는 known source `13`개 / known record `10756` 기준으로 닫혔고, 남은 핵심은 **visual page-turn / live playthrough / baked image review** 세 축으로 압축됐다.
 - `ui_skill/item/entry12` 는 `ui_or_item_plain_00_record`, `battle/ability/material` 은 `term_description_plain_00_optional_0b`, `credits` 는 `credits_padded_plain_00_record` family 로 부분 확정했다.
 - image-side 감사는 [confirmed_data/image_inventory/README.md](/Users/user/test/confirmed_data/image_inventory/README.md) 기준으로 시작됐다.
 - image-side 감사는 이제 `review bucket` 이 아니라 `title_logo_wordmark / event_or_cutscene_text_cards / ui_panel_label_art / battle_result_or_reward_banners` 같은 **review unit** 기준으로 본다.
+- image-side 우선 review order 는 `title_logo_wordmark -> title_screen_static_menu_wordmarks -> event_or_cutscene_text_cards -> dialogue_window_frame_art` 순이다.
 - `system_messages` / `save_menu` 는 residual runtime uncertainty 가 남아도, 현재는 **operationally bounded** 로 내려가 주요 blocker 에서 제외한다.
 - 따라서 남은 핵심은 “대사 source 의 record 경계”보다 **runtime dialogue box/page family** 와 **실플레이/이미지 텍스트 감사** 쪽이다.
 - `analysis/dialogue_speaker_probe.md` 는 representative dialogue scene `2`개에서 각 레코드 직전 control-gap 을 뽑은 첫 speaker-state 추적 산출물이다.
