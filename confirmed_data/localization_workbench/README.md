@@ -15,7 +15,7 @@
 
 ## 카테고리
 
-- `translation_workset_startup_font_showcase`: 시작 화면 / 4개
+- `translation_workset_startup_font_showcase`: 시작 카드 4줄 / 4개
 - `translation_workset_core_ui`: 코어 UI / 43개
 - `translation_workset_gameplay_terms`: 게임 용어 / 386개
 - `translation_workset_registry_d_dialogue`: 대사 Registry D / 244개

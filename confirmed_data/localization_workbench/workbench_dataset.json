@@ -26,11 +26,11 @@
   "categories": [
     {
       "id": "translation_workset_startup_font_showcase",
-      "label": "시작 화면",
+      "label": "시작 카드 4줄",
       "type": "text",
       "sort_order": 0,
       "path": "confirmed_data/translation_worksets/translation_workset_startup_font_showcase.json",
-      "description": "폰트/삽입 확인용 시작 카드 4줄",
+      "description": "게임 시작 직후 첫 카드에 뜨는 고정 슬롯 4줄만 포함",
       "build_enabled": true,
       "item_count": 4
     },

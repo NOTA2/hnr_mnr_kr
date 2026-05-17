@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import base64
 import json
+import shutil
 import subprocess
 import sys
 import urllib.parse
@@ -23,6 +24,8 @@ PROGRESS_PATH = WORKBENCH_DIR / "progress_state.json"
 IMAGE_REPLACEMENTS_PATH = WORKBENCH_DIR / "image_replacements.json"
 UPLOADS_ROOT = WORKBENCH_DIR / "uploaded_image_replacements"
 IMPORT_REPORT_DIR = WORKBENCH_DIR / "import_reports"
+AGENT_INBOX_DIR = WORKBENCH_DIR / "agent_inbox"
+IMPORTED_AGENT_RESULTS_DIR = WORKBENCH_DIR / "imported_agent_results"
 
 
 def parse_args() -> argparse.Namespace:
@@ -42,7 +45,13 @@ def write_json(path: Path, payload: Any) -> None:
 
 class WorkbenchStore:
     def __init__(self) -> None:
+        self.last_auto_import_summary = {
+            "imported_count": 0,
+            "imported_files": [],
+            "report_paths": [],
+        }
         self.reload()
+        self.auto_import_agent_results()
 
     def reload(self) -> None:
         self.dataset = load_json(DATASET_PATH)
@@ -65,6 +74,7 @@ class WorkbenchStore:
             "speakers": self.speakers,
             "progress": self.progress,
             "image_replacements": self.image_replacements,
+            "auto_import_summary": self.last_auto_import_summary,
         }
 
     def save_item(self, item_id: str, updates: dict[str, Any]) -> dict[str, Any]:
@@ -199,6 +209,47 @@ class WorkbenchStore:
             "summary": report,
             "stdout": completed.stdout,
         }
+
+    def auto_import_agent_results(self) -> dict[str, Any]:
+        AGENT_INBOX_DIR.mkdir(parents=True, exist_ok=True)
+        IMPORTED_AGENT_RESULTS_DIR.mkdir(parents=True, exist_ok=True)
+        IMPORT_REPORT_DIR.mkdir(parents=True, exist_ok=True)
+
+        imported_files: list[str] = []
+        report_paths: list[str] = []
+
+        for import_path in sorted(AGENT_INBOX_DIR.glob("*.json")):
+            report_path = IMPORT_REPORT_DIR / f"{import_path.stem}_import_report.json"
+            command = [
+                sys.executable,
+                "scripts/import_translation_agent_results.py",
+                str(import_path),
+                "--report",
+                str(report_path),
+            ]
+            subprocess.run(
+                command,
+                cwd=ROOT,
+                text=True,
+                capture_output=True,
+                check=True,
+            )
+            destination = IMPORTED_AGENT_RESULTS_DIR / import_path.name
+            if destination.exists():
+                destination.unlink()
+            shutil.move(str(import_path), str(destination))
+            imported_files.append(str(destination.relative_to(ROOT)))
+            report_paths.append(str(report_path.relative_to(ROOT)))
+
+        if imported_files:
+            self.reload()
+
+        self.last_auto_import_summary = {
+            "imported_count": len(imported_files),
+            "imported_files": imported_files,
+            "report_paths": report_paths,
+        }
+        return self.last_auto_import_summary
 
 
 def make_handler(store: WorkbenchStore):

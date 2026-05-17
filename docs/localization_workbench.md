@@ -36,6 +36,21 @@ python3 scripts/run_localization_workbench.py
 http://127.0.0.1:8766
 ```
 
+### 자동 가져오기
+
+서버는 시작할 때 아래 폴더를 자동 스캔한다.
+
+- [agent_inbox](/Users/user/test/confirmed_data/localization_workbench/agent_inbox)
+
+이 폴더 안에 번역 에이전트 팀 결과 JSON을 넣어 두고 서버를 실행하면:
+
+1. 자동으로 dataset에 병합한다.
+2. 가져온 파일은 [imported_agent_results](/Users/user/test/confirmed_data/localization_workbench/imported_agent_results) 로 이동한다.
+3. 리포트는 [import_reports](/Users/user/test/confirmed_data/localization_workbench/import_reports) 에 남는다.
+
+즉, 꼭 GUI의 `번역 결과 가져오기` 버튼을 누르지 않아도 된다.
+버튼은 서버를 이미 켜 둔 상태에서 추가 JSON을 즉시 넣고 싶을 때만 쓰면 된다.
+
 ## 주요 파일
 
 - [workbench_dataset.json](/Users/user/test/confirmed_data/localization_workbench/workbench_dataset.json)
@@ -95,11 +110,18 @@ http://127.0.0.1:8766
 
 ### 텍스트
 
-- 시작 화면
+- 시작 카드 4줄
 - 코어 UI
 - 게임 용어
 - Registry D 대사
 - Entry8 cluster 대사
+
+주의:
+
+- `시작 카드 4줄` 카테고리는 **게임 시작 직후 첫 카드에 보이는 고정 슬롯 4줄만** 보여 준다.
+- 이후 이어지는 인트로 대사/이벤트 문장은 대부분 `Entry8` 또는 `Registry D` 쪽에서 관리한다.
+- 그래서 시작 화면 전체 흐름이 많아 보여도, 이 카테고리에 4개만 있는 것은 정상이다.
+- 겹치는 항목을 따로 중복 노출하지 않도록 의도적으로 분리했다.
 
 ### 이미지
 

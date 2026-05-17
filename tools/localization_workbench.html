@@ -122,6 +122,7 @@
           <input id="translationImportFile" type="file" accept=".json">
         </label>
         <button id="importTranslationBtn">번역 결과 가져오기</button>
+        <div class="small" id="autoImportInfo"></div>
         <button id="rebuildBtn">현재 카테고리 ROM 재빌드</button>
         <div class="small" id="romInfo"></div>
         <div class="small" id="importInfo"></div>
@@ -242,6 +243,7 @@
     const progressInfo = document.getElementById("progressInfo");
     const romInfo = document.getElementById("romInfo");
     const importInfo = document.getElementById("importInfo");
+    const autoImportInfo = document.getElementById("autoImportInfo");
     const translationImportFile = document.getElementById("translationImportFile");
 
     const textEditor = document.getElementById("textEditor");
@@ -287,6 +289,12 @@
         state.bundle.speakers.map((item) => [item.dialogue_state_token, item])
       );
       fontInfo.textContent = `active font: ${state.bundle.dataset.active_font.label || "unknown"}`;
+      const autoImport = state.bundle.auto_import_summary || { imported_count: 0 };
+      if (autoImport.imported_count > 0) {
+        autoImportInfo.textContent = `서버 시작 시 자동 병합: ${autoImport.imported_count}개`;
+      } else {
+        autoImportInfo.textContent = "서버 시작 시 agent_inbox 안의 JSON을 자동 병합합니다.";
+      }
       state.categoryId = state.bundle.progress.current_category_id || state.categories[0]?.id;
       renderCategories();
       renderProgress();
