@@ -17,6 +17,8 @@
   - source별 record structure 는 대부분 objective family 로 정리됨
   - 남은 핵심은 runtime family 매핑과 실제 플레이 검증
   - 따라서 특별한 새 source 징후가 없으면, 당분간은 폰트/재삽입 쪽이 우선
+  - [extraction_audit_status.json](/Users/user/test/confirmed_data/translation_workspace/extraction_audit_status.json) 기준으로, known source 의 **구조적 추출은 닫힌 상태**
+  - runtime family 실제 우선순위는 [runtime_family_focus_report.md](/Users/user/test/confirmed_data/text_layout/runtime_family_focus_report.md) 를 따른다
 
 ## 작업용 번역 세트
 

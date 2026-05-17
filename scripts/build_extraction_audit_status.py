@@ -19,6 +19,7 @@ def main() -> int:
         "last_updated": "2026-05-17",
         "known_source_count": int(index["master"]["source_count"]),
         "known_record_count": int(index["master"]["record_count"]),
+        "structural_extraction_status": "closed_for_known_sources",
         "major_sources_closed": [
             "startup_intro_texts",
             "system_messages",
@@ -44,11 +45,30 @@ def main() -> int:
             "term_description_plain_00_optional_0b",
             "credits_padded_plain_00_record",
         ],
+        "runtime_resolution_scope": {
+            "high_priority_dialogue_or_page_flow": [
+                "registry_a_entry8_prefixed_texts",
+                "registry_d_fc_script_texts",
+            ],
+            "medium_priority_ui_or_command_flow": [
+                "system_messages",
+                "save_menu_prefixed_texts",
+            ],
+            "lower_risk_runtime_unknowns": [
+                "ui_skill_texts",
+                "item_texts",
+                "registry_a_entry12_texts",
+                "battle_texts",
+                "ability_texts",
+                "material_texts",
+                "credits_texts",
+            ],
+        },
         "remaining_audit_items": [
             {
                 "id": "runtime_dialogue_box_family_mapping",
                 "status": "in_progress",
-                "notes": "Record structures for the major extracted sources are mostly closed, but runtime box/page family for general dialogue and several UI/battle windows is not fully tied yet."
+                "notes": "Record structures for the major extracted sources are mostly closed. The main remaining runtime risk is dialogue/page-flow mapping for entry8 and Registry D, with smaller residual UI/system uncertainty elsewhere."
             },
             {
                 "id": "live_playthrough_text_audit",
@@ -61,7 +81,7 @@ def main() -> int:
                 "notes": "Text baked into images is not part of extracted text completion."
             },
         ],
-        "operational_reading": "Large unknown text banks and per-source record structures are no longer the main risk; the remaining work is runtime family confirmation, playthrough audit, and image text inventory.",
+        "operational_reading": "Large unknown text banks and per-source record structures are no longer the main risk. Structurally, known sources are closed; the remaining work is dialogue/page runtime family confirmation, playthrough audit, and image text inventory.",
     }
     OUTPUT_PATH.write_text(json.dumps(status, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"wrote {OUTPUT_PATH}")

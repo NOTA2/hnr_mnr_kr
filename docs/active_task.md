@@ -16,6 +16,7 @@
 - startup 첫 카드 `4`줄은 일반 `00` 종단 문자열이 아니라 **고정 길이 슬롯** 이므로, `append_terminator: false` 로 처리한다.
 - 텍스트 박스/공용 렌더러 family 규격은 [text_box_family_manifest.json](/Users/user/test/confirmed_data/text_layout/text_box_family_manifest.json) 에 분리해 둔다.
 - source / workset 별 layout family 연결은 [text_layout_assignment_index.json](/Users/user/test/confirmed_data/text_layout/text_layout_assignment_index.json) 에 둔다.
+- runtime family 우선순위 보고서는 [runtime_family_focus_report.md](/Users/user/test/confirmed_data/text_layout/runtime_family_focus_report.md) 를 본다.
 - 대사 계열 state token sidecar 는 [confirmed_data/dialogue_metadata/README.md](/Users/user/test/confirmed_data/dialogue_metadata/README.md) 에 둔다.
 - cluster/run 빠른 요약은 [dialogue_state_cluster_summary.md](/Users/user/test/confirmed_data/dialogue_metadata/dialogue_state_cluster_summary.md) 을 본다.
 - save/menu prompt 는 `save_menu_prefixed_01ff` family 로 따로 분리해, `01 FF <u16 char_count>` 헤더와 뒤 제어코드를 보존하는 쪽으로 다룬다.
@@ -102,6 +103,7 @@ zsh scripts/build_translated_rom_with_active_atlas.sh \
 - 주요 텍스트 소스는 대부분 확보됐다.
 - 남은 일은 대형 신규 뱅크 탐색보다 **실플레이 기반 누락 회수와 예외 정리**에 가깝다.
 - 추출 커버리지 기준은 [text_extraction_coverage.md](/Users/user/test/analysis/text_extraction_coverage.md) 를 본다.
+- [extraction_audit_status.json](/Users/user/test/confirmed_data/translation_workspace/extraction_audit_status.json) 기준으로, known source 의 **구조적 추출은 닫힌 상태**다.
 
 ## 주의
 

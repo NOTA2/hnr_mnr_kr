@@ -33,6 +33,8 @@ def build_index() -> dict:
         "system_messages": {
             "layout_family": "system_messages_plain_newline_00",
             "assignment_status": "partially_confirmed",
+            "runtime_resolution_priority": "medium",
+            "translation_risk": "medium",
             "notes": [
                 "Records are 0x00-terminated and include explicit newlines in some messages.",
                 "Exact runtime box family is not yet tied to a specific renderer caller set.",
@@ -41,6 +43,8 @@ def build_index() -> dict:
         "save_menu_texts": {
             "layout_family": "save_menu_prefixed_01ff",
             "assignment_status": "partially_confirmed",
+            "runtime_resolution_priority": "medium",
+            "translation_risk": "medium",
             "notes": [
                 "Uses 01 FF <u16 char_count> command-stream records.",
                 "Byte length is explicit, but full box/page behavior is not yet globally locked.",
@@ -50,6 +54,8 @@ def build_index() -> dict:
             "layout_family": "registry_d_fc_stop_script_line",
             "assignment_status": "partially_confirmed",
             "runtime_candidate_family": "shared_text_object_r3_20",
+            "runtime_resolution_priority": "high",
+            "translation_risk": "high",
             "notes": [
                 "FC stop-byte delimited script lines are objectively extracted.",
                 "Runtime dialogue box/page family is still unresolved, but record boundary/control-stream handling is no longer unknown.",
@@ -59,6 +65,8 @@ def build_index() -> dict:
             "layout_family": "entry8_prefixed_01ff_script_line",
             "assignment_status": "partially_confirmed",
             "runtime_candidate_family": "shared_text_object_r3_20",
+            "runtime_resolution_priority": "high",
+            "translation_risk": "high",
             "notes": [
                 "Large mixed story/event script bank using 01 FF <u16 char_count> counted records.",
                 "Runtime dialogue box/page family still needs further tying, but counted-record structure is objective.",
@@ -67,6 +75,8 @@ def build_index() -> dict:
         "ui_skill_texts": {
             "layout_family": "ui_or_item_plain_00_record",
             "assignment_status": "partially_confirmed",
+            "runtime_resolution_priority": "low",
+            "translation_risk": "low",
             "notes": [
                 "Short 0x00-terminated UI records with no counted header are already objective.",
                 "A direct pointer-indexed local UI/data table is confirmed, but the runtime window family is still unresolved.",
@@ -75,6 +85,8 @@ def build_index() -> dict:
         "item_texts": {
             "layout_family": "ui_or_item_plain_00_record",
             "assignment_status": "partially_confirmed",
+            "runtime_resolution_priority": "low",
+            "translation_risk": "low",
             "notes": [
                 "Short 0x00-terminated item/event strings are objective.",
                 "A direct pointer-indexed local table is confirmed, but the runtime window family is still unresolved.",
@@ -83,6 +95,8 @@ def build_index() -> dict:
         "battle_texts": {
             "layout_family": "term_description_plain_00_optional_0b",
             "assignment_status": "partially_confirmed",
+            "runtime_resolution_priority": "medium",
+            "translation_risk": "low",
             "notes": [
                 "Plain 0x00-terminated battle term/description records are objective.",
                 "Some description rows contain inline 0x0B separators and ideographic padding that must be preserved.",
@@ -92,6 +106,8 @@ def build_index() -> dict:
         "ability_texts": {
             "layout_family": "term_description_plain_00_optional_0b",
             "assignment_status": "partially_confirmed",
+            "runtime_resolution_priority": "medium",
+            "translation_risk": "low",
             "notes": [
                 "Plain 0x00-terminated term/description records are objective.",
                 "Many rows contain inline 0x0B separators and ideographic padding that must be preserved.",
@@ -101,6 +117,8 @@ def build_index() -> dict:
         "material_texts": {
             "layout_family": "term_description_plain_00_optional_0b",
             "assignment_status": "partially_confirmed",
+            "runtime_resolution_priority": "medium",
+            "translation_risk": "low",
             "notes": [
                 "Plain 0x00-terminated term/description records are objective.",
                 "A local resource-table section is confirmed and rows preserve inline 0x0B separators.",
@@ -110,6 +128,8 @@ def build_index() -> dict:
         "registry_a_entry12_texts": {
             "layout_family": "ui_or_item_plain_00_record",
             "assignment_status": "partially_confirmed",
+            "runtime_resolution_priority": "low",
+            "translation_risk": "low",
             "notes": [
                 "Gameplay/item-adjacent short plain records are objective.",
                 "Display family remains unresolved, so translations should stay concise.",
@@ -118,6 +138,8 @@ def build_index() -> dict:
         "credits_texts": {
             "layout_family": "credits_padded_plain_00_record",
             "assignment_status": "partially_confirmed",
+            "runtime_resolution_priority": "low",
+            "translation_risk": "low",
             "notes": [
                 "Credits records are plain 0x00-terminated strings padded with ideographic spaces.",
                 "Runtime credits layout family is not yet mapped, so spacing-sensitive edits should stay conservative.",

@@ -1830,3 +1830,18 @@
 - 판정: `성공`
 - 교훈:
   - 화자 메타데이터는 추출만 중요한 게 아니라, **번역자가 실제로 읽을 수 있는 요약 레이어**를 함께 만들어야 실전 가치가 생긴다.
+
+### 실험 104
+
+- 가설: 남은 runtime family 미확정을 전부 같은 위험도로 보지 말고, 구조적 폐쇄 완료 여부와 source별 runtime 우선순위를 분리하면 실제 남은 blocker 가 훨씬 선명해진다.
+- 시도:
+  - [build_text_layout_assignment_index.py](/Users/user/test/scripts/build_text_layout_assignment_index.py) 에 각 source_group 의 `runtime_resolution_priority`, `translation_risk` 를 추가했다.
+  - [build_extraction_audit_status.py](/Users/user/test/scripts/build_extraction_audit_status.py) 에 `structural_extraction_status`, `runtime_resolution_scope` 를 추가했다.
+  - [build_runtime_family_focus_report.py](/Users/user/test/scripts/build_runtime_family_focus_report.py) 를 추가해 [runtime_family_focus_report.md](/Users/user/test/confirmed_data/text_layout/runtime_family_focus_report.md), [runtime_family_focus_report.json](/Users/user/test/confirmed_data/text_layout/runtime_family_focus_report.json) 을 생성했다.
+- 결과:
+  - known source 기준으로 **구조적 추출은 닫혔다**는 상태를 명시적으로 기록했다.
+  - high priority runtime blocker 는 `registry_a_entry8_prefixed_texts`, `registry_d_fc_script_texts` 로 압축되었다.
+  - `ui_skill/item/entry12/battle/ability/material/credits` 는 runtime 미확정이 남아 있어도 번역 실무상 low-risk 군으로 분리됐다.
+- 판정: `성공`
+- 교훈:
+  - “아직 미확정”이라는 한 단어보다, **구조는 닫힘 / runtime blocker만 남음 / 그중에서도 high-risk만 우선**이라는 계층형 보고가 실제 프로젝트 운영에 훨씬 유용하다.

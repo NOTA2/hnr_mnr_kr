@@ -1,0 +1,29 @@
+# Runtime Family Focus Report
+
+- structural extraction status: `closed_for_known_sources`
+
+## High priority
+
+- `registry_d_fc_script_texts` -> `registry_d_fc_stop_script_line` (risk=high, candidate=shared_text_object_r3_20)
+- `registry_a_entry8_prefixed_texts` -> `entry8_prefixed_01ff_script_line` (risk=high, candidate=shared_text_object_r3_20)
+
+## Medium priority
+
+- `system_messages` -> `system_messages_plain_newline_00` (risk=medium)
+- `save_menu_texts` -> `save_menu_prefixed_01ff` (risk=medium)
+- `battle_texts` -> `term_description_plain_00_optional_0b` (risk=low)
+- `ability_texts` -> `term_description_plain_00_optional_0b` (risk=low)
+- `material_texts` -> `term_description_plain_00_optional_0b` (risk=low)
+
+## Low priority
+
+- `ui_skill_texts` -> `ui_or_item_plain_00_record` (risk=low)
+- `item_texts` -> `ui_or_item_plain_00_record` (risk=low)
+- `registry_a_entry12_texts` -> `ui_or_item_plain_00_record` (risk=low)
+- `credits_texts` -> `credits_padded_plain_00_record` (risk=low)
+
+## Reading
+
+- High priority items are the real remaining blockers for dialogue/page-flow stability.
+- Medium/low groups are structurally extracted and can already be translated conservatively.
+- This report is meant to keep runtime-family work focused instead of treating all unresolved families as equally risky.

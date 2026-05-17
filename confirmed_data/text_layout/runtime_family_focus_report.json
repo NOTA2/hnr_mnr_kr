@@ -1,0 +1,145 @@
+{
+  "version": 1,
+  "last_updated": "2026-05-17",
+  "structural_extraction_status": "closed_for_known_sources",
+  "runtime_resolution_scope": {
+    "high_priority_dialogue_or_page_flow": [
+      "registry_a_entry8_prefixed_texts",
+      "registry_d_fc_script_texts"
+    ],
+    "medium_priority_ui_or_command_flow": [
+      "system_messages",
+      "save_menu_prefixed_texts"
+    ],
+    "lower_risk_runtime_unknowns": [
+      "ui_skill_texts",
+      "item_texts",
+      "registry_a_entry12_texts",
+      "battle_texts",
+      "ability_texts",
+      "material_texts",
+      "credits_texts"
+    ]
+  },
+  "priority_buckets": {
+    "high": [
+      {
+        "source_group": "registry_d_fc_script_texts",
+        "layout_family": "registry_d_fc_stop_script_line",
+        "translation_risk": "high",
+        "runtime_candidate_family": "shared_text_object_r3_20",
+        "notes": [
+          "FC stop-byte delimited script lines are objectively extracted.",
+          "Runtime dialogue box/page family is still unresolved, but record boundary/control-stream handling is no longer unknown."
+        ]
+      },
+      {
+        "source_group": "registry_a_entry8_prefixed_texts",
+        "layout_family": "entry8_prefixed_01ff_script_line",
+        "translation_risk": "high",
+        "runtime_candidate_family": "shared_text_object_r3_20",
+        "notes": [
+          "Large mixed story/event script bank using 01 FF <u16 char_count> counted records.",
+          "Runtime dialogue box/page family still needs further tying, but counted-record structure is objective."
+        ]
+      }
+    ],
+    "medium": [
+      {
+        "source_group": "system_messages",
+        "layout_family": "system_messages_plain_newline_00",
+        "translation_risk": "medium",
+        "runtime_candidate_family": null,
+        "notes": [
+          "Records are 0x00-terminated and include explicit newlines in some messages.",
+          "Exact runtime box family is not yet tied to a specific renderer caller set."
+        ]
+      },
+      {
+        "source_group": "save_menu_texts",
+        "layout_family": "save_menu_prefixed_01ff",
+        "translation_risk": "medium",
+        "runtime_candidate_family": null,
+        "notes": [
+          "Uses 01 FF <u16 char_count> command-stream records.",
+          "Byte length is explicit, but full box/page behavior is not yet globally locked."
+        ]
+      },
+      {
+        "source_group": "battle_texts",
+        "layout_family": "term_description_plain_00_optional_0b",
+        "translation_risk": "low",
+        "runtime_candidate_family": null,
+        "notes": [
+          "Plain 0x00-terminated battle term/description records are objective.",
+          "Some description rows contain inline 0x0B separators and ideographic padding that must be preserved.",
+          "Runtime battle box family is still unresolved."
+        ]
+      },
+      {
+        "source_group": "ability_texts",
+        "layout_family": "term_description_plain_00_optional_0b",
+        "translation_risk": "low",
+        "runtime_candidate_family": null,
+        "notes": [
+          "Plain 0x00-terminated term/description records are objective.",
+          "Many rows contain inline 0x0B separators and ideographic padding that must be preserved.",
+          "Runtime display family is still unresolved."
+        ]
+      },
+      {
+        "source_group": "material_texts",
+        "layout_family": "term_description_plain_00_optional_0b",
+        "translation_risk": "low",
+        "runtime_candidate_family": null,
+        "notes": [
+          "Plain 0x00-terminated term/description records are objective.",
+          "A local resource-table section is confirmed and rows preserve inline 0x0B separators.",
+          "Runtime display family is still unresolved."
+        ]
+      }
+    ],
+    "low": [
+      {
+        "source_group": "ui_skill_texts",
+        "layout_family": "ui_or_item_plain_00_record",
+        "translation_risk": "low",
+        "runtime_candidate_family": null,
+        "notes": [
+          "Short 0x00-terminated UI records with no counted header are already objective.",
+          "A direct pointer-indexed local UI/data table is confirmed, but the runtime window family is still unresolved."
+        ]
+      },
+      {
+        "source_group": "item_texts",
+        "layout_family": "ui_or_item_plain_00_record",
+        "translation_risk": "low",
+        "runtime_candidate_family": null,
+        "notes": [
+          "Short 0x00-terminated item/event strings are objective.",
+          "A direct pointer-indexed local table is confirmed, but the runtime window family is still unresolved."
+        ]
+      },
+      {
+        "source_group": "registry_a_entry12_texts",
+        "layout_family": "ui_or_item_plain_00_record",
+        "translation_risk": "low",
+        "runtime_candidate_family": null,
+        "notes": [
+          "Gameplay/item-adjacent short plain records are objective.",
+          "Display family remains unresolved, so translations should stay concise."
+        ]
+      },
+      {
+        "source_group": "credits_texts",
+        "layout_family": "credits_padded_plain_00_record",
+        "translation_risk": "low",
+        "runtime_candidate_family": null,
+        "notes": [
+          "Credits records are plain 0x00-terminated strings padded with ideographic spaces.",
+          "Runtime credits layout family is not yet mapped, so spacing-sensitive edits should stay conservative."
+        ]
+      }
+    ]
+  }
+}
