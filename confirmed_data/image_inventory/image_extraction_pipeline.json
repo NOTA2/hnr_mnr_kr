@@ -1,0 +1,104 @@
+{
+  "version": 1,
+  "last_updated": "2026-05-18",
+  "status": "prepared",
+  "pipeline_goal": "이미지에 구워진 텍스트 자산을 review unit 단위로 찾고, 덤프/수정/교체 가능한 작업 폴더를 준비한다.",
+  "review_unit_order": [
+    {
+      "id": "title_logo_wordmark",
+      "review_order": 1,
+      "workspace": "confirmed_data/image_inventory/workspaces/01_title_logo_wordmark",
+      "probe_method": "타이틀 화면 진입 스크린샷 확보 -> LZ77 후보 스캔 -> 4bpp 덤프 비교"
+    },
+    {
+      "id": "title_screen_static_menu_wordmarks",
+      "review_order": 2,
+      "workspace": "confirmed_data/image_inventory/workspaces/02_title_screen_static_menu_wordmarks",
+      "probe_method": "타이틀 화면 캡처 -> 후보 타일 시트 덤프 -> 라벨별 분리 가능성 확인"
+    },
+    {
+      "id": "event_or_cutscene_text_cards",
+      "review_order": 3,
+      "workspace": "confirmed_data/image_inventory/workspaces/03_event_or_cutscene_text_cards",
+      "probe_method": "대표 장면 스크린샷 수집 -> 카드성 오버레이 후보 LZ77 블록 탐색 -> 덤프 비교"
+    },
+    {
+      "id": "dialogue_window_frame_art",
+      "review_order": 4,
+      "workspace": "confirmed_data/image_inventory/workspaces/04_dialogue_window_frame_art",
+      "probe_method": "대사창 스크린샷 -> 프레임/판넬 후보 아트 덤프 -> 텍스트 유무 확인"
+    },
+    {
+      "id": "portrait_headshot_assets",
+      "review_order": 5,
+      "workspace": "confirmed_data/image_inventory/workspaces/05_portrait_headshot_assets",
+      "probe_method": "대표 대사 장면 스크린샷 -> portrait 후보 아트 덤프 -> 동일 인물 변형 수집"
+    },
+    {
+      "id": "ui_panel_label_art",
+      "review_order": 6,
+      "workspace": "confirmed_data/image_inventory/workspaces/06_ui_panel_label_art",
+      "probe_method": "메뉴/인벤토리/상태창 스크린샷 -> 패널 후보 시트 덤프 -> 텍스트 여부 확인"
+    },
+    {
+      "id": "ui_icon_badge_wordmarks",
+      "review_order": 7,
+      "workspace": "confirmed_data/image_inventory/workspaces/07_ui_icon_badge_wordmarks",
+      "probe_method": "대표 UI 캡처 -> 작은 4bpp 배지 후보 덤프 -> 문자인지 아이콘인지 구분"
+    },
+    {
+      "id": "battle_result_or_reward_banners",
+      "review_order": 8,
+      "workspace": "confirmed_data/image_inventory/workspaces/08_battle_result_or_reward_banners",
+      "probe_method": "전투 결과 화면 캡처 -> 배너 후보 LZ77/4bpp 덤프 -> 고정 워드마크 여부 확인"
+    }
+  ],
+  "pipeline_steps": [
+    {
+      "step": 1,
+      "name": "대표 화면 확보",
+      "description": "각 review unit 별로 실제 게임 화면 스크린샷 또는 참고 이미지를 모아, 무엇을 찾아야 하는지 고정한다."
+    },
+    {
+      "step": 2,
+      "name": "후보 자산 탐색",
+      "description": "LZ77 scan, 4bpp dump, raw tile dump 를 써서 해당 화면과 닮은 후보 자산을 찾는다."
+    },
+    {
+      "step": 3,
+      "name": "덤프 시각 비교",
+      "description": "후보 덤프를 PNG/타일 시트 형태로 모아 실제 화면과 비교하고, 맞는 후보만 남긴다."
+    },
+    {
+      "step": 4,
+      "name": "편집용 산출물 분리",
+      "description": "수정 대상이 확인되면 exports 폴더에 편집용 산출물을 만들고, notes 폴더에 포맷/팔레트/압축 여부를 기록한다."
+    },
+    {
+      "step": 5,
+      "name": "교체 전략 결정",
+      "description": "원위치 덮어쓰기, 재압축 후 교체, 포인터 재배치 중 어느 방식이 필요한지 결정한다."
+    }
+  ],
+  "tooling_reference": {
+    "scan_lz77": "python3 -m gba_kor_tool scan-lz77 <rom>",
+    "dump_4bpp": "python3 -m gba_kor_tool dump-4bpp <rom> <offset> <tile-count> <output>",
+    "decompress_lz77": "python3 -m gba_kor_tool decompress-lz77 <rom> <offset> <output>"
+  },
+  "workspace_layout": {
+    "root": "confirmed_data/image_inventory/workspaces",
+    "children": [
+      "candidates",
+      "dumps",
+      "exports",
+      "notes"
+    ],
+    "created_count": 32
+  },
+  "first_targets": [
+    "01_title_logo_wordmark",
+    "02_title_screen_static_menu_wordmarks",
+    "03_event_or_cutscene_text_cards"
+  ],
+  "note": "이 문서는 실제 이미지 교체를 완료했다는 뜻이 아니라, review unit 별 추출/덤프/정리 루프를 바로 시작할 수 있게 scaffold 를 준비한 것이다."
+}

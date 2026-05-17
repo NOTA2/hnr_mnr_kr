@@ -34,7 +34,9 @@
 - 구조적으로는 known source `13`개 / known record `10756` 기준으로 닫혔고, 남은 핵심은 **visual page-turn / live playthrough / baked image review** 세 축으로 압축됐다.
 - `ui_skill/item/entry12` 는 `ui_or_item_plain_00_record`, `battle/ability/material` 은 `term_description_plain_00_optional_0b`, `credits` 는 `credits_padded_plain_00_record` family 로 부분 확정했다.
 - image-side 감사는 [confirmed_data/image_inventory/README.md](/Users/user/test/confirmed_data/image_inventory/README.md) 기준으로 시작됐다.
+- 이미지 추출 준비 파이프라인은 [image_extraction_pipeline.md](/Users/user/test/confirmed_data/image_inventory/image_extraction_pipeline.md) 에 정리한다.
 - image-side 감사는 이제 `review bucket` 이 아니라 `title_logo_wordmark / event_or_cutscene_text_cards / ui_panel_label_art / battle_result_or_reward_banners` 같은 **review unit** 기준으로 본다.
+- 각 image review unit 의 세부 단위, 탐색 방식, 작업 폴더는 [image_text_inventory.md](/Users/user/test/confirmed_data/image_inventory/image_text_inventory.md) 를 본다.
 - image-side 우선 review order 는 `title_logo_wordmark -> title_screen_static_menu_wordmarks -> event_or_cutscene_text_cards -> dialogue_window_frame_art` 순이다.
 - `system_messages` / `save_menu` 는 residual runtime uncertainty 가 남아도, 현재는 **operationally bounded** 로 내려가 주요 blocker 에서 제외한다.
 - 따라서 남은 핵심은 “대사 source 의 record 경계”보다 **runtime dialogue box/page family** 와 **실플레이/이미지 텍스트 감사** 쪽이다.
@@ -49,13 +51,16 @@
 3. 남은 텍스트 추출 감사 마감
 4. Galmuri11 기준 재삽입/QA 루프 고정
 5. 번역/검수 workset 운영
-6. 자동 재삽입 + 수동 glyph 수정 루프
+6. 이미지 추출 파이프라인 착수
+7. 자동 재삽입 + 수동 glyph 수정 루프
 
 ## 바로 쓰는 파일
 
 - 전체 추출 기준본: [all_extracted_texts_master.json](/Users/user/test/confirmed_data/translation_workspace/all_extracted_texts_master.json)
 - 번역 작업 허브: [confirmed_data/translation_workspace/README.md](/Users/user/test/confirmed_data/translation_workspace/README.md)
+- workset 메타데이터 인덱스: [workset_metadata_index.md](/Users/user/test/confirmed_data/translation_workspace/workset_metadata_index.md)
 - 번역 시작 가능 상태 요약: [translation_readiness_report.md](/Users/user/test/confirmed_data/translation_workspace/translation_readiness_report.md)
+- 사용자 QA 안내: [user_qa_guide.md](/Users/user/test/docs/user_qa_guide.md)
 - startup intro `4`줄: [startup_intro_texts.json](/Users/user/test/confirmed_data/extracted_texts/startup_intro_texts.json)
 - 첫 화면 비교용 `4`줄: [translation_workset_startup_font_showcase.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_startup_font_showcase.json)
 - 확장 intro 테스트 세트: [translation_workset_intro_full_test.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_intro_full_test.json)

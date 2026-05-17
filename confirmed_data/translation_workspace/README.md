@@ -9,6 +9,8 @@
 - [extraction_audit_status.json](/Users/user/test/confirmed_data/translation_workspace/extraction_audit_status.json)
 - [registry_a_entry8_clusters_manifest.json](/Users/user/test/confirmed_data/translation_workspace/registry_a_entry8_clusters_manifest.json)
 - [index.json](/Users/user/test/confirmed_data/translation_workspace/index.json)
+- [workset_metadata_index.json](/Users/user/test/confirmed_data/translation_workspace/workset_metadata_index.json)
+- [workset_metadata_index.md](/Users/user/test/confirmed_data/translation_workspace/workset_metadata_index.md)
 
 ## 권장 시작 순서
 
@@ -16,6 +18,10 @@
 2. [translation_workset_gameplay_terms.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_gameplay_terms.json)
 3. [translation_workset_registry_d_dialogue.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_registry_d_dialogue.json)
 4. [registry_a_entry8_clusters_manifest.json](/Users/user/test/confirmed_data/translation_workspace/registry_a_entry8_clusters_manifest.json)
+
+## 사용자 QA 안내
+
+- [user_qa_guide.md](/Users/user/test/docs/user_qa_guide.md)
 
 ## 재생성
 

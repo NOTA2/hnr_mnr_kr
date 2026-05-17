@@ -1977,3 +1977,30 @@
 - 판정: `성공`
 - 교훈:
   - “아직 100%가 아님”을 막연히 남겨 두기보다, **무엇이 기계적으로 끝났고 무엇이 사람 확인을 요구하는지**를 분리해야 프로젝트 종료 조건이 선명해진다.
+
+### 실험 114
+
+- 가설: 이미지 텍스트 inventory 를 더 실제 작업 단위로 쪼개고, 각 단위마다 탐색 방식과 작업 폴더를 함께 정하면 이미지 추출 파이프라인을 바로 시작할 수 있는 상태로 만들 수 있다.
+- 시도:
+  - [build_image_text_inventory.py](/Users/user/test/scripts/build_image_text_inventory.py) 를 다시 갱신해 `review_goal`, `recommended_probe_method`, `future_workspace`, `subunits` 를 각 review unit 에 추가했다.
+  - 이어서 [build_image_extraction_pipeline.py](/Users/user/test/scripts/build_image_extraction_pipeline.py) 를 추가해 [image_extraction_pipeline.json](/Users/user/test/confirmed_data/image_inventory/image_extraction_pipeline.json), [image_extraction_pipeline.md](/Users/user/test/confirmed_data/image_inventory/image_extraction_pipeline.md) 를 생성하고, review unit 별 workspace 폴더도 함께 만들었다.
+- 결과:
+  - image-side 감사는 이제 “무엇을 나중에 봐야 한다”가 아니라, **어떤 단위를 어떤 방식으로 탐색하고 어디에 산출물을 모을지**까지 구조화된 상태가 됐다.
+  - `title_logo_wordmark`, `title_screen_static_menu_wordmarks`, `event_or_cutscene_text_cards` 가 즉시 착수용 첫 대상이라는 점도 더 명확해졌다.
+- 판정: `성공`
+- 교훈:
+  - 이미지 작업은 실제 추출 전이라도 **review unit + 작업 폴더 + 탐색 단계**를 먼저 고정해야 후속 작업이 끊기지 않는다.
+
+### 실험 115
+
+- 가설: 번역 workset 별 제약, 줄바꿈 규칙, QA 범위를 한눈에 보는 메타데이터 인덱스를 만들면 번역 시작 전 의사결정 비용을 크게 줄일 수 있다.
+- 시도:
+  - [build_workset_metadata_index.py](/Users/user/test/scripts/build_workset_metadata_index.py) 를 추가했다.
+  - `translation_workset_startup_font_showcase`, `core_ui`, `gameplay_terms`, `registry_d_dialogue`, `entry8 clusters manifest`, `intro` 테스트 세트를 대상으로 상태, layout 전략, 줄바꿈 규칙, QA 필요 항목, 이미지 겹침 위험을 정리한 [workset_metadata_index.json](/Users/user/test/confirmed_data/translation_workspace/workset_metadata_index.json) 과 [workset_metadata_index.md](/Users/user/test/confirmed_data/translation_workspace/workset_metadata_index.md) 를 생성했다.
+  - 추가로 비전문가용 화면 확인 안내서 [user_qa_guide.md](/Users/user/test/docs/user_qa_guide.md) 도 함께 작성했다.
+- 결과:
+  - 번역팀은 이제 workset 을 열기 전에 **무엇을 보존해야 하는지, 어떤 QA 가 필요한지, 어떤 순서로 시작하는지**를 한 파일에서 볼 수 있게 됐다.
+  - 사용자 QA 역시 “스크린샷과 증상 분류만 전달하면 된다”는 기준이 명확해졌다.
+- 판정: `성공`
+- 교훈:
+  - 구조 분석이 거의 끝난 뒤에는, 실제 생산성을 높이는 핵심이 **초보자용 QA 문서와 workset 메타데이터 정리**다.

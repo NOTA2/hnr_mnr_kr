@@ -2,27 +2,27 @@
   "version": 1,
   "last_updated": "2026-05-18",
   "status": "in_progress",
-  "note": "This is an inventory/status layer, not a completed extraction of image-baked text.",
+  "note": "이 레이어는 inventory / 상태 관리용이며, 이미지에 구워진 텍스트 추출이 완료됐다는 뜻은 아니다.",
   "confirmed_non_image_text_contexts": [
     {
       "context": "startup_intro_card",
-      "reason": "Handled as fixed-slot text records in startup_intro_texts.json, not baked image text."
+      "reason": "startup_intro_texts.json 안의 고정 슬롯 텍스트 record 로 처리되며, 이미지에 구워진 텍스트가 아니다."
     },
     {
       "context": "dialogue_box_payloads",
-      "reason": "Entry8 and Registry D dialogue strings are extracted as script records; portraits are separate image assets."
+      "reason": "Entry8 과 Registry D 대사 문자열은 script record 로 추출되어 있고, portrait 는 별도 이미지 자산이다."
     },
     {
       "context": "world_map_location_labels",
-      "reason": "Location names are extracted in location_texts.json and rendered by the world-map text path."
+      "reason": "지역명은 location_texts.json 으로 추출되어 있고, 월드맵 텍스트 경로로 렌더링된다."
     },
     {
       "context": "save_menu_prompts",
-      "reason": "Save/menu prompts are extracted as 01 FF command-stream records, not image-baked labels."
+      "reason": "save/menu 문구는 01 FF command-stream record 로 추출되어 있으며, 이미지에 구워진 라벨이 아니다."
     },
     {
       "context": "credits_strings",
-      "reason": "Credits are extracted as padded plain text records, not confirmed image text."
+      "reason": "크레딧은 패딩이 있는 일반 텍스트 record 로 추출되어 있으며, 이미지 텍스트로 확인되지 않았다."
     }
   ],
   "review_units": [
@@ -30,78 +30,229 @@
       "id": "title_logo_wordmark",
       "status": "pending_review",
       "review_order": 1,
+      "priority": "high",
+      "review_goal": "타이틀 로고와 부제/워드마크가 텍스트 추출 밖의 이미지 자산인지 확인하고, 이후 교체 단위를 분리한다.",
+      "recommended_probe_method": "타이틀 화면 진입 스크린샷 확보 -> LZ77 후보 스캔 -> 4bpp 덤프 비교",
+      "future_workspace": "confirmed_data/image_inventory/workspaces/01_title_logo_wordmark",
+      "expected_text_kind": "메인 로고, 부제, 게임명 워드마크",
+      "subunits": [
+        {
+          "id": "main_title_logo",
+          "label": "메인 타이틀 로고",
+          "status": "pending_review",
+          "first_action": "타이틀 화면 대표 스크린샷과 대조할 메인 로고 후보를 찾는다."
+        },
+        {
+          "id": "subtitle_or_series_mark",
+          "label": "부제/시리즈 표기",
+          "status": "pending_review",
+          "first_action": "메인 로고와 별도 자산인지, 같은 시트 안의 일부인지 먼저 구분한다."
+        }
+      ],
       "notes": [
-        "Main title/logo style text is not mapped by current canonical extracted text sources.",
-        "Treat as a concrete review unit rather than a generic bucket."
+        "메인 타이틀/로고 계열 텍스트는 현재 기준 추출 source 로 매핑되지 않는다.",
+        "막연한 bucket 이 아니라 구체적인 검토 단위로 다룬다."
       ]
     },
     {
       "id": "title_screen_static_menu_wordmarks",
       "status": "pending_review",
       "review_order": 2,
+      "priority": "high",
+      "review_goal": "타이틀 화면의 새 게임/이어하기/통신 등 고정 워드마크가 이미지인지 확인한다.",
+      "recommended_probe_method": "타이틀 화면 캡처 -> 후보 타일 시트 덤프 -> 라벨별 분리 가능성 확인",
+      "future_workspace": "confirmed_data/image_inventory/workspaces/02_title_screen_static_menu_wordmarks",
+      "expected_text_kind": "타이틀 메뉴 라벨, 모드 선택 라벨",
+      "subunits": [
+        {
+          "id": "title_primary_menu_labels",
+          "label": "타이틀 기본 메뉴 라벨",
+          "status": "pending_review",
+          "first_action": "새 게임/이어하기 계열 고정 라벨 후보를 묶는다."
+        },
+        {
+          "id": "title_mode_wordmarks",
+          "label": "통신/부가 모드 워드마크",
+          "status": "pending_review",
+          "first_action": "기본 메뉴와 다른 시트인지 먼저 확인한다."
+        }
+      ],
       "notes": [
-        "Static title-screen menu labels and mode wordmarks may be image-backed.",
-        "No canonical extracted source currently covers title-screen wordmark art."
+        "타이틀 화면의 고정 메뉴 라벨과 모드 워드마크는 이미지 기반일 가능성이 있다.",
+        "현재 기준 추출 source 중 타이틀 화면 워드마크 아트를 직접 다루는 것은 없다."
       ]
     },
     {
       "id": "event_or_cutscene_text_cards",
       "status": "pending_review",
       "review_order": 3,
+      "priority": "high",
+      "review_goal": "이벤트 카드/장면 카드/챕터 카드처럼 화면 전체에 뜨는 이미지 텍스트를 우선 분류한다.",
+      "recommended_probe_method": "대표 장면 스크린샷 수집 -> 카드성 오버레이 후보 LZ77 블록 탐색 -> 덤프 비교",
+      "future_workspace": "confirmed_data/image_inventory/workspaces/03_event_or_cutscene_text_cards",
+      "expected_text_kind": "장면 카드, 챕터 카드, 오버레이 캡션",
+      "subunits": [
+        {
+          "id": "chapter_or_location_cards",
+          "label": "챕터/지역 카드",
+          "status": "pending_review",
+          "first_action": "고정형 카드 레이아웃이 있는지부터 구분한다."
+        },
+        {
+          "id": "dramatic_overlay_captions",
+          "label": "연출용 오버레이 자막",
+          "status": "pending_review",
+          "first_action": "카드형과 즉시 분리해 후속 교체 전략을 나눈다."
+        }
+      ],
       "notes": [
-        "Story/event presentation cards or overlays are a higher-value image-text candidate than generic event illustrations.",
-        "Keep separate from dialogue payloads, which are already confirmed non-image text."
+        "스토리/이벤트 카드나 오버레이는 일반 이벤트 일러스트보다 우선순위가 높은 이미지 텍스트 후보이다.",
+        "이미 비-이미지 텍스트로 확인된 대사 payload 와는 분리해서 본다."
       ]
     },
     {
       "id": "dialogue_window_frame_art",
       "status": "review_started",
       "review_order": 4,
+      "priority": "medium",
+      "review_goal": "대사창 프레임 안에 구워진 라벨이나 이름판이 있는지 먼저 분리한다.",
+      "recommended_probe_method": "대사창 스크린샷 -> 프레임/판넬 후보 아트 덤프 -> 텍스트 유무 확인",
+      "future_workspace": "confirmed_data/image_inventory/workspaces/04_dialogue_window_frame_art",
+      "expected_text_kind": "이름판, 대사창 장식 라벨",
+      "subunits": [
+        {
+          "id": "nameplate_or_label_panels",
+          "label": "이름판/장식 라벨 판넬",
+          "status": "pending_review",
+          "first_action": "텍스트가 들어가는 판넬이 독립 자산인지 확인한다."
+        },
+        {
+          "id": "frame_only_art",
+          "label": "순수 프레임 아트",
+          "status": "review_started",
+          "first_action": "텍스트가 없으면 이미지 교체 우선순위를 낮춘다."
+        }
+      ],
       "notes": [
-        "Dialogue text itself is extracted text, but the window frame art is a distinct visual asset family.",
-        "This unit matters for localization QA even if it contains no baked text."
+        "대사 텍스트 자체는 추출 텍스트지만, 창 프레임 아트는 별도 시각 자산 family 이다.",
+        "구워진 텍스트가 없더라도 로컬라이징 QA 에서는 중요한 검토 단위다."
       ]
     },
     {
       "id": "portrait_headshot_assets",
       "status": "review_started",
       "review_order": 5,
+      "priority": "medium",
+      "review_goal": "화상/초상화 자산군을 대사 payload 와 분리해 나중에 이미지 작업 범위를 줄인다.",
+      "recommended_probe_method": "대표 대사 장면 스크린샷 -> portrait 후보 아트 덤프 -> 동일 인물 변형 수집",
+      "future_workspace": "confirmed_data/image_inventory/workspaces/05_portrait_headshot_assets",
+      "expected_text_kind": "직접 텍스트보다는 화상 자산 분류",
+      "subunits": [
+        {
+          "id": "main_party_portraits",
+          "label": "주요 캐릭터 화상",
+          "status": "review_started",
+          "first_action": "에드/알 등 대표 캐릭터 화상 변형 수를 대략 센다."
+        },
+        {
+          "id": "npc_portraits",
+          "label": "NPC 화상",
+          "status": "pending_review",
+          "first_action": "NPC가 별도 시트인지 합쳐져 있는지 확인한다."
+        }
+      ],
       "notes": [
-        "Portraits are confirmed image assets.",
-        "Speaker text itself is not baked into portraits, but portrait coverage matters for dialogue QA and future image tasks."
+        "portrait 는 이미지 자산이 맞다.",
+        "화자 텍스트 자체가 portrait 안에 구워져 있지는 않지만, 대사 QA 와 이후 이미지 작업에는 중요하다."
       ]
     },
     {
       "id": "ui_panel_label_art",
       "status": "pending_review",
       "review_order": 6,
+      "priority": "medium",
+      "review_goal": "패널 제목/탭/상태판처럼 이미지 라벨일 가능성이 높은 UI 자산을 먼저 묶는다.",
+      "recommended_probe_method": "메뉴/인벤토리/상태창 스크린샷 -> 패널 후보 시트 덤프 -> 텍스트 여부 확인",
+      "future_workspace": "confirmed_data/image_inventory/workspaces/06_ui_panel_label_art",
+      "expected_text_kind": "패널 제목, 탭 라벨, 상단 헤더",
+      "subunits": [
+        {
+          "id": "menu_tab_labels",
+          "label": "메뉴 탭 라벨",
+          "status": "pending_review",
+          "first_action": "탭이 텍스트 렌더링인지 이미지인지 먼저 판별한다."
+        },
+        {
+          "id": "panel_header_wordmarks",
+          "label": "패널 헤더 워드마크",
+          "status": "pending_review",
+          "first_action": "저장/옵션/상태창 헤더가 있는지 확인한다."
+        }
+      ],
       "notes": [
-        "Panels, tabs, or framed UI labels that may contain baked text should be reviewed as a distinct unit.",
-        "Keep separate from plain extracted save/menu/system strings."
+        "패널, 탭, 프레임형 UI 라벨 중 이미지에 글자가 구워졌을 수 있는 요소는 별도 단위로 검토한다.",
+        "일반 추출 save/menu/system 문자열과는 분리해서 본다."
       ]
     },
     {
       "id": "ui_icon_badge_wordmarks",
       "status": "pending_review",
       "review_order": 7,
+      "priority": "low",
+      "review_goal": "작은 아이콘/배지성 워드마크가 있다면 나중에 교체 난도가 높은 단위로 따로 뺀다.",
+      "recommended_probe_method": "대표 UI 캡처 -> 작은 4bpp 배지 후보 덤프 -> 문자인지 아이콘인지 구분",
+      "future_workspace": "confirmed_data/image_inventory/workspaces/07_ui_icon_badge_wordmarks",
+      "expected_text_kind": "작은 워드마크, 배지, 미니 라벨",
+      "subunits": [
+        {
+          "id": "mini_badge_labels",
+          "label": "미니 배지 라벨",
+          "status": "pending_review",
+          "first_action": "텍스트 기반인지 장식 아이콘인지 먼저 판별한다."
+        }
+      ],
       "notes": [
-        "Icon/badge-sized wordmarks should be reviewed separately from larger UI panels.",
-        "Useful to keep isolated because replacement strategy is likely different from panel art."
+        "아이콘/배지 크기의 워드마크는 큰 UI 패널과 따로 검토한다.",
+        "교체 전략이 패널 아트와 다를 가능성이 커서 분리 유지가 유용하다."
       ]
     },
     {
       "id": "battle_result_or_reward_banners",
       "status": "pending_review",
       "review_order": 8,
+      "priority": "medium",
+      "review_goal": "전투 결과/획득/보상 배너처럼 짧고 강한 워드마크 자산을 분리한다.",
+      "recommended_probe_method": "전투 결과 화면 캡처 -> 배너 후보 LZ77/4bpp 덤프 -> 고정 워드마크 여부 확인",
+      "future_workspace": "confirmed_data/image_inventory/workspaces/08_battle_result_or_reward_banners",
+      "expected_text_kind": "승리/획득/보상 배너",
+      "subunits": [
+        {
+          "id": "battle_result_banners",
+          "label": "전투 결과 배너",
+          "status": "pending_review",
+          "first_action": "결과 화면의 큰 워드마크를 우선 찾는다."
+        },
+        {
+          "id": "reward_get_banners",
+          "label": "획득/보상 배너",
+          "status": "pending_review",
+          "first_action": "결과 배너와 다른 시트를 쓰는지 먼저 구분한다."
+        }
+      ],
       "notes": [
-        "Result/reward banners are plausible baked-text candidates in battle or post-battle presentation.",
-        "Separate from dialogue and term-description sources, which are already extracted text."
+        "결과/보상 배너는 전투나 전투 후 연출에서 이미지 기반 텍스트 후보가 될 수 있다.",
+        "이미 추출 텍스트인 대사와 용어 설명 source 와는 분리해서 본다."
       ]
     }
   ],
   "operational_reading": [
-    "Image text inventory is now started as a separate audit track.",
-    "Several important text contexts are already confirmed to be non-image text and should not block translation.",
-    "The remaining work is asset-side review of concrete review_units rather than reopening canonical text extraction."
+    "이미지 텍스트 inventory 는 이제 별도 감사 트랙으로 시작된 상태다.",
+    "몇몇 중요한 텍스트 문맥은 이미 비-이미지 텍스트로 확인됐으므로 번역 진행을 막지 않는다.",
+    "남은 일은 기준 추출을 다시 여는 것이 아니라, 구체적인 review_unit 기준으로 자산을 검토하는 것이다."
+  ],
+  "next_actions": [
+    "우선순위 1~3 review unit 부터 후보 자산 탐색용 스크린샷/덤프를 모은다.",
+    "review unit 별 workspace 아래에 candidate / dump / export / note 산출물을 모은다.",
+    "image extraction pipeline 문서와 함께 실제 추출 단계로 이어간다."
   ]
 }

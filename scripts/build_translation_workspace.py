@@ -28,6 +28,7 @@ def main() -> int:
     run([sys.executable, "scripts/build_master_text_workspace.py"])
     run([sys.executable, "scripts/build_entry8_cluster_worksets.py"])
     run([sys.executable, "scripts/build_registry_d_dialogue_workset.py"])
+    run([sys.executable, "scripts/build_workset_metadata_index.py"])
 
     master_manifest = load_json(WORKSPACE / "all_extracted_texts_manifest.json")
     entry8_manifest = load_json(WORKSPACE / "registry_a_entry8_clusters_manifest.json")
@@ -69,6 +70,7 @@ def main() -> int:
         "workspace_root": "confirmed_data/translation_workspace",
         "master": master_manifest,
         "audit_status": "confirmed_data/translation_workspace/extraction_audit_status.json",
+        "workset_metadata_index": "confirmed_data/translation_workspace/workset_metadata_index.json",
         "entry8_clusters": {
             "cluster_count": int(entry8_manifest["cluster_count"]),
             "manifest": "confirmed_data/translation_workspace/registry_a_entry8_clusters_manifest.json",
@@ -77,8 +79,8 @@ def main() -> int:
         },
         "priority_worksets": priority_worksets,
         "workflow_note": [
-            "폰트 확정 전에는 workset 구조 정리와 번역 준비를 진행한다.",
-            "폰트 확정 후에는 core_ui -> gameplay_terms -> registry_d_dialogue -> entry8 clusters 순으로 번역/검수 루프를 시작한다.",
+            "현재 active 폰트는 Galmuri11 (12px) 이다.",
+            "core_ui -> gameplay_terms -> registry_d_dialogue -> entry8 clusters 순으로 번역/검수 루프를 시작한다.",
             "실플레이에서 새 일본어가 보이면 그때만 extraction inventory를 다시 연다.",
         ],
     }
@@ -95,6 +97,8 @@ def main() -> int:
 - [extraction_audit_status.json](/Users/user/test/confirmed_data/translation_workspace/extraction_audit_status.json)
 - [registry_a_entry8_clusters_manifest.json](/Users/user/test/confirmed_data/translation_workspace/registry_a_entry8_clusters_manifest.json)
 - [index.json](/Users/user/test/confirmed_data/translation_workspace/index.json)
+- [workset_metadata_index.json](/Users/user/test/confirmed_data/translation_workspace/workset_metadata_index.json)
+- [workset_metadata_index.md](/Users/user/test/confirmed_data/translation_workspace/workset_metadata_index.md)
 
 ## 권장 시작 순서
 
@@ -102,6 +106,10 @@ def main() -> int:
 2. [translation_workset_gameplay_terms.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_gameplay_terms.json)
 3. [translation_workset_registry_d_dialogue.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_registry_d_dialogue.json)
 4. [registry_a_entry8_clusters_manifest.json](/Users/user/test/confirmed_data/translation_workspace/registry_a_entry8_clusters_manifest.json)
+
+## 사용자 QA 안내
+
+- [user_qa_guide.md](/Users/user/test/docs/user_qa_guide.md)
 
 ## 재생성
 

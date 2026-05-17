@@ -11,15 +11,16 @@
 - 텍스트 재삽입: `IN PROGRESS`
 - 폰트/문자 매핑: `IN PROGRESS`
 - 이미지 리소스: `INVENTORY STARTED`
+- 이미지 추출 준비: `IN PROGRESS`
 - GUI/작업 워크플로우: `DEFERRED`
 
 ## 현재 우선순위
 
-1. Galmuri11 기준 남은 텍스트 추출 감사 마감
+1. Galmuri11 기준 번역 workset 메타데이터 정리
 2. runtime family 추가 연결
 3. portrait/dialogue scene speaker-state 추적
-4. 번역 workset 운영과 재삽입 루프 고정
-5. 이미지 리소스는 텍스트 루프 안정화 뒤 착수
+4. 이미지 review unit 세분화와 추출 파이프라인 착수
+5. 번역 workset 운영과 재삽입 루프 고정
 
 ## 새 메타데이터 레이어
 
@@ -42,6 +43,12 @@
 - [confirmed_data/image_inventory/README.md](/Users/user/test/confirmed_data/image_inventory/README.md)
   - image-side inventory 시작점이다.
   - 이제 `review bucket` 이 아니라 더 concrete 한 `review unit` 기준으로 관리한다.
+- [confirmed_data/image_inventory/image_extraction_pipeline.md](/Users/user/test/confirmed_data/image_inventory/image_extraction_pipeline.md)
+  - review unit 별 작업 폴더, 탐색 단계, 실제 추출 시작 순서를 정리한 문서다.
+- [confirmed_data/translation_workspace/workset_metadata_index.md](/Users/user/test/confirmed_data/translation_workspace/workset_metadata_index.md)
+  - 번역팀이 workset 별 제약, 줄바꿈 규칙, QA 필요 범위를 빠르게 보는 인덱스다.
+- [docs/user_qa_guide.md](/Users/user/test/docs/user_qa_guide.md)
+  - 비전문가 기준으로 실제 화면에서 무엇을 확인해야 하는지 설명하는 QA 안내서다.
 
 ## 최근 핵심 진전
 
