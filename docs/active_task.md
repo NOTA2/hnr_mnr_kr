@@ -15,6 +15,7 @@
 - 첫 화면 즉시 비교용 startup showcase 세트는 [translation_workset_startup_font_showcase.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_startup_font_showcase.json) 이다.
 - startup 비교 문구는 현재 원문 의미를 유지한 `대륙력 / １９１０년 ２월 / 리젠불 마을 / 형１１세 동생１０세` 기준으로 맞추고 있다.
 - atlas importer 는 PNG 의 밝은 본체와 그림자 역할을 게임 원본 단계인 `0 / 17 / 34` 로 매핑하되, **이 화면에서는 밝은 본체가 `17`, 그림자가 `34` 역할** 이 되도록 반대로 넣는다.
+- startup 첫 카드 `4`줄은 일반 `00` 종단 문자열이 아니라 **고정 길이 슬롯** 이므로, `append_terminator: false` 로 처리한다.
 
 ## 지금 우선순위
 

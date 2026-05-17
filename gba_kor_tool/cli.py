@@ -2949,6 +2949,8 @@ def cmd_inject_text(args: argparse.Namespace) -> int:
 
 
 def parse_record_terminator(record: dict, default_values: Sequence[str]) -> bytes:
+    if record.get("append_terminator") is False:
+        return b""
     terminator_value = record.get("terminator")
     if terminator_value:
         return bytes([parse_hex_byte(terminator_value)])

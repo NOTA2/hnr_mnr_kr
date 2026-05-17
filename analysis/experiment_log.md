@@ -1673,3 +1673,17 @@
   - 첫 카드 `4`줄은 모두 `in_place` 로 다시 반영되었다.
 - 판정: `성공`
 - 교훈: 같은 단계값이라도 실제 화면 팔레트에서 어느 단계가 더 밝게 보이는지까지 맞춰야, 본체/그림자 관계가 원본과 같은 느낌으로 나온다.
+
+### 실험 93
+
+- 가설: startup 첫 카드의 줄바꿈/배치 깨짐은 폰트 문제가 아니라, 이 `4`줄이 일반 `00` 종단 문자열이 아닌데도 공용 삽입기가 terminator 를 붙였기 때문일 수 있다.
+- 시도:
+  - 원본 ROM과 패치 ROM의 `0x703D70`, `0x703D7E`, `0x703D94`, `0x703DAC` 주변 raw bytes 를 비교했다.
+  - 그 결과 첫 줄 뒤 `05 FF`, 둘째 줄 뒤 `04 FF` 같은 제어코드가 바로 붙는 구조임을 확인했다.
+  - [gba_kor_tool/cli.py](/Users/user/test/gba_kor_tool/cli.py) 의 `apply-translations` 에 `append_terminator: false` 레코드 규칙을 추가했다.
+  - [startup_intro_texts.json](/Users/user/test/confirmed_data/extracted_texts/startup_intro_texts.json), [translation_workset_startup_font_showcase.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_startup_font_showcase.json) 에 이 플래그를 넣고 다시 빌드했다.
+- 결과:
+  - 첫 줄은 `written_bytes: 6`, 둘째 줄은 `16`, 셋째 줄은 `15`, 넷째 줄은 `22` 로 제어코드를 밀지 않고 들어갔다.
+  - 실제 ROM raw bytes 도 `EA 40 EA 41 EA 42 05 FF ...` 처럼, 번역문 뒤에 원래 제어코드가 그대로 유지되었다.
+- 판정: `성공`
+- 교훈: 앞으로는 모든 문자열을 똑같이 다루면 안 되고, **고정 길이 슬롯 + 무종단 레코드** 와 **일반 종단 문자열** 을 툴 단계에서 분리해야 같은 문제가 재발하지 않는다.
