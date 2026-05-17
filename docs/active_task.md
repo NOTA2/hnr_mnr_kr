@@ -25,6 +25,7 @@
 - 위 두 source 는 같은 `shared_text_object_r3_20` 후보를 공유하지만, payload 성격은 각각 **single-line counted** / **multiline FC-delimited** 로 갈린다.
 - `ui_skill/item/entry12` 는 `ui_or_item_plain_00_record`, `battle/ability/material` 은 `term_description_plain_00_optional_0b`, `credits` 는 `credits_padded_plain_00_record` family 로 부분 확정했다.
 - image-side 감사는 [confirmed_data/image_inventory/README.md](/Users/user/test/confirmed_data/image_inventory/README.md) 기준으로 시작됐다.
+- `system_messages` / `save_menu` 는 residual runtime uncertainty 가 남아도, 현재는 **operationally bounded** 로 내려가 주요 blocker 에서 제외한다.
 - 따라서 남은 핵심은 “대사 source 의 record 경계”보다 **runtime dialogue box/page family** 와 **실플레이/이미지 텍스트 감사** 쪽이다.
 - `analysis/dialogue_speaker_probe.md` 는 representative dialogue scene `2`개에서 각 레코드 직전 control-gap 을 뽑은 첫 speaker-state 추적 산출물이다.
 - 짧은 반복 gap (`04 FF 05 FF 0A 00` 등) 만 낀 연속 레코드는 같은 active speaker/turn 후보로, 더 큰 gap (`1B FF`, `2B FF` 포함) 전환은 state-change 후보로 추적할 수 있다.

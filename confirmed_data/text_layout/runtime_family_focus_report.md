@@ -26,4 +26,5 @@
 
 - High priority items are the real remaining blockers for dialogue/page-flow stability.
 - Medium/low groups are structurally extracted and can already be translated conservatively.
+- `system_messages` / `save_menu` are operationally bounded: residual uncertainty remains, but they are no longer treated as major runtime blockers.
 - This report is meant to keep runtime-family work focused instead of treating all unresolved families as equally risky.

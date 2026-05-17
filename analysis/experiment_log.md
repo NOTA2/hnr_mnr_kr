@@ -1889,3 +1889,18 @@
 - 판정: `성공`
 - 교훈:
   - “아직 100% 아님”과 “지금 번역 시작 가능”은 다른 질문이므로, readiness 레이어를 따로 두는 것이 운영상 훨씬 낫다.
+
+### 실험 108
+
+- 가설: `system_messages` 와 `save_menu` 는 아직 exact runtime renderer tying 이 없어도, 관측된 payload 길이와 구조가 매우 짧고 안정적이므로 **major blocker** 에서 내려 operationally bounded 로 취급할 수 있다.
+- 시도:
+  - `system_messages`, `save_menu_prefixed_texts`, `ui_skill`, `item`, `entry12`, `credits` 의 길이/개행 분포를 다시 집계했다.
+  - `system_messages` 는 `4`건, `max=22`, explicit newline 최대 `1`.
+  - `save_menu_prefixed_texts` 는 `12`건, `max=14`, explicit newline `0`.
+  - 이를 바탕으로 [build_extraction_audit_status.py](/Users/user/test/scripts/build_extraction_audit_status.py) 와 [build_runtime_family_focus_report.py](/Users/user/test/scripts/build_runtime_family_focus_report.py) 를 갱신했다.
+- 결과:
+  - `system_messages / save_menu` 는 현재 **operationally bounded_ui_or_command_flow** 로 재분류되었다.
+  - extraction audit 의 남은 major runtime blocker 는 다시 `entry8 single-line` / `Registry D multiline` high-priority dialogue 두 축으로 압축됐다.
+- 판정: `성공`
+- 교훈:
+  - runtime 미확정이라고 해도 길이/개행/구조가 충분히 작고 안정적이면, “major blocker” 와 “residual uncertainty” 를 분리해야 실제 남은 일이 선명해진다.

@@ -7,7 +7,7 @@
       "registry_a_entry8_prefixed_texts",
       "registry_d_fc_script_texts"
     ],
-    "medium_priority_ui_or_command_flow": [
+    "operationally_bounded_ui_or_command_flow": [
       "system_messages",
       "save_menu_prefixed_texts"
     ],
@@ -21,6 +21,7 @@
       "credits_texts"
     ]
   },
+  "operational_note": "system_messages/save_menu are now treated as operationally bounded rather than major blockers.",
   "priority_buckets": {
     "high": [
       {
@@ -54,6 +55,7 @@
         "runtime_candidate_family": null,
         "notes": [
           "Records are 0x00-terminated and include explicit newlines in some messages.",
+          "Observed payloads are tiny and currently top out at one explicit newline.",
           "Exact runtime box family is not yet tied to a specific renderer caller set."
         ]
       },
@@ -64,6 +66,7 @@
         "runtime_candidate_family": null,
         "notes": [
           "Uses 01 FF <u16 char_count> command-stream records.",
+          "Observed payloads are short prompts with no explicit newlines.",
           "Byte length is explicit, but full box/page behavior is not yet globally locked."
         ]
       },

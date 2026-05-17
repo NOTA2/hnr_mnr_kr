@@ -34,7 +34,7 @@
       "registry_a_entry8_prefixed_texts",
       "registry_d_fc_script_texts"
     ],
-    "medium_priority_ui_or_command_flow": [
+    "operationally_bounded_ui_or_command_flow": [
       "system_messages",
       "save_menu_prefixed_texts"
     ],
@@ -55,6 +55,11 @@
       "notes": "Record structures for the major extracted sources are mostly closed. The remaining high-priority runtime risk is now narrowed to two shared-r3=20 dialogue profiles: entry8 short single-line counted records and Registry D multiline FC-delimited payloads."
     },
     {
+      "id": "medium_ui_command_runtime_cleanup",
+      "status": "mostly_closed",
+      "notes": "system_messages and save_menu are short, structurally stable, and translation-ready with conservative rules. Residual runtime uncertainty remains documented, but they are no longer treated as major blockers."
+    },
+    {
       "id": "live_playthrough_text_audit",
       "status": "pending",
       "notes": "Operational 100% still requires at least one real playthrough-style audit for unseen Japanese strings, but canonical worksets are no longer blocked from starting translation before that audit."
@@ -65,5 +70,5 @@
       "notes": "Image-side review is now started as a separate inventory track. Several important UI/dialogue contexts are already confirmed to be non-image text, but baked-image review buckets remain pending."
     }
   ],
-  "operational_reading": "Large unknown text banks and per-source record structures are no longer the main risk. Structurally, known sources are closed; the remaining work is dialogue/page runtime family confirmation for two narrowed high-priority profiles, playthrough audit, and image-side inventory review."
+  "operational_reading": "Large unknown text banks and per-source record structures are no longer the main risk. Structurally, known sources are closed; system/save are operationally bounded, and the remaining major work is dialogue/page runtime family confirmation for two narrowed high-priority profiles, playthrough audit, and image-side inventory review."
 }
