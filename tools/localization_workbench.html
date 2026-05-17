@@ -85,6 +85,25 @@
       grid-template-columns: 1fr 1fr;
       gap: 12px;
     }
+    .preview-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-bottom: 12px;
+    }
+    .preview-card {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.02);
+      padding: 12px;
+    }
+    .preview-card img {
+      width: 100%;
+      max-height: 320px;
+      object-fit: contain;
+      background: #0b0f13;
+      border: 1px solid var(--line);
+      margin-top: 8px;
+    }
     .badge {
       display: inline-block;
       padding: 2px 8px;
@@ -217,6 +236,29 @@
       <div id="imageEditor" class="section hidden">
         <h2 id="imageTitle">이미지 항목</h2>
         <div class="meta" id="imageMeta"></div>
+        <div class="preview-grid">
+          <div class="preview-card">
+            <strong>원본 이미지</strong>
+            <div class="small" id="sourcePreviewMeta"></div>
+            <img id="sourcePreviewImage" alt="원본 이미지 미리보기">
+            <div class="toolbar">
+              <a id="sourcePreviewLink" class="small" href="#" target="_blank">원본 열기</a>
+              <a id="sourceDownloadLink" class="small" href="#" download>원본 다운로드</a>
+            </div>
+          </div>
+          <div class="preview-card">
+            <strong>교체 이미지</strong>
+            <div class="small" id="replacementPreviewMeta"></div>
+            <img id="replacementPreviewImage" alt="교체 이미지 미리보기">
+            <div class="toolbar">
+              <a id="replacementPreviewLink" class="small" href="#" target="_blank">교체본 열기</a>
+              <a id="replacementDownloadLink" class="small" href="#" download>교체본 다운로드</a>
+            </div>
+          </div>
+        </div>
+        <label>원본 이미지 경로
+          <input id="sourcePreviewPath" placeholder="confirmed_data/... 또는 analysis/...">
+        </label>
         <label>교체 이미지 경로
           <input id="replacementPath" placeholder="/절대/경로/edited.png">
         </label>
@@ -224,6 +266,9 @@
           <input id="replacementUpload" type="file" accept=".png,.bmp,.gif,.webp,.jpg,.jpeg">
         </label>
         <button id="uploadImageBtn">업로드 후 교체 경로 반영</button>
+        <label>비교 메모
+          <textarea id="comparisonNotes"></textarea>
+        </label>
         <label>이미지 메모
           <textarea id="imageNotes"></textarea>
         </label>
@@ -284,8 +329,18 @@
 
     const imageTitle = document.getElementById("imageTitle");
     const imageMeta = document.getElementById("imageMeta");
+    const sourcePreviewMeta = document.getElementById("sourcePreviewMeta");
+    const sourcePreviewImage = document.getElementById("sourcePreviewImage");
+    const sourcePreviewLink = document.getElementById("sourcePreviewLink");
+    const sourceDownloadLink = document.getElementById("sourceDownloadLink");
+    const replacementPreviewMeta = document.getElementById("replacementPreviewMeta");
+    const replacementPreviewImage = document.getElementById("replacementPreviewImage");
+    const replacementPreviewLink = document.getElementById("replacementPreviewLink");
+    const replacementDownloadLink = document.getElementById("replacementDownloadLink");
+    const sourcePreviewPath = document.getElementById("sourcePreviewPath");
     const replacementPath = document.getElementById("replacementPath");
     const replacementUpload = document.getElementById("replacementUpload");
+    const comparisonNotes = document.getElementById("comparisonNotes");
     const imageNotes = document.getElementById("imageNotes");
     const imageProgressStatus = document.getElementById("imageProgressStatus");
     const imageSubunits = document.getElementById("imageSubunits");
@@ -433,13 +488,48 @@
       imageEditor.classList.remove("hidden");
       imageTitle.textContent = item.label || item.group_id;
       imageMeta.textContent = `${item.expected_text_kind || ""} / 탐색 방식: ${item.recommended_probe_method || ""}`;
+      sourcePreviewPath.value = item.source_preview_path || "";
       replacementPath.value = item.replacement_path || "";
+      comparisonNotes.value = item.comparison_notes || "";
       imageNotes.value = item.notes || "";
       imageProgressStatus.value = item.progress_status || "todo";
       replacementUpload.value = "";
+      renderPreview(
+        item.source_preview_path || item.source_download_path || "",
+        sourcePreviewImage,
+        sourcePreviewMeta,
+        sourcePreviewLink,
+        sourceDownloadLink,
+        "원본 이미지가 아직 연결되지 않았습니다."
+      );
+      renderPreview(
+        item.replacement_path || "",
+        replacementPreviewImage,
+        replacementPreviewMeta,
+        replacementPreviewLink,
+        replacementDownloadLink,
+        "교체 이미지가 아직 없습니다."
+      );
       imageSubunits.innerHTML = (item.subunits || [])
         .map((sub) => `<div><span class="badge">${sub.id}</span>${sub.label} / ${sub.first_action}</div>`)
         .join("");
+    }
+
+    function renderPreview(path, imageNode, metaNode, previewLinkNode, downloadLinkNode, emptyMessage) {
+      if (!path) {
+        imageNode.removeAttribute("src");
+        metaNode.textContent = emptyMessage;
+        previewLinkNode.style.display = "none";
+        downloadLinkNode.style.display = "none";
+        return;
+      }
+      const url = `/workspace-file?path=${encodeURIComponent(path)}`;
+      imageNode.src = url;
+      metaNode.textContent = path;
+      previewLinkNode.href = url;
+      downloadLinkNode.href = url;
+      previewLinkNode.style.display = "inline";
+      downloadLinkNode.style.display = "inline";
     }
 
     async function saveCurrentItem() {
@@ -448,7 +538,10 @@
       if (item.category_id === "image_review_units") {
         const payload = {
           item_id: item.item_id,
+          source_preview_path: sourcePreviewPath.value,
+          source_download_path: sourcePreviewPath.value,
           replacement_path: replacementPath.value,
+          comparison_notes: comparisonNotes.value,
           notes: imageNotes.value,
           progress_status: imageProgressStatus.value,
           status: item.status,
@@ -625,6 +718,14 @@
       Object.assign(item, saved);
       replacementPath.value = saved.replacement_path || "";
       imageProgressStatus.value = saved.progress_status || "edited";
+      renderPreview(
+        saved.replacement_path || "",
+        replacementPreviewImage,
+        replacementPreviewMeta,
+        replacementPreviewLink,
+        replacementDownloadLink,
+        "교체 이미지가 아직 없습니다."
+      );
       alert(`업로드 완료\n${saved.replacement_path}`);
     }
 

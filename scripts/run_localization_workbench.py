@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import base64
 import json
+import mimetypes
 import shutil
 import subprocess
 import sys
@@ -68,7 +69,7 @@ class WorkbenchStore:
             if item["category_id"] == "image_review_units":
                 sidecar = image_map.get(item["item_id"])
                 if sidecar:
-                    for field in ("replacement_path", "notes", "progress_status", "status"):
+                    for field in ("source_preview_path", "source_download_path", "replacement_path", "comparison_notes", "notes", "progress_status", "status"):
                         if field in sidecar:
                             item[field] = sidecar[field]
         return {
@@ -145,7 +146,7 @@ class WorkbenchStore:
     def save_image_item(self, item_id: str, updates: dict[str, Any]) -> dict[str, Any]:
         for item in self.image_replacements:
             if item["item_id"] == item_id:
-                for field in ("replacement_path", "notes", "progress_status", "status"):
+                for field in ("source_preview_path", "source_download_path", "replacement_path", "comparison_notes", "notes", "progress_status", "status"):
                     if field in updates:
                         item[field] = updates[field]
                 write_json(IMAGE_REPLACEMENTS_PATH, self.image_replacements)
@@ -300,6 +301,24 @@ def make_handler(store: WorkbenchStore):
             if parsed.path == "/bundle":
                 store.reload()
                 self._json(store.bundle())
+                return
+            if parsed.path == "/workspace-file":
+                params = urllib.parse.parse_qs(parsed.query)
+                raw_path = params.get("path", [""])[0]
+                if not raw_path:
+                    self.send_error(HTTPStatus.BAD_REQUEST, "missing path")
+                    return
+                file_path = (ROOT / raw_path).resolve()
+                if not file_path.is_file() or ROOT not in file_path.parents:
+                    self.send_error(HTTPStatus.NOT_FOUND, "file not found")
+                    return
+                body = file_path.read_bytes()
+                content_type, _ = mimetypes.guess_type(file_path.name)
+                self.send_response(HTTPStatus.OK)
+                self.send_header("Content-Type", content_type or "application/octet-stream")
+                self.send_header("Content-Length", str(len(body)))
+                self.end_headers()
+                self.wfile.write(body)
                 return
             self.send_error(HTTPStatus.NOT_FOUND, "not found")
 

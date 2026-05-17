@@ -229,7 +229,10 @@ def build_image_items() -> list[dict]:
                 "notes": "\n".join(unit["notes"]),
                 "subunits": unit["subunits"],
                 "future_workspace": unit["future_workspace"],
+                "source_preview_path": "",
+                "source_download_path": "",
                 "replacement_path": "",
+                "comparison_notes": "",
                 "progress_status": "todo",
             }
         )
@@ -300,6 +303,9 @@ def merge_existing_item_state(items: list[dict], existing_dataset: dict | None, 
             "progress_status",
             "review_status",
             "replacement_path",
+            "source_preview_path",
+            "source_download_path",
+            "comparison_notes",
             "status",
         ):
             if field in existing and existing[field] not in ("", None):
