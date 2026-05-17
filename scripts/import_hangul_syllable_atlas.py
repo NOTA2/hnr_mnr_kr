@@ -60,12 +60,13 @@ def normalize_rgba_tile_to_game_font_levels(tile: Image.Image) -> bytes:
                 out.append(0)
                 continue
             luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b
-            # Match the game's original intro glyph levels:
-            # background=0, shadow=17 (nibble 1), body=34 (nibble 2).
+            # Match the game's original intro glyph palette role:
+            # in-game body is the brighter-looking stage, but it maps to nibble 1,
+            # while the darker shadow maps to nibble 2 on this screen.
             if luminance >= 200:
-                out.append(34)
-            elif luminance >= 32:
                 out.append(17)
+            elif luminance >= 32:
+                out.append(34)
             else:
                 out.append(0)
     return bytes(out)
