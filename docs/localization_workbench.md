@@ -55,13 +55,14 @@ http://127.0.0.1:8766
 
 - [workbench_dataset.json](/Users/user/test/confirmed_data/localization_workbench/workbench_dataset.json)
 - [speaker_aliases.json](/Users/user/test/confirmed_data/localization_workbench/speaker_aliases.json)
+- [speaker_registry.json](/Users/user/test/confirmed_data/localization_workbench/speaker_registry.json)
 - [progress_state.json](/Users/user/test/confirmed_data/localization_workbench/progress_state.json)
 - [image_replacements.json](/Users/user/test/confirmed_data/localization_workbench/image_replacements.json)
 - [uploaded_image_replacements](/Users/user/test/confirmed_data/localization_workbench/uploaded_image_replacements)
 
 ## 고정 이름 테스트 ROM
 
-현재 선택한 카테고리를 기준으로 아래 파일을 항상 덮어쓴다.
+현재 저장된 전체 적용 번역을 기준으로 아래 파일을 항상 덮어쓴다.
 
 - [hnr_localization_review.gba](/Users/user/test/patched_roms/current_review/hnr_localization_review.gba)
 
@@ -90,7 +91,7 @@ http://127.0.0.1:8766
 1. 번역 에이전트 팀이 `agent_draft` / `agent_comment` 를 채운다.
 2. 사람이 GUI에서 초안을 보고 필요하면 수정한다.
 3. 사람이 직접 확정한 항목은 `수동 잠금`을 켠다.
-4. 사용자는 `현재 카테고리 ROM 재빌드`만 눌러 고정 이름 리뷰 ROM을 다시 만든다.
+4. 사용자는 `전체 적용 ROM 재빌드`만 눌러 고정 이름 리뷰 ROM을 다시 만든다.
 
 ### 가져오기 흐름
 
@@ -100,7 +101,7 @@ http://127.0.0.1:8766
    - 잠기지 않은 항목은 `translation` 과 `agent_draft` 에 자동 반영된다.
    - `manual_locked=true` 인 항목은 `translation` 을 유지하고, `agent_draft` / `agent_comment` 만 갱신한다.
 4. 사용자는 필요하면 GUI에서 일부 문장을 직접 수정한다.
-5. `현재 카테고리 ROM 재빌드`를 누르면 고정 이름 리뷰 ROM에 바로 반영된다.
+5. `전체 적용 ROM 재빌드`를 누르면 고정 이름 리뷰 ROM에 바로 반영된다.
 
 가져오기 리포트는 아래에 남는다.
 
@@ -110,7 +111,6 @@ http://127.0.0.1:8766
 
 ### 텍스트
 
-- 시작 카드 4줄
 - 코어 UI
 - 게임 용어
 - Registry D 대사
@@ -118,10 +118,16 @@ http://127.0.0.1:8766
 
 주의:
 
-- `시작 카드 4줄` 카테고리는 **게임 시작 직후 첫 카드에 보이는 고정 슬롯 4줄만** 보여 준다.
+- 게임 시작 직후 첫 카드 4줄은 **별도 카테고리로 분리하지 않고 `코어 UI` 안에서 함께 관리**한다.
 - 이후 이어지는 인트로 대사/이벤트 문장은 대부분 `Entry8` 또는 `Registry D` 쪽에서 관리한다.
-- 그래서 시작 화면 전체 흐름이 많아 보여도, 이 카테고리에 4개만 있는 것은 정상이다.
-- 겹치는 항목을 따로 중복 노출하지 않도록 의도적으로 분리했다.
+- 같은 문장을 여러 카테고리에 중복 노출하지 않도록 source/workset 기준으로 한 번만 보이게 유지한다.
+
+## 화자 관리 방식
+
+- `dialogue_state_token` 은 여전히 객관적 상태 토큰이다.
+- 실제 화자명은 **`speaker_registry.json` 에 먼저 등록**한다.
+- 각 대사 토큰에는 GUI에서 **등록된 화자를 선택**해 연결한다.
+- 이렇게 해서 자유 입력 오타를 줄이고, 같은 캐릭터 표기를 일관되게 유지한다.
 
 ### 이미지
 

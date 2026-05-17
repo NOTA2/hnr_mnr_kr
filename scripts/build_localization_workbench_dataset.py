@@ -19,6 +19,7 @@ FONT_PROFILE = DATA_ROOT / "font_assets" / "active_hangul_font_profile.json"
 
 OUT_DATASET = WORKSPACE_ROOT / "workbench_dataset.json"
 OUT_SPEAKERS = WORKSPACE_ROOT / "speaker_aliases.json"
+OUT_SPEAKER_REGISTRY = WORKSPACE_ROOT / "speaker_registry.json"
 OUT_PROGRESS = WORKSPACE_ROOT / "progress_state.json"
 OUT_IMAGE = WORKSPACE_ROOT / "image_replacements.json"
 OUT_README = WORKSPACE_ROOT / "README.md"
@@ -63,28 +64,19 @@ def build_entry8_cluster_map() -> dict[int, str]:
 def build_categories() -> list[dict]:
     return [
         {
-            "id": "translation_workset_startup_font_showcase",
-            "label": "시작 카드 4줄",
-            "type": "text",
-            "sort_order": 0,
-            "path": "confirmed_data/translation_worksets/translation_workset_startup_font_showcase.json",
-            "description": "게임 시작 직후 첫 카드에 뜨는 고정 슬롯 4줄만 포함",
-            "build_enabled": True,
-        },
-        {
             "id": "translation_workset_core_ui",
             "label": "코어 UI",
             "type": "text",
-            "sort_order": 1,
+            "sort_order": 0,
             "path": "confirmed_data/translation_worksets/translation_workset_core_ui.json",
-            "description": "시스템/세이브/지역명/UI 기술명",
+            "description": "시스템/세이브/지역명/UI 기술명/시작 카드 고정 슬롯",
             "build_enabled": True,
         },
         {
             "id": "translation_workset_gameplay_terms",
             "label": "게임 용어",
             "type": "text",
-            "sort_order": 2,
+            "sort_order": 1,
             "path": "confirmed_data/translation_worksets/translation_workset_gameplay_terms.json",
             "description": "아이템/전투/능력/재료/설명",
             "build_enabled": True,
@@ -93,7 +85,7 @@ def build_categories() -> list[dict]:
             "id": "translation_workset_registry_d_dialogue",
             "label": "대사 Registry D",
             "type": "dialogue",
-            "sort_order": 3,
+            "sort_order": 2,
             "path": "confirmed_data/translation_worksets/translation_workset_registry_d_dialogue.json",
             "description": "튜토리얼/이벤트/전투 전후 대사",
             "build_enabled": True,
@@ -102,7 +94,7 @@ def build_categories() -> list[dict]:
             "id": "registry_a_entry8_clusters_manifest",
             "label": "대사 Entry8",
             "type": "dialogue",
-            "sort_order": 4,
+            "sort_order": 3,
             "path": "confirmed_data/translation_workspace/registry_a_entry8_clusters_manifest.json",
             "description": "대형 스토리/이벤트 뱅크 cluster 단위",
             "build_enabled": True,
@@ -111,7 +103,7 @@ def build_categories() -> list[dict]:
             "id": "image_review_units",
             "label": "이미지 작업",
             "type": "image",
-            "sort_order": 5,
+            "sort_order": 4,
             "path": "confirmed_data/image_inventory/image_text_inventory.json",
             "description": "이미지에 구워진 텍스트 자산 검토/교체",
             "build_enabled": False,
@@ -122,13 +114,13 @@ def build_categories() -> list[dict]:
 def build_text_items(dialogue_tokens: dict[str, dict[int, str]], entry8_cluster_map: dict[int, str]) -> list[dict]:
     items: list[dict] = []
     workset_specs = [
-        "translation_workset_startup_font_showcase.json",
-        "translation_workset_core_ui.json",
-        "translation_workset_gameplay_terms.json",
-        "translation_workset_registry_d_dialogue.json",
+        ("translation_workset_startup_font_showcase.json", "translation_workset_core_ui"),
+        ("translation_workset_core_ui.json", "translation_workset_core_ui"),
+        ("translation_workset_gameplay_terms.json", "translation_workset_gameplay_terms"),
+        ("translation_workset_registry_d_dialogue.json", "translation_workset_registry_d_dialogue"),
     ]
 
-    for filename in workset_specs:
+    for filename, category_id in workset_specs:
         workset_id = filename.replace(".json", "")
         records = load_json(TRANSLATION_WORKSETS / filename)
         for order, record in enumerate(records):
@@ -140,7 +132,8 @@ def build_text_items(dialogue_tokens: dict[str, dict[int, str]], entry8_cluster_
             items.append(
                 {
                     "item_id": item_id,
-                    "category_id": workset_id,
+                    "category_id": category_id,
+                    "origin_workset_id": workset_id,
                     "group_id": cluster_id,
                     "offset": offset,
                     "rom_address": int(record["rom_address"]),
@@ -164,8 +157,6 @@ def build_text_items(dialogue_tokens: dict[str, dict[int, str]], entry8_cluster_
                     "before_bytes": record.get("before_bytes"),
                     "after_bytes": record.get("after_bytes"),
                     "dialogue_state_token": dialogue_state_token,
-                    "speaker_alias": "",
-                    "speaker_confirmed": False,
                     "progress_status": "todo",
                     "review_status": "unreviewed",
                     "image_overlap_risk": "low" if workset_id != "translation_workset_core_ui" else "medium",
@@ -207,8 +198,6 @@ def build_text_items(dialogue_tokens: dict[str, dict[int, str]], entry8_cluster_
                     "before_bytes": record.get("before_bytes"),
                     "after_bytes": record.get("after_bytes"),
                     "dialogue_state_token": dialogue_tokens.get("registry_a_entry8_prefixed_texts", {}).get(offset),
-                    "speaker_alias": "",
-                    "speaker_confirmed": False,
                     "progress_status": "todo",
                     "review_status": "unreviewed",
                     "cluster_primary_tag": cluster.get("primary_tag"),
@@ -258,13 +247,20 @@ def build_speaker_aliases(text_items: list[dict]) -> list[dict]:
     return [
         {
             "dialogue_state_token": token,
-            "speaker_name": "",
-            "speaker_role": "",
+            "speaker_id": "",
             "notes": "",
             "confirmed": False,
+            "speaker_name": "",
+            "speaker_role": "",
         }
         for token in tokens
     ]
+
+
+def build_speaker_registry(existing: list[dict] | None) -> list[dict]:
+    if existing:
+        return existing
+    return []
 
 
 def build_progress_state(categories: list[dict]) -> dict:
@@ -303,8 +299,6 @@ def merge_existing_item_state(items: list[dict], existing_dataset: dict | None, 
             "notes",
             "progress_status",
             "review_status",
-            "speaker_alias",
-            "speaker_confirmed",
             "replacement_path",
             "status",
         ):
@@ -320,7 +314,7 @@ def merge_existing_speaker_aliases(speaker_aliases: list[dict], existing: list[d
         prev = existing_map.get(item["dialogue_state_token"])
         if not prev:
             continue
-        for field in ("speaker_name", "speaker_role", "notes", "confirmed"):
+        for field in ("speaker_id", "speaker_name", "speaker_role", "notes", "confirmed"):
             if field in prev and prev[field] not in ("", None, False):
                 item[field] = prev[field]
     return speaker_aliases
@@ -371,7 +365,7 @@ def build_dataset() -> dict:
         "items": items,
         "review_rom": {
             "fixed_output_path": "patched_roms/current_review/hnr_localization_review.gba",
-            "note": "현재 선택된 category 기준으로 항상 같은 파일명을 덮어써서 재빌드한다.",
+            "note": "현재 저장된 전체 적용 번역 기준으로 항상 같은 파일명을 덮어써서 재빌드한다.",
         },
         "notes": [
             "텍스트 item 은 workset/cluster 기준으로 관리한다.",
@@ -380,6 +374,7 @@ def build_dataset() -> dict:
             "translation 은 최종 적용 번역이다.",
             "agent_draft 는 번역 에이전트가 제안한 초안이다.",
             "manual_locked=true 인 항목은 에이전트가 translation 을 덮어쓰면 안 된다.",
+            "시작 카드 4줄은 별도 카테고리로 분리하지 않고 코어 UI 안에서 함께 관리한다.",
         ],
     }
 
@@ -394,6 +389,7 @@ def render_readme(dataset: dict) -> str:
         "",
         "- `workbench_dataset.json`",
         "- `speaker_aliases.json`",
+        "- `speaker_registry.json`",
         "- `progress_state.json`",
         "- `image_replacements.json`",
         "",
@@ -412,7 +408,7 @@ def render_readme(dataset: dict) -> str:
             "## 사용 용도",
             "",
             "- 텍스트를 카테고리별로 나눠 본다.",
-            "- 대사에는 dialogue_state_token 과 사람이 붙인 화자 라벨을 함께 본다.",
+            "- 대사에는 dialogue_state_token 과 등록된 화자 선택값을 함께 본다.",
             "- 진행 상태를 저장하고, 현재 검토 중인 category 를 이어서 연다.",
             "- 이미지 교체 후보는 replacement_path 와 메모를 따로 관리한다.",
             "",
@@ -425,6 +421,7 @@ def main() -> int:
     WORKSPACE_ROOT.mkdir(parents=True, exist_ok=True)
     existing_dataset = load_json_if_exists(OUT_DATASET, None)
     existing_speakers = load_json_if_exists(OUT_SPEAKERS, None)
+    existing_speaker_registry = load_json_if_exists(OUT_SPEAKER_REGISTRY, None)
     existing_progress = load_json_if_exists(OUT_PROGRESS, None)
     existing_images = load_json_if_exists(OUT_IMAGE, None)
     dataset = build_dataset()
@@ -433,6 +430,7 @@ def main() -> int:
         build_speaker_aliases(dataset["items"]),
         existing_speakers,
     )
+    speaker_registry = build_speaker_registry(existing_speaker_registry)
     progress_state = merge_existing_progress(
         build_progress_state(dataset["categories"]),
         existing_progress,
@@ -442,11 +440,13 @@ def main() -> int:
 
     OUT_DATASET.write_text(json.dumps(dataset, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     OUT_SPEAKERS.write_text(json.dumps(speaker_aliases, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    OUT_SPEAKER_REGISTRY.write_text(json.dumps(speaker_registry, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     OUT_PROGRESS.write_text(json.dumps(progress_state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     OUT_IMAGE.write_text(json.dumps(image_items, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     OUT_README.write_text(render_readme(dataset), encoding="utf-8")
     print(f"wrote {OUT_DATASET}")
     print(f"wrote {OUT_SPEAKERS}")
+    print(f"wrote {OUT_SPEAKER_REGISTRY}")
     print(f"wrote {OUT_PROGRESS}")
     print(f"wrote {OUT_IMAGE}")
     print(f"wrote {OUT_README}")

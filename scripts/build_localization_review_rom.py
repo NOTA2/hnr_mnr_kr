@@ -22,7 +22,7 @@ TEMP_JSON = OUT_DIR / "current_review_translations.json"
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="현재 localization workbench 초안으로 고정 이름 review ROM 을 재빌드합니다.")
-    parser.add_argument("--category-id", help="기본값은 progress_state 의 current_review_scope")
+    parser.add_argument("--category-id", help="디버그용 선택 카테고리. 기본값은 전체 텍스트 항목 적용")
     return parser.parse_args()
 
 
@@ -40,20 +40,17 @@ def resolve_effective_translation(item: dict) -> tuple[str, str]:
     return item["text"], "original_text"
 
 
-def resolve_category(args: argparse.Namespace) -> str:
-    if args.category_id:
-        return args.category_id
-    progress = load_json(PROGRESS_PATH)
-    return progress.get("current_review_scope", "translation_workset_core_ui")
-
-
-def build_translation_json(dataset: dict, category_id: str) -> list[dict]:
-    items = [
-        item
-        for item in dataset["items"]
-        if item["category_id"] == category_id and item.get("offset") is not None
-    ]
-    items.sort(key=lambda item: (item.get("group_id") or "", item["offset"]))
+def build_translation_json(dataset: dict, category_id: str | None) -> list[dict]:
+    items = []
+    for item in dataset["items"]:
+        if item.get("offset") is None:
+            continue
+        if item["category_id"] == "image_review_units":
+            continue
+        if category_id and item["category_id"] != category_id:
+            continue
+        items.append(item)
+    items.sort(key=lambda item: item["offset"])
     payload = []
     for item in items:
         effective_translation, source = resolve_effective_translation(item)
@@ -80,11 +77,12 @@ def build_translation_json(dataset: dict, category_id: str) -> list[dict]:
 
 def main() -> int:
     args = parse_args()
-    category_id = resolve_category(args)
     dataset = load_json(DATASET_PATH)
-    payload = build_translation_json(dataset, category_id)
+    payload = build_translation_json(dataset, args.category_id)
     if not payload:
-        raise SystemExit(f"no text items found for category: {category_id}")
+        if args.category_id:
+            raise SystemExit(f"no text items found for category: {args.category_id}")
+        raise SystemExit("no text items found for full review build")
     DATASET_PATH.write_text(json.dumps(dataset, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)

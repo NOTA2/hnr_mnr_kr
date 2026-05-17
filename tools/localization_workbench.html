@@ -123,7 +123,7 @@
         </label>
         <button id="importTranslationBtn">번역 결과 가져오기</button>
         <div class="small" id="autoImportInfo"></div>
-        <button id="rebuildBtn">현재 카테고리 ROM 재빌드</button>
+        <button id="rebuildBtn">전체 적용 ROM 재빌드</button>
         <div class="small" id="romInfo"></div>
         <div class="small" id="importInfo"></div>
       </div>
@@ -136,7 +136,8 @@
     <main class="panel">
       <div class="toolbar">
         <button id="saveItemBtn">항목 저장</button>
-        <button id="saveSpeakerBtn">화자 라벨 저장</button>
+        <button id="saveSpeakerBtn">토큰 화자 저장</button>
+        <button id="saveSpeakerRegistryBtn">화자 목록 저장</button>
         <button id="saveProgressBtn">현재 위치 저장</button>
         <button id="applyDraftBtn" class="primary">에이전트 초안 → 적용 번역</button>
       </div>
@@ -187,14 +188,28 @@
         <div class="section">
           <h3>화자 / 상태 토큰</h3>
           <div id="speakerMeta" class="meta"></div>
-          <label>사람이 붙이는 화자 이름
-            <input id="speakerName" placeholder="예: 에드워드 엘릭">
+          <label>이 토큰에 연결할 화자
+            <select id="speakerSelect"></select>
+          </label>
+          <label>토큰 메모
+            <textarea id="speakerNotes"></textarea>
+          </label>
+          <div class="small">화자 이름은 직접 입력하지 말고, 아래 화자 목록에 등록한 뒤 여기서 선택합니다.</div>
+        </div>
+        <div class="section">
+          <h3>화자 목록 관리</h3>
+          <label>등록된 화자
+            <select id="speakerRegistrySelect"></select>
+          </label>
+          <button id="newSpeakerRegistryBtn">새 화자 입력 초기화</button>
+          <label>화자 이름
+            <input id="registrySpeakerName" placeholder="예: 에드워드 엘릭">
           </label>
           <label>역할/설명
-            <input id="speakerRole" placeholder="예: 주인공 / 군인 / NPC">
+            <input id="registrySpeakerRole" placeholder="예: 주인공 / 군인 / NPC">
           </label>
           <label>화자 메모
-            <textarea id="speakerNotes"></textarea>
+            <textarea id="registrySpeakerNotes"></textarea>
           </label>
         </div>
       </div>
@@ -233,6 +248,7 @@
       items: [],
       categoryId: null,
       itemId: null,
+      speakerRegistry: [],
       speakerMap: new Map(),
     };
 
@@ -259,9 +275,12 @@
     const progressStatus = document.getElementById("progressStatus");
     const reviewStatus = document.getElementById("reviewStatus");
     const speakerMeta = document.getElementById("speakerMeta");
-    const speakerName = document.getElementById("speakerName");
-    const speakerRole = document.getElementById("speakerRole");
+    const speakerSelect = document.getElementById("speakerSelect");
     const speakerNotes = document.getElementById("speakerNotes");
+    const speakerRegistrySelect = document.getElementById("speakerRegistrySelect");
+    const registrySpeakerName = document.getElementById("registrySpeakerName");
+    const registrySpeakerRole = document.getElementById("registrySpeakerRole");
+    const registrySpeakerNotes = document.getElementById("registrySpeakerNotes");
 
     const imageTitle = document.getElementById("imageTitle");
     const imageMeta = document.getElementById("imageMeta");
@@ -285,9 +304,11 @@
       state.bundle = await fetchJson("/bundle");
       state.categories = state.bundle.dataset.categories;
       state.items = state.bundle.dataset.items;
+      state.speakerRegistry = state.bundle.speaker_registry || [];
       state.speakerMap = new Map(
         state.bundle.speakers.map((item) => [item.dialogue_state_token, item])
       );
+      renderSpeakerRegistryOptions();
       fontInfo.textContent = `active font: ${state.bundle.dataset.active_font.label || "unknown"}`;
       const autoImport = state.bundle.auto_import_summary || { imported_count: 0 };
       if (autoImport.imported_count > 0) {
@@ -302,8 +323,19 @@
     }
 
     function renderProgress() {
-      progressInfo.textContent = `현재 카테고리: ${state.bundle.progress.current_category_id || "-"} / 현재 review scope: ${state.bundle.progress.current_review_scope || "-"}`;
+      progressInfo.textContent = `현재 카테고리: ${state.bundle.progress.current_category_id || "-"}`;
       romInfo.textContent = `고정 ROM: ${state.bundle.progress.last_built_rom || state.bundle.dataset.review_rom.fixed_output_path}`;
+    }
+
+    function renderSpeakerRegistryOptions(selectedSpeakerId = "") {
+      const options = ['<option value="">-- 미지정 --</option>'];
+      for (const speaker of state.speakerRegistry) {
+        const selected = speaker.speaker_id === selectedSpeakerId ? "selected" : "";
+        const role = speaker.speaker_role ? ` / ${speaker.speaker_role}` : "";
+        options.push(`<option value="${speaker.speaker_id}" ${selected}>${speaker.speaker_name}${role}</option>`);
+      }
+      speakerSelect.innerHTML = options.join("");
+      speakerRegistrySelect.innerHTML = options.join("");
     }
 
     function renderCategories() {
@@ -327,7 +359,7 @@
       state.categoryId = categoryId;
       renderCategories();
       const category = state.categories.find((item) => item.id === categoryId);
-      rebuildBtn.disabled = !category?.build_enabled;
+      rebuildBtn.disabled = false;
       const filtered = state.items.filter((item) => item.category_id === categoryId);
       itemsTitle.textContent = category ? `${category.label} 항목` : "항목";
       itemList.innerHTML = "";
@@ -385,14 +417,13 @@
       const token = item.dialogue_state_token;
       if (token && state.speakerMap.has(token)) {
         const speaker = state.speakerMap.get(token);
-        speakerMeta.textContent = `dialogue_state_token: ${token}`;
-        speakerName.value = speaker.speaker_name || item.speaker_alias || "";
-        speakerRole.value = speaker.speaker_role || "";
+        const linkedSpeaker = state.speakerRegistry.find((entry) => entry.speaker_id === speaker.speaker_id);
+        speakerMeta.textContent = `dialogue_state_token: ${token}${linkedSpeaker ? ` / 연결 화자: ${linkedSpeaker.speaker_name}` : ""}`;
+        renderSpeakerRegistryOptions(speaker.speaker_id || "");
         speakerNotes.value = speaker.notes || "";
       } else {
         speakerMeta.textContent = token ? `dialogue_state_token: ${token}` : "dialogue_state_token 없음";
-        speakerName.value = item.speaker_alias || "";
-        speakerRole.value = "";
+        renderSpeakerRegistryOptions("");
         speakerNotes.value = "";
       }
     }
@@ -438,8 +469,6 @@
           notes: notesText.value,
           progress_status: progressStatus.value,
           review_status: reviewStatus.value,
-          speaker_alias: speakerName.value,
-          speaker_confirmed: Boolean(speakerName.value),
         };
         const saved = await fetchJson("/item", {
           method: "POST",
@@ -455,23 +484,64 @@
       if (!item || !item.dialogue_state_token) return;
       const payload = {
         dialogue_state_token: item.dialogue_state_token,
-        speaker_name: speakerName.value,
-        speaker_role: speakerRole.value,
+        speaker_id: speakerSelect.value,
         notes: speakerNotes.value,
-        confirmed: Boolean(speakerName.value),
+        confirmed: Boolean(speakerSelect.value),
       };
-      await fetchJson("/speaker", {
+      const saved = await fetchJson("/speaker", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(payload),
       });
+      state.speakerMap.set(saved.dialogue_state_token, saved);
+      renderTextItem(item);
+    }
+
+    function fillSpeakerRegistryForm(speakerId) {
+      const speaker = state.speakerRegistry.find((entry) => entry.speaker_id === speakerId);
+      if (!speaker) {
+        speakerRegistrySelect.value = "";
+        registrySpeakerName.value = "";
+        registrySpeakerRole.value = "";
+        registrySpeakerNotes.value = "";
+        return;
+      }
+      speakerRegistrySelect.value = speaker.speaker_id;
+      registrySpeakerName.value = speaker.speaker_name || "";
+      registrySpeakerRole.value = speaker.speaker_role || "";
+      registrySpeakerNotes.value = speaker.notes || "";
+    }
+
+    async function saveSpeakerRegistry() {
+      const payload = {
+        speaker_id: speakerRegistrySelect.value,
+        speaker_name: registrySpeakerName.value,
+        speaker_role: registrySpeakerRole.value,
+        notes: registrySpeakerNotes.value,
+      };
+      const saved = await fetchJson("/speaker-registry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      const index = state.speakerRegistry.findIndex((entry) => entry.speaker_id === saved.speaker_id);
+      if (index >= 0) {
+        state.speakerRegistry[index] = saved;
+      } else {
+        state.speakerRegistry.push(saved);
+      }
+      renderSpeakerRegistryOptions(saved.speaker_id);
+      fillSpeakerRegistryForm(saved.speaker_id);
+    }
+
+    function newSpeakerRegistry() {
+      fillSpeakerRegistryForm("");
     }
 
     async function saveProgress() {
       const payload = {
         current_category_id: state.categoryId,
         current_item_id: state.itemId,
-        current_review_scope: state.categoryId,
       };
       state.bundle.progress = await fetchJson("/progress", {
         method: "POST",
@@ -482,17 +552,12 @@
     }
 
     async function rebuildRom() {
-      const category = state.categories.find((entry) => entry.id === state.categoryId);
-      if (!category?.build_enabled) {
-        alert("이 카테고리는 아직 ROM 재빌드를 지원하지 않습니다.");
-        return;
-      }
       await saveCurrentItem();
       await saveProgress();
       const result = await fetchJson("/rebuild", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ category_id: state.categoryId }),
+        body: JSON.stringify({}),
       });
       romInfo.textContent = `고정 ROM: ${result.rom_path}`;
       alert(`재빌드 완료\n${result.rom_path}`);
@@ -565,11 +630,14 @@
 
     document.getElementById("saveItemBtn").onclick = () => saveCurrentItem();
     document.getElementById("saveSpeakerBtn").onclick = () => saveSpeaker();
+    document.getElementById("saveSpeakerRegistryBtn").onclick = () => saveSpeakerRegistry();
     document.getElementById("saveProgressBtn").onclick = () => saveProgress();
     document.getElementById("importTranslationBtn").onclick = () => importTranslationResults();
     document.getElementById("rebuildBtn").onclick = () => rebuildRom();
     document.getElementById("applyDraftBtn").onclick = () => applyDraftToTranslation();
     document.getElementById("uploadImageBtn").onclick = () => uploadImageReplacement();
+    document.getElementById("newSpeakerRegistryBtn").onclick = () => newSpeakerRegistry();
+    speakerRegistrySelect.onchange = () => fillSpeakerRegistryForm(speakerRegistrySelect.value);
 
     loadBundle().catch((error) => {
       alert(error.message);
