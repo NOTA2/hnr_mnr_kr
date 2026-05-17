@@ -49,18 +49,25 @@ def write_pgm(path: Path, pixels: bytes, width: int, height: int) -> None:
     path.write_bytes(header + pixels)
 
 
-def normalize_rgba_tile_to_grayscale(tile: Image.Image) -> bytes:
+def normalize_rgba_tile_to_game_font_levels(tile: Image.Image) -> bytes:
     rgba = tile.convert("RGBA")
     out = bytearray()
     pixels = rgba.load()
     for y in range(rgba.height):
         for x in range(rgba.width):
             r, g, b, a = pixels[x, y]
-            # Preserve atlas tone directly so white body and gray shadow survive.
             if a < 32:
                 out.append(0)
                 continue
-            out.append(max(r, g, b))
+            luminance = 0.2126 * r + 0.7152 * g + 0.0722 * b
+            # Match the game's original intro glyph levels:
+            # background=0, shadow=17 (nibble 1), body=34 (nibble 2).
+            if luminance >= 200:
+                out.append(34)
+            elif luminance >= 32:
+                out.append(17)
+            else:
+                out.append(0)
     return bytes(out)
 
 
@@ -119,7 +126,7 @@ def main() -> int:
         tile_x = (tile_index % columns) * args.tile_width
         tile_y = (tile_index // columns) * args.tile_height
         tile = atlas.crop((tile_x, tile_y, tile_x + args.tile_width, tile_y + args.tile_height))
-        pixels = normalize_rgba_tile_to_grayscale(tile)
+        pixels = normalize_rgba_tile_to_game_font_levels(tile)
 
         pgm_path = output_dir / f"{name}.pgm"
         write_pgm(pgm_path, pixels, args.tile_width, args.tile_height)

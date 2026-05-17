@@ -13,7 +13,8 @@
 - 새 후보 bitmap PNG 에서 **반드시 필요한 것**은 `가..힣` 완성형 `11,172`자 atlas 다.
 - 숫자/영문/기본 기호는 1차 한글화 기준으로 **원본 게임 공통 폰트**를 그대로 재사용한다.
 - 첫 화면 즉시 비교용 startup showcase 세트는 [translation_workset_startup_font_showcase.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_startup_font_showcase.json) 이다.
-- atlas importer 는 현재 PNG 의 `흰 본체 + 회색 그림자` 를 그대로 보존해 `0 / 123 / 255` 단계로 workbench 를 만든다.
+- startup 비교 문구는 현재 원문 의미를 유지한 `대륙력 / 1910년 2월 / 리젠불 마을 / 형 11세 동생 10세` 로 맞춘 상태다.
+- atlas importer 는 PNG 의 밝은 본체와 그림자 역할을 게임 원본 단계인 `0 / 17 / 34` 로 매핑한다.
 
 ## 지금 우선순위
 
@@ -54,6 +55,10 @@ zsh scripts/build_startup_intro_test.sh \
 ```bash
 python3 scripts/build_finalist_startup_tests.py
 ```
+
+위 명령으로 생성된 비교용 GBA 모음:
+
+- [finalists](/Users/user/test/patched_roms/font_compare/finalists)
 
 확장 intro 테스트 ROM:
 

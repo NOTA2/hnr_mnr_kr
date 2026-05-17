@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import json
+import shutil
 import subprocess
 from pathlib import Path
 
@@ -11,10 +12,12 @@ CANDIDATES = REPO_ROOT / "confirmed_data" / "font_assets" / "finalist_font_candi
 SHOWCASE_TRANSLATIONS = (
     REPO_ROOT / "confirmed_data" / "translation_worksets" / "translation_workset_startup_font_showcase.json"
 )
+COLLECTED_OUTPUT_DIR = REPO_ROOT / "patched_roms" / "font_compare" / "finalists"
 
 
 def main() -> int:
     candidates = json.loads(CANDIDATES.read_text(encoding="utf-8"))
+    COLLECTED_OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     built = 0
     skipped = 0
     for candidate in candidates:
@@ -34,6 +37,11 @@ def main() -> int:
             str(SHOWCASE_TRANSLATIONS.relative_to(REPO_ROOT)),
         ]
         subprocess.run(command, cwd=REPO_ROOT, check=True)
+        built_rom = REPO_ROOT / "patched_roms" / "font_compare" / slug / f"hnr_startup_intro_{slug}.gba"
+        collected_rom = COLLECTED_OUTPUT_DIR / built_rom.name
+        if built_rom.exists():
+            shutil.copy2(built_rom, collected_rom)
+            print(f"collected -> {collected_rom}")
         built += 1
     print(f"built={built} skipped={skipped}")
     return 0

@@ -1631,7 +1631,32 @@
   - atlas 기반 build script 의 glyph audit 허용값도 `0,123,255` 로 바꿨다.
   - 이후 후보 `3`개 startup showcase ROM 을 다시 빌드했다.
 - 결과:
-  - 새 workbench glyph 는 실제로 `0 / 123 / 255` 값만 사용했다.
-  - 즉 흰 본체와 회색 그림자가 모두 살아 있는 상태로 ROM 재빌드가 가능해졌다.
+  - raw atlas 픽셀은 실제로 `흰 본체(255) / 회색 그림자(123) / 검정 배경(0)` 구성이었다.
+  - 하지만 이 값을 그대로 fnt 로 넣으면, 이 화면 팔레트에서는 중간 단계가 회색이 아니라 **파란색 계열** 로 매핑되었다.
+- 판정: `부분 실패`
+- 교훈: atlas 의 RGB 값을 그대로 보존하는 것과, 게임이 실제 사용하는 **팔레트 index 단계** 를 맞추는 것은 다르다.
+
+### 실험 90
+
+- 가설: startup intro 화면의 원본 일본어 glyph 는 `0 / 17 / 34` 단계만 쓰므로, atlas 도 "본체/그림자 역할"을 이 단계로 강제 매핑해야 원본과 같은 계열 색으로 나온다.
+- 시도:
+  - 원본 glyph `大 / 陸 / 年 / 月 / 村` 을 직접 덤프해 pixel value 를 확인했다.
+  - 모두 `0 / 17 / 34` 만 쓰는 것을 확인했다.
+  - [import_hangul_syllable_atlas.py](/Users/user/test/scripts/import_hangul_syllable_atlas.py) 를 수정해 source atlas 의 밝은 픽셀은 `34`, 중간 톤 픽셀은 `17`, 배경은 `0` 으로 맵핑하게 바꿨다.
+  - atlas 기반 build script 의 glyph audit 허용값도 다시 `0,17,34` 로 맞췄다.
+- 결과:
+  - 새 workbench glyph 는 실제로 `0 / 17 / 34` 값만 사용했다.
+  - 즉 흰 본체와 그림자 역할이 게임 원본 intro glyph 와 같은 단계로 정렬되었다.
 - 판정: `성공`
-- 교훈: bitmap atlas 를 seed 로 쓸 때는 "비트맵이니 무조건 이진화"가 아니라, **원본 atlas 가 이미 설계한 톤 단계 자체를 보존해야** 의도한 본체/그림자 효과가 유지된다.
+- 교훈: bitmap atlas 의 shadow color 는 그 RGB 자체가 중요한 게 아니라, **게임 내 목표 palette index 단계에 어떤 역할로 맵핑되느냐** 가 더 중요하다.
+
+### 실험 91
+
+- 가설: startup 폰트 비교는 넓은 한글 범위보다 먼저, 원문 의미를 유지한 첫 카드 번역으로 보는 편이 사용자 판단에 더 적합하다.
+- 시도:
+  - [translation_workset_startup_font_showcase.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_startup_font_showcase.json) 을 `대륙력 / 1910년 2월 / 리젠불 마을 / 형 11세 동생 10세` 로 바꿨다.
+  - [build_finalist_startup_tests.py](/Users/user/test/scripts/build_finalist_startup_tests.py) 가 빌드된 `3`개 GBA 를 [finalists](/Users/user/test/patched_roms/font_compare/finalists) 폴더로 한 번 더 모으도록 수정했다.
+- 결과:
+  - 비교 대상은 여전히 후보 `3`개지만, 이제 첫 화면의 내용도 원문 의미와 맞고 결과 GBA 도 한 폴더에서 바로 열 수 있게 되었다.
+- 판정: `성공`
+- 교훈: 폰트 비교 ROM 은 문장 의미까지 크게 바꾸기보다, **원문 의미를 유지한 상태에서 폰트만 비교 가능하게** 만드는 편이 사용자가 판단하기 쉽다.
