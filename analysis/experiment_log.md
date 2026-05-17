@@ -1687,3 +1687,17 @@
   - 실제 ROM raw bytes 도 `EA 40 EA 41 EA 42 05 FF ...` 처럼, 번역문 뒤에 원래 제어코드가 그대로 유지되었다.
 - 판정: `성공`
 - 교훈: 앞으로는 모든 문자열을 똑같이 다루면 안 되고, **고정 길이 슬롯 + 무종단 레코드** 와 **일반 종단 문자열** 을 툴 단계에서 분리해야 같은 문제가 재발하지 않는다.
+
+### 실험 94
+
+- 가설: startup 고정 슬롯 규칙과 공용 text object family 의 `r3` capacity 규칙을 분리해서 구조화하면, 번역팀 지침에 수치를 넣더라도 "확정"과 "코드 기반 잠정값"을 섞지 않을 수 있다.
+- 시도:
+  - `0x014A98` caller 들을 다시 대조해 `0x062182`, `0x065AA4`, `0x06718A` 계열이 모두 `r2=0x88`, `r3=20` 을 쓰는 사실을 재확인했다.
+  - world-map caller `0x06A972` 는 같은 family 이지만 `r3=12` 를 쓴다는 점도 다시 확인했다.
+  - [build_text_box_family_manifest.py](/Users/user/test/scripts/build_text_box_family_manifest.py) 를 추가해 [text_box_family_manifest.json](/Users/user/test/confirmed_data/text_layout/text_box_family_manifest.json) 과 [confirmed_data/text_layout/README.md](/Users/user/test/confirmed_data/text_layout/README.md) 를 생성했다.
+  - 번역팀 공통/번역/검수 MD 와 [active_task.md](/Users/user/test/docs/active_task.md) 에 이 manifest 경로와 규칙 해석을 반영했다.
+- 결과:
+  - startup 첫 카드 `4`줄은 `confirmed fixed_slot` 으로, 공용 text object family 는 `code_derived` 로 분리되었다.
+  - 공용 family 의 현재 strongest code reading 은 `r3=20 -> capacity 30 units -> fullwidth 약 20자 / halfwidth 약 30자`, world-map family 는 `r3=12 -> capacity 18 units -> fullwidth 약 12자 / halfwidth 약 18자` 로 고정되었다.
+- 판정: `성공`
+- 교훈: 번역팀 규칙은 수치를 빨리 넣는 것보다, **확정값 / 코드 기반 잠정값 / 미확정값** 을 분리해 두는 편이 이후 재검증과 자동화에 훨씬 안전하다.

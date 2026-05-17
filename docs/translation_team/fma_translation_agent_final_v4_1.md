@@ -21,6 +21,7 @@
 6. 공통 MD의 용어표, 고정 문구, 금지 번역을 우선한다.
 7. 기존 JSON의 `translation` 값은 기준으로 삼지 않는다. 임시 번역은 무시한다.
 8. 레이아웃/제어문자 규칙은 공통 MD의 `0.5 레이아웃 제약과 제어문자 규칙`을 따른다.
+9. 코드 기반 잠정 박스 규격은 [text_box_family_manifest.json](/Users/user/test/confirmed_data/text_layout/text_box_family_manifest.json) 을 참고하되, 하드 제한처럼 단정하지 않는다.
 
 ---
 

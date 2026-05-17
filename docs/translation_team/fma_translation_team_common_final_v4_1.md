@@ -53,6 +53,26 @@
 - 줄바꿈 정보가 없는 일반 대사는 짧고 명확하게 번역하되, 번역자가 임의로 과도한 줄나눔을 넣지 않는다.
 - 길이 제약이 확정된 workset 은 별도 메모나 필드로 관리하고, 그 규칙이 있으면 그 규칙을 최우선한다.
 
+### 코드 기반으로 강하게 좁혀진 것
+
+아래 값은 **실행 화면 전수 확인까지 끝난 하드 제한**은 아니지만, 현재 코드 분석상 매우 강한 후보다.
+세부 근거는 [text_box_family_manifest.json](/Users/user/test/confirmed_data/text_layout/text_box_family_manifest.json) 을 따른다.
+
+- 공용 text object family 다수 caller (`0x062182`, `0x065AA4`, `0x06718A` 등) 는 모두 `r3=20` 으로 `0x014A98` 를 호출한다.
+- 이 family 는 내부적으로 capacity `30` mixed-width units 로 변환된다.
+- 코드상 현재 가장 강한 해석은:
+  - fullwidth 문자 약 `20`자
+  - halfwidth 문자 약 `30`자
+- 월드맵 지역명 family (`0x06A972`) 는 `r3=12` 를 사용하고, capacity `18` units 로 변환된다.
+- 코드상 현재 가장 강한 해석은:
+  - fullwidth 문자 약 `12`자
+  - halfwidth 문자 약 `18`자
+
+주의:
+
+- 위 수치는 번역 길이 감을 잡는 참고치다.
+- 아직 일반 대사창 전 화면군에서 시각 QA까지 끝난 것은 아니므로, 번역팀은 이 값을 **절대 제한**처럼 단정하지 말고 우선 짧고 명확한 번역을 유지한다.
+
 ---
 
 ## 1. 작품 배경 요약

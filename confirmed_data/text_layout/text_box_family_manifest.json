@@ -1,0 +1,113 @@
+{
+  "version": 1,
+  "last_updated": "2026-05-17",
+  "families": [
+    {
+      "id": "startup_intro_fixed_slots",
+      "status": "confirmed",
+      "kind": "fixed_slot",
+      "description": "시작 화면 첫 카드 4줄. 각 줄은 독립 고정 길이 슬롯이며 뒤 제어코드를 밀면 안 된다.",
+      "rules": {
+        "append_terminator": false,
+        "allow_manual_newline": false,
+        "allow_auto_wrap": false,
+        "pad_behavior": "must stay within slot byte length"
+      },
+      "lines": [
+        {
+          "line_index": 1,
+          "offset": "0x703D70",
+          "byte_length": 6,
+          "append_terminator": false,
+          "source_text": "大陸暦"
+        },
+        {
+          "line_index": 2,
+          "offset": "0x703D7E",
+          "byte_length": 16,
+          "append_terminator": false,
+          "source_text": "１９１０年　２月"
+        },
+        {
+          "line_index": 3,
+          "offset": "0x703D94",
+          "byte_length": 18,
+          "append_terminator": false,
+          "source_text": "　　リゼンブール村"
+        },
+        {
+          "line_index": 4,
+          "offset": "0x703DAC",
+          "byte_length": 22,
+          "append_terminator": false,
+          "source_text": "　兄１１歳　　弟１０歳"
+        }
+      ],
+      "evidence": {
+        "raw_control_bytes_after_lines": [
+          "line1 -> 0x05FF",
+          "line2 -> 0x04FF",
+          "line3 -> 0x04FF",
+          "line4 -> 0x08FF"
+        ]
+      }
+    },
+    {
+      "id": "shared_text_object_r3_20",
+      "status": "code_derived",
+      "kind": "shared_text_object",
+      "description": "일반 UI/대사창 계열로 보이는 공용 text object family. 다수 caller 가 동일한 setup 인자를 쓴다.",
+      "rules": {
+        "setup_r2": 136,
+        "setup_r3": 20,
+        "capacity_units_after_setup": 30,
+        "fullwidth_advance": 24,
+        "halfwidth_advance": 16,
+        "approx_fullwidth_chars_per_line": 20,
+        "approx_halfwidth_chars_per_line": 30
+      },
+      "callers": [
+        "0x062182",
+        "0x062262",
+        "0x062836",
+        "0x0628F4",
+        "0x06295C",
+        "0x062A1A",
+        "0x062A70",
+        "0x065AA4",
+        "0x065B44",
+        "0x065BF2",
+        "0x065C8E",
+        "0x06718A",
+        "0x0671E8"
+      ],
+      "notes": [
+        "0x014A98 is the setup helper and transforms r3 with floor(3 * r3 / 2).",
+        "0x014ED0 increments obj+0x18 by 0x18 for multibyte/fullwidth and 0x10 for single-byte/halfwidth.",
+        "This family is code-derived and still needs gameplay-side visual confirmation before being treated as a hard translation limit."
+      ]
+    },
+    {
+      "id": "world_map_location_r3_12",
+      "status": "code_derived",
+      "kind": "shared_text_object",
+      "description": "월드맵 지역명 표시 family. world-map caller 0x06A972 가 별도 capacity 를 쓴다.",
+      "rules": {
+        "setup_r2": 136,
+        "setup_r3": 12,
+        "capacity_units_after_setup": 18,
+        "fullwidth_advance": 24,
+        "halfwidth_advance": 16,
+        "approx_fullwidth_chars_per_line": 12,
+        "approx_halfwidth_chars_per_line": 18
+      },
+      "callers": [
+        "0x06A972"
+      ],
+      "notes": [
+        "This is currently tied to the world-map location-name path only.",
+        "Like the shared r3=20 family, it is code-derived and should not yet be used as a universal translation limit."
+      ]
+    }
+  ]
+}

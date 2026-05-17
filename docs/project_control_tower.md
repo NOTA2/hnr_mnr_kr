@@ -83,6 +83,8 @@
 - 이미지 추출은 “텍스트 추출 이후만 가능”은 아니다. 현재 판단은 **폰트 결정 + 텍스트 루프 안정화 후**, 번역 진행과 병렬로 image inventory / extraction 을 시작하는 편이 맞다.
 
 - `0x184A0C..0x184AD3` 을 `10 * 0x14` effect/overlay parameter table 후보로 분리했다.
+- startup 첫 카드 `4`줄은 이제 `append_terminator: false` 를 갖는 **confirmed fixed-slot family** 로 고정했고, 같은 사실을 [text_box_family_manifest.json](/Users/user/test/confirmed_data/text_layout/text_box_family_manifest.json) 에 구조화했다.
+- 일반 UI/대사창 계열로 보이는 공용 text object caller 들은 현재 코드상 `r2=0x88`, `r3=20` family 와 world-map `r3=12` family 두 갈래로 크게 묶이며, 번역팀 문서에는 이를 **code-derived reference** 로만 반영했다.
 - `0x03005FF8` 은 world-map 선택/hover location index byte 로 보는 해석이 강해졌다.
 - 확인된 direct writer 는 `0x06A52E` 이며, hit-test loop index `0..9` 를 저장한다.
 - `0x06CEC0` 은 selected index 를 current-location byte `0x03006020` 으로 복사한다.
