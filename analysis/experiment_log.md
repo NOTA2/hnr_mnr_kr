@@ -1800,3 +1800,18 @@
 - 교훈:
   - 화자 추적은 “재추출” 문제가 아니라, **기존 추출본 옆에 붙는 sidecar 메타데이터 설계** 문제로 보는 편이 맞다.
   - 번역팀이 화자 정보를 참고해야 할 때도, 우선은 `dialogue_state_token` 기반 후보 묶음에서 시작하는 게 가장 안전하다.
+
+### 실험 102
+
+- 가설: state token 만 있는 것보다, 연속된 동일 token 묶음인 `state run` 을 만들어 두면 번역팀이 같은 화자 상태 후보군을 훨씬 실용적으로 참조할 수 있다.
+- 시도:
+  - [build_dialogue_state_runs.py](/Users/user/test/scripts/build_dialogue_state_runs.py) 를 추가했다.
+  - `entry8_dialogue_state_index.json` 과 `registry_d_dialogue_state_index.json` 을 입력으로 받아 contiguous `state run` 을 생성하도록 했다.
+  - 산출물은 [entry8_dialogue_state_runs.json](/Users/user/test/confirmed_data/dialogue_metadata/entry8_dialogue_state_runs.json), [registry_d_dialogue_state_runs.json](/Users/user/test/confirmed_data/dialogue_metadata/registry_d_dialogue_state_runs.json) 이다.
+- 결과:
+  - `Registry D` 튜토리얼 초반은 `pre98:3A -> pre98:0B -> pre98:3B -> pre98:3A ...` 식의 짧은 run 교대 패턴이 잡힌다.
+  - `entry8` 도 cluster 내부에서 token 이 연속되는 구간과 state-change 후보 구간이 분리되어, 텍스트만 볼 때보다 번역 문체 일관성을 잡기 쉬워졌다.
+- 판정: `성공`
+- 교훈:
+  - 화자명 확정이 안 돼도, **run 단위 후보군**만 있어도 번역 실무에서 충분히 유용하다.
+  - 앞으로 화자 추적은 `record -> token -> run -> candidate speaker` 순으로 층을 나눠 쌓는 편이 안전하다.

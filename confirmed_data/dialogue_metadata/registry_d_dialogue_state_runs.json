@@ -1,0 +1,4025 @@
+{
+  "source_group": "registry_d_fc_script_texts",
+  "status": "objective_state_runs_only",
+  "note": "Runs group consecutive records by identical dialogue_state_token. They help translation preserve same-turn tone without claiming exact speaker IDs.",
+  "run_count": 207,
+  "runs": [
+    {
+      "dialogue_state_token": "pre98:3A",
+      "records": [
+        {
+          "offset": 8335391,
+          "text": "さぁ相手になってやるぜ！",
+          "dialogue_state_token": "pre98:3A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "さぁ相手になってやるぜ！",
+      "last_text": "さぁ相手になってやるぜ！",
+      "sample_texts": [
+        "さぁ相手になってやるぜ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:0B",
+      "records": [
+        {
+          "offset": 8335433,
+          "text": "兄さん、どうやって戦うの？",
+          "dialogue_state_token": "pre98:0B"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "兄さん、どうやって戦うの？",
+      "last_text": "兄さん、どうやって戦うの？",
+      "sample_texts": [
+        "兄さん、どうやって戦うの？"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3B",
+      "records": [
+        {
+          "offset": 8335477,
+          "text": "錬成であっさり終わらせる！",
+          "dialogue_state_token": "pre98:3B"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "錬成であっさり終わらせる！",
+      "last_text": "錬成であっさり終わらせる！",
+      "sample_texts": [
+        "錬成であっさり終わらせる！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3A",
+      "records": [
+        {
+          "offset": 8335552,
+          "text": "このコマンドで錬成だ！",
+          "dialogue_state_token": "pre98:3A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "このコマンドで錬成だ！",
+      "last_text": "このコマンドで錬成だ！",
+      "sample_texts": [
+        "このコマンドで錬成だ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:0B",
+      "records": [
+        {
+          "offset": 8335592,
+          "text": "素材や技を作るんだね",
+          "dialogue_state_token": "pre98:0B"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "素材や技を作るんだね",
+      "last_text": "素材や技を作るんだね",
+      "sample_texts": [
+        "素材や技を作るんだね"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3B",
+      "records": [
+        {
+          "offset": 8335630,
+          "text": "そう、説明が表示されるから\nムズかしいことじゃないさ\nとりあえず見とけ",
+          "dialogue_state_token": "pre98:3B"
+        },
+        {
+          "offset": 8335818,
+          "text": "これが素材錬成だ",
+          "dialogue_state_token": "pre98:3B"
+        }
+      ],
+      "record_count": 2,
+      "first_text": "そう、説明が表示されるから\nムズかしいことじゃないさ\nとりあえず見とけ",
+      "last_text": "これが素材錬成だ",
+      "sample_texts": [
+        "そう、説明が表示されるから\nムズかしいことじゃないさ\nとりあえず見とけ",
+        "これが素材錬成だ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:0B",
+      "records": [
+        {
+          "offset": 8335852,
+          "text": "これで自分が欲しい素材を\n作っていくんだね？",
+          "dialogue_state_token": "pre98:0B"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "これで自分が欲しい素材を\n作っていくんだね？",
+      "last_text": "これで自分が欲しい素材を\n作っていくんだね？",
+      "sample_texts": [
+        "これで自分が欲しい素材を\n作っていくんだね？"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3B",
+      "records": [
+        {
+          "offset": 8335913,
+          "text": "そういうこと！",
+          "dialogue_state_token": "pre98:3B"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "そういうこと！",
+      "last_text": "そういうこと！",
+      "sample_texts": [
+        "そういうこと！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:0B",
+      "records": [
+        {
+          "offset": 8335945,
+          "text": "じゃあこれでいい素材を\nたくさん作ろうよ、兄さん",
+          "dialogue_state_token": "pre98:0B"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "じゃあこれでいい素材を\nたくさん作ろうよ、兄さん",
+      "last_text": "じゃあこれでいい素材を\nたくさん作ろうよ、兄さん",
+      "sample_texts": [
+        "じゃあこれでいい素材を\nたくさん作ろうよ、兄さん"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3A",
+      "records": [
+        {
+          "offset": 8336010,
+          "text": "でもちゃんとルールを\n守らないとな",
+          "dialogue_state_token": "pre98:3A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "でもちゃんとルールを\n守らないとな",
+      "last_text": "でもちゃんとルールを\n守らないとな",
+      "sample_texts": [
+        "でもちゃんとルールを\n守らないとな"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:0B",
+      "records": [
+        {
+          "offset": 8336061,
+          "text": "ルール？",
+          "dialogue_state_token": "pre98:0B"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "ルール？",
+      "last_text": "ルール？",
+      "sample_texts": [
+        "ルール？"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3A",
+      "records": [
+        {
+          "offset": 8336087,
+          "text": "２つ以上の素材を選んで\n他の素材を錬成するのが基本\n最初に選んだ素材がベースで\n質量と価値を上下させる\n１足す１は２、２足す２は４\n等価値の素材を錬成する",
+          "dialogue_state_token": "pre98:3A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "２つ以上の素材を選んで\n他の素材を錬成するのが基本\n最初に選んだ素材がベースで\n質量と価値を上下させる\n１足す１は２、２足す２は４\n等価値の素材を錬成する",
+      "last_text": "２つ以上の素材を選んで\n他の素材を錬成するのが基本\n最初に選んだ素材がベースで\n質量と価値を上下させる\n１足す１は２、２足す２は４\n等価値の素材を錬成する",
+      "sample_texts": [
+        "２つ以上の素材を選んで\n他の素材を錬成するのが基本\n最初に選んだ素材がベースで\n質量と価値を上下させる\n１足す１は２、２足す２は４\n等価値の素材を錬成する"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:0B",
+      "records": [
+        {
+          "offset": 8336256,
+          "text": "等価交換だね",
+          "dialogue_state_token": "pre98:0B"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "等価交換だね",
+      "last_text": "等価交換だね",
+      "sample_texts": [
+        "等価交換だね"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3A",
+      "records": [
+        {
+          "offset": 8336286,
+          "text": "カードの質量、価値は上限７\nレベルは上限が５\nそれを守らなきゃダメだ",
+          "dialogue_state_token": "pre98:3A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "カードの質量、価値は上限７\nレベルは上限が５\nそれを守らなきゃダメだ",
+      "last_text": "カードの質量、価値は上限７\nレベルは上限が５\nそれを守らなきゃダメだ",
+      "sample_texts": [
+        "カードの質量、価値は上限７\nレベルは上限が５\nそれを守らなきゃダメだ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:0B",
+      "records": [
+        {
+          "offset": 8336371,
+          "text": "なるほど\nそう簡単にいかないね",
+          "dialogue_state_token": "pre98:0B"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "なるほど\nそう簡単にいかないね",
+      "last_text": "なるほど\nそう簡単にいかないね",
+      "sample_texts": [
+        "なるほど\nそう簡単にいかないね"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3B",
+      "records": [
+        {
+          "offset": 8336418,
+          "text": "そのうち慣れるさ\nじゃあついでにもうひとつ\n素材を作る以外にも\n技として使うってのもある\nやり方は素材錬成と同様\n素材か技を選ぶだけ",
+          "dialogue_state_token": "pre98:3B"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "そのうち慣れるさ\nじゃあついでにもうひとつ\n素材を作る以外にも\n技として使うってのもある\nやり方は素材錬成と同様\n素材か技を選ぶだけ",
+      "last_text": "そのうち慣れるさ\nじゃあついでにもうひとつ\n素材を作る以外にも\n技として使うってのもある\nやり方は素材錬成と同様\n素材か技を選ぶだけ",
+      "sample_texts": [
+        "そのうち慣れるさ\nじゃあついでにもうひとつ\n素材を作る以外にも\n技として使うってのもある\nやり方は素材錬成と同様\n素材か技を選ぶだけ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:0C",
+      "records": [
+        {
+          "offset": 8336562,
+          "text": "兄さんの得意なことだね",
+          "dialogue_state_token": "pre98:0C"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "兄さんの得意なことだね",
+      "last_text": "兄さんの得意なことだね",
+      "sample_texts": [
+        "兄さんの得意なことだね"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3A",
+      "records": [
+        {
+          "offset": 8336602,
+          "text": "最初は？？？になってるけど\nどんどん使ってみればいい",
+          "dialogue_state_token": "pre98:3A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "最初は？？？になってるけど\nどんどん使ってみればいい",
+      "last_text": "最初は？？？になってるけど\nどんどん使ってみればいい",
+      "sample_texts": [
+        "最初は？？？になってるけど\nどんどん使ってみればいい"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3C",
+      "records": [
+        {
+          "offset": 8336668,
+          "text": "よっしゃ\n派手に決めてみるぜ！",
+          "dialogue_state_token": "pre98:3C"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "よっしゃ\n派手に決めてみるぜ！",
+      "last_text": "よっしゃ\n派手に決めてみるぜ！",
+      "sample_texts": [
+        "よっしゃ\n派手に決めてみるぜ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:0B",
+      "records": [
+        {
+          "offset": 8336871,
+          "text": "兄さん\n質問！",
+          "dialogue_state_token": "pre98:0B"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "兄さん\n質問！",
+      "last_text": "兄さん\n質問！",
+      "sample_texts": [
+        "兄さん\n質問！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3A",
+      "records": [
+        {
+          "offset": 8336902,
+          "text": "なんだ、アル？",
+          "dialogue_state_token": "pre98:3A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "なんだ、アル？",
+      "last_text": "なんだ、アル？",
+      "sample_texts": [
+        "なんだ、アル？"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:0B",
+      "records": [
+        {
+          "offset": 8336933,
+          "text": "紫の素材なんだけど…\nボク見た事ないよ？",
+          "dialogue_state_token": "pre98:0B"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "紫の素材なんだけど…\nボク見た事ないよ？",
+      "last_text": "紫の素材なんだけど…\nボク見た事ないよ？",
+      "sample_texts": [
+        "紫の素材なんだけど…\nボク見た事ないよ？"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3A",
+      "records": [
+        {
+          "offset": 8337006,
+          "text": "この素材を錬成に使うと\n質量や価値がマイナスされる\nそれ以外は謎に包まれてる\nベースになるカードを選び\n次に、この素材を選ぶと\nベース素材の質量や価値から\n数値がマイナスされる",
+          "dialogue_state_token": "pre98:3A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "この素材を錬成に使うと\n質量や価値がマイナスされる\nそれ以外は謎に包まれてる\nベースになるカードを選び\n次に、この素材を選ぶと\nベース素材の質量や価値から\n数値がマイナスされる",
+      "last_text": "この素材を錬成に使うと\n質量や価値がマイナスされる\nそれ以外は謎に包まれてる\nベースになるカードを選び\n次に、この素材を選ぶと\nベース素材の質量や価値から\n数値がマイナスされる",
+      "sample_texts": [
+        "この素材を錬成に使うと\n質量や価値がマイナスされる\nそれ以外は謎に包まれてる\nベースになるカードを選び\n次に、この素材を選ぶと\nベース素材の質量や価値から\n数値がマイナスされる"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:0B",
+      "records": [
+        {
+          "offset": 8337198,
+          "text": "なんか怖いね…",
+          "dialogue_state_token": "pre98:0B"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "なんか怖いね…",
+      "last_text": "なんか怖いね…",
+      "sample_texts": [
+        "なんか怖いね…"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3A",
+      "records": [
+        {
+          "offset": 8337230,
+          "text": "ま、モノは使いようだ\nこいつを使えば\n素材錬成の幅が広がるしな\n注意するのは、これを使って\n数値をマイナスするとき\n質量や価値が０になる錬成は\nできないってことだな",
+          "dialogue_state_token": "pre98:3A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "ま、モノは使いようだ\nこいつを使えば\n素材錬成の幅が広がるしな\n注意するのは、これを使って\n数値をマイナスするとき\n質量や価値が０になる錬成は\nできないってことだな",
+      "last_text": "ま、モノは使いようだ\nこいつを使えば\n素材錬成の幅が広がるしな\n注意するのは、これを使って\n数値をマイナスするとき\n質量や価値が０になる錬成は\nできないってことだな",
+      "sample_texts": [
+        "ま、モノは使いようだ\nこいつを使えば\n素材錬成の幅が広がるしな\n注意するのは、これを使って\n数値をマイナスするとき\n質量や価値が０になる錬成は\nできないってことだな"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3B",
+      "records": [
+        {
+          "offset": 8337409,
+          "text": "ちなみに、言い忘れてたけど\n一度でも使った技は\n手帳に記入するから\nチェックしたいときは\n手帳を開いてみるといい",
+          "dialogue_state_token": "pre98:3B"
+        },
+        {
+          "offset": 8337619,
+          "text": "さっさとケリつけちゃおうぜ",
+          "dialogue_state_token": "pre98:3B"
+        }
+      ],
+      "record_count": 2,
+      "first_text": "ちなみに、言い忘れてたけど\n一度でも使った技は\n手帳に記入するから\nチェックしたいときは\n手帳を開いてみるといい",
+      "last_text": "さっさとケリつけちゃおうぜ",
+      "sample_texts": [
+        "ちなみに、言い忘れてたけど\n一度でも使った技は\n手帳に記入するから\nチェックしたいときは\n手帳を開いてみるといい",
+        "さっさとケリつけちゃおうぜ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:11",
+      "records": [
+        {
+          "offset": 8337663,
+          "text": "うん、そうだね兄さん",
+          "dialogue_state_token": "pre98:11"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "うん、そうだね兄さん",
+      "last_text": "うん、そうだね兄さん",
+      "sample_texts": [
+        "うん、そうだね兄さん"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3A",
+      "records": [
+        {
+          "offset": 8337786,
+          "text": "コニィはあまりムチャするなよ",
+          "dialogue_state_token": "pre98:3A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "コニィはあまりムチャするなよ",
+      "last_text": "コニィはあまりムチャするなよ",
+      "sample_texts": [
+        "コニィはあまりムチャするなよ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:31",
+      "records": [
+        {
+          "offset": 8337832,
+          "text": "心配してくれて、ありがとう",
+          "dialogue_state_token": "pre98:31"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "心配してくれて、ありがとう",
+      "last_text": "心配してくれて、ありがとう",
+      "sample_texts": [
+        "心配してくれて、ありがとう"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:33",
+      "records": [
+        {
+          "offset": 8337871,
+          "text": "でも、ケガをしたら\n私が治してあげますから",
+          "dialogue_state_token": "pre98:33"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "でも、ケガをしたら\n私が治してあげますから",
+      "last_text": "でも、ケガをしたら\n私が治してあげますから",
+      "sample_texts": [
+        "でも、ケガをしたら\n私が治してあげますから"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3C",
+      "records": [
+        {
+          "offset": 8338014,
+          "text": "ったく、なんだって\n街にキメラがいるんだよッ",
+          "dialogue_state_token": "pre98:3C"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "ったく、なんだって\n街にキメラがいるんだよッ",
+      "last_text": "ったく、なんだって\n街にキメラがいるんだよッ",
+      "sample_texts": [
+        "ったく、なんだって\n街にキメラがいるんだよッ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3A",
+      "records": [
+        {
+          "offset": 8338158,
+          "text": "こんなとこにいやがったのか",
+          "dialogue_state_token": "pre98:3A"
+        },
+        {
+          "offset": 8338282,
+          "text": "またかよ！",
+          "dialogue_state_token": "pre98:3A"
+        },
+        {
+          "offset": 8338387,
+          "text": "いいかげんウンザリだぜ",
+          "dialogue_state_token": "pre98:3A"
+        }
+      ],
+      "record_count": 3,
+      "first_text": "こんなとこにいやがったのか",
+      "last_text": "いいかげんウンザリだぜ",
+      "sample_texts": [
+        "こんなとこにいやがったのか",
+        "またかよ！",
+        "いいかげんウンザリだぜ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:07",
+      "records": [
+        {
+          "offset": 8338525,
+          "text": "こいつで最後か！\n気合入れて\nとっとと片付けるッ",
+          "dialogue_state_token": "pre98:07"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "こいつで最後か！\n気合入れて\nとっとと片付けるッ",
+      "last_text": "こいつで最後か！\n気合入れて\nとっとと片付けるッ",
+      "sample_texts": [
+        "こいつで最後か！\n気合入れて\nとっとと片付けるッ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:33",
+      "records": [
+        {
+          "offset": 8338740,
+          "text": "よろしくお願いします",
+          "dialogue_state_token": "pre98:33"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "よろしくお願いします",
+      "last_text": "よろしくお願いします",
+      "sample_texts": [
+        "よろしくお願いします"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:25",
+      "records": [
+        {
+          "offset": 8338793,
+          "text": "全力で向かってきなさい",
+          "dialogue_state_token": "pre98:25"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "全力で向かってきなさい",
+      "last_text": "全力で向かってきなさい",
+      "sample_texts": [
+        "全力で向かってきなさい"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:07",
+      "records": [
+        {
+          "offset": 8339353,
+          "text": "コニィ、今度はオレたちもいる\n絶対に勝てる！",
+          "dialogue_state_token": "pre98:07"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "コニィ、今度はオレたちもいる\n絶対に勝てる！",
+      "last_text": "コニィ、今度はオレたちもいる\n絶対に勝てる！",
+      "sample_texts": [
+        "コニィ、今度はオレたちもいる\n絶対に勝てる！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:25",
+      "records": [
+        {
+          "offset": 8339451,
+          "text": "実戦経験者を\nあなどってもらっては困るな",
+          "dialogue_state_token": "pre98:25"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "実戦経験者を\nあなどってもらっては困るな",
+      "last_text": "実戦経験者を\nあなどってもらっては困るな",
+      "sample_texts": [
+        "実戦経験者を\nあなどってもらっては困るな"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:02",
+      "records": [
+        {
+          "offset": 8339605,
+          "text": "それじゃ\nちゃちゃっと片付けますか",
+          "dialogue_state_token": "pre98:02"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "それじゃ\nちゃちゃっと片付けますか",
+      "last_text": "それじゃ\nちゃちゃっと片付けますか",
+      "sample_texts": [
+        "それじゃ\nちゃちゃっと片付けますか"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:6A",
+      "records": [
+        {
+          "offset": 8339666,
+          "text": "なんだと\n小僧ごときがぁぁぁッ\n調子に乗るなよッ！",
+          "dialogue_state_token": "pre98:6A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "なんだと\n小僧ごときがぁぁぁッ\n調子に乗るなよッ！",
+      "last_text": "なんだと\n小僧ごときがぁぁぁッ\n調子に乗るなよッ！",
+      "sample_texts": [
+        "なんだと\n小僧ごときがぁぁぁッ\n調子に乗るなよッ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3C",
+      "records": [
+        {
+          "offset": 8339818,
+          "text": "いいかげん最後にしようぜ",
+          "dialogue_state_token": "pre98:3C"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "いいかげん最後にしようぜ",
+      "last_text": "いいかげん最後にしようぜ",
+      "sample_texts": [
+        "いいかげん最後にしようぜ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:13",
+      "records": [
+        {
+          "offset": 8339942,
+          "text": "私が負けたら\n協力してやろう",
+          "dialogue_state_token": "pre98:13"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "私が負けたら\n協力してやろう",
+      "last_text": "私が負けたら\n協力してやろう",
+      "sample_texts": [
+        "私が負けたら\n協力してやろう"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3C",
+      "records": [
+        {
+          "offset": 8339990,
+          "text": "その言葉\n忘れないで下さいよ",
+          "dialogue_state_token": "pre98:3C"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "その言葉\n忘れないで下さいよ",
+      "last_text": "その言葉\n忘れないで下さいよ",
+      "sample_texts": [
+        "その言葉\n忘れないで下さいよ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:36",
+      "records": [
+        {
+          "offset": 8340042,
+          "text": "えっ？\nどこから火がついたの？",
+          "dialogue_state_token": "pre98:36"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "えっ？\nどこから火がついたの？",
+      "last_text": "えっ？\nどこから火がついたの？",
+      "sample_texts": [
+        "えっ？\nどこから火がついたの？"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3A",
+      "records": [
+        {
+          "offset": 8340092,
+          "text": "アレは大佐が錬成してるんだよ",
+          "dialogue_state_token": "pre98:3A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "アレは大佐が錬成してるんだよ",
+      "last_text": "アレは大佐が錬成してるんだよ",
+      "sample_texts": [
+        "アレは大佐が錬成してるんだよ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:13",
+      "records": [
+        {
+          "offset": 8340215,
+          "text": "私が負けたら\n協力してやろう",
+          "dialogue_state_token": "pre98:13"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "私が負けたら\n協力してやろう",
+      "last_text": "私が負けたら\n協力してやろう",
+      "sample_texts": [
+        "私が負けたら\n協力してやろう"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3C",
+      "records": [
+        {
+          "offset": 8340263,
+          "text": "その言葉\n忘れないで下さいよ",
+          "dialogue_state_token": "pre98:3C"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "その言葉\n忘れないで下さいよ",
+      "last_text": "その言葉\n忘れないで下さいよ",
+      "sample_texts": [
+        "その言葉\n忘れないで下さいよ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:36",
+      "records": [
+        {
+          "offset": 8340391,
+          "text": "えっ？\nどこから火がついたの？",
+          "dialogue_state_token": "pre98:36"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "えっ？\nどこから火がついたの？",
+      "last_text": "えっ？\nどこから火がついたの？",
+      "sample_texts": [
+        "えっ？\nどこから火がついたの？"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3A",
+      "records": [
+        {
+          "offset": 8340441,
+          "text": "アレは大佐が錬成してるんだよ",
+          "dialogue_state_token": "pre98:3A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "アレは大佐が錬成してるんだよ",
+      "last_text": "アレは大佐が錬成してるんだよ",
+      "sample_texts": [
+        "アレは大佐が錬成してるんだよ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:26",
+      "records": [
+        {
+          "offset": 8340600,
+          "text": "マジでこのオレ様と\nやるってのか？",
+          "dialogue_state_token": "pre98:26"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "マジでこのオレ様と\nやるってのか？",
+      "last_text": "マジでこのオレ様と\nやるってのか？",
+      "sample_texts": [
+        "マジでこのオレ様と\nやるってのか？"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:07",
+      "records": [
+        {
+          "offset": 8340664,
+          "text": "ああ、力ずくで\n仲間にしてやる",
+          "dialogue_state_token": "pre98:07"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "ああ、力ずくで\n仲間にしてやる",
+      "last_text": "ああ、力ずくで\n仲間にしてやる",
+      "sample_texts": [
+        "ああ、力ずくで\n仲間にしてやる"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:2C",
+      "records": [
+        {
+          "offset": 8340817,
+          "text": "けっ、キメラにも親玉が\nいるとは笑わせるぜ\n覚悟しやがれ！",
+          "dialogue_state_token": "pre98:2C"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "けっ、キメラにも親玉が\nいるとは笑わせるぜ\n覚悟しやがれ！",
+      "last_text": "けっ、キメラにも親玉が\nいるとは笑わせるぜ\n覚悟しやがれ！",
+      "sample_texts": [
+        "けっ、キメラにも親玉が\nいるとは笑わせるぜ\n覚悟しやがれ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:12",
+      "records": [
+        {
+          "offset": 8340979,
+          "text": "逃がすなよ、鋼の",
+          "dialogue_state_token": "pre98:12"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "逃がすなよ、鋼の",
+      "last_text": "逃がすなよ、鋼の",
+      "sample_texts": [
+        "逃がすなよ、鋼の"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3C",
+      "records": [
+        {
+          "offset": 8341016,
+          "text": "わかってるって",
+          "dialogue_state_token": "pre98:3C"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "わかってるって",
+      "last_text": "わかってるって",
+      "sample_texts": [
+        "わかってるって"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:03",
+      "records": [
+        {
+          "offset": 8341158,
+          "text": "オレたちのニセモノは\nちゃんとオレたちで倒すぜ！",
+          "dialogue_state_token": "pre98:03"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "オレたちのニセモノは\nちゃんとオレたちで倒すぜ！",
+      "last_text": "オレたちのニセモノは\nちゃんとオレたちで倒すぜ！",
+      "sample_texts": [
+        "オレたちのニセモノは\nちゃんとオレたちで倒すぜ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:0F",
+      "records": [
+        {
+          "offset": 8341233,
+          "text": "そうだね、兄さん",
+          "dialogue_state_token": "pre98:0F"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "そうだね、兄さん",
+      "last_text": "そうだね、兄さん",
+      "sample_texts": [
+        "そうだね、兄さん"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:68",
+      "records": [
+        {
+          "offset": 8341267,
+          "text": "ニセモノめ！\n覚悟してください！",
+          "dialogue_state_token": "pre98:68"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "ニセモノめ！\n覚悟してください！",
+      "last_text": "ニセモノめ！\n覚悟してください！",
+      "sample_texts": [
+        "ニセモノめ！\n覚悟してください！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3C",
+      "records": [
+        {
+          "offset": 8341326,
+          "text": "ニセモノにニセモノって\n言われたかねぇぞ\n本物の力を見せてやる！",
+          "dialogue_state_token": "pre98:3C"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "ニセモノにニセモノって\n言われたかねぇぞ\n本物の力を見せてやる！",
+      "last_text": "ニセモノにニセモノって\n言われたかねぇぞ\n本物の力を見せてやる！",
+      "sample_texts": [
+        "ニセモノにニセモノって\n言われたかねぇぞ\n本物の力を見せてやる！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:15",
+      "records": [
+        {
+          "offset": 8341410,
+          "text": "心おきなく攻撃させてもらおう",
+          "dialogue_state_token": "pre98:15"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "心おきなく攻撃させてもらおう",
+      "last_text": "心おきなく攻撃させてもらおう",
+      "sample_texts": [
+        "心おきなく攻撃させてもらおう"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:39",
+      "records": [
+        {
+          "offset": 8341456,
+          "text": "なんだか戦いにくいわ",
+          "dialogue_state_token": "pre98:39"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "なんだか戦いにくいわ",
+      "last_text": "なんだか戦いにくいわ",
+      "sample_texts": [
+        "なんだか戦いにくいわ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:57",
+      "records": [
+        {
+          "offset": 8341578,
+          "text": "ヨロイ君に攻撃するのは\nやだなぁ。でも、やるぞぉ！",
+          "dialogue_state_token": "pre98:57"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "ヨロイ君に攻撃するのは\nやだなぁ。でも、やるぞぉ！",
+      "last_text": "ヨロイ君に攻撃するのは\nやだなぁ。でも、やるぞぉ！",
+      "sample_texts": [
+        "ヨロイ君に攻撃するのは\nやだなぁ。でも、やるぞぉ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:25",
+      "records": [
+        {
+          "offset": 8341645,
+          "text": "少女に攻撃するのは\n気がひけますな",
+          "dialogue_state_token": "pre98:25"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "少女に攻撃するのは\n気がひけますな",
+      "last_text": "少女に攻撃するのは\n気がひけますな",
+      "sample_texts": [
+        "少女に攻撃するのは\n気がひけますな"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:2F",
+      "records": [
+        {
+          "offset": 8341699,
+          "text": "いい歳して、いつまでも\n人形遊びしてんじゃねえよ",
+          "dialogue_state_token": "pre98:2F"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "いい歳して、いつまでも\n人形遊びしてんじゃねえよ",
+      "last_text": "いい歳して、いつまでも\n人形遊びしてんじゃねえよ",
+      "sample_texts": [
+        "いい歳して、いつまでも\n人形遊びしてんじゃねえよ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:01",
+      "records": [
+        {
+          "offset": 8341775,
+          "text": "おまえごときに時間を\nかけてるわけには\nいかないんだよ",
+          "dialogue_state_token": "pre98:01"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "おまえごときに時間を\nかけてるわけには\nいかないんだよ",
+      "last_text": "おまえごときに時間を\nかけてるわけには\nいかないんだよ",
+      "sample_texts": [
+        "おまえごときに時間を\nかけてるわけには\nいかないんだよ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:05",
+      "records": [
+        {
+          "offset": 8341847,
+          "text": "キメラばっかで\nあきたぜ",
+          "dialogue_state_token": "pre98:05"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "キメラばっかで\nあきたぜ",
+      "last_text": "キメラばっかで\nあきたぜ",
+      "sample_texts": [
+        "キメラばっかで\nあきたぜ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3C",
+      "records": [
+        {
+          "offset": 8341970,
+          "text": "おまえごときに時間を\nかけてるわけには\nいかないんだよ！",
+          "dialogue_state_token": "pre98:3C"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "おまえごときに時間を\nかけてるわけには\nいかないんだよ！",
+      "last_text": "おまえごときに時間を\nかけてるわけには\nいかないんだよ！",
+      "sample_texts": [
+        "おまえごときに時間を\nかけてるわけには\nいかないんだよ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:2F",
+      "records": [
+        {
+          "offset": 8342043,
+          "text": "キメラばっかで\nあきたぜ！",
+          "dialogue_state_token": "pre98:2F"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "キメラばっかで\nあきたぜ！",
+      "last_text": "キメラばっかで\nあきたぜ！",
+      "sample_texts": [
+        "キメラばっかで\nあきたぜ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:01",
+      "records": [
+        {
+          "offset": 8342099,
+          "text": "国家錬金術師、\nそして我が使命を邪魔する者！\nこの場の全員、滅ぼす！",
+          "dialogue_state_token": "pre98:01"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "国家錬金術師、\nそして我が使命を邪魔する者！\nこの場の全員、滅ぼす！",
+      "last_text": "国家錬金術師、\nそして我が使命を邪魔する者！\nこの場の全員、滅ぼす！",
+      "sample_texts": [
+        "国家錬金術師、\nそして我が使命を邪魔する者！\nこの場の全員、滅ぼす！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:05",
+      "records": [
+        {
+          "offset": 8342185,
+          "text": "滅ぼすといわれて、\nハイそうですか\nなんてものわかり良くなくてね",
+          "dialogue_state_token": "pre98:05"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "滅ぼすといわれて、\nハイそうですか\nなんてものわかり良くなくてね",
+      "last_text": "滅ぼすといわれて、\nハイそうですか\nなんてものわかり良くなくてね",
+      "sample_texts": [
+        "滅ぼすといわれて、\nハイそうですか\nなんてものわかり良くなくてね"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:01",
+      "records": [
+        {
+          "offset": 8342267,
+          "text": "おとなしく裁きを受けよ！",
+          "dialogue_state_token": "pre98:01"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "おとなしく裁きを受けよ！",
+      "last_text": "おとなしく裁きを受けよ！",
+      "sample_texts": [
+        "おとなしく裁きを受けよ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:25",
+      "records": [
+        {
+          "offset": 8342505,
+          "text": "むう、やりおるわい！",
+          "dialogue_state_token": "pre98:25"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "むう、やりおるわい！",
+      "last_text": "むう、やりおるわい！",
+      "sample_texts": [
+        "むう、やりおるわい！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:53",
+      "records": [
+        {
+          "offset": 8342543,
+          "text": "オッサンこそやるじゃねーか！",
+          "dialogue_state_token": "pre98:53"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "オッサンこそやるじゃねーか！",
+      "last_text": "オッサンこそやるじゃねーか！",
+      "sample_texts": [
+        "オッサンこそやるじゃねーか！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:16",
+      "records": [
+        {
+          "offset": 8342596,
+          "text": "あのな…いつまで\n筋肉勝負やってる？\n決着をつけるぞ",
+          "dialogue_state_token": "pre98:16"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "あのな…いつまで\n筋肉勝負やってる？\n決着をつけるぞ",
+      "last_text": "あのな…いつまで\n筋肉勝負やってる？\n決着をつけるぞ",
+      "sample_texts": [
+        "あのな…いつまで\n筋肉勝負やってる？\n決着をつけるぞ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:59",
+      "records": [
+        {
+          "offset": 8342750,
+          "text": "お兄ちゃんの\nジャマをするヤツは\n許さないからねっ！",
+          "dialogue_state_token": "pre98:59"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "お兄ちゃんの\nジャマをするヤツは\n許さないからねっ！",
+      "last_text": "お兄ちゃんの\nジャマをするヤツは\n許さないからねっ！",
+      "sample_texts": [
+        "お兄ちゃんの\nジャマをするヤツは\n許さないからねっ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:4A",
+      "records": [
+        {
+          "offset": 8342822,
+          "text": "軍の狗どもが…\n私にかなうとでも\n思っているのか？",
+          "dialogue_state_token": "pre98:4A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "軍の狗どもが…\n私にかなうとでも\n思っているのか？",
+      "last_text": "軍の狗どもが…\n私にかなうとでも\n思っているのか？",
+      "sample_texts": [
+        "軍の狗どもが…\n私にかなうとでも\n思っているのか？"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3C",
+      "records": [
+        {
+          "offset": 8342892,
+          "text": "やってみなくちゃ\nわかんねーだろうが！",
+          "dialogue_state_token": "pre98:3C"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "やってみなくちゃ\nわかんねーだろうが！",
+      "last_text": "やってみなくちゃ\nわかんねーだろうが！",
+      "sample_texts": [
+        "やってみなくちゃ\nわかんねーだろうが！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:4A",
+      "records": [
+        {
+          "offset": 8342971,
+          "text": "では、ほんの少しだけ\n私の力をみせてやろう…",
+          "dialogue_state_token": "pre98:4A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "では、ほんの少しだけ\n私の力をみせてやろう…",
+      "last_text": "では、ほんの少しだけ\n私の力をみせてやろう…",
+      "sample_texts": [
+        "では、ほんの少しだけ\n私の力をみせてやろう…"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3C",
+      "records": [
+        {
+          "offset": 8343107,
+          "text": "なんだっ！？",
+          "dialogue_state_token": "pre98:3C"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "なんだっ！？",
+      "last_text": "なんだっ！？",
+      "sample_texts": [
+        "なんだっ！？"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:4A",
+      "records": [
+        {
+          "offset": 8343343,
+          "text": "さらばだ、軍の狗ども",
+          "dialogue_state_token": "pre98:4A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "さらばだ、軍の狗ども",
+      "last_text": "さらばだ、軍の狗ども",
+      "sample_texts": [
+        "さらばだ、軍の狗ども"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:58",
+      "records": [
+        {
+          "offset": 8343379,
+          "text": "じゃあねー",
+          "dialogue_state_token": "pre98:58"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "じゃあねー",
+      "last_text": "じゃあねー",
+      "sample_texts": [
+        "じゃあねー"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:28",
+      "records": [
+        {
+          "offset": 8343498,
+          "text": "ちったぁ活躍しておかねえとな\nムショから出てきた意味がねぇ",
+          "dialogue_state_token": "pre98:28"
+        },
+        {
+          "offset": 8343680,
+          "text": "よほどオレ様に\n斬られたいらしいな！",
+          "dialogue_state_token": "pre98:28"
+        }
+      ],
+      "record_count": 2,
+      "first_text": "ちったぁ活躍しておかねえとな\nムショから出てきた意味がねぇ",
+      "last_text": "よほどオレ様に\n斬られたいらしいな！",
+      "sample_texts": [
+        "ちったぁ活躍しておかねえとな\nムショから出てきた意味がねぇ",
+        "よほどオレ様に\n斬られたいらしいな！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3B",
+      "records": [
+        {
+          "offset": 8343746,
+          "text": "まったく…なに一人で\n張り切ってんだよ",
+          "dialogue_state_token": "pre98:3B"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "まったく…なに一人で\n張り切ってんだよ",
+      "last_text": "まったく…なに一人で\n張り切ってんだよ",
+      "sample_texts": [
+        "まったく…なに一人で\n張り切ってんだよ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:58",
+      "records": [
+        {
+          "offset": 8343883,
+          "text": "じゃ、ランディくん\nガンバってねーん",
+          "dialogue_state_token": "pre98:58"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "じゃ、ランディくん\nガンバってねーん",
+      "last_text": "じゃ、ランディくん\nガンバってねーん",
+      "sample_texts": [
+        "じゃ、ランディくん\nガンバってねーん"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:56",
+      "records": [
+        {
+          "offset": 8343934,
+          "text": "なんだー！？\nケイトもマジメに戦えよっ！",
+          "dialogue_state_token": "pre98:56"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "なんだー！？\nケイトもマジメに戦えよっ！",
+      "last_text": "なんだー！？\nケイトもマジメに戦えよっ！",
+      "sample_texts": [
+        "なんだー！？\nケイトもマジメに戦えよっ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:57",
+      "records": [
+        {
+          "offset": 8343989,
+          "text": "だって、あたし、\nお守り役なんだけどぉ？\nじゃ、ちょっとだけだよ",
+          "dialogue_state_token": "pre98:57"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "だって、あたし、\nお守り役なんだけどぉ？\nじゃ、ちょっとだけだよ",
+      "last_text": "だって、あたし、\nお守り役なんだけどぉ？\nじゃ、ちょっとだけだよ",
+      "sample_texts": [
+        "だって、あたし、\nお守り役なんだけどぉ？\nじゃ、ちょっとだけだよ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:7A",
+      "records": [
+        {
+          "offset": 8344172,
+          "text": "国家錬金術師、\nそして我が使命を邪魔する者！\nこの場の全員、滅ぼす！！",
+          "dialogue_state_token": "pre98:7A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "国家錬金術師、\nそして我が使命を邪魔する者！\nこの場の全員、滅ぼす！！",
+      "last_text": "国家錬金術師、\nそして我が使命を邪魔する者！\nこの場の全員、滅ぼす！！",
+      "sample_texts": [
+        "国家錬金術師、\nそして我が使命を邪魔する者！\nこの場の全員、滅ぼす！！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3C",
+      "records": [
+        {
+          "offset": 8344259,
+          "text": "滅ぼすといわれて了解するほど\nものわかりが良くなくてね",
+          "dialogue_state_token": "pre98:3C"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "滅ぼすといわれて了解するほど\nものわかりが良くなくてね",
+      "last_text": "滅ぼすといわれて了解するほど\nものわかりが良くなくてね",
+      "sample_texts": [
+        "滅ぼすといわれて了解するほど\nものわかりが良くなくてね"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:7B",
+      "records": [
+        {
+          "offset": 8344330,
+          "text": "おとなしく裁きを受けよ！",
+          "dialogue_state_token": "pre98:7B"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "おとなしく裁きを受けよ！",
+      "last_text": "おとなしく裁きを受けよ！",
+      "sample_texts": [
+        "おとなしく裁きを受けよ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:02",
+      "records": [
+        {
+          "offset": 8344481,
+          "text": "しょうがない。\n相手してやるぜ！",
+          "dialogue_state_token": "pre98:02"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "しょうがない。\n相手してやるぜ！",
+      "last_text": "しょうがない。\n相手してやるぜ！",
+      "sample_texts": [
+        "しょうがない。\n相手してやるぜ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:56",
+      "records": [
+        {
+          "offset": 8344640,
+          "text": "鋼の錬金術師！\nここでぶっ潰してやるぜ！",
+          "dialogue_state_token": "pre98:56"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "鋼の錬金術師！\nここでぶっ潰してやるぜ！",
+      "last_text": "鋼の錬金術師！\nここでぶっ潰してやるぜ！",
+      "sample_texts": [
+        "鋼の錬金術師！\nここでぶっ潰してやるぜ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:13",
+      "records": [
+        {
+          "offset": 8344697,
+          "text": "鋼の、大変だな\n潰されたら、\nますます身長が縮むぞ",
+          "dialogue_state_token": "pre98:13"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "鋼の、大変だな\n潰されたら、\nますます身長が縮むぞ",
+      "last_text": "鋼の、大変だな\n潰されたら、\nますます身長が縮むぞ",
+      "sample_texts": [
+        "鋼の、大変だな\n潰されたら、\nますます身長が縮むぞ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3C",
+      "records": [
+        {
+          "offset": 8344767,
+          "text": "余計なお世話だっ！",
+          "dialogue_state_token": "pre98:3C"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "余計なお世話だっ！",
+      "last_text": "余計なお世話だっ！",
+      "sample_texts": [
+        "余計なお世話だっ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:2F",
+      "records": [
+        {
+          "offset": 8344806,
+          "text": "とほほ…\nなんでオレ様まで…",
+          "dialogue_state_token": "pre98:2F"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "とほほ…\nなんでオレ様まで…",
+      "last_text": "とほほ…\nなんでオレ様まで…",
+      "sample_texts": [
+        "とほほ…\nなんでオレ様まで…"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:04",
+      "records": [
+        {
+          "offset": 8344964,
+          "text": "今度こそ、\n完全にぶっ飛ばしてやるっ！",
+          "dialogue_state_token": "pre98:04"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "今度こそ、\n完全にぶっ飛ばしてやるっ！",
+      "last_text": "今度こそ、\n完全にぶっ飛ばしてやるっ！",
+      "sample_texts": [
+        "今度こそ、\n完全にぶっ飛ばしてやるっ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:58",
+      "records": [
+        {
+          "offset": 8345022,
+          "text": "身長だけかと思えば\n人間の器もちっちゃーい",
+          "dialogue_state_token": "pre98:58"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "身長だけかと思えば\n人間の器もちっちゃーい",
+      "last_text": "身長だけかと思えば\n人間の器もちっちゃーい",
+      "sample_texts": [
+        "身長だけかと思えば\n人間の器もちっちゃーい"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:03",
+      "records": [
+        {
+          "offset": 8345084,
+          "text": "…ぜったい、潰すっ！",
+          "dialogue_state_token": "pre98:03"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "…ぜったい、潰すっ！",
+      "last_text": "…ぜったい、潰すっ！",
+      "sample_texts": [
+        "…ぜったい、潰すっ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3A",
+      "records": [
+        {
+          "offset": 8345232,
+          "text": "さて、あんなバケモノ、\nどうやって倒すよ、大佐",
+          "dialogue_state_token": "pre98:3A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "さて、あんなバケモノ、\nどうやって倒すよ、大佐",
+      "last_text": "さて、あんなバケモノ、\nどうやって倒すよ、大佐",
+      "sample_texts": [
+        "さて、あんなバケモノ、\nどうやって倒すよ、大佐"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:15",
+      "records": [
+        {
+          "offset": 8345295,
+          "text": "面倒なことになると、\nこっちに任せるんだな",
+          "dialogue_state_token": "pre98:15"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "面倒なことになると、\nこっちに任せるんだな",
+      "last_text": "面倒なことになると、\nこっちに任せるんだな",
+      "sample_texts": [
+        "面倒なことになると、\nこっちに任せるんだな"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3A",
+      "records": [
+        {
+          "offset": 8345354,
+          "text": "それが大佐の仕事だろ？",
+          "dialogue_state_token": "pre98:3A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "それが大佐の仕事だろ？",
+      "last_text": "それが大佐の仕事だろ？",
+      "sample_texts": [
+        "それが大佐の仕事だろ？"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:29",
+      "records": [
+        {
+          "offset": 8345394,
+          "text": "エド、マスタング…\nここはオレ様に任せてくれ",
+          "dialogue_state_token": "pre98:29"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "エド、マスタング…\nここはオレ様に任せてくれ",
+      "last_text": "エド、マスタング…\nここはオレ様に任せてくれ",
+      "sample_texts": [
+        "エド、マスタング…\nここはオレ様に任せてくれ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3A",
+      "records": [
+        {
+          "offset": 8345455,
+          "text": "何か策があるってことか？",
+          "dialogue_state_token": "pre98:3A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "何か策があるってことか？",
+      "last_text": "何か策があるってことか？",
+      "sample_texts": [
+        "何か策があるってことか？"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:26",
+      "records": [
+        {
+          "offset": 8345497,
+          "text": "当然だ。オレ様だって\n雷霆の錬金術師と呼ばれた男だ\n策くらいあらぁな",
+          "dialogue_state_token": "pre98:26"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "当然だ。オレ様だって\n雷霆の錬金術師と呼ばれた男だ\n策くらいあらぁな",
+      "last_text": "当然だ。オレ様だって\n雷霆の錬金術師と呼ばれた男だ\n策くらいあらぁな",
+      "sample_texts": [
+        "当然だ。オレ様だって\n雷霆の錬金術師と呼ばれた男だ\n策くらいあらぁな"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:2C",
+      "records": [
+        {
+          "offset": 8345582,
+          "text": "まずはヤツを弱らせるぞ！",
+          "dialogue_state_token": "pre98:2C"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "まずはヤツを弱らせるぞ！",
+      "last_text": "まずはヤツを弱らせるぞ！",
+      "sample_texts": [
+        "まずはヤツを弱らせるぞ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:51",
+      "records": [
+        {
+          "offset": 8345736,
+          "text": "どうあがいても\n貴様らはしょせん、\n軍の狗にすぎんのだ！",
+          "dialogue_state_token": "pre98:51"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "どうあがいても\n貴様らはしょせん、\n軍の狗にすぎんのだ！",
+      "last_text": "どうあがいても\n貴様らはしょせん、\n軍の狗にすぎんのだ！",
+      "sample_texts": [
+        "どうあがいても\n貴様らはしょせん、\n軍の狗にすぎんのだ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:07",
+      "records": [
+        {
+          "offset": 8345812,
+          "text": "いちいち癇に障るんだよっ！\nごたく並べてねぇで、\nかかって来いよ！",
+          "dialogue_state_token": "pre98:07"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "いちいち癇に障るんだよっ！\nごたく並べてねぇで、\nかかって来いよ！",
+      "last_text": "いちいち癇に障るんだよっ！\nごたく並べてねぇで、\nかかって来いよ！",
+      "sample_texts": [
+        "いちいち癇に障るんだよっ！\nごたく並べてねぇで、\nかかって来いよ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:0B",
+      "records": [
+        {
+          "offset": 8345898,
+          "text": "兄さん\nそんな挑発して、\n何か作戦でもあるの！？",
+          "dialogue_state_token": "pre98:0B"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "兄さん\nそんな挑発して、\n何か作戦でもあるの！？",
+      "last_text": "兄さん\nそんな挑発して、\n何か作戦でもあるの！？",
+      "sample_texts": [
+        "兄さん\nそんな挑発して、\n何か作戦でもあるの！？"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:07",
+      "records": [
+        {
+          "offset": 8345966,
+          "text": "んなもん、あるかよっ！",
+          "dialogue_state_token": "pre98:07"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "んなもん、あるかよっ！",
+      "last_text": "んなもん、あるかよっ！",
+      "sample_texts": [
+        "んなもん、あるかよっ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:12",
+      "records": [
+        {
+          "offset": 8346009,
+          "text": "ほう、策もないわりには\nやけに強気じゃないか",
+          "dialogue_state_token": "pre98:12"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "ほう、策もないわりには\nやけに強気じゃないか",
+      "last_text": "ほう、策もないわりには\nやけに強気じゃないか",
+      "sample_texts": [
+        "ほう、策もないわりには\nやけに強気じゃないか"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:0A",
+      "records": [
+        {
+          "offset": 8346070,
+          "text": "虚勢ぐらい張らないと、\nこんなヤツ相手に\n戦う気にはならないからな",
+          "dialogue_state_token": "pre98:0A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "虚勢ぐらい張らないと、\nこんなヤツ相手に\n戦う気にはならないからな",
+      "last_text": "虚勢ぐらい張らないと、\nこんなヤツ相手に\n戦う気にはならないからな",
+      "sample_texts": [
+        "虚勢ぐらい張らないと、\nこんなヤツ相手に\n戦う気にはならないからな"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:13",
+      "records": [
+        {
+          "offset": 8346153,
+          "text": "それは同感だな",
+          "dialogue_state_token": "pre98:13"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "それは同感だな",
+      "last_text": "それは同感だな",
+      "sample_texts": [
+        "それは同感だな"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:48",
+      "records": [
+        {
+          "offset": 8346188,
+          "text": "国家錬金術師などと称しても、\nしょせんはこの程度か？",
+          "dialogue_state_token": "pre98:48"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "国家錬金術師などと称しても、\nしょせんはこの程度か？",
+      "last_text": "国家錬金術師などと称しても、\nしょせんはこの程度か？",
+      "sample_texts": [
+        "国家錬金術師などと称しても、\nしょせんはこの程度か？"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:51",
+      "records": [
+        {
+          "offset": 8346257,
+          "text": "そのくせ、我が理想を\n阻もうとは…笑止",
+          "dialogue_state_token": "pre98:51"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "そのくせ、我が理想を\n阻もうとは…笑止",
+      "last_text": "そのくせ、我が理想を\n阻もうとは…笑止",
+      "sample_texts": [
+        "そのくせ、我が理想を\n阻もうとは…笑止"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:07",
+      "records": [
+        {
+          "offset": 8346315,
+          "text": "何が理想だ！\nリンカー！てめぇのどこに\n理想があるんだよ！",
+          "dialogue_state_token": "pre98:07"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "何が理想だ！\nリンカー！てめぇのどこに\n理想があるんだよ！",
+      "last_text": "何が理想だ！\nリンカー！てめぇのどこに\n理想があるんだよ！",
+      "sample_texts": [
+        "何が理想だ！\nリンカー！てめぇのどこに\n理想があるんだよ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:50",
+      "records": [
+        {
+          "offset": 8346399,
+          "text": "錬金術師よ、\n大衆のためにあれ！",
+          "dialogue_state_token": "pre98:50"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "錬金術師よ、\n大衆のためにあれ！",
+      "last_text": "錬金術師よ、\n大衆のためにあれ！",
+      "sample_texts": [
+        "錬金術師よ、\n大衆のためにあれ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:4B",
+      "records": [
+        {
+          "offset": 8346451,
+          "text": "貴様らのような軍の狗である\n国家錬金術師では\nその理想はなしえぬ\n私はイシュヴァールで、\nそれを悟った！",
+          "dialogue_state_token": "pre98:4B"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "貴様らのような軍の狗である\n国家錬金術師では\nその理想はなしえぬ\n私はイシュヴァールで、\nそれを悟った！",
+      "last_text": "貴様らのような軍の狗である\n国家錬金術師では\nその理想はなしえぬ\n私はイシュヴァールで、\nそれを悟った！",
+      "sample_texts": [
+        "貴様らのような軍の狗である\n国家錬金術師では\nその理想はなしえぬ\n私はイシュヴァールで、\nそれを悟った！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:07",
+      "records": [
+        {
+          "offset": 8346571,
+          "text": "勝手なことばっか、\n言ってんじゃねーよ！\nリンカー、てめぇの\nやってることの\nどこが大衆のためだ！",
+          "dialogue_state_token": "pre98:07"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "勝手なことばっか、\n言ってんじゃねーよ！\nリンカー、てめぇの\nやってることの\nどこが大衆のためだ！",
+      "last_text": "勝手なことばっか、\n言ってんじゃねーよ！\nリンカー、てめぇの\nやってることの\nどこが大衆のためだ！",
+      "sample_texts": [
+        "勝手なことばっか、\n言ってんじゃねーよ！\nリンカー、てめぇの\nやってることの\nどこが大衆のためだ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:48",
+      "records": [
+        {
+          "offset": 8346688,
+          "text": "…やはり\nわかりあえぬようだな",
+          "dialogue_state_token": "pre98:48"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "…やはり\nわかりあえぬようだな",
+      "last_text": "…やはり\nわかりあえぬようだな",
+      "sample_texts": [
+        "…やはり\nわかりあえぬようだな"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:07",
+      "records": [
+        {
+          "offset": 8346738,
+          "text": "わかり合いたくもねぇよ\nいい加減、そのよく動く口、\n閉じさせてやるぜっ！",
+          "dialogue_state_token": "pre98:07"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "わかり合いたくもねぇよ\nいい加減、そのよく動く口、\n閉じさせてやるぜっ！",
+      "last_text": "わかり合いたくもねぇよ\nいい加減、そのよく動く口、\n閉じさせてやるぜっ！",
+      "sample_texts": [
+        "わかり合いたくもねぇよ\nいい加減、そのよく動く口、\n閉じさせてやるぜっ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:11",
+      "records": [
+        {
+          "offset": 8346925,
+          "text": "コニィ、大丈夫？",
+          "dialogue_state_token": "pre98:11"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "コニィ、大丈夫？",
+      "last_text": "コニィ、大丈夫？",
+      "sample_texts": [
+        "コニィ、大丈夫？"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:33",
+      "records": [
+        {
+          "offset": 8347212,
+          "text": "ええ、もう迷わない",
+          "dialogue_state_token": "pre98:33"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "ええ、もう迷わない",
+      "last_text": "ええ、もう迷わない",
+      "sample_texts": [
+        "ええ、もう迷わない"
+      ]
+    },
+    {
+      "dialogue_state_token": null,
+      "records": [
+        {
+          "offset": 8347293,
+          "text": "錬金術師よ、大衆のためにあれ",
+          "dialogue_state_token": null
+        }
+      ],
+      "record_count": 1,
+      "first_text": "錬金術師よ、大衆のためにあれ",
+      "last_text": "錬金術師よ、大衆のためにあれ",
+      "sample_texts": [
+        "錬金術師よ、大衆のためにあれ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:37",
+      "records": [
+        {
+          "offset": 8347380,
+          "text": "錬金術師よ、大衆のためにあれ",
+          "dialogue_state_token": "pre98:37"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "錬金術師よ、大衆のためにあれ",
+      "last_text": "錬金術師よ、大衆のためにあれ",
+      "sample_texts": [
+        "錬金術師よ、大衆のためにあれ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:57",
+      "records": [
+        {
+          "offset": 8347522,
+          "text": "ほわー。眠くなってきたから、\nさっさとそんなの\nやっつけちゃっていいよん！",
+          "dialogue_state_token": "pre98:57"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "ほわー。眠くなってきたから、\nさっさとそんなの\nやっつけちゃっていいよん！",
+      "last_text": "ほわー。眠くなってきたから、\nさっさとそんなの\nやっつけちゃっていいよん！",
+      "sample_texts": [
+        "ほわー。眠くなってきたから、\nさっさとそんなの\nやっつけちゃっていいよん！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:35",
+      "records": [
+        {
+          "offset": 8347616,
+          "text": "…負けるもんですかっ！\nエドにできて、\n私にできないわけないからっ！",
+          "dialogue_state_token": "pre98:35"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "…負けるもんですかっ！\nエドにできて、\n私にできないわけないからっ！",
+      "last_text": "…負けるもんですかっ！\nエドにできて、\n私にできないわけないからっ！",
+      "sample_texts": [
+        "…負けるもんですかっ！\nエドにできて、\n私にできないわけないからっ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:09",
+      "records": [
+        {
+          "offset": 8347704,
+          "text": "やっぱ、コニィは、\nああじゃなくっちゃな",
+          "dialogue_state_token": "pre98:09"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "やっぱ、コニィは、\nああじゃなくっちゃな",
+      "last_text": "やっぱ、コニィは、\nああじゃなくっちゃな",
+      "sample_texts": [
+        "やっぱ、コニィは、\nああじゃなくっちゃな"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:0F",
+      "records": [
+        {
+          "offset": 8347764,
+          "text": "え？\n…じゃあ、兄さんは",
+          "dialogue_state_token": "pre98:0F"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "え？\n…じゃあ、兄さんは",
+      "last_text": "え？\n…じゃあ、兄さんは",
+      "sample_texts": [
+        "え？\n…じゃあ、兄さんは"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:0A",
+      "records": [
+        {
+          "offset": 8347808,
+          "text": "さあね？\nオレはべつに手助けなんて、\nしたつもりはないけど？",
+          "dialogue_state_token": "pre98:0A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "さあね？\nオレはべつに手助けなんて、\nしたつもりはないけど？",
+      "last_text": "さあね？\nオレはべつに手助けなんて、\nしたつもりはないけど？",
+      "sample_texts": [
+        "さあね？\nオレはべつに手助けなんて、\nしたつもりはないけど？"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:0D",
+      "records": [
+        {
+          "offset": 8347888,
+          "text": "素直に応援して\nあげればいいのに\n…まったく、兄さんたら",
+          "dialogue_state_token": "pre98:0D"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "素直に応援して\nあげればいいのに\n…まったく、兄さんたら",
+      "last_text": "素直に応援して\nあげればいいのに\n…まったく、兄さんたら",
+      "sample_texts": [
+        "素直に応援して\nあげればいいのに\n…まったく、兄さんたら"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:1A",
+      "records": [
+        {
+          "offset": 8348042,
+          "text": "最期だ\n神に祈る間をやろう",
+          "dialogue_state_token": "pre98:1A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "最期だ\n神に祈る間をやろう",
+      "last_text": "最期だ\n神に祈る間をやろう",
+      "sample_texts": [
+        "最期だ\n神に祈る間をやろう"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3C",
+      "records": [
+        {
+          "offset": 8348088,
+          "text": "あいにくだけど…\n祈りたい神サマが\nいないんでね",
+          "dialogue_state_token": "pre98:3C"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "あいにくだけど…\n祈りたい神サマが\nいないんでね",
+      "last_text": "あいにくだけど…\n祈りたい神サマが\nいないんでね",
+      "sample_texts": [
+        "あいにくだけど…\n祈りたい神サマが\nいないんでね"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:1A",
+      "records": [
+        {
+          "offset": 8348156,
+          "text": "…よかろう\nならば、\n裁きを受けよ！",
+          "dialogue_state_token": "pre98:1A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "…よかろう\nならば、\n裁きを受けよ！",
+      "last_text": "…よかろう\nならば、\n裁きを受けよ！",
+      "sample_texts": [
+        "…よかろう\nならば、\n裁きを受けよ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:6A",
+      "records": [
+        {
+          "offset": 8348294,
+          "text": "小僧がッッッ！\n今度は貴様を\nバラバラにしてやる！",
+          "dialogue_state_token": "pre98:6A"
+        },
+        {
+          "offset": 8348446,
+          "text": "理不尽なヤツらだ！\n犬なんて知るかっ！",
+          "dialogue_state_token": "pre98:6A"
+        }
+      ],
+      "record_count": 2,
+      "first_text": "小僧がッッッ！\n今度は貴様を\nバラバラにしてやる！",
+      "last_text": "理不尽なヤツらだ！\n犬なんて知るかっ！",
+      "sample_texts": [
+        "小僧がッッッ！\n今度は貴様を\nバラバラにしてやる！",
+        "理不尽なヤツらだ！\n犬なんて知るかっ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3C",
+      "records": [
+        {
+          "offset": 8348504,
+          "text": "しらばっくれるな！",
+          "dialogue_state_token": "pre98:3C"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "しらばっくれるな！",
+      "last_text": "しらばっくれるな！",
+      "sample_texts": [
+        "しらばっくれるな！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3B",
+      "records": [
+        {
+          "offset": 8348626,
+          "text": "さっさとやって\nさっさと下水道から\n出たいよな",
+          "dialogue_state_token": "pre98:3B"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "さっさとやって\nさっさと下水道から\n出たいよな",
+      "last_text": "さっさとやって\nさっさと下水道から\n出たいよな",
+      "sample_texts": [
+        "さっさとやって\nさっさと下水道から\n出たいよな"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:0D",
+      "records": [
+        {
+          "offset": 8348689,
+          "text": "そうだね、兄さん",
+          "dialogue_state_token": "pre98:0D"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "そうだね、兄さん",
+      "last_text": "そうだね、兄さん",
+      "sample_texts": [
+        "そうだね、兄さん"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:69",
+      "records": [
+        {
+          "offset": 8348723,
+          "text": "おのれ、ナメやがって！",
+          "dialogue_state_token": "pre98:69"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "おのれ、ナメやがって！",
+      "last_text": "おのれ、ナメやがって！",
+      "sample_texts": [
+        "おのれ、ナメやがって！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3C",
+      "records": [
+        {
+          "offset": 8348846,
+          "text": "さっさと片付けて\n先に進むぞ！",
+          "dialogue_state_token": "pre98:3C"
+        },
+        {
+          "offset": 8348978,
+          "text": "さあ、次に進むぞ",
+          "dialogue_state_token": "pre98:3C"
+        }
+      ],
+      "record_count": 2,
+      "first_text": "さっさと片付けて\n先に進むぞ！",
+      "last_text": "さあ、次に進むぞ",
+      "sample_texts": [
+        "さっさと片付けて\n先に進むぞ！",
+        "さあ、次に進むぞ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:17",
+      "records": [
+        {
+          "offset": 8349095,
+          "text": "ゆくぞ！\n貴様一匹など、\n私ひとりで十分だ！",
+          "dialogue_state_token": "pre98:17"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "ゆくぞ！\n貴様一匹など、\n私ひとりで十分だ！",
+      "last_text": "ゆくぞ！\n貴様一匹など、\n私ひとりで十分だ！",
+      "sample_texts": [
+        "ゆくぞ！\n貴様一匹など、\n私ひとりで十分だ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3C",
+      "records": [
+        {
+          "offset": 8349242,
+          "text": "オレはオレひとりで\n十分だ！\n偽者はぶっ潰す！",
+          "dialogue_state_token": "pre98:3C"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "オレはオレひとりで\n十分だ！\n偽者はぶっ潰す！",
+      "last_text": "オレはオレひとりで\n十分だ！\n偽者はぶっ潰す！",
+      "sample_texts": [
+        "オレはオレひとりで\n十分だ！\n偽者はぶっ潰す！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:35",
+      "records": [
+        {
+          "offset": 8349305,
+          "text": "そうですね\nエドが何人もいたら\nうるさくて仕方ないです",
+          "dialogue_state_token": "pre98:35"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "そうですね\nエドが何人もいたら\nうるさくて仕方ないです",
+      "last_text": "そうですね\nエドが何人もいたら\nうるさくて仕方ないです",
+      "sample_texts": [
+        "そうですね\nエドが何人もいたら\nうるさくて仕方ないです"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:11",
+      "records": [
+        {
+          "offset": 8349376,
+          "text": "いや、コニィ\nそういう問題でも\nないんだけどね",
+          "dialogue_state_token": "pre98:11"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "いや、コニィ\nそういう問題でも\nないんだけどね",
+      "last_text": "いや、コニィ\nそういう問題でも\nないんだけどね",
+      "sample_texts": [
+        "いや、コニィ\nそういう問題でも\nないんだけどね"
+      ]
+    },
+    {
+      "dialogue_state_token": null,
+      "records": [
+        {
+          "offset": 8349470,
+          "text": "マップで錬成したいときは\nここで必要なカードを選ぶんだ\n今欲しいカードは\n金属の３－２だ",
+          "dialogue_state_token": null
+        },
+        {
+          "offset": 8349625,
+          "text": "でも兄さん\n金属の３－２は持ってないよ",
+          "dialogue_state_token": null
+        },
+        {
+          "offset": 8349680,
+          "text": "さっきも教えただろ？\n欲しいカードがないときは\n作っちまえばいいのさ\n元になるカードを選んで\n別のカードを足せばいいんだ\nつまり金属の２－１のカードに\n別の１－１のカードを足せば…",
+          "dialogue_state_token": null
+        },
+        {
+          "offset": 8349872,
+          "text": "金属の３－２のカードが\nできるってことだね？",
+          "dialogue_state_token": null
+        },
+        {
+          "offset": 8349930,
+          "text": "そう！\nそれじゃやってみるぜ！",
+          "dialogue_state_token": null
+        },
+        {
+          "offset": 8350075,
+          "text": "あとはそのカードを選んで\n「つかう」だけだね",
+          "dialogue_state_token": null
+        },
+        {
+          "offset": 8350133,
+          "text": "気をつけなきゃいけないのは\nこの「つかう」コマンドは\nマップで錬成したりするとき\n使うものなんだ\nアイテムや素材が欲しいなら\n「錬成」コマンドを使うんだ",
+          "dialogue_state_token": null
+        },
+        {
+          "offset": 8350297,
+          "text": "何もない時に\n素材を「つかう」と\nそのまま無くなっちゃうから\n注意しなきゃね",
+          "dialogue_state_token": null
+        },
+        {
+          "offset": 8350386,
+          "text": "おっと、もうひとつ！\n素材を選んだあとに\nＲボタンを押すと\n選んだ素材をすぐ捨てられる\nサクサク捨てたいとき\n便利だぞ",
+          "dialogue_state_token": null
+        },
+        {
+          "offset": 8350516,
+          "text": "わかったよ兄さん\nそれじゃ素材をつかうよ",
+          "dialogue_state_token": null
+        }
+      ],
+      "record_count": 10,
+      "first_text": "マップで錬成したいときは\nここで必要なカードを選ぶんだ\n今欲しいカードは\n金属の３－２だ",
+      "last_text": "わかったよ兄さん\nそれじゃ素材をつかうよ",
+      "sample_texts": [
+        "マップで錬成したいときは\nここで必要なカードを選ぶんだ\n今欲しいカードは\n金属の３－２だ",
+        "でも兄さん\n金属の３－２は持ってないよ",
+        "さっきも教えただろ？\n欲しいカードがないときは\n作っちまえばいいのさ\n元になるカードを選んで\n別のカードを足せばいいんだ\nつまり金属の２－１のカードに\n別の１－１のカードを足せば…",
+        "金属の３－２のカードが\nできるってことだね？"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3B",
+      "records": [
+        {
+          "offset": 8350778,
+          "text": "機械鎧を攻撃されても\n痛くもかゆくもないぜ",
+          "dialogue_state_token": "pre98:3B"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "機械鎧を攻撃されても\n痛くもかゆくもないぜ",
+      "last_text": "機械鎧を攻撃されても\n痛くもかゆくもないぜ",
+      "sample_texts": [
+        "機械鎧を攻撃されても\n痛くもかゆくもないぜ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3C",
+      "records": [
+        {
+          "offset": 8350984,
+          "text": "格がちがうんだよ\n格がっ！",
+          "dialogue_state_token": "pre98:3C"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "格がちがうんだよ\n格がっ！",
+      "last_text": "格がちがうんだよ\n格がっ！",
+      "sample_texts": [
+        "格がちがうんだよ\n格がっ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:64",
+      "records": [
+        {
+          "offset": 8351049,
+          "text": "私はあきらめんぞ\nこの石がある限り\n私は無敵だ！",
+          "dialogue_state_token": "pre98:64"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "私はあきらめんぞ\nこの石がある限り\n私は無敵だ！",
+      "last_text": "私はあきらめんぞ\nこの石がある限り\n私は無敵だ！",
+      "sample_texts": [
+        "私はあきらめんぞ\nこの石がある限り\n私は無敵だ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:0B",
+      "records": [
+        {
+          "offset": 8351272,
+          "text": "兄さん、いくらなんでも\nやりすぎだよ…",
+          "dialogue_state_token": "pre98:0B"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "兄さん、いくらなんでも\nやりすぎだよ…",
+      "last_text": "兄さん、いくらなんでも\nやりすぎだよ…",
+      "sample_texts": [
+        "兄さん、いくらなんでも\nやりすぎだよ…"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3B",
+      "records": [
+        {
+          "offset": 8351330,
+          "text": "そうか？少佐ならこれぐらい\n大丈夫だって",
+          "dialogue_state_token": "pre98:3B"
+        },
+        {
+          "offset": 8351532,
+          "text": "オレの勝ちだな",
+          "dialogue_state_token": "pre98:3B"
+        }
+      ],
+      "record_count": 2,
+      "first_text": "そうか？少佐ならこれぐらい\n大丈夫だって",
+      "last_text": "オレの勝ちだな",
+      "sample_texts": [
+        "そうか？少佐ならこれぐらい\n大丈夫だって",
+        "オレの勝ちだな"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:6A",
+      "records": [
+        {
+          "offset": 8351564,
+          "text": "ぬぬぬっ！！\nまたしても、こんなガキに…",
+          "dialogue_state_token": "pre98:6A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "ぬぬぬっ！！\nまたしても、こんなガキに…",
+      "last_text": "ぬぬぬっ！！\nまたしても、こんなガキに…",
+      "sample_texts": [
+        "ぬぬぬっ！！\nまたしても、こんなガキに…"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3B",
+      "records": [
+        {
+          "offset": 8351621,
+          "text": "刑務所に逆戻りだな",
+          "dialogue_state_token": "pre98:3B"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "刑務所に逆戻りだな",
+      "last_text": "刑務所に逆戻りだな",
+      "sample_texts": [
+        "刑務所に逆戻りだな"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:6B",
+      "records": [
+        {
+          "offset": 8351657,
+          "text": "覚えてやがれ！",
+          "dialogue_state_token": "pre98:6B"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "覚えてやがれ！",
+      "last_text": "覚えてやがれ！",
+      "sample_texts": [
+        "覚えてやがれ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:53",
+      "records": [
+        {
+          "offset": 8351851,
+          "text": "お前ら強いなぁ\nそこの小さいの！\n名前を教えろっ",
+          "dialogue_state_token": "pre98:53"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "お前ら強いなぁ\nそこの小さいの！\n名前を教えろっ",
+      "last_text": "お前ら強いなぁ\nそこの小さいの！\n名前を教えろっ",
+      "sample_texts": [
+        "お前ら強いなぁ\nそこの小さいの！\n名前を教えろっ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:03",
+      "records": [
+        {
+          "offset": 8351919,
+          "text": "だれがぁ？\nミクロミニチュア錬金術師だぁ？",
+          "dialogue_state_token": "pre98:03"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "だれがぁ？\nミクロミニチュア錬金術師だぁ？",
+      "last_text": "だれがぁ？\nミクロミニチュア錬金術師だぁ？",
+      "sample_texts": [
+        "だれがぁ？\nミクロミニチュア錬金術師だぁ？"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:53",
+      "records": [
+        {
+          "offset": 8351981,
+          "text": "だから、お前だよ\nどチビ",
+          "dialogue_state_token": "pre98:53"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "だから、お前だよ\nどチビ",
+      "last_text": "だから、お前だよ\nどチビ",
+      "sample_texts": [
+        "だから、お前だよ\nどチビ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:03",
+      "records": [
+        {
+          "offset": 8352024,
+          "text": "オレは鋼の錬金術師\nエドワード・エルリックだぁ！",
+          "dialogue_state_token": "pre98:03"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "オレは鋼の錬金術師\nエドワード・エルリックだぁ！",
+      "last_text": "オレは鋼の錬金術師\nエドワード・エルリックだぁ！",
+      "sample_texts": [
+        "オレは鋼の錬金術師\nエドワード・エルリックだぁ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:52",
+      "records": [
+        {
+          "offset": 8352092,
+          "text": "オレはランディ・ローバーだ\n盗んだ物は返してやる",
+          "dialogue_state_token": "pre98:52"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "オレはランディ・ローバーだ\n盗んだ物は返してやる",
+      "last_text": "オレはランディ・ローバーだ\n盗んだ物は返してやる",
+      "sample_texts": [
+        "オレはランディ・ローバーだ\n盗んだ物は返してやる"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:04",
+      "records": [
+        {
+          "offset": 8352160,
+          "text": "なにぃ？",
+          "dialogue_state_token": "pre98:04"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "なにぃ？",
+      "last_text": "なにぃ？",
+      "sample_texts": [
+        "なにぃ？"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:52",
+      "records": [
+        {
+          "offset": 8352189,
+          "text": "へへっ、まだ捕まる訳には\n行かないんでね",
+          "dialogue_state_token": "pre98:52"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "へへっ、まだ捕まる訳には\n行かないんでね",
+      "last_text": "へへっ、まだ捕まる訳には\n行かないんでね",
+      "sample_texts": [
+        "へへっ、まだ捕まる訳には\n行かないんでね"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:5B",
+      "records": [
+        {
+          "offset": 8352555,
+          "text": "やっばー！\nたんま、たんま",
+          "dialogue_state_token": "pre98:5B"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "やっばー！\nたんま、たんま",
+      "last_text": "やっばー！\nたんま、たんま",
+      "sample_texts": [
+        "やっばー！\nたんま、たんま"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3A",
+      "records": [
+        {
+          "offset": 8352601,
+          "text": "なんだよ突然\n反省したのか？",
+          "dialogue_state_token": "pre98:3A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "なんだよ突然\n反省したのか？",
+      "last_text": "なんだよ突然\n反省したのか？",
+      "sample_texts": [
+        "なんだよ突然\n反省したのか？"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:5B",
+      "records": [
+        {
+          "offset": 8352647,
+          "text": "お兄ちゃんに言いつけてやる！",
+          "dialogue_state_token": "pre98:5B"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "お兄ちゃんに言いつけてやる！",
+      "last_text": "お兄ちゃんに言いつけてやる！",
+      "sample_texts": [
+        "お兄ちゃんに言いつけてやる！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:0B",
+      "records": [
+        {
+          "offset": 8352894,
+          "text": "見て、あそこ。\n鍵が落ちてるよ",
+          "dialogue_state_token": "pre98:0B"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "見て、あそこ。\n鍵が落ちてるよ",
+      "last_text": "見て、あそこ。\n鍵が落ちてるよ",
+      "sample_texts": [
+        "見て、あそこ。\n鍵が落ちてるよ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:1E",
+      "records": [
+        {
+          "offset": 8352944,
+          "text": "どこかの扉の鍵みたいね。\nもう一度、屋敷内を\n探しなおしましょう",
+          "dialogue_state_token": "pre98:1E"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "どこかの扉の鍵みたいね。\nもう一度、屋敷内を\n探しなおしましょう",
+      "last_text": "どこかの扉の鍵みたいね。\nもう一度、屋敷内を\n探しなおしましょう",
+      "sample_texts": [
+        "どこかの扉の鍵みたいね。\nもう一度、屋敷内を\n探しなおしましょう"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:0F",
+      "records": [
+        {
+          "offset": 8353341,
+          "text": "行っちゃった…",
+          "dialogue_state_token": "pre98:0F"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "行っちゃった…",
+      "last_text": "行っちゃった…",
+      "sample_texts": [
+        "行っちゃった…"
+      ]
+    },
+    {
+      "dialogue_state_token": null,
+      "records": [
+        {
+          "offset": 8353383,
+          "text": "すぐに行き止まりだよ、兄さん\nここじゃないみたい",
+          "dialogue_state_token": null
+        },
+        {
+          "offset": 8353455,
+          "text": "すぐに行き止まりだよ、兄さん\nここじゃないみたい",
+          "dialogue_state_token": null
+        }
+      ],
+      "record_count": 2,
+      "first_text": "すぐに行き止まりだよ、兄さん\nここじゃないみたい",
+      "last_text": "すぐに行き止まりだよ、兄さん\nここじゃないみたい",
+      "sample_texts": [
+        "すぐに行き止まりだよ、兄さん\nここじゃないみたい",
+        "すぐに行き止まりだよ、兄さん\nここじゃないみたい"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:28",
+      "records": [
+        {
+          "offset": 8353662,
+          "text": "オレ様にかかれば\nおちゃのこサイサイってね！",
+          "dialogue_state_token": "pre98:28"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "オレ様にかかれば\nおちゃのこサイサイってね！",
+      "last_text": "オレ様にかかれば\nおちゃのこサイサイってね！",
+      "sample_texts": [
+        "オレ様にかかれば\nおちゃのこサイサイってね！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3A",
+      "records": [
+        {
+          "offset": 8353893,
+          "text": "どうやら片付いたみたいだな",
+          "dialogue_state_token": "pre98:3A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "どうやら片付いたみたいだな",
+      "last_text": "どうやら片付いたみたいだな",
+      "sample_texts": [
+        "どうやら片付いたみたいだな"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:0B",
+      "records": [
+        {
+          "offset": 8353937,
+          "text": "マーティンス中佐も\n元気になったみたいだし",
+          "dialogue_state_token": "pre98:0B"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "マーティンス中佐も\n元気になったみたいだし",
+      "last_text": "マーティンス中佐も\n元気になったみたいだし",
+      "sample_texts": [
+        "マーティンス中佐も\n元気になったみたいだし"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:28",
+      "records": [
+        {
+          "offset": 8353996,
+          "text": "オレ様はいつだって元気で\n前向きな男だぜ？",
+          "dialogue_state_token": "pre98:28"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "オレ様はいつだって元気で\n前向きな男だぜ？",
+      "last_text": "オレ様はいつだって元気で\n前向きな男だぜ？",
+      "sample_texts": [
+        "オレ様はいつだって元気で\n前向きな男だぜ？"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3B",
+      "records": [
+        {
+          "offset": 8354055,
+          "text": "さっきまで一人で\n考え込んでたくせに",
+          "dialogue_state_token": "pre98:3B"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "さっきまで一人で\n考え込んでたくせに",
+      "last_text": "さっきまで一人で\n考え込んでたくせに",
+      "sample_texts": [
+        "さっきまで一人で\n考え込んでたくせに"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:1A",
+      "records": [
+        {
+          "offset": 8354268,
+          "text": "この数を相手にしては\nやはり分が悪いか…",
+          "dialogue_state_token": "pre98:1A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "この数を相手にしては\nやはり分が悪いか…",
+      "last_text": "この数を相手にしては\nやはり分が悪いか…",
+      "sample_texts": [
+        "この数を相手にしては\nやはり分が悪いか…"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3A",
+      "records": [
+        {
+          "offset": 8354573,
+          "text": "終わったよ、ヒューズ中佐",
+          "dialogue_state_token": "pre98:3A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "終わったよ、ヒューズ中佐",
+      "last_text": "終わったよ、ヒューズ中佐",
+      "sample_texts": [
+        "終わったよ、ヒューズ中佐"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3D",
+      "records": [
+        {
+          "offset": 8354616,
+          "text": "まったく…\nいつも思うが、お前らって\nムチャクチャだよな",
+          "dialogue_state_token": "pre98:3D"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "まったく…\nいつも思うが、お前らって\nムチャクチャだよな",
+      "last_text": "まったく…\nいつも思うが、お前らって\nムチャクチャだよな",
+      "sample_texts": [
+        "まったく…\nいつも思うが、お前らって\nムチャクチャだよな"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3A",
+      "records": [
+        {
+          "offset": 8354822,
+          "text": "ヒューズ中佐…\n大丈夫ですか？",
+          "dialogue_state_token": "pre98:3A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "ヒューズ中佐…\n大丈夫ですか？",
+      "last_text": "ヒューズ中佐…\n大丈夫ですか？",
+      "sample_texts": [
+        "ヒューズ中佐…\n大丈夫ですか？"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:41",
+      "records": [
+        {
+          "offset": 8354872,
+          "text": "なんで俺まで\nこんなのの相手をするはめに\nなるんだよ…",
+          "dialogue_state_token": "pre98:41"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "なんで俺まで\nこんなのの相手をするはめに\nなるんだよ…",
+      "last_text": "なんで俺まで\nこんなのの相手をするはめに\nなるんだよ…",
+      "sample_texts": [
+        "なんで俺まで\nこんなのの相手をするはめに\nなるんだよ…"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3A",
+      "records": [
+        {
+          "offset": 8354946,
+          "text": "親玉を片付けたんだ。\nこれで一安心だな",
+          "dialogue_state_token": "pre98:3A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "親玉を片付けたんだ。\nこれで一安心だな",
+      "last_text": "親玉を片付けたんだ。\nこれで一安心だな",
+      "sample_texts": [
+        "親玉を片付けたんだ。\nこれで一安心だな"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:7C",
+      "records": [
+        {
+          "offset": 8355148,
+          "text": "残念だけど、\nいつまでも遊んでられないの\nまたね、鋼の坊や",
+          "dialogue_state_token": "pre98:7C"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "残念だけど、\nいつまでも遊んでられないの\nまたね、鋼の坊や",
+      "last_text": "残念だけど、\nいつまでも遊んでられないの\nまたね、鋼の坊や",
+      "sample_texts": [
+        "残念だけど、\nいつまでも遊んでられないの\nまたね、鋼の坊や"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:6A",
+      "records": [
+        {
+          "offset": 8355495,
+          "text": "…バ、バカなっ！",
+          "dialogue_state_token": "pre98:6A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "…バ、バカなっ！",
+      "last_text": "…バ、バカなっ！",
+      "sample_texts": [
+        "…バ、バカなっ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:54",
+      "records": [
+        {
+          "offset": 8355722,
+          "text": "お、俺の筋肉が…",
+          "dialogue_state_token": "pre98:54"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "お、俺の筋肉が…",
+      "last_text": "お、俺の筋肉が…",
+      "sample_texts": [
+        "お、俺の筋肉が…"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:2E",
+      "records": [
+        {
+          "offset": 8355765,
+          "text": "良かったな、エド\n潰されずに済んでよ",
+          "dialogue_state_token": "pre98:2E"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "良かったな、エド\n潰されずに済んでよ",
+      "last_text": "良かったな、エド\n潰されずに済んでよ",
+      "sample_texts": [
+        "良かったな、エド\n潰されずに済んでよ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:04",
+      "records": [
+        {
+          "offset": 8355821,
+          "text": "…まだ言うかっ！",
+          "dialogue_state_token": "pre98:04"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "…まだ言うかっ！",
+      "last_text": "…まだ言うかっ！",
+      "sample_texts": [
+        "…まだ言うかっ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:5B",
+      "records": [
+        {
+          "offset": 8356000,
+          "text": "あっちゃー！　ヤバイよう\n…えーい\nこのまま逃げちゃおうっ",
+          "dialogue_state_token": "pre98:5B"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "あっちゃー！　ヤバイよう\n…えーい\nこのまま逃げちゃおうっ",
+      "last_text": "あっちゃー！　ヤバイよう\n…えーい\nこのまま逃げちゃおうっ",
+      "sample_texts": [
+        "あっちゃー！　ヤバイよう\n…えーい\nこのまま逃げちゃおうっ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:66",
+      "records": [
+        {
+          "offset": 8356154,
+          "text": "こらー、逃げんなー！",
+          "dialogue_state_token": "pre98:66"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "こらー、逃げんなー！",
+      "last_text": "こらー、逃げんなー！",
+      "sample_texts": [
+        "こらー、逃げんなー！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:58",
+      "records": [
+        {
+          "offset": 8356195,
+          "text": "バイバーイ\nまたいつか\n遊んであげるからねっ！",
+          "dialogue_state_token": "pre98:58"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "バイバーイ\nまたいつか\n遊んであげるからねっ！",
+      "last_text": "バイバーイ\nまたいつか\n遊んであげるからねっ！",
+      "sample_texts": [
+        "バイバーイ\nまたいつか\n遊んであげるからねっ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:50",
+      "records": [
+        {
+          "offset": 8356407,
+          "text": "こ、こんなはずでは\nこうなったら",
+          "dialogue_state_token": "pre98:50"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "こ、こんなはずでは\nこうなったら",
+      "last_text": "こ、こんなはずでは\nこうなったら",
+      "sample_texts": [
+        "こ、こんなはずでは\nこうなったら"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3B",
+      "records": [
+        {
+          "offset": 8356874,
+          "text": "よっしゃー！\nまずは１回戦突破だ！",
+          "dialogue_state_token": "pre98:3B"
+        },
+        {
+          "offset": 8357058,
+          "text": "悪いけど\n負けるつもりはないからさ",
+          "dialogue_state_token": "pre98:3B"
+        },
+        {
+          "offset": 8357242,
+          "text": "相変わらず\n安物の機械鎧だな",
+          "dialogue_state_token": "pre98:3B"
+        },
+        {
+          "offset": 8357432,
+          "text": "よっしゃ、勝った！",
+          "dialogue_state_token": "pre98:3B"
+        }
+      ],
+      "record_count": 4,
+      "first_text": "よっしゃー！\nまずは１回戦突破だ！",
+      "last_text": "よっしゃ、勝った！",
+      "sample_texts": [
+        "よっしゃー！\nまずは１回戦突破だ！",
+        "悪いけど\n負けるつもりはないからさ",
+        "相変わらず\n安物の機械鎧だな",
+        "よっしゃ、勝った！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:0B",
+      "records": [
+        {
+          "offset": 8357468,
+          "text": "正面から戦って\n兄さんがボクに勝つなんて\n珍しいね",
+          "dialogue_state_token": "pre98:0B"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "正面から戦って\n兄さんがボクに勝つなんて\n珍しいね",
+      "last_text": "正面から戦って\n兄さんがボクに勝つなんて\n珍しいね",
+      "sample_texts": [
+        "正面から戦って\n兄さんがボクに勝つなんて\n珍しいね"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3C",
+      "records": [
+        {
+          "offset": 8357688,
+          "text": "おっしゃー！\nどうだ思い知ったか！",
+          "dialogue_state_token": "pre98:3C"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "おっしゃー！\nどうだ思い知ったか！",
+      "last_text": "おっしゃー！\nどうだ思い知ったか！",
+      "sample_texts": [
+        "おっしゃー！\nどうだ思い知ったか！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:59",
+      "records": [
+        {
+          "offset": 8357739,
+          "text": "べーだ！\nなに、いい気んなってんだか",
+          "dialogue_state_token": "pre98:59"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "べーだ！\nなに、いい気んなってんだか",
+      "last_text": "べーだ！\nなに、いい気んなってんだか",
+      "sample_texts": [
+        "べーだ！\nなに、いい気んなってんだか"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3A",
+      "records": [
+        {
+          "offset": 8357944,
+          "text": "ゼェゼェゼェ…\nアームストロング少佐と\n戦うと…疲れる",
+          "dialogue_state_token": "pre98:3A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "ゼェゼェゼェ…\nアームストロング少佐と\n戦うと…疲れる",
+      "last_text": "ゼェゼェゼェ…\nアームストロング少佐と\n戦うと…疲れる",
+      "sample_texts": [
+        "ゼェゼェゼェ…\nアームストロング少佐と\n戦うと…疲れる"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:25",
+      "records": [
+        {
+          "offset": 8358015,
+          "text": "鍛え方が足りぬのだ\nエドワード・エルリックよ",
+          "dialogue_state_token": "pre98:25"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "鍛え方が足りぬのだ\nエドワード・エルリックよ",
+      "last_text": "鍛え方が足りぬのだ\nエドワード・エルリックよ",
+      "sample_texts": [
+        "鍛え方が足りぬのだ\nエドワード・エルリックよ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3B",
+      "records": [
+        {
+          "offset": 8358228,
+          "text": "そういや思い出したよ\nリンカーのとこで！",
+          "dialogue_state_token": "pre98:3B"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "そういや思い出したよ\nリンカーのとこで！",
+      "last_text": "そういや思い出したよ\nリンカーのとこで！",
+      "sample_texts": [
+        "そういや思い出したよ\nリンカーのとこで！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:54",
+      "records": [
+        {
+          "offset": 8358288,
+          "text": "今頃おせーんだよっ！",
+          "dialogue_state_token": "pre98:54"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "今頃おせーんだよっ！",
+      "last_text": "今頃おせーんだよっ！",
+      "sample_texts": [
+        "今頃おせーんだよっ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3C",
+      "records": [
+        {
+          "offset": 8358484,
+          "text": "ゼェゼェ…\nまだやる気か！？",
+          "dialogue_state_token": "pre98:3C"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "ゼェゼェ…\nまだやる気か！？",
+      "last_text": "ゼェゼェ…\nまだやる気か！？",
+      "sample_texts": [
+        "ゼェゼェ…\nまだやる気か！？"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:1A",
+      "records": [
+        {
+          "offset": 8358529,
+          "text": "おのれ…\n良かろう、鋼の錬金術師\nその命、しばし預けよう",
+          "dialogue_state_token": "pre98:1A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "おのれ…\n良かろう、鋼の錬金術師\nその命、しばし預けよう",
+      "last_text": "おのれ…\n良かろう、鋼の錬金術師\nその命、しばし預けよう",
+      "sample_texts": [
+        "おのれ…\n良かろう、鋼の錬金術師\nその命、しばし預けよう"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3B",
+      "records": [
+        {
+          "offset": 8358756,
+          "text": "取ったっ！\nこれで発火布は\n使いもんにならないだろ",
+          "dialogue_state_token": "pre98:3B"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "取ったっ！\nこれで発火布は\n使いもんにならないだろ",
+      "last_text": "取ったっ！\nこれで発火布は\n使いもんにならないだろ",
+      "sample_texts": [
+        "取ったっ！\nこれで発火布は\n使いもんにならないだろ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:15",
+      "records": [
+        {
+          "offset": 8358826,
+          "text": "…しまったっ！\n不覚を取ったか！",
+          "dialogue_state_token": "pre98:15"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "…しまったっ！\n不覚を取ったか！",
+      "last_text": "…しまったっ！\n不覚を取ったか！",
+      "sample_texts": [
+        "…しまったっ！\n不覚を取ったか！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:1A",
+      "records": [
+        {
+          "offset": 8359028,
+          "text": "強くなったな、鋼の錬金術師\nその命、預けておく！",
+          "dialogue_state_token": "pre98:1A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "強くなったな、鋼の錬金術師\nその命、預けておく！",
+      "last_text": "強くなったな、鋼の錬金術師\nその命、預けておく！",
+      "sample_texts": [
+        "強くなったな、鋼の錬金術師\nその命、預けておく！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3B",
+      "records": [
+        {
+          "offset": 8359332,
+          "text": "安物の機械鎧じゃ\nオレに勝てないって\n何度言えばわかるわけ？",
+          "dialogue_state_token": "pre98:3B"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "安物の機械鎧じゃ\nオレに勝てないって\n何度言えばわかるわけ？",
+      "last_text": "安物の機械鎧じゃ\nオレに勝てないって\n何度言えばわかるわけ？",
+      "sample_texts": [
+        "安物の機械鎧じゃ\nオレに勝てないって\n何度言えばわかるわけ？"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:6A",
+      "records": [
+        {
+          "offset": 8359550,
+          "text": "なんで何も関係ない俺様が\nこんな目に…",
+          "dialogue_state_token": "pre98:6A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "なんで何も関係ない俺様が\nこんな目に…",
+      "last_text": "なんで何も関係ない俺様が\nこんな目に…",
+      "sample_texts": [
+        "なんで何も関係ない俺様が\nこんな目に…"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3C",
+      "records": [
+        {
+          "offset": 8359605,
+          "text": "最初から\nブラックハヤテ号の居場所を\n言わないからだ！",
+          "dialogue_state_token": "pre98:3C"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "最初から\nブラックハヤテ号の居場所を\n言わないからだ！",
+      "last_text": "最初から\nブラックハヤテ号の居場所を\n言わないからだ！",
+      "sample_texts": [
+        "最初から\nブラックハヤテ号の居場所を\n言わないからだ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:00",
+      "records": [
+        {
+          "offset": 8359810,
+          "text": "オ、俺がなにを\nしたっていうんだっ！？",
+          "dialogue_state_token": "pre98:00"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "オ、俺がなにを\nしたっていうんだっ！？",
+      "last_text": "オ、俺がなにを\nしたっていうんだっ！？",
+      "sample_texts": [
+        "オ、俺がなにを\nしたっていうんだっ！？"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3C",
+      "records": [
+        {
+          "offset": 8359869,
+          "text": "黙れ、誘拐犯！\n往生際が悪いぞ",
+          "dialogue_state_token": "pre98:3C"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "黙れ、誘拐犯！\n往生際が悪いぞ",
+      "last_text": "黙れ、誘拐犯！\n往生際が悪いぞ",
+      "sample_texts": [
+        "黙れ、誘拐犯！\n往生際が悪いぞ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:1F",
+      "records": [
+        {
+          "offset": 8360064,
+          "text": "無駄な抵抗は\nおやめなさい！",
+          "dialogue_state_token": "pre98:1F"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "無駄な抵抗は\nおやめなさい！",
+      "last_text": "無駄な抵抗は\nおやめなさい！",
+      "sample_texts": [
+        "無駄な抵抗は\nおやめなさい！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3A",
+      "records": [
+        {
+          "offset": 8360109,
+          "text": "なんだかホークアイ中尉\nオイシイとこ、\n持っていってない？",
+          "dialogue_state_token": "pre98:3A"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "なんだかホークアイ中尉\nオイシイとこ、\n持っていってない？",
+      "last_text": "なんだかホークアイ中尉\nオイシイとこ、\n持っていってない？",
+      "sample_texts": [
+        "なんだかホークアイ中尉\nオイシイとこ、\n持っていってない？"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3C",
+      "records": [
+        {
+          "offset": 8360332,
+          "text": "これが最後の一撃だっ！",
+          "dialogue_state_token": "pre98:3C"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "これが最後の一撃だっ！",
+      "last_text": "これが最後の一撃だっ！",
+      "sample_texts": [
+        "これが最後の一撃だっ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:25",
+      "records": [
+        {
+          "offset": 8360635,
+          "text": "なかなかの手前であった",
+          "dialogue_state_token": "pre98:25"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "なかなかの手前であった",
+      "last_text": "なかなかの手前であった",
+      "sample_texts": [
+        "なかなかの手前であった"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:53",
+      "records": [
+        {
+          "offset": 8360678,
+          "text": "フン、あんたもな！",
+          "dialogue_state_token": "pre98:53"
+        }
+      ],
+      "record_count": 1,
+      "first_text": "フン、あんたもな！",
+      "last_text": "フン、あんたもな！",
+      "sample_texts": [
+        "フン、あんたもな！"
+      ]
+    },
+    {
+      "dialogue_state_token": null,
+      "records": [
+        {
+          "offset": 8360743,
+          "text": "さぁ相手になってやるぜ！",
+          "dialogue_state_token": null
+        },
+        {
+          "offset": 8360781,
+          "text": "兄さん、どうやって戦うの？",
+          "dialogue_state_token": null
+        },
+        {
+          "offset": 8360821,
+          "text": "錬成であっさり終わらせる！",
+          "dialogue_state_token": null
+        },
+        {
+          "offset": 8360872,
+          "text": "このコマンドで錬成だ！",
+          "dialogue_state_token": null
+        },
+        {
+          "offset": 8360908,
+          "text": "素材や技を作るんだね",
+          "dialogue_state_token": null
+        },
+        {
+          "offset": 8360942,
+          "text": "そう、説明が表示されるから\nムズかしいことじゃないさ\nとりあえずやってみるぜ",
+          "dialogue_state_token": null
+        },
+        {
+          "offset": 8361036,
+          "text": "これが素材錬成だ",
+          "dialogue_state_token": null
+        },
+        {
+          "offset": 8361066,
+          "text": "これで自分が欲しい素材を\n作っていくんだね？",
+          "dialogue_state_token": null
+        },
+        {
+          "offset": 8361124,
+          "text": "そういうこと！",
+          "dialogue_state_token": null
+        },
+        {
+          "offset": 8361152,
+          "text": "じゃあこれでいい素材を\nたくさん作ろうよ　兄さん",
+          "dialogue_state_token": null
+        },
+        {
+          "offset": 8361214,
+          "text": "うーん、でもちゃんとルールを\n守らないとなー",
+          "dialogue_state_token": null
+        },
+        {
+          "offset": 8361272,
+          "text": "ルール？",
+          "dialogue_state_token": null
+        },
+        {
+          "offset": 8361294,
+          "text": "カードを二つ以上組み合わせて\n質量と価値を上下させる\n１足す１は２、２足す２は４\n等価値の素材を錬成できる",
+          "dialogue_state_token": null
+        },
+        {
+          "offset": 8361414,
+          "text": "等価交換だね",
+          "dialogue_state_token": null
+        },
+        {
+          "offset": 8361440,
+          "text": "カードの質量、価値は上限７\nレベルは上限が５ってルールがある\nそれを守らなきゃダメだ",
+          "dialogue_state_token": null
+        },
+        {
+          "offset": 8361539,
+          "text": "なるほど\nそう簡単にいかないね",
+          "dialogue_state_token": null
+        },
+        {
+          "offset": 8361583,
+          "text": "そのうち慣れるさじゃあそろそろ終わらすぜ",
+          "dialogue_state_token": null
+        }
+      ],
+      "record_count": 17,
+      "first_text": "さぁ相手になってやるぜ！",
+      "last_text": "そのうち慣れるさじゃあそろそろ終わらすぜ",
+      "sample_texts": [
+        "さぁ相手になってやるぜ！",
+        "兄さん、どうやって戦うの？",
+        "錬成であっさり終わらせる！",
+        "このコマンドで錬成だ！"
+      ]
+    }
+  ],
+  "top_transitions": [
+    {
+      "from": "pre98:3A",
+      "to": "pre98:0B",
+      "count": 8
+    },
+    {
+      "from": "pre98:0B",
+      "to": "pre98:3A",
+      "count": 6
+    },
+    {
+      "from": "pre98:0B",
+      "to": "pre98:3B",
+      "count": 5
+    },
+    {
+      "from": "pre98:3B",
+      "to": "pre98:0B",
+      "count": 3
+    },
+    {
+      "from": "pre98:6A",
+      "to": "pre98:3C",
+      "count": 3
+    },
+    {
+      "from": "pre98:13",
+      "to": "pre98:3C",
+      "count": 3
+    },
+    {
+      "from": "pre98:3A",
+      "to": "pre98:3C",
+      "count": 2
+    },
+    {
+      "from": "pre98:3C",
+      "to": "pre98:36",
+      "count": 2
+    },
+    {
+      "from": "pre98:36",
+      "to": "pre98:3A",
+      "count": 2
+    },
+    {
+      "from": "pre98:3A",
+      "to": "pre98:26",
+      "count": 2
+    },
+    {
+      "from": "pre98:2F",
+      "to": "pre98:01",
+      "count": 2
+    },
+    {
+      "from": "pre98:01",
+      "to": "pre98:05",
+      "count": 2
+    },
+    {
+      "from": "pre98:3C",
+      "to": "pre98:2F",
+      "count": 2
+    },
+    {
+      "from": "pre98:25",
+      "to": "pre98:53",
+      "count": 2
+    },
+    {
+      "from": "pre98:4A",
+      "to": "pre98:3C",
+      "count": 2
+    },
+    {
+      "from": "pre98:3C",
+      "to": "pre98:4A",
+      "count": 2
+    },
+    {
+      "from": "pre98:28",
+      "to": "pre98:3B",
+      "count": 2
+    },
+    {
+      "from": "pre98:51",
+      "to": "pre98:07",
+      "count": 2
+    },
+    {
+      "from": "pre98:3C",
+      "to": "pre98:1A",
+      "count": 2
+    },
+    {
+      "from": "pre98:3B",
+      "to": "pre98:6A",
+      "count": 2
+    },
+    {
+      "from": "pre98:53",
+      "to": "pre98:03",
+      "count": 2
+    },
+    {
+      "from": "pre98:1A",
+      "to": "pre98:3B",
+      "count": 2
+    },
+    {
+      "from": "pre98:3B",
+      "to": "pre98:3A",
+      "count": 1
+    },
+    {
+      "from": "pre98:3B",
+      "to": "pre98:0C",
+      "count": 1
+    },
+    {
+      "from": "pre98:0C",
+      "to": "pre98:3A",
+      "count": 1
+    },
+    {
+      "from": "pre98:3C",
+      "to": "pre98:0B",
+      "count": 1
+    },
+    {
+      "from": "pre98:3A",
+      "to": "pre98:3B",
+      "count": 1
+    },
+    {
+      "from": "pre98:3B",
+      "to": "pre98:11",
+      "count": 1
+    },
+    {
+      "from": "pre98:11",
+      "to": "pre98:3A",
+      "count": 1
+    },
+    {
+      "from": "pre98:3A",
+      "to": "pre98:31",
+      "count": 1
+    },
+    {
+      "from": "pre98:31",
+      "to": "pre98:33",
+      "count": 1
+    },
+    {
+      "from": "pre98:33",
+      "to": "pre98:3C",
+      "count": 1
+    },
+    {
+      "from": "pre98:3C",
+      "to": "pre98:3A",
+      "count": 1
+    },
+    {
+      "from": "pre98:3A",
+      "to": "pre98:07",
+      "count": 1
+    },
+    {
+      "from": "pre98:07",
+      "to": "pre98:33",
+      "count": 1
+    },
+    {
+      "from": "pre98:33",
+      "to": "pre98:25",
+      "count": 1
+    },
+    {
+      "from": "pre98:25",
+      "to": "pre98:07",
+      "count": 1
+    },
+    {
+      "from": "pre98:07",
+      "to": "pre98:25",
+      "count": 1
+    },
+    {
+      "from": "pre98:25",
+      "to": "pre98:02",
+      "count": 1
+    },
+    {
+      "from": "pre98:02",
+      "to": "pre98:6A",
+      "count": 1
+    },
+    {
+      "from": "pre98:3C",
+      "to": "pre98:13",
+      "count": 1
+    },
+    {
+      "from": "pre98:3A",
+      "to": "pre98:13",
+      "count": 1
+    },
+    {
+      "from": "pre98:26",
+      "to": "pre98:07",
+      "count": 1
+    },
+    {
+      "from": "pre98:07",
+      "to": "pre98:2C",
+      "count": 1
+    },
+    {
+      "from": "pre98:2C",
+      "to": "pre98:12",
+      "count": 1
+    },
+    {
+      "from": "pre98:12",
+      "to": "pre98:3C",
+      "count": 1
+    },
+    {
+      "from": "pre98:3C",
+      "to": "pre98:03",
+      "count": 1
+    },
+    {
+      "from": "pre98:03",
+      "to": "pre98:0F",
+      "count": 1
+    },
+    {
+      "from": "pre98:0F",
+      "to": "pre98:68",
+      "count": 1
+    },
+    {
+      "from": "pre98:68",
+      "to": "pre98:3C",
+      "count": 1
+    },
+    {
+      "from": "pre98:3C",
+      "to": "pre98:15",
+      "count": 1
+    },
+    {
+      "from": "pre98:15",
+      "to": "pre98:39",
+      "count": 1
+    },
+    {
+      "from": "pre98:39",
+      "to": "pre98:57",
+      "count": 1
+    },
+    {
+      "from": "pre98:57",
+      "to": "pre98:25",
+      "count": 1
+    },
+    {
+      "from": "pre98:25",
+      "to": "pre98:2F",
+      "count": 1
+    },
+    {
+      "from": "pre98:05",
+      "to": "pre98:3C",
+      "count": 1
+    },
+    {
+      "from": "pre98:05",
+      "to": "pre98:01",
+      "count": 1
+    },
+    {
+      "from": "pre98:01",
+      "to": "pre98:25",
+      "count": 1
+    },
+    {
+      "from": "pre98:53",
+      "to": "pre98:16",
+      "count": 1
+    },
+    {
+      "from": "pre98:16",
+      "to": "pre98:59",
+      "count": 1
+    },
+    {
+      "from": "pre98:59",
+      "to": "pre98:4A",
+      "count": 1
+    },
+    {
+      "from": "pre98:4A",
+      "to": "pre98:58",
+      "count": 1
+    },
+    {
+      "from": "pre98:58",
+      "to": "pre98:28",
+      "count": 1
+    },
+    {
+      "from": "pre98:3B",
+      "to": "pre98:58",
+      "count": 1
+    },
+    {
+      "from": "pre98:58",
+      "to": "pre98:56",
+      "count": 1
+    },
+    {
+      "from": "pre98:56",
+      "to": "pre98:57",
+      "count": 1
+    },
+    {
+      "from": "pre98:57",
+      "to": "pre98:7A",
+      "count": 1
+    },
+    {
+      "from": "pre98:7A",
+      "to": "pre98:3C",
+      "count": 1
+    },
+    {
+      "from": "pre98:3C",
+      "to": "pre98:7B",
+      "count": 1
+    },
+    {
+      "from": "pre98:7B",
+      "to": "pre98:02",
+      "count": 1
+    },
+    {
+      "from": "pre98:02",
+      "to": "pre98:56",
+      "count": 1
+    },
+    {
+      "from": "pre98:56",
+      "to": "pre98:13",
+      "count": 1
+    },
+    {
+      "from": "pre98:2F",
+      "to": "pre98:04",
+      "count": 1
+    },
+    {
+      "from": "pre98:04",
+      "to": "pre98:58",
+      "count": 1
+    },
+    {
+      "from": "pre98:58",
+      "to": "pre98:03",
+      "count": 1
+    },
+    {
+      "from": "pre98:03",
+      "to": "pre98:3A",
+      "count": 1
+    },
+    {
+      "from": "pre98:3A",
+      "to": "pre98:15",
+      "count": 1
+    },
+    {
+      "from": "pre98:15",
+      "to": "pre98:3A",
+      "count": 1
+    },
+    {
+      "from": "pre98:3A",
+      "to": "pre98:29",
+      "count": 1
+    },
+    {
+      "from": "pre98:29",
+      "to": "pre98:3A",
+      "count": 1
+    },
+    {
+      "from": "pre98:26",
+      "to": "pre98:2C",
+      "count": 1
+    },
+    {
+      "from": "pre98:2C",
+      "to": "pre98:51",
+      "count": 1
+    },
+    {
+      "from": "pre98:07",
+      "to": "pre98:0B",
+      "count": 1
+    },
+    {
+      "from": "pre98:0B",
+      "to": "pre98:07",
+      "count": 1
+    },
+    {
+      "from": "pre98:07",
+      "to": "pre98:12",
+      "count": 1
+    },
+    {
+      "from": "pre98:12",
+      "to": "pre98:0A",
+      "count": 1
+    },
+    {
+      "from": "pre98:0A",
+      "to": "pre98:13",
+      "count": 1
+    },
+    {
+      "from": "pre98:13",
+      "to": "pre98:48",
+      "count": 1
+    },
+    {
+      "from": "pre98:48",
+      "to": "pre98:51",
+      "count": 1
+    },
+    {
+      "from": "pre98:07",
+      "to": "pre98:50",
+      "count": 1
+    },
+    {
+      "from": "pre98:50",
+      "to": "pre98:4B",
+      "count": 1
+    },
+    {
+      "from": "pre98:4B",
+      "to": "pre98:07",
+      "count": 1
+    },
+    {
+      "from": "pre98:07",
+      "to": "pre98:48",
+      "count": 1
+    },
+    {
+      "from": "pre98:48",
+      "to": "pre98:07",
+      "count": 1
+    },
+    {
+      "from": "pre98:07",
+      "to": "pre98:11",
+      "count": 1
+    },
+    {
+      "from": "pre98:11",
+      "to": "pre98:33",
+      "count": 1
+    },
+    {
+      "from": "pre98:37",
+      "to": "pre98:57",
+      "count": 1
+    },
+    {
+      "from": "pre98:57",
+      "to": "pre98:35",
+      "count": 1
+    },
+    {
+      "from": "pre98:35",
+      "to": "pre98:09",
+      "count": 1
+    },
+    {
+      "from": "pre98:09",
+      "to": "pre98:0F",
+      "count": 1
+    }
+  ]
+}

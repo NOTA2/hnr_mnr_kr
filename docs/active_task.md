@@ -23,6 +23,7 @@
 - 따라서 남은 핵심은 “대사 source 의 record 경계”보다 **runtime dialogue box/page family** 와 **실플레이/이미지 텍스트 감사** 쪽이다.
 - `analysis/dialogue_speaker_probe.md` 는 representative dialogue scene `2`개에서 각 레코드 직전 control-gap 을 뽑은 첫 speaker-state 추적 산출물이다.
 - 짧은 반복 gap (`04 FF 05 FF 0A 00` 등) 만 낀 연속 레코드는 같은 active speaker/turn 후보로, 더 큰 gap (`1B FF`, `2B FF` 포함) 전환은 state-change 후보로 추적할 수 있다.
+- [confirmed_data/dialogue_metadata](/Users/user/test/confirmed_data/dialogue_metadata/README.md) 에는 source-wide `dialogue_state_token` 과 contiguous `state run` sidecar 가 생성된다.
 
 ## 지금 우선순위
 
