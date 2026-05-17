@@ -13,6 +13,7 @@
 - 새 후보 bitmap PNG 에서 **반드시 필요한 것**은 `가..힣` 완성형 `11,172`자 atlas 다.
 - 숫자/영문/기본 기호는 1차 한글화 기준으로 **원본 게임 공통 폰트**를 그대로 재사용한다.
 - 첫 화면 즉시 비교용 startup showcase 세트는 [translation_workset_startup_font_showcase.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_startup_font_showcase.json) 이다.
+- atlas importer 는 현재 PNG 의 `흰 본체 + 회색 그림자` 를 그대로 보존해 `0 / 123 / 255` 단계로 workbench 를 만든다.
 
 ## 지금 우선순위
 

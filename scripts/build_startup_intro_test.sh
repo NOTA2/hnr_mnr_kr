@@ -21,7 +21,7 @@ if [[ "$ALLOW_BLANK_GLYPHS" != "1" ]]; then
   python3 -m gba_kor_tool audit-pgm-glyph-set \
     "$ACTIVE_WORKBENCH/prepared_manifest.json" \
     --fail-on-blank \
-    --allowed-values 0,34 \
+    --allowed-values 0,123,255 \
     --fail-on-disallowed \
     --output "$OUTPUT_DIR/startup_intro_active_glyph_audit.json"
 fi

@@ -1621,3 +1621,17 @@
   - 각 ROM 모두 첫 카드 `4`줄이 교체되는 것으로 build report 가 확인되었다.
 - 판정: `성공`
 - 교훈: 사용자가 바로 보는 첫 화면을 기준으로 같은 문자열을 깔아야, 폰트 차이를 가장 빠르고 공정하게 비교할 수 있다.
+
+### 실험 89
+
+- 가설: 사용자가 준 bitmap atlas 는 이미 `흰 본체 + 회색 그림자` 를 포함하므로, importer 에서 이를 이진화하면 원본보다 흐리고 납작하게 보일 것이다.
+- 시도:
+  - atlas 원본 픽셀을 확인해 실제 RGB 값이 `(255,255,255)` 본체, `(123,123,123)` 그림자, `(0,0,0)` 배경으로 구성되어 있음을 확인했다.
+  - [import_hangul_syllable_atlas.py](/Users/user/test/scripts/import_hangul_syllable_atlas.py) 를 수정해 bright pixel 을 `34` 하나로 뭉개지 않고, source atlas 의 grayscale 값을 그대로 PGM 으로 보존하게 했다.
+  - atlas 기반 build script 의 glyph audit 허용값도 `0,123,255` 로 바꿨다.
+  - 이후 후보 `3`개 startup showcase ROM 을 다시 빌드했다.
+- 결과:
+  - 새 workbench glyph 는 실제로 `0 / 123 / 255` 값만 사용했다.
+  - 즉 흰 본체와 회색 그림자가 모두 살아 있는 상태로 ROM 재빌드가 가능해졌다.
+- 판정: `성공`
+- 교훈: bitmap atlas 를 seed 로 쓸 때는 "비트맵이니 무조건 이진화"가 아니라, **원본 atlas 가 이미 설계한 톤 단계 자체를 보존해야** 의도한 본체/그림자 효과가 유지된다.

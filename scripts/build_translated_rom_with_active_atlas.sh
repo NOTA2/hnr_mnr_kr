@@ -20,7 +20,7 @@ python3 scripts/build_workbench_from_active_atlas.py \
 
 python3 -m gba_kor_tool audit-pgm-glyph-set \
   "$WORKBENCH_DIR/prepared_manifest.json" \
-  --allowed-values 0,34 \
+  --allowed-values 0,123,255 \
   --fail-on-disallowed \
   --fail-on-blank \
   --output "$OUTPUT_DIR/${SLUG}_glyph_audit.json"
