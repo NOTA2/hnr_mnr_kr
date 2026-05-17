@@ -10,7 +10,7 @@
 ## 사용 원칙
 
 - canonical extracted text 와 baked image text 는 분리해서 관리한다.
-- 이 inventory 는 실제 image-side review 가 진행되기 전까지는 `review bucket` 중심으로 유지한다.
+- 이 inventory 는 막연한 bucket 이 아니라 실제 검토 단위에 가까운 `review_units` 중심으로 유지한다.
 
 ## 재생성
 

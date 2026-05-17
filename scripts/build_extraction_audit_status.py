@@ -68,7 +68,7 @@ def main() -> int:
             {
                 "id": "runtime_dialogue_box_family_mapping",
                 "status": "in_progress",
-                "notes": "Record structures for the major extracted sources are mostly closed. The remaining high-priority runtime risk is now narrowed to two shared-r3=20 dialogue profiles: entry8 short single-line counted records and Registry D multiline FC-delimited payloads."
+                "notes": "Record structures for the major extracted sources are mostly closed. The remaining high-priority runtime risk is now narrowed to two shared-r3=20 dialogue profiles: entry8 short single-line counted records that chain externally by state runs, and Registry D multiline FC-delimited payloads whose longest tier still needs page-turn/runtime confirmation."
             },
             {
                 "id": "medium_ui_command_runtime_cleanup",
@@ -83,10 +83,10 @@ def main() -> int:
             {
                 "id": "image_text_inventory",
                 "status": "in_progress",
-                "notes": "Image-side review is now started as a separate inventory track. Several important UI/dialogue contexts are already confirmed to be non-image text, but baked-image review buckets remain pending."
+                "notes": "Image-side review is now started as a separate inventory track. Several important UI/dialogue contexts are already confirmed to be non-image text, and remaining image work is narrowed to concrete review units such as title wordmarks, cutscene cards, portrait assets, UI panel labels, and battle/result banners."
             },
         ],
-        "operational_reading": "Large unknown text banks and per-source record structures are no longer the main risk. Structurally, known sources are closed; system/save are operationally bounded, and the remaining major work is dialogue/page runtime family confirmation for two narrowed high-priority profiles, playthrough audit, and image-side inventory review.",
+        "operational_reading": "Large unknown text banks and per-source record structures are no longer the main risk. Structurally, known sources are closed; system/save are operationally bounded, and the remaining major work is dialogue/page runtime confirmation for entry8 chain-heavy single-line runs and the small longest-multiline Registry D tier, plus playthrough audit and concrete image-side review units.",
     }
     OUTPUT_PATH.write_text(json.dumps(status, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"wrote {OUTPUT_PATH}")

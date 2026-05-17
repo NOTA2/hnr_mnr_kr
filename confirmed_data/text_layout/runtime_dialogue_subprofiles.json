@@ -1,0 +1,1545 @@
+{
+  "version": 1,
+  "last_updated": "2026-05-17",
+  "scope": "Refined runtime subprofiles for the two remaining high-priority dialogue/page-flow sources.",
+  "entry8": {
+    "profile_counts": {
+      "chain_heavy_singleline": 42,
+      "chain_moderate_singleline": 26,
+      "mostly_standalone_singleline": 4
+    },
+    "top_chain_heavy_clusters": [
+      {
+        "cluster_index": 38,
+        "primary_tag": "central",
+        "record_count": 786,
+        "run_count": 589,
+        "multi_record_run_count": 131,
+        "null_run_count": 244,
+        "token_run_count": 345,
+        "max_run_record_count": 11,
+        "runtime_chain_profile": "chain_heavy_singleline",
+        "sample_multi_runs": [
+          {
+            "dialogue_state_token": null,
+            "record_count": 3,
+            "sample_texts": [
+              "レドンドとソリンの事件ですが",
+              "いずれも能力の高い錬金術師が",
+              "犯人です"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "作るだけでなくて",
+              "操れるってスゴイよな"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 3,
+            "sample_texts": [
+              "実はですね、一風変わった",
+              "錬金術師が住む屋敷が",
+              "あるらしいんです"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "ダート・ダイムラー。",
+              "表向きは商人だそうです"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 3,
+            "sample_texts": [
+              "今回の事件の報告書ですよ。",
+              "きちんと目を通してくれないと",
+              "困りますよぉ"
+            ]
+          }
+        ]
+      },
+      {
+        "cluster_index": 18,
+        "primary_tag": "east_city",
+        "record_count": 523,
+        "run_count": 314,
+        "multi_record_run_count": 91,
+        "null_run_count": 135,
+        "token_run_count": 179,
+        "max_run_record_count": 12,
+        "runtime_chain_profile": "chain_heavy_singleline",
+        "sample_multi_runs": [
+          {
+            "dialogue_state_token": null,
+            "record_count": 3,
+            "sample_texts": [
+              "コーニッシュ・ロイスの",
+              "国家錬金術師資格試験を始める",
+              "始め！！"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "エドワード・エルリックよ！",
+              "あとは開会を待つばかりだぞ"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "なんでもないです…",
+              "ならばよろしい"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 3,
+            "sample_texts": [
+              "なんで、バルドとか、",
+              "捕まったはずの人たちが",
+              "いるんですか？"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 4,
+            "sample_texts": [
+              "大会を盛り上げるために",
+              "特別に参加を認めたのだ",
+              "なんでも勝利すれば、"
+            ]
+          }
+        ]
+      },
+      {
+        "cluster_index": 61,
+        "primary_tag": "military",
+        "record_count": 483,
+        "run_count": 274,
+        "multi_record_run_count": 83,
+        "null_run_count": 119,
+        "token_run_count": 155,
+        "max_run_record_count": 15,
+        "runtime_chain_profile": "chain_heavy_singleline",
+        "sample_multi_runs": [
+          {
+            "dialogue_state_token": null,
+            "record_count": 6,
+            "sample_texts": [
+              "ついに親玉が登場ってわけか",
+              "いいか、この前の借り",
+              "しっかり返させて"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "ダイムラーから奪ったのは",
+              "賢者の石だったというのか？"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "…それほどにまで欲しいか",
+              "その力を欲し、なんとする"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 7,
+            "sample_texts": [
+              "ボクらに渡して欲しいんだ",
+              "なるほど、機械鎧か。",
+              "それが鋼の錬金術師と"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 5,
+            "sample_texts": [
+              "人体錬成に関しては身をもって",
+              "よーく知ってるんでね",
+              "てめぇに"
+            ]
+          }
+        ]
+      },
+      {
+        "cluster_index": 55,
+        "primary_tag": "east_city",
+        "record_count": 438,
+        "run_count": 342,
+        "multi_record_run_count": 80,
+        "null_run_count": 142,
+        "token_run_count": 200,
+        "max_run_record_count": 5,
+        "runtime_chain_profile": "chain_heavy_singleline",
+        "sample_multi_runs": [
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "根本的問題なんですけど",
+              "誰を探してるんですか？"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "考えもなしに",
+              "遺跡をさまよってるのかよ"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "マーティンス中佐は",
+              "どうなのかね？"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "よくぞ俺が犯人だと見破った！",
+              "さすが鋼の錬金術師"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "…知ってて",
+              "追ってきたんじゃないのか？"
+            ]
+          }
+        ]
+      },
+      {
+        "cluster_index": 70,
+        "primary_tag": "military",
+        "record_count": 257,
+        "run_count": 113,
+        "multi_record_run_count": 46,
+        "null_run_count": 53,
+        "token_run_count": 60,
+        "max_run_record_count": 12,
+        "runtime_chain_profile": "chain_heavy_singleline",
+        "sample_multi_runs": [
+          {
+            "dialogue_state_token": null,
+            "record_count": 4,
+            "sample_texts": [
+              "それも自身とこの城を",
+              "融合したというのか",
+              "なんてヤツだよ。"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "どこって…",
+              "こんなとこで戦えってのかよ！"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 4,
+            "sample_texts": [
+              "この城はもはや",
+              "我が肉体の一部と化した",
+              "我が身体の中から"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 8,
+            "sample_texts": [
+              "錬金術って、誰かを",
+              "傷つけるためのものですか？",
+              "兄さんが教えてくれた、"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 4,
+            "sample_texts": [
+              "ボクや兄さんも",
+              "同じだって言った…",
+              "ボクも最初、そう思った。"
+            ]
+          }
+        ]
+      },
+      {
+        "cluster_index": 26,
+        "primary_tag": "central",
+        "record_count": 274,
+        "run_count": 167,
+        "multi_record_run_count": 45,
+        "null_run_count": 72,
+        "token_run_count": 95,
+        "max_run_record_count": 37,
+        "runtime_chain_profile": "chain_heavy_singleline",
+        "sample_multi_runs": [
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "やらなきゃいけないことが",
+              "あるんじゃない？"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 3,
+            "sample_texts": [
+              "元々、探求の旅をしてるし、",
+              "動いているほうが情報も",
+              "得られやすいから"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 3,
+            "sample_texts": [
+              "たくさんの人と知り合えるから",
+              "旅も楽しいです",
+              "アルはいい事を言うな"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "コーニッシュの事もある。",
+              "とにかく結果を出せよ"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "身体痛てぇ",
+              "本当ね…"
+            ]
+          }
+        ]
+      },
+      {
+        "cluster_index": 20,
+        "primary_tag": "central",
+        "record_count": 325,
+        "run_count": 138,
+        "multi_record_run_count": 44,
+        "null_run_count": 63,
+        "token_run_count": 75,
+        "max_run_record_count": 24,
+        "runtime_chain_profile": "chain_heavy_singleline",
+        "sample_multi_runs": [
+          {
+            "dialogue_state_token": null,
+            "record_count": 14,
+            "sample_texts": [
+              "そろそろ、そちらのお嬢さんの",
+              "試験がはじまるぞ",
+              "事件の早期解決を"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 7,
+            "sample_texts": [
+              "賢者の石だなんて、張り切って",
+              "損したよな～",
+              "あれは兄さんの"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "なにを沈んだ顔をしている",
+              "べつに…"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 4,
+            "sample_texts": [
+              "いつまでも悲しんでいては、",
+              "中佐も浮かばれぬぞ！",
+              "こういうときこそ、"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "が、いつまでも涙に暮れる事を",
+              "中佐はきっと望んではおらんぞ"
+            ]
+          }
+        ]
+      },
+      {
+        "cluster_index": 62,
+        "primary_tag": "central",
+        "record_count": 291,
+        "run_count": 191,
+        "multi_record_run_count": 42,
+        "null_run_count": 79,
+        "token_run_count": 112,
+        "max_run_record_count": 26,
+        "runtime_chain_profile": "chain_heavy_singleline",
+        "sample_multi_runs": [
+          {
+            "dialogue_state_token": null,
+            "record_count": 8,
+            "sample_texts": [
+              "なかなか見つからないものだね",
+              "ガセネタばっかりだもんなぁ。",
+              "一度、セントラルシティに"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "バルド一味が乗っ取った。",
+              "ムダな抵抗はするな"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 6,
+            "sample_texts": [
+              "どうするつもりだよ",
+              "こっちはなぁ、既に人質を",
+              "とってんだ。"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 4,
+            "sample_texts": [
+              "身体にいい薬はいらないかい？",
+              "自然の２－５のレベル２だよ。",
+              "８００センズだけど、"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 26,
+            "sample_texts": [
+              "お客さんの手持ちカードから",
+              "いらないものを選んでください",
+              "おや、いらないのですか？"
+            ]
+          }
+        ]
+      },
+      {
+        "cluster_index": 41,
+        "primary_tag": "east_city",
+        "record_count": 306,
+        "run_count": 176,
+        "multi_record_run_count": 37,
+        "null_run_count": 65,
+        "token_run_count": 111,
+        "max_run_record_count": 77,
+        "runtime_chain_profile": "chain_heavy_singleline",
+        "sample_multi_runs": [
+          {
+            "dialogue_state_token": null,
+            "record_count": 4,
+            "sample_texts": [
+              "こんなところにいたんですか？",
+              "仕事だと言ったろう。",
+              "さっきの話は断ったはずだ。"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "大佐、約束ですからね。",
+              "仲間になってもらいますよ"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "約束は約束です。",
+              "私も協力致します"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "協力をしないわけには",
+              "いかないのよ"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "アストン・マーティンス中佐",
+              "二つ名を「雷霆の錬金術師」"
+            ]
+          }
+        ]
+      },
+      {
+        "cluster_index": 11,
+        "primary_tag": "central",
+        "record_count": 258,
+        "run_count": 89,
+        "multi_record_run_count": 30,
+        "null_run_count": 39,
+        "token_run_count": 50,
+        "max_run_record_count": 56,
+        "runtime_chain_profile": "chain_heavy_singleline",
+        "sample_multi_runs": [
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "遠くには行ってないだろ。",
+              "きっとこの区画にいるはずだ"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "遠くへは行ってないだろ。",
+              "きっとこの区画にいるはずだ"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 56,
+            "sample_texts": [
+              "空を飛ぶ鎧の頭よ。",
+              "何かのバケモノかしら",
+              "どこに飛んで行ったか？"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "遠くへは行ってないだろ。",
+              "きっとこの区画にいるはずだ"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "遠くには行ってないだろ。",
+              "きっとこの区画にいるはずだ"
+            ]
+          }
+        ]
+      },
+      {
+        "cluster_index": 59,
+        "primary_tag": "military",
+        "record_count": 166,
+        "run_count": 94,
+        "multi_record_run_count": 29,
+        "null_run_count": 41,
+        "token_run_count": 53,
+        "max_run_record_count": 13,
+        "runtime_chain_profile": "chain_heavy_singleline",
+        "sample_multi_runs": [
+          {
+            "dialogue_state_token": null,
+            "record_count": 3,
+            "sample_texts": [
+              "ケイトのところに着くんだ？",
+              "だから、兄さん、",
+              "探す相手が違うって…"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "ちゃはっ！",
+              "モテる女は辛いなー"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "鋼の錬金術師と、",
+              "ヨロイくんたちか"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "良かったのにな…",
+              "チビッコは眼中にないから"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 5,
+            "sample_texts": [
+              "ボクらを倒せと",
+              "リンカーに命令されてるんじゃ",
+              "あー、そういえばお兄ちゃん、"
+            ]
+          }
+        ]
+      },
+      {
+        "cluster_index": 0,
+        "primary_tag": "liore",
+        "record_count": 232,
+        "run_count": 122,
+        "multi_record_run_count": 27,
+        "null_run_count": 54,
+        "token_run_count": 68,
+        "max_run_record_count": 34,
+        "runtime_chain_profile": "chain_heavy_singleline",
+        "sample_multi_runs": [
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "医者になりたいんだけど、",
+              "どうやったらなれるのかな？"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "ロゼ・トーマスよ。",
+              "よろしくね"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "いいわねぇ、家族がいるって。",
+              "ひとりじゃないものね"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "私、詳しくないの。",
+              "教えてくれる？"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 4,
+            "sample_texts": [
+              "だから術師ってよりは",
+              "オレたちは科学者なわけ",
+              "科学者…"
+            ]
+          }
+        ]
+      }
+    ],
+    "top_chain_moderate_clusters": [
+      {
+        "cluster_index": 52,
+        "primary_tag": "cat_quest",
+        "record_count": 232,
+        "run_count": 142,
+        "multi_record_run_count": 38,
+        "null_run_count": 62,
+        "token_run_count": 80,
+        "max_run_record_count": 9,
+        "runtime_chain_profile": "chain_moderate_singleline",
+        "sample_multi_runs": [
+          {
+            "dialogue_state_token": null,
+            "record_count": 6,
+            "sample_texts": [
+              "かかるのかな",
+              "細かく調べたいから、",
+              "少し時間がかかるわよ"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "点検するのは",
+              "兄さんだけですから"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "わからないのでしょう。",
+              "ここに残りなさい"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "したがっておる。",
+              "遠慮することはない"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "起こってて、大総統から",
+              "解決するように言われたんだ"
+            ]
+          }
+        ]
+      },
+      {
+        "cluster_index": 47,
+        "primary_tag": "military",
+        "record_count": 187,
+        "run_count": 145,
+        "multi_record_run_count": 34,
+        "null_run_count": 61,
+        "token_run_count": 84,
+        "max_run_record_count": 6,
+        "runtime_chain_profile": "chain_moderate_singleline",
+        "sample_multi_runs": [
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "心配したんですよ",
+              "他の人たちは冷たかったけど"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "だが、ご覧のとおり",
+              "ピンピンしてるから安心しな"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "マーティンス中佐が",
+              "いないって言うんなら…"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "信用できると思うかと",
+              "聞いている"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "しかし、かつて中佐と",
+              "ロイス大佐は戦友だった"
+            ]
+          }
+        ]
+      },
+      {
+        "cluster_index": 34,
+        "primary_tag": "military",
+        "record_count": 166,
+        "run_count": 115,
+        "multi_record_run_count": 33,
+        "null_run_count": 48,
+        "token_run_count": 67,
+        "max_run_record_count": 8,
+        "runtime_chain_profile": "chain_moderate_singleline",
+        "sample_multi_runs": [
+          {
+            "dialogue_state_token": null,
+            "record_count": 4,
+            "sample_texts": [
+              "ふかふかベッドは",
+              "やっぱいいねー",
+              "中佐は軍刑務所暮らしが"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "中佐って刑務所に",
+              "いらっしゃったんですよね？"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "コーニッシュ、",
+              "そんなおびえた顔をするなよ"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "刑務所ですよ、刑務所！",
+              "悪いことした人が入る場所！"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "ただ命令違反が常習化して",
+              "入れられただけで…"
+            ]
+          }
+        ]
+      },
+      {
+        "cluster_index": 43,
+        "primary_tag": "east_city",
+        "record_count": 173,
+        "run_count": 127,
+        "multi_record_run_count": 32,
+        "null_run_count": 52,
+        "token_run_count": 75,
+        "max_run_record_count": 7,
+        "runtime_chain_profile": "chain_moderate_singleline",
+        "sample_multi_runs": [
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "悪い事をしてないのに…",
+              "悲しいよ…"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "もう少しマシな手段を考えて",
+              "欲しいよなぁ"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "んじゃ、そろそろ",
+              "脱獄といくか"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 7,
+            "sample_texts": [
+              "極刑は免れないぞ",
+              "あー、うるせぇ。",
+              "オレは好きでここに"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "ああ、もしかしたら",
+              "マーティンス中佐のかもな"
+            ]
+          }
+        ]
+      },
+      {
+        "cluster_index": 9,
+        "primary_tag": "reward",
+        "record_count": 155,
+        "run_count": 107,
+        "multi_record_run_count": 31,
+        "null_run_count": 45,
+        "token_run_count": 62,
+        "max_run_record_count": 5,
+        "runtime_chain_profile": "chain_moderate_singleline",
+        "sample_multi_runs": [
+          {
+            "dialogue_state_token": null,
+            "record_count": 5,
+            "sample_texts": [
+              "いま、崖の上の方に",
+              "誰かいなかった？",
+              "気のせいじゃないか？"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "ああ、オレも見た！",
+              "追うぞ！"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 3,
+            "sample_texts": [
+              "ここから先は進めないよ",
+              "ちくしょー！",
+              "山の左側から回りこむか"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 3,
+            "sample_texts": [
+              "ここも崖で先に進めないよ",
+              "この先にいるのはわかってんだ",
+              "ぜったいに先に進んでやる！"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "ここを通れるくらいの",
+              "橋を作れそうだな…"
+            ]
+          }
+        ]
+      },
+      {
+        "cluster_index": 53,
+        "primary_tag": "military",
+        "record_count": 184,
+        "run_count": 142,
+        "multi_record_run_count": 28,
+        "null_run_count": 51,
+        "token_run_count": 91,
+        "max_run_record_count": 5,
+        "runtime_chain_profile": "chain_moderate_singleline",
+        "sample_multi_runs": [
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "どうせなら普段からもう少し",
+              "軍に協力的…"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "ブラッドレイ大総統との",
+              "約束だからさ"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 3,
+            "sample_texts": [
+              "そんな泣きそうな顔するなよ",
+              "だって、私のために",
+              "…ありがと"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "恩を着せようなんて",
+              "思ってないんだから"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "あれはヤツら流の",
+              "スキンシップってヤツさ"
+            ]
+          }
+        ]
+      },
+      {
+        "cluster_index": 46,
+        "primary_tag": "military",
+        "record_count": 155,
+        "run_count": 112,
+        "multi_record_run_count": 27,
+        "null_run_count": 50,
+        "token_run_count": 62,
+        "max_run_record_count": 6,
+        "runtime_chain_profile": "chain_moderate_singleline",
+        "sample_multi_runs": [
+          {
+            "dialogue_state_token": null,
+            "record_count": 6,
+            "sample_texts": [
+              "お出迎えのようですな",
+              "なーんだ、",
+              "もう気づかれちゃってんの。"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "なんでチビッコに",
+              "んなこと言われなきゃ…"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "誰がチビッコだぁ！？",
+              "姿、あらわせっ！"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "鋼の錬金術師よ！",
+              "また会ったなっ！"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "狭いんだから、",
+              "端を歩くのがマナーだろ"
+            ]
+          }
+        ]
+      },
+      {
+        "cluster_index": 39,
+        "primary_tag": "military",
+        "record_count": 123,
+        "run_count": 82,
+        "multi_record_run_count": 26,
+        "null_run_count": 37,
+        "token_run_count": 45,
+        "max_run_record_count": 5,
+        "runtime_chain_profile": "chain_moderate_singleline",
+        "sample_multi_runs": [
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "結局キメラ事件の後始末か。",
+              "…休暇取りてぇなー"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 4,
+            "sample_texts": [
+              "この事件を",
+              "解決してくださいよ",
+              "危なくて、"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "書類あげないで",
+              "出掛けるってどういうことよ"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "戻ってくださいよ",
+              "事務が滞って、滞って"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "わかってたけどさ、",
+              "聞いても話してくれないんだ"
+            ]
+          }
+        ]
+      },
+      {
+        "cluster_index": 58,
+        "primary_tag": "military",
+        "record_count": 143,
+        "run_count": 90,
+        "multi_record_run_count": 25,
+        "null_run_count": 41,
+        "token_run_count": 49,
+        "max_run_record_count": 7,
+        "runtime_chain_profile": "chain_moderate_singleline",
+        "sample_multi_runs": [
+          {
+            "dialogue_state_token": null,
+            "record_count": 4,
+            "sample_texts": [
+              "どこにいるんだ！？",
+              "だから、探す相手が違うって、",
+              "探さなきゃならないのは、"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "今度こそ俺のもとに",
+              "ひれ伏せさせてやるぜっ！"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 3,
+            "sample_texts": [
+              "相手をしてあげるのも礼儀よ",
+              "わざわざ出てきたのに、",
+              "かわいそうだと思いません？"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "ここから先、大将のもとには",
+              "行かせねぇぜ！"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 3,
+            "sample_texts": [
+              "では、この先に",
+              "リンカーがいるのだな？",
+              "教えてくれて感謝しよう"
+            ]
+          }
+        ]
+      },
+      {
+        "cluster_index": 44,
+        "primary_tag": "military",
+        "record_count": 150,
+        "run_count": 120,
+        "multi_record_run_count": 25,
+        "null_run_count": 50,
+        "token_run_count": 70,
+        "max_run_record_count": 5,
+        "runtime_chain_profile": "chain_moderate_singleline",
+        "sample_multi_runs": [
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "上げることにでもなってみろ。",
+              "私の人気はガタ落ちだ！"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "またそんなことかよ。",
+              "で、どうすれば？"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "開閉するスイッチがあります。",
+              "それで開くでしょう"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "リンカーが",
+              "いるんですよね！？"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "もっと大変な修羅場を",
+              "何度も切り抜けてきてんの"
+            ]
+          }
+        ]
+      },
+      {
+        "cluster_index": 45,
+        "primary_tag": "military",
+        "record_count": 115,
+        "run_count": 92,
+        "multi_record_run_count": 22,
+        "null_run_count": 38,
+        "token_run_count": 54,
+        "max_run_record_count": 3,
+        "runtime_chain_profile": "chain_moderate_singleline",
+        "sample_multi_runs": [
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "あまりに呆気なさ過ぎると、",
+              "オレは思うんだけど？"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "よもや手駒がこれだけだとは",
+              "到底思えないしな"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "…えっと、",
+              "なんてったっけ？"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "姿を見せないのが",
+              "かえって不気味だしな"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "冷たいなどと言われても、",
+              "いっこうにかまいはしないぞ"
+            ]
+          }
+        ]
+      },
+      {
+        "cluster_index": 1,
+        "primary_tag": "liore",
+        "record_count": 122,
+        "run_count": 83,
+        "multi_record_run_count": 19,
+        "null_run_count": 35,
+        "token_run_count": 48,
+        "max_run_record_count": 8,
+        "runtime_chain_profile": "chain_moderate_singleline",
+        "sample_multi_runs": [
+          {
+            "dialogue_state_token": null,
+            "record_count": 8,
+            "sample_texts": [
+              "オレたちコーネロ教主ってのに",
+              "会いたいんだけど。",
+              "いいかな？"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "ようこそ。",
+              "教義を受けに来たのかね？"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 3,
+            "sample_texts": [
+              "…例えば…",
+              "せこい錬金術で",
+              "信者をだます方法とか"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "さっき広場で見たよ。",
+              "そこで思った事がある"
+            ]
+          },
+          {
+            "dialogue_state_token": null,
+            "record_count": 2,
+            "sample_texts": [
+              "エドワード・エルリック！",
+              "全てお見通しというわけか…"
+            ]
+          }
+        ]
+      }
+    ],
+    "current_reading": [
+      "Entry8 records are still single-line counted payloads, but runtime flow is not purely one-record-per-box.",
+      "Many clusters contain multi-record contiguous state runs, so the remaining runtime question is chaining/page-flow across short records rather than multiline decoding.",
+      "Translation should treat chain-heavy clusters as likely externally sequenced dialogue stretches and keep per-record lines concise."
+    ]
+  },
+  "registry_d": {
+    "subprofiles": [
+      {
+        "subprofile": "single_line_short",
+        "run_count": 62,
+        "record_coverage": 80,
+        "sample_runs": [
+          {
+            "dialogue_state_token": "pre98:3A",
+            "record_count": 1,
+            "sample_texts": [
+              "さぁ相手になってやるぜ！"
+            ]
+          },
+          {
+            "dialogue_state_token": "pre98:0B",
+            "record_count": 1,
+            "sample_texts": [
+              "兄さん、どうやって戦うの？"
+            ]
+          },
+          {
+            "dialogue_state_token": "pre98:3B",
+            "record_count": 1,
+            "sample_texts": [
+              "錬成であっさり終わらせる！"
+            ]
+          },
+          {
+            "dialogue_state_token": "pre98:3A",
+            "record_count": 1,
+            "sample_texts": [
+              "このコマンドで錬成だ！"
+            ]
+          },
+          {
+            "dialogue_state_token": "pre98:0B",
+            "record_count": 1,
+            "sample_texts": [
+              "素材や技を作るんだね"
+            ]
+          },
+          {
+            "dialogue_state_token": "pre98:3B",
+            "record_count": 1,
+            "sample_texts": [
+              "そういうこと！"
+            ]
+          }
+        ]
+      },
+      {
+        "subprofile": "short_or_one_break",
+        "run_count": 87,
+        "record_coverage": 94,
+        "sample_runs": [
+          {
+            "dialogue_state_token": "pre98:0B",
+            "record_count": 1,
+            "sample_texts": [
+              "これで自分が欲しい素材を\n作っていくんだね？"
+            ]
+          },
+          {
+            "dialogue_state_token": "pre98:0B",
+            "record_count": 1,
+            "sample_texts": [
+              "じゃあこれでいい素材を\nたくさん作ろうよ、兄さん"
+            ]
+          },
+          {
+            "dialogue_state_token": "pre98:3A",
+            "record_count": 1,
+            "sample_texts": [
+              "でもちゃんとルールを\n守らないとな"
+            ]
+          },
+          {
+            "dialogue_state_token": "pre98:0B",
+            "record_count": 1,
+            "sample_texts": [
+              "なるほど\nそう簡単にいかないね"
+            ]
+          },
+          {
+            "dialogue_state_token": "pre98:3A",
+            "record_count": 1,
+            "sample_texts": [
+              "最初は？？？になってるけど\nどんどん使ってみればいい"
+            ]
+          },
+          {
+            "dialogue_state_token": "pre98:3C",
+            "record_count": 1,
+            "sample_texts": [
+              "よっしゃ\n派手に決めてみるぜ！"
+            ]
+          }
+        ]
+      },
+      {
+        "subprofile": "mid_multiline",
+        "run_count": 50,
+        "record_coverage": 52,
+        "sample_runs": [
+          {
+            "dialogue_state_token": "pre98:3B",
+            "record_count": 2,
+            "sample_texts": [
+              "そう、説明が表示されるから\nムズかしいことじゃないさ\nとりあえず見とけ",
+              "これが素材錬成だ"
+            ]
+          },
+          {
+            "dialogue_state_token": "pre98:3A",
+            "record_count": 1,
+            "sample_texts": [
+              "カードの質量、価値は上限７\nレベルは上限が５\nそれを守らなきゃダメだ"
+            ]
+          },
+          {
+            "dialogue_state_token": "pre98:07",
+            "record_count": 1,
+            "sample_texts": [
+              "こいつで最後か！\n気合入れて\nとっとと片付けるッ"
+            ]
+          },
+          {
+            "dialogue_state_token": "pre98:6A",
+            "record_count": 1,
+            "sample_texts": [
+              "なんだと\n小僧ごときがぁぁぁッ\n調子に乗るなよッ！"
+            ]
+          },
+          {
+            "dialogue_state_token": "pre98:2C",
+            "record_count": 1,
+            "sample_texts": [
+              "けっ、キメラにも親玉が\nいるとは笑わせるぜ\n覚悟しやがれ！"
+            ]
+          },
+          {
+            "dialogue_state_token": "pre98:3C",
+            "record_count": 1,
+            "sample_texts": [
+              "ニセモノにニセモノって\n言われたかねぇぞ\n本物の力を見せてやる！"
+            ]
+          }
+        ]
+      },
+      {
+        "subprofile": "long_multiline",
+        "run_count": 8,
+        "record_coverage": 18,
+        "sample_runs": [
+          {
+            "dialogue_state_token": "pre98:3A",
+            "record_count": 1,
+            "sample_texts": [
+              "２つ以上の素材を選んで\n他の素材を錬成するのが基本\n最初に選んだ素材がベースで\n質量と価値を上下させる\n１足す１は２、２足す２は４\n等価値の素材を錬成する"
+            ]
+          },
+          {
+            "dialogue_state_token": "pre98:3B",
+            "record_count": 1,
+            "sample_texts": [
+              "そのうち慣れるさ\nじゃあついでにもうひとつ\n素材を作る以外にも\n技として使うってのもある\nやり方は素材錬成と同様\n素材か技を選ぶだけ"
+            ]
+          },
+          {
+            "dialogue_state_token": "pre98:3A",
+            "record_count": 1,
+            "sample_texts": [
+              "この素材を錬成に使うと\n質量や価値がマイナスされる\nそれ以外は謎に包まれてる\nベースになるカードを選び\n次に、この素材を選ぶと\nベース素材の質量や価値から\n数値がマイナスされる"
+            ]
+          },
+          {
+            "dialogue_state_token": "pre98:3A",
+            "record_count": 1,
+            "sample_texts": [
+              "ま、モノは使いようだ\nこいつを使えば\n素材錬成の幅が広がるしな\n注意するのは、これを使って\n数値をマイナスするとき\n質量や価値が０になる錬成は\nできないってことだな"
+            ]
+          },
+          {
+            "dialogue_state_token": "pre98:3B",
+            "record_count": 2,
+            "sample_texts": [
+              "ちなみに、言い忘れてたけど\n一度でも使った技は\n手帳に記入するから\nチェックしたいときは\n手帳を開いてみるといい",
+              "さっさとケリつけちゃおうぜ"
+            ]
+          },
+          {
+            "dialogue_state_token": "pre98:4B",
+            "record_count": 1,
+            "sample_texts": [
+              "貴様らのような軍の狗である\n国家錬金術師では\nその理想はなしえぬ\n私はイシュヴァールで、\nそれを悟った！"
+            ]
+          }
+        ]
+      }
+    ],
+    "current_reading": [
+      "Registry D is not one monolithic multiline family; it splits into short single-line battle/tutorial barks, one-break explanatory lines, mid multiline explanations, and a small long-multiline manual/tutorial tier.",
+      "This narrows the remaining runtime risk from generic 'page-flow unknown' to a much smaller question: how the longest multiline tier turns pages inside the shared r3=20 candidate family.",
+      "Translation should preserve existing newlines and avoid adding extra breaks until runtime page-turn QA is locked."
+    ]
+  },
+  "operational_reading": [
+    "Entry8 remaining uncertainty is now concentrated in chain-heavy single-line clusters rather than the entire source.",
+    "Registry D remaining uncertainty is now concentrated in a very small long-multiline tier plus page-turn behavior, not the whole source."
+  ]
+}

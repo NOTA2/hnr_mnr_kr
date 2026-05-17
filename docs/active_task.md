@@ -18,13 +18,17 @@
 - source / workset 별 layout family 연결은 [text_layout_assignment_index.json](/Users/user/test/confirmed_data/text_layout/text_layout_assignment_index.json) 에 둔다.
 - runtime family 우선순위 보고서는 [runtime_family_focus_report.md](/Users/user/test/confirmed_data/text_layout/runtime_family_focus_report.md) 를 본다.
 - high-priority dialogue runtime 상세는 [runtime_dialogue_family_report.md](/Users/user/test/confirmed_data/text_layout/runtime_dialogue_family_report.md) 를 본다.
+- high-priority dialogue runtime 세부 subprofile 은 [runtime_dialogue_subprofiles.md](/Users/user/test/confirmed_data/text_layout/runtime_dialogue_subprofiles.md) 를 본다.
 - 대사 계열 state token sidecar 는 [confirmed_data/dialogue_metadata/README.md](/Users/user/test/confirmed_data/dialogue_metadata/README.md) 에 둔다.
 - cluster/run 빠른 요약은 [dialogue_state_cluster_summary.md](/Users/user/test/confirmed_data/dialogue_metadata/dialogue_state_cluster_summary.md) 을 본다.
 - save/menu prompt 는 `save_menu_prefixed_01ff` family 로 따로 분리해, `01 FF <u16 char_count>` 헤더와 뒤 제어코드를 보존하는 쪽으로 다룬다.
 - `registry_a_entry8_prefixed_texts` 는 `entry8_prefixed_01ff_script_line`, `registry_d_fc_script_texts` 는 `registry_d_fc_stop_script_line` family 로 부분 확정했다.
 - 위 두 source 는 같은 `shared_text_object_r3_20` 후보를 공유하지만, payload 성격은 각각 **single-line counted** / **multiline FC-delimited** 로 갈린다.
+- `entry8` 의 남은 runtime 불확실성은 이제 source 전체가 아니라 **chain-heavy single-line cluster** 쪽에 더 몰려 있다.
+- `Registry D` 의 남은 runtime 불확실성은 이제 source 전체가 아니라 **small long-multiline tier + page-turn behavior** 쪽에 더 몰려 있다.
 - `ui_skill/item/entry12` 는 `ui_or_item_plain_00_record`, `battle/ability/material` 은 `term_description_plain_00_optional_0b`, `credits` 는 `credits_padded_plain_00_record` family 로 부분 확정했다.
 - image-side 감사는 [confirmed_data/image_inventory/README.md](/Users/user/test/confirmed_data/image_inventory/README.md) 기준으로 시작됐다.
+- image-side 감사는 이제 `review bucket` 이 아니라 `title_logo_wordmark / event_or_cutscene_text_cards / ui_panel_label_art / battle_result_or_reward_banners` 같은 **review unit** 기준으로 본다.
 - `system_messages` / `save_menu` 는 residual runtime uncertainty 가 남아도, 현재는 **operationally bounded** 로 내려가 주요 blocker 에서 제외한다.
 - 따라서 남은 핵심은 “대사 source 의 record 경계”보다 **runtime dialogue box/page family** 와 **실플레이/이미지 텍스트 감사** 쪽이다.
 - `analysis/dialogue_speaker_probe.md` 는 representative dialogue scene `2`개에서 각 레코드 직전 control-gap 을 뽑은 첫 speaker-state 추적 산출물이다.

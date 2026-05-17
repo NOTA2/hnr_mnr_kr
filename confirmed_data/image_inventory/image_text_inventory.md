@@ -1,6 +1,6 @@
 # Image Text Inventory
 
-- status: `started`
+- status: `in_progress`
 - last_updated: `2026-05-17`
 
 ## Confirmed Non-Image Text Contexts
@@ -11,23 +11,35 @@
 - `save_menu_prompts`: Save/menu prompts are extracted as 01 FF command-stream records, not image-baked labels.
 - `credits_strings`: Credits are extracted as padded plain text records, not confirmed image text.
 
-## Review Buckets
+## Review Units
 
-- `title_logo_and_static_title_graphics` (`pending_review`)
-  Potential baked-text candidate bucket.
-  No canonical extracted source currently maps this bucket.
-- `event_illustration_overlays_or_cutscene_cards` (`pending_review`)
-  Potential baked-text candidate bucket for story/event presentation assets.
-  Not yet inventoried structurally.
-- `ui_icons_badges_or_panels_with_embedded_labels` (`pending_review`)
-  Potential baked-text candidate bucket for non-dialogue UI art.
-  Needs later asset review.
-- `portrait_assets` (`review_started`)
+- `title_logo_wordmark` (`pending_review`)
+  Main title/logo style text is not mapped by current canonical extracted text sources.
+  Treat as a concrete review unit rather than a generic bucket.
+- `title_screen_static_menu_wordmarks` (`pending_review`)
+  Static title-screen menu labels and mode wordmarks may be image-backed.
+  No canonical extracted source currently covers title-screen wordmark art.
+- `event_or_cutscene_text_cards` (`pending_review`)
+  Story/event presentation cards or overlays are a higher-value image-text candidate than generic event illustrations.
+  Keep separate from dialogue payloads, which are already confirmed non-image text.
+- `dialogue_window_frame_art` (`review_started`)
+  Dialogue text itself is extracted text, but the window frame art is a distinct visual asset family.
+  This unit matters for localization QA even if it contains no baked text.
+- `portrait_headshot_assets` (`review_started`)
   Portraits are confirmed image assets.
-  Current evidence suggests speaker text itself is not baked into portraits, but portrait/image inventory still matters for localization QA.
+  Speaker text itself is not baked into portraits, but portrait coverage matters for dialogue QA and future image tasks.
+- `ui_panel_label_art` (`pending_review`)
+  Panels, tabs, or framed UI labels that may contain baked text should be reviewed as a distinct unit.
+  Keep separate from plain extracted save/menu/system strings.
+- `ui_icon_badge_wordmarks` (`pending_review`)
+  Icon/badge-sized wordmarks should be reviewed separately from larger UI panels.
+  Useful to keep isolated because replacement strategy is likely different from panel art.
+- `battle_result_or_reward_banners` (`pending_review`)
+  Result/reward banners are plausible baked-text candidates in battle or post-battle presentation.
+  Separate from dialogue and term-description sources, which are already extracted text.
 
 ## Operational Reading
 
 - Image text inventory is now started as a separate audit track.
 - Several important text contexts are already confirmed to be non-image text and should not block translation.
-- The remaining work is asset-side review of review_buckets rather than reopening canonical text extraction.
+- The remaining work is asset-side review of concrete review_units rather than reopening canonical text extraction.

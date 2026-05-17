@@ -1904,3 +1904,33 @@
 - 판정: `성공`
 - 교훈:
   - runtime 미확정이라고 해도 길이/개행/구조가 충분히 작고 안정적이면, “major blocker” 와 “residual uncertainty” 를 분리해야 실제 남은 일이 선명해진다.
+
+### 실험 109
+
+- 가설: `entry8` 와 `Registry D` 를 source 단위로만 보는 대신, **state run / 개행 밀도 기반 subprofile** 로 더 쪼개면 남은 runtime/page-flow blocker 가 훨씬 더 작아진다.
+- 시도:
+  - [build_runtime_dialogue_subprofiles.py](/Users/user/test/scripts/build_runtime_dialogue_subprofiles.py) 를 추가했다.
+  - `entry8_dialogue_state_runs.json` 을 바탕으로 cluster별 `multi_record_run_count`, `max_run_record_count`, `null/token run` 비율을 집계했다.
+  - `Registry D` 는 run별 `explicit newline` 수와 길이로 `single_line_short / short_or_one_break / mid_multiline / long_multiline` tier 를 나눴다.
+  - 결과를 [runtime_dialogue_subprofiles.json](/Users/user/test/confirmed_data/text_layout/runtime_dialogue_subprofiles.json), [runtime_dialogue_subprofiles.md](/Users/user/test/confirmed_data/text_layout/runtime_dialogue_subprofiles.md) 로 남겼다.
+- 결과:
+  - `entry8` 은 `72`개 cluster 중 `42`개가 `chain_heavy_singleline`, `26`개가 `chain_moderate_singleline`, `4`개만 `mostly_standalone_singleline` 로 분류됐다.
+  - 즉 `entry8` 의 남은 runtime 불확실성은 “record 구조”가 아니라 **짧은 single-line record 를 script control 이 어떻게 묶는가** 쪽으로 더 선명해졌다.
+  - `Registry D` 는 `long_multiline` 이 `8 runs / 18 records` 정도의 작은 tier 로 줄어, 남은 page-turn 위험이 source 전체가 아니라 소수 장문 튜토리얼/설명 계층에 집중된다는 점이 보이게 됐다.
+- 판정: `성공`
+- 교훈:
+  - 남은 runtime 문제를 “이 source 전체가 미확정”으로 두지 말고, **어떤 subprofile 이 진짜 위험한지**까지 쪼개야 번역/QA 우선순위가 잘 선다.
+
+### 실험 110
+
+- 가설: `image_text_inventory` 를 generic review bucket 으로만 두지 말고, 실제 작업 때 손대게 될 **asset review unit** 으로 다시 나누면 live playthrough 없이도 남은 image-side 감사가 더 구체적으로 보인다.
+- 시도:
+  - [build_image_text_inventory.py](/Users/user/test/scripts/build_image_text_inventory.py) 를 갱신했다.
+  - `title_logo_wordmark`, `title_screen_static_menu_wordmarks`, `event_or_cutscene_text_cards`, `dialogue_window_frame_art`, `portrait_headshot_assets`, `ui_panel_label_art`, `ui_icon_badge_wordmarks`, `battle_result_or_reward_banners` 같은 concrete review unit 을 도입했다.
+  - 결과를 [image_text_inventory.json](/Users/user/test/confirmed_data/image_inventory/image_text_inventory.json), [image_text_inventory.md](/Users/user/test/confirmed_data/image_inventory/image_text_inventory.md), [confirmed_data/image_inventory/README.md](/Users/user/test/confirmed_data/image_inventory/README.md) 에 반영했다.
+- 결과:
+  - image-side 감사는 이제 “언젠가 봐야 할 버킷”이 아니라, **어떤 asset 단위를 먼저 검토할지**가 더 분명한 상태가 됐다.
+  - startup/dialogue/world-map/save/credits 가 non-image text 라는 점은 유지하면서도, 남은 review 대상이 title/cutscene/UI/battle presentation 축으로 더 선명해졌다.
+- 판정: `성공`
+- 교훈:
+  - 이미지 감사도 구체적인 unit 으로 쪼개 놓아야, 나중에 추출/교체 도구를 만들 때 바로 작업 단위로 이어 붙일 수 있다.

@@ -100,6 +100,9 @@
 - 화자 정보가 필요한 경우, 현재는 extracted JSON 안의 명시적 `speaker` 필드 대신 [confirmed_data/dialogue_metadata/README.md](/Users/user/test/confirmed_data/dialogue_metadata/README.md) 의 `dialogue_state_token` sidecar 를 먼저 참고한다.
 - `dialogue_state_token` 은 확정 화자명이 아니라 **동일 portrait/state 후보를 묶는 객관적 제어 표식**으로만 취급한다.
 - `entry8` 와 `Registry D` 는 둘 다 대사 source 지만 runtime profile 이 다르므로, 둘에 같은 줄바꿈 습관을 적용하지 않는다.
+- [runtime_dialogue_subprofiles.md](/Users/user/test/confirmed_data/text_layout/runtime_dialogue_subprofiles.md) 기준으로:
+  - `entry8` 의 chain-heavy cluster 는 짧은 single-line record 가 외부 script control 로 연속 표시될 가능성이 높으므로, 각 record 를 더 짧고 단단하게 번역한다.
+  - `Registry D` 의 long-multiline tier 는 page-turn risk 가 가장 높으므로, 원문 개행 보존을 더 강하게 우선한다.
 
 ### 코드 기반으로 강하게 좁혀진 것
 
