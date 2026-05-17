@@ -74,9 +74,12 @@
 - 후보군 메타데이터와 export 기준은 [finalist_font_candidates.json](/Users/user/test/confirmed_data/font_assets/finalist_font_candidates.json), [finalist_export_recommendation.md](/Users/user/test/confirmed_data/font_assets/finalist_export_recommendation.md) 에 있다.
 - startup intro `4`줄만이 아니라, 시작 카드 뒤의 인트로 문장/리오르 표기/호명까지 포함한 [translation_workset_intro_full_test.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_intro_full_test.json) 도 만들었다.
 - 길이 때문에 일부가 `skipped_no_pointer` 로 남는 문제를 피하려고, 폰트 QA 전용 [translation_workset_intro_full_compact_test.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_intro_full_compact_test.json) 도 만들었고 현재 `18 in_place` 로 확인했다.
+- 다만 이 `intro_full` 세트는 시작 직후 첫 카드가 아니라 **뒤쪽 인트로 구간까지** 넓힌 것이어서, 첫 화면만 보면 변경이 없어 보일 수 있다.
+- 그래서 첫 화면에서 바로 차이를 보이기 위한 [translation_workset_startup_font_showcase.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_startup_font_showcase.json) 을 별도로 만들었고, [build_finalist_startup_tests.py](/Users/user/test/scripts/build_finalist_startup_tests.py) 로 후보 `3`개 ROM 을 한 번에 다시 생성할 수 있게 했다.
 - build script:
   - [build_intro_full_test.sh](/Users/user/test/scripts/build_intro_full_test.sh)
   - [build_intro_full_compact_test.sh](/Users/user/test/scripts/build_intro_full_compact_test.sh)
+  - [build_finalist_startup_tests.py](/Users/user/test/scripts/build_finalist_startup_tests.py)
 - 이미지 추출은 “텍스트 추출 이후만 가능”은 아니다. 현재 판단은 **폰트 결정 + 텍스트 루프 안정화 후**, 번역 진행과 병렬로 image inventory / extraction 을 시작하는 편이 맞다.
 
 - `0x184A0C..0x184AD3` 을 `10 * 0x14` effect/overlay parameter table 후보로 분리했다.

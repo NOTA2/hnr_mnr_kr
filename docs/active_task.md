@@ -8,10 +8,11 @@
   - `MaruMinyaHangul (12px)`
   - `Galmuri11 (12px)`
   - `GalmuriMono (12px)`
-- 현재 active 기본값은 [maruminyahangul_12x12.png](/Users/user/test/third_party/font_atlases/maruminyahangul_12x12.png) 이다.
+- 현재 active 기본값은 [maruminyahangul_12x12.png](/Users/user/test/third_party/font_atlases/maruminyahangul_12x12.png) 이고, 후보 원본 3개는 [finalists](/Users/user/test/third_party/font_atlases/finalists) 아래에 프로젝트 로컬로 복사해 두었다.
 - 후보군 메타데이터와 export 기준은 [finalist_font_candidates.json](/Users/user/test/confirmed_data/font_assets/finalist_font_candidates.json), [finalist_export_recommendation.md](/Users/user/test/confirmed_data/font_assets/finalist_export_recommendation.md) 에 있다.
 - 새 후보 bitmap PNG 에서 **반드시 필요한 것**은 `가..힣` 완성형 `11,172`자 atlas 다.
 - 숫자/영문/기본 기호는 1차 한글화 기준으로 **원본 게임 공통 폰트**를 그대로 재사용한다.
+- 첫 화면 즉시 비교용 startup showcase 세트는 [translation_workset_startup_font_showcase.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_startup_font_showcase.json) 이다.
 
 ## 지금 우선순위
 
@@ -26,6 +27,7 @@
 - 전체 추출 기준본: [all_extracted_texts_master.json](/Users/user/test/confirmed_data/translation_workspace/all_extracted_texts_master.json)
 - 번역 작업 허브: [confirmed_data/translation_workspace/README.md](/Users/user/test/confirmed_data/translation_workspace/README.md)
 - startup intro `4`줄: [startup_intro_texts.json](/Users/user/test/confirmed_data/extracted_texts/startup_intro_texts.json)
+- 첫 화면 비교용 `4`줄: [translation_workset_startup_font_showcase.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_startup_font_showcase.json)
 - 확장 intro 테스트 세트: [translation_workset_intro_full_test.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_intro_full_test.json)
 - 현재 startup active workbench: [startup_intro_active_workbench](/Users/user/test/analysis/startup_intro_active_workbench)
 - glyph 편집 툴: [glyph_editor.html](/Users/user/test/tools/glyph_editor.html)
@@ -44,6 +46,12 @@ startup intro 테스트 ROM:
 zsh scripts/build_startup_intro_test.sh \
   "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
   patched_roms/startup_intro_active
+```
+
+후보 `3`개 startup showcase ROM 일괄 생성:
+
+```bash
+python3 scripts/build_finalist_startup_tests.py
 ```
 
 확장 intro 테스트 ROM:

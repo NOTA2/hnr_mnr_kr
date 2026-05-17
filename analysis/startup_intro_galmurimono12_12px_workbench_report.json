@@ -1,16 +1,16 @@
 {
-  "profile": "patched_roms/font_compare/maruminyahangul12/maruminyahangul12_profile.json",
-  "atlas": "/Users/user/test/third_party/font_atlases/finalists/maruminyahangul_12x12.png",
-  "output_dir": "analysis/startup_intro_maruminyahangul12_workbench",
+  "profile": "patched_roms/font_compare/galmurimono12_12px/galmurimono12_12px_profile.json",
+  "atlas": "/Users/user/test/third_party/font_atlases/finalists/galmurimono12_12x12.png",
+  "output_dir": "analysis/startup_intro_galmurimono12_12px_workbench",
   "field": "translation",
   "start_code": "0xEA40",
   "input_files": [
     "confirmed_data/translation_worksets/translation_workset_startup_font_showcase.json"
   ],
   "hangul_count": 19,
-  "seed_manifest": "analysis/startup_intro_maruminyahangul12_workbench/seed_manifest.json",
-  "prepared_manifest": "analysis/startup_intro_maruminyahangul12_workbench/prepared_manifest.json",
-  "prepared_table": "analysis/startup_intro_maruminyahangul12_workbench/prepared.tbl",
+  "seed_manifest": "analysis/startup_intro_galmurimono12_12px_workbench/seed_manifest.json",
+  "prepared_manifest": "analysis/startup_intro_galmurimono12_12px_workbench/prepared_manifest.json",
+  "prepared_table": "analysis/startup_intro_galmurimono12_12px_workbench/prepared.tbl",
   "sources": [
     {
       "char": "연",

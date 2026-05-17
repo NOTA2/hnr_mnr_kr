@@ -1,14 +1,15 @@
 #!/bin/zsh
 set -euo pipefail
 
-if [[ $# -lt 2 || $# -gt 3 ]]; then
-  echo "usage: $0 <atlas-png> <output-slug> [expected-columns]" >&2
+if [[ $# -lt 2 || $# -gt 4 ]]; then
+  echo "usage: $0 <atlas-png> <output-slug> [expected-columns] [translation-json]" >&2
   exit 1
 fi
 
 ATLAS_PATH="$1"
 OUTPUT_SLUG="$2"
 EXPECTED_COLUMNS="${3:-64}"
+TRANSLATION_JSON="${4:-confirmed_data/extracted_texts/startup_intro_texts.json}"
 
 WORKBENCH_DIR="analysis/startup_intro_${OUTPUT_SLUG}_workbench"
 WORKBENCH_REPORT="analysis/startup_intro_${OUTPUT_SLUG}_workbench_report.json"
@@ -31,7 +32,7 @@ EOF
 
 python3 scripts/build_workbench_from_active_atlas.py \
   "$WORKBENCH_DIR" \
-  confirmed_data/extracted_texts/startup_intro_texts.json \
+  "$TRANSLATION_JSON" \
   --start-code 0xEA40 \
   --profile "$PROFILE_JSON" \
   --report "$WORKBENCH_REPORT"
@@ -64,7 +65,7 @@ python3 -m gba_kor_tool append-fnt-glyph-set \
 
 python3 -m gba_kor_tool apply-translations \
   "/Users/user/test/$OUTPUT_DIR/hnr_font_${OUTPUT_SLUG}.gba" \
-  "/Users/user/test/confirmed_data/extracted_texts/startup_intro_texts.json" \
+  "/Users/user/test/$TRANSLATION_JSON" \
   "/Users/user/test/$OUTPUT_DIR/hnr_startup_intro_${OUTPUT_SLUG}.gba" \
   --table "/Users/user/test/$WORKBENCH_DIR/prepared.tbl" \
   --encoding cp932 \

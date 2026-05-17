@@ -8,6 +8,9 @@ from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 CANDIDATES = REPO_ROOT / "confirmed_data" / "font_assets" / "finalist_font_candidates.json"
+SHOWCASE_TRANSLATIONS = (
+    REPO_ROOT / "confirmed_data" / "translation_worksets" / "translation_workset_startup_font_showcase.json"
+)
 
 
 def main() -> int:
@@ -28,6 +31,7 @@ def main() -> int:
             str(source_png),
             slug,
             columns,
+            str(SHOWCASE_TRANSLATIONS.relative_to(REPO_ROOT)),
         ]
         subprocess.run(command, cwd=REPO_ROOT, check=True)
         built += 1

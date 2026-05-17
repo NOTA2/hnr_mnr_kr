@@ -1582,3 +1582,42 @@
   - `analysis` 루트에는 startup active workbench, generated subset workbench, 현재도 직접 여는 요약만 남도록 정리되었다.
 - 판정: `성공`
 - 교훈: 폰트 QA 는 “정확한 번역”보다 먼저 **실제 화면에서 다양한 자모 조합을 많이 밟는 테스트 세트** 가 있어야 효율이 오른다.
+
+### 실험 86
+
+- 가설: 사용자가 새로 제공한 `MaruMinyaHangul`, `Galmuri11`, `GalmuriMono` `12x12` atlas 를 프로젝트 로컬로 교체/복사한 뒤에도, 기존 `11,172` 완성형 import 흐름에 바로 태울 수 있을 것이다.
+- 시도:
+  - `/Users/user/Downloads` 의 `maruminyahangul_12x12.png`, `Galmuri11_12x12.png`, `GalmuriMono11_12x12.png` 를 프로젝트의 `third_party/font_atlases/` 와 `third_party/font_atlases/finalists/` 로 복사했다.
+  - 각 PNG 의 실제 크기와 tile grid 를 확인했다.
+- 결과:
+  - 세 파일 모두 `768 x 2100`, `12x12`, `64`열로 읽혔다.
+  - 전체 tile 수는 `64 x 175 = 11200` 으로, `11172` 완성형 한글을 담기에 충분했다.
+- 판정: `성공`
+- 교훈: 최종 후보군은 giant 문자 목록을 따로 붙이지 않아도, `가..힣` row-major atlas 규칙만 맞으면 바로 project-local truth source 로 사용할 수 있다.
+
+### 실험 87
+
+- 가설: 이전에 만든 `intro_full` 테스트는 사용자가 실제로 처음 보는 "시작 직후 첫 화면" 비교용으로도 충분할 것이다.
+- 시도:
+  - 사용자가 "확장 번역인데 첫 화면이 똑같다"고 보고한 뒤, `translation_workset_intro_full_test.json` 의 적용 위치를 다시 확인했다.
+- 결과:
+  - `intro_full` 세트는 첫 카드 자체를 바꾼 것이 아니라, 첫 카드 뒤에 이어지는 인트로 문장/리오르/호명까지 추가한 세트였다.
+  - 그래서 첫 화면만 보면 기존 startup intro 와 동일해 보이는 것이 맞았다.
+- 판정: `실패`
+- 교훈: 폰트 비교 QA 는 "뒤쪽 인트로까지 넓힌 세트"가 아니라 **사용자가 즉시 보는 첫 카드 자체**를 바꾸는 전용 showcase 세트가 필요하다.
+
+### 실험 88
+
+- 가설: 첫 카드 `4`줄을 비교용 한글 문장으로 바꾼 startup showcase 세트를 만들면, 최종 후보 `3`개를 같은 조건에서 즉시 비교할 수 있다.
+- 시도:
+  - [translation_workset_startup_font_showcase.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_startup_font_showcase.json) 을 만들었다.
+  - [build_startup_intro_from_atlas.sh](/Users/user/test/scripts/build_startup_intro_from_atlas.sh) 가 임의 translation JSON 을 받을 수 있게 수정했다.
+  - [build_finalist_startup_tests.py](/Users/user/test/scripts/build_finalist_startup_tests.py) 를 이 showcase 세트 기준으로 동작하게 바꾸고, 후보 `3`개 ROM 을 일괄 생성했다.
+- 결과:
+  - 다음 `3`개 비교 ROM 이 생성되었다.
+    - [hnr_startup_intro_maruminyahangul12.gba](/Users/user/test/patched_roms/font_compare/maruminyahangul12/hnr_startup_intro_maruminyahangul12.gba)
+    - [hnr_startup_intro_galmuri11_12px.gba](/Users/user/test/patched_roms/font_compare/galmuri11_12px/hnr_startup_intro_galmuri11_12px.gba)
+    - [hnr_startup_intro_galmurimono12_12px.gba](/Users/user/test/patched_roms/font_compare/galmurimono12_12px/hnr_startup_intro_galmurimono12_12px.gba)
+  - 각 ROM 모두 첫 카드 `4`줄이 교체되는 것으로 build report 가 확인되었다.
+- 판정: `성공`
+- 교훈: 사용자가 바로 보는 첫 화면을 기준으로 같은 문자열을 깔아야, 폰트 차이를 가장 빠르고 공정하게 비교할 수 있다.
