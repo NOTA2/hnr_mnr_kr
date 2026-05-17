@@ -26,8 +26,10 @@
 - workspace index: [translation_workspace/index.json](/Users/user/test/confirmed_data/translation_workspace/index.json)
 - workspace readme: [translation_workspace/README.md](/Users/user/test/confirmed_data/translation_workspace/README.md)
 - taxonomy manifest: [text_taxonomy_manifest.json](/Users/user/test/confirmed_data/translation_workspace/text_taxonomy_manifest.json)
-- 레코드 수: `10752`
+- extraction audit: [extraction_audit_status.json](/Users/user/test/confirmed_data/translation_workspace/extraction_audit_status.json)
+- 레코드 수: `10756`
 - 구성:
+  - startup intro fixed-slot `4`
   - system / item / location / battle / ability / material / ui skill
   - save menu prefixed
   - Registry D FC script
@@ -38,6 +40,7 @@
   - 현재까지 확보한 known extracted text sources 를 한 번에 보는 기준본
   - 폰트 확정 후 번역/검수 루프가 바로 붙을 수 있는 master workspace
   - source 기반으로 객관적으로 말할 수 있는 텍스트 성격 분류의 출발점
+  - startup intro 같은 소형 예외 source 까지 canonical inventory 에 포함해 추출 감사 기준을 한 곳으로 모으는 것
 
 ### 코어 UI 세트
 
@@ -55,11 +58,11 @@
 ### Registry D 대사 세트
 
 - 파일: [translation_workset_registry_d_dialogue.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_registry_d_dialogue.json)
-- 소스: [registry_d_full_sliding_texts.json](/Users/user/test/analysis/registry_d_full_sliding_texts.json)
-- 레코드 수: `305`
+- 소스: [registry_d_fc_script_texts.json](/Users/user/test/confirmed_data/extracted_texts/registry_d_fc_script_texts.json)
+- 레코드 수: `244`
 - 목적:
-  - 아직 따로 추출되지 않았던 튜토리얼/전투 전후 대사/이벤트 대사를 번역 가능한 한 파일로 묶기
-  - command stream 성격이 섞인 mixed resource 에서도 실제 사람이 읽을 수 있는 텍스트를 바로 작업 세트로 전환
+  - canonical FC-script 추출본을 바로 번역 가능한 한 파일로 묶기
+  - extraction audit 와 번역 workset 이 서로 다른 count 를 보지 않게 기준을 통일
 
 ## 확보된 추출본
 
@@ -126,6 +129,7 @@
   - [registry_d_battle_dialogue_texts.json](/Users/user/test/analysis/registry_d_battle_dialogue_texts.json)
 - 현재 확인:
   - Registry D 전체 물리 범위를 `scan-text --sliding` + terminator `0x0D/0x0C/0x00` 으로 보면 `305`개 텍스트가 잡힌다.
+  - 위 `305`건은 discovery coverage 용으로 유지하고, 실제 canonical 번역 workset 은 `FC` 기반 clean extraction `244`건을 쓴다.
   - 텍스트가 확인된 엔트리는 현재 `82 / 100` 개다.
   - 많은 엔트리가 `FC` 제어 바이트가 섞인 mixed script 형식이며, `FC 00 ... FC` anchor 기반 [registry_d_fc_script_texts.json](/Users/user/test/confirmed_data/extracted_texts/registry_d_fc_script_texts.json) 은 현재 `244`건을 clean extraction 한다.
   - stop byte `FC` 가 Shift-JIS 2바이트 문자의 trailing byte 로 들어갈 수 있어 SJIS-aware stop 처리까지 넣었고, 이 보정으로 entry `8` 대사 `4`건이 추가 회수되었다.

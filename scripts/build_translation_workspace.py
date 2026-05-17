@@ -27,6 +27,7 @@ def main() -> int:
     WORKSPACE.mkdir(parents=True, exist_ok=True)
     run([sys.executable, "scripts/build_master_text_workspace.py"])
     run([sys.executable, "scripts/build_entry8_cluster_worksets.py"])
+    run([sys.executable, "scripts/build_registry_d_dialogue_workset.py"])
 
     master_manifest = load_json(WORKSPACE / "all_extracted_texts_manifest.json")
     entry8_manifest = load_json(WORKSPACE / "registry_a_entry8_clusters_manifest.json")
@@ -48,7 +49,7 @@ def main() -> int:
             "label": "registry_d_dialogue",
             "file": "confirmed_data/translation_worksets/translation_workset_registry_d_dialogue.json",
             "record_count": len(load_json(WORKSETS / "translation_workset_registry_d_dialogue.json")),
-            "notes": "이벤트/전투 전후 대사 중심",
+            "notes": "Registry D FC-script 기반 이벤트/전투 전후 대사",
         },
         {
             "label": "entry8_clusters_manifest",
@@ -67,6 +68,7 @@ def main() -> int:
     index = {
         "workspace_root": "confirmed_data/translation_workspace",
         "master": master_manifest,
+        "audit_status": "confirmed_data/translation_workspace/extraction_audit_status.json",
         "entry8_clusters": {
             "cluster_count": int(entry8_manifest["cluster_count"]),
             "manifest": "confirmed_data/translation_workspace/registry_a_entry8_clusters_manifest.json",
@@ -90,6 +92,7 @@ def main() -> int:
 
 - [all_extracted_texts_master.json](/Users/user/test/confirmed_data/translation_workspace/all_extracted_texts_master.json)
 - [all_extracted_texts_manifest.json](/Users/user/test/confirmed_data/translation_workspace/all_extracted_texts_manifest.json)
+- [extraction_audit_status.json](/Users/user/test/confirmed_data/translation_workspace/extraction_audit_status.json)
 - [registry_a_entry8_clusters_manifest.json](/Users/user/test/confirmed_data/translation_workspace/registry_a_entry8_clusters_manifest.json)
 - [index.json](/Users/user/test/confirmed_data/translation_workspace/index.json)
 

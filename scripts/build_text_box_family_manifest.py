@@ -92,6 +92,113 @@ def build_manifest() -> dict:
                 ],
             },
             {
+                "id": "entry8_prefixed_01ff_script_line",
+                "status": "partially_confirmed",
+                "kind": "counted_script_record",
+                "description": "Registry A entry 8 대형 mixed story/event bank에서 확인된 01 FF <u16 char_count> counted script line.",
+                "rules": {
+                    "header_prefix": "01 FF",
+                    "char_count_field": "u16 little-endian",
+                    "append_terminator": False,
+                    "allow_manual_newline": False,
+                    "payload_followed_by_control_bytes": True,
+                    "translator_must_preserve_header_and_following_controls": True,
+                },
+                "runtime_candidate_family": "shared_text_object_r3_20",
+                "notes": [
+                    "Representative source is registry_a_entry8_prefixed_texts.json.",
+                    "Each line is length-counted by the header rather than 0x00 termination.",
+                    "Records are embedded inside a larger script stream, so payload-adjacent control bytes must remain in place.",
+                    "Runtime dialogue box/page family is still unresolved, but current strongest code-side candidate is the shared r3=20 text-object family.",
+                ],
+                "samples": [
+                    {
+                        "offset": "0x6B7A36",
+                        "header_bytes": "01 FF 0C 00",
+                        "char_count": 12,
+                        "text": "医者になりたいんだけど、",
+                    },
+                    {
+                        "offset": "0x6B7B6E",
+                        "header_bytes": "01 FF 0D 00",
+                        "char_count": 13,
+                        "text": "はいはい、もう心配ないよ。",
+                    },
+                    {
+                        "offset": "0x6B7BD4",
+                        "header_bytes": "01 FF 05 00",
+                        "char_count": 5,
+                        "text": "みずぅぅ…",
+                    },
+                ],
+            },
+            {
+                "id": "registry_d_fc_stop_script_line",
+                "status": "partially_confirmed",
+                "kind": "fc_delimited_script_line",
+                "description": "Registry D mixed script bank에서 확인된 FC stop-byte 기반 script line.",
+                "rules": {
+                    "stop_byte": "FC",
+                    "append_terminator": False,
+                    "preserve_explicit_newline": True,
+                    "allow_manual_newline": "only when source already has it",
+                    "translator_must_preserve_adjacent_control_stream": True,
+                },
+                "runtime_candidate_family": "shared_text_object_r3_20",
+                "notes": [
+                    "Representative source is registry_d_fc_script_texts.json.",
+                    "Records are delimited by stop-byte FC inside a larger control stream rather than by a plain 0x00 terminator.",
+                    "before_bytes / after_bytes are useful evidence that the payload sits between control opcodes.",
+                    "Runtime dialogue box/page family is still unresolved, but current strongest code-side candidate is the shared r3=20 text-object family.",
+                ],
+                "samples": [
+                    {
+                        "offset": "0x7F301F",
+                        "stop_byte": "FC",
+                        "text": "さぁ相手になってやるぜ！",
+                    },
+                    {
+                        "offset": "0x7F3049",
+                        "stop_byte": "FC",
+                        "text": "兄さん、どうやって戦うの？",
+                    },
+                    {
+                        "offset": "0x7F310E",
+                        "stop_byte": "FC",
+                        "text": "そう、説明が表示されるから\\nムズかしいことじゃないさ\\nとりあえず見とけ",
+                    },
+                ],
+            },
+            {
+                "id": "system_messages_plain_newline_00",
+                "status": "partially_confirmed",
+                "kind": "plain_terminated",
+                "description": "시스템 통신/에러 메시지에서 확인된 0x00 종단 + 명시적 개행 포함 family.",
+                "rules": {
+                    "terminator": "00",
+                    "preserve_explicit_newline": True,
+                    "allow_manual_newline": "only when source already has it",
+                    "append_terminator": True,
+                },
+                "notes": [
+                    "Representative source is system_messages.json.",
+                    "At least 3 records already contain an explicit newline in the extracted text.",
+                    "The precise runtime window family is still unresolved, but newline preservation itself is objective.",
+                ],
+                "samples": [
+                    {
+                        "offset": "0x088538",
+                        "byte_length": 39,
+                        "text": "通信エラー！\\nケーブルを確認してください",
+                    },
+                    {
+                        "offset": "0x088564",
+                        "byte_length": 39,
+                        "text": "通信エラー！\\nデータ転送できませんでした",
+                    },
+                ],
+            },
+            {
                 "id": "shared_text_object_r3_20",
                 "status": "code_derived",
                 "kind": "shared_text_object",

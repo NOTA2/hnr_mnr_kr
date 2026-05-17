@@ -12,6 +12,11 @@ MASTER_PATH = WORKSPACE / "all_extracted_texts_master.json"
 OUTPUT_PATH = WORKSPACE / "text_taxonomy_manifest.json"
 
 SOURCE_CLASSIFICATION = {
+    "startup_intro_texts": {
+        "content_type": "intro_title_card_text",
+        "scope": "objective",
+        "notes": "게임 시작 직후 첫 카드의 연대/지명/형제 나이 표기",
+    },
     "system_messages": {
         "content_type": "system_message",
         "scope": "objective",

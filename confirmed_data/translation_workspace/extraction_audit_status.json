@@ -1,0 +1,51 @@
+{
+  "version": 1,
+  "last_updated": "2026-05-17",
+  "known_source_count": 13,
+  "known_record_count": 10756,
+  "major_sources_closed": [
+    "startup_intro_texts",
+    "system_messages",
+    "location_texts",
+    "save_menu_prefixed_texts",
+    "registry_d_fc_script_texts",
+    "registry_a_entry8_prefixed_texts",
+    "registry_a_entry12_texts",
+    "battle_texts",
+    "ability_texts",
+    "material_texts",
+    "item_texts",
+    "ui_skill_texts",
+    "credits_texts"
+  ],
+  "record_structure_families_closed_or_partially_closed": [
+    "startup_intro_fixed_slots",
+    "system_messages_plain_newline_00",
+    "save_menu_prefixed_01ff",
+    "entry8_prefixed_01ff_script_line",
+    "registry_d_fc_stop_script_line"
+  ],
+  "remaining_audit_items": [
+    {
+      "id": "entry8_cluster_labeling",
+      "status": "partial",
+      "notes": "Registry A entry 8 cluster structure exists, but scene/use labels are still incomplete."
+    },
+    {
+      "id": "runtime_dialogue_box_family_mapping",
+      "status": "in_progress",
+      "notes": "Dialogue/event record boundary rules are now partially closed, but runtime box/page family for general dialogue is not fully tied yet."
+    },
+    {
+      "id": "live_playthrough_text_audit",
+      "status": "pending",
+      "notes": "Operational 100% still requires at least one real playthrough-style audit for unseen Japanese strings."
+    },
+    {
+      "id": "image_text_inventory",
+      "status": "pending",
+      "notes": "Text baked into images is not part of extracted text completion."
+    }
+  ],
+  "operational_reading": "Large unknown text banks are no longer the main risk; the remaining work is runtime family confirmation, playthrough audit, and image text inventory."
+}

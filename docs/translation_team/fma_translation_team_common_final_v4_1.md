@@ -48,6 +48,23 @@
   - 본문 바로 뒤의 `10 FF`, `04 FF`, `14 FF`, `08 FF` 같은 제어코드를 밀면 안 된다.
   - 원문에 없는 임의 줄바꿈을 넣지 않는다.
 - 세부 구조는 [text_box_family_manifest.json](/Users/user/test/confirmed_data/text_layout/text_box_family_manifest.json) 의 `save_menu_prefixed_01ff` family 를 따른다.
+- Registry A entry `8` 대형 대사/이벤트 bank 도 일반 `00` 종단 문자열이 아니라 **`01 FF <u16 char_count>` counted script line** 구조다.
+- 이 family 에서는:
+  - `char_count` 헤더를 보존/갱신해야 한다.
+  - 본문 뒤에 `00 terminator`를 임의로 붙이면 안 된다.
+  - 본문 바로 앞뒤의 script control bytes 를 밀면 안 된다.
+  - 원문에 없는 임의 줄바꿈을 넣지 않는다.
+- 세부 구조는 같은 manifest 의 `entry8_prefixed_01ff_script_line` family 를 따른다.
+- Registry D 이벤트/튜토리얼 대사는 일반 `00` 종단 문자열이 아니라 **`FC stop-byte` script line** 구조다.
+- 이 family 에서는:
+  - record boundary 를 `FC` 기준으로 유지해야 한다.
+  - 본문 뒤에 `00 terminator`를 임의로 붙이면 안 된다.
+  - 원문에 있던 명시적 개행은 보존 우선으로 본다.
+  - `before_bytes / after_bytes` 로 대표되는 script control stream 을 밀지 않는다.
+- 세부 구조는 같은 manifest 의 `registry_d_fc_stop_script_line` family 를 따른다.
+- system message 일부는 일반 `00` 종단 문자열이지만, 이미 원문 안에 **명시적 개행(`\n`)** 이 들어 있다.
+- 이 family 에서는 원문에 들어 있던 개행 수와 위치를 함부로 바꾸지 않는다.
+- 세부 구조는 같은 manifest 의 `system_messages_plain_newline_00` family 를 따른다.
 
 ### 아직 전역 확정되지 않은 것
 

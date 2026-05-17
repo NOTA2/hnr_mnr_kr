@@ -28,6 +28,7 @@
 ### 이미 추출 규칙이 확보된 공급원
 
 - standalone plain bank
+  - [startup_intro_texts.json](/Users/user/test/confirmed_data/extracted_texts/startup_intro_texts.json): `4`
   - [system_messages.json](/Users/user/test/confirmed_data/extracted_texts/system_messages.json): `4`
   - [item_texts.json](/Users/user/test/confirmed_data/extracted_texts/item_texts.json): `47`
   - [location_texts.json](/Users/user/test/confirmed_data/extracted_texts/location_texts.json): `10`
@@ -83,6 +84,7 @@
 - Registry A entry `8` 은 cluster `71` save/menu 분리까지는 끝났지만, 나머지 cluster 수동 라벨링은 아직 덜 됐다.
 - Registry A entry `12` 같이 상위 registry 관점에서 뒤늦게 보이는 text source 가 추가로 있을 수 있다.
 - 대표 렌더러가 읽는 자원은 많이 좁혀졌지만, 실제 플레이 전수 확인은 아직 안 했다.
+- 다만 canonical master inventory 는 이제 startup intro `4`건까지 포함한 `13` source / `10756` records 기준으로 관리된다.
 - 따라서 지금은 **"대부분의 핵심 텍스트 공급원은 잡았지만, 100% 단정은 이르다"** 가 가장 정확하다.
 
 ## 실무적 완료 조건

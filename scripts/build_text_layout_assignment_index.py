@@ -31,8 +31,8 @@ def build_index() -> dict:
             ],
         },
         "system_messages": {
-            "layout_family": "unresolved_plain_terminated",
-            "assignment_status": "unresolved",
+            "layout_family": "system_messages_plain_newline_00",
+            "assignment_status": "partially_confirmed",
             "notes": [
                 "Records are 0x00-terminated and include explicit newlines in some messages.",
                 "Exact runtime box family is not yet tied to a specific renderer caller set.",
@@ -44,6 +44,24 @@ def build_index() -> dict:
             "notes": [
                 "Uses 01 FF <u16 char_count> command-stream records.",
                 "Byte length is explicit, but full box/page behavior is not yet globally locked.",
+            ],
+        },
+        "registry_d_fc_script_texts": {
+            "layout_family": "registry_d_fc_stop_script_line",
+            "assignment_status": "partially_confirmed",
+            "runtime_candidate_family": "shared_text_object_r3_20",
+            "notes": [
+                "FC stop-byte delimited script lines are objectively extracted.",
+                "Runtime dialogue box/page family is still unresolved, but record boundary/control-stream handling is no longer unknown.",
+            ],
+        },
+        "registry_a_entry8_prefixed_texts": {
+            "layout_family": "entry8_prefixed_01ff_script_line",
+            "assignment_status": "partially_confirmed",
+            "runtime_candidate_family": "shared_text_object_r3_20",
+            "notes": [
+                "Large mixed story/event script bank using 01 FF <u16 char_count> counted records.",
+                "Runtime dialogue box/page family still needs further tying, but counted-record structure is objective.",
             ],
         },
         "ui_skill_texts": {
@@ -73,21 +91,6 @@ def build_index() -> dict:
             "assignment_status": "unresolved",
             "notes": ["Likely short UI descriptions, but the actual box family is still unresolved."],
         },
-        "registry_d_fc_script_texts": {
-            "layout_family": "unresolved_dialogue_event",
-            "assignment_status": "unresolved",
-            "notes": [
-                "Event/dialogue script extraction is stable, but runtime box/page/control-token family is not yet fully mapped."
-            ],
-        },
-        "registry_a_entry8_prefixed_texts": {
-            "layout_family": "unresolved_dialogue_event",
-            "assignment_status": "unresolved",
-            "notes": [
-                "Large mixed story/event command-stream bank.",
-                "Needs further per-scene runtime family linking before hard line limits can be assigned.",
-            ],
-        },
         "registry_a_entry12_texts": {
             "layout_family": "unresolved_ui_text",
             "assignment_status": "unresolved",
@@ -111,7 +114,7 @@ def build_index() -> dict:
             "kind": "mixed",
             "assignment_status": "mixed",
             "by_source_group": {
-                "system_messages": "unresolved_plain_terminated",
+                "system_messages": "system_messages_plain_newline_00",
                 "save_menu_texts": "save_menu_prefixed_01ff",
                 "location_texts": "world_map_location_r3_12",
                 "ui_skill_texts": "unresolved_ui_text",
@@ -137,9 +140,13 @@ def build_index() -> dict:
         },
         "translation_workset_registry_d_dialogue": {
             "kind": "uniform",
-            "layout_family": "unresolved_dialogue_event",
-            "assignment_status": "unresolved",
-            "notes": ["Stable extraction, unresolved runtime dialogue box family."],
+            "layout_family": "registry_d_fc_stop_script_line",
+            "assignment_status": "partially_confirmed",
+            "runtime_candidate_family": "shared_text_object_r3_20",
+            "notes": [
+                "Record boundary/control-stream handling is confirmed at the FC stop-byte level.",
+                "General dialogue box/page family remains unresolved, so translations should still stay concise.",
+            ],
         },
         "translation_workset_intro_full_test": {
             "kind": "mixed",
@@ -147,7 +154,7 @@ def build_index() -> dict:
             "by_source_group": {
                 "startup_intro_texts": "startup_intro_fixed_slots",
                 "location_texts": "world_map_location_r3_12",
-                "registry_a_entry8_prefixed_texts": "unresolved_dialogue_event",
+                "registry_a_entry8_prefixed_texts": "entry8_prefixed_01ff_script_line",
             },
             "notes": [
                 "This is a QA test set spanning multiple families.",
@@ -160,7 +167,7 @@ def build_index() -> dict:
             "by_source_group": {
                 "startup_intro_texts": "startup_intro_fixed_slots",
                 "location_texts": "world_map_location_r3_12",
-                "registry_a_entry8_prefixed_texts": "unresolved_dialogue_event",
+                "registry_a_entry8_prefixed_texts": "entry8_prefixed_01ff_script_line",
             },
             "notes": [
                 "Compact QA test set spanning multiple families."
@@ -177,6 +184,7 @@ def build_index() -> dict:
         "usage_note": [
             "Use source_group-specific layout families first.",
             "When a workset is mixed, do not invent a single global char limit.",
+            "Partially confirmed record-structure families still need concise translation until runtime box/page family is confirmed.",
             "Unresolved families should stay concise until runtime family mapping is confirmed.",
         ],
     }

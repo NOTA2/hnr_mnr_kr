@@ -1,7 +1,12 @@
 {
   "master_file": "confirmed_data/translation_workspace/all_extracted_texts_master.json",
-  "record_count": 10752,
+  "record_count": 10756,
   "source_classification": {
+    "startup_intro_texts": {
+      "content_type": "intro_title_card_text",
+      "scope": "objective",
+      "notes": "게임 시작 직후 첫 카드의 연대/지명/형제 나이 표기"
+    },
     "system_messages": {
       "content_type": "system_message",
       "scope": "objective",
@@ -70,6 +75,7 @@
     "dialogue_or_event_script": 9823,
     "dialogue_or_tutorial_script": 244,
     "gameplay_item_or_event_text": 22,
+    "intro_title_card_text": 4,
     "item_or_event_term": 47,
     "location_name": 10,
     "material_name_or_description": 43,

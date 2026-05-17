@@ -1478,7 +1478,7 @@
   - `system / item / location / battle / ability / material / ui skill / save menu / Registry D / Registry A entry 8 / Registry A entry 12 / credits` `12`개 소스를 합쳐 [all_extracted_texts_master.json](/Users/user/test/confirmed_data/translation_workspace/all_extracted_texts_master.json) 을 생성했다.
   - source별 개수와 포함 범위를 [all_extracted_texts_manifest.json](/Users/user/test/confirmed_data/translation_workspace/all_extracted_texts_manifest.json) 에 기록했다.
 - 결과:
-  - 현재 known extracted text sources 기준으로 `10752`건 마스터 작업 세트가 생겼다.
+  - 당시 기준 known extracted text sources 기준으로 `10752`건 마스터 작업 세트가 생겼다.
   - 이제 “큰 줄기 텍스트는 다 모은 상태에서 폰트를 고르는 중”이라는 기준점을 명확하게 유지할 수 있다.
 - 판정: `성공`
 - 교훈: 100% 추출 판정과 별개로, **현재 확보분의 안정적인 기준본** 을 갖는 것은 번역/검수/재삽입 모든 단계의 출발점이 된다.
@@ -1729,3 +1729,29 @@
   - mixed workset 인 `translation_workset_core_ui` 도 `save_menu_texts` 부분을 source_group 단위로 별도 취급할 수 있게 됐다.
 - 판정: `성공`
 - 교훈: 레코드 family 는 "완전히 확정됨 / 완전히 미확정" 두 칸만 있는 게 아니라, **부분 확정 구조 규칙**만 먼저 분리해 둬도 이후 번역 안정성이 많이 올라간다.
+
+### 실험 97
+
+- 가설: startup intro `4`건을 canonical master inventory 에 포함시키고 taxonomy / extraction audit 생성 스크립트를 다시 돌리면, 추출 기준본 숫자를 `13 source / 10756 records` 로 일관되게 맞출 수 있다.
+- 시도:
+  - [build_master_text_workspace.py](/Users/user/test/scripts/build_master_text_workspace.py) 의 source 목록에 `startup_intro_texts.json` 이 포함된 상태로 master workspace 를 다시 생성했다.
+  - [build_text_taxonomy_manifest.py](/Users/user/test/scripts/build_text_taxonomy_manifest.py) 와 [build_extraction_audit_status.py](/Users/user/test/scripts/build_extraction_audit_status.py) 를 같은 canonical master 기준으로 다시 생성했다.
+- 결과:
+  - master manifest 는 `13 source / 10756 records` 를 보고하도록 정리됐다.
+  - startup intro `4`건도 이제 extraction audit 와 taxonomy 에서 빠지지 않고 같은 canonical inventory 안에서 관리된다.
+- 판정: `성공`
+- 교훈: 소형 예외 source 라도 실제 번역/QA에 쓰는 텍스트면, 별도 테스트 자산처럼 흩어두지 말고 **canonical inventory 에 승격**해야 추출 감사 숫자가 흔들리지 않는다.
+
+### 실험 98
+
+- 가설: `registry_a_entry8_prefixed_texts` 와 `registry_d_fc_script_texts` 는 runtime box family 가 아직 미확정이어도, 레코드 경계 자체는 충분히 객관적이므로 source-level family 로 분리해 번역팀 규칙과 삽입 규칙에 먼저 반영할 수 있다.
+- 시도:
+  - entry `8` 샘플의 `01 FF <u16 char_count>` header / payload / trailing control bytes 구조를 다시 점검했다.
+  - Registry D 샘플의 `FC` stop-byte, `before_bytes / after_bytes`, 명시적 개행 포함 케이스를 다시 점검했다.
+  - [build_text_box_family_manifest.py](/Users/user/test/scripts/build_text_box_family_manifest.py) 에 `entry8_prefixed_01ff_script_line`, `registry_d_fc_stop_script_line` family 를 추가했다.
+  - [build_text_layout_assignment_index.py](/Users/user/test/scripts/build_text_layout_assignment_index.py) 와 번역팀 공통 지침에도 같은 family 를 연결했다.
+- 결과:
+  - `entry8` 은 counted script line, `Registry D` 는 `FC` stop-byte script line 으로 분리되어 더 이상 둘 다 `unresolved_dialogue_event` 한 칸에만 묶이지 않게 됐다.
+  - 남은 미확정 범위도 "레코드 구조"가 아니라 **runtime dialogue box/page family** 로 더 선명하게 좁혀졌다.
+- 판정: `성공`
+- 교훈: 대사 계열은 한 번에 전부 확정하려 하기보다, **record structure -> runtime box family** 순으로 층을 나눠 확정하는 편이 번역/재삽입 자동화에 훨씬 유리하다.

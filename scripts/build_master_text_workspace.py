@@ -15,6 +15,7 @@ OUTPUT_JSON = WORKSPACE / "all_extracted_texts_master.json"
 OUTPUT_MANIFEST = WORKSPACE / "all_extracted_texts_manifest.json"
 
 SOURCES = [
+    "startup_intro_texts.json",
     "system_messages.json",
     "item_texts.json",
     "location_texts.json",

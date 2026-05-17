@@ -19,14 +19,17 @@
 - 텍스트 박스/공용 렌더러 family 규격은 [text_box_family_manifest.json](/Users/user/test/confirmed_data/text_layout/text_box_family_manifest.json) 에 분리해 둔다.
 - source / workset 별 layout family 연결은 [text_layout_assignment_index.json](/Users/user/test/confirmed_data/text_layout/text_layout_assignment_index.json) 에 둔다.
 - save/menu prompt 는 `save_menu_prefixed_01ff` family 로 따로 분리해, `01 FF <u16 char_count>` 헤더와 뒤 제어코드를 보존하는 쪽으로 다룬다.
+- `registry_a_entry8_prefixed_texts` 는 `entry8_prefixed_01ff_script_line`, `registry_d_fc_script_texts` 는 `registry_d_fc_stop_script_line` family 로 부분 확정했다.
+- 따라서 남은 핵심은 “대사 source 의 record 경계”가 아니라 **runtime dialogue box/page family** 를 더 묶는 쪽이다.
 
 ## 지금 우선순위
 
 1. 후보 `3`개 startup intro 비교
 2. 폰트 확정
 3. 남은 텍스트 추출 감사 마감
-4. 번역/검수 workset 운영
-5. 자동 재삽입 + 수동 glyph 수정 루프
+4. 대사 계열 runtime dialogue box/page family 추가 연결
+5. 번역/검수 workset 운영
+6. 자동 재삽입 + 수동 glyph 수정 루프
 
 ## 바로 쓰는 파일
 

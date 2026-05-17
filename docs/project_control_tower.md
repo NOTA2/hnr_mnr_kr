@@ -27,7 +27,7 @@
 - 위 작업 세트의 시스템/세이브/지역명 앞부분에는 한국어 초안을 채우기 시작했다.
 - `save_menu_texts` 처럼 `0x10` 종단을 쓰는 명령 스트림형 텍스트도 이제 같은 번역 workset 흐름에 넣을 수 있다.
 - Registry D (`0x17C7E4..0x17CB04`) 전체 물리 범위 `0x7F3000..0x7F96E9` 를 넓은 슬라이딩 스캔으로 다시 훑어 `305`개 대사성 문자열을 확보했다.
-- 위 결과를 [translation_workset_registry_d_dialogue.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_registry_d_dialogue.json) 으로 정리해, 튜토리얼/이벤트/전투 전후 대사를 바로 번역 가능한 workset 으로 전환했다.
+- 위 결과를 [translation_workset_registry_d_dialogue.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_registry_d_dialogue.json) 으로 정리해, canonical `FC-script 244건` 기준의 튜토리얼/이벤트/전투 전후 대사 workset 으로 전환했다.
 - 이어서 `scan-fc-script-text` CLI 를 추가해 Registry D mixed script 형식 `FC 00 ... FC` anchor 에서 [registry_d_fc_script_texts.json](/Users/user/test/confirmed_data/extracted_texts/registry_d_fc_script_texts.json) `244`건을 clean extraction 했고, [registry_d_fc_script_summary.json](/Users/user/test/analysis/registry_d_fc_script_summary.json) 으로 `82 / 100` 엔트리 분포도 정리했다.
 - stop byte `FC` 가 Shift-JIS trailing byte 와 충돌하는 케이스를 고쳐 entry `8` 대사도 추가 회수했고, 남은 non-hit `18`개는 [registry_d_unresolved_entries.json](/Users/user/test/analysis/registry_d_unresolved_entries.json) 으로 분리해 대부분이 control stub 임을 정리했다.
 - Registry D entry `70` 도 raw bytes 를 다시 확인해 `FC` 밀집 control-only script table 쪽으로 더 강하게 분류했다.
@@ -36,7 +36,8 @@
 - Registry A entry `8` (`0x6B594C..0x773248`) 는 이제 [registry_a_entry8_prefixed_texts.json](/Users/user/test/confirmed_data/extracted_texts/registry_a_entry8_prefixed_texts.json) `9823`건으로 clean extraction 이 가능하다.
 - 이어서 `summarize-text-clusters` CLI 를 추가해 entry `8` 을 `72`개 cluster 로 자동 태깅/샘플화한 [registry_a_entry8_cluster_catalog.json](/Users/user/test/analysis/registry_a_entry8_cluster_catalog.json) 과 [registry_a_entry8_cluster_overview.md](/Users/user/test/analysis/registry_a_entry8_cluster_overview.md) 를 만들었다.
 - 이어서 [build_entry8_cluster_worksets.py](/Users/user/test/scripts/build_entry8_cluster_worksets.py) 로 entry `8` 추출본을 [registry_a_entry8_clusters](/Users/user/test/confirmed_data/translation_workspace/registry_a_entry8_clusters) 아래 `72`개 번역 workset 으로 자동 분할했고, 상위 인덱스 [registry_a_entry8_clusters_manifest.json](/Users/user/test/confirmed_data/translation_workspace/registry_a_entry8_clusters_manifest.json) 도 남겼다.
-- 또 [build_master_text_workspace.py](/Users/user/test/scripts/build_master_text_workspace.py) 로 현재 known extracted text sources `12`개를 [all_extracted_texts_master.json](/Users/user/test/confirmed_data/translation_workspace/all_extracted_texts_master.json) `10752`건 기준본으로 묶고, [all_extracted_texts_manifest.json](/Users/user/test/confirmed_data/translation_workspace/all_extracted_texts_manifest.json) 에 source별 개수를 기록했다.
+- 또 [build_master_text_workspace.py](/Users/user/test/scripts/build_master_text_workspace.py) 로 현재 known extracted text sources `13`개를 [all_extracted_texts_master.json](/Users/user/test/confirmed_data/translation_workspace/all_extracted_texts_master.json) `10756`건 기준본으로 묶고, [all_extracted_texts_manifest.json](/Users/user/test/confirmed_data/translation_workspace/all_extracted_texts_manifest.json) 에 source별 개수를 기록했다.
+- 이어서 [extraction_audit_status.json](/Users/user/test/confirmed_data/translation_workspace/extraction_audit_status.json) 으로 canonical extraction audit 상태도 같은 기준본 숫자에 맞춰 관리한다.
 - 이어서 [build_translation_workspace.py](/Users/user/test/scripts/build_translation_workspace.py) 로 master set + entry8 cluster worksets + [translation_workspace/index.json](/Users/user/test/confirmed_data/translation_workspace/index.json) / [translation_workspace/README.md](/Users/user/test/confirmed_data/translation_workspace/README.md) 까지 한 번에 재생성하는 작업 허브를 만들었다.
 - 사용자가 만든 번역팀용 MD `3`개도 [translation_team](/Users/user/test/docs/translation_team) 아래 프로젝트 안으로 복사했고, 실제 workset 연결 정보는 [translation_team_bundle.json](/Users/user/test/confirmed_data/translation_workspace/translation_team_bundle.json) 에 묶었다.
 - cluster `71` 은 자동 태그상 `save_menu` 로 보이지만, 실제로는 일반 이벤트/진행 힌트 `228`건과 save/menu `12`건이 섞인 mixed hub 로 확인되어 [registry_a_entry8_cluster71_pre_save_texts.json](/Users/user/test/analysis/registry_a_entry8_cluster71_pre_save_texts.json) / [registry_a_entry8_cluster71_save_segment_texts.json](/Users/user/test/analysis/registry_a_entry8_cluster71_save_segment_texts.json) 으로 분리했다.
@@ -85,6 +86,8 @@
 - `0x184A0C..0x184AD3` 을 `10 * 0x14` effect/overlay parameter table 후보로 분리했다.
 - startup 첫 카드 `4`줄은 이제 `append_terminator: false` 를 갖는 **confirmed fixed-slot family** 로 고정했고, 같은 사실을 [text_box_family_manifest.json](/Users/user/test/confirmed_data/text_layout/text_box_family_manifest.json) 에 구조화했다.
 - save/menu block 도 이제 `save_menu_prefixed_01ff` family 로 구조화해, `01 FF <u16 char_count>` 헤더 + 본문 + 뒤 제어코드 규칙을 문서와 데이터에 함께 반영했다.
+- Registry A entry `8` 대형 스토리/이벤트 bank 는 `entry8_prefixed_01ff_script_line` family 로 분리해, counted record 구조와 제어코드 보존 규칙을 따로 고정했다.
+- Registry D mixed script 는 `registry_d_fc_stop_script_line` family 로 분리해, `FC` stop-byte 경계와 명시적 개행 보존 규칙을 따로 고정했다.
 - 일반 UI/대사창 계열로 보이는 공용 text object caller 들은 현재 코드상 `r2=0x88`, `r3=20` family 와 world-map `r3=12` family 두 갈래로 크게 묶이며, 번역팀 문서에는 이를 **code-derived reference** 로만 반영했다.
 - 이어서 source / workset 별 layout family 연결은 [text_layout_assignment_index.json](/Users/user/test/confirmed_data/text_layout/text_layout_assignment_index.json) 로 따로 분리해, mixed workset 에 전역 한 줄 제한을 잘못 적용하지 않도록 했다.
 - `0x03005FF8` 은 world-map 선택/hover location index byte 로 보는 해석이 강해졌다.

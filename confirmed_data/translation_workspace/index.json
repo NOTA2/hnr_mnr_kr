@@ -2,72 +2,78 @@
   "workspace_root": "confirmed_data/translation_workspace",
   "master": {
     "output": "confirmed_data/translation_workspace/all_extracted_texts_master.json",
-    "record_count": 10752,
-    "source_count": 12,
+    "record_count": 10756,
+    "source_count": 13,
     "sources": [
       {
         "source_order": 0,
-        "file": "confirmed_data/extracted_texts/system_messages.json",
+        "file": "confirmed_data/extracted_texts/startup_intro_texts.json",
         "record_count": 4
       },
       {
         "source_order": 1,
+        "file": "confirmed_data/extracted_texts/system_messages.json",
+        "record_count": 4
+      },
+      {
+        "source_order": 2,
         "file": "confirmed_data/extracted_texts/item_texts.json",
         "record_count": 47
       },
       {
-        "source_order": 2,
+        "source_order": 3,
         "file": "confirmed_data/extracted_texts/location_texts.json",
         "record_count": 10
       },
       {
-        "source_order": 3,
+        "source_order": 4,
         "file": "confirmed_data/extracted_texts/battle_texts.json",
         "record_count": 104
       },
       {
-        "source_order": 4,
+        "source_order": 5,
         "file": "confirmed_data/extracted_texts/ability_texts.json",
         "record_count": 409
       },
       {
-        "source_order": 5,
+        "source_order": 6,
         "file": "confirmed_data/extracted_texts/material_texts.json",
         "record_count": 43
       },
       {
-        "source_order": 6,
+        "source_order": 7,
         "file": "confirmed_data/extracted_texts/ui_skill_texts.json",
         "record_count": 24
       },
       {
-        "source_order": 7,
+        "source_order": 8,
         "file": "confirmed_data/extracted_texts/save_menu_prefixed_texts.json",
         "record_count": 12
       },
       {
-        "source_order": 8,
+        "source_order": 9,
         "file": "confirmed_data/extracted_texts/registry_d_fc_script_texts.json",
         "record_count": 244
       },
       {
-        "source_order": 9,
+        "source_order": 10,
         "file": "confirmed_data/extracted_texts/registry_a_entry8_prefixed_texts.json",
         "record_count": 9823
       },
       {
-        "source_order": 10,
+        "source_order": 11,
         "file": "confirmed_data/extracted_texts/registry_a_entry12_texts.json",
         "record_count": 22
       },
       {
-        "source_order": 11,
+        "source_order": 12,
         "file": "confirmed_data/extracted_texts/credits_texts.json",
         "record_count": 10
       }
     ],
     "coverage_note": "현재까지 확보한 known extracted text sources를 통합한 작업 기준본이다. 실플레이 기반 누락 회수와 이미지 텍스트는 별도다."
   },
+  "audit_status": "confirmed_data/translation_workspace/extraction_audit_status.json",
   "entry8_clusters": {
     "cluster_count": 72,
     "manifest": "confirmed_data/translation_workspace/registry_a_entry8_clusters_manifest.json",
@@ -104,8 +110,8 @@
     {
       "label": "registry_d_dialogue",
       "file": "confirmed_data/translation_worksets/translation_workset_registry_d_dialogue.json",
-      "record_count": 305,
-      "notes": "이벤트/전투 전후 대사 중심"
+      "record_count": 244,
+      "notes": "Registry D FC-script 기반 이벤트/전투 전후 대사"
     },
     {
       "label": "entry8_clusters_manifest",
@@ -116,7 +122,7 @@
     {
       "label": "all_extracted_master",
       "file": "confirmed_data/translation_workspace/all_extracted_texts_master.json",
-      "record_count": 10752,
+      "record_count": 10756,
       "notes": "현재까지 확보된 known extracted text source 전체 기준본"
     }
   ],
