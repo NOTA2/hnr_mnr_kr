@@ -67,6 +67,8 @@ python3 /Users/user/test/scripts/run_localization_workbench.py
   - 에이전트는 `translation` 을 수정하지 않는다.
   - 대신 `agent_draft` 와 `agent_comment` 에 대안을 적는다.
 - 사용자는 GUI에서 초안을 보고, 필요하면 `에이전트 초안 → 적용 번역` 버튼으로 옮긴 뒤 `수동 잠금`을 켤 수 있다.
+- 사용자가 직접 JSON을 만질 필요는 없다.
+- 번역 에이전트 팀 결과 JSON은 작업대 GUI의 `번역 결과 가져오기` 버튼으로 병합한다.
 
 ## 화자 정보에 대한 현재 상태
 

@@ -77,6 +77,20 @@ http://127.0.0.1:8766
 3. 사람이 직접 확정한 항목은 `수동 잠금`을 켠다.
 4. 사용자는 `현재 카테고리 ROM 재빌드`만 눌러 고정 이름 리뷰 ROM을 다시 만든다.
 
+### 가져오기 흐름
+
+1. 번역 에이전트 팀이 workset JSON 또는 같은 구조의 결과 JSON을 만든다.
+2. GUI 왼쪽 패널에서 `번역 에이전트 결과 JSON 가져오기`로 파일을 선택한다.
+3. `번역 결과 가져오기`를 누르면:
+   - 잠기지 않은 항목은 `translation` 과 `agent_draft` 에 자동 반영된다.
+   - `manual_locked=true` 인 항목은 `translation` 을 유지하고, `agent_draft` / `agent_comment` 만 갱신한다.
+4. 사용자는 필요하면 GUI에서 일부 문장을 직접 수정한다.
+5. `현재 카테고리 ROM 재빌드`를 누르면 고정 이름 리뷰 ROM에 바로 반영된다.
+
+가져오기 리포트는 아래에 남는다.
+
+- [import_reports](/Users/user/test/confirmed_data/localization_workbench/import_reports)
+
 ## 현재 범위
 
 ### 텍스트

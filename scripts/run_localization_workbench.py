@@ -22,6 +22,7 @@ SPEAKERS_PATH = WORKBENCH_DIR / "speaker_aliases.json"
 PROGRESS_PATH = WORKBENCH_DIR / "progress_state.json"
 IMAGE_REPLACEMENTS_PATH = WORKBENCH_DIR / "image_replacements.json"
 UPLOADS_ROOT = WORKBENCH_DIR / "uploaded_image_replacements"
+IMPORT_REPORT_DIR = WORKBENCH_DIR / "import_reports"
 
 
 def parse_args() -> argparse.Namespace:
@@ -169,6 +170,36 @@ class WorkbenchStore:
             "stdout": completed.stdout,
         }
 
+    def import_translation_results(self, filename: str, content_base64: str) -> dict[str, Any]:
+        data = base64.b64decode(content_base64)
+        IMPORT_REPORT_DIR.mkdir(parents=True, exist_ok=True)
+        import_path = IMPORT_REPORT_DIR / Path(filename).name
+        import_path.write_bytes(data)
+        report_path = IMPORT_REPORT_DIR / f"{import_path.stem}_import_report.json"
+        command = [
+            sys.executable,
+            "scripts/import_translation_agent_results.py",
+            str(import_path),
+            "--report",
+            str(report_path),
+        ]
+        completed = subprocess.run(
+            command,
+            cwd=ROOT,
+            text=True,
+            capture_output=True,
+            check=True,
+        )
+        self.reload()
+        report = load_json(report_path)
+        return {
+            "ok": True,
+            "import_path": str(import_path.relative_to(ROOT)),
+            "report_path": str(report_path.relative_to(ROOT)),
+            "summary": report,
+            "stdout": completed.stdout,
+        }
+
 
 def make_handler(store: WorkbenchStore):
     class Handler(BaseHTTPRequestHandler):
@@ -227,6 +258,13 @@ def make_handler(store: WorkbenchStore):
                     return
                 if parsed.path == "/rebuild":
                     result = store.rebuild(payload.get("category_id"))
+                    self._json(result)
+                    return
+                if parsed.path == "/import-translation-results":
+                    result = store.import_translation_results(
+                        payload["filename"],
+                        payload["content_base64"],
+                    )
                     self._json(result)
                     return
             except subprocess.CalledProcessError as exc:

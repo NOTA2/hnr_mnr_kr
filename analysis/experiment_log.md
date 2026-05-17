@@ -2047,3 +2047,18 @@
 - 판정: `성공`
 - 교훈:
   - 자동화가 사람을 완전히 대체하지 못하는 구간에서는, **초안과 최종값을 분리하고 최종값에 잠금을 거는 구조**가 가장 안정적이다.
+
+### 실험 119
+
+- 가설: 번역 에이전트 팀 결과 JSON을 GUI에서 바로 가져오게 만들면, 사용자는 JSON 수작업 없이 GUI와 ROM 재빌드만으로 검수 루프를 돌 수 있다.
+- 시도:
+  - [import_translation_agent_results.py](/Users/user/test/scripts/import_translation_agent_results.py) 를 추가해, workset JSON 또는 같은 구조의 결과 JSON을 dataset 에 병합하는 importer 를 만들었다.
+  - 매칭 우선순위는 `item_id -> (offset, source_group) -> unique offset` 으로 두었다.
+  - 잠기지 않은 항목은 `translation` 과 `agent_draft` 에 같이 반영하고, `manual_locked=true` 항목은 `translation` 을 유지한 채 `agent_draft` / `agent_comment` 만 갱신하도록 했다.
+  - 이어서 [run_localization_workbench.py](/Users/user/test/scripts/run_localization_workbench.py) 와 [localization_workbench.html](/Users/user/test/tools/localization_workbench.html) 에 `번역 결과 가져오기` 버튼과 `/import-translation-results` endpoint 를 붙였다.
+- 결과:
+  - 사용자는 이제 번역 에이전트 팀 결과 JSON 파일을 GUI에서 바로 가져와 dataset 에 병합할 수 있다.
+  - 이후에는 GUI에서 확인/수정 후 `현재 카테고리 ROM 재빌드`만 누르면 고정 이름 리뷰 ROM이 갱신된다.
+- 판정: `성공`
+- 교훈:
+  - 사람 검수가 끼는 번역 파이프라인에서는, 에이전트 결과를 **dataset 병합 단계**로 흡수해 “GUI만 보면 되는 상태”로 만드는 것이 실제 사용성을 크게 높인다.
