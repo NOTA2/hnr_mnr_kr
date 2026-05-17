@@ -13,7 +13,8 @@
 ## 현재 상태
 
 - 상태: `IN PROGRESS`
-- 현재는 단일 확정 폰트가 아니라 **최종 후보 `3`개 비교 단계** 다.
+- active 기준 폰트는 **`Galmuri11 (12px)`** 이다.
+- 기존 비교 후보는:
   - `MaruMinyaHangul (12px)`
   - `Galmuri11 (12px)`
   - `GalmuriMono (12px)`
@@ -32,7 +33,7 @@
 
 ## 최근 확인
 
-- 현재 active 기본값은 [maruminyahangul_12x12.png](/Users/user/test/third_party/font_atlases/maruminyahangul_12x12.png) 이지만, 최종 후보군은 [finalist_font_candidates.json](/Users/user/test/confirmed_data/font_assets/finalist_font_candidates.json) 으로 따로 관리한다.
+- 현재 active 기본값은 [galmuri11_12x12.png](/Users/user/test/third_party/font_atlases/finalists/galmuri11_12x12.png) 이고, 비교 후보군은 [finalist_font_candidates.json](/Users/user/test/confirmed_data/font_assets/finalist_font_candidates.json) 으로 따로 관리한다.
 - 후보 atlas 에서 지금 꼭 필요한 문자 집합은 **한글 완성형 `11,172`자** 다. 숫자/영문/기호는 1차 한글화 기준 원본 게임 공통 폰트를 그대로 쓴다.
 - export 기준은 [finalist_export_recommendation.md](/Users/user/test/confirmed_data/font_assets/finalist_export_recommendation.md), 보조 리포트는 [current_translation_charset_report.json](/Users/user/test/confirmed_data/font_assets/current_translation_charset_report.json), [current_translation_charset_non_hangul.txt](/Users/user/test/confirmed_data/font_assets/current_translation_charset_non_hangul.txt) 에 있다.
 - 기준 설정은 [active_hangul_font_profile.json](/Users/user/test/confirmed_data/font_assets/active_hangul_font_profile.json) 에 기록했다.

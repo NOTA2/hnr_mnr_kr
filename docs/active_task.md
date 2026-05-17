@@ -4,11 +4,9 @@
 
 ## 현재 상태
 
-- 한글 폰트 최종 후보군은 `3`개다.
-  - `MaruMinyaHangul (12px)`
-  - `Galmuri11 (12px)`
-  - `GalmuriMono (12px)`
-- 현재 active 기본값은 [maruminyahangul_12x12.png](/Users/user/test/third_party/font_atlases/maruminyahangul_12x12.png) 이고, 후보 원본 3개는 [finalists](/Users/user/test/third_party/font_atlases/finalists) 아래에 프로젝트 로컬로 복사해 두었다.
+- 한글 폰트 최종 기준은 `Galmuri11 (12px)` 이다.
+- 비교 후보 원본 `3`개는 [finalists](/Users/user/test/third_party/font_atlases/finalists) 아래에 프로젝트 로컬로 복사해 두었다.
+- 현재 active 기본값은 [galmuri11_12x12.png](/Users/user/test/third_party/font_atlases/finalists/galmuri11_12x12.png) 이다.
 - 후보군 메타데이터와 export 기준은 [finalist_font_candidates.json](/Users/user/test/confirmed_data/font_assets/finalist_font_candidates.json), [finalist_export_recommendation.md](/Users/user/test/confirmed_data/font_assets/finalist_export_recommendation.md) 에 있다.
 - 새 후보 bitmap PNG 에서 **반드시 필요한 것**은 `가..힣` 완성형 `11,172`자 atlas 다.
 - 숫자/영문/기본 기호는 1차 한글화 기준으로 **원본 게임 공통 폰트**를 그대로 재사용한다.
@@ -25,10 +23,9 @@
 
 ## 지금 우선순위
 
-1. 후보 `3`개 startup intro 비교
-2. 폰트 확정
-3. 대사 계열 runtime dialogue box/page family 추가 연결
-4. 남은 텍스트 추출 감사 마감
+1. 대사 계열 runtime dialogue box/page family 추가 연결
+2. 남은 텍스트 추출 감사 마감
+3. Galmuri11 기준 재삽입/QA 루프 고정
 5. 번역/검수 workset 운영
 6. 자동 재삽입 + 수동 glyph 수정 루프
 
