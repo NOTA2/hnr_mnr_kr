@@ -1815,3 +1815,18 @@
 - 교훈:
   - 화자명 확정이 안 돼도, **run 단위 후보군**만 있어도 번역 실무에서 충분히 유용하다.
   - 앞으로 화자 추적은 `record -> token -> run -> candidate speaker` 순으로 층을 나눠 쌓는 편이 안전하다.
+
+### 실험 103
+
+- 가설: raw state token / run JSON 만으로는 번역 실무에서 너무 무거우므로, cluster별 top token과 longest run을 뽑은 요약본이 필요하다.
+- 시도:
+  - [build_dialogue_state_cluster_summary.py](/Users/user/test/scripts/build_dialogue_state_cluster_summary.py) 를 추가했다.
+  - `entry8_dialogue_state_runs.json` 에서 cluster별 `top_tokens_by_records`, `longest_runs` 를 정리했다.
+  - `Registry D` 에 대해서도 top token / longest run / top transition 요약을 생성했다.
+  - 산출물은 [entry8_dialogue_state_cluster_summary.json](/Users/user/test/confirmed_data/dialogue_metadata/entry8_dialogue_state_cluster_summary.json), [registry_d_dialogue_state_summary.json](/Users/user/test/confirmed_data/dialogue_metadata/registry_d_dialogue_state_summary.json), [dialogue_state_cluster_summary.md](/Users/user/test/confirmed_data/dialogue_metadata/dialogue_state_cluster_summary.md) 이다.
+- 결과:
+  - `entry8` 는 cluster별로 어떤 state token이 많은지 빠르게 볼 수 있게 됐다.
+  - `Registry D` 는 `pre98:3A`, `pre98:0B`, `pre98:3B` 축의 교대 패턴을 요약본에서 바로 확인할 수 있게 됐다.
+- 판정: `성공`
+- 교훈:
+  - 화자 메타데이터는 추출만 중요한 게 아니라, **번역자가 실제로 읽을 수 있는 요약 레이어**를 함께 만들어야 실전 가치가 생긴다.

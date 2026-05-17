@@ -1,0 +1,361 @@
+{
+  "source_group": "registry_d_fc_script_texts",
+  "note": "Objective summary of dialogue_state_token distribution and longest contiguous runs.",
+  "top_tokens_by_records": [
+    {
+      "dialogue_state_token": "pre98:3A",
+      "record_count": 25,
+      "run_count": 23
+    },
+    {
+      "dialogue_state_token": "pre98:3C",
+      "record_count": 23,
+      "run_count": 22
+    },
+    {
+      "dialogue_state_token": "pre98:3B",
+      "record_count": 21,
+      "run_count": 15
+    },
+    {
+      "dialogue_state_token": "pre98:0B",
+      "record_count": 15,
+      "run_count": 15
+    },
+    {
+      "dialogue_state_token": "pre98:07",
+      "record_count": 8,
+      "run_count": 8
+    },
+    {
+      "dialogue_state_token": "pre98:25",
+      "record_count": 6,
+      "run_count": 6
+    },
+    {
+      "dialogue_state_token": "pre98:6A",
+      "record_count": 6,
+      "run_count": 5
+    },
+    {
+      "dialogue_state_token": "pre98:1A",
+      "record_count": 5,
+      "run_count": 5
+    },
+    {
+      "dialogue_state_token": "pre98:13",
+      "record_count": 4,
+      "run_count": 4
+    },
+    {
+      "dialogue_state_token": "pre98:03",
+      "record_count": 4,
+      "run_count": 4
+    },
+    {
+      "dialogue_state_token": "pre98:53",
+      "record_count": 4,
+      "run_count": 4
+    },
+    {
+      "dialogue_state_token": "pre98:58",
+      "record_count": 4,
+      "run_count": 4
+    }
+  ],
+  "longest_runs": [
+    {
+      "dialogue_state_token": "pre98:3B",
+      "record_count": 4,
+      "first_text": "よっしゃー！\nまずは１回戦突破だ！",
+      "last_text": "よっしゃ、勝った！",
+      "sample_texts": [
+        "よっしゃー！\nまずは１回戦突破だ！",
+        "悪いけど\n負けるつもりはないからさ",
+        "相変わらず\n安物の機械鎧だな",
+        "よっしゃ、勝った！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3A",
+      "record_count": 3,
+      "first_text": "こんなとこにいやがったのか",
+      "last_text": "いいかげんウンザリだぜ",
+      "sample_texts": [
+        "こんなとこにいやがったのか",
+        "またかよ！",
+        "いいかげんウンザリだぜ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:28",
+      "record_count": 2,
+      "first_text": "ちったぁ活躍しておかねえとな\nムショから出てきた意味がねぇ",
+      "last_text": "よほどオレ様に\n斬られたいらしいな！",
+      "sample_texts": [
+        "ちったぁ活躍しておかねえとな\nムショから出てきた意味がねぇ",
+        "よほどオレ様に\n斬られたいらしいな！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3B",
+      "record_count": 2,
+      "first_text": "そう、説明が表示されるから\nムズかしいことじゃないさ\nとりあえず見とけ",
+      "last_text": "これが素材錬成だ",
+      "sample_texts": [
+        "そう、説明が表示されるから\nムズかしいことじゃないさ\nとりあえず見とけ",
+        "これが素材錬成だ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3B",
+      "record_count": 2,
+      "first_text": "ちなみに、言い忘れてたけど\n一度でも使った技は\n手帳に記入するから\nチェックしたいときは\n手帳を開いてみるといい",
+      "last_text": "さっさとケリつけちゃおうぜ",
+      "sample_texts": [
+        "ちなみに、言い忘れてたけど\n一度でも使った技は\n手帳に記入するから\nチェックしたいときは\n手帳を開いてみるといい",
+        "さっさとケリつけちゃおうぜ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3B",
+      "record_count": 2,
+      "first_text": "そうか？少佐ならこれぐらい\n大丈夫だって",
+      "last_text": "オレの勝ちだな",
+      "sample_texts": [
+        "そうか？少佐ならこれぐらい\n大丈夫だって",
+        "オレの勝ちだな"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:3C",
+      "record_count": 2,
+      "first_text": "さっさと片付けて\n先に進むぞ！",
+      "last_text": "さあ、次に進むぞ",
+      "sample_texts": [
+        "さっさと片付けて\n先に進むぞ！",
+        "さあ、次に進むぞ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:6A",
+      "record_count": 2,
+      "first_text": "小僧がッッッ！\n今度は貴様を\nバラバラにしてやる！",
+      "last_text": "理不尽なヤツらだ！\n犬なんて知るかっ！",
+      "sample_texts": [
+        "小僧がッッッ！\n今度は貴様を\nバラバラにしてやる！",
+        "理不尽なヤツらだ！\n犬なんて知るかっ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:00",
+      "record_count": 1,
+      "first_text": "オ、俺がなにを\nしたっていうんだっ！？",
+      "last_text": "オ、俺がなにを\nしたっていうんだっ！？",
+      "sample_texts": [
+        "オ、俺がなにを\nしたっていうんだっ！？"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:01",
+      "record_count": 1,
+      "first_text": "おまえごときに時間を\nかけてるわけには\nいかないんだよ",
+      "last_text": "おまえごときに時間を\nかけてるわけには\nいかないんだよ",
+      "sample_texts": [
+        "おまえごときに時間を\nかけてるわけには\nいかないんだよ"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:01",
+      "record_count": 1,
+      "first_text": "国家錬金術師、\nそして我が使命を邪魔する者！\nこの場の全員、滅ぼす！",
+      "last_text": "国家錬金術師、\nそして我が使命を邪魔する者！\nこの場の全員、滅ぼす！",
+      "sample_texts": [
+        "国家錬金術師、\nそして我が使命を邪魔する者！\nこの場の全員、滅ぼす！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:01",
+      "record_count": 1,
+      "first_text": "おとなしく裁きを受けよ！",
+      "last_text": "おとなしく裁きを受けよ！",
+      "sample_texts": [
+        "おとなしく裁きを受けよ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:02",
+      "record_count": 1,
+      "first_text": "それじゃ\nちゃちゃっと片付けますか",
+      "last_text": "それじゃ\nちゃちゃっと片付けますか",
+      "sample_texts": [
+        "それじゃ\nちゃちゃっと片付けますか"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:02",
+      "record_count": 1,
+      "first_text": "しょうがない。\n相手してやるぜ！",
+      "last_text": "しょうがない。\n相手してやるぜ！",
+      "sample_texts": [
+        "しょうがない。\n相手してやるぜ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:03",
+      "record_count": 1,
+      "first_text": "オレたちのニセモノは\nちゃんとオレたちで倒すぜ！",
+      "last_text": "オレたちのニセモノは\nちゃんとオレたちで倒すぜ！",
+      "sample_texts": [
+        "オレたちのニセモノは\nちゃんとオレたちで倒すぜ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:03",
+      "record_count": 1,
+      "first_text": "…ぜったい、潰すっ！",
+      "last_text": "…ぜったい、潰すっ！",
+      "sample_texts": [
+        "…ぜったい、潰すっ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:03",
+      "record_count": 1,
+      "first_text": "だれがぁ？\nミクロミニチュア錬金術師だぁ？",
+      "last_text": "だれがぁ？\nミクロミニチュア錬金術師だぁ？",
+      "sample_texts": [
+        "だれがぁ？\nミクロミニチュア錬金術師だぁ？"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:03",
+      "record_count": 1,
+      "first_text": "オレは鋼の錬金術師\nエドワード・エルリックだぁ！",
+      "last_text": "オレは鋼の錬金術師\nエドワード・エルリックだぁ！",
+      "sample_texts": [
+        "オレは鋼の錬金術師\nエドワード・エルリックだぁ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:04",
+      "record_count": 1,
+      "first_text": "今度こそ、\n完全にぶっ飛ばしてやるっ！",
+      "last_text": "今度こそ、\n完全にぶっ飛ばしてやるっ！",
+      "sample_texts": [
+        "今度こそ、\n完全にぶっ飛ばしてやるっ！"
+      ]
+    },
+    {
+      "dialogue_state_token": "pre98:04",
+      "record_count": 1,
+      "first_text": "なにぃ？",
+      "last_text": "なにぃ？",
+      "sample_texts": [
+        "なにぃ？"
+      ]
+    }
+  ],
+  "top_transitions": [
+    {
+      "from": "pre98:3A",
+      "to": "pre98:0B",
+      "count": 8
+    },
+    {
+      "from": "pre98:0B",
+      "to": "pre98:3A",
+      "count": 6
+    },
+    {
+      "from": "pre98:0B",
+      "to": "pre98:3B",
+      "count": 5
+    },
+    {
+      "from": "pre98:3B",
+      "to": "pre98:0B",
+      "count": 3
+    },
+    {
+      "from": "pre98:6A",
+      "to": "pre98:3C",
+      "count": 3
+    },
+    {
+      "from": "pre98:13",
+      "to": "pre98:3C",
+      "count": 3
+    },
+    {
+      "from": "pre98:3A",
+      "to": "pre98:3C",
+      "count": 2
+    },
+    {
+      "from": "pre98:3C",
+      "to": "pre98:36",
+      "count": 2
+    },
+    {
+      "from": "pre98:36",
+      "to": "pre98:3A",
+      "count": 2
+    },
+    {
+      "from": "pre98:3A",
+      "to": "pre98:26",
+      "count": 2
+    },
+    {
+      "from": "pre98:2F",
+      "to": "pre98:01",
+      "count": 2
+    },
+    {
+      "from": "pre98:01",
+      "to": "pre98:05",
+      "count": 2
+    },
+    {
+      "from": "pre98:3C",
+      "to": "pre98:2F",
+      "count": 2
+    },
+    {
+      "from": "pre98:25",
+      "to": "pre98:53",
+      "count": 2
+    },
+    {
+      "from": "pre98:4A",
+      "to": "pre98:3C",
+      "count": 2
+    },
+    {
+      "from": "pre98:3C",
+      "to": "pre98:4A",
+      "count": 2
+    },
+    {
+      "from": "pre98:28",
+      "to": "pre98:3B",
+      "count": 2
+    },
+    {
+      "from": "pre98:51",
+      "to": "pre98:07",
+      "count": 2
+    },
+    {
+      "from": "pre98:3C",
+      "to": "pre98:1A",
+      "count": 2
+    },
+    {
+      "from": "pre98:3B",
+      "to": "pre98:6A",
+      "count": 2
+    }
+  ]
+}

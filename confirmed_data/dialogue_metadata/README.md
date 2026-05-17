@@ -14,6 +14,9 @@
 - `registry_d_dialogue_state_index.json`: Registry D FC-script state tokens
 - `entry8_dialogue_state_runs.json`: Entry 8 cluster-local contiguous state runs
 - `registry_d_dialogue_state_runs.json`: Registry D contiguous state runs
+- `entry8_dialogue_state_cluster_summary.json`: Entry 8 cluster별 token/run 요약
+- `registry_d_dialogue_state_summary.json`: Registry D token/run 요약
+- `dialogue_state_cluster_summary.md`: 사람이 빠르게 보는 요약본
 
 - Entry8 clusters with runs: `72`
 - Registry D total runs: `207`

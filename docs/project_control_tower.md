@@ -26,6 +26,7 @@
 - [confirmed_data/dialogue_metadata/README.md](/Users/user/test/confirmed_data/dialogue_metadata/README.md)
   - 추출본을 다시 갈아엎지 않고, dialogue source 옆에 `dialogue_state_token` sidecar 를 붙여 speaker-state 추적을 누적한다.
   - 이어서 contiguous `state run` 도 함께 생성해, 번역 시 같은 화자 상태 후보군을 바로 참조할 수 있게 한다.
+  - 사람이 빠르게 보는 요약본은 [dialogue_state_cluster_summary.md](/Users/user/test/confirmed_data/dialogue_metadata/dialogue_state_cluster_summary.md) 이다.
 
 ## 최근 핵심 진전
 

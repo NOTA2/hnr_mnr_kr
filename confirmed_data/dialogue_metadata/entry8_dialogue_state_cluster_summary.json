@@ -1,0 +1,7692 @@
+{
+  "source_group": "registry_a_entry8",
+  "note": "Per-cluster objective summary of dialogue_state_token distribution and longest contiguous runs.",
+  "clusters": [
+    {
+      "cluster_index": 0,
+      "primary_tag": "liore",
+      "record_count": 232,
+      "run_count": 122,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 5,
+          "run_count": 5
+        },
+        {
+          "dialogue_state_token": "1bff:0B80",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "27ff:C820",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:5E80",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:5F80",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0580",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0C80",
+          "record_count": 2,
+          "run_count": 2
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "錬金術ってのは科学だ。",
+          "last_text": "錬金術ってのは科学だ。",
+          "sample_texts": [
+            "錬金術ってのは科学だ。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "そうだなぁ、",
+          "last_text": "そうだなぁ、",
+          "sample_texts": [
+            "そうだなぁ、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "カギが閉まってて入れないな…",
+          "last_text": "カギが閉まってて入れないな…",
+          "sample_texts": [
+            "カギが閉まってて入れないな…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "腹へったぁ…",
+          "last_text": "腹へったぁ…",
+          "sample_texts": [
+            "腹へったぁ…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0300",
+          "record_count": 1,
+          "first_text": "って、オイ！",
+          "last_text": "って、オイ！",
+          "sample_texts": [
+            "って、オイ！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0480",
+          "record_count": 1,
+          "first_text": "…うるせぇ！",
+          "last_text": "…うるせぇ！",
+          "sample_texts": [
+            "…うるせぇ！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0500",
+          "record_count": 1,
+          "first_text": "「奇跡の業」ねぇ…",
+          "last_text": "「奇跡の業」ねぇ…",
+          "sample_texts": [
+            "「奇跡の業」ねぇ…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0580",
+          "record_count": 1,
+          "first_text": "あの「奇跡の業」どう思う？",
+          "last_text": "あの「奇跡の業」どう思う？",
+          "sample_texts": [
+            "あの「奇跡の業」どう思う？"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 1,
+      "primary_tag": "liore",
+      "record_count": 122,
+      "run_count": 83,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:6380",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "27ff:C900",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "1bff:3C00",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 3,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "27ff:C330",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:3A00",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0B80",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:6300",
+          "record_count": 2,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 2,
+          "first_text": "鍵がかかってるよ、兄さん",
+          "last_text": "鍵がかかってるよ、兄さん",
+          "sample_texts": [
+            "鍵がかかってるよ、兄さん",
+            "鍵がかかってるよ、兄さん"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:6300",
+          "record_count": 2,
+          "first_text": "そうキメラだ！",
+          "last_text": "ふははは、どうだ…",
+          "sample_texts": [
+            "そうキメラだ！",
+            "ふははは、どうだ…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0900",
+          "record_count": 1,
+          "first_text": "エルリック兄弟です。",
+          "last_text": "エルリック兄弟です。",
+          "sample_texts": [
+            "エルリック兄弟です。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0A00",
+          "record_count": 1,
+          "first_text": "なんちって",
+          "last_text": "なんちって",
+          "sample_texts": [
+            "なんちって"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0A00",
+          "record_count": 1,
+          "first_text": "これがリオライトか？",
+          "last_text": "これがリオライトか？",
+          "sample_texts": [
+            "これがリオライトか？"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 1,
+          "first_text": "兄さん、",
+          "last_text": "兄さん、",
+          "sample_texts": [
+            "兄さん、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0B80",
+          "record_count": 1,
+          "first_text": "ありがとうございます。",
+          "last_text": "ありがとうございます。",
+          "sample_texts": [
+            "ありがとうございます。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0B80",
+          "record_count": 1,
+          "first_text": "まあまあ。",
+          "last_text": "まあまあ。",
+          "sample_texts": [
+            "まあまあ。"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 2,
+      "primary_tag": "liore",
+      "record_count": 45,
+      "run_count": 18,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:7C80",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0D80",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "2bff:2000",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "2bff:0C00",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "2bff:0A00",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:7D80",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "2bff:2480",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "27ff:0000",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0D80",
+          "record_count": 1,
+          "first_text": "ごていねいにお出迎えかよ",
+          "last_text": "ごていねいにお出迎えかよ",
+          "sample_texts": [
+            "ごていねいにお出迎えかよ"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:7C80",
+          "record_count": 1,
+          "first_text": "くそっ…。",
+          "last_text": "くそっ…。",
+          "sample_texts": [
+            "くそっ…。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:7C80",
+          "record_count": 1,
+          "first_text": "だめよ、グラトニー。",
+          "last_text": "だめよ、グラトニー。",
+          "sample_texts": [
+            "だめよ、グラトニー。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:7D80",
+          "record_count": 1,
+          "first_text": "ラスト、",
+          "last_text": "ラスト、",
+          "sample_texts": [
+            "ラスト、"
+          ]
+        },
+        {
+          "dialogue_state_token": "27ff:0000",
+          "record_count": 1,
+          "first_text": "兄さん、",
+          "last_text": "兄さん、",
+          "sample_texts": [
+            "兄さん、"
+          ]
+        },
+        {
+          "dialogue_state_token": "2bff:0A00",
+          "record_count": 1,
+          "first_text": "お前たちはいったい…",
+          "last_text": "お前たちはいったい…",
+          "sample_texts": [
+            "お前たちはいったい…"
+          ]
+        },
+        {
+          "dialogue_state_token": "2bff:0C00",
+          "record_count": 1,
+          "first_text": "当然よ。",
+          "last_text": "当然よ。",
+          "sample_texts": [
+            "当然よ。"
+          ]
+        },
+        {
+          "dialogue_state_token": "2bff:2000",
+          "record_count": 1,
+          "first_text": "ほーんと。",
+          "last_text": "ほーんと。",
+          "sample_texts": [
+            "ほーんと。"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 3,
+      "primary_tag": "liore",
+      "record_count": 53,
+      "run_count": 24,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:3A00",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:6480",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:6580",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:1180",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:3C00",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:6380",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "2bff:3400",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 1,
+          "first_text": "なんのために？",
+          "last_text": "なんのために？",
+          "sample_texts": [
+            "なんのために？"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:1180",
+          "record_count": 1,
+          "first_text": "なんで…いったい？",
+          "last_text": "なんで…いったい？",
+          "sample_texts": [
+            "なんで…いったい？"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:1180",
+          "record_count": 1,
+          "first_text": "あきらめないで探そうよ。",
+          "last_text": "あきらめないで探そうよ。",
+          "sample_texts": [
+            "あきらめないで探そうよ。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:3A00",
+          "record_count": 1,
+          "first_text": "無理はよくねぇよ。",
+          "last_text": "無理はよくねぇよ。",
+          "sample_texts": [
+            "無理はよくねぇよ。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:3A00",
+          "record_count": 1,
+          "first_text": "ニセモノ…",
+          "last_text": "ニセモノ…",
+          "sample_texts": [
+            "ニセモノ…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:3A00",
+          "record_count": 1,
+          "first_text": "見つかったと思ったのになぁ…",
+          "last_text": "見つかったと思ったのになぁ…",
+          "sample_texts": [
+            "見つかったと思ったのになぁ…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:3C00",
+          "record_count": 1,
+          "first_text": "うっさい！",
+          "last_text": "うっさい！",
+          "sample_texts": [
+            "うっさい！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:3C00",
+          "record_count": 1,
+          "first_text": "おい、おっさんっ！",
+          "last_text": "おい、おっさんっ！",
+          "sample_texts": [
+            "おい、おっさんっ！"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 4,
+      "primary_tag": "bank",
+      "record_count": 119,
+      "run_count": 37,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "2bff:0900",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:2180",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:3380",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0980",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "27ff:03D9",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:3300",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "例の怪しい人物が強盗犯とも",
+          "last_text": "例の怪しい人物が強盗犯とも",
+          "sample_texts": [
+            "例の怪しい人物が強盗犯とも"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "例の怪しい人物が強盗犯とも",
+          "last_text": "例の怪しい人物が強盗犯とも",
+          "sample_texts": [
+            "例の怪しい人物が強盗犯とも"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "カギが閉まってて入れないな…",
+          "last_text": "カギが閉まってて入れないな…",
+          "sample_texts": [
+            "カギが閉まってて入れないな…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0980",
+          "record_count": 1,
+          "first_text": "わかってるよ",
+          "last_text": "わかってるよ",
+          "sample_texts": [
+            "わかってるよ"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0980",
+          "record_count": 1,
+          "first_text": "わかってるよ",
+          "last_text": "わかってるよ",
+          "sample_texts": [
+            "わかってるよ"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 1,
+          "first_text": "あのぉ、何があったんですか？",
+          "last_text": "あのぉ、何があったんですか？",
+          "sample_texts": [
+            "あのぉ、何があったんですか？"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 1,
+          "first_text": "そうだよね。",
+          "last_text": "そうだよね。",
+          "sample_texts": [
+            "そうだよね。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 1,
+          "first_text": "あのぉ、何があったんですか？",
+          "last_text": "あのぉ、何があったんですか？",
+          "sample_texts": [
+            "あのぉ、何があったんですか？"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 5,
+      "primary_tag": "east_city",
+      "record_count": 84,
+      "run_count": 37,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "2bff:6600",
+          "record_count": 4,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "2bff:6700",
+          "record_count": 3,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "2bff:6800",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:1180",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:2400",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:1C80",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:2F00",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "2bff:6600",
+          "record_count": 2,
+          "first_text": "金庫室に穴が…",
+          "last_text": "金庫を調べさせるわけには",
+          "sample_texts": [
+            "金庫室に穴が…",
+            "金庫を調べさせるわけには"
+          ]
+        },
+        {
+          "dialogue_state_token": "2bff:6700",
+          "record_count": 2,
+          "first_text": "いらっしゃいませ",
+          "last_text": "あの走って銀行から",
+          "sample_texts": [
+            "いらっしゃいませ",
+            "あの走って銀行から"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "まだ、金庫室を調べさせて",
+          "last_text": "まだ、金庫室を調べさせて",
+          "sample_texts": [
+            "まだ、金庫室を調べさせて"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0880",
+          "record_count": 1,
+          "first_text": "みなさまのおかげでこのように",
+          "last_text": "みなさまのおかげでこのように",
+          "sample_texts": [
+            "みなさまのおかげでこのように"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0900",
+          "record_count": 1,
+          "first_text": "ヤツのことは後で考えるとして",
+          "last_text": "ヤツのことは後で考えるとして",
+          "sample_texts": [
+            "ヤツのことは後で考えるとして"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0F00",
+          "record_count": 1,
+          "first_text": "街中調べても怪しいところは",
+          "last_text": "街中調べても怪しいところは",
+          "sample_texts": [
+            "街中調べても怪しいところは"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:1180",
+          "record_count": 1,
+          "first_text": "当時の状況を詳しく聞かせて",
+          "last_text": "当時の状況を詳しく聞かせて",
+          "sample_texts": [
+            "当時の状況を詳しく聞かせて"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:1580",
+          "record_count": 1,
+          "first_text": "そこまで付き合うのか…？",
+          "last_text": "そこまで付き合うのか…？",
+          "sample_texts": [
+            "そこまで付き合うのか…？"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 6,
+      "primary_tag": "bank",
+      "record_count": 64,
+      "run_count": 49,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 5,
+          "run_count": 5
+        },
+        {
+          "dialogue_state_token": "27ff:FE00",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0980",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:5300",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:5200",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0A00",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "27ff:FF00",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "あ、アルをむかえにいかないと",
+          "last_text": "あ、アルをむかえにいかないと",
+          "sample_texts": [
+            "あ、アルをむかえにいかないと"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "このへんに橋でも錬成すれば",
+          "last_text": "このへんに橋でも錬成すれば",
+          "sample_texts": [
+            "このへんに橋でも錬成すれば"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "ここに橋をかけるぞ。",
+          "last_text": "ここに橋をかけるぞ。",
+          "sample_texts": [
+            "ここに橋をかけるぞ。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "このカードじゃダメだな。",
+          "last_text": "このカードじゃダメだな。",
+          "sample_texts": [
+            "このカードじゃダメだな。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "どこか渡れるところを探そう",
+          "last_text": "どこか渡れるところを探そう",
+          "sample_texts": [
+            "どこか渡れるところを探そう"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "最後に一つだけ尋ねるけど、",
+          "last_text": "最後に一つだけ尋ねるけど、",
+          "sample_texts": [
+            "最後に一つだけ尋ねるけど、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "兄さん、",
+          "last_text": "兄さん、",
+          "sample_texts": [
+            "兄さん、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "こんな橋じゃ、",
+          "last_text": "こんな橋じゃ、",
+          "sample_texts": [
+            "こんな橋じゃ、"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 7,
+      "primary_tag": "east_city",
+      "record_count": 63,
+      "run_count": 20,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "27ff:1003",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "2bff:0800",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:2180",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "2bff:0900",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:1180",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:1280",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "カギが閉まってて入れないな…",
+          "last_text": "カギが閉まってて入れないな…",
+          "sample_texts": [
+            "カギが閉まってて入れないな…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "…またニセモノ事件かよ",
+          "last_text": "…またニセモノ事件かよ",
+          "sample_texts": [
+            "…またニセモノ事件かよ"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:1180",
+          "record_count": 1,
+          "first_text": "そうですけど",
+          "last_text": "そうですけど",
+          "sample_texts": [
+            "そうですけど"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:1280",
+          "record_count": 1,
+          "first_text": "その軍から来ました。",
+          "last_text": "その軍から来ました。",
+          "sample_texts": [
+            "その軍から来ました。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:2180",
+          "record_count": 1,
+          "first_text": "ここがソリン村か",
+          "last_text": "ここがソリン村か",
+          "sample_texts": [
+            "ここがソリン村か"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:2280",
+          "record_count": 1,
+          "first_text": "我々は事件解決に赴いたのです",
+          "last_text": "我々は事件解決に赴いたのです",
+          "sample_texts": [
+            "我々は事件解決に赴いたのです"
+          ]
+        },
+        {
+          "dialogue_state_token": "27ff:1003",
+          "record_count": 1,
+          "first_text": "猫ゲ～ット♪",
+          "last_text": "猫ゲ～ット♪",
+          "sample_texts": [
+            "猫ゲ～ット♪"
+          ]
+        },
+        {
+          "dialogue_state_token": "2bff:0700",
+          "record_count": 1,
+          "first_text": "どうやら、この二人の偽者が",
+          "last_text": "どうやら、この二人の偽者が",
+          "sample_texts": [
+            "どうやら、この二人の偽者が"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 8,
+      "primary_tag": "cat_quest",
+      "record_count": 84,
+      "run_count": 35,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "2bff:3500",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0B80",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0380",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "2bff:7C00",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "2bff:0001",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:3580",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:3980",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "2bff:0600",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0380",
+          "record_count": 1,
+          "first_text": "ああ、また悪さをしに",
+          "last_text": "ああ、また悪さをしに",
+          "sample_texts": [
+            "ああ、また悪さをしに"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0700",
+          "record_count": 1,
+          "first_text": "裏山だな。",
+          "last_text": "裏山だな。",
+          "sample_texts": [
+            "裏山だな。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0B80",
+          "record_count": 1,
+          "first_text": "ボクたちは本物の",
+          "last_text": "ボクたちは本物の",
+          "sample_texts": [
+            "ボクたちは本物の"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0B80",
+          "record_count": 1,
+          "first_text": "うん、兄さん。",
+          "last_text": "うん、兄さん。",
+          "sample_texts": [
+            "うん、兄さん。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0E00",
+          "record_count": 1,
+          "first_text": "猫だ～♪",
+          "last_text": "猫だ～♪",
+          "sample_texts": [
+            "猫だ～♪"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:1200",
+          "record_count": 1,
+          "first_text": "さっそくですが、",
+          "last_text": "さっそくですが、",
+          "sample_texts": [
+            "さっそくですが、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:1280",
+          "record_count": 1,
+          "first_text": "ごもっともです",
+          "last_text": "ごもっともです",
+          "sample_texts": [
+            "ごもっともです"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:1C80",
+          "record_count": 1,
+          "first_text": "お気持ちお察しします。",
+          "last_text": "お気持ちお察しします。",
+          "sample_texts": [
+            "お気持ちお察しします。"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 9,
+      "primary_tag": "reward",
+      "record_count": 155,
+      "run_count": 107,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:0780",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0480",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "2bff:0101",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "2bff:0900",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:2180",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0F80",
+          "record_count": 2,
+          "run_count": 2
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "この先は崖か…",
+          "last_text": "この先は崖か…",
+          "sample_texts": [
+            "この先は崖か…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "橋を作るぞ！",
+          "last_text": "橋を作るぞ！",
+          "sample_texts": [
+            "橋を作るぞ！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "このカードじゃダメだな。",
+          "last_text": "このカードじゃダメだな。",
+          "sample_texts": [
+            "このカードじゃダメだな。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "石の５－４のカードがあれば",
+          "last_text": "石の５－４のカードがあれば",
+          "sample_texts": [
+            "石の５－４のカードがあれば"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0480",
+          "record_count": 1,
+          "first_text": "兄さん、",
+          "last_text": "兄さん、",
+          "sample_texts": [
+            "兄さん、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0480",
+          "record_count": 1,
+          "first_text": "そうだ。",
+          "last_text": "そうだ。",
+          "sample_texts": [
+            "そうだ。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0700",
+          "record_count": 1,
+          "first_text": "６－２の丸太か…",
+          "last_text": "６－２の丸太か…",
+          "sample_texts": [
+            "６－２の丸太か…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0780",
+          "record_count": 1,
+          "first_text": "やっぱり見間違いじゃないよ！",
+          "last_text": "やっぱり見間違いじゃないよ！",
+          "sample_texts": [
+            "やっぱり見間違いじゃないよ！"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 10,
+      "primary_tag": "east_city",
+      "record_count": 135,
+      "run_count": 66,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "2bff:0800",
+          "record_count": 5,
+          "run_count": 5
+        },
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "1bff:0700",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "1bff:3080",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0900",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:3380",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "2bff:3400",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 2,
+          "run_count": 2
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "カギが閉まってて入れないな…",
+          "last_text": "カギが閉まってて入れないな…",
+          "sample_texts": [
+            "カギが閉まってて入れないな…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "おいっ。",
+          "last_text": "おいっ。",
+          "sample_texts": [
+            "おいっ。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "仕方ねぇな。",
+          "last_text": "仕方ねぇな。",
+          "sample_texts": [
+            "仕方ねぇな。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0700",
+          "record_count": 1,
+          "first_text": "今、助けるっ！",
+          "last_text": "今、助けるっ！",
+          "sample_texts": [
+            "今、助けるっ！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0700",
+          "record_count": 1,
+          "first_text": "何があったんだ？",
+          "last_text": "何があったんだ？",
+          "sample_texts": [
+            "何があったんだ？"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0700",
+          "record_count": 1,
+          "first_text": "う…わかったよ",
+          "last_text": "う…わかったよ",
+          "sample_texts": [
+            "う…わかったよ"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0700",
+          "record_count": 1,
+          "first_text": "うりゃっ！",
+          "last_text": "うりゃっ！",
+          "sample_texts": [
+            "うりゃっ！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0800",
+          "record_count": 1,
+          "first_text": "そ、そうじゃないけどさ",
+          "last_text": "そ、そうじゃないけどさ",
+          "sample_texts": [
+            "そ、そうじゃないけどさ"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 11,
+      "primary_tag": "central",
+      "record_count": 258,
+      "run_count": 89,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 6,
+          "run_count": 6
+        },
+        {
+          "dialogue_state_token": "1bff:0D80",
+          "record_count": 6,
+          "run_count": 6
+        },
+        {
+          "dialogue_state_token": "1bff:0E00",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0400",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "2bff:0900",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0700",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "2bff:0C00",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "相手は子供だ。",
+          "last_text": "相手は子供だ。",
+          "sample_texts": [
+            "相手は子供だ。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "相手は子供だ。",
+          "last_text": "相手は子供だ。",
+          "sample_texts": [
+            "相手は子供だ。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "相手は子供だ。",
+          "last_text": "相手は子供だ。",
+          "sample_texts": [
+            "相手は子供だ。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "相手は子供だ。",
+          "last_text": "相手は子供だ。",
+          "sample_texts": [
+            "相手は子供だ。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "カギが閉まってて入れないな…",
+          "last_text": "カギが閉まってて入れないな…",
+          "sample_texts": [
+            "カギが閉まってて入れないな…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "閉まってるぞ…",
+          "last_text": "閉まってるぞ…",
+          "sample_texts": [
+            "閉まってるぞ…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "恐がられてるぞ",
+          "last_text": "恐がられてるぞ",
+          "sample_texts": [
+            "恐がられてるぞ"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "…ったく、",
+          "last_text": "…ったく、",
+          "sample_texts": [
+            "…ったく、"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 12,
+      "primary_tag": "cat_quest",
+      "record_count": 15,
+      "run_count": 7,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "2bff:0700",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0E00",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0380",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0880",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0380",
+          "record_count": 1,
+          "first_text": "って、それひとんちのだろ！",
+          "last_text": "って、それひとんちのだろ！",
+          "sample_texts": [
+            "って、それひとんちのだろ！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0880",
+          "record_count": 1,
+          "first_text": "うそーん！",
+          "last_text": "うそーん！",
+          "sample_texts": [
+            "うそーん！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0E00",
+          "record_count": 1,
+          "first_text": "わーい、猫だ～♪",
+          "last_text": "わーい、猫だ～♪",
+          "sample_texts": [
+            "わーい、猫だ～♪"
+          ]
+        },
+        {
+          "dialogue_state_token": "2bff:0700",
+          "record_count": 1,
+          "first_text": "また、きておくれ",
+          "last_text": "また、きておくれ",
+          "sample_texts": [
+            "また、きておくれ"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 13,
+      "primary_tag": "central",
+      "record_count": 105,
+      "run_count": 75,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "2bff:1502",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:2280",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0F80",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:3D00",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:2580",
+          "record_count": 2,
+          "run_count": 2
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "そりゃそうだ。",
+          "last_text": "そりゃそうだ。",
+          "sample_texts": [
+            "そりゃそうだ。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "わかってるよ",
+          "last_text": "わかってるよ",
+          "sample_texts": [
+            "わかってるよ"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "だから、まず説明してくれよ。",
+          "last_text": "だから、まず説明してくれよ。",
+          "sample_texts": [
+            "だから、まず説明してくれよ。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "で、オレと何の関係が",
+          "last_text": "で、オレと何の関係が",
+          "sample_texts": [
+            "で、オレと何の関係が"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "代わりに参加申し込み…",
+          "last_text": "代わりに参加申し込み…",
+          "sample_texts": [
+            "代わりに参加申し込み…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "しかたねぇな。",
+          "last_text": "しかたねぇな。",
+          "sample_texts": [
+            "しかたねぇな。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "よぉ～♪",
+          "last_text": "よぉ～♪",
+          "sample_texts": [
+            "よぉ～♪"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "エドワード・エルリックよ、",
+          "last_text": "エドワード・エルリックよ、",
+          "sample_texts": [
+            "エドワード・エルリックよ、"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 14,
+      "primary_tag": "central",
+      "record_count": 102,
+      "run_count": 52,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:7F00",
+          "record_count": 6,
+          "run_count": 6
+        },
+        {
+          "dialogue_state_token": "1bff:0B80",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:7E00",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:7F80",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0880",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0900",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0E00",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "グレイシアさん、",
+          "last_text": "グレイシアさん、",
+          "sample_texts": [
+            "グレイシアさん、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "だから、",
+          "last_text": "だから、",
+          "sample_texts": [
+            "だから、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "…そうだな。",
+          "last_text": "…そうだな。",
+          "sample_texts": [
+            "…そうだな。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0880",
+          "record_count": 1,
+          "first_text": "見てないけど？",
+          "last_text": "見てないけど？",
+          "sample_texts": [
+            "見てないけど？"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0880",
+          "record_count": 1,
+          "first_text": "なんだよ",
+          "last_text": "なんだよ",
+          "sample_texts": [
+            "なんだよ"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0900",
+          "record_count": 1,
+          "first_text": "ヒューズ中佐ね。",
+          "last_text": "ヒューズ中佐ね。",
+          "sample_texts": [
+            "ヒューズ中佐ね。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0900",
+          "record_count": 1,
+          "first_text": "あんな親バカぶりを",
+          "last_text": "あんな親バカぶりを",
+          "sample_texts": [
+            "あんな親バカぶりを"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0980",
+          "record_count": 1,
+          "first_text": "いいって、",
+          "last_text": "いいって、",
+          "sample_texts": [
+            "いいって、"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 15,
+      "primary_tag": "central",
+      "record_count": 52,
+      "run_count": 4,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "2bff:F011",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0E00",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "2bff:0800",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0E00",
+          "record_count": 1,
+          "first_text": "同志よ！",
+          "last_text": "同志よ！",
+          "sample_texts": [
+            "同志よ！"
+          ]
+        },
+        {
+          "dialogue_state_token": "2bff:0800",
+          "record_count": 1,
+          "first_text": "　北側区画",
+          "last_text": "　北側区画",
+          "sample_texts": [
+            "　北側区画"
+          ]
+        },
+        {
+          "dialogue_state_token": "2bff:F011",
+          "record_count": 1,
+          "first_text": "鋼の錬金術師殿、",
+          "last_text": "鋼の錬金術師殿、",
+          "sample_texts": [
+            "鋼の錬金術師殿、"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 16,
+      "primary_tag": "armor_parts",
+      "record_count": 155,
+      "run_count": 56,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:0B80",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "2bff:3600",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:3300",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "27ff:E320",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "27ff:E420",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "27ff:F01B",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "2bff:0A00",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "どこに行ったかわからない？",
+          "last_text": "どこに行ったかわからない？",
+          "sample_texts": [
+            "どこに行ったかわからない？"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "カギが閉まってて入れないな…",
+          "last_text": "カギが閉まってて入れないな…",
+          "sample_texts": [
+            "カギが閉まってて入れないな…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "相手はとにかく強い。",
+          "last_text": "相手はとにかく強い。",
+          "sample_texts": [
+            "相手はとにかく強い。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "…だよな。",
+          "last_text": "…だよな。",
+          "sample_texts": [
+            "…だよな。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0580",
+          "record_count": 1,
+          "first_text": "ああ、強い…",
+          "last_text": "ああ、強い…",
+          "sample_texts": [
+            "ああ、強い…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0980",
+          "record_count": 1,
+          "first_text": "なんだか、ドキドキするわ",
+          "last_text": "なんだか、ドキドキするわ",
+          "sample_texts": [
+            "なんだか、ドキドキするわ"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0B80",
+          "record_count": 1,
+          "first_text": "緊張したら深呼吸だよ",
+          "last_text": "緊張したら深呼吸だよ",
+          "sample_texts": [
+            "緊張したら深呼吸だよ"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0B80",
+          "record_count": 1,
+          "first_text": "どんなことがあっても",
+          "last_text": "どんなことがあっても",
+          "sample_texts": [
+            "どんなことがあっても"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 17,
+      "primary_tag": "central",
+      "record_count": 101,
+      "run_count": 38,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:3E00",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:4000",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:1980",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:3F00",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:4100",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0580",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:3D00",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0680",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "姿が見えないってだけで、",
+          "last_text": "姿が見えないってだけで、",
+          "sample_texts": [
+            "姿が見えないってだけで、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "わー！いい！いい！",
+          "last_text": "わー！いい！いい！",
+          "sample_texts": [
+            "わー！いい！いい！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0580",
+          "record_count": 1,
+          "first_text": "それが…",
+          "last_text": "それが…",
+          "sample_texts": [
+            "それが…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0680",
+          "record_count": 1,
+          "first_text": "オレひとりの力じゃないよ…",
+          "last_text": "オレひとりの力じゃないよ…",
+          "sample_texts": [
+            "オレひとりの力じゃないよ…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0780",
+          "record_count": 1,
+          "first_text": "どうした、エド",
+          "last_text": "どうした、エド",
+          "sample_texts": [
+            "どうした、エド"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0800",
+          "record_count": 1,
+          "first_text": "行っちゃった…",
+          "last_text": "行っちゃった…",
+          "sample_texts": [
+            "行っちゃった…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0880",
+          "record_count": 1,
+          "first_text": "いきなり大きな声",
+          "last_text": "いきなり大きな声",
+          "sample_texts": [
+            "いきなり大きな声"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0B80",
+          "record_count": 1,
+          "first_text": "誰も誘拐されたなんて",
+          "last_text": "誰も誘拐されたなんて",
+          "sample_texts": [
+            "誰も誘拐されたなんて"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 18,
+      "primary_tag": "east_city",
+      "record_count": 523,
+      "run_count": 314,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 9,
+          "run_count": 9
+        },
+        {
+          "dialogue_state_token": "1bff:0B80",
+          "record_count": 7,
+          "run_count": 7
+        },
+        {
+          "dialogue_state_token": "1bff:0800",
+          "record_count": 5,
+          "run_count": 5
+        },
+        {
+          "dialogue_state_token": "1bff:0980",
+          "record_count": 5,
+          "run_count": 5
+        },
+        {
+          "dialogue_state_token": "1bff:0300",
+          "record_count": 5,
+          "run_count": 5
+        },
+        {
+          "dialogue_state_token": "1bff:0D80",
+          "record_count": 5,
+          "run_count": 5
+        },
+        {
+          "dialogue_state_token": "1bff:0A00",
+          "record_count": 5,
+          "run_count": 5
+        },
+        {
+          "dialogue_state_token": "1bff:1380",
+          "record_count": 5,
+          "run_count": 5
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "必死の覚悟で来るだろうな。",
+          "last_text": "必死の覚悟で来るだろうな。",
+          "sample_texts": [
+            "必死の覚悟で来るだろうな。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "どうやら、次が",
+          "last_text": "どうやら、次が",
+          "sample_texts": [
+            "どうやら、次が"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "アームストロング少佐、",
+          "last_text": "アームストロング少佐、",
+          "sample_texts": [
+            "アームストロング少佐、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "その前に、",
+          "last_text": "その前に、",
+          "sample_texts": [
+            "その前に、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "特殊部隊に参加してくれるかい",
+          "last_text": "特殊部隊に参加してくれるかい",
+          "sample_texts": [
+            "特殊部隊に参加してくれるかい"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "大佐たちはどこにいったんだ？",
+          "last_text": "大佐たちはどこにいったんだ？",
+          "sample_texts": [
+            "大佐たちはどこにいったんだ？"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "まだ出るとは…",
+          "last_text": "まだ出るとは…",
+          "sample_texts": [
+            "まだ出るとは…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "あの、オッサン…",
+          "last_text": "あの、オッサン…",
+          "sample_texts": [
+            "あの、オッサン…"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 19,
+      "primary_tag": "military",
+      "record_count": 155,
+      "run_count": 70,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 5,
+          "run_count": 5
+        },
+        {
+          "dialogue_state_token": "2bff:0900",
+          "record_count": 5,
+          "run_count": 5
+        },
+        {
+          "dialogue_state_token": "1bff:0900",
+          "record_count": 5,
+          "run_count": 5
+        },
+        {
+          "dialogue_state_token": "1bff:0B80",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:3080",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0800",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0C80",
+          "record_count": 2,
+          "run_count": 2
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "ブラッドレイ大総統に",
+          "last_text": "ブラッドレイ大総統に",
+          "sample_texts": [
+            "ブラッドレイ大総統に"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "エドワード・エルリック",
+          "last_text": "エドワード・エルリック",
+          "sample_texts": [
+            "エドワード・エルリック"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "エドワード・エルリックと…",
+          "last_text": "エドワード・エルリックと…",
+          "sample_texts": [
+            "エドワード・エルリックと…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "エドワード・エルリックと…",
+          "last_text": "エドワード・エルリックと…",
+          "sample_texts": [
+            "エドワード・エルリックと…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "そりゃそうか。",
+          "last_text": "そりゃそうか。",
+          "sample_texts": [
+            "そりゃそうか。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "スンマセンシタ…",
+          "last_text": "スンマセンシタ…",
+          "sample_texts": [
+            "スンマセンシタ…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "わかってるけどさぁ",
+          "last_text": "わかってるけどさぁ",
+          "sample_texts": [
+            "わかってるけどさぁ"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0400",
+          "record_count": 1,
+          "first_text": "子ども扱いすんな！",
+          "last_text": "子ども扱いすんな！",
+          "sample_texts": [
+            "子ども扱いすんな！"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 20,
+      "primary_tag": "central",
+      "record_count": 325,
+      "run_count": 138,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 8,
+          "run_count": 8
+        },
+        {
+          "dialogue_state_token": "1bff:6E00",
+          "record_count": 7,
+          "run_count": 7
+        },
+        {
+          "dialogue_state_token": "1bff:0880",
+          "record_count": 7,
+          "run_count": 7
+        },
+        {
+          "dialogue_state_token": "1bff:6E80",
+          "record_count": 5,
+          "run_count": 5
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0980",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0B80",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:2280",
+          "record_count": 2,
+          "run_count": 2
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "わかってます。",
+          "last_text": "わかってます。",
+          "sample_texts": [
+            "わかってます。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "別の者って…誰だ？",
+          "last_text": "別の者って…誰だ？",
+          "sample_texts": [
+            "別の者って…誰だ？"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "…うーん。",
+          "last_text": "…うーん。",
+          "sample_texts": [
+            "…うーん。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "きたか…",
+          "last_text": "きたか…",
+          "sample_texts": [
+            "きたか…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "わかりました。",
+          "last_text": "わかりました。",
+          "sample_texts": [
+            "わかりました。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "断りたくないんで、",
+          "last_text": "断りたくないんで、",
+          "sample_texts": [
+            "断りたくないんで、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "なんですか？",
+          "last_text": "なんですか？",
+          "sample_texts": [
+            "なんですか？"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "それで、",
+          "last_text": "それで、",
+          "sample_texts": [
+            "それで、"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 21,
+      "primary_tag": "central",
+      "record_count": 86,
+      "run_count": 25,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0700",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0F00",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "27ff:F011",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "2bff:0A00",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0E00",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0780",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "2bff:0800",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "閉まってるな…",
+          "last_text": "閉まってるな…",
+          "sample_texts": [
+            "閉まってるな…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0500",
+          "record_count": 1,
+          "first_text": "石の７－１、レベル５か…",
+          "last_text": "石の７－１、レベル５か…",
+          "sample_texts": [
+            "石の７－１、レベル５か…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0700",
+          "record_count": 1,
+          "first_text": "アルをもとに戻すまでは",
+          "last_text": "アルをもとに戻すまでは",
+          "sample_texts": [
+            "アルをもとに戻すまでは"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0700",
+          "record_count": 1,
+          "first_text": "アルをもとに戻すまでは",
+          "last_text": "アルをもとに戻すまでは",
+          "sample_texts": [
+            "アルをもとに戻すまでは"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0780",
+          "record_count": 1,
+          "first_text": "トラジマだろーが！",
+          "last_text": "トラジマだろーが！",
+          "sample_texts": [
+            "トラジマだろーが！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 1,
+          "first_text": "兄さん、イーストシティに",
+          "last_text": "兄さん、イーストシティに",
+          "sample_texts": [
+            "兄さん、イーストシティに"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 1,
+          "first_text": "兄さん、まだセントラルで",
+          "last_text": "兄さん、まだセントラルで",
+          "sample_texts": [
+            "兄さん、まだセントラルで"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 1,
+          "first_text": "兄さん、イーストシティに",
+          "last_text": "兄さん、イーストシティに",
+          "sample_texts": [
+            "兄さん、イーストシティに"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 22,
+      "primary_tag": "east_city",
+      "record_count": 20,
+      "run_count": 3,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "入れないな…",
+          "last_text": "入れないな…",
+          "sample_texts": [
+            "入れないな…"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 23,
+      "primary_tag": "hospital",
+      "record_count": 38,
+      "run_count": 6,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:0500",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "入れないな…",
+          "last_text": "入れないな…",
+          "sample_texts": [
+            "入れないな…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0500",
+          "record_count": 1,
+          "first_text": "自然の２－５、レベル２か…",
+          "last_text": "自然の２－５、レベル２か…",
+          "sample_texts": [
+            "自然の２－５、レベル２か…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0500",
+          "record_count": 1,
+          "first_text": "自然の２－５、レベル５か…",
+          "last_text": "自然の２－５、レベル５か…",
+          "sample_texts": [
+            "自然の２－５、レベル５か…"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 24,
+      "primary_tag": "hospital",
+      "record_count": 9,
+      "run_count": 1,
+      "top_tokens_by_records": [],
+      "longest_runs": []
+    },
+    {
+      "cluster_index": 25,
+      "primary_tag": "hospital",
+      "record_count": 23,
+      "run_count": 11,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:F001",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0A00",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "2bff:0800",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0E00",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "ワインなんか…",
+          "last_text": "ワインなんか…",
+          "sample_texts": [
+            "ワインなんか…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "それはそうかも…",
+          "last_text": "それはそうかも…",
+          "sample_texts": [
+            "それはそうかも…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0A00",
+          "record_count": 1,
+          "first_text": "あったぞ、アル！",
+          "last_text": "あったぞ、アル！",
+          "sample_texts": [
+            "あったぞ、アル！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0E00",
+          "record_count": 1,
+          "first_text": "病院に猫がいるのは",
+          "last_text": "病院に猫がいるのは",
+          "sample_texts": [
+            "病院に猫がいるのは"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:F001",
+          "record_count": 1,
+          "first_text": "お、お兄さん！",
+          "last_text": "お、お兄さん！",
+          "sample_texts": [
+            "お、お兄さん！"
+          ]
+        },
+        {
+          "dialogue_state_token": "2bff:0800",
+          "record_count": 1,
+          "first_text": "ありがとう、",
+          "last_text": "ありがとう、",
+          "sample_texts": [
+            "ありがとう、"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 26,
+      "primary_tag": "central",
+      "record_count": 274,
+      "run_count": 167,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "27ff:1221",
+          "record_count": 9,
+          "run_count": 9
+        },
+        {
+          "dialogue_state_token": "27ff:1031",
+          "record_count": 7,
+          "run_count": 7
+        },
+        {
+          "dialogue_state_token": "1bff:0980",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "27ff:D410",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "27ff:1131",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "27ff:1431",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "27ff:D500",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 3,
+          "run_count": 3
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "相変わらずだね～、中佐も",
+          "last_text": "相変わらずだね～、中佐も",
+          "sample_texts": [
+            "相変わらずだね～、中佐も"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "はいはい…",
+          "last_text": "はいはい…",
+          "sample_texts": [
+            "はいはい…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0380",
+          "record_count": 1,
+          "first_text": "ヘンな名前つけるなー！",
+          "last_text": "ヘンな名前つけるなー！",
+          "sample_texts": [
+            "ヘンな名前つけるなー！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0700",
+          "record_count": 1,
+          "first_text": "アルをもとに戻すまでは",
+          "last_text": "アルをもとに戻すまでは",
+          "sample_texts": [
+            "アルをもとに戻すまでは"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0880",
+          "record_count": 1,
+          "first_text": "ヒューズ中佐はオレたちの",
+          "last_text": "ヒューズ中佐はオレたちの",
+          "sample_texts": [
+            "ヒューズ中佐はオレたちの"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0900",
+          "record_count": 1,
+          "first_text": "よし、イーストシティへ出発だ",
+          "last_text": "よし、イーストシティへ出発だ",
+          "sample_texts": [
+            "よし、イーストシティへ出発だ"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0980",
+          "record_count": 1,
+          "first_text": "いつも慌ただしいな",
+          "last_text": "いつも慌ただしいな",
+          "sample_texts": [
+            "いつも慌ただしいな"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0980",
+          "record_count": 1,
+          "first_text": "わかってるって",
+          "last_text": "わかってるって",
+          "sample_texts": [
+            "わかってるって"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 27,
+      "primary_tag": "armor_parts",
+      "record_count": 59,
+      "run_count": 4,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:F01B",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0500",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0500",
+          "record_count": 1,
+          "first_text": "暗黒の５－６、レベル４か…",
+          "last_text": "暗黒の５－６、レベル４か…",
+          "sample_texts": [
+            "暗黒の５－６、レベル４か…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:F01B",
+          "record_count": 1,
+          "first_text": "鎧のパーツ？",
+          "last_text": "鎧のパーツ？",
+          "sample_texts": [
+            "鎧のパーツ？"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 28,
+      "primary_tag": "central",
+      "record_count": 148,
+      "run_count": 54,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "2bff:0800",
+          "record_count": 5,
+          "run_count": 5
+        },
+        {
+          "dialogue_state_token": "1bff:6D00",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0D80",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0E80",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:3D80",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "実はキメラの大量発生事件を",
+          "last_text": "実はキメラの大量発生事件を",
+          "sample_texts": [
+            "実はキメラの大量発生事件を"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "仕方ないか…",
+          "last_text": "仕方ないか…",
+          "sample_texts": [
+            "仕方ないか…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "読書中悪いんだけど…",
+          "last_text": "読書中悪いんだけど…",
+          "sample_texts": [
+            "読書中悪いんだけど…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "本を読めない理由でもあんの？",
+          "last_text": "本を読めない理由でもあんの？",
+          "sample_texts": [
+            "本を読めない理由でもあんの？"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "…あんたが飼えば",
+          "last_text": "…あんたが飼えば",
+          "sample_texts": [
+            "…あんたが飼えば"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "やっぱり…",
+          "last_text": "やっぱり…",
+          "sample_texts": [
+            "やっぱり…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "そうだけど…",
+          "last_text": "そうだけど…",
+          "sample_texts": [
+            "そうだけど…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0380",
+          "record_count": 1,
+          "first_text": "おい、アル！",
+          "last_text": "おい、アル！",
+          "sample_texts": [
+            "おい、アル！"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 29,
+      "primary_tag": "cat_quest",
+      "record_count": 9,
+      "run_count": 6,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:1000",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "2bff:3F02",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "猫だらけだ…＄",
+          "last_text": "猫だらけだ…＄",
+          "sample_texts": [
+            "猫だらけだ…＄"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "兄さん、いいよね？",
+          "last_text": "兄さん、いいよね？",
+          "sample_texts": [
+            "兄さん、いいよね？"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:1000",
+          "record_count": 1,
+          "first_text": "やっぱり…？",
+          "last_text": "やっぱり…？",
+          "sample_texts": [
+            "やっぱり…？"
+          ]
+        },
+        {
+          "dialogue_state_token": "2bff:3F02",
+          "record_count": 1,
+          "first_text": "お待たせ、兄さん！",
+          "last_text": "お待たせ、兄さん！",
+          "sample_texts": [
+            "お待たせ、兄さん！"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 30,
+      "primary_tag": "central",
+      "record_count": 59,
+      "run_count": 30,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0E00",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "2bff:0800",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0700",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0500",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0A00",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "早いとこ、残りのパーツを",
+          "last_text": "早いとこ、残りのパーツを",
+          "sample_texts": [
+            "早いとこ、残りのパーツを"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "ヘンな金属の物体なら",
+          "last_text": "ヘンな金属の物体なら",
+          "sample_texts": [
+            "ヘンな金属の物体なら"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "はいはい…",
+          "last_text": "はいはい…",
+          "sample_texts": [
+            "はいはい…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0500",
+          "record_count": 1,
+          "first_text": "行った…",
+          "last_text": "行った…",
+          "sample_texts": [
+            "行った…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0500",
+          "record_count": 1,
+          "first_text": "暗黒の７－７、レベル５か…",
+          "last_text": "暗黒の７－７、レベル５か…",
+          "sample_texts": [
+            "暗黒の７－７、レベル５か…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0700",
+          "record_count": 1,
+          "first_text": "…この感じは？",
+          "last_text": "…この感じは？",
+          "sample_texts": [
+            "…この感じは？"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0700",
+          "record_count": 1,
+          "first_text": "アルをもとに戻すまでは",
+          "last_text": "アルをもとに戻すまでは",
+          "sample_texts": [
+            "アルをもとに戻すまでは"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0A00",
+          "record_count": 1,
+          "first_text": "あったぞ、アル！",
+          "last_text": "あったぞ、アル！",
+          "sample_texts": [
+            "あったぞ、アル！"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 31,
+      "primary_tag": "liore",
+      "record_count": 15,
+      "run_count": 1,
+      "top_tokens_by_records": [],
+      "longest_runs": []
+    },
+    {
+      "cluster_index": 32,
+      "primary_tag": "central",
+      "record_count": 138,
+      "run_count": 35,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0E00",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "2bff:8600",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0D00",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:2180",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0A00",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:3080",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "カギが閉まってて入れないな…",
+          "last_text": "カギが閉まってて入れないな…",
+          "sample_texts": [
+            "カギが閉まってて入れないな…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "ここがイーストシティね。",
+          "last_text": "ここがイーストシティね。",
+          "sample_texts": [
+            "ここがイーストシティね。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "そろそろいいかげんにしろよ…",
+          "last_text": "そろそろいいかげんにしろよ…",
+          "sample_texts": [
+            "そろそろいいかげんにしろよ…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "やれやれだぜ…",
+          "last_text": "やれやれだぜ…",
+          "sample_texts": [
+            "やれやれだぜ…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0500",
+          "record_count": 1,
+          "first_text": "暗黒の１－７、レベル５か…",
+          "last_text": "暗黒の１－７、レベル５か…",
+          "sample_texts": [
+            "暗黒の１－７、レベル５か…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0980",
+          "record_count": 1,
+          "first_text": "ゆっくりできるのは",
+          "last_text": "ゆっくりできるのは",
+          "sample_texts": [
+            "ゆっくりできるのは"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0A00",
+          "record_count": 1,
+          "first_text": "そうあって欲しいぜ",
+          "last_text": "そうあって欲しいぜ",
+          "sample_texts": [
+            "そうあって欲しいぜ"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 1,
+          "first_text": "兄さん、まだイーストシティで",
+          "last_text": "兄さん、まだイーストシティで",
+          "sample_texts": [
+            "兄さん、まだイーストシティで"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 33,
+      "primary_tag": "shop_npc",
+      "record_count": 9,
+      "run_count": 3,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "2bff:0700",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "2bff:0700",
+          "record_count": 1,
+          "first_text": "また、きておくれ",
+          "last_text": "また、きておくれ",
+          "sample_texts": [
+            "また、きておくれ"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 34,
+      "primary_tag": "military",
+      "record_count": 166,
+      "run_count": 115,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 5,
+          "run_count": 5
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "1bff:2B80",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "1bff:0980",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:3400",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:2900",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:3900",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:3580",
+          "record_count": 2,
+          "run_count": 2
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "コニィ、黙ってたけど、",
+          "last_text": "コニィ、黙ってたけど、",
+          "sample_texts": [
+            "コニィ、黙ってたけど、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "唐突だね。",
+          "last_text": "唐突だね。",
+          "sample_texts": [
+            "唐突だね。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "酷いもなにも、自分自身で",
+          "last_text": "酷いもなにも、自分自身で",
+          "sample_texts": [
+            "酷いもなにも、自分自身で"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "オレは何があっても",
+          "last_text": "オレは何があっても",
+          "sample_texts": [
+            "オレは何があっても"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "アル…そうだったな",
+          "last_text": "アル…そうだったな",
+          "sample_texts": [
+            "アル…そうだったな"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "てーか、なんでそうなる！",
+          "last_text": "てーか、なんでそうなる！",
+          "sample_texts": [
+            "てーか、なんでそうなる！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "子供に金、出させる気かよ",
+          "last_text": "子供に金、出させる気かよ",
+          "sample_texts": [
+            "子供に金、出させる気かよ"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0580",
+          "record_count": 1,
+          "first_text": "夜な夜な街を歩き回っては、",
+          "last_text": "夜な夜な街を歩き回っては、",
+          "sample_texts": [
+            "夜な夜な街を歩き回っては、"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 35,
+      "primary_tag": "central",
+      "record_count": 137,
+      "run_count": 95,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "2bff:6700",
+          "record_count": 10,
+          "run_count": 10
+        },
+        {
+          "dialogue_state_token": "1bff:0700",
+          "record_count": 6,
+          "run_count": 6
+        },
+        {
+          "dialogue_state_token": "1bff:1380",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:2880",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0A00",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:2680",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:1280",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:1580",
+          "record_count": 2,
+          "run_count": 2
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "あのさ…ホークアイ中尉",
+          "last_text": "あのさ…ホークアイ中尉",
+          "sample_texts": [
+            "あのさ…ホークアイ中尉"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "そういう事を",
+          "last_text": "そういう事を",
+          "sample_texts": [
+            "そういう事を"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0700",
+          "record_count": 1,
+          "first_text": "キメラのくせに生意気だぜ！",
+          "last_text": "キメラのくせに生意気だぜ！",
+          "sample_texts": [
+            "キメラのくせに生意気だぜ！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0700",
+          "record_count": 1,
+          "first_text": "クソッ、これじゃ倒しても",
+          "last_text": "クソッ、これじゃ倒しても",
+          "sample_texts": [
+            "クソッ、これじゃ倒しても"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0700",
+          "record_count": 1,
+          "first_text": "クソッ、これじゃ倒しても",
+          "last_text": "クソッ、これじゃ倒しても",
+          "sample_texts": [
+            "クソッ、これじゃ倒しても"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0700",
+          "record_count": 1,
+          "first_text": "クソッ、これじゃ倒しても",
+          "last_text": "クソッ、これじゃ倒しても",
+          "sample_texts": [
+            "クソッ、これじゃ倒しても"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0700",
+          "record_count": 1,
+          "first_text": "クソッ、これじゃ倒しても",
+          "last_text": "クソッ、これじゃ倒しても",
+          "sample_texts": [
+            "クソッ、これじゃ倒しても"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0700",
+          "record_count": 1,
+          "first_text": "クソッ、これじゃ倒しても",
+          "last_text": "クソッ、これじゃ倒しても",
+          "sample_texts": [
+            "クソッ、これじゃ倒しても"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 36,
+      "primary_tag": "east_city",
+      "record_count": 109,
+      "run_count": 64,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "2bff:0800",
+          "record_count": 10,
+          "run_count": 8
+        },
+        {
+          "dialogue_state_token": "1bff:1200",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "2bff:0700",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0F00",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:1300",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "2bff:0800",
+          "record_count": 2,
+          "first_text": "こんにちは",
+          "last_text": "大佐はイーストシティ東側の",
+          "sample_texts": [
+            "こんにちは",
+            "大佐はイーストシティ東側の"
+          ]
+        },
+        {
+          "dialogue_state_token": "2bff:0800",
+          "record_count": 2,
+          "first_text": "ここは東方軍司令部です",
+          "last_text": "マスタング大佐に御用ですか？",
+          "sample_texts": [
+            "ここは東方軍司令部です",
+            "マスタング大佐に御用ですか？"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "鋼の錬金術師様ですね。",
+          "last_text": "鋼の錬金術師様ですね。",
+          "sample_texts": [
+            "鋼の錬金術師様ですね。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "カギが閉まってて入れないな…",
+          "last_text": "カギが閉まってて入れないな…",
+          "sample_texts": [
+            "カギが閉まってて入れないな…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "デ、デタラメ…",
+          "last_text": "デ、デタラメ…",
+          "sample_texts": [
+            "デ、デタラメ…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "って、さっきも",
+          "last_text": "って、さっきも",
+          "sample_texts": [
+            "って、さっきも"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "私の机の中だ！",
+          "last_text": "私の机の中だ！",
+          "sample_texts": [
+            "私の机の中だ！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "…ハイハイ",
+          "last_text": "…ハイハイ",
+          "sample_texts": [
+            "…ハイハイ"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 37,
+      "primary_tag": "tutorial",
+      "record_count": 66,
+      "run_count": 50,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:0780",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:5800",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0A80",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:1380",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:1D00",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0480",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0380",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:5700",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0380",
+          "record_count": 1,
+          "first_text": "それはオレが",
+          "last_text": "それはオレが",
+          "sample_texts": [
+            "それはオレが"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0480",
+          "record_count": 1,
+          "first_text": "もうオレの人形は作るな！",
+          "last_text": "もうオレの人形は作るな！",
+          "sample_texts": [
+            "もうオレの人形は作るな！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0780",
+          "record_count": 1,
+          "first_text": "で、あたしの最高傑作を",
+          "last_text": "で、あたしの最高傑作を",
+          "sample_texts": [
+            "で、あたしの最高傑作を"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0780",
+          "record_count": 1,
+          "first_text": "コニィだって、",
+          "last_text": "コニィだって、",
+          "sample_texts": [
+            "コニィだって、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0980",
+          "record_count": 1,
+          "first_text": "オ、オホン！",
+          "last_text": "オ、オホン！",
+          "sample_texts": [
+            "オ、オホン！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0A80",
+          "record_count": 1,
+          "first_text": "あ、背伸びしてるっ！",
+          "last_text": "あ、背伸びしてるっ！",
+          "sample_texts": [
+            "あ、背伸びしてるっ！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0A80",
+          "record_count": 1,
+          "first_text": "なに、そうしたらまた",
+          "last_text": "なに、そうしたらまた",
+          "sample_texts": [
+            "なに、そうしたらまた"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 1,
+          "first_text": "兄さん、落ち着いて！",
+          "last_text": "兄さん、落ち着いて！",
+          "sample_texts": [
+            "兄さん、落ち着いて！"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 38,
+      "primary_tag": "central",
+      "record_count": 786,
+      "run_count": 589,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:1C80",
+          "record_count": 16,
+          "run_count": 16
+        },
+        {
+          "dialogue_state_token": "1bff:1280",
+          "record_count": 13,
+          "run_count": 13
+        },
+        {
+          "dialogue_state_token": "1bff:1200",
+          "record_count": 12,
+          "run_count": 12
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 10,
+          "run_count": 10
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 10,
+          "run_count": 10
+        },
+        {
+          "dialogue_state_token": "1bff:0980",
+          "record_count": 9,
+          "run_count": 9
+        },
+        {
+          "dialogue_state_token": "1bff:0900",
+          "record_count": 9,
+          "run_count": 9
+        },
+        {
+          "dialogue_state_token": "1bff:0A80",
+          "record_count": 8,
+          "run_count": 8
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "場所は？",
+          "last_text": "場所は？",
+          "sample_texts": [
+            "場所は？"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "んじゃ、さっそく行きますか！",
+          "last_text": "んじゃ、さっそく行きますか！",
+          "sample_texts": [
+            "んじゃ、さっそく行きますか！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "偶然、名字が同じだっただけ、",
+          "last_text": "偶然、名字が同じだっただけ、",
+          "sample_texts": [
+            "偶然、名字が同じだっただけ、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "だけど、いたのはキメラだけで",
+          "last_text": "だけど、いたのはキメラだけで",
+          "sample_texts": [
+            "だけど、いたのはキメラだけで"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "いいんじゃないか？",
+          "last_text": "いいんじゃないか？",
+          "sample_texts": [
+            "いいんじゃないか？"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "リゼンブールか",
+          "last_text": "リゼンブールか",
+          "sample_texts": [
+            "リゼンブールか"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "ないって言い切れる？",
+          "last_text": "ないって言い切れる？",
+          "sample_texts": [
+            "ないって言い切れる？"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "…つまりどういうこと？",
+          "last_text": "…つまりどういうこと？",
+          "sample_texts": [
+            "…つまりどういうこと？"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 39,
+      "primary_tag": "military",
+      "record_count": 123,
+      "run_count": 82,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:7500",
+          "record_count": 9,
+          "run_count": 9
+        },
+        {
+          "dialogue_state_token": "1bff:7300",
+          "record_count": 8,
+          "run_count": 8
+        },
+        {
+          "dialogue_state_token": "1bff:7200",
+          "record_count": 5,
+          "run_count": 5
+        },
+        {
+          "dialogue_state_token": "1bff:7100",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:7400",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:7180",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:7280",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0680",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "関係あるかはわかりませんよ。",
+          "last_text": "関係あるかはわかりませんよ。",
+          "sample_texts": [
+            "関係あるかはわかりませんよ。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "「大佐」",
+          "last_text": "「大佐」",
+          "sample_texts": [
+            "「大佐」"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0680",
+          "record_count": 1,
+          "first_text": "「隠し事」",
+          "last_text": "「隠し事」",
+          "sample_texts": [
+            "「隠し事」"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0800",
+          "record_count": 1,
+          "first_text": "な、なんだよ、",
+          "last_text": "な、なんだよ、",
+          "sample_texts": [
+            "な、なんだよ、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0880",
+          "record_count": 1,
+          "first_text": "「キメラ」(合成獣",
+          "last_text": "「キメラ」(合成獣",
+          "sample_texts": [
+            "「キメラ」(合成獣"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0980",
+          "record_count": 1,
+          "first_text": "絶対になにか隠してるよね",
+          "last_text": "絶対になにか隠してるよね",
+          "sample_texts": [
+            "絶対になにか隠してるよね"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0A00",
+          "record_count": 1,
+          "first_text": "そんなこと言って、",
+          "last_text": "そんなこと言って、",
+          "sample_texts": [
+            "そんなこと言って、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 1,
+          "first_text": "だってタバコの吸殻が",
+          "last_text": "だってタバコの吸殻が",
+          "sample_texts": [
+            "だってタバコの吸殻が"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 40,
+      "primary_tag": "military",
+      "record_count": 57,
+      "run_count": 11,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "27ff:41F0",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "2bff:3500",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:3D00",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0A80",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "2bff:0600",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0E00",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "なんの同志だよ…？",
+          "last_text": "なんの同志だよ…？",
+          "sample_texts": [
+            "なんの同志だよ…？"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0A80",
+          "record_count": 1,
+          "first_text": "んじゃま、いきますか！",
+          "last_text": "んじゃま、いきますか！",
+          "sample_texts": [
+            "んじゃま、いきますか！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0E00",
+          "record_count": 1,
+          "first_text": "同志よ！",
+          "last_text": "同志よ！",
+          "sample_texts": [
+            "同志よ！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:3D00",
+          "record_count": 1,
+          "first_text": "能書きはいいから、",
+          "last_text": "能書きはいいから、",
+          "sample_texts": [
+            "能書きはいいから、"
+          ]
+        },
+        {
+          "dialogue_state_token": "27ff:41F0",
+          "record_count": 1,
+          "first_text": "こいつが親玉か！？",
+          "last_text": "こいつが親玉か！？",
+          "sample_texts": [
+            "こいつが親玉か！？"
+          ]
+        },
+        {
+          "dialogue_state_token": "2bff:0600",
+          "record_count": 1,
+          "first_text": "キメラが街中に現れる事も",
+          "last_text": "キメラが街中に現れる事も",
+          "sample_texts": [
+            "キメラが街中に現れる事も"
+          ]
+        },
+        {
+          "dialogue_state_token": "2bff:3500",
+          "record_count": 1,
+          "first_text": "なるほど。",
+          "last_text": "なるほど。",
+          "sample_texts": [
+            "なるほど。"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 41,
+      "primary_tag": "east_city",
+      "record_count": 306,
+      "run_count": 176,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "2bff:0900",
+          "record_count": 8,
+          "run_count": 8
+        },
+        {
+          "dialogue_state_token": "1bff:1280",
+          "record_count": 7,
+          "run_count": 7
+        },
+        {
+          "dialogue_state_token": "1bff:1380",
+          "record_count": 6,
+          "run_count": 6
+        },
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 5,
+          "run_count": 5
+        },
+        {
+          "dialogue_state_token": "1bff:1200",
+          "record_count": 5,
+          "run_count": 5
+        },
+        {
+          "dialogue_state_token": "2bff:0600",
+          "record_count": 5,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0900",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:1C80",
+          "record_count": 3,
+          "run_count": 3
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "2bff:0600",
+          "record_count": 2,
+          "first_text": "はっ！！",
+          "last_text": "さっさと来るんだ",
+          "sample_texts": [
+            "はっ！！",
+            "さっさと来るんだ"
+          ]
+        },
+        {
+          "dialogue_state_token": "2bff:0600",
+          "record_count": 2,
+          "first_text": "さっそく、みがくぞ！",
+          "last_text": "いい油はねえもんかな…？",
+          "sample_texts": [
+            "さっそく、みがくぞ！",
+            "いい油はねえもんかな…？"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "しーっ、ハボック少尉の",
+          "last_text": "しーっ、ハボック少尉の",
+          "sample_texts": [
+            "しーっ、ハボック少尉の"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "で、どこにいるんだ",
+          "last_text": "で、どこにいるんだ",
+          "sample_texts": [
+            "で、どこにいるんだ"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "…言ってもムダかぁ…",
+          "last_text": "…言ってもムダかぁ…",
+          "sample_texts": [
+            "…言ってもムダかぁ…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "俺の自転車がぁ～！！",
+          "last_text": "俺の自転車がぁ～！！",
+          "sample_texts": [
+            "俺の自転車がぁ～！！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0300",
+          "record_count": 1,
+          "first_text": "勝負だぁ",
+          "last_text": "勝負だぁ",
+          "sample_texts": [
+            "勝負だぁ"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0300",
+          "record_count": 1,
+          "first_text": "くっそぉ",
+          "last_text": "くっそぉ",
+          "sample_texts": [
+            "くっそぉ"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 42,
+      "primary_tag": "central",
+      "record_count": 154,
+      "run_count": 103,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "2bff:6700",
+          "record_count": 8,
+          "run_count": 7
+        },
+        {
+          "dialogue_state_token": "1bff:0E00",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "1bff:3E00",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:1100",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:3D80",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:4080",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:1300",
+          "record_count": 2,
+          "run_count": 2
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "2bff:6700",
+          "record_count": 2,
+          "first_text": "立ち入り禁止です",
+          "last_text": "このイーストシティに",
+          "sample_texts": [
+            "立ち入り禁止です",
+            "このイーストシティに"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "下水道ならレドンドでも",
+          "last_text": "下水道ならレドンドでも",
+          "sample_texts": [
+            "下水道ならレドンドでも"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "それは、オレが",
+          "last_text": "それは、オレが",
+          "sample_texts": [
+            "それは、オレが"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "そろそろいいかげんにしろよ…",
+          "last_text": "そろそろいいかげんにしろよ…",
+          "sample_texts": [
+            "そろそろいいかげんにしろよ…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "なに言ってんだ、アル…？",
+          "last_text": "なに言ってんだ、アル…？",
+          "sample_texts": [
+            "なに言ってんだ、アル…？"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "なに言ってんだ、アル…？",
+          "last_text": "なに言ってんだ、アル…？",
+          "sample_texts": [
+            "なに言ってんだ、アル…？"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0400",
+          "record_count": 1,
+          "first_text": "なんだと？",
+          "last_text": "なんだと？",
+          "sample_texts": [
+            "なんだと？"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0480",
+          "record_count": 1,
+          "first_text": "ほっとけ！",
+          "last_text": "ほっとけ！",
+          "sample_texts": [
+            "ほっとけ！"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 43,
+      "primary_tag": "east_city",
+      "record_count": 173,
+      "run_count": 127,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 5,
+          "run_count": 5
+        },
+        {
+          "dialogue_state_token": "1bff:0A80",
+          "record_count": 5,
+          "run_count": 5
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 5,
+          "run_count": 5
+        },
+        {
+          "dialogue_state_token": "1bff:0A00",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:2F80",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0380",
+          "record_count": 2,
+          "run_count": 2
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0B80",
+          "record_count": 2,
+          "first_text": "金属の４－６を作るんだね",
+          "last_text": "金属の４－６を作るんだね",
+          "sample_texts": [
+            "金属の４－６を作るんだね",
+            "金属の４－６を作るんだね"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "金属の４－６のカードがあれば",
+          "last_text": "金属の４－６のカードがあれば",
+          "sample_texts": [
+            "金属の４－６のカードがあれば"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "イーストシティ周辺に出没する",
+          "last_text": "イーストシティ周辺に出没する",
+          "sample_texts": [
+            "イーストシティ周辺に出没する"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "どうしても協力して",
+          "last_text": "どうしても協力して",
+          "sample_texts": [
+            "どうしても協力して"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "このカードじゃダメだ",
+          "last_text": "このカードじゃダメだ",
+          "sample_texts": [
+            "このカードじゃダメだ"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "このカードじゃダメだな。",
+          "last_text": "このカードじゃダメだな。",
+          "sample_texts": [
+            "このカードじゃダメだな。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "看守は近くにいるか？",
+          "last_text": "看守は近くにいるか？",
+          "sample_texts": [
+            "看守は近くにいるか？"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "兄さん、この刀…",
+          "last_text": "兄さん、この刀…",
+          "sample_texts": [
+            "兄さん、この刀…"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 44,
+      "primary_tag": "military",
+      "record_count": 150,
+      "run_count": 120,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:0900",
+          "record_count": 6,
+          "run_count": 6
+        },
+        {
+          "dialogue_state_token": "1bff:1200",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "1bff:3000",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:1C80",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0800",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:1500",
+          "record_count": 2,
+          "run_count": 2
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "行き止まりか。",
+          "last_text": "行き止まりか。",
+          "sample_texts": [
+            "行き止まりか。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "アルをむかえに行かないとな…",
+          "last_text": "アルをむかえに行かないとな…",
+          "sample_texts": [
+            "アルをむかえに行かないとな…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "はいはい。",
+          "last_text": "はいはい。",
+          "sample_texts": [
+            "はいはい。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "了解しました。",
+          "last_text": "了解しました。",
+          "sample_texts": [
+            "了解しました。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "…いや、オレは",
+          "last_text": "…いや、オレは",
+          "sample_texts": [
+            "…いや、オレは"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0300",
+          "record_count": 1,
+          "first_text": "いいや、言った！",
+          "last_text": "いいや、言った！",
+          "sample_texts": [
+            "いいや、言った！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0400",
+          "record_count": 1,
+          "first_text": "いま、ちっさい声で",
+          "last_text": "いま、ちっさい声で",
+          "sample_texts": [
+            "いま、ちっさい声で"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0500",
+          "record_count": 1,
+          "first_text": "なんかうかない表情だけど、",
+          "last_text": "なんかうかない表情だけど、",
+          "sample_texts": [
+            "なんかうかない表情だけど、"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 45,
+      "primary_tag": "military",
+      "record_count": 115,
+      "run_count": 92,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:1200",
+          "record_count": 5,
+          "run_count": 5
+        },
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 5,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "1bff:0900",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "1bff:3300",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:3000",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:1B00",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0500",
+          "record_count": 2,
+          "run_count": 2
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 2,
+          "first_text": "何も起きないよ…",
+          "last_text": "何も起きないね",
+          "sample_texts": [
+            "何も起きないよ…",
+            "何も起きないね"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "出てくるのはキメラだけ。",
+          "last_text": "出てくるのはキメラだけ。",
+          "sample_texts": [
+            "出てくるのはキメラだけ。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "いや、なんかおかしい。",
+          "last_text": "いや、なんかおかしい。",
+          "sample_texts": [
+            "いや、なんかおかしい。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "…やっぱ、伏兵がいたか。",
+          "last_text": "…やっぱ、伏兵がいたか。",
+          "sample_texts": [
+            "…やっぱ、伏兵がいたか。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "そうだった。",
+          "last_text": "そうだった。",
+          "sample_texts": [
+            "そうだった。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "冷てーな、大佐も",
+          "last_text": "冷てーな、大佐も",
+          "sample_texts": [
+            "冷てーな、大佐も"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "ふう、一丁あがり",
+          "last_text": "ふう、一丁あがり",
+          "sample_texts": [
+            "ふう、一丁あがり"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0380",
+          "record_count": 1,
+          "first_text": "まあ、マーティンス中佐なら",
+          "last_text": "まあ、マーティンス中佐なら",
+          "sample_texts": [
+            "まあ、マーティンス中佐なら"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 46,
+      "primary_tag": "military",
+      "record_count": 155,
+      "run_count": 112,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:5480",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:2100",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0480",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "27ff:C940",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "27ff:EA30",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:1380",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "2bff:0800",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 2,
+          "run_count": 2
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "そんなに急がなくっても",
+          "last_text": "そんなに急がなくっても",
+          "sample_texts": [
+            "そんなに急がなくっても"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "兄さん、今はリンカーを",
+          "last_text": "兄さん、今はリンカーを",
+          "sample_texts": [
+            "兄さん、今はリンカーを"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "ふーん。よし、コニィが",
+          "last_text": "ふーん。よし、コニィが",
+          "sample_texts": [
+            "ふーん。よし、コニィが"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "おいおい、そっちこそ",
+          "last_text": "おいおい、そっちこそ",
+          "sample_texts": [
+            "おいおい、そっちこそ"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "ったく、長々と時間を",
+          "last_text": "ったく、長々と時間を",
+          "sample_texts": [
+            "ったく、長々と時間を"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "あ、ケイト！",
+          "last_text": "あ、ケイト！",
+          "sample_texts": [
+            "あ、ケイト！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0480",
+          "record_count": 1,
+          "first_text": "うっせー！",
+          "last_text": "うっせー！",
+          "sample_texts": [
+            "うっせー！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0480",
+          "record_count": 1,
+          "first_text": "ムカッ！",
+          "last_text": "ムカッ！",
+          "sample_texts": [
+            "ムカッ！"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 47,
+      "primary_tag": "military",
+      "record_count": 187,
+      "run_count": 145,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "1bff:1200",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:1C00",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0880",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:1600",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0780",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "2bff:3400",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:6B00",
+          "record_count": 3,
+          "run_count": 3
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "マーティンス中佐が",
+          "last_text": "マーティンス中佐が",
+          "sample_texts": [
+            "マーティンス中佐が"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "…逃がしたか",
+          "last_text": "…逃がしたか",
+          "sample_texts": [
+            "…逃がしたか"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "まー、いろいろあってね",
+          "last_text": "まー、いろいろあってね",
+          "sample_texts": [
+            "まー、いろいろあってね"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "さっさと、",
+          "last_text": "さっさと、",
+          "sample_texts": [
+            "さっさと、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "…な、なんで",
+          "last_text": "…な、なんで",
+          "sample_texts": [
+            "…な、なんで"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "だいたいなんで",
+          "last_text": "だいたいなんで",
+          "sample_texts": [
+            "だいたいなんで"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0500",
+          "record_count": 1,
+          "first_text": "だからこそ、",
+          "last_text": "だからこそ、",
+          "sample_texts": [
+            "だからこそ、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0580",
+          "record_count": 1,
+          "first_text": "バルド！？",
+          "last_text": "バルド！？",
+          "sample_texts": [
+            "バルド！？"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 48,
+      "primary_tag": "reward",
+      "record_count": 71,
+      "run_count": 61,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "27ff:F400",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "27ff:F500",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "2bff:3600",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "2bff:0800",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:3380",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "2bff:3300",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "ダメだ、カギがかかってる",
+          "last_text": "ダメだ、カギがかかってる",
+          "sample_texts": [
+            "ダメだ、カギがかかってる"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "ダメだ、鍵が閉まってる。",
+          "last_text": "ダメだ、鍵が閉まってる。",
+          "sample_texts": [
+            "ダメだ、鍵が閉まってる。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "鍵を錬成するには、",
+          "last_text": "鍵を錬成するには、",
+          "sample_texts": [
+            "鍵を錬成するには、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "このカードじゃダメだ。",
+          "last_text": "このカードじゃダメだ。",
+          "sample_texts": [
+            "このカードじゃダメだ。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "それって、よくない事だと",
+          "last_text": "それって、よくない事だと",
+          "sample_texts": [
+            "それって、よくない事だと"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "む、失敬な！",
+          "last_text": "む、失敬な！",
+          "sample_texts": [
+            "む、失敬な！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "じょうだんだよ…",
+          "last_text": "じょうだんだよ…",
+          "sample_texts": [
+            "じょうだんだよ…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0800",
+          "record_count": 1,
+          "first_text": "これでキメラでも出れば",
+          "last_text": "これでキメラでも出れば",
+          "sample_texts": [
+            "これでキメラでも出れば"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 49,
+      "primary_tag": "east_city",
+      "record_count": 50,
+      "run_count": 29,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:1280",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:2180",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:2780",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "2bff:3300",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:3680",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "2bff:0800",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0780",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:3380",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "ダイムラーの行ったところが",
+          "last_text": "ダイムラーの行ったところが",
+          "sample_texts": [
+            "ダイムラーの行ったところが"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0700",
+          "record_count": 1,
+          "first_text": "イーストシティに戻ろう！",
+          "last_text": "イーストシティに戻ろう！",
+          "sample_texts": [
+            "イーストシティに戻ろう！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0780",
+          "record_count": 1,
+          "first_text": "見つかってしもうたわい！",
+          "last_text": "見つかってしもうたわい！",
+          "sample_texts": [
+            "見つかってしもうたわい！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:1280",
+          "record_count": 1,
+          "first_text": "大佐！この部屋！？",
+          "last_text": "大佐！この部屋！？",
+          "sample_texts": [
+            "大佐！この部屋！？"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:1280",
+          "record_count": 1,
+          "first_text": "キメラ事件となにか関係が",
+          "last_text": "キメラ事件となにか関係が",
+          "sample_texts": [
+            "キメラ事件となにか関係が"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:1280",
+          "record_count": 1,
+          "first_text": "その男を見かけたというんだな",
+          "last_text": "その男を見かけたというんだな",
+          "sample_texts": [
+            "その男を見かけたというんだな"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:2100",
+          "record_count": 1,
+          "first_text": "その前にこのキメラを",
+          "last_text": "その前にこのキメラを",
+          "sample_texts": [
+            "その前にこのキメラを"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:2180",
+          "record_count": 1,
+          "first_text": "ここにある本やメモは",
+          "last_text": "ここにある本やメモは",
+          "sample_texts": [
+            "ここにある本やメモは"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 50,
+      "primary_tag": "military",
+      "record_count": 178,
+      "run_count": 109,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:0900",
+          "record_count": 7,
+          "run_count": 7
+        },
+        {
+          "dialogue_state_token": "1bff:4780",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "1bff:6C80",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "1bff:4580",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "2bff:3300",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0B80",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:6C00",
+          "record_count": 3,
+          "run_count": 3
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "きっと元の身体に…",
+          "last_text": "きっと元の身体に…",
+          "sample_texts": [
+            "きっと元の身体に…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "ただの物置だ…",
+          "last_text": "ただの物置だ…",
+          "sample_texts": [
+            "ただの物置だ…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "兄さん、見て。",
+          "last_text": "兄さん、見て。",
+          "sample_texts": [
+            "兄さん、見て。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "ここは…なに？",
+          "last_text": "ここは…なに？",
+          "sample_texts": [
+            "ここは…なに？"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "次はいつになるか、",
+          "last_text": "次はいつになるか、",
+          "sample_texts": [
+            "次はいつになるか、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "優しい…",
+          "last_text": "優しい…",
+          "sample_texts": [
+            "優しい…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0300",
+          "record_count": 1,
+          "first_text": "そんなんじゃねーよ！",
+          "last_text": "そんなんじゃねーよ！",
+          "sample_texts": [
+            "そんなんじゃねーよ！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0300",
+          "record_count": 1,
+          "first_text": "そんなんじゃねーよ！",
+          "last_text": "そんなんじゃねーよ！",
+          "sample_texts": [
+            "そんなんじゃねーよ！"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 51,
+      "primary_tag": "unclassified",
+      "record_count": 43,
+      "run_count": 22,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:3B80",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:6C00",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "2bff:8100",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "2bff:0700",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:1280",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:3B00",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:2980",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:1100",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0D00",
+          "record_count": 1,
+          "first_text": "そうだね",
+          "last_text": "そうだね",
+          "sample_texts": [
+            "そうだね"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:1100",
+          "record_count": 1,
+          "first_text": "遺跡なんかに何をしに",
+          "last_text": "遺跡なんかに何をしに",
+          "sample_texts": [
+            "遺跡なんかに何をしに"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:1200",
+          "record_count": 1,
+          "first_text": "鋼の、先に外で待っているぞ",
+          "last_text": "鋼の、先に外で待っているぞ",
+          "sample_texts": [
+            "鋼の、先に外で待っているぞ"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:1280",
+          "record_count": 1,
+          "first_text": "どうでしたか？",
+          "last_text": "どうでしたか？",
+          "sample_texts": [
+            "どうでしたか？"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:2980",
+          "record_count": 1,
+          "first_text": "クルス遺跡だ",
+          "last_text": "クルス遺跡だ",
+          "sample_texts": [
+            "クルス遺跡だ"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:3A80",
+          "record_count": 1,
+          "first_text": "ばっちゃん！",
+          "last_text": "ばっちゃん！",
+          "sample_texts": [
+            "ばっちゃん！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:3B00",
+          "record_count": 1,
+          "first_text": "ああ。こっちのメンテも",
+          "last_text": "ああ。こっちのメンテも",
+          "sample_texts": [
+            "ああ。こっちのメンテも"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:3B80",
+          "record_count": 1,
+          "first_text": "よし、点検完了！",
+          "last_text": "よし、点検完了！",
+          "sample_texts": [
+            "よし、点検完了！"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 52,
+      "primary_tag": "cat_quest",
+      "record_count": 232,
+      "run_count": 142,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:4300",
+          "record_count": 10,
+          "run_count": 10
+        },
+        {
+          "dialogue_state_token": "1bff:4400",
+          "record_count": 8,
+          "run_count": 8
+        },
+        {
+          "dialogue_state_token": "1bff:4200",
+          "record_count": 7,
+          "run_count": 7
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 5,
+          "run_count": 5
+        },
+        {
+          "dialogue_state_token": "1bff:4280",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:4380",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:3A80",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:4580",
+          "record_count": 3,
+          "run_count": 3
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "それなんだけどさ、",
+          "last_text": "それなんだけどさ、",
+          "sample_texts": [
+            "それなんだけどさ、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "人々が集い祈る場所か…",
+          "last_text": "人々が集い祈る場所か…",
+          "sample_texts": [
+            "人々が集い祈る場所か…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "お、おい…",
+          "last_text": "お、おい…",
+          "sample_texts": [
+            "お、おい…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "うっせーなぁ。",
+          "last_text": "うっせーなぁ。",
+          "sample_texts": [
+            "うっせーなぁ。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "いや、悪くはないんだけど、",
+          "last_text": "いや、悪くはないんだけど、",
+          "sample_texts": [
+            "いや、悪くはないんだけど、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "わーったよ！",
+          "last_text": "わーったよ！",
+          "sample_texts": [
+            "わーったよ！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "まけようって気はないんだな…",
+          "last_text": "まけようって気はないんだな…",
+          "sample_texts": [
+            "まけようって気はないんだな…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "オレのためじゃなくて、",
+          "last_text": "オレのためじゃなくて、",
+          "sample_texts": [
+            "オレのためじゃなくて、"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 53,
+      "primary_tag": "military",
+      "record_count": 184,
+      "run_count": 142,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:1280",
+          "record_count": 5,
+          "run_count": 5
+        },
+        {
+          "dialogue_state_token": "1bff:0880",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 4,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:1380",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "2bff:0800",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:1880",
+          "record_count": 3,
+          "run_count": 3
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 2,
+          "first_text": "ぐぁぁぁぁぁ…",
+          "last_text": "威厳を取り戻すまで",
+          "sample_texts": [
+            "ぐぁぁぁぁぁ…",
+            "威厳を取り戻すまで"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "大佐、居場所はわかったんだ",
+          "last_text": "大佐、居場所はわかったんだ",
+          "sample_texts": [
+            "大佐、居場所はわかったんだ"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "…だよな",
+          "last_text": "…だよな",
+          "sample_texts": [
+            "…だよな"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "だけど…",
+          "last_text": "だけど…",
+          "sample_texts": [
+            "だけど…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "それより、ダイムラーが",
+          "last_text": "それより、ダイムラーが",
+          "sample_texts": [
+            "それより、ダイムラーが"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "ここは倒しても倒しても、",
+          "last_text": "ここは倒しても倒しても、",
+          "sample_texts": [
+            "ここは倒しても倒しても、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "ぐ、ぐは…",
+          "last_text": "ぐ、ぐは…",
+          "sample_texts": [
+            "ぐ、ぐは…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "でも、大佐。",
+          "last_text": "でも、大佐。",
+          "sample_texts": [
+            "でも、大佐。"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 54,
+      "primary_tag": "reward",
+      "record_count": 53,
+      "run_count": 35,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:0A80",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0A00",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "2bff:0800",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "2bff:0B00",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "2bff:0900",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "2bff:9600",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0780",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "なんだ、落ちないのか。",
+          "last_text": "なんだ、落ちないのか。",
+          "sample_texts": [
+            "なんだ、落ちないのか。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "あれぇ？",
+          "last_text": "あれぇ？",
+          "sample_texts": [
+            "あれぇ？"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "でも、あのヒゲ…ププッ",
+          "last_text": "でも、あのヒゲ…ププッ",
+          "sample_texts": [
+            "でも、あのヒゲ…ププッ"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0780",
+          "record_count": 1,
+          "first_text": "あ、待て、コラっ！",
+          "last_text": "あ、待て、コラっ！",
+          "sample_texts": [
+            "あ、待て、コラっ！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0A00",
+          "record_count": 1,
+          "first_text": "笑いすぎたかな。",
+          "last_text": "笑いすぎたかな。",
+          "sample_texts": [
+            "笑いすぎたかな。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0A00",
+          "record_count": 1,
+          "first_text": "あ、そりゃ最悪だよな。",
+          "last_text": "あ、そりゃ最悪だよな。",
+          "sample_texts": [
+            "あ、そりゃ最悪だよな。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0A00",
+          "record_count": 1,
+          "first_text": "これが最後の素材…",
+          "last_text": "これが最後の素材…",
+          "sample_texts": [
+            "これが最後の素材…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0A80",
+          "record_count": 1,
+          "first_text": "兄さん、アレ！",
+          "last_text": "兄さん、アレ！",
+          "sample_texts": [
+            "兄さん、アレ！"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 55,
+      "primary_tag": "east_city",
+      "record_count": 438,
+      "run_count": 342,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 9,
+          "run_count": 9
+        },
+        {
+          "dialogue_state_token": "1bff:1380",
+          "record_count": 8,
+          "run_count": 8
+        },
+        {
+          "dialogue_state_token": "1bff:1280",
+          "record_count": 8,
+          "run_count": 8
+        },
+        {
+          "dialogue_state_token": "1bff:1580",
+          "record_count": 8,
+          "run_count": 8
+        },
+        {
+          "dialogue_state_token": "1bff:3000",
+          "record_count": 6,
+          "run_count": 6
+        },
+        {
+          "dialogue_state_token": "1bff:0500",
+          "record_count": 6,
+          "run_count": 6
+        },
+        {
+          "dialogue_state_token": "1bff:3080",
+          "record_count": 6,
+          "run_count": 6
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 5,
+          "run_count": 5
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "かなりの錬金術師と見た",
+          "last_text": "かなりの錬金術師と見た",
+          "sample_texts": [
+            "かなりの錬金術師と見た"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "なんだかわからないけど、",
+          "last_text": "なんだかわからないけど、",
+          "sample_texts": [
+            "なんだかわからないけど、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "仮に敵前逃亡を助けた",
+          "last_text": "仮に敵前逃亡を助けた",
+          "sample_texts": [
+            "仮に敵前逃亡を助けた"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "ロイス大佐ってヤツのこと？",
+          "last_text": "ロイス大佐ってヤツのこと？",
+          "sample_texts": [
+            "ロイス大佐ってヤツのこと？"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "国家錬金術師の中でも",
+          "last_text": "国家錬金術師の中でも",
+          "sample_texts": [
+            "国家錬金術師の中でも"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "人体…錬成…か。",
+          "last_text": "人体…錬成…か。",
+          "sample_texts": [
+            "人体…錬成…か。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "それで、噂を口実に",
+          "last_text": "それで、噂を口実に",
+          "sample_texts": [
+            "それで、噂を口実に"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "いちいち念を",
+          "last_text": "いちいち念を",
+          "sample_texts": [
+            "いちいち念を"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 56,
+      "primary_tag": "military",
+      "record_count": 51,
+      "run_count": 27,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:0580",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:1C80",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "2bff:0800",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:1580",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0A00",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0D00",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:3480",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:3380",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0580",
+          "record_count": 1,
+          "first_text": "また会っちゃったわね、",
+          "last_text": "また会っちゃったわね、",
+          "sample_texts": [
+            "また会っちゃったわね、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0580",
+          "record_count": 1,
+          "first_text": "くっ…！",
+          "last_text": "くっ…！",
+          "sample_texts": [
+            "くっ…！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0580",
+          "record_count": 1,
+          "first_text": "おい、いっちまったぞ。",
+          "last_text": "おい、いっちまったぞ。",
+          "sample_texts": [
+            "おい、いっちまったぞ。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0780",
+          "record_count": 1,
+          "first_text": "坊やって呼ぶんじゃねーって",
+          "last_text": "坊やって呼ぶんじゃねーって",
+          "sample_texts": [
+            "坊やって呼ぶんじゃねーって"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0A00",
+          "record_count": 1,
+          "first_text": "なら、いっちょ",
+          "last_text": "なら、いっちょ",
+          "sample_texts": [
+            "なら、いっちょ"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0D00",
+          "record_count": 1,
+          "first_text": "コニィ、大丈夫？",
+          "last_text": "コニィ、大丈夫？",
+          "sample_texts": [
+            "コニィ、大丈夫？"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0D80",
+          "record_count": 1,
+          "first_text": "あんまり兄さんを",
+          "last_text": "あんまり兄さんを",
+          "sample_texts": [
+            "あんまり兄さんを"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0F00",
+          "record_count": 1,
+          "first_text": "賢者の石に関わりがある！",
+          "last_text": "賢者の石に関わりがある！",
+          "sample_texts": [
+            "賢者の石に関わりがある！"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 57,
+      "primary_tag": "bank",
+      "record_count": 87,
+      "run_count": 53,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:1680",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0F80",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:3600",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:3900",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "2bff:0000",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "2bff:0C00",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "2bff:0D00",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0D80",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "大佐、その言い方だと、",
+          "last_text": "大佐、その言い方だと、",
+          "sample_texts": [
+            "大佐、その言い方だと、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0400",
+          "record_count": 1,
+          "first_text": "なんでオレの貸しなんだよ！",
+          "last_text": "なんでオレの貸しなんだよ！",
+          "sample_texts": [
+            "なんでオレの貸しなんだよ！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0480",
+          "record_count": 1,
+          "first_text": "やっぱり人形だったね",
+          "last_text": "やっぱり人形だったね",
+          "sample_texts": [
+            "やっぱり人形だったね"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0800",
+          "record_count": 1,
+          "first_text": "な、なんでバルドのヤツが",
+          "last_text": "な、なんでバルドのヤツが",
+          "sample_texts": [
+            "な、なんでバルドのヤツが"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0D00",
+          "record_count": 1,
+          "first_text": "あーあ。",
+          "last_text": "あーあ。",
+          "sample_texts": [
+            "あーあ。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0D80",
+          "record_count": 1,
+          "first_text": "小僧、また会ったな！",
+          "last_text": "小僧、また会ったな！",
+          "sample_texts": [
+            "小僧、また会ったな！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0F80",
+          "record_count": 1,
+          "first_text": "もしかしてケイトの人形！？",
+          "last_text": "もしかしてケイトの人形！？",
+          "sample_texts": [
+            "もしかしてケイトの人形！？"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0F80",
+          "record_count": 1,
+          "first_text": "あ、兄さん！",
+          "last_text": "あ、兄さん！",
+          "sample_texts": [
+            "あ、兄さん！"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 58,
+      "primary_tag": "military",
+      "record_count": 143,
+      "run_count": 90,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:5400",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "1bff:0D80",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:2E80",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "2bff:2902",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:1380",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:5600",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "2bff:0700",
+          "record_count": 2,
+          "run_count": 2
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0B80",
+          "record_count": 2,
+          "first_text": "石の７－６を作ればいいんだね",
+          "last_text": "石の７－６を作ればいいんだね",
+          "sample_texts": [
+            "石の７－６を作ればいいんだね",
+            "石の７－６を作ればいいんだね"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "このカードじゃダメだ",
+          "last_text": "このカードじゃダメだ",
+          "sample_texts": [
+            "このカードじゃダメだ"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "一応、ボケてみただけだろ。",
+          "last_text": "一応、ボケてみただけだろ。",
+          "sample_texts": [
+            "一応、ボケてみただけだろ。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "（ある意味、天才…？）",
+          "last_text": "（ある意味、天才…？）",
+          "sample_texts": [
+            "（ある意味、天才…？）"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0300",
+          "record_count": 1,
+          "first_text": "ムキー！ケイトのヤツ！",
+          "last_text": "ムキー！ケイトのヤツ！",
+          "sample_texts": [
+            "ムキー！ケイトのヤツ！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0400",
+          "record_count": 1,
+          "first_text": "ケイトのヤツだな！",
+          "last_text": "ケイトのヤツだな！",
+          "sample_texts": [
+            "ケイトのヤツだな！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0400",
+          "record_count": 1,
+          "first_text": "ケイト、待ってろよ～",
+          "last_text": "ケイト、待ってろよ～",
+          "sample_texts": [
+            "ケイト、待ってろよ～"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0480",
+          "record_count": 1,
+          "first_text": "てことは、ケイトのヤツも",
+          "last_text": "てことは、ケイトのヤツも",
+          "sample_texts": [
+            "てことは、ケイトのヤツも"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 59,
+      "primary_tag": "military",
+      "record_count": 166,
+      "run_count": 94,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:0500",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0480",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "2bff:0600",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0F80",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:5880",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:1280",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:5800",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "気にしないで。",
+          "last_text": "気にしないで。",
+          "sample_texts": [
+            "気にしないで。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "扉を壊して進むなら",
+          "last_text": "扉を壊して進むなら",
+          "sample_texts": [
+            "扉を壊して進むなら"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "このカードじゃダメだな。",
+          "last_text": "このカードじゃダメだな。",
+          "sample_texts": [
+            "このカードじゃダメだな。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "あ、ああ…わかったよ",
+          "last_text": "あ、ああ…わかったよ",
+          "sample_texts": [
+            "あ、ああ…わかったよ"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0300",
+          "record_count": 1,
+          "first_text": "お前が言ってるじゃねーかっ！",
+          "last_text": "お前が言ってるじゃねーかっ！",
+          "sample_texts": [
+            "お前が言ってるじゃねーかっ！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0380",
+          "record_count": 1,
+          "first_text": "できればおとなしく、",
+          "last_text": "できればおとなしく、",
+          "sample_texts": [
+            "できればおとなしく、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0480",
+          "record_count": 1,
+          "first_text": "いったいいつになったら",
+          "last_text": "いったいいつになったら",
+          "sample_texts": [
+            "いったいいつになったら"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0480",
+          "record_count": 1,
+          "first_text": "つまんなかろうが、",
+          "last_text": "つまんなかろうが、",
+          "sample_texts": [
+            "つまんなかろうが、"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 60,
+      "primary_tag": "military",
+      "record_count": 82,
+      "run_count": 55,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:0A00",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0300",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "2bff:0800",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0D80",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0880",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:2180",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "前に来たときは",
+          "last_text": "前に来たときは",
+          "sample_texts": [
+            "前に来たときは"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "このカードじゃダメだな。",
+          "last_text": "このカードじゃダメだな。",
+          "sample_texts": [
+            "このカードじゃダメだな。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "に、兄さん…",
+          "last_text": "に、兄さん…",
+          "sample_texts": [
+            "に、兄さん…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "…ったく。",
+          "last_text": "…ったく。",
+          "sample_texts": [
+            "…ったく。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "けど、こんなとこまで",
+          "last_text": "けど、こんなとこまで",
+          "sample_texts": [
+            "けど、こんなとこまで"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "二人して、なにを…",
+          "last_text": "二人して、なにを…",
+          "sample_texts": [
+            "二人して、なにを…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0300",
+          "record_count": 1,
+          "first_text": "ウソだろ、オイ！",
+          "last_text": "ウソだろ、オイ！",
+          "sample_texts": [
+            "ウソだろ、オイ！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0300",
+          "record_count": 1,
+          "first_text": "少佐はいいんだって！",
+          "last_text": "少佐はいいんだって！",
+          "sample_texts": [
+            "少佐はいいんだって！"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 61,
+      "primary_tag": "military",
+      "record_count": 483,
+      "run_count": 274,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:0780",
+          "record_count": 10,
+          "run_count": 10
+        },
+        {
+          "dialogue_state_token": "1bff:5100",
+          "record_count": 7,
+          "run_count": 7
+        },
+        {
+          "dialogue_state_token": "1bff:4B00",
+          "record_count": 6,
+          "run_count": 6
+        },
+        {
+          "dialogue_state_token": "1bff:6780",
+          "record_count": 5,
+          "run_count": 5
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "1bff:4800",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "1bff:4900",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "1bff:1600",
+          "record_count": 4,
+          "run_count": 4
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "ここから先は、",
+          "last_text": "ここから先は、",
+          "sample_texts": [
+            "ここから先は、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "元の身体に戻るためだ",
+          "last_text": "元の身体に戻るためだ",
+          "sample_texts": [
+            "元の身体に戻るためだ"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "残念ながら、",
+          "last_text": "残念ながら、",
+          "sample_texts": [
+            "残念ながら、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "そしたら、今までのこと",
+          "last_text": "そしたら、今までのこと",
+          "sample_texts": [
+            "そしたら、今までのこと"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "…おのれ。",
+          "last_text": "…おのれ。",
+          "sample_texts": [
+            "…おのれ。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "今度こそ、",
+          "last_text": "今度こそ、",
+          "sample_texts": [
+            "今度こそ、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "今度こそ、",
+          "last_text": "今度こそ、",
+          "sample_texts": [
+            "今度こそ、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "恐れてはいないけどさ…",
+          "last_text": "恐れてはいないけどさ…",
+          "sample_texts": [
+            "恐れてはいないけどさ…"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 62,
+      "primary_tag": "central",
+      "record_count": 291,
+      "run_count": 191,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:3080",
+          "record_count": 14,
+          "run_count": 14
+        },
+        {
+          "dialogue_state_token": "1bff:0900",
+          "record_count": 7,
+          "run_count": 7
+        },
+        {
+          "dialogue_state_token": "1bff:3380",
+          "record_count": 7,
+          "run_count": 7
+        },
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 6,
+          "run_count": 6
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 5,
+          "run_count": 5
+        },
+        {
+          "dialogue_state_token": "27ff:F820",
+          "record_count": 5,
+          "run_count": 5
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "27ff:F920",
+          "record_count": 4,
+          "run_count": 4
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "仕方がない。",
+          "last_text": "仕方がない。",
+          "sample_texts": [
+            "仕方がない。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "じゃ、あんたも",
+          "last_text": "じゃ、あんたも",
+          "sample_texts": [
+            "じゃ、あんたも"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "コニィ、あのさ",
+          "last_text": "コニィ、あのさ",
+          "sample_texts": [
+            "コニィ、あのさ"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "今回の件も軍に報告だな",
+          "last_text": "今回の件も軍に報告だな",
+          "sample_texts": [
+            "今回の件も軍に報告だな"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "みんながみんな善い人だったら",
+          "last_text": "みんながみんな善い人だったら",
+          "sample_texts": [
+            "みんながみんな善い人だったら"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "この間は変な人形を使って",
+          "last_text": "この間は変な人形を使って",
+          "sample_texts": [
+            "この間は変な人形を使って"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "こう何度も列車強盗にあう",
+          "last_text": "こう何度も列車強盗にあう",
+          "sample_texts": [
+            "こう何度も列車強盗にあう"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "さあな。",
+          "last_text": "さあな。",
+          "sample_texts": [
+            "さあな。"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 63,
+      "primary_tag": "bank",
+      "record_count": 19,
+      "run_count": 4,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:567F",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "2bff:8400",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:567F",
+          "record_count": 1,
+          "first_text": "今朝方、列車強盗にあう夢を",
+          "last_text": "今朝方、列車強盗にあう夢を",
+          "sample_texts": [
+            "今朝方、列車強盗にあう夢を"
+          ]
+        },
+        {
+          "dialogue_state_token": "2bff:8400",
+          "record_count": 1,
+          "first_text": "オレの仕事の邪魔をするヤツは",
+          "last_text": "オレの仕事の邪魔をするヤツは",
+          "sample_texts": [
+            "オレの仕事の邪魔をするヤツは"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 64,
+      "primary_tag": "bank",
+      "record_count": 20,
+      "run_count": 4,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "2bff:8400",
+          "record_count": 2,
+          "run_count": 2
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "2bff:8400",
+          "record_count": 1,
+          "first_text": "わたしは暴力は反対です。",
+          "last_text": "わたしは暴力は反対です。",
+          "sample_texts": [
+            "わたしは暴力は反対です。"
+          ]
+        },
+        {
+          "dialogue_state_token": "2bff:8400",
+          "record_count": 1,
+          "first_text": "なんだ、キサマらは！",
+          "last_text": "なんだ、キサマらは！",
+          "sample_texts": [
+            "なんだ、キサマらは！"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 65,
+      "primary_tag": "tutorial",
+      "record_count": 13,
+      "run_count": 9,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0A80",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0A00",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "2bff:0900",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "2bff:0800",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "このカードじゃダメだな。",
+          "last_text": "このカードじゃダメだな。",
+          "sample_texts": [
+            "このカードじゃダメだな。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0A00",
+          "record_count": 1,
+          "first_text": "いくぞ！",
+          "last_text": "いくぞ！",
+          "sample_texts": [
+            "いくぞ！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0A80",
+          "record_count": 1,
+          "first_text": "錬成でハシゴを作れば",
+          "last_text": "錬成でハシゴを作れば",
+          "sample_texts": [
+            "錬成でハシゴを作れば"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 1,
+          "first_text": "きっとこの上じゃないかな？",
+          "last_text": "きっとこの上じゃないかな？",
+          "sample_texts": [
+            "きっとこの上じゃないかな？"
+          ]
+        },
+        {
+          "dialogue_state_token": "2bff:0800",
+          "record_count": 1,
+          "first_text": "金属の４－４が必要だ",
+          "last_text": "金属の４－４が必要だ",
+          "sample_texts": [
+            "金属の４－４が必要だ"
+          ]
+        },
+        {
+          "dialogue_state_token": "2bff:0900",
+          "record_count": 1,
+          "first_text": "楽勝だぜ！",
+          "last_text": "楽勝だぜ！",
+          "sample_texts": [
+            "楽勝だぜ！"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 66,
+      "primary_tag": "military",
+      "record_count": 27,
+      "run_count": 16,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:6A80",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0A00",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0800",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:1180",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0500",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0980",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "ていうか、",
+          "last_text": "ていうか、",
+          "sample_texts": [
+            "ていうか、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0500",
+          "record_count": 1,
+          "first_text": "だろうな。",
+          "last_text": "だろうな。",
+          "sample_texts": [
+            "だろうな。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0800",
+          "record_count": 1,
+          "first_text": "なんだ、コイツ…",
+          "last_text": "なんだ、コイツ…",
+          "sample_texts": [
+            "なんだ、コイツ…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0980",
+          "record_count": 1,
+          "first_text": "ま、いいさ。",
+          "last_text": "ま、いいさ。",
+          "sample_texts": [
+            "ま、いいさ。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0A00",
+          "record_count": 1,
+          "first_text": "それなら、こっちも何度でも",
+          "last_text": "それなら、こっちも何度でも",
+          "sample_texts": [
+            "それなら、こっちも何度でも"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 1,
+          "first_text": "そうだね…",
+          "last_text": "そうだね…",
+          "sample_texts": [
+            "そうだね…"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:1180",
+          "record_count": 1,
+          "first_text": "ホントだ…人形…？",
+          "last_text": "ホントだ…人形…？",
+          "sample_texts": [
+            "ホントだ…人形…？"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:6A80",
+          "record_count": 1,
+          "first_text": "キサマは！",
+          "last_text": "キサマは！",
+          "sample_texts": [
+            "キサマは！"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 67,
+      "primary_tag": "unclassified",
+      "record_count": 7,
+      "run_count": 2,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:6A80",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:6A80",
+          "record_count": 1,
+          "first_text": "いいかげん、",
+          "last_text": "いいかげん、",
+          "sample_texts": [
+            "いいかげん、"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 68,
+      "primary_tag": "tutorial",
+      "record_count": 23,
+      "run_count": 14,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:7880",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "2bff:3300",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "2bff:6900",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "2bff:6600",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "2bff:3400",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:7980",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "2bff:4F00",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:7700",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:7700",
+          "record_count": 1,
+          "first_text": "アル！！",
+          "last_text": "アル！！",
+          "sample_texts": [
+            "アル！！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:7880",
+          "record_count": 1,
+          "first_text": "肉体の材料はそろえた。",
+          "last_text": "肉体の材料はそろえた。",
+          "sample_texts": [
+            "肉体の材料はそろえた。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:7980",
+          "record_count": 1,
+          "first_text": "兄さん、",
+          "last_text": "兄さん、",
+          "sample_texts": [
+            "兄さん、"
+          ]
+        },
+        {
+          "dialogue_state_token": "2bff:3300",
+          "record_count": 1,
+          "first_text": "いいから、",
+          "last_text": "いいから、",
+          "sample_texts": [
+            "いいから、"
+          ]
+        },
+        {
+          "dialogue_state_token": "2bff:3400",
+          "record_count": 1,
+          "first_text": "じゃあ、",
+          "last_text": "じゃあ、",
+          "sample_texts": [
+            "じゃあ、"
+          ]
+        },
+        {
+          "dialogue_state_token": "2bff:4F00",
+          "record_count": 1,
+          "first_text": "ボクのカラダが消えてくッ！！",
+          "last_text": "ボクのカラダが消えてくッ！！",
+          "sample_texts": [
+            "ボクのカラダが消えてくッ！！"
+          ]
+        },
+        {
+          "dialogue_state_token": "2bff:5000",
+          "record_count": 1,
+          "first_text": "あっ！？",
+          "last_text": "あっ！？",
+          "sample_texts": [
+            "あっ！？"
+          ]
+        },
+        {
+          "dialogue_state_token": "2bff:6600",
+          "record_count": 1,
+          "first_text": "この血で魂の情報はよしっ",
+          "last_text": "この血で魂の情報はよしっ",
+          "sample_texts": [
+            "この血で魂の情報はよしっ"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 69,
+      "primary_tag": "military",
+      "record_count": 147,
+      "run_count": 69,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:1600",
+          "record_count": 5,
+          "run_count": 5
+        },
+        {
+          "dialogue_state_token": "1bff:2980",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "1bff:2B80",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "1bff:2C80",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "1bff:1500",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0700",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 2,
+          "run_count": 2
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "マーティンス中佐を追うぞ！",
+          "last_text": "マーティンス中佐を追うぞ！",
+          "sample_texts": [
+            "マーティンス中佐を追うぞ！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "このカードじゃダメだな。",
+          "last_text": "このカードじゃダメだな。",
+          "sample_texts": [
+            "このカードじゃダメだな。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "世話の焼けるヤツだな。",
+          "last_text": "世話の焼けるヤツだな。",
+          "sample_texts": [
+            "世話の焼けるヤツだな。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "事故だろ、事故。",
+          "last_text": "事故だろ、事故。",
+          "sample_texts": [
+            "事故だろ、事故。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0600",
+          "record_count": 1,
+          "first_text": "…大佐、もういいだろ。",
+          "last_text": "…大佐、もういいだろ。",
+          "sample_texts": [
+            "…大佐、もういいだろ。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0700",
+          "record_count": 1,
+          "first_text": "だから、誤解だって！",
+          "last_text": "だから、誤解だって！",
+          "sample_texts": [
+            "だから、誤解だって！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0700",
+          "record_count": 1,
+          "first_text": "マーティンス中佐！",
+          "last_text": "マーティンス中佐！",
+          "sample_texts": [
+            "マーティンス中佐！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0780",
+          "record_count": 1,
+          "first_text": "マスタング大佐！",
+          "last_text": "マスタング大佐！",
+          "sample_texts": [
+            "マスタング大佐！"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 70,
+      "primary_tag": "military",
+      "record_count": 257,
+      "run_count": 113,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:6700",
+          "record_count": 4,
+          "run_count": 4
+        },
+        {
+          "dialogue_state_token": "1bff:4D80",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:1080",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:3700",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:3800",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "2bff:3802",
+          "record_count": 3,
+          "run_count": 3
+        },
+        {
+          "dialogue_state_token": "1bff:1280",
+          "record_count": 3,
+          "run_count": 3
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "ああ。母さんを",
+          "last_text": "ああ。母さんを",
+          "sample_texts": [
+            "ああ。母さんを"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "ああ。幼い日、",
+          "last_text": "ああ。幼い日、",
+          "sample_texts": [
+            "ああ。幼い日、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "なんだか後味はあんまし、",
+          "last_text": "なんだか後味はあんまし、",
+          "sample_texts": [
+            "なんだか後味はあんまし、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0180",
+          "record_count": 1,
+          "first_text": "兄さん…コニィは、",
+          "last_text": "兄さん…コニィは、",
+          "sample_texts": [
+            "兄さん…コニィは、"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0700",
+          "record_count": 1,
+          "first_text": "そういう業の道を歩む",
+          "last_text": "そういう業の道を歩む",
+          "sample_texts": [
+            "そういう業の道を歩む"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0700",
+          "record_count": 1,
+          "first_text": "たった一人の妹なのに",
+          "last_text": "たった一人の妹なのに",
+          "sample_texts": [
+            "たった一人の妹なのに"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0780",
+          "record_count": 1,
+          "first_text": "逃げろ、コニィ！",
+          "last_text": "逃げろ、コニィ！",
+          "sample_texts": [
+            "逃げろ、コニィ！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0900",
+          "record_count": 1,
+          "first_text": "オレだって、大佐となんか",
+          "last_text": "オレだって、大佐となんか",
+          "sample_texts": [
+            "オレだって、大佐となんか"
+          ]
+        }
+      ]
+    },
+    {
+      "cluster_index": 71,
+      "primary_tag": "save_menu",
+      "record_count": 240,
+      "run_count": 45,
+      "top_tokens_by_records": [
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 10,
+          "run_count": 10
+        },
+        {
+          "dialogue_state_token": "1bff:0D00",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 2,
+          "run_count": 2
+        },
+        {
+          "dialogue_state_token": "1bff:1300",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0E80",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0480",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:1800",
+          "record_count": 1,
+          "run_count": 1
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "run_count": 1
+        }
+      ],
+      "longest_runs": [
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "今はアルがいないから",
+          "last_text": "今はアルがいないから",
+          "sample_texts": [
+            "今はアルがいないから"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0100",
+          "record_count": 1,
+          "first_text": "今までの旅をセーブするか？",
+          "last_text": "今までの旅をセーブするか？",
+          "sample_texts": [
+            "今までの旅をセーブするか？"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0200",
+          "record_count": 1,
+          "first_text": "今はアルがいないだろ。",
+          "last_text": "今はアルがいないだろ。",
+          "sample_texts": [
+            "今はアルがいないだろ。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0280",
+          "record_count": 1,
+          "first_text": "だからその顔で",
+          "last_text": "だからその顔で",
+          "sample_texts": [
+            "だからその顔で"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0480",
+          "record_count": 1,
+          "first_text": "もし、そうだったらキレるぞ！",
+          "last_text": "もし、そうだったらキレるぞ！",
+          "sample_texts": [
+            "もし、そうだったらキレるぞ！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0700",
+          "record_count": 1,
+          "first_text": "今はアルがいないんだ！",
+          "last_text": "今はアルがいないんだ！",
+          "sample_texts": [
+            "今はアルがいないんだ！"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 1,
+          "first_text": "なんか変な街だね。",
+          "last_text": "なんか変な街だね。",
+          "sample_texts": [
+            "なんか変な街だね。"
+          ]
+        },
+        {
+          "dialogue_state_token": "1bff:0B00",
+          "record_count": 1,
+          "first_text": "コニィを軍司令部まで",
+          "last_text": "コニィを軍司令部まで",
+          "sample_texts": [
+            "コニィを軍司令部まで"
+          ]
+        }
+      ]
+    }
+  ]
+}
