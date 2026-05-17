@@ -1874,3 +1874,18 @@
 - 판정: `성공`
 - 교훈:
   - 이미지 감사도 바로 “모든 asset을 전수 확인”으로 들어가기보다, **non-image text를 먼저 제외하고 진짜 review bucket만 남기는 방식**이 효율적이다.
+
+### 실험 107
+
+- 가설: live playthrough 가 아직 없어도, canonical workset 중 어떤 세트는 이미 **번역 시작 가능** 상태임을 따로 분리해 두면 남은 audit 항목을 실제 blocker 중심으로 더 줄일 수 있다.
+- 시도:
+  - [build_translation_readiness_report.py](/Users/user/test/scripts/build_translation_readiness_report.py) 를 추가했다.
+  - [translation_readiness_report.json](/Users/user/test/confirmed_data/translation_workspace/translation_readiness_report.json), [translation_readiness_report.md](/Users/user/test/confirmed_data/translation_workspace/translation_readiness_report.md) 를 생성했다.
+  - `startup showcase`, `core_ui`, `gameplay_terms`, `Registry D dialogue`, `entry8 clusters` 를 각각 `ready_with_*` 상태로 분리했다.
+- 결과:
+  - `startup`, `core_ui`, `gameplay_terms` 는 source-specific 규칙만 따르면 곧바로 번역 가능 상태로 정리됐다.
+  - `Registry D` 와 `entry8` 도 runtime page QA 가 남아 있지만, **번역 자체는 시작 가능** 하고 단지 줄바꿈/길이 운영 규칙이 더 보수적이어야 한다는 점이 분리됐다.
+  - extraction audit 에서 `live_playthrough_text_audit` 는 더 이상 “번역 시작을 막는 항목”이 아니라, **최종 unseen-string sweep / 시각 page QA** 쪽으로 읽을 수 있게 됐다.
+- 판정: `성공`
+- 교훈:
+  - “아직 100% 아님”과 “지금 번역 시작 가능”은 다른 질문이므로, readiness 레이어를 따로 두는 것이 운영상 훨씬 낫다.

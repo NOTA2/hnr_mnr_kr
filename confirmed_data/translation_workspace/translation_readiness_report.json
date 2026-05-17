@@ -1,0 +1,197 @@
+{
+  "version": 1,
+  "last_updated": "2026-05-17",
+  "worksets": [
+    {
+      "workset": "translation_workset_startup_font_showcase",
+      "status": "ready_with_fixed_slot_rules",
+      "notes": [
+        "All records belong to the confirmed startup_intro_fixed_slots family.",
+        "Use exact byte-length slots and append_terminator=false."
+      ]
+    },
+    {
+      "workset": "translation_workset_core_ui",
+      "status": "ready_with_source_specific_rules",
+      "notes": [
+        "Mixed workset; apply source_group-specific family rules first.",
+        "system_messages/save_menu still have some runtime uncertainty, but record structures are already usable."
+      ]
+    },
+    {
+      "workset": "translation_workset_gameplay_terms",
+      "status": "ready_conservative",
+      "notes": [
+        "Record structures are objective for item/ui/battle/ability/material families.",
+        "Keep translations concise and preserve 0x0B/padding where present."
+      ]
+    },
+    {
+      "workset": "translation_workset_registry_d_dialogue",
+      "status": "ready_with_multiline_preservation",
+      "notes": [
+        "Preserve existing explicit newlines.",
+        "Do not invent extra line breaks until runtime page-flow is visually confirmed."
+      ]
+    },
+    {
+      "workset": "registry_a_entry8_clusters_manifest",
+      "status": "ready_with_singleline_conservatism",
+      "notes": [
+        "Treat records as short counted single-line payloads unless source data explicitly says otherwise.",
+        "Do not insert manual newlines."
+      ]
+    }
+  ],
+  "live_playthrough_still_needed_for": [
+    "final unseen-string sweep",
+    "visual page-turn confirmation for dialogue runtime",
+    "image-baked text discovery outside canonical extracted sources"
+  ],
+  "reading": [
+    "Most canonical worksets are translation-ready before live playthrough, as long as source-specific layout rules are followed.",
+    "Live playthrough is now primarily a final QA sweep, not a prerequisite for starting translation on known sources.",
+    "This report exists to separate 'translation can start' from 'runtime/page QA is fully closed'."
+  ],
+  "source_assignment_reference": {
+    "startup_intro_texts": {
+      "layout_family": "startup_intro_fixed_slots",
+      "assignment_status": "confirmed",
+      "notes": [
+        "All 4 startup intro records are fixed slots with append_terminator=false.",
+        "Use exact byte_length and do not inject manual line breaks."
+      ]
+    },
+    "location_texts": {
+      "layout_family": "world_map_location_r3_12",
+      "assignment_status": "confirmed",
+      "notes": [
+        "World-map location renderer directly reads the location-name field path tied to this source.",
+        "This family has code-derived capacity 18 mixed-width units."
+      ]
+    },
+    "system_messages": {
+      "layout_family": "system_messages_plain_newline_00",
+      "assignment_status": "partially_confirmed",
+      "runtime_profile": "short_system_alert_with_optional_second_line",
+      "runtime_resolution_priority": "medium",
+      "translation_risk": "medium",
+      "notes": [
+        "Records are 0x00-terminated and include explicit newlines in some messages.",
+        "Observed payloads are tiny and currently top out at one explicit newline.",
+        "Exact runtime box family is not yet tied to a specific renderer caller set."
+      ]
+    },
+    "save_menu_texts": {
+      "layout_family": "save_menu_prefixed_01ff",
+      "assignment_status": "partially_confirmed",
+      "runtime_profile": "short_command_stream_prompt",
+      "runtime_resolution_priority": "medium",
+      "translation_risk": "medium",
+      "notes": [
+        "Uses 01 FF <u16 char_count> command-stream records.",
+        "Observed payloads are short prompts with no explicit newlines.",
+        "Byte length is explicit, but full box/page behavior is not yet globally locked."
+      ]
+    },
+    "registry_d_fc_script_texts": {
+      "layout_family": "registry_d_fc_stop_script_line",
+      "assignment_status": "partially_confirmed",
+      "runtime_candidate_family": "shared_text_object_r3_20",
+      "runtime_profile": "multiline_fc_delimited_dialogue",
+      "runtime_resolution_priority": "high",
+      "translation_risk": "high",
+      "notes": [
+        "FC stop-byte delimited script lines are objectively extracted.",
+        "Record boundary/control-stream handling is no longer unknown.",
+        "Runtime behavior is now narrowed to a multiline payload profile on the shared r3=20 candidate family."
+      ]
+    },
+    "registry_a_entry8_prefixed_texts": {
+      "layout_family": "entry8_prefixed_01ff_script_line",
+      "assignment_status": "partially_confirmed",
+      "runtime_candidate_family": "shared_text_object_r3_20",
+      "runtime_profile": "singleline_counted_script_record",
+      "runtime_resolution_priority": "high",
+      "translation_risk": "high",
+      "notes": [
+        "Large mixed story/event script bank using 01 FF <u16 char_count> counted records.",
+        "Counted-record structure is objective.",
+        "Runtime behavior is now narrowed to a short single-line script-record profile on the shared r3=20 candidate family."
+      ]
+    },
+    "ui_skill_texts": {
+      "layout_family": "ui_or_item_plain_00_record",
+      "assignment_status": "partially_confirmed",
+      "runtime_resolution_priority": "low",
+      "translation_risk": "low",
+      "notes": [
+        "Short 0x00-terminated UI records with no counted header are already objective.",
+        "A direct pointer-indexed local UI/data table is confirmed, but the runtime window family is still unresolved."
+      ]
+    },
+    "item_texts": {
+      "layout_family": "ui_or_item_plain_00_record",
+      "assignment_status": "partially_confirmed",
+      "runtime_resolution_priority": "low",
+      "translation_risk": "low",
+      "notes": [
+        "Short 0x00-terminated item/event strings are objective.",
+        "A direct pointer-indexed local table is confirmed, but the runtime window family is still unresolved."
+      ]
+    },
+    "battle_texts": {
+      "layout_family": "term_description_plain_00_optional_0b",
+      "assignment_status": "partially_confirmed",
+      "runtime_resolution_priority": "medium",
+      "translation_risk": "low",
+      "notes": [
+        "Plain 0x00-terminated battle term/description records are objective.",
+        "Some description rows contain inline 0x0B separators and ideographic padding that must be preserved.",
+        "Runtime battle box family is still unresolved."
+      ]
+    },
+    "ability_texts": {
+      "layout_family": "term_description_plain_00_optional_0b",
+      "assignment_status": "partially_confirmed",
+      "runtime_resolution_priority": "medium",
+      "translation_risk": "low",
+      "notes": [
+        "Plain 0x00-terminated term/description records are objective.",
+        "Many rows contain inline 0x0B separators and ideographic padding that must be preserved.",
+        "Runtime display family is still unresolved."
+      ]
+    },
+    "material_texts": {
+      "layout_family": "term_description_plain_00_optional_0b",
+      "assignment_status": "partially_confirmed",
+      "runtime_resolution_priority": "medium",
+      "translation_risk": "low",
+      "notes": [
+        "Plain 0x00-terminated term/description records are objective.",
+        "A local resource-table section is confirmed and rows preserve inline 0x0B separators.",
+        "Runtime display family is still unresolved."
+      ]
+    },
+    "registry_a_entry12_texts": {
+      "layout_family": "ui_or_item_plain_00_record",
+      "assignment_status": "partially_confirmed",
+      "runtime_resolution_priority": "low",
+      "translation_risk": "low",
+      "notes": [
+        "Gameplay/item-adjacent short plain records are objective.",
+        "Display family remains unresolved, so translations should stay concise."
+      ]
+    },
+    "credits_texts": {
+      "layout_family": "credits_padded_plain_00_record",
+      "assignment_status": "partially_confirmed",
+      "runtime_resolution_priority": "low",
+      "translation_risk": "low",
+      "notes": [
+        "Credits records are plain 0x00-terminated strings padded with ideographic spaces.",
+        "Runtime credits layout family is not yet mapped, so spacing-sensitive edits should stay conservative."
+      ]
+    }
+  }
+}
