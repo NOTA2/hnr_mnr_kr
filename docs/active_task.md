@@ -19,6 +19,7 @@
 - runtime family 우선순위 보고서는 [runtime_family_focus_report.md](/Users/user/test/confirmed_data/text_layout/runtime_family_focus_report.md) 를 본다.
 - high-priority dialogue runtime 상세는 [runtime_dialogue_family_report.md](/Users/user/test/confirmed_data/text_layout/runtime_dialogue_family_report.md) 를 본다.
 - high-priority dialogue runtime 세부 subprofile 은 [runtime_dialogue_subprofiles.md](/Users/user/test/confirmed_data/text_layout/runtime_dialogue_subprofiles.md) 를 본다.
+- 실제 다음 runtime QA 우선순위는 [runtime_pageflow_focus.md](/Users/user/test/confirmed_data/text_layout/runtime_pageflow_focus.md) 를 본다.
 - 대사 계열 state token sidecar 는 [confirmed_data/dialogue_metadata/README.md](/Users/user/test/confirmed_data/dialogue_metadata/README.md) 에 둔다.
 - cluster/run 빠른 요약은 [dialogue_state_cluster_summary.md](/Users/user/test/confirmed_data/dialogue_metadata/dialogue_state_cluster_summary.md) 을 본다.
 - save/menu prompt 는 `save_menu_prefixed_01ff` family 로 따로 분리해, `01 FF <u16 char_count>` 헤더와 뒤 제어코드를 보존하는 쪽으로 다룬다.
@@ -26,6 +27,8 @@
 - 위 두 source 는 같은 `shared_text_object_r3_20` 후보를 공유하지만, payload 성격은 각각 **single-line counted** / **multiline FC-delimited** 로 갈린다.
 - `entry8` 의 남은 runtime 불확실성은 이제 source 전체가 아니라 **chain-heavy single-line cluster** 쪽에 더 몰려 있다.
 - `Registry D` 의 남은 runtime 불확실성은 이제 source 전체가 아니라 **small long-multiline tier + page-turn behavior** 쪽에 더 몰려 있다.
+- 현재 가장 먼저 볼 `entry8` focus cluster 는 `38, 18, 61, 55, 20, 41, 62, 26, 11, 70` 이다.
+- 현재 가장 먼저 볼 `Registry D` focus run 은 `11, 15, 22, 24, 25, 113, 114, 140` 이다.
 - `ui_skill/item/entry12` 는 `ui_or_item_plain_00_record`, `battle/ability/material` 은 `term_description_plain_00_optional_0b`, `credits` 는 `credits_padded_plain_00_record` family 로 부분 확정했다.
 - image-side 감사는 [confirmed_data/image_inventory/README.md](/Users/user/test/confirmed_data/image_inventory/README.md) 기준으로 시작됐다.
 - image-side 감사는 이제 `review bucket` 이 아니라 `title_logo_wordmark / event_or_cutscene_text_cards / ui_panel_label_art / battle_result_or_reward_banners` 같은 **review unit** 기준으로 본다.

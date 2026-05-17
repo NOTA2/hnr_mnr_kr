@@ -1934,3 +1934,17 @@
 - 판정: `성공`
 - 교훈:
   - 이미지 감사도 구체적인 unit 으로 쪼개 놓아야, 나중에 추출/교체 도구를 만들 때 바로 작업 단위로 이어 붙일 수 있다.
+
+### 실험 111
+
+- 가설: `entry8` 와 `Registry D` 의 남은 runtime/page-flow 미확정을 실제 다음 행동 수준으로 낮추려면, “subprofile 설명”만이 아니라 **바로 먼저 봐야 할 focus cluster / focus run 목록**까지 뽑아야 한다.
+- 시도:
+  - [build_runtime_pageflow_focus.py](/Users/user/test/scripts/build_runtime_pageflow_focus.py) 를 추가했다.
+  - `runtime_dialogue_subprofiles.json` 과 `entry8_dialogue_state_runs.json`, `registry_d_dialogue_state_runs.json` 을 바탕으로 `entry8` 의 chain-heavy cluster 상위군과 `Registry D` 의 long-multiline run 상위군을 추렸다.
+  - 결과를 [runtime_pageflow_focus.json](/Users/user/test/confirmed_data/text_layout/runtime_pageflow_focus.json), [runtime_pageflow_focus.md](/Users/user/test/confirmed_data/text_layout/runtime_pageflow_focus.md) 에 남겼다.
+- 결과:
+  - `entry8` 는 실질 focus cluster 가 `12`개로 줄었고, 상위는 `38, 18, 61, 55, 20, 41, 62, 26, 11, 70` 순으로 정리됐다.
+  - `Registry D` 는 실질 focus run 이 `8`개로 줄었고, 특히 `pre98:3A / pre98:3B` 장문 튜토리얼 계층과 `run 140 (token None, 10-record)` 이 핵심 page-flow 후보로 드러났다.
+- 판정: `성공`
+- 교훈:
+  - 미확정 범위를 “전체 source”로 두지 말고, **바로 다음 QA 우선순위 목록**까지 내려야 100% 마감 작업이 실제로 가벼워진다.

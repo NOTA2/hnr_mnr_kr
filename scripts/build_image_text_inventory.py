@@ -46,6 +46,7 @@ def build() -> dict:
             {
                 "id": "title_logo_wordmark",
                 "status": "pending_review",
+                "review_order": 1,
                 "notes": [
                     "Main title/logo style text is not mapped by current canonical extracted text sources.",
                     "Treat as a concrete review unit rather than a generic bucket."
@@ -54,6 +55,7 @@ def build() -> dict:
             {
                 "id": "title_screen_static_menu_wordmarks",
                 "status": "pending_review",
+                "review_order": 2,
                 "notes": [
                     "Static title-screen menu labels and mode wordmarks may be image-backed.",
                     "No canonical extracted source currently covers title-screen wordmark art."
@@ -62,6 +64,7 @@ def build() -> dict:
             {
                 "id": "event_or_cutscene_text_cards",
                 "status": "pending_review",
+                "review_order": 3,
                 "notes": [
                     "Story/event presentation cards or overlays are a higher-value image-text candidate than generic event illustrations.",
                     "Keep separate from dialogue payloads, which are already confirmed non-image text."
@@ -70,6 +73,7 @@ def build() -> dict:
             {
                 "id": "dialogue_window_frame_art",
                 "status": "review_started",
+                "review_order": 4,
                 "notes": [
                     "Dialogue text itself is extracted text, but the window frame art is a distinct visual asset family.",
                     "This unit matters for localization QA even if it contains no baked text."
@@ -78,6 +82,7 @@ def build() -> dict:
             {
                 "id": "portrait_headshot_assets",
                 "status": "review_started",
+                "review_order": 5,
                 "notes": [
                     "Portraits are confirmed image assets.",
                     "Speaker text itself is not baked into portraits, but portrait coverage matters for dialogue QA and future image tasks."
@@ -86,6 +91,7 @@ def build() -> dict:
             {
                 "id": "ui_panel_label_art",
                 "status": "pending_review",
+                "review_order": 6,
                 "notes": [
                     "Panels, tabs, or framed UI labels that may contain baked text should be reviewed as a distinct unit.",
                     "Keep separate from plain extracted save/menu/system strings."
@@ -94,6 +100,7 @@ def build() -> dict:
             {
                 "id": "ui_icon_badge_wordmarks",
                 "status": "pending_review",
+                "review_order": 7,
                 "notes": [
                     "Icon/badge-sized wordmarks should be reviewed separately from larger UI panels.",
                     "Useful to keep isolated because replacement strategy is likely different from panel art."
@@ -102,6 +109,7 @@ def build() -> dict:
             {
                 "id": "battle_result_or_reward_banners",
                 "status": "pending_review",
+                "review_order": 8,
                 "notes": [
                     "Result/reward banners are plausible baked-text candidates in battle or post-battle presentation.",
                     "Separate from dialogue and term-description sources, which are already extracted text."
@@ -130,7 +138,7 @@ def render_md(data: dict) -> str:
         lines.append(f"- `{item['context']}`: {item['reason']}")
     lines.extend(["", "## Review Units", ""])
     for item in data["review_units"]:
-        lines.append(f"- `{item['id']}` (`{item['status']}`)")
+        lines.append(f"- `{item['id']}` (`{item['status']}`, `order={item['review_order']}`)")
         for note in item["notes"]:
             lines.append(f"  {note}")
     lines.extend(["", "## Operational Reading", ""])

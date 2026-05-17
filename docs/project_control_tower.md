@@ -33,6 +33,8 @@
   - high-priority dialogue source `2`개를 `entry8 single-line` / `Registry D multiline` profile 로 더 좁힌 보고서다.
 - [runtime_dialogue_subprofiles.md](/Users/user/test/confirmed_data/text_layout/runtime_dialogue_subprofiles.md)
   - `entry8` 를 chain-heavy / chain-moderate / mostly-standalone single-line cluster 로 다시 나누고, `Registry D` 를 short / one-break / mid / long multiline tier 로 다시 나눈 보고서다.
+- [runtime_pageflow_focus.md](/Users/user/test/confirmed_data/text_layout/runtime_pageflow_focus.md)
+  - 실제 runtime/page QA 를 가장 먼저 봐야 할 `entry8` focus cluster 와 `Registry D` long-multiline run 을 뽑아 둔 포커스 레이어다.
 - [confirmed_data/image_inventory/README.md](/Users/user/test/confirmed_data/image_inventory/README.md)
   - image-side inventory 시작점이다.
   - 이제 `review bucket` 이 아니라 더 concrete 한 `review unit` 기준으로 관리한다.
