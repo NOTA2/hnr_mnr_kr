@@ -38,6 +38,17 @@
 - 현재 한글 폰트는 `가~힣` 완성형 기준으로 들어가며, 시작 화면에서는 한글 본체/그림자도 정상 매핑되도록 맞춘 상태다.
 - 숫자, 영문, 기본 기호는 현재 기준으로 원본 게임 폰트를 재사용한다.
 
+### 부분적으로 구조가 확정된 것
+
+- save/menu 일부 텍스트는 일반 `00` 종단 문자열이 아니라 **`01 FF <u16 char_count>` command-stream 레코드** 다.
+- 현재 대표 예시는 [save_menu_prefixed_texts.json](/Users/user/test/confirmed_data/extracted_texts/save_menu_prefixed_texts.json) 이다.
+- 이 family 에서는:
+  - `char_count` 헤더를 보존/갱신해야 한다.
+  - 본문 뒤에 `00 terminator`를 임의로 붙이면 안 된다.
+  - 본문 바로 뒤의 `10 FF`, `04 FF`, `14 FF`, `08 FF` 같은 제어코드를 밀면 안 된다.
+  - 원문에 없는 임의 줄바꿈을 넣지 않는다.
+- 세부 구조는 [text_box_family_manifest.json](/Users/user/test/confirmed_data/text_layout/text_box_family_manifest.json) 의 `save_menu_prefixed_01ff` family 를 따른다.
+
 ### 아직 전역 확정되지 않은 것
 
 - 일반 대사창의 `한 줄 최대 글자 수`

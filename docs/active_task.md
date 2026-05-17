@@ -18,6 +18,7 @@
 - startup 첫 카드 `4`줄은 일반 `00` 종단 문자열이 아니라 **고정 길이 슬롯** 이므로, `append_terminator: false` 로 처리한다.
 - 텍스트 박스/공용 렌더러 family 규격은 [text_box_family_manifest.json](/Users/user/test/confirmed_data/text_layout/text_box_family_manifest.json) 에 분리해 둔다.
 - source / workset 별 layout family 연결은 [text_layout_assignment_index.json](/Users/user/test/confirmed_data/text_layout/text_layout_assignment_index.json) 에 둔다.
+- save/menu prompt 는 `save_menu_prefixed_01ff` family 로 따로 분리해, `01 FF <u16 char_count>` 헤더와 뒤 제어코드를 보존하는 쪽으로 다룬다.
 
 ## 지금 우선순위
 

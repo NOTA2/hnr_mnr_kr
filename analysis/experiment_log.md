@@ -1715,3 +1715,17 @@
   - unresolved 계열은 번역을 짧고 보수적으로 유지해야 한다는 운영 규칙을 구조화된 데이터로 남겼다.
 - 판정: `성공`
 - 교훈: 번역 자동화에서 중요한 것은 "모든 세트에 전역 규칙 하나"가 아니라, **세트가 mixed 인지부터 먼저 판정하는 것** 이다.
+
+### 실험 96
+
+- 가설: save/menu 계열도 단순 "미확정 command-stream" 으로 두기보다, `01 FF <u16 char_count>` 구조와 뒤 제어코드 보존 규칙까지 family 로 승격해 두면 번역팀과 삽입 툴 양쪽에서 더 안전하게 다룰 수 있다.
+- 시도:
+  - [save_menu_prefixed_texts.json](/Users/user/test/confirmed_data/extracted_texts/save_menu_prefixed_texts.json) 의 `12`개 레코드를 다시 확인해, `01 FF` header / `u16 char_count` / 본문 / 뒤 `10 FF`, `04 FF`, `14 FF`, `08 FF` control bytes 구조를 정리했다.
+  - [build_text_box_family_manifest.py](/Users/user/test/scripts/build_text_box_family_manifest.py) 에 `save_menu_prefixed_01ff` family 를 추가했다.
+  - [build_text_layout_assignment_index.py](/Users/user/test/scripts/build_text_layout_assignment_index.py) 에서 `save_menu_texts` 를 위 family 로 연결했다.
+  - 번역팀 공통 문서와 작업 카드에도 같은 구조 규칙을 반영했다.
+- 결과:
+  - save/menu block 은 이제 "prefixed command-stream" 정도의 메모가 아니라, 구조적 제약을 가진 family 로 따로 분리됐다.
+  - mixed workset 인 `translation_workset_core_ui` 도 `save_menu_texts` 부분을 source_group 단위로 별도 취급할 수 있게 됐다.
+- 판정: `성공`
+- 교훈: 레코드 family 는 "완전히 확정됨 / 완전히 미확정" 두 칸만 있는 게 아니라, **부분 확정 구조 규칙**만 먼저 분리해 둬도 이후 번역 안정성이 많이 올라간다.

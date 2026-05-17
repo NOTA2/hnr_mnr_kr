@@ -68,6 +68,30 @@ def build_manifest() -> dict:
                 },
             },
             {
+                "id": "save_menu_prefixed_01ff",
+                "status": "partially_confirmed",
+                "kind": "command_stream",
+                "description": "세이브/메뉴 block에서 확인된 01 FF <u16 char_count> command-stream 레코드.",
+                "rules": {
+                    "header_prefix": "01 FF",
+                    "char_count_field": "u16 little-endian",
+                    "append_terminator": False,
+                    "allow_manual_newline": False,
+                    "payload_followed_by_control_bytes": True,
+                },
+                "notes": [
+                    "Current samples are save/menu prompts near 0x772E4A..0x7731B4.",
+                    "The payload is followed immediately by command/control bytes such as 0x10FF, 0x04FF, 0x14FF, 0x08FF.",
+                    "Translator-side tooling must preserve the command-stream structure and update char_count safely.",
+                    "This family is more constrained than plain 0x00-terminated strings, but full page-flow semantics are not yet globally mapped.",
+                ],
+                "samples": [
+                    {"offset": "0x772E64", "header_bytes": "01 FF 09 00", "text": "セーブはできないぞ"},
+                    {"offset": "0x772F3A", "header_bytes": "01 FF 06 00", "text": "セーブ中だよ"},
+                    {"offset": "0x773106", "header_bytes": "01 FF 0D 00", "text": "前のデータに上書きするぞ？"},
+                ],
+            },
+            {
                 "id": "shared_text_object_r3_20",
                 "status": "code_derived",
                 "kind": "shared_text_object",
@@ -122,11 +146,20 @@ def build_readme() -> str:
 - `text_box_family_manifest.json`
   - `confirmed`: 실제 바이트 구조까지 확인된 규칙
   - `code_derived`: 코드 분석으로는 강하게 좁혀졌지만, 아직 시각 QA가 부족한 규칙
+- `text_layout_assignment_index.json`
+  - source / workset 이 어떤 layout family 를 먼저 따라야 하는지 정리한 연결 인덱스
 
 ## 사용 원칙
 
 - 번역팀 문서에는 **확정된 것**과 **코드 기반 잠정값**을 분리해서 쓴다.
 - `code_derived` 값은 번역 길이 감을 잡는 참고치로만 쓰고, 전역 하드 제한처럼 단정하지 않는다.
+
+## 재생성
+
+```bash
+python3 scripts/build_text_box_family_manifest.py
+python3 scripts/build_text_layout_assignment_index.py
+```
 """
 
 

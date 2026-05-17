@@ -27,7 +27,7 @@
       ]
     },
     "save_menu_texts": {
-      "layout_family": "prefixed_command_stream",
+      "layout_family": "save_menu_prefixed_01ff",
       "assignment_status": "partially_confirmed",
       "notes": [
         "Uses 01 FF <u16 char_count> command-stream records.",
@@ -113,7 +113,7 @@
       "assignment_status": "mixed",
       "by_source_group": {
         "system_messages": "unresolved_plain_terminated",
-        "save_menu_texts": "prefixed_command_stream",
+        "save_menu_texts": "save_menu_prefixed_01ff",
         "location_texts": "world_map_location_r3_12",
         "ui_skill_texts": "unresolved_ui_text"
       },
