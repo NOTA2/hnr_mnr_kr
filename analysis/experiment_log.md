@@ -1769,3 +1769,19 @@
   - `entry8 cluster labeling` 은 추출 감사보다 번역 준비 쪽에 더 가까운 항목으로 분리해서 볼 수 있게 됐다.
 - 판정: `성공`
 - 교훈: 추출 감사에서 중요한 것은 “어떤 source가 남았는가”만이 아니라, **source별 레코드 구조가 이미 닫혔는지**를 분리해 관리하는 것이다.
+
+### 실험 100
+
+- 가설: 추출 JSON 에 `speaker` / `speaker_id` 가 없어도, portrait/dialogue scene 에서는 각 대사 직전 control-gap 만으로 같은 턴 후보와 state-change 후보를 분리하는 첫 단계는 만들 수 있다.
+- 시도:
+  - `registry_a_entry8_prefixed_texts.json` 에서 `腹へったぁ… / のど渇いたぁ… / はいはい、もう心配ないよ。` 와 `いいから、 / 指だせ。 / オレたちの血も必要なんだ。 / イタッ！！` 장면을 다시 추적했다.
+  - base ROM 에서 각 record header 직전 gap bytes 를 추출하는 [build_dialogue_speaker_probe.py](/Users/user/test/scripts/build_dialogue_speaker_probe.py) 를 추가했다.
+  - 산출물로 [dialogue_speaker_probe.json](/Users/user/test/analysis/dialogue_speaker_probe.json), [dialogue_speaker_probe.md](/Users/user/test/analysis/dialogue_speaker_probe.md) 를 만들었다.
+- 결과:
+  - `のど渇いたぁ…` 직전 gap 은 `04 FF 05 FF 0A 00` 으로 짧고, 바로 앞 `腹へったぁ…` 와 같은 말풍선 턴 후보로 묶기 쉬운 형태였다.
+  - 그 뒤 응답인 `はいはい、もう心配ないよ。` 직전에는 `10 FF 01 00 0D FF 1B FF ... 02 FF 08 FF 04 00` 같은 더 큰 gap 이 들어가 state-change 후보로 분리됐다.
+  - 튜토리얼 장면에서도 `いいから、 -> 指だせ。 -> オレたちの血も必要なんだ。` 는 짧은 gap 만 공유하지만, `イタッ！！` 직전에는 `2B FF 69 00 36 00 / 37 00` 를 포함한 더 큰 gap 이 나타났다.
+- 판정: `부분 성공`
+- 교훈:
+  - 아직 객관적 화자 ID 는 없지만, **text record + 직전 control-gap** 묶음으로 speaker-state 추적을 시작할 수 있다.
+  - 번역팀에 들어갈 화자 정보는 당분간 “확정값”이 아니라 `candidate / unresolved` 레이어로 분리하는 편이 안전하다.

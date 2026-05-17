@@ -1,0 +1,149 @@
+{
+  "version": 1,
+  "note": "This probe does not assign speaker IDs. It captures objective per-record control gaps around representative dialogue lines so portrait/speaker state tracing can continue without relying on guesswork.",
+  "source_file": "confirmed_data/extracted_texts/registry_a_entry8_prefixed_texts.json",
+  "scenes": [
+    {
+      "id": "liore_intro_hunger_thirst",
+      "label": "Liore early arrival hunger/thirst exchange",
+      "status": "speaker_not_objectively_identified_yet",
+      "entries": [
+        {
+          "index": 2,
+          "header_offset": 7043882,
+          "offset": 7043886,
+          "char_count": 6,
+          "byte_length": 12,
+          "text": "腹へったぁ…",
+          "control_gap_length": 188,
+          "control_gap_hex": "0d ff 07 ff 00 00 22 ff 00 00 00 00 00 00 00 00 00 00 00 00 00 00 a0 0b 00 00 ff ff ff ff 00 80 ff 01 00 00 00 00 00 04 00 00 00 00 00 00 02 80 04 04 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 28 ff 00 70 22 26 4e ff 01 01 ff ff 00 00 2b ff 01 80 01 00 05 ff 0a 00 2b ff 02 80 02 00 23 ff 10 1b 82 00 68 00 90 01 90 01 92 01 00 00 24 ff 00 03 1a ff 06 14 00 00 05 ff 14 00 4b ff 10 22 08 60 00 c8 98 ff d8 ff 50 ff 01 00 00 00 1b ff 02 00 00 00 06 ff 80 80 05 00 07 ff 00 80 08 ff 06 00 01 ff 02 00 82 cd 81 41 05 ff 0a 00",
+          "header_prefix_hex": "01 ff 06 00",
+          "preceding_32_bytes_hex": "1b ff 02 00 00 00 06 ff 80 80 05 00 07 ff 00 80 08 ff 06 00 01 ff 02 00 82 cd 81 41 05 ff 0a 00"
+        },
+        {
+          "index": 3,
+          "header_offset": 7043904,
+          "offset": 7043908,
+          "char_count": 7,
+          "byte_length": 14,
+          "text": "のど渇いたぁ…",
+          "control_gap_length": 6,
+          "control_gap_hex": "04 ff 05 ff 0a 00",
+          "header_prefix_hex": "01 ff 07 00",
+          "preceding_32_bytes_hex": "02 00 82 cd 81 41 05 ff 0a 00 01 ff 06 00 95 a0 82 d6 82 c1 82 bd 82 9f 81 63 04 ff 05 ff 0a 00"
+        },
+        {
+          "index": 4,
+          "header_offset": 7043946,
+          "offset": 7043950,
+          "char_count": 13,
+          "byte_length": 26,
+          "text": "はいはい、もう心配ないよ。",
+          "control_gap_length": 24,
+          "control_gap_hex": "10 ff 01 00 0d ff 1b ff 0b 80 00 00 06 ff 40 00 05 00 02 ff 08 ff 04 00",
+          "header_prefix_hex": "01 ff 0d 00",
+          "preceding_32_bytes_hex": "82 a2 82 bd 82 9f 81 63 10 ff 01 00 0d ff 1b ff 0b 80 00 00 06 ff 40 00 05 00 02 ff 08 ff 04 00"
+        },
+        {
+          "index": 5,
+          "header_offset": 7043978,
+          "offset": 7043982,
+          "char_count": 8,
+          "byte_length": 16,
+          "text": "街に着いたからね",
+          "control_gap_length": 2,
+          "control_gap_hex": "04 ff",
+          "header_prefix_hex": "01 ff 08 00",
+          "preceding_32_bytes_hex": "01 ff 0d 00 82 cd 82 a2 82 cd 82 a2 81 41 82 e0 82 a4 90 53 94 7a 82 c8 82 a2 82 e6 81 42 04 ff"
+        }
+      ],
+      "observations": [
+        "Consecutive records with only short repetitive control gaps are candidate same-turn / same-active-speaker lines.",
+        "Larger control-gap changes between adjacent records are candidate speaker/portrait/state transitions, but not proven speaker IDs yet."
+      ]
+    },
+    {
+      "id": "tutorial_blood_exchange",
+      "label": "Tutorial blood exchange scene",
+      "status": "speaker_not_objectively_identified_yet",
+      "entries": [
+        {
+          "index": 9162,
+          "header_offset": 7779106,
+          "offset": 7779110,
+          "char_count": 9,
+          "byte_length": 18,
+          "text": "なにと交換するの？",
+          "control_gap_length": 48,
+          "control_gap_hex": "04 ff 01 ff 03 00 90 b8 90 5f 82 cd 10 ff 81 00 08 ff 0c 00 01 ff 03 00 81 63 81 63 81 63 05 ff 0a 00 10 ff 80 00 04 ff 05 ff 0a 00 08 ff 06 00",
+          "header_prefix_hex": "01 ff 09 00",
+          "preceding_32_bytes_hex": "08 ff 0c 00 01 ff 03 00 81 63 81 63 81 63 05 ff 0a 00 10 ff 80 00 04 ff 05 ff 0a 00 08 ff 06 00"
+        },
+        {
+          "index": 9163,
+          "header_offset": 7779180,
+          "offset": 7779184,
+          "char_count": 5,
+          "byte_length": 10,
+          "text": "いいから、",
+          "control_gap_length": 52,
+          "control_gap_hex": "10 ff 81 00 05 ff 46 00 02 ff 2b ff 33 00 36 00 10 ff 00 00 06 ff 80 0c 05 00 10 ff 01 00 08 ff 0c 00 01 ff 03 00 81 63 81 63 81 63 10 ff 00 00 08 ff 05 00",
+          "header_prefix_hex": "01 ff 05 00",
+          "preceding_32_bytes_hex": "06 ff 80 0c 05 00 10 ff 01 00 08 ff 0c 00 01 ff 03 00 81 63 81 63 81 63 10 ff 00 00 08 ff 05 00"
+        },
+        {
+          "index": 9164,
+          "header_offset": 7779198,
+          "offset": 7779202,
+          "char_count": 4,
+          "byte_length": 8,
+          "text": "指だせ。",
+          "control_gap_length": 4,
+          "control_gap_hex": "05 ff 0a 00",
+          "header_prefix_hex": "01 ff 04 00",
+          "preceding_32_bytes_hex": "81 63 81 63 81 63 10 ff 00 00 08 ff 05 00 01 ff 05 00 82 a2 82 a2 82 a9 82 e7 81 41 05 ff 0a 00"
+        },
+        {
+          "index": 9165,
+          "header_offset": 7779216,
+          "offset": 7779220,
+          "char_count": 13,
+          "byte_length": 26,
+          "text": "オレたちの血も必要なんだ。",
+          "control_gap_length": 6,
+          "control_gap_hex": "04 ff 05 ff 0a 00",
+          "header_prefix_hex": "01 ff 0d 00",
+          "preceding_32_bytes_hex": "82 a2 82 a2 82 a9 82 e7 81 41 05 ff 0a 00 01 ff 04 00 8e 77 82 be 82 b9 81 42 04 ff 05 ff 0a 00"
+        },
+        {
+          "index": 9166,
+          "header_offset": 7779316,
+          "offset": 7779320,
+          "char_count": 5,
+          "byte_length": 10,
+          "text": "イタッ！！",
+          "control_gap_length": 70,
+          "control_gap_hex": "04 ff 08 ff 04 00 05 ff 14 00 01 ff 03 00 90 d8 82 e9 82 bc 10 ff 01 00 05 ff 46 00 07 ff 00 00 05 ff 1e 00 2b ff 69 00 36 00 2b ff 69 00 37 00 05 ff 1e 00 10 ff 80 00 06 ff 40 0c 05 00 07 ff 00 80 08 ff 03 00",
+          "header_prefix_hex": "01 ff 05 00",
+          "preceding_32_bytes_hex": "69 00 36 00 2b ff 69 00 37 00 05 ff 1e 00 10 ff 80 00 06 ff 40 0c 05 00 07 ff 00 80 08 ff 03 00"
+        },
+        {
+          "index": 9167,
+          "header_offset": 7779366,
+          "offset": 7779370,
+          "char_count": 12,
+          "byte_length": 24,
+          "text": "この血で魂の情報はよしっ",
+          "control_gap_length": 36,
+          "control_gap_hex": "10 ff 81 00 05 ff 3c 00 02 ff 2b ff 66 00 36 00 2b ff 66 00 37 00 10 ff 00 00 06 ff 80 00 05 00 08 ff 05 00",
+          "header_prefix_hex": "01 ff 0c 00",
+          "preceding_32_bytes_hex": "05 ff 3c 00 02 ff 2b ff 66 00 36 00 2b ff 66 00 37 00 10 ff 00 00 06 ff 80 00 05 00 08 ff 05 00"
+        }
+      ],
+      "observations": [
+        "Consecutive records with only short repetitive control gaps are candidate same-turn / same-active-speaker lines.",
+        "Larger control-gap changes between adjacent records are candidate speaker/portrait/state transitions, but not proven speaker IDs yet."
+      ]
+    }
+  ]
+}

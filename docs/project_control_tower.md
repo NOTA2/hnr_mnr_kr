@@ -17,8 +17,9 @@
 
 1. Galmuri11 기준 남은 텍스트 추출 감사 마감
 2. runtime family 추가 연결
-3. 번역 workset 운영과 재삽입 루프 고정
-4. 이미지 리소스는 텍스트 루프 안정화 뒤 착수
+3. portrait/dialogue scene speaker-state 추적
+4. 번역 workset 운영과 재삽입 루프 고정
+5. 이미지 리소스는 텍스트 루프 안정화 뒤 착수
 
 ## 최근 핵심 진전
 
