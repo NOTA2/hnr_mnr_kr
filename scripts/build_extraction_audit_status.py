@@ -68,7 +68,7 @@ def main() -> int:
             {
                 "id": "runtime_dialogue_box_family_mapping",
                 "status": "in_progress",
-                "notes": "Record structures for the major extracted sources are mostly closed. The main remaining runtime risk is dialogue/page-flow mapping for entry8 and Registry D, with smaller residual UI/system uncertainty elsewhere."
+                "notes": "Record structures for the major extracted sources are mostly closed. The remaining high-priority runtime risk is now narrowed to two shared-r3=20 dialogue profiles: entry8 short single-line counted records and Registry D multiline FC-delimited payloads."
             },
             {
                 "id": "live_playthrough_text_audit",
@@ -77,11 +77,11 @@ def main() -> int:
             },
             {
                 "id": "image_text_inventory",
-                "status": "pending",
-                "notes": "Text baked into images is not part of extracted text completion."
+                "status": "in_progress",
+                "notes": "Image-side review is now started as a separate inventory track. Several important UI/dialogue contexts are already confirmed to be non-image text, but baked-image review buckets remain pending."
             },
         ],
-        "operational_reading": "Large unknown text banks and per-source record structures are no longer the main risk. Structurally, known sources are closed; the remaining work is dialogue/page runtime family confirmation, playthrough audit, and image text inventory.",
+        "operational_reading": "Large unknown text banks and per-source record structures are no longer the main risk. Structurally, known sources are closed; the remaining work is dialogue/page runtime family confirmation for two narrowed high-priority profiles, playthrough audit, and image-side inventory review.",
     }
     OUTPUT_PATH.write_text(json.dumps(status, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"wrote {OUTPUT_PATH}")

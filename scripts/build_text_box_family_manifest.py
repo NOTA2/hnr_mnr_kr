@@ -79,6 +79,13 @@ def build_manifest() -> dict:
                     "allow_manual_newline": False,
                     "payload_followed_by_control_bytes": True,
                 },
+                "observed_runtime_profile": {
+                    "payload_mode": "short_command_stream_prompt",
+                    "record_count": 12,
+                    "newline_record_count": 0,
+                    "max_chars": 14,
+                    "p95_chars": 13,
+                },
                 "notes": [
                     "Current samples are save/menu prompts near 0x772E4A..0x7731B4.",
                     "The payload is followed immediately by command/control bytes such as 0x10FF, 0x04FF, 0x14FF, 0x08FF.",
@@ -105,10 +112,18 @@ def build_manifest() -> dict:
                     "translator_must_preserve_header_and_following_controls": True,
                 },
                 "runtime_candidate_family": "shared_text_object_r3_20",
+                "observed_runtime_profile": {
+                    "payload_mode": "singleline_counted_script_record",
+                    "record_count": 9823,
+                    "newline_record_count": 0,
+                    "max_chars": 19,
+                    "p95_chars": 14,
+                },
                 "notes": [
                     "Representative source is registry_a_entry8_prefixed_texts.json.",
                     "Each line is length-counted by the header rather than 0x00 termination.",
                     "Records are embedded inside a larger script stream, so payload-adjacent control bytes must remain in place.",
+                    "Observed payloads currently contain no explicit newlines, which narrows this source toward a short single-line script-record profile.",
                     "Runtime dialogue box/page family is still unresolved, but current strongest code-side candidate is the shared r3=20 text-object family.",
                 ],
                 "samples": [
@@ -145,10 +160,19 @@ def build_manifest() -> dict:
                     "translator_must_preserve_adjacent_control_stream": True,
                 },
                 "runtime_candidate_family": "shared_text_object_r3_20",
+                "observed_runtime_profile": {
+                    "payload_mode": "multiline_fc_delimited_dialogue",
+                    "record_count": 244,
+                    "newline_record_count": 166,
+                    "max_chars": 90,
+                    "p95_chars": 38,
+                    "max_explicit_newlines": 6,
+                },
                 "notes": [
                     "Representative source is registry_d_fc_script_texts.json.",
                     "Records are delimited by stop-byte FC inside a larger control stream rather than by a plain 0x00 terminator.",
                     "before_bytes / after_bytes are useful evidence that the payload sits between control opcodes.",
+                    "Explicit multiline payloads are common here, which makes this family materially different from the entry8 single-line script profile.",
                     "Runtime dialogue box/page family is still unresolved, but current strongest code-side candidate is the shared r3=20 text-object family.",
                 ],
                 "samples": [
@@ -179,6 +203,14 @@ def build_manifest() -> dict:
                     "preserve_explicit_newline": True,
                     "allow_manual_newline": "only when source already has it",
                     "append_terminator": True,
+                },
+                "observed_runtime_profile": {
+                    "payload_mode": "short_system_alert_with_optional_second_line",
+                    "record_count": 4,
+                    "newline_record_count": 3,
+                    "max_chars": 22,
+                    "p95_chars": 20,
+                    "max_explicit_newlines": 1,
                 },
                 "notes": [
                     "Representative source is system_messages.json.",

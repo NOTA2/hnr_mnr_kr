@@ -46,6 +46,7 @@
 - `dialogue_state_token` 은 confirmed 화자명이 아니라, **같은 active portrait/state 후보를 묶는 객관적 제어 표식**이다.
 - 빠르게 볼 요약본은 [dialogue_state_cluster_summary.md](/Users/user/test/confirmed_data/dialogue_metadata/dialogue_state_cluster_summary.md) 이다.
 - runtime family 우선순위는 [runtime_family_focus_report.md](/Users/user/test/confirmed_data/text_layout/runtime_family_focus_report.md) 를 본다.
+- high-priority dialogue runtime 상세는 [runtime_dialogue_family_report.md](/Users/user/test/confirmed_data/text_layout/runtime_dialogue_family_report.md) 를 본다.
 - 따라서 "누구의 대사인지"는 **객관적 메타데이터로 확정된 상태가 아니다**.
 - Entry 8의 `cluster_primary_tag`, `cluster_tags` 는 작업 보조용 자동 태그이며, 화자 정보로 취급하면 안 된다.
 - 번역팀이 화자를 추정해서 말투를 조절해야 하는 경우가 생길 수는 있지만, 그건 반드시 **추정** 으로 취급해야 한다.

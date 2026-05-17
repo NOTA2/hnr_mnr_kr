@@ -19,6 +19,8 @@
   - 따라서 특별한 새 source 징후가 없으면, 당분간은 폰트/재삽입 쪽이 우선
   - [extraction_audit_status.json](/Users/user/test/confirmed_data/translation_workspace/extraction_audit_status.json) 기준으로, known source 의 **구조적 추출은 닫힌 상태**
   - runtime family 실제 우선순위는 [runtime_family_focus_report.md](/Users/user/test/confirmed_data/text_layout/runtime_family_focus_report.md) 를 따른다
+  - high-priority dialogue runtime 은 [runtime_dialogue_family_report.md](/Users/user/test/confirmed_data/text_layout/runtime_dialogue_family_report.md) 기준 `entry8 single-line` / `Registry D multiline` 두 profile 로 더 좁혀졌다
+  - image-side 감사는 [confirmed_data/image_inventory/README.md](/Users/user/test/confirmed_data/image_inventory/README.md) 기준으로 시작됐다
 
 ## 작업용 번역 세트
 
@@ -111,7 +113,8 @@
 
 ### 세이브/진행 관련 메뉴 메시지
 
-- 파일: [save_menu_texts.json](/Users/user/test/analysis/save_menu_texts.json)
+- canonical 파일: [save_menu_prefixed_texts.json](/Users/user/test/confirmed_data/extracted_texts/save_menu_prefixed_texts.json)
+- discovery 비교본: [save_menu_texts.json](/Users/user/test/analysis/save_menu_texts.json)
 - 범위(블록): `0x772E00` ~ `0x773260`
 - 특징:
   - 일반적인 `00` 종단 평문 블록이 아니라, **명령 스트림 내부에 박힌 `cp932` 문자열**로 보임

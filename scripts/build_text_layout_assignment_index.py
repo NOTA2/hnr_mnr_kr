@@ -33,20 +33,24 @@ def build_index() -> dict:
         "system_messages": {
             "layout_family": "system_messages_plain_newline_00",
             "assignment_status": "partially_confirmed",
+            "runtime_profile": "short_system_alert_with_optional_second_line",
             "runtime_resolution_priority": "medium",
             "translation_risk": "medium",
             "notes": [
                 "Records are 0x00-terminated and include explicit newlines in some messages.",
+                "Observed payloads are tiny and currently top out at one explicit newline.",
                 "Exact runtime box family is not yet tied to a specific renderer caller set.",
             ],
         },
         "save_menu_texts": {
             "layout_family": "save_menu_prefixed_01ff",
             "assignment_status": "partially_confirmed",
+            "runtime_profile": "short_command_stream_prompt",
             "runtime_resolution_priority": "medium",
             "translation_risk": "medium",
             "notes": [
                 "Uses 01 FF <u16 char_count> command-stream records.",
+                "Observed payloads are short prompts with no explicit newlines.",
                 "Byte length is explicit, but full box/page behavior is not yet globally locked.",
             ],
         },
@@ -54,22 +58,26 @@ def build_index() -> dict:
             "layout_family": "registry_d_fc_stop_script_line",
             "assignment_status": "partially_confirmed",
             "runtime_candidate_family": "shared_text_object_r3_20",
+            "runtime_profile": "multiline_fc_delimited_dialogue",
             "runtime_resolution_priority": "high",
             "translation_risk": "high",
             "notes": [
                 "FC stop-byte delimited script lines are objectively extracted.",
-                "Runtime dialogue box/page family is still unresolved, but record boundary/control-stream handling is no longer unknown.",
+                "Record boundary/control-stream handling is no longer unknown.",
+                "Runtime behavior is now narrowed to a multiline payload profile on the shared r3=20 candidate family.",
             ],
         },
         "registry_a_entry8_prefixed_texts": {
             "layout_family": "entry8_prefixed_01ff_script_line",
             "assignment_status": "partially_confirmed",
             "runtime_candidate_family": "shared_text_object_r3_20",
+            "runtime_profile": "singleline_counted_script_record",
             "runtime_resolution_priority": "high",
             "translation_risk": "high",
             "notes": [
                 "Large mixed story/event script bank using 01 FF <u16 char_count> counted records.",
-                "Runtime dialogue box/page family still needs further tying, but counted-record structure is objective.",
+                "Counted-record structure is objective.",
+                "Runtime behavior is now narrowed to a short single-line script-record profile on the shared r3=20 candidate family.",
             ],
         },
         "ui_skill_texts": {
@@ -187,9 +195,10 @@ def build_index() -> dict:
             "layout_family": "registry_d_fc_stop_script_line",
             "assignment_status": "partially_confirmed",
             "runtime_candidate_family": "shared_text_object_r3_20",
+            "runtime_profile": "multiline_fc_delimited_dialogue",
             "notes": [
                 "Record boundary/control-stream handling is confirmed at the FC stop-byte level.",
-                "General dialogue box/page family remains unresolved, so translations should still stay concise.",
+                "Runtime behavior is narrowed to a multiline payload profile, but visual page-turn behavior still needs confirmation.",
             ],
         },
         "translation_workset_intro_full_test": {
@@ -229,6 +238,7 @@ def build_index() -> dict:
             "Use source_group-specific layout families first.",
             "When a workset is mixed, do not invent a single global char limit.",
             "Partially confirmed record-structure families still need concise translation until runtime box/page family is confirmed.",
+            "Entry8 and Registry D are no longer one shared unresolved blob: treat them as different runtime payload profiles even though both point to the shared r3=20 candidate family.",
             "Even when record structure is objective, unresolved runtime families should stay concise until runtime family mapping is confirmed.",
         ],
     }

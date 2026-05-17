@@ -55,6 +55,7 @@
   - 본문 바로 앞뒤의 script control bytes 를 밀면 안 된다.
   - 원문에 없는 임의 줄바꿈을 넣지 않는다.
 - 세부 구조는 같은 manifest 의 `entry8_prefixed_01ff_script_line` family 를 따른다.
+- 현재 관측상 이 source 는 **explicit newline 없는 short single-line payload profile** 로 보는 편이 가장 안전하다.
 - Registry D 이벤트/튜토리얼 대사는 일반 `00` 종단 문자열이 아니라 **`FC stop-byte` script line** 구조다.
 - 이 family 에서는:
   - record boundary 를 `FC` 기준으로 유지해야 한다.
@@ -62,6 +63,7 @@
   - 원문에 있던 명시적 개행은 보존 우선으로 본다.
   - `before_bytes / after_bytes` 로 대표되는 script control stream 을 밀지 않는다.
 - 세부 구조는 같은 manifest 의 `registry_d_fc_stop_script_line` family 를 따른다.
+- 현재 관측상 이 source 는 **explicit multiline payload profile** 이므로, 원문 개행 보존이 특히 중요하다.
 - system message 일부는 일반 `00` 종단 문자열이지만, 이미 원문 안에 **명시적 개행(`\n`)** 이 들어 있다.
 - 이 family 에서는 원문에 들어 있던 개행 수와 위치를 함부로 바꾸지 않는다.
 - 세부 구조는 같은 manifest 의 `system_messages_plain_newline_00` family 를 따른다.
@@ -97,12 +99,14 @@
 - 길이 제약이 확정된 workset 은 별도 메모나 필드로 관리하고, 그 규칙이 있으면 그 규칙을 최우선한다.
 - 화자 정보가 필요한 경우, 현재는 extracted JSON 안의 명시적 `speaker` 필드 대신 [confirmed_data/dialogue_metadata/README.md](/Users/user/test/confirmed_data/dialogue_metadata/README.md) 의 `dialogue_state_token` sidecar 를 먼저 참고한다.
 - `dialogue_state_token` 은 확정 화자명이 아니라 **동일 portrait/state 후보를 묶는 객관적 제어 표식**으로만 취급한다.
+- `entry8` 와 `Registry D` 는 둘 다 대사 source 지만 runtime profile 이 다르므로, 둘에 같은 줄바꿈 습관을 적용하지 않는다.
 
 ### 코드 기반으로 강하게 좁혀진 것
 
 아래 값은 **실행 화면 전수 확인까지 끝난 하드 제한**은 아니지만, 현재 코드 분석상 매우 강한 후보다.
 세부 근거는 [text_box_family_manifest.json](/Users/user/test/confirmed_data/text_layout/text_box_family_manifest.json) 을 따른다.
 workset/source 연결은 [text_layout_assignment_index.json](/Users/user/test/confirmed_data/text_layout/text_layout_assignment_index.json) 을 따른다.
+- high-priority dialogue profile 차이는 [runtime_dialogue_family_report.md](/Users/user/test/confirmed_data/text_layout/runtime_dialogue_family_report.md) 도 함께 본다.
 
 - 공용 text object family 다수 caller (`0x062182`, `0x065AA4`, `0x06718A` 등) 는 모두 `r3=20` 으로 `0x014A98` 를 호출한다.
 - 이 family 는 내부적으로 capacity `30` mixed-width units 로 변환된다.

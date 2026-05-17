@@ -1845,3 +1845,32 @@
 - 판정: `성공`
 - 교훈:
   - “아직 미확정”이라는 한 단어보다, **구조는 닫힘 / runtime blocker만 남음 / 그중에서도 high-risk만 우선**이라는 계층형 보고가 실제 프로젝트 운영에 훨씬 유용하다.
+
+### 실험 105
+
+- 가설: high-priority dialogue runtime 미확정을 `entry8` 와 `Registry D` 라는 source 이름만으로 묶지 말고, 실제 payload 관측값으로 `single-line` / `multiline` profile 로 나누면 남은 page-flow blocker 를 더 작게 정의할 수 있다.
+- 시도:
+  - [build_runtime_dialogue_family_report.py](/Users/user/test/scripts/build_runtime_dialogue_family_report.py) 를 추가했다.
+  - `registry_a_entry8_prefixed_texts.json` 과 `registry_d_fc_script_texts.json` 의 `char length`, `newline count`, `max rendered lines` 를 집계했다.
+  - 결과를 [runtime_dialogue_family_report.json](/Users/user/test/confirmed_data/text_layout/runtime_dialogue_family_report.json), [runtime_dialogue_family_report.md](/Users/user/test/confirmed_data/text_layout/runtime_dialogue_family_report.md) 로 남겼다.
+- 결과:
+  - `entry8` 은 `9823`건 전체에서 explicit newline 이 `0`건이고, `p95=14`, `max=19` 로 **short single-line counted script profile** 로 더 좁혀졌다.
+  - `Registry D` 는 `244`건 중 explicit newline 이 `166`건, `max newline=6`, `p95=38` 로 **multiline FC-delimited dialogue profile** 로 더 좁혀졌다.
+  - 따라서 두 source 는 같은 `shared_text_object_r3_20` 후보를 공유해도 번역/줄바꿈 운영 규칙을 동일하게 둘 수 없다는 점이 더 명확해졌다.
+- 판정: `성공`
+- 교훈:
+  - runtime family 미확정은 source 이름보다 **payload 관측 profile** 로 나누는 편이 번역팀 실무와 audit 관리에 더 직접적이다.
+
+### 실험 106
+
+- 가설: `image_text_inventory` 를 단순 pending 으로 두지 말고, 현재 이미 **image가 아닌 텍스트 context** 와 **나중에 asset review 가 필요한 review bucket** 을 먼저 분리하면 live playthrough 없이도 감사 항목을 더 줄일 수 있다.
+- 시도:
+  - [build_image_text_inventory.py](/Users/user/test/scripts/build_image_text_inventory.py) 를 추가했다.
+  - [image_text_inventory.json](/Users/user/test/confirmed_data/image_inventory/image_text_inventory.json), [image_text_inventory.md](/Users/user/test/confirmed_data/image_inventory/image_text_inventory.md), [confirmed_data/image_inventory/README.md](/Users/user/test/confirmed_data/image_inventory/README.md) 를 생성했다.
+  - startup intro, dialogue payloads, world-map location labels, save/menu prompts, credits 를 **confirmed non-image text contexts** 로 분리했다.
+- 결과:
+  - `image_text_inventory` 는 이제 `pending` 이 아니라 **started / in_progress** 로 올릴 수 있게 됐다.
+  - 남은 image-side 감사는 `title/logo`, `event illustration overlays`, `ui icon/panel labels`, `portrait assets` 같은 review bucket 중심으로 재정의됐다.
+- 판정: `성공`
+- 교훈:
+  - 이미지 감사도 바로 “모든 asset을 전수 확인”으로 들어가기보다, **non-image text를 먼저 제외하고 진짜 review bucket만 남기는 방식**이 효율적이다.

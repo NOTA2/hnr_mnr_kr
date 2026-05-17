@@ -30,7 +30,8 @@
         "runtime_candidate_family": "shared_text_object_r3_20",
         "notes": [
           "FC stop-byte delimited script lines are objectively extracted.",
-          "Runtime dialogue box/page family is still unresolved, but record boundary/control-stream handling is no longer unknown."
+          "Record boundary/control-stream handling is no longer unknown.",
+          "Runtime behavior is now narrowed to a multiline payload profile on the shared r3=20 candidate family."
         ]
       },
       {
@@ -40,7 +41,8 @@
         "runtime_candidate_family": "shared_text_object_r3_20",
         "notes": [
           "Large mixed story/event script bank using 01 FF <u16 char_count> counted records.",
-          "Runtime dialogue box/page family still needs further tying, but counted-record structure is objective."
+          "Counted-record structure is objective.",
+          "Runtime behavior is now narrowed to a short single-line script-record profile on the shared r3=20 candidate family."
         ]
       }
     ],
