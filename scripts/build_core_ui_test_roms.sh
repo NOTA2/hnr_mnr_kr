@@ -27,11 +27,15 @@ if [[ "$ALLOW_BLANK_GLYPHS" != "1" ]]; then
   python3 -m gba_kor_tool audit-pgm-glyph-set \
     analysis/hangul_core_ui_priority48_workbench/prepared_manifest.json \
     --fail-on-blank \
+    --allowed-values 0,34 \
+    --fail-on-disallowed \
     --output "$OUTPUT_DIR/core_ui_priority48_glyph_audit.json"
 
   python3 -m gba_kor_tool audit-pgm-glyph-set \
     analysis/hangul_core_ui_workbench/prepared_manifest.json \
     --fail-on-blank \
+    --allowed-values 0,34 \
+    --fail-on-disallowed \
     --output "$OUTPUT_DIR/core_ui_full80_glyph_audit.json"
 
   python3 -m gba_kor_tool audit-pgm-glyph-set \

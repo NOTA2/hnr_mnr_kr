@@ -1536,3 +1536,20 @@
   - 현재 이 atlas 는 giant 문자 목록 대신 메타데이터 파일 하나로 순서 규칙을 안정적으로 관리할 수 있다.
 - 판정: `성공`
 - 교훈: 표준 완성형 순서를 그대로 따르는 atlas 는 별도 문자 전개표보다 **명확한 메타데이터 + importer** 조합이 더 작고 안전한 truth source 가 된다.
+
+### 실험 83
+
+- 가설: 사용자가 확정한 `12x12` bitmap atlas 를 project-wide active source 로 고정하면, 이전 벡터 seed 비교를 버리고도 startup intro / core UI / 일반 번역 JSON 적용까지 한 경로로 정리할 수 있다.
+- 시도:
+  - [active_hangul_font_profile.json](/Users/user/test/confirmed_data/font_assets/active_hangul_font_profile.json) 과 [confirmed_data/font_assets/README.md](/Users/user/test/confirmed_data/font_assets/README.md) 를 추가했다.
+  - [build_workbench_from_active_atlas.py](/Users/user/test/scripts/build_workbench_from_active_atlas.py) 로 번역 JSON 의 `translation` 필드에서 실제 사용 한글 subset 을 뽑아 atlas workbench 를 만들게 했다.
+  - [build_translated_rom_with_active_atlas.sh](/Users/user/test/scripts/build_translated_rom_with_active_atlas.sh) 로 subset workbench 생성 -> glyph audit -> font append -> apply-translations 를 한 번에 묶었다.
+  - 예전 `startup_intro_active_workbench`, `hangul_core_ui_workbench`, `hangul_core_ui_priority48_workbench` 와 폰트 후보 비교 산출물은 [analysis/archive/font_trials/2026-05-17_pre_bitmap_lock](/Users/user/test/analysis/archive/font_trials/2026-05-17_pre_bitmap_lock) 로 내렸다.
+  - [rebuild_active_workbenches_from_atlas.sh](/Users/user/test/scripts/rebuild_active_workbenches_from_atlas.sh) 로 active startup/core UI workbench 들을 새 atlas 기준으로 다시 생성했다.
+  - 이어서 core UI 번역 JSON [translation_workset_core_ui.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_core_ui.json) 을 같은 경로로 실제 ROM 에 적용했다.
+- 결과:
+  - startup intro active workbench `14`글자, core UI `priority48`, core UI `full80` workbench 가 모두 새 atlas 기반으로 교체되었다.
+  - generic active-atlas 경로로 [core_ui_active_translated.gba](/Users/user/test/patched_roms/core_ui_active/core_ui_active_translated.gba) 생성에 성공했고, 현재 workset 기준 `15`건이 반영되었다.
+  - 이제 이후 한글 폰트 작업은 “폰트 후보 비교”가 아니라 **같은 active atlas 로 subset glyph set 을 만들고, 필요한 픽셀만 수동 수정하는 단계** 로 정리되었다.
+- 판정: `성공`
+- 교훈: full-game 한글화에서는 “가장 예쁜 seed 후보 찾기”보다, **하나의 안정적인 atlas source 를 정하고 translation subset -> workbench -> ROM 경로를 고정하는 것** 이 장기적으로 더 큰 진전이다.

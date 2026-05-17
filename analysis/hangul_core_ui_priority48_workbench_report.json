@@ -1,585 +1,544 @@
 {
+  "atlas": "third_party/font_atlases/maruminyahangul_12x12.png",
   "manifest": "analysis/hangul_core_ui_priority48_manifest.json",
   "output_dir": "analysis/hangul_core_ui_priority48_workbench",
   "prepared_manifest": "analysis/hangul_core_ui_priority48_workbench/prepared_manifest.json",
   "table": "analysis/hangul_core_ui_priority48_workbench/prepared.tbl",
-  "count": 48,
+  "tile_width": 12,
+  "tile_height": 12,
+  "columns": 64,
+  "rows": 175,
+  "tile_count": 11200,
+  "hangul_count": 11172,
+  "unused_tiles": 28,
   "entries": [
     {
       "index": 0,
-      "target_code": "0xE940",
+      "code": "0xE940",
       "char": "이",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E940_C774.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E940_C774",
+      "tile_index": 7028,
+      "tile_x": 624,
+      "tile_y": 1308,
+      "nonzero_pixels": 35,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E940_C774.pgm"
     },
     {
       "index": 1,
-      "target_code": "0xE941",
+      "code": "0xE941",
       "char": "까",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E941_AE4C.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E941_AE4C",
+      "tile_index": 588,
+      "tile_x": 144,
+      "tile_y": 108,
+      "nonzero_pixels": 35,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E941_AE4C.pgm"
     },
     {
       "index": 2,
-      "target_code": "0xE942",
+      "code": "0xE942",
       "char": "다",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E942_B2E4.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E942_B2E4",
+      "tile_index": 1764,
+      "tile_x": 432,
+      "tile_y": 324,
+      "nonzero_pixels": 31,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E942_B2E4.pgm"
     },
     {
       "index": 3,
-      "target_code": "0xE943",
+      "code": "0xE943",
       "char": "스",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E943_C2A4.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E943_C2A4",
+      "tile_index": 5796,
+      "tile_x": 432,
+      "tile_y": 1080,
+      "nonzero_pixels": 22,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E943_C2A4.pgm"
     },
     {
       "index": 4,
-      "target_code": "0xE944",
+      "code": "0xE944",
       "char": "저",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E944_C800.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E944_C800",
+      "tile_index": 7168,
+      "tile_x": 0,
+      "tile_y": 1344,
+      "nonzero_pixels": 35,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E944_C800.pgm"
     },
     {
       "index": 5,
-      "target_code": "0xE945",
+      "code": "0xE945",
       "char": "를",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E945_B97C.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E945_B97C",
+      "tile_index": 3452,
+      "tile_x": 720,
+      "tile_y": 636,
+      "nonzero_pixels": 53,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E945_B97C.pgm"
     },
     {
       "index": 6,
-      "target_code": "0xE946",
+      "code": "0xE946",
       "char": "수",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E946_C218.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E946_C218",
+      "tile_index": 5656,
+      "tile_x": 288,
+      "tile_y": 1056,
+      "nonzero_pixels": 25,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E946_C218.pgm"
     },
     {
       "index": 7,
-      "target_code": "0xE947",
+      "code": "0xE947",
       "char": "신",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E947_C2E0.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E947_C2E0",
+      "tile_index": 5856,
+      "tile_x": 384,
+      "tile_y": 1092,
+      "nonzero_pixels": 27,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E947_C2E0.pgm"
     },
     {
       "index": 8,
-      "target_code": "0xE948",
+      "code": "0xE948",
       "char": "오",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E948_C624.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E948_C624",
+      "tile_index": 6692,
+      "tile_x": 432,
+      "tile_y": 1248,
+      "nonzero_pixels": 36,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E948_C624.pgm"
     },
     {
       "index": 9,
-      "target_code": "0xE949",
+      "code": "0xE949",
       "char": "을",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E949_C744.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E949_C744",
+      "tile_index": 6980,
+      "tile_x": 48,
+      "tile_y": 1308,
+      "nonzero_pixels": 52,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E949_C744.pgm"
     },
     {
       "index": 10,
-      "target_code": "0xE94A",
+      "code": "0xE94A",
       "char": "장",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E94A_C7A5.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E94A_C7A5",
+      "tile_index": 7077,
+      "tile_x": 444,
+      "tile_y": 1320,
+      "nonzero_pixels": 40,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E94A_C7A5.pgm"
     },
     {
       "index": 11,
-      "target_code": "0xE94B",
+      "code": "0xE94B",
       "char": "지",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E94B_C9C0.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E94B_C9C0",
+      "tile_index": 7616,
+      "tile_x": 0,
+      "tile_y": 1428,
+      "nonzero_pixels": 33,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E94B_C9C0.pgm"
     },
     {
       "index": 12,
-      "target_code": "0xE94C",
+      "code": "0xE94C",
       "char": "통",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E94C_D1B5.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E94C_D1B5",
+      "tile_index": 9653,
+      "tile_x": 636,
+      "tile_y": 1800,
+      "nonzero_pixels": 51,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E94C_D1B5.pgm"
     },
     {
       "index": 13,
-      "target_code": "0xE94D",
+      "code": "0xE94D",
       "char": "티",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E94D_D2F0.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E94D_D2F0",
+      "tile_index": 9968,
+      "tile_x": 576,
+      "tile_y": 1860,
+      "nonzero_pixels": 34,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E94D_D2F0.pgm"
     },
     {
       "index": 14,
-      "target_code": "0xE94E",
+      "code": "0xE94E",
       "char": "할",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E94E_D560.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E94E_D560",
+      "tile_index": 10592,
+      "tile_x": 384,
+      "tile_y": 1980,
+      "nonzero_pixels": 44,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E94E_D560.pgm"
     },
     {
       "index": 15,
-      "target_code": "0xE94F",
+      "code": "0xE94F",
       "char": "대",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E94F_B300.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E94F_B300",
+      "tile_index": 1792,
+      "tile_x": 0,
+      "tile_y": 336,
+      "nonzero_pixels": 41,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E94F_B300.pgm"
     },
     {
       "index": 16,
-      "target_code": "0xE950",
+      "code": "0xE950",
       "char": "데",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E950_B370.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E950_B370",
+      "tile_index": 1904,
+      "tile_x": 576,
+      "tile_y": 348,
+      "nonzero_pixels": 42,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E950_B370.pgm"
     },
     {
       "index": 17,
-      "target_code": "0xE951",
+      "code": "0xE951",
       "char": "로",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E951_B85C.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E951_B85C",
+      "tile_index": 3164,
+      "tile_x": 336,
+      "tile_y": 588,
+      "nonzero_pixels": 40,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E951_B85C.pgm"
     },
     {
       "index": 18,
-      "target_code": "0xE952",
+      "code": "0xE952",
       "char": "류",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E952_B958.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E952_B958",
+      "tile_index": 3416,
+      "tile_x": 288,
+      "tile_y": 636,
+      "nonzero_pixels": 44,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E952_B958.pgm"
     },
     {
       "index": 19,
-      "target_code": "0xE953",
+      "code": "0xE953",
       "char": "리",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E953_B9AC.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E953_B9AC",
+      "tile_index": 3500,
+      "tile_x": 528,
+      "tile_y": 648,
+      "nonzero_pixels": 32,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E953_B9AC.pgm"
     },
     {
       "index": 20,
-      "target_code": "0xE954",
+      "code": "0xE954",
       "char": "세",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E954_C138.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E954_C138",
+      "tile_index": 5432,
+      "tile_x": 672,
+      "tile_y": 1008,
+      "nonzero_pixels": 40,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E954_C138.pgm"
     },
     {
       "index": 21,
-      "target_code": "0xE955",
+      "code": "0xE955",
       "char": "속",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E955_C18D.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E955_C18D",
+      "tile_index": 5517,
+      "tile_x": 156,
+      "tile_y": 1032,
+      "nonzero_pixels": 33,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E955_C18D.pgm"
     },
     {
       "index": 22,
-      "target_code": "0xE956",
+      "code": "0xE956",
       "char": "시",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E956_C2DC.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E956_C2DC",
+      "tile_index": 5852,
+      "tile_x": 336,
+      "tile_y": 1092,
+      "nonzero_pixels": 27,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E956_C2DC.pgm"
     },
     {
       "index": 23,
-      "target_code": "0xE957",
+      "code": "0xE957",
       "char": "여",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E957_C5EC.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E957_C5EC",
+      "tile_index": 6636,
+      "tile_x": 528,
+      "tile_y": 1236,
+      "nonzero_pixels": 39,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E957_C5EC.pgm"
     },
     {
       "index": 24,
-      "target_code": "0xE958",
+      "code": "0xE958",
       "char": "요",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E958_C694.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E958_C694",
+      "tile_index": 6804,
+      "tile_x": 240,
+      "tile_y": 1272,
+      "nonzero_pixels": 39,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E958_C694.pgm"
     },
     {
       "index": 25,
-      "target_code": "0xE959",
+      "code": "0xE959",
       "char": "전",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E959_C804.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E959_C804",
+      "tile_index": 7172,
+      "tile_x": 48,
+      "tile_y": 1344,
+      "nonzero_pixels": 36,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E959_C804.pgm"
     },
     {
       "index": 26,
-      "target_code": "0xE95A",
+      "code": "0xE95A",
       "char": "주",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E95A_C8FC.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E95A_C8FC",
+      "tile_index": 7420,
+      "tile_x": 720,
+      "tile_y": 1380,
+      "nonzero_pixels": 33,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E95A_C8FC.pgm"
     },
     {
       "index": 27,
-      "target_code": "0xE95B",
+      "code": "0xE95B",
       "char": "중",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E95B_C911.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E95B_C911",
+      "tile_index": 7441,
+      "tile_x": 204,
+      "tile_y": 1392,
+      "nonzero_pixels": 49,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E95B_C911.pgm"
     },
     {
       "index": 28,
-      "target_code": "0xE95C",
+      "code": "0xE95C",
       "char": "터",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E95C_D130.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E95C_D130",
+      "tile_index": 9520,
+      "tile_x": 576,
+      "tile_y": 1776,
+      "nonzero_pixels": 36,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E95C_D130.pgm"
     },
     {
       "index": 29,
-      "target_code": "0xE95D",
+      "code": "0xE95D",
       "char": "트",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E95D_D2B8.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E95D_D2B8",
+      "tile_index": 9912,
+      "tile_x": 672,
+      "tile_y": 1848,
+      "nonzero_pixels": 40,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E95D_D2B8.pgm"
     },
     {
       "index": 30,
-      "target_code": "0xE95E",
+      "code": "0xE95E",
       "char": "결",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E95E_ACB0.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E95E_ACB0",
+      "tile_index": 176,
+      "tile_x": 576,
+      "tile_y": 24,
+      "nonzero_pixels": 46,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E95E_ACB0.pgm"
     },
     {
       "index": 31,
-      "target_code": "0xE95F",
+      "code": "0xE95F",
       "char": "계",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E95F_ACC4.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E95F_ACC4",
+      "tile_index": 196,
+      "tile_x": 48,
+      "tile_y": 36,
+      "nonzero_pixels": 39,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E95F_ACC4.pgm"
     },
     {
       "index": 32,
-      "target_code": "0xE960",
+      "code": "0xE960",
       "char": "과",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E960_ACFC.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E960_ACFC",
+      "tile_index": 252,
+      "tile_x": 720,
+      "tile_y": 36,
+      "nonzero_pixels": 36,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E960_ACFC.pgm"
     },
     {
       "index": 33,
-      "target_code": "0xE961",
+      "code": "0xE961",
       "char": "금",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E961_AE08.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E961_AE08",
+      "tile_index": 520,
+      "tile_x": 96,
+      "tile_y": 96,
+      "nonzero_pixels": 44,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E961_AE08.pgm"
     },
     {
       "index": 34,
-      "target_code": "0xE962",
+      "code": "0xE962",
       "char": "노",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E962_B178.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E962_B178",
+      "tile_index": 1400,
+      "tile_x": 672,
+      "tile_y": 252,
+      "nonzero_pixels": 27,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E962_B178.pgm"
     },
     {
       "index": 35,
-      "target_code": "0xE963",
+      "code": "0xE963",
       "char": "니",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E963_B2C8.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E963_B2C8",
+      "tile_index": 1736,
+      "tile_x": 96,
+      "tile_y": 324,
+      "nonzero_pixels": 25,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E963_B2C8.pgm"
     },
     {
       "index": 36,
-      "target_code": "0xE964",
+      "code": "0xE964",
       "char": "덮",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E964_B36E.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E964_B36E",
+      "tile_index": 1902,
+      "tile_x": 552,
+      "tile_y": 348,
+      "nonzero_pixels": 43,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E964_B36E.pgm"
     },
     {
       "index": 37,
-      "target_code": "0xE965",
+      "code": "0xE965",
       "char": "도",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E965_B3C4.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E965_B3C4",
+      "tile_index": 1988,
+      "tile_x": 48,
+      "tile_y": 372,
+      "nonzero_pixels": 34,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E965_B3C4.pgm"
     },
     {
       "index": 38,
-      "target_code": "0xE966",
+      "code": "0xE966",
       "char": "돈",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E966_B3C8.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E966_B3C8",
+      "tile_index": 1992,
+      "tile_x": 96,
+      "tile_y": 372,
+      "nonzero_pixels": 41,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E966_B3C8.pgm"
     },
     {
       "index": 39,
-      "target_code": "0xE967",
+      "code": "0xE967",
       "char": "러",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E967_B7EC.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E967_B7EC",
+      "tile_index": 3052,
+      "tile_x": 528,
+      "tile_y": 564,
+      "nonzero_pixels": 34,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E967_B7EC.pgm"
     },
     {
       "index": 40,
-      "target_code": "0xE968",
+      "code": "0xE968",
       "char": "럴",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E968_B7F4.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E968_B7F4",
+      "tile_index": 3060,
+      "tile_x": 624,
+      "tile_y": 564,
+      "nonzero_pixels": 48,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E968_B7F4.pgm"
     },
     {
       "index": 41,
-      "target_code": "0xE969",
+      "code": "0xE969",
       "char": "레",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E969_B808.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E969_B808",
+      "tile_index": 3080,
+      "tile_x": 96,
+      "tile_y": 576,
+      "nonzero_pixels": 43,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E969_B808.pgm"
     },
     {
       "index": 42,
-      "target_code": "0xE96A",
+      "code": "0xE96A",
       "char": "루",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E96A_B8E8.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E96A_B8E8",
+      "tile_index": 3304,
+      "tile_x": 480,
+      "tile_y": 612,
+      "nonzero_pixels": 40,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E96A_B8E8.pgm"
     },
     {
       "index": 43,
-      "target_code": "0xE96B",
+      "code": "0xE96B",
       "char": "르",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E96B_B974.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E96B_B974",
+      "tile_index": 3444,
+      "tile_x": 624,
+      "tile_y": 636,
+      "nonzero_pixels": 38,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E96B_B974.pgm"
     },
     {
       "index": 44,
-      "target_code": "0xE96C",
+      "code": "0xE96C",
       "char": "린",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E96C_B9B0.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E96C_B9B0",
+      "tile_index": 3504,
+      "tile_x": 576,
+      "tile_y": 648,
+      "nonzero_pixels": 35,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E96C_B9B0.pgm"
     },
     {
       "index": 45,
-      "target_code": "0xE96D",
+      "code": "0xE96D",
       "char": "맞",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E96D_B9DE.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E96D_B9DE",
+      "tile_index": 3550,
+      "tile_x": 360,
+      "tile_y": 660,
+      "nonzero_pixels": 40,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E96D_B9DE.pgm"
     },
     {
       "index": 46,
-      "target_code": "0xE96E",
+      "code": "0xE96E",
       "char": "못",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E96E_BABB.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E96E_BABB",
+      "tile_index": 3771,
+      "tile_x": 708,
+      "tile_y": 696,
+      "nonzero_pixels": 40,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E96E_BABB.pgm"
     },
     {
       "index": 47,
-      "target_code": "0xE96F",
+      "code": "0xE96F",
       "char": "바",
-      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E96F_BC14.pgm",
-      "width": 12,
-      "height": 12,
-      "row_bytes": 6,
-      "source": {
-        "mode": "blank"
-      }
+      "name": "hangul_E96F_BC14",
+      "tile_index": 4116,
+      "tile_x": 240,
+      "tile_y": 768,
+      "nonzero_pixels": 39,
+      "pgm": "analysis/hangul_core_ui_priority48_workbench/hangul_E96F_BC14.pgm"
     }
   ]
 }

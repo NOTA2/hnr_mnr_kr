@@ -1,0 +1,22 @@
+{
+  "label": "Active Hangul 12x12 bitmap atlas",
+  "status": "ACTIVE",
+  "source_type": "bitmap_atlas",
+  "source_png": "third_party/font_atlases/maruminyahangul_12x12.png",
+  "metadata_file": "third_party/font_atlases/maruminyahangul_12x12.metadata.json",
+  "tile_width": 12,
+  "tile_height": 12,
+  "columns": 64,
+  "rows": 175,
+  "character_order": "unicode_hangul_syllables",
+  "unicode_range": {
+    "start": "U+AC00",
+    "end": "U+D7A3",
+    "count": 11172
+  },
+  "notes": [
+    "This atlas is the single active source for Hangul glyph generation in the project.",
+    "Future translation workbenches should be generated from this atlas rather than from vector-font seed renders.",
+    "Only the Hangul syllables actually used in translation JSON files should be appended into the ROM."
+  ]
+}

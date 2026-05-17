@@ -25,7 +25,8 @@
 - 현재 매핑 감사 JSON: [common_fnt_usage_audit.json](/Users/user/test/analysis/common_fnt_usage_audit.json)
 - core UI workbench: [hangul_core_ui_workbench](/Users/user/test/analysis/hangul_core_ui_workbench)
 - 시작 화면 전용 active workbench: [startup_intro_active_workbench](/Users/user/test/analysis/startup_intro_active_workbench)
-- 시작 화면 폰트 비교: [startup_intro_font_compare.md](/Users/user/test/analysis/startup_intro_font_compare.md)
+- 실제 번역 subset workbench: [generated_workbenches](/Users/user/test/analysis/generated_workbenches/README.md)
+- active atlas profile 은 [confirmed_data/font_assets](/Users/user/test/confirmed_data/font_assets/README.md) 를 본다.
 
 ## Stable References
 
@@ -38,6 +39,7 @@
 ## Archive
 
 - raw disassembly / caller / helper / scratch evidence 는 [archive/README.md](/Users/user/test/analysis/archive/README.md) 아래로 내렸다.
+- 예전 폰트 후보 비교와 벡터 seed 실험은 [archive/font_trials/2026-05-17_pre_bitmap_lock](/Users/user/test/analysis/archive/font_trials/2026-05-17_pre_bitmap_lock) 아래로 내렸다.
 - 현재 루트에는 **지금도 직접 여는 요약, workbench, 적용 리포트, 탐색 결과** 만 남긴다.
 
 ## 운영 규칙

@@ -28,6 +28,12 @@
 
 ## 최근 확인
 
+- 현재 프로젝트의 active 한글 glyph source 는 [maruminyahangul_12x12.png](/Users/user/test/third_party/font_atlases/maruminyahangul_12x12.png) 하나로 고정했다.
+- 기준 설정은 [active_hangul_font_profile.json](/Users/user/test/confirmed_data/font_assets/active_hangul_font_profile.json) 에 기록했다.
+- startup intro active workbench, core UI `priority48`, core UI `full80` workbench 는 모두 같은 atlas 에서 다시 생성되도록 정리했다.
+- 임의의 번역 JSON 에서 실제 사용 한글만 뽑아 subset workbench 를 만드는 [build_workbench_from_active_atlas.py](/Users/user/test/scripts/build_workbench_from_active_atlas.py) 와, 그 결과를 바로 ROM 에 적용하는 [build_translated_rom_with_active_atlas.sh](/Users/user/test/scripts/build_translated_rom_with_active_atlas.sh) 를 추가했다.
+- 예전 D2Coding / NanumSquare / SourceHan / 비교 시트와 workbench 는 [analysis/archive/font_trials/2026-05-17_pre_bitmap_lock](/Users/user/test/analysis/archive/font_trials/2026-05-17_pre_bitmap_lock) 로 내렸다.
+
 - `0x0514xx` UI cluster 는 `0x075DD4` (`strlen`) 과 `0x03EB78` / `0x03ECCC` layout helper 를 반복 호출하는 **UI layout / slot setup 경로**에 가깝다.
 - 같은 클러스터에서 따라간 `0x058720` 은 문자열 렌더러가 아니라, current tracked slot record (`0x714`) 의 좌표를 읽어 넘기는 position helper 다.
 - 따라서 위 경로는 폰트/문자 매핑 자체를 찾는 direct route 로 보기 어렵다.

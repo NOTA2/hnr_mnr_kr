@@ -2,17 +2,17 @@
 
 이 파일은 **매 세션마다 읽는 작은 작업 카드**다.
 
-지금부터는 데이터 구조 심화보다 **정식 한글 seed 폰트 결정과 실제 한글화 작업 루프**를 우선한다.
+지금부터는 데이터 구조 심화보다 **확정된 12x12 한글 atlas 기반 재삽입과 실제 한글화 작업 루프**를 우선한다.
 
 ## 현재 목표
 
-- startup intro / core UI 기준으로 정식 seed 폰트를 고른다.
-- 자동 렌더링 뒤 사람이 손볼 active workbench 와 비교 workflow 를 정리한다.
+- 확정된 active atlas 를 기준으로 startup intro / core UI / 번역 subset workbench 를 유지한다.
+- 번역 JSON 에서 실제로 쓰인 한글만 추출해 atlas subset glyph set 을 만든다.
+- 사람이 glyph editor 로 필요한 부분만 손보고, 이후 ROM 재생성으로 이어간다.
 - 그 다음 남은 텍스트 추출 마감과 번역 루프로 넘어간다.
-- startup intro 폰트 후보 `10`개는 `zsh scripts/build_all_startup_fonts.sh 20` 으로 한 번에 다시 빌드할 수 있다.
-- 사용자 제공 12x12 atlas 기반 startup intro 테스트 경로도 project-local 로 확보했다.
 - 기준 atlas 파일은 [maruminyahangul_12x12.png](/Users/user/test/third_party/font_atlases/maruminyahangul_12x12.png) 이고, 메타데이터는 [maruminyahangul_12x12.metadata.json](/Users/user/test/third_party/font_atlases/maruminyahangul_12x12.metadata.json) 이다.
 - 위 atlas 는 `12x12`, `64`열, row-major `U+AC00..U+D7A3` 순서라서, 같은 포맷을 계속 쓸 때는 `11172`자 대형 문자 목록을 별도 관리하지 않아도 된다.
+- active profile 은 [active_hangul_font_profile.json](/Users/user/test/confirmed_data/font_assets/active_hangul_font_profile.json) 에 있다.
 - 위 atlas 기반 startup intro 테스트 ROM 은 [hnr_startup_intro_maruminyahangul12.gba](/Users/user/test/patched_roms/font_compare/maruminyahangul12_startup/hnr_startup_intro_maruminyahangul12.gba) 이다.
 - Registry A entry `8` 은 cluster별 번역 workset 재생성 경로까지 확보했다.
 - 현재까지 확보한 전체 추출본 기준 파일은 [all_extracted_texts_master.json](/Users/user/test/confirmed_data/translation_workspace/all_extracted_texts_master.json) 이다.
@@ -106,12 +106,11 @@
   - 다만 현재 [hangul_core_ui_workbench](/Users/user/test/analysis/hangul_core_ui_workbench) 의 다수 glyph 는 **아직 비어 있는 템플릿** 이다.
   - 그래서 core UI 공용 세트를 그대로 빌드하면, 일부 화면은 한글이 빈칸처럼 보일 수 있다.
   - 이제 [audit-pgm-glyph-set](/Users/user/test/gba_kor_tool/cli.py) 검사로 blank glyph 를 빌드 전에 잡도록 바꿨다.
-  - startup intro 는 [startup_intro_nanumsquare_workbench](/Users/user/test/analysis/startup_intro_nanumsquare_workbench) 기준 `NanumSquareR.ttf` seed glyph 를 쓰는 독립 경로로 전환했다.
-  - startup intro `NanumSquareR` seed 는 baseline 을 한 번 다시 조정했고, 현재 기준값은 `y_offset=0` 이다.
-  - startup intro active seed 는 현재 [startup_intro_active_workbench](/Users/user/test/analysis/startup_intro_active_workbench) 기준 `D2Coding-Ver1.3.2-20180524.ttf` `size11` `binary2 cutoff_ratio=0.2` 이다.
-  - `NanumSquareR` 와 `Galmuri11` 은 historical candidate 로 남기고, 현재는 **D2Coding 우선** 기준으로 실험한다.
-  - `gba-free-fonts` 의 `SourceHanSansKR` / `SourceHanMonoKR` 는 [startup_intro_font_compare.md](/Users/user/test/analysis/startup_intro_font_compare.md) 기준 실제 비교 ROM 생성까지 검증했다.
-  - 요약은 [font_candidate_survey.md](/Users/user/test/analysis/font_candidate_survey.md) 를 본다.
+  - startup intro active workbench, core UI `priority48`, core UI `full80` 는 모두 **같은 active atlas** 기준으로 재생성된다.
+  - active atlas 재생성 명령은 [rebuild_active_workbenches_from_atlas.sh](/Users/user/test/scripts/rebuild_active_workbenches_from_atlas.sh) 다.
+  - 임의의 번역 JSON 에서 실제 사용 한글 subset 을 뽑아 workbench 를 만들 때는 [build_workbench_from_active_atlas.py](/Users/user/test/scripts/build_workbench_from_active_atlas.py) 를 쓴다.
+  - 같은 active atlas 로 실제 번역 ROM 을 바로 만들 때는 [build_translated_rom_with_active_atlas.sh](/Users/user/test/scripts/build_translated_rom_with_active_atlas.sh) 를 쓴다.
+  - 예전 폰트 후보 비교 결과는 [analysis/archive/font_trials/2026-05-17_pre_bitmap_lock](/Users/user/test/analysis/archive/font_trials/2026-05-17_pre_bitmap_lock) 로 내렸다.
   - 실제 batch test ROM 도 생성했다. 요약은 [core_ui_test_rom_matrix.md](/Users/user/test/analysis/core_ui_test_rom_matrix.md) 에 있고:
     - `priority48` 기본: `4 in_place`, compact: `5 in_place`
     - `full80` 기본: `15 in_place`, compact: `19 in_place`

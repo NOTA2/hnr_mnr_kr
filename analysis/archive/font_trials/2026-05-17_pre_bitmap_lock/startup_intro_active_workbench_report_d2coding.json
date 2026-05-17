@@ -1,0 +1,130 @@
+{
+  "font_path": "/Users/user/Library/Fonts/D2Coding-Ver1.3.2-20180524.ttf",
+  "manifest": "/Users/user/test/analysis/startup_intro_seed_manifest.json",
+  "output_dir": "/Users/user/test/analysis/startup_intro_active_workbench",
+  "prepared_manifest": "/Users/user/test/analysis/startup_intro_active_workbench/prepared_manifest.json",
+  "table": "/Users/user/test/analysis/startup_intro_active_workbench/prepared.tbl",
+  "font_size": 11,
+  "canvas_width": 12,
+  "canvas_height": 12,
+  "x_offset": 0,
+  "y_offset": 0,
+  "quantization_mode": "binary2",
+  "binary_threshold": 128,
+  "binary_cutoff_ratio": 0.2,
+  "count": 14,
+  "entries": [
+    {
+      "index": 0,
+      "code": "0xEA40",
+      "char": "세",
+      "pgm": "/Users/user/test/analysis/startup_intro_active_workbench/hangul_EA40_C138.pgm",
+      "nonzero_pixels": 62,
+      "effective_binary_threshold": 51
+    },
+    {
+      "index": 1,
+      "code": "0xEA41",
+      "char": "년",
+      "pgm": "/Users/user/test/analysis/startup_intro_active_workbench/hangul_EA41_B144.pgm",
+      "nonzero_pixels": 41,
+      "effective_binary_threshold": 51
+    },
+    {
+      "index": 2,
+      "code": "0xEA42",
+      "char": "대",
+      "pgm": "/Users/user/test/analysis/startup_intro_active_workbench/hangul_EA42_B300.pgm",
+      "nonzero_pixels": 55,
+      "effective_binary_threshold": 51
+    },
+    {
+      "index": 3,
+      "code": "0xEA43",
+      "char": "동",
+      "pgm": "/Users/user/test/analysis/startup_intro_active_workbench/hangul_EA43_B3D9.pgm",
+      "nonzero_pixels": 48,
+      "effective_binary_threshold": 51
+    },
+    {
+      "index": 4,
+      "code": "0xEA44",
+      "char": "력",
+      "pgm": "/Users/user/test/analysis/startup_intro_active_workbench/hangul_EA44_B825.pgm",
+      "nonzero_pixels": 51,
+      "effective_binary_threshold": 51
+    },
+    {
+      "index": 5,
+      "code": "0xEA45",
+      "char": "륙",
+      "pgm": "/Users/user/test/analysis/startup_intro_active_workbench/hangul_EA45_B959.pgm",
+      "nonzero_pixels": 56,
+      "effective_binary_threshold": 51
+    },
+    {
+      "index": 6,
+      "code": "0xEA46",
+      "char": "리",
+      "pgm": "/Users/user/test/analysis/startup_intro_active_workbench/hangul_EA46_B9AC.pgm",
+      "nonzero_pixels": 36,
+      "effective_binary_threshold": 51
+    },
+    {
+      "index": 7,
+      "code": "0xEA47",
+      "char": "마",
+      "pgm": "/Users/user/test/analysis/startup_intro_active_workbench/hangul_EA47_B9C8.pgm",
+      "nonzero_pixels": 63,
+      "effective_binary_threshold": 51
+    },
+    {
+      "index": 8,
+      "code": "0xEA48",
+      "char": "불",
+      "pgm": "/Users/user/test/analysis/startup_intro_active_workbench/hangul_EA48_BD88.pgm",
+      "nonzero_pixels": 64,
+      "effective_binary_threshold": 51
+    },
+    {
+      "index": 9,
+      "code": "0xEA49",
+      "char": "생",
+      "pgm": "/Users/user/test/analysis/startup_intro_active_workbench/hangul_EA49_C0DD.pgm",
+      "nonzero_pixels": 55,
+      "effective_binary_threshold": 51
+    },
+    {
+      "index": 10,
+      "code": "0xEA4A",
+      "char": "월",
+      "pgm": "/Users/user/test/analysis/startup_intro_active_workbench/hangul_EA4A_C6D4.pgm",
+      "nonzero_pixels": 62,
+      "effective_binary_threshold": 51
+    },
+    {
+      "index": 11,
+      "code": "0xEA4B",
+      "char": "을",
+      "pgm": "/Users/user/test/analysis/startup_intro_active_workbench/hangul_EA4B_C744.pgm",
+      "nonzero_pixels": 51,
+      "effective_binary_threshold": 51
+    },
+    {
+      "index": 12,
+      "code": "0xEA4C",
+      "char": "젠",
+      "pgm": "/Users/user/test/analysis/startup_intro_active_workbench/hangul_EA4C_C820.pgm",
+      "nonzero_pixels": 57,
+      "effective_binary_threshold": 51
+    },
+    {
+      "index": 13,
+      "code": "0xEA4D",
+      "char": "형",
+      "pgm": "/Users/user/test/analysis/startup_intro_active_workbench/hangul_EA4D_D615.pgm",
+      "nonzero_pixels": 51,
+      "effective_binary_threshold": 51
+    }
+  ]
+}

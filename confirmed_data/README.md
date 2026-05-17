@@ -5,6 +5,7 @@
 ## 구성
 
 - [extracted_texts](/Users/user/test/confirmed_data/extracted_texts/README.md)
+- [font_assets](/Users/user/test/confirmed_data/font_assets/README.md)
 - [translation_worksets](/Users/user/test/confirmed_data/translation_worksets/README.md)
 - [translation_workspace](/Users/user/test/confirmed_data/translation_workspace/README.md)
 
