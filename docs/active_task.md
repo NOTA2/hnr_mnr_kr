@@ -20,14 +20,15 @@
 - source / workset 별 layout family 연결은 [text_layout_assignment_index.json](/Users/user/test/confirmed_data/text_layout/text_layout_assignment_index.json) 에 둔다.
 - save/menu prompt 는 `save_menu_prefixed_01ff` family 로 따로 분리해, `01 FF <u16 char_count>` 헤더와 뒤 제어코드를 보존하는 쪽으로 다룬다.
 - `registry_a_entry8_prefixed_texts` 는 `entry8_prefixed_01ff_script_line`, `registry_d_fc_script_texts` 는 `registry_d_fc_stop_script_line` family 로 부분 확정했다.
-- 따라서 남은 핵심은 “대사 source 의 record 경계”가 아니라 **runtime dialogue box/page family** 를 더 묶는 쪽이다.
+- `ui_skill/item/entry12` 는 `ui_or_item_plain_00_record`, `battle/ability/material` 은 `term_description_plain_00_optional_0b`, `credits` 는 `credits_padded_plain_00_record` family 로 부분 확정했다.
+- 따라서 남은 핵심은 “대사 source 의 record 경계”보다 **runtime dialogue box/page family** 와 **실플레이/이미지 텍스트 감사** 쪽이다.
 
 ## 지금 우선순위
 
 1. 후보 `3`개 startup intro 비교
 2. 폰트 확정
-3. 남은 텍스트 추출 감사 마감
-4. 대사 계열 runtime dialogue box/page family 추가 연결
+3. 대사 계열 runtime dialogue box/page family 추가 연결
+4. 남은 텍스트 추출 감사 마감
 5. 번역/검수 workset 운영
 6. 자동 재삽입 + 수동 glyph 수정 루프
 

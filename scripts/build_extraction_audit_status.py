@@ -40,17 +40,15 @@ def main() -> int:
             "save_menu_prefixed_01ff",
             "entry8_prefixed_01ff_script_line",
             "registry_d_fc_stop_script_line",
+            "ui_or_item_plain_00_record",
+            "term_description_plain_00_optional_0b",
+            "credits_padded_plain_00_record",
         ],
         "remaining_audit_items": [
             {
-                "id": "entry8_cluster_labeling",
-                "status": "partial",
-                "notes": "Registry A entry 8 cluster structure exists, but scene/use labels are still incomplete."
-            },
-            {
                 "id": "runtime_dialogue_box_family_mapping",
                 "status": "in_progress",
-                "notes": "Dialogue/event record boundary rules are now partially closed, but runtime box/page family for general dialogue is not fully tied yet."
+                "notes": "Record structures for the major extracted sources are mostly closed, but runtime box/page family for general dialogue and several UI/battle windows is not fully tied yet."
             },
             {
                 "id": "live_playthrough_text_audit",
@@ -63,7 +61,7 @@ def main() -> int:
                 "notes": "Text baked into images is not part of extracted text completion."
             },
         ],
-        "operational_reading": "Large unknown text banks are no longer the main risk; the remaining work is runtime family confirmation, playthrough audit, and image text inventory.",
+        "operational_reading": "Large unknown text banks and per-source record structures are no longer the main risk; the remaining work is runtime family confirmation, playthrough audit, and image text inventory.",
     }
     OUTPUT_PATH.write_text(json.dumps(status, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"wrote {OUTPUT_PATH}")

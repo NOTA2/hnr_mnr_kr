@@ -14,7 +14,8 @@
 - 상태: `IN PROGRESS`
 - 현재 우선순위:
   - coverage audit 기준으로 `Registry A tail` / `Registry D entry 70` 은 실질적으로 닫힘
-  - 남은 핵심은 `Registry A entry 8` cluster 장면/용도 라벨링과 실제 플레이 검증
+  - source별 record structure 는 대부분 objective family 로 정리됨
+  - 남은 핵심은 runtime family 매핑과 실제 플레이 검증
   - 따라서 특별한 새 source 징후가 없으면, 당분간은 폰트/재삽입 쪽이 우선
 
 ## 작업용 번역 세트
@@ -234,12 +235,12 @@
 - `material_texts` 뱅크는 순수 문자열 덩어리가 아니라, 앞단 binary record 와 뒷단 문자열 본문이 결합된 mixed resource 로 보인다.
 - 다만 추출 JSON의 범위와 실제 디스크립터 엔트리 범위는 1:1 대응하지 않을 수 있다.
 - 넓은 디스크립터 범위를 그대로 스캔하면 잡음이 섞이므로, 번역용 JSON은 계속 사람이 읽기 좋은 단위로 유지하는 편이 낫다.
+- 현재는 `ui_skill/item/entry12`, `battle/ability/material`, `credits` 까지도 각각의 record-structure family 로 나눌 수 있게 되어, source별 레코드 구조 미확정이 주된 리스크는 아니다.
 
 ## 다음 할 일
 
-1. Registry A entry `8` 의 `72`개 cluster 요약에 장면/용도 라벨을 더 붙이기
-현재는 자동 태그와 overview, cluster `71` save/menu 분리, cluster별 번역 workset 생성까지 확보됨. 다음은 수동 정밀 라벨링.
-2. 실제 플레이 검증 전까지는 coverage inventory 를 유지하되, 새 source 징후가 보일 때만 다시 상위 구조 분석을 연다.
+1. 실제 플레이 검증 전까지는 coverage inventory 를 유지하되, 새 source 징후가 보일 때만 다시 상위 구조 분석을 연다.
+2. runtime dialogue/UI/battle layout family 를 더 좁힌다.
 3. 폰트/문자 매핑 및 더 긴 한글 재삽입 테스트 확장을 계속 진행한다.
 
 ## 진행 로그

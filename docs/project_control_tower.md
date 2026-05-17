@@ -88,6 +88,8 @@
 - save/menu block 도 이제 `save_menu_prefixed_01ff` family 로 구조화해, `01 FF <u16 char_count>` 헤더 + 본문 + 뒤 제어코드 규칙을 문서와 데이터에 함께 반영했다.
 - Registry A entry `8` 대형 스토리/이벤트 bank 는 `entry8_prefixed_01ff_script_line` family 로 분리해, counted record 구조와 제어코드 보존 규칙을 따로 고정했다.
 - Registry D mixed script 는 `registry_d_fc_stop_script_line` family 로 분리해, `FC` stop-byte 경계와 명시적 개행 보존 규칙을 따로 고정했다.
+- `ui_skill/item/entry12` 는 `ui_or_item_plain_00_record`, `battle/ability/material` 은 `term_description_plain_00_optional_0b`, `credits` 는 `credits_padded_plain_00_record` 로 구조 family 를 분리했다.
+- 따라서 현재 추출 감사의 핵심은 source별 레코드 경계보다 **runtime family 매핑 / 실플레이 누락 회수 / 이미지 텍스트 inventory** 다.
 - 일반 UI/대사창 계열로 보이는 공용 text object caller 들은 현재 코드상 `r2=0x88`, `r3=20` family 와 world-map `r3=12` family 두 갈래로 크게 묶이며, 번역팀 문서에는 이를 **code-derived reference** 로만 반영했다.
 - 이어서 source / workset 별 layout family 연결은 [text_layout_assignment_index.json](/Users/user/test/confirmed_data/text_layout/text_layout_assignment_index.json) 로 따로 분리해, mixed workset 에 전역 한 줄 제한을 잘못 적용하지 않도록 했다.
 - `0x03005FF8` 은 world-map 선택/hover location index byte 로 보는 해석이 강해졌다.

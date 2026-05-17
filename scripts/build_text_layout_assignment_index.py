@@ -65,41 +65,63 @@ def build_index() -> dict:
             ],
         },
         "ui_skill_texts": {
-            "layout_family": "unresolved_ui_text",
-            "assignment_status": "unresolved",
+            "layout_family": "ui_or_item_plain_00_record",
+            "assignment_status": "partially_confirmed",
             "notes": [
-                "Likely uses the shared text object family, but the specific caller/window family is not yet pinned down objectively."
+                "Short 0x00-terminated UI records with no counted header are already objective.",
+                "A direct pointer-indexed local UI/data table is confirmed, but the runtime window family is still unresolved.",
             ],
         },
         "item_texts": {
-            "layout_family": "unresolved_ui_text",
-            "assignment_status": "unresolved",
-            "notes": ["Translation should stay concise until a concrete box family is linked."],
+            "layout_family": "ui_or_item_plain_00_record",
+            "assignment_status": "partially_confirmed",
+            "notes": [
+                "Short 0x00-terminated item/event strings are objective.",
+                "A direct pointer-indexed local table is confirmed, but the runtime window family is still unresolved.",
+            ],
         },
         "battle_texts": {
-            "layout_family": "unresolved_battle_text",
-            "assignment_status": "unresolved",
-            "notes": ["Translation should stay concise until a concrete battle window family is linked."],
+            "layout_family": "term_description_plain_00_optional_0b",
+            "assignment_status": "partially_confirmed",
+            "notes": [
+                "Plain 0x00-terminated battle term/description records are objective.",
+                "Some description rows contain inline 0x0B separators and ideographic padding that must be preserved.",
+                "Runtime battle box family is still unresolved.",
+            ],
         },
         "ability_texts": {
-            "layout_family": "unresolved_ui_text",
-            "assignment_status": "unresolved",
-            "notes": ["Likely short UI/battle descriptions, but the actual box family is still unresolved."],
+            "layout_family": "term_description_plain_00_optional_0b",
+            "assignment_status": "partially_confirmed",
+            "notes": [
+                "Plain 0x00-terminated term/description records are objective.",
+                "Many rows contain inline 0x0B separators and ideographic padding that must be preserved.",
+                "Runtime display family is still unresolved.",
+            ],
         },
         "material_texts": {
-            "layout_family": "unresolved_ui_text",
-            "assignment_status": "unresolved",
-            "notes": ["Likely short UI descriptions, but the actual box family is still unresolved."],
+            "layout_family": "term_description_plain_00_optional_0b",
+            "assignment_status": "partially_confirmed",
+            "notes": [
+                "Plain 0x00-terminated term/description records are objective.",
+                "A local resource-table section is confirmed and rows preserve inline 0x0B separators.",
+                "Runtime display family is still unresolved.",
+            ],
         },
         "registry_a_entry12_texts": {
-            "layout_family": "unresolved_ui_text",
-            "assignment_status": "unresolved",
-            "notes": ["Gameplay/item-adjacent texts extracted, but display family remains unresolved."],
+            "layout_family": "ui_or_item_plain_00_record",
+            "assignment_status": "partially_confirmed",
+            "notes": [
+                "Gameplay/item-adjacent short plain records are objective.",
+                "Display family remains unresolved, so translations should stay concise.",
+            ],
         },
         "credits_texts": {
-            "layout_family": "unresolved_credits",
-            "assignment_status": "unresolved",
-            "notes": ["Credits extraction is stable, but runtime layout family is not yet mapped."],
+            "layout_family": "credits_padded_plain_00_record",
+            "assignment_status": "partially_confirmed",
+            "notes": [
+                "Credits records are plain 0x00-terminated strings padded with ideographic spaces.",
+                "Runtime credits layout family is not yet mapped, so spacing-sensitive edits should stay conservative.",
+            ],
         },
     }
 
@@ -117,7 +139,7 @@ def build_index() -> dict:
                 "system_messages": "system_messages_plain_newline_00",
                 "save_menu_texts": "save_menu_prefixed_01ff",
                 "location_texts": "world_map_location_r3_12",
-                "ui_skill_texts": "unresolved_ui_text",
+                "ui_skill_texts": "ui_or_item_plain_00_record",
             },
             "notes": [
                 "This workset must not be treated as a single box family.",
@@ -128,14 +150,14 @@ def build_index() -> dict:
             "kind": "mixed",
             "assignment_status": "mixed",
             "by_source_group": {
-                "item_texts": "unresolved_ui_text",
-                "ability_texts": "unresolved_ui_text",
-                "material_texts": "unresolved_ui_text",
-                "battle_texts": "unresolved_battle_text",
-                "registry_a_entry12_texts": "unresolved_ui_text",
+                "item_texts": "ui_or_item_plain_00_record",
+                "ability_texts": "term_description_plain_00_optional_0b",
+                "material_texts": "term_description_plain_00_optional_0b",
+                "battle_texts": "term_description_plain_00_optional_0b",
+                "registry_a_entry12_texts": "ui_or_item_plain_00_record",
             },
             "notes": [
-                "Mostly concise UI/term content, but runtime family links are not yet fully pinned down."
+                "Record structures are now mostly objective even though runtime box families are still unresolved."
             ],
         },
         "translation_workset_registry_d_dialogue": {
@@ -185,7 +207,7 @@ def build_index() -> dict:
             "Use source_group-specific layout families first.",
             "When a workset is mixed, do not invent a single global char limit.",
             "Partially confirmed record-structure families still need concise translation until runtime box/page family is confirmed.",
-            "Unresolved families should stay concise until runtime family mapping is confirmed.",
+            "Even when record structure is objective, unresolved runtime families should stay concise until runtime family mapping is confirmed.",
         ],
     }
 

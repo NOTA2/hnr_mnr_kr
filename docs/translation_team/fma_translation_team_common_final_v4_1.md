@@ -65,6 +65,21 @@
 - system message 일부는 일반 `00` 종단 문자열이지만, 이미 원문 안에 **명시적 개행(`\n`)** 이 들어 있다.
 - 이 family 에서는 원문에 들어 있던 개행 수와 위치를 함부로 바꾸지 않는다.
 - 세부 구조는 같은 manifest 의 `system_messages_plain_newline_00` family 를 따른다.
+- `ui_skill`, `item`, `Registry A entry 12` 일부 gameplay term 은 **짧은 `00` 종단 plain record** family 로 부분 확정됐다.
+- 이 family 에서는:
+  - 번역문 뒤에 `00 terminator`는 공용 삽입기가 붙인다.
+  - 원문에 없는 임의 줄바꿈을 넣지 않는다.
+  - display family 가 아직 미확정이므로 짧고 보수적으로 번역한다.
+- 세부 구조는 같은 manifest 의 `ui_or_item_plain_00_record` family 를 따른다.
+- `battle`, `ability`, `material` 일부는 **`00` 종단 plain record + optional inline 0x0B separator** family 로 부분 확정됐다.
+- 이 family 에서는:
+  - embedded `0x0B` separator 와 전각 공백 패딩을 함부로 지우거나 바꾸지 않는다.
+  - 원문에 없는 임의 줄바꿈을 넣지 않는다.
+  - display family 가 아직 미확정이므로 짧고 보수적으로 번역한다.
+- 세부 구조는 같은 manifest 의 `term_description_plain_00_optional_0b` family 를 따른다.
+- credits 문자열은 **전각 공백 패딩을 가진 `00` 종단 plain record** family 로 부분 확정됐다.
+- 이 family 에서는 padding 이 레이아웃 힌트 역할을 하므로, spacing-sensitive 수정은 매우 보수적으로 한다.
+- 세부 구조는 같은 manifest 의 `credits_padded_plain_00_record` family 를 따른다.
 
 ### 아직 전역 확정되지 않은 것
 

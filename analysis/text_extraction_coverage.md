@@ -10,7 +10,7 @@
 - 현재 기준으로는:
   - `1. Registry A tail 분류`: **실질 완료**
   - `2. Registry D entry 70 판정`: **실질 완료**
-  - `3. Registry A entry 8 cluster 장면/용도 라벨링`: **부분 완료**
+  - `3. source별 record structure family 정리`: **대부분 완료**
   - `4. 실제 플레이에서 새 일본어 미출현 확인`: **미완료**
 - 그래서 지금은 텍스트 추출 구조 분석을 무한히 계속하는 단계가 아니라, **새 text source 징후가 나오지 않는 한 폰트/재삽입 쪽을 우선해도 되는 상태**다.
 
@@ -80,8 +80,7 @@
 
 ### 아직 100%라고 단정하면 안 되는 이유
 
-- Registry A entry `8` 이 매우 큰 bank 라서, 내부 cluster 구조는 잡았지만 장면/용도 라벨링이 아직 덜 됐다.
-- Registry A entry `8` 은 cluster `71` save/menu 분리까지는 끝났지만, 나머지 cluster 수동 라벨링은 아직 덜 됐다.
+- Registry A entry `8` 이 매우 큰 bank 라서, 내부 cluster 구조는 잡았지만 장면/용도 라벨링은 아직 번역 준비용 보조 작업으로 남아 있다.
 - Registry A entry `12` 같이 상위 registry 관점에서 뒤늦게 보이는 text source 가 추가로 있을 수 있다.
 - 대표 렌더러가 읽는 자원은 많이 좁혀졌지만, 실제 플레이 전수 확인은 아직 안 했다.
 - 다만 canonical master inventory 는 이제 startup intro `4`건까지 포함한 `13` source / `10756` records 기준으로 관리된다.
@@ -91,12 +90,12 @@
 
 아래를 만족하면 `텍스트 추출 operational 100%` 로 선언해도 무리가 적다.
 
-1. Registry A entry `8` cluster 에 장면/용도 라벨을 더 붙인다.
-2. 실제 플레이 샘플에서 새 일본어가 더 나오지 않는지 1회 이상 확인한다.
-3. 플레이나 추가 추출 과정에서 새 text source 징후가 보이면 그때만 상위 inventory 를 다시 연다.
+1. 실제 플레이 샘플에서 새 일본어가 더 나오지 않는지 1회 이상 확인한다.
+2. 플레이나 추가 추출 과정에서 새 text source 징후가 보이면 그때만 상위 inventory 를 다시 연다.
+3. 이미지 안에 구워진 텍스트 inventory 를 별도로 정리한다.
 
 ## 현재 한 줄 판단
 
 - **정확한 총개수 기반 100% 판정은 불가능**
-- **source inventory 기반으로는 많이 왔고, 아직 소수 미확인 공급원이 남아 있음**
-- **현재 체감 상태는 "거의 다 왔지만, 선언 전 마지막 감사 단계"**
+- **source inventory와 record-structure family 기준으로는 대부분 닫혔고, 남은 리스크는 실플레이/이미지 쪽에 더 가깝다**
+- **현재 체감 상태는 "거의 다 왔고, 선언 전 마지막 감사 단계"**

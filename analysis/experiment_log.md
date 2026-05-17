@@ -1755,3 +1755,17 @@
   - 남은 미확정 범위도 "레코드 구조"가 아니라 **runtime dialogue box/page family** 로 더 선명하게 좁혀졌다.
 - 판정: `성공`
 - 교훈: 대사 계열은 한 번에 전부 확정하려 하기보다, **record structure -> runtime box family** 순으로 층을 나눠 확정하는 편이 번역/재삽입 자동화에 훨씬 유리하다.
+
+### 실험 99
+
+- 가설: `ui_skill/item/entry12`, `battle/ability/material`, `credits` 는 runtime family 가 아직 미확정이어도, 레코드 구조 자체는 지금 단계에서 family 로 닫을 수 있다.
+- 시도:
+  - raw bytes 와 추출 JSON 을 다시 대조해 `00` 종단 여부, embedded `0x0B` separator, 전각 공백 패딩 패턴을 확인했다.
+  - `item_texts` 와 `ui_skill_texts` 의 direct pointer evidence (`0x1832A8 -> 0x08AEFC`, `0x1836A8 -> 0x08B62C`) 를 다시 기록했다.
+  - [build_text_box_family_manifest.py](/Users/user/test/scripts/build_text_box_family_manifest.py) 에 `ui_or_item_plain_00_record`, `term_description_plain_00_optional_0b`, `credits_padded_plain_00_record` family 를 추가했다.
+  - [build_text_layout_assignment_index.py](/Users/user/test/scripts/build_text_layout_assignment_index.py), [build_extraction_audit_status.py](/Users/user/test/scripts/build_extraction_audit_status.py), 번역팀 공통 지침, 작업 카드, coverage 문서를 함께 갱신했다.
+- 결과:
+  - source별 record structure 미확정이 크게 줄었고, extraction audit 의 남은 리스크는 **runtime family / live playthrough / image text inventory** 로 압축됐다.
+  - `entry8 cluster labeling` 은 추출 감사보다 번역 준비 쪽에 더 가까운 항목으로 분리해서 볼 수 있게 됐다.
+- 판정: `성공`
+- 교훈: 추출 감사에서 중요한 것은 “어떤 source가 남았는가”만이 아니라, **source별 레코드 구조가 이미 닫혔는지**를 분리해 관리하는 것이다.

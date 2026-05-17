@@ -199,6 +199,111 @@ def build_manifest() -> dict:
                 ],
             },
             {
+                "id": "ui_or_item_plain_00_record",
+                "status": "partially_confirmed",
+                "kind": "plain_terminated",
+                "description": "UI 기술명/아이템/일부 gameplay term 에서 확인된 짧은 0x00 종단 record family.",
+                "rules": {
+                    "terminator": "00",
+                    "append_terminator": True,
+                    "preserve_explicit_newline": False,
+                    "allow_manual_newline": False,
+                },
+                "notes": [
+                    "Representative sources are ui_skill_texts.json, item_texts.json, and registry_a_entry12_texts.json.",
+                    "The records are short plain strings with no object-level counted header.",
+                    "item_texts and ui_skill_texts already have direct pointer-index evidence into local UI/data tables.",
+                    "Runtime window family is still unresolved, so translations should stay concise and avoid inserting manual line breaks.",
+                ],
+                "samples": [
+                    {
+                        "offset": "0x08AEFC",
+                        "text": "東方軍司令部で受け取った書類",
+                    },
+                    {
+                        "offset": "0x08B62C",
+                        "text": "クロスダーツ",
+                    },
+                    {
+                        "offset": "0x7A86F8",
+                        "text": "アルが拾った猫",
+                    },
+                ],
+                "evidence": {
+                    "direct_pointer_examples": [
+                        "0x1832A8 -> 0x08AEFC",
+                        "0x1836A8 -> 0x08B62C",
+                    ]
+                },
+            },
+            {
+                "id": "term_description_plain_00_optional_0b",
+                "status": "partially_confirmed",
+                "kind": "plain_terminated",
+                "description": "전투/능력/재료 계열에서 확인된 0x00 종단 record family. 일부 record 는 내부 0x0B separator 로 이름/설명을 가른다.",
+                "rules": {
+                    "terminator": "00",
+                    "append_terminator": True,
+                    "inline_separator": "0x0B optional",
+                    "preserve_inline_separator": True,
+                    "preserve_ideographic_padding": True,
+                    "allow_manual_newline": False,
+                },
+                "notes": [
+                    "Representative sources are battle_texts.json, ability_texts.json, and material_texts.json.",
+                    "Some records are short names only, while many description records use ideographic-space padding plus an inline 0x0B split.",
+                    "The structure is objective even though the runtime battle/menu box family remains unresolved.",
+                    "Translator-side tooling should preserve embedded 0x0B separators unless a source-specific replacement rule is confirmed later.",
+                ],
+                "samples": [
+                    {
+                        "offset": "0x3D203D",
+                        "text": "壁を錬成し　　　\\u000b相手を攻撃",
+                    },
+                    {
+                        "offset": "0x3D2EB6",
+                        "text": "チタン　　　　　\\u000b軽くて硬い金属",
+                    },
+                    {
+                        "offset": "0x3D327E",
+                        "text": "黒曜石　　　　　\\u000b火山岩の一種",
+                    },
+                ],
+                "evidence": {
+                    "resource_table_example": "0x17C24C -> 0x083D2D60 / len 0x06C0"
+                },
+            },
+            {
+                "id": "credits_padded_plain_00_record",
+                "status": "partially_confirmed",
+                "kind": "plain_terminated",
+                "description": "크레딧 문자열에서 확인된 0x00 종단 + 전각 공백 패딩 family.",
+                "rules": {
+                    "terminator": "00",
+                    "append_terminator": True,
+                    "preserve_ideographic_padding": True,
+                    "allow_manual_newline": False,
+                },
+                "notes": [
+                    "Representative source is credits_texts.json.",
+                    "The records are plain 0x00-terminated strings padded with ideographic spaces for credit-card layout.",
+                    "Runtime credits renderer family is still unresolved, so spacing-sensitive edits should stay conservative.",
+                ],
+                "samples": [
+                    {
+                        "offset": "0x08C3AC",
+                        "text": "　　チーフプロデューサー　　　　",
+                    },
+                    {
+                        "offset": "0x08C404",
+                        "text": "　　ゼネラルプロデューサー　　　",
+                    },
+                ],
+                "evidence": {
+                    "direct_pointer_example": "0x184E20 -> 0x08C3AC"
+                },
+            },
+            {
                 "id": "shared_text_object_r3_20",
                 "status": "code_derived",
                 "kind": "shared_text_object",
