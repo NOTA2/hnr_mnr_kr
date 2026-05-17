@@ -69,6 +69,7 @@
       cursor: pointer;
     }
     button:hover { border-color: var(--accent); }
+    .primary { border-color: var(--accent); }
     input, textarea, select {
       width: 100%;
       background: #0f1317;
@@ -131,6 +132,7 @@
         <button id="saveItemBtn">항목 저장</button>
         <button id="saveSpeakerBtn">화자 라벨 저장</button>
         <button id="saveProgressBtn">현재 위치 저장</button>
+        <button id="applyDraftBtn" class="primary">에이전트 초안 → 적용 번역</button>
       </div>
 
       <div id="textEditor" class="section hidden">
@@ -142,6 +144,20 @@
         <label>번역문
           <textarea id="translationText"></textarea>
         </label>
+        <label>에이전트 초안
+          <textarea id="agentDraftText" placeholder="번역 에이전트가 제안한 초안"></textarea>
+        </label>
+        <label>에이전트 메모
+          <textarea id="agentCommentText" placeholder="수동 잠금 항목에는 차선책/설명 메모를 남긴다"></textarea>
+        </label>
+        <label>
+          <input id="manualLockCheckbox" type="checkbox" style="width:auto; margin-right:8px;">
+          수동 잠금
+        </label>
+        <div class="small warning">
+          수동 잠금이 켜진 항목은 번역 에이전트가 현재 적용 번역을 덮어쓰면 안 됩니다.
+          대신 에이전트 초안과 메모만 갱신해야 합니다.
+        </div>
         <label>메모
           <textarea id="notesText"></textarea>
         </label>
@@ -227,6 +243,9 @@
     const editorMeta = document.getElementById("editorMeta");
     const sourceText = document.getElementById("sourceText");
     const translationText = document.getElementById("translationText");
+    const agentDraftText = document.getElementById("agentDraftText");
+    const agentCommentText = document.getElementById("agentCommentText");
+    const manualLockCheckbox = document.getElementById("manualLockCheckbox");
     const notesText = document.getElementById("notesText");
     const progressStatus = document.getElementById("progressStatus");
     const reviewStatus = document.getElementById("reviewStatus");
@@ -339,9 +358,12 @@
       imageEditor.classList.add("hidden");
       textEditor.classList.remove("hidden");
       editorTitle.textContent = item.group_id ? `${item.group_id} / ${item.item_id}` : item.item_id;
-      editorMeta.textContent = `source_group=${item.source_group} / byte_length=${item.byte_length} / rom=${item.rom_address?.toString(16)}`;
+      editorMeta.textContent = `source_group=${item.source_group} / byte_length=${item.byte_length} / rom=${item.rom_address?.toString(16)} / 적용소스=${item.translation_source || "-"}`;
       sourceText.value = item.text || "";
       translationText.value = item.translation || "";
+      agentDraftText.value = item.agent_draft || "";
+      agentCommentText.value = item.agent_comment || "";
+      manualLockCheckbox.checked = Boolean(item.manual_locked);
       notesText.value = item.notes || "";
       progressStatus.value = item.progress_status || "todo";
       reviewStatus.value = item.review_status || "unreviewed";
@@ -395,6 +417,9 @@
         const payload = {
           item_id: item.item_id,
           translation: translationText.value,
+          agent_draft: agentDraftText.value,
+          agent_comment: agentCommentText.value,
+          manual_locked: manualLockCheckbox.checked,
           notes: notesText.value,
           progress_status: progressStatus.value,
           review_status: reviewStatus.value,
@@ -458,6 +483,15 @@
       alert(`재빌드 완료\n${result.rom_path}`);
     }
 
+    function applyDraftToTranslation() {
+      if (!agentDraftText.value) {
+        alert("에이전트 초안이 비어 있습니다.");
+        return;
+      }
+      translationText.value = agentDraftText.value;
+      manualLockCheckbox.checked = true;
+    }
+
     async function uploadImageReplacement() {
       const item = state.items.find((entry) => entry.item_id === state.itemId);
       const file = replacementUpload.files?.[0];
@@ -491,6 +525,7 @@
     document.getElementById("saveSpeakerBtn").onclick = () => saveSpeaker();
     document.getElementById("saveProgressBtn").onclick = () => saveProgress();
     document.getElementById("rebuildBtn").onclick = () => rebuildRom();
+    document.getElementById("applyDraftBtn").onclick = () => applyDraftToTranslation();
     document.getElementById("uploadImageBtn").onclick = () => uploadImageReplacement();
 
     loadBundle().catch((error) => {

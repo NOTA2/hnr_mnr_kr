@@ -70,7 +70,17 @@ class WorkbenchStore:
         items = self.dataset["items"]
         for item in items:
             if item["item_id"] == item_id:
-                for field in ("translation", "notes", "progress_status", "review_status", "speaker_alias", "speaker_confirmed"):
+                for field in (
+                    "translation",
+                    "agent_draft",
+                    "agent_comment",
+                    "manual_locked",
+                    "notes",
+                    "progress_status",
+                    "review_status",
+                    "speaker_alias",
+                    "speaker_confirmed",
+                ):
                     if field in updates:
                         item[field] = updates[field]
                 write_json(DATASET_PATH, self.dataset)

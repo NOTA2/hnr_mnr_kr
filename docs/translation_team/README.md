@@ -57,6 +57,17 @@ python3 /Users/user/test/scripts/build_localization_workbench_dataset.py
 python3 /Users/user/test/scripts/run_localization_workbench.py
 ```
 
+### 에이전트 번역 반영 규칙
+
+- 번역 에이전트 팀은 작업대 dataset 의 `translation` 과 `agent_draft` 를 구분해서 써야 한다.
+- 사람이 아직 확정하지 않은 항목:
+  - 에이전트는 `agent_draft` 를 채운다.
+  - 필요하면 `agent_comment` 도 함께 남긴다.
+- 사람이 `수동 잠금`을 켠 항목:
+  - 에이전트는 `translation` 을 수정하지 않는다.
+  - 대신 `agent_draft` 와 `agent_comment` 에 대안을 적는다.
+- 사용자는 GUI에서 초안을 보고, 필요하면 `에이전트 초안 → 적용 번역` 버튼으로 옮긴 뒤 `수동 잠금`을 켤 수 있다.
+
 ## 화자 정보에 대한 현재 상태
 
 - 현재 추출 JSON에는 `speaker`, `speaker_id` 같은 명시 필드가 없다.

@@ -30,6 +30,16 @@ def load_json(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def resolve_effective_translation(item: dict) -> tuple[str, str]:
+    if item.get("manual_locked") and item.get("translation"):
+        return item["translation"], "manual_locked_translation"
+    if item.get("agent_draft"):
+        return item["agent_draft"], "agent_draft"
+    if item.get("translation"):
+        return item["translation"], "saved_translation"
+    return item["text"], "original_text"
+
+
 def resolve_category(args: argparse.Namespace) -> str:
     if args.category_id:
         return args.category_id
@@ -46,6 +56,9 @@ def build_translation_json(dataset: dict, category_id: str) -> list[dict]:
     items.sort(key=lambda item: (item.get("group_id") or "", item["offset"]))
     payload = []
     for item in items:
+        effective_translation, source = resolve_effective_translation(item)
+        item["effective_translation"] = effective_translation
+        item["translation_source"] = source
         payload.append(
             {
                 "offset": item["offset"],
@@ -55,7 +68,7 @@ def build_translation_json(dataset: dict, category_id: str) -> list[dict]:
                 "append_terminator": item.get("append_terminator"),
                 "unknown_tokens": item.get("unknown_tokens", 0),
                 "text": item["text"],
-                "translation": item.get("translation") or item["text"],
+                "translation": effective_translation,
                 "notes": item.get("notes", ""),
                 "source_file": item["source_file"],
                 "source_group": item["source_group"],
@@ -72,6 +85,7 @@ def main() -> int:
     payload = build_translation_json(dataset, category_id)
     if not payload:
         raise SystemExit(f"no text items found for category: {category_id}")
+    DATASET_PATH.write_text(json.dumps(dataset, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
     TEMP_JSON.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")

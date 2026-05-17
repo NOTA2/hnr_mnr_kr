@@ -2032,3 +2032,18 @@
 - 판정: `성공`
 - 교훈:
   - 실제 로컬라이징 작업 속도는 “좋은 편집기”보다, **저장 후 확인까지 가는 고정 루프가 짧은가**에 더 크게 좌우된다.
+
+### 실험 118
+
+- 가설: 번역 에이전트 초안과 사람이 확정한 최종 번역을 분리하고, 사람 확정 항목에 `수동 잠금`을 두면 “에이전트 자동 제안 + 사람 최종 확정 + ROM 재빌드” 루프를 안전하게 만들 수 있다.
+- 시도:
+  - [build_localization_workbench_dataset.py](/Users/user/test/scripts/build_localization_workbench_dataset.py) 에 `agent_draft`, `agent_comment`, `manual_locked`, `effective_translation`, `translation_source` 필드를 추가했다.
+  - [build_localization_review_rom.py](/Users/user/test/scripts/build_localization_review_rom.py) 에서 `manual_locked=true` 이면 `translation` 을 우선 적용하고, 그 외에는 `agent_draft -> translation -> 원문` 순으로 실제 ROM 적용 문자열을 고르는 규칙을 넣었다.
+  - [localization_workbench.html](/Users/user/test/tools/localization_workbench.html) 에 `에이전트 초안`, `에이전트 메모`, `수동 잠금`, `에이전트 초안 → 적용 번역` UI 를 추가했다.
+  - 번역팀 문서에도 “수동 잠금 항목은 `translation` 을 덮어쓰지 말고 `agent_draft` / `agent_comment` 만 갱신한다”는 규칙을 반영했다.
+- 결과:
+  - 이제 번역 에이전트는 dataset 에 바로 초안을 넣을 수 있고, 사용자는 GUI에서 초안을 보고 바로 확정/잠금할 수 있다.
+  - 사용자가 잠근 항목은 이후 리뷰 ROM 재빌드에서도 그대로 유지되며, 에이전트가 차선책을 제안해도 직접 덮어쓰지는 않게 됐다.
+- 판정: `성공`
+- 교훈:
+  - 자동화가 사람을 완전히 대체하지 못하는 구간에서는, **초안과 최종값을 분리하고 최종값에 잠금을 거는 구조**가 가장 안정적이다.

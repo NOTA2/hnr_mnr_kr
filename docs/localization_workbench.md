@@ -9,6 +9,8 @@
 - 카테고리별 텍스트 관리
 - 대사 항목의 `dialogue_state_token` 확인
 - 사람이 직접 붙이는 화자 이름/역할 저장
+- 번역 에이전트 초안과 최종 적용 번역 분리
+- 수동 잠금으로 사람이 확정한 번역 보호
 - 진행 상태 저장
 - 현재 카테고리 기준 고정 이름 테스트 ROM 재빌드
 - 이미지 교체 후보 경로/메모 관리
@@ -49,6 +51,31 @@ http://127.0.0.1:8766
 - [hnr_localization_review.gba](/Users/user/test/patched_roms/current_review/hnr_localization_review.gba)
 
 즉 사용자는 에뮬레이터에서 **항상 같은 ROM 파일만 열어두고**, GUI 쪽에서 저장/재빌드 후 다시 확인하면 된다.
+
+## 번역 에이전트 연동 규칙
+
+- `translation`:
+  - 실제 ROM 적용에 쓰는 **최종 적용 번역**
+- `agent_draft`:
+  - 번역 에이전트가 제안한 **초안**
+- `agent_comment`:
+  - 에이전트가 남기는 설명, 차선책, 주의 메모
+- `manual_locked=true`:
+  - 사람이 직접 확정한 번역이므로, 에이전트가 `translation` 을 덮어쓰면 안 된다
+  - 이 경우 에이전트는 `agent_draft` 와 `agent_comment` 만 갱신해야 한다
+
+### 실제 적용 규칙
+
+- `manual_locked=true` 이고 `translation` 이 있으면 그 값이 ROM에 들어간다.
+- 그 외에는 `agent_draft` 가 있으면 그 값을 우선 적용한다.
+- 둘 다 없으면 기존 `translation`, 그것도 없으면 원문이 들어간다.
+
+즉 원하는 흐름은 이렇게 된다.
+
+1. 번역 에이전트 팀이 `agent_draft` / `agent_comment` 를 채운다.
+2. 사람이 GUI에서 초안을 보고 필요하면 수정한다.
+3. 사람이 직접 확정한 항목은 `수동 잠금`을 켠다.
+4. 사용자는 `현재 카테고리 ROM 재빌드`만 눌러 고정 이름 리뷰 ROM을 다시 만든다.
 
 ## 현재 범위
 
