@@ -17,6 +17,7 @@
 - atlas importer 는 PNG 의 밝은 본체와 그림자 역할을 게임 원본 단계인 `0 / 17 / 34` 로 매핑하되, **이 화면에서는 밝은 본체가 `17`, 그림자가 `34` 역할** 이 되도록 반대로 넣는다.
 - startup 첫 카드 `4`줄은 일반 `00` 종단 문자열이 아니라 **고정 길이 슬롯** 이므로, `append_terminator: false` 로 처리한다.
 - 텍스트 박스/공용 렌더러 family 규격은 [text_box_family_manifest.json](/Users/user/test/confirmed_data/text_layout/text_box_family_manifest.json) 에 분리해 둔다.
+- source / workset 별 layout family 연결은 [text_layout_assignment_index.json](/Users/user/test/confirmed_data/text_layout/text_layout_assignment_index.json) 에 둔다.
 
 ## 지금 우선순위
 

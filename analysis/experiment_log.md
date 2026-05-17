@@ -1701,3 +1701,17 @@
   - 공용 family 의 현재 strongest code reading 은 `r3=20 -> capacity 30 units -> fullwidth 약 20자 / halfwidth 약 30자`, world-map family 는 `r3=12 -> capacity 18 units -> fullwidth 약 12자 / halfwidth 약 18자` 로 고정되었다.
 - 판정: `성공`
 - 교훈: 번역팀 규칙은 수치를 빨리 넣는 것보다, **확정값 / 코드 기반 잠정값 / 미확정값** 을 분리해 두는 편이 이후 재검증과 자동화에 훨씬 안전하다.
+
+### 실험 95
+
+- 가설: 박스 규격 manifest 만으로는 부족하고, 실제 추출 source / 번역 workset 이 어느 family 를 따라야 하는지도 별도 인덱스로 분리해야 mixed 세트에서 잘못된 전역 char limit 적용을 막을 수 있다.
+- 시도:
+  - [translation_workset_core_ui.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_core_ui.json) 과 [translation_workset_gameplay_terms.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_gameplay_terms.json) 을 다시 확인해 `source_group` 이 섞여 있음을 점검했다.
+  - [build_text_layout_assignment_index.py](/Users/user/test/scripts/build_text_layout_assignment_index.py) 를 추가해 [text_layout_assignment_index.json](/Users/user/test/confirmed_data/text_layout/text_layout_assignment_index.json) 을 생성했다.
+  - 번역팀 공통/번역/검수 MD 와 [active_task.md](/Users/user/test/docs/active_task.md) 에 "mixed workset 은 source_group 단위 layout family 를 먼저 본다"는 규칙을 반영했다.
+- 결과:
+  - `startup_intro_texts -> startup_intro_fixed_slots`, `location_texts -> world_map_location_r3_12` 는 confirmed 연결로 고정했다.
+  - `translation_workset_core_ui`, `translation_workset_gameplay_terms`, `translation_workset_intro_full_*` 는 `mixed` 로 분리돼 단일 박스 규격으로 오해하지 않게 됐다.
+  - unresolved 계열은 번역을 짧고 보수적으로 유지해야 한다는 운영 규칙을 구조화된 데이터로 남겼다.
+- 판정: `성공`
+- 교훈: 번역 자동화에서 중요한 것은 "모든 세트에 전역 규칙 하나"가 아니라, **세트가 mixed 인지부터 먼저 판정하는 것** 이다.

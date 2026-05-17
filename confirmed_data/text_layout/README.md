@@ -7,8 +7,17 @@
 - `text_box_family_manifest.json`
   - `confirmed`: 실제 바이트 구조까지 확인된 규칙
   - `code_derived`: 코드 분석으로는 강하게 좁혀졌지만, 아직 시각 QA가 부족한 규칙
+- `text_layout_assignment_index.json`
+  - source / workset 이 어떤 layout family 를 먼저 따라야 하는지 정리한 연결 인덱스
 
 ## 사용 원칙
 
 - 번역팀 문서에는 **확정된 것**과 **코드 기반 잠정값**을 분리해서 쓴다.
 - `code_derived` 값은 번역 길이 감을 잡는 참고치로만 쓰고, 전역 하드 제한처럼 단정하지 않는다.
+
+## 재생성
+
+```bash
+python3 scripts/build_text_box_family_manifest.py
+python3 scripts/build_text_layout_assignment_index.py
+```

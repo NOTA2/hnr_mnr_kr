@@ -57,6 +57,7 @@
 
 아래 값은 **실행 화면 전수 확인까지 끝난 하드 제한**은 아니지만, 현재 코드 분석상 매우 강한 후보다.
 세부 근거는 [text_box_family_manifest.json](/Users/user/test/confirmed_data/text_layout/text_box_family_manifest.json) 을 따른다.
+workset/source 연결은 [text_layout_assignment_index.json](/Users/user/test/confirmed_data/text_layout/text_layout_assignment_index.json) 을 따른다.
 
 - 공용 text object family 다수 caller (`0x062182`, `0x065AA4`, `0x06718A` 등) 는 모두 `r3=20` 으로 `0x014A98` 를 호출한다.
 - 이 family 는 내부적으로 capacity `30` mixed-width units 로 변환된다.

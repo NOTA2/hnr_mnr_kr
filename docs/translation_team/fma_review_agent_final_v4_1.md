@@ -3,6 +3,7 @@
 > 이 문서는 번역 결과를 검수하는 에이전트용 지침이다.  
 > 반드시 `fma_translation_team_common_final_v4_1.md`를 함께 읽고, 공통 용어표와 고정 문구를 기준으로 검수한다.
 > 코드 기반 잠정 박스 규격은 [text_box_family_manifest.json](/Users/user/test/confirmed_data/text_layout/text_box_family_manifest.json) 에 정리돼 있다.
+> mixed workset 의 source_group 단위 연결은 [text_layout_assignment_index.json](/Users/user/test/confirmed_data/text_layout/text_layout_assignment_index.json) 에 정리돼 있다.
 
 ---
 
