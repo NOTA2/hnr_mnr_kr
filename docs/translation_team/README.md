@@ -1,4 +1,4 @@
-# Translation Team Setup
+# 번역팀 구성
 
 이 폴더는 나중에 실제 번역/검수 에이전트를 돌릴 때 사용할 팀 문서를 프로젝트 안에 고정해 둔 곳이다.
 
@@ -30,8 +30,11 @@
 - 전체 manifest: [all_extracted_texts_manifest.json](/Users/user/test/confirmed_data/translation_workspace/all_extracted_texts_manifest.json)
 - 작업 허브 인덱스: [index.json](/Users/user/test/confirmed_data/translation_workspace/index.json)
 - 번역 시작 가능 상태 요약: [translation_readiness_report.md](/Users/user/test/confirmed_data/translation_workspace/translation_readiness_report.md)
+- workset 메타데이터 인덱스: [workset_metadata_index.md](/Users/user/test/confirmed_data/translation_workspace/workset_metadata_index.md)
 - Entry 8 cluster 인덱스: [registry_a_entry8_clusters_manifest.json](/Users/user/test/confirmed_data/translation_workspace/registry_a_entry8_clusters_manifest.json)
 - 텍스트 성격 분류표: [text_taxonomy_manifest.json](/Users/user/test/confirmed_data/translation_workspace/text_taxonomy_manifest.json)
+- 로컬라이제이션 작업대 안내: [localization_workbench.md](/Users/user/test/docs/localization_workbench.md)
+- 로컬라이제이션 작업대 데이터: [workbench_dataset.json](/Users/user/test/confirmed_data/localization_workbench/workbench_dataset.json)
 
 ## 권장 작업 순서
 
@@ -39,6 +42,20 @@
 2. [translation_workset_gameplay_terms.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_gameplay_terms.json)
 3. [translation_workset_registry_d_dialogue.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_registry_d_dialogue.json)
 4. [registry_a_entry8_clusters_manifest.json](/Users/user/test/confirmed_data/translation_workspace/registry_a_entry8_clusters_manifest.json)
+
+## 번역팀 실전 사용 경로
+
+1. 번역/검수 지침 문서를 읽는다.
+2. [workset_metadata_index.md](/Users/user/test/confirmed_data/translation_workspace/workset_metadata_index.md) 에서 현재 workset 제약을 먼저 본다.
+3. [localization_workbench.md](/Users/user/test/docs/localization_workbench.md) 기준으로 GUI 작업대를 연다.
+4. 같은 파일명으로 계속 덮어써지는 리뷰 ROM [hnr_localization_review.gba](/Users/user/test/patched_roms/current_review/hnr_localization_review.gba) 으로 화면 확인을 반복한다.
+
+### 작업대 시작 명령
+
+```bash
+python3 /Users/user/test/scripts/build_localization_workbench_dataset.py
+python3 /Users/user/test/scripts/run_localization_workbench.py
+```
 
 ## 화자 정보에 대한 현재 상태
 
@@ -57,4 +74,5 @@
 ```bash
 python3 /Users/user/test/scripts/build_translation_workspace.py
 python3 /Users/user/test/scripts/build_text_taxonomy_manifest.py
+python3 /Users/user/test/scripts/build_localization_workbench_dataset.py
 ```

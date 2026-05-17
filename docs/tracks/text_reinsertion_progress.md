@@ -24,6 +24,8 @@
 - 확장된 공통 font payload 를 전제로 한 테스트 문자열 치환 1건
 - `.tbl` + 기존 `cp932` fallback 혼합 인코딩
 - core UI batch test ROM 생성 및 적용 리포트
+- active atlas 기준 localization workbench dataset 생성
+- 현재 카테고리 기준 고정 이름 리뷰 ROM `patched_roms/current_review/hnr_localization_review.gba` 덮어쓰기 빌드
 
 ## 아직 부족한 것
 
@@ -32,6 +34,7 @@
 - 제어 코드 친화적인 삽입 검증
 - 더 긴 한글 문자열의 inject / repoint 테스트
 - 실제 화면 렌더링 확인
+- 이미지 교체본을 실제 ROM 자산 교체까지 연결하는 최종 루프
 
 ## 다음 할 일
 
@@ -41,6 +44,7 @@
 4. 제어 코드가 섞인 문자열 삽입 테스트
 5. 실패/예외 사례 문서화
 6. 번역 JSON 리포트 개선
+7. localization workbench 의 저장 상태와 실제 review ROM QA 흐름을 번역팀 운영 루프에 완전히 연결
 
 ## 진행 로그
 
@@ -65,3 +69,10 @@
 - 이어서 시작 화면 전용 문자열 `4`건도 [startup_intro_texts.json](/Users/user/test/confirmed_data/extracted_texts/startup_intro_texts.json) 으로 분리했고, 부족한 `8`글자를 보충한 뒤 `/Users/user/test/patched_roms/startup_intro_active/hnr_startup_intro_test.gba` 기준 `4 in_place` 까지 확인했다
 - 요약 표는 [core_ui_test_rom_matrix.md](/Users/user/test/analysis/core_ui_test_rom_matrix.md) 에 정리했다
 - 이후 반복 검증을 쉽게 하려고, 시작 화면만 빠르게 다시 만드는 [build_startup_intro_test.sh](/Users/user/test/scripts/build_startup_intro_test.sh) 도 추가했다
+
+### 2026-05-18
+
+- [build_localization_workbench_dataset.py](/Users/user/test/scripts/build_localization_workbench_dataset.py) 로 workset / Entry8 cluster / dialogue state token / image review unit 을 한 화면에서 다루는 [workbench_dataset.json](/Users/user/test/confirmed_data/localization_workbench/workbench_dataset.json) 을 생성할 수 있게 했다
+- [run_localization_workbench.py](/Users/user/test/scripts/run_localization_workbench.py) 와 [localization_workbench.html](/Users/user/test/tools/localization_workbench.html) 로 번역문, 메모, 진행 상태, 화자 토큰 별칭, 이미지 교체 경로를 저장하는 GUI 작업대를 추가했다
+- [build_localization_review_rom.py](/Users/user/test/scripts/build_localization_review_rom.py) 로 현재 카테고리 기준 고정 이름 리뷰 ROM [hnr_localization_review.gba](/Users/user/test/patched_roms/current_review/hnr_localization_review.gba) 을 덮어써 빌드할 수 있게 했다
+- `translation_workset_core_ui` 기준으로 실제 고정 이름 리뷰 ROM 생성까지 확인했다

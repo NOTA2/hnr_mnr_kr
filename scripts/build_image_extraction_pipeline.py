@@ -14,6 +14,7 @@ INVENTORY_PATH = IMAGE_DIR / "image_text_inventory.json"
 OUT_JSON = IMAGE_DIR / "image_extraction_pipeline.json"
 OUT_MD = IMAGE_DIR / "image_extraction_pipeline.md"
 WORKSPACES_DIR = IMAGE_DIR / "workspaces"
+LZ77_SCAN_PATH = IMAGE_DIR / "lz77_blocks.json"
 
 
 def load_json(path: Path):
@@ -35,6 +36,11 @@ def build() -> dict:
     inventory = load_json(INVENTORY_PATH)
     review_units = inventory["review_units"]
     created_dirs = ensure_workspace_dirs(review_units)
+    lz77_scan_exists = LZ77_SCAN_PATH.exists()
+    lz77_block_count = 0
+    if lz77_scan_exists:
+        lz77_scan = load_json(LZ77_SCAN_PATH)
+        lz77_block_count = len(lz77_scan if isinstance(lz77_scan, list) else lz77_scan.get("blocks", []))
 
     return {
         "version": 1,
@@ -82,6 +88,12 @@ def build() -> dict:
             "dump_4bpp": "python3 -m gba_kor_tool dump-4bpp <rom> <offset> <tile-count> <output>",
             "decompress_lz77": "python3 -m gba_kor_tool decompress-lz77 <rom> <offset> <output>",
         },
+        "candidate_scan": {
+            "lz77_scan_path": str(LZ77_SCAN_PATH.relative_to(ROOT)),
+            "exists": lz77_scan_exists,
+            "block_count": lz77_block_count,
+            "note": "review unit 후보 탐색의 출발점으로 쓰는 전역 LZ77 스캔 결과다.",
+        },
         "workspace_layout": {
             "root": str(WORKSPACES_DIR.relative_to(ROOT)),
             "children": ["candidates", "dumps", "exports", "notes"],
@@ -119,6 +131,12 @@ def render_md(data: dict) -> str:
     lines.extend(["", "## 도구 참고", ""])
     for key, value in data["tooling_reference"].items():
         lines.append(f"- `{key}`: `{value}`")
+
+    lines.extend(["", "## 후보 스캔 기준", ""])
+    lines.append(f"- LZ77 scan 파일: `{data['candidate_scan']['lz77_scan_path']}`")
+    lines.append(f"- 존재 여부: `{data['candidate_scan']['exists']}`")
+    lines.append(f"- 블록 수: `{data['candidate_scan']['block_count']}`")
+    lines.append(f"- 메모: {data['candidate_scan']['note']}")
 
     lines.extend(["", "## 작업 폴더 구조", ""])
     lines.append(f"- 루트: `{data['workspace_layout']['root']}`")

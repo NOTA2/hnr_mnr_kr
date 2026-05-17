@@ -2004,3 +2004,31 @@
 - 판정: `성공`
 - 교훈:
   - 구조 분석이 거의 끝난 뒤에는, 실제 생산성을 높이는 핵심이 **초보자용 QA 문서와 workset 메타데이터 정리**다.
+
+### 실험 116
+
+- 가설: 번역팀이 실제로 바로 작업을 시작하려면, workset / Entry8 cluster / dialogue state token / 이미지 review unit 을 흩어진 JSON이 아니라 **하나의 workbench dataset** 으로 묶어야 한다.
+- 시도:
+  - [build_localization_workbench_dataset.py](/Users/user/test/scripts/build_localization_workbench_dataset.py) 를 정리해 `core_ui`, `gameplay_terms`, `Registry D`, `Entry8 cluster`, `image review unit` 을 묶은 [workbench_dataset.json](/Users/user/test/confirmed_data/localization_workbench/workbench_dataset.json) 을 생성했다.
+  - 별도 sidecar 로 [speaker_aliases.json](/Users/user/test/confirmed_data/localization_workbench/speaker_aliases.json), [progress_state.json](/Users/user/test/confirmed_data/localization_workbench/progress_state.json), [image_replacements.json](/Users/user/test/confirmed_data/localization_workbench/image_replacements.json) 도 함께 만들었다.
+  - 재생성 시 기존 수작업이 지워지지 않도록, 기존 번역문/메모/진행 상태/이미지 교체 경로를 merge 하는 규칙도 넣었다.
+- 결과:
+  - 번역팀은 이제 여러 폴더를 직접 뒤지지 않고, 하나의 dataset 기준으로 category / item / speaker token / image unit 을 함께 볼 수 있는 상태가 됐다.
+  - Entry8 도 manifest 수준이 아니라 실제 `9823`개 레코드가 category 안에 들어가므로, GUI 기준 순차 편집이 가능해졌다.
+- 판정: `성공`
+- 교훈:
+  - “번역팀 준비 완료”는 문서만 모아둔 상태가 아니라, **실제 편집/저장에 쓰는 canonical workbench dataset** 이 있어야 성립한다.
+
+### 실험 117
+
+- 가설: 사람이 GUI로 번역을 수정한 뒤 바로 확인하려면, 카테고리별 임시 산출물이 아니라 **항상 같은 파일명으로 덮어써지는 review ROM** 이 필요하다.
+- 시도:
+  - [build_localization_review_rom.py](/Users/user/test/scripts/build_localization_review_rom.py) 를 추가해, 현재 카테고리 JSON을 임시 translation set 으로 만든 뒤 [build_translated_rom_with_active_atlas.sh](/Users/user/test/scripts/build_translated_rom_with_active_atlas.sh) 를 호출하고, 최종 산출물을 [hnr_localization_review.gba](/Users/user/test/patched_roms/current_review/hnr_localization_review.gba) 로 복사하도록 했다.
+  - 이어서 [run_localization_workbench.py](/Users/user/test/scripts/run_localization_workbench.py) 와 [localization_workbench.html](/Users/user/test/tools/localization_workbench.html) 에 저장/화자 별칭/이미지 업로드/재빌드 흐름을 붙였다.
+  - `translation_workset_core_ui` 기준으로 실제 고정 이름 리뷰 ROM 생성까지 검증했다.
+- 결과:
+  - 사용자는 에뮬레이터에서 **항상 같은 ROM 파일 하나만 열어둔 채** GUI에서 저장 -> 재빌드 -> 확인 루프를 돌 수 있게 됐다.
+  - 이미지 review unit 도 이제 경로 메모만 적는 수준이 아니라, GUI에서 수정본 파일을 업로드해 replacement path 를 바로 반영할 수 있게 됐다.
+- 판정: `성공`
+- 교훈:
+  - 실제 로컬라이징 작업 속도는 “좋은 편집기”보다, **저장 후 확인까지 가는 고정 루프가 짧은가**에 더 크게 좌우된다.

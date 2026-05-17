@@ -85,6 +85,12 @@
     "dump_4bpp": "python3 -m gba_kor_tool dump-4bpp <rom> <offset> <tile-count> <output>",
     "decompress_lz77": "python3 -m gba_kor_tool decompress-lz77 <rom> <offset> <output>"
   },
+  "candidate_scan": {
+    "lz77_scan_path": "confirmed_data/image_inventory/lz77_blocks.json",
+    "exists": true,
+    "block_count": 400,
+    "note": "review unit 후보 탐색의 출발점으로 쓰는 전역 LZ77 스캔 결과다."
+  },
   "workspace_layout": {
     "root": "confirmed_data/image_inventory/workspaces",
     "children": [

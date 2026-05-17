@@ -7,16 +7,19 @@
 ## 단계
 
 - 데이터 구조 조사: `PARKED EXCEPT TEXT EXTRACTION TARGETS`
-- 텍스트 추출: `IN PROGRESS`
-- 텍스트 재삽입: `IN PROGRESS`
-- 폰트/문자 매핑: `IN PROGRESS`
+- 텍스트 추출: `STRUCTURALLY CLOSED, FINAL QA PENDING`
+- 번역 준비/워크셋 정리: `IN PROGRESS`
+- 번역: `NOT STARTED`
+- 번역 감수: `NOT STARTED`
+- 텍스트 재삽입: `PIPELINE READY, FULL CONTENT PENDING`
+- 폰트/문자 매핑: `LOCKED TO GALMURI11, QA CONTINUES`
 - 이미지 리소스: `INVENTORY STARTED`
 - 이미지 추출 준비: `IN PROGRESS`
-- GUI/작업 워크플로우: `DEFERRED`
+- GUI/작업 워크플로우: `IN PROGRESS`
 
 ## 현재 우선순위
 
-1. Galmuri11 기준 번역 workset 메타데이터 정리
+1. 번역팀용 localization workbench 운영
 2. runtime family 추가 연결
 3. portrait/dialogue scene speaker-state 추적
 4. 이미지 review unit 세분화와 추출 파이프라인 착수

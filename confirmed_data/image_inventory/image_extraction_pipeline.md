@@ -45,6 +45,13 @@
 - `dump_4bpp`: `python3 -m gba_kor_tool dump-4bpp <rom> <offset> <tile-count> <output>`
 - `decompress_lz77`: `python3 -m gba_kor_tool decompress-lz77 <rom> <offset> <output>`
 
+## 후보 스캔 기준
+
+- LZ77 scan 파일: `confirmed_data/image_inventory/lz77_blocks.json`
+- 존재 여부: `True`
+- 블록 수: `400`
+- 메모: review unit 후보 탐색의 출발점으로 쓰는 전역 LZ77 스캔 결과다.
+
 ## 작업 폴더 구조
 
 - 루트: `confirmed_data/image_inventory/workspaces`

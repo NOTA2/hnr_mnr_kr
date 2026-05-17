@@ -59,6 +59,9 @@
 - 전체 추출 기준본: [all_extracted_texts_master.json](/Users/user/test/confirmed_data/translation_workspace/all_extracted_texts_master.json)
 - 번역 작업 허브: [confirmed_data/translation_workspace/README.md](/Users/user/test/confirmed_data/translation_workspace/README.md)
 - workset 메타데이터 인덱스: [workset_metadata_index.md](/Users/user/test/confirmed_data/translation_workspace/workset_metadata_index.md)
+- 로컬라이제이션 작업대 안내: [localization_workbench.md](/Users/user/test/docs/localization_workbench.md)
+- 로컬라이제이션 작업대 데이터: [workbench_dataset.json](/Users/user/test/confirmed_data/localization_workbench/workbench_dataset.json)
+- 고정 리뷰 ROM: [hnr_localization_review.gba](/Users/user/test/patched_roms/current_review/hnr_localization_review.gba)
 - 번역 시작 가능 상태 요약: [translation_readiness_report.md](/Users/user/test/confirmed_data/translation_workspace/translation_readiness_report.md)
 - 사용자 QA 안내: [user_qa_guide.md](/Users/user/test/docs/user_qa_guide.md)
 - startup intro `4`줄: [startup_intro_texts.json](/Users/user/test/confirmed_data/extracted_texts/startup_intro_texts.json)
@@ -117,6 +120,18 @@ zsh scripts/build_translated_rom_with_active_atlas.sh \
   <translation-json> \
   <output-dir> \
   <slug>
+```
+
+로컬라이제이션 작업대 데이터 재생성:
+
+```bash
+python3 scripts/build_localization_workbench_dataset.py
+```
+
+로컬라이제이션 작업대 GUI:
+
+```bash
+python3 scripts/run_localization_workbench.py
 ```
 
 ## 추출 상태

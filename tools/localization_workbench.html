@@ -1,0 +1,502 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Localization Workbench</title>
+  <style>
+    :root {
+      --bg: #101214;
+      --panel: #171b20;
+      --line: #2a3139;
+      --muted: #9ca6b3;
+      --text: #edf2f7;
+      --accent: #75c7b1;
+      --accent-2: #ffd27a;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
+      background: radial-gradient(circle at top, #18342d, var(--bg) 42%);
+      color: var(--text);
+    }
+    .layout {
+      display: grid;
+      grid-template-columns: 240px 320px 1fr;
+      min-height: 100vh;
+    }
+    .col {
+      border-right: 1px solid var(--line);
+      overflow: auto;
+    }
+    .panel {
+      padding: 18px;
+    }
+    h1, h2, h3 {
+      margin: 0 0 12px;
+    }
+    h1 { font-size: 18px; }
+    h2 { font-size: 15px; }
+    .category, .item, .speaker {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.02);
+      padding: 10px;
+      margin-bottom: 8px;
+      cursor: pointer;
+    }
+    .category.active, .item.active, .speaker.active {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent) inset;
+      background: rgba(117,199,177,0.08);
+    }
+    .meta {
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+    .toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-bottom: 16px;
+    }
+    button {
+      border: 1px solid var(--line);
+      background: #20262c;
+      color: var(--text);
+      padding: 8px 12px;
+      cursor: pointer;
+    }
+    button:hover { border-color: var(--accent); }
+    input, textarea, select {
+      width: 100%;
+      background: #0f1317;
+      color: var(--text);
+      border: 1px solid var(--line);
+      padding: 10px;
+      margin-top: 6px;
+      margin-bottom: 12px;
+    }
+    textarea { min-height: 100px; resize: vertical; }
+    .split {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+    }
+    .badge {
+      display: inline-block;
+      padding: 2px 8px;
+      margin-right: 6px;
+      border-radius: 999px;
+      background: #24313a;
+      color: var(--muted);
+      font-size: 11px;
+    }
+    .section {
+      margin-bottom: 18px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.02);
+      padding: 14px;
+    }
+    .hidden { display: none; }
+    .warning { color: var(--accent-2); }
+    .small { font-size: 12px; color: var(--muted); }
+    .disabled {
+      opacity: 0.55;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <aside class="col panel">
+        <h1>카테고리</h1>
+        <div class="meta" id="fontInfo"></div>
+        <div id="categoryList"></div>
+      <div class="section">
+        <h2>진행 상태</h2>
+        <div class="meta" id="progressInfo"></div>
+        <button id="rebuildBtn">현재 카테고리 ROM 재빌드</button>
+        <div class="small" id="romInfo"></div>
+      </div>
+    </aside>
+    <aside class="col panel">
+      <h2 id="itemsTitle">항목</h2>
+      <div class="small">카테고리별 텍스트/이미지 항목</div>
+      <div id="itemList"></div>
+    </aside>
+    <main class="panel">
+      <div class="toolbar">
+        <button id="saveItemBtn">항목 저장</button>
+        <button id="saveSpeakerBtn">화자 라벨 저장</button>
+        <button id="saveProgressBtn">현재 위치 저장</button>
+      </div>
+
+      <div id="textEditor" class="section hidden">
+        <h2 id="editorTitle">텍스트 항목</h2>
+        <div class="meta" id="editorMeta"></div>
+        <label>원문
+          <textarea id="sourceText" readonly></textarea>
+        </label>
+        <label>번역문
+          <textarea id="translationText"></textarea>
+        </label>
+        <label>메모
+          <textarea id="notesText"></textarea>
+        </label>
+        <div class="split">
+          <label>진행 상태
+            <select id="progressStatus">
+              <option value="todo">todo</option>
+              <option value="draft">draft</option>
+              <option value="review">review</option>
+              <option value="done">done</option>
+            </select>
+          </label>
+          <label>검토 상태
+            <select id="reviewStatus">
+              <option value="unreviewed">unreviewed</option>
+              <option value="checked">checked</option>
+              <option value="issue">issue</option>
+            </select>
+          </label>
+        </div>
+        <div class="section">
+          <h3>화자 / 상태 토큰</h3>
+          <div id="speakerMeta" class="meta"></div>
+          <label>사람이 붙이는 화자 이름
+            <input id="speakerName" placeholder="예: 에드워드 엘릭">
+          </label>
+          <label>역할/설명
+            <input id="speakerRole" placeholder="예: 주인공 / 군인 / NPC">
+          </label>
+          <label>화자 메모
+            <textarea id="speakerNotes"></textarea>
+          </label>
+        </div>
+      </div>
+
+      <div id="imageEditor" class="section hidden">
+        <h2 id="imageTitle">이미지 항목</h2>
+        <div class="meta" id="imageMeta"></div>
+        <label>교체 이미지 경로
+          <input id="replacementPath" placeholder="/절대/경로/edited.png">
+        </label>
+        <label>수정 이미지 업로드
+          <input id="replacementUpload" type="file" accept=".png,.bmp,.gif,.webp,.jpg,.jpeg">
+        </label>
+        <button id="uploadImageBtn">업로드 후 교체 경로 반영</button>
+        <label>이미지 메모
+          <textarea id="imageNotes"></textarea>
+        </label>
+        <label>진행 상태
+          <select id="imageProgressStatus">
+            <option value="todo">todo</option>
+            <option value="candidate_found">candidate_found</option>
+            <option value="dumped">dumped</option>
+            <option value="edited">edited</option>
+            <option value="ready_to_insert">ready_to_insert</option>
+          </select>
+        </label>
+        <div id="imageSubunits" class="meta"></div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const state = {
+      bundle: null,
+      categories: [],
+      items: [],
+      categoryId: null,
+      itemId: null,
+      speakerMap: new Map(),
+    };
+
+    const categoryList = document.getElementById("categoryList");
+    const itemList = document.getElementById("itemList");
+    const itemsTitle = document.getElementById("itemsTitle");
+    const fontInfo = document.getElementById("fontInfo");
+    const progressInfo = document.getElementById("progressInfo");
+    const romInfo = document.getElementById("romInfo");
+
+    const textEditor = document.getElementById("textEditor");
+    const imageEditor = document.getElementById("imageEditor");
+    const editorTitle = document.getElementById("editorTitle");
+    const editorMeta = document.getElementById("editorMeta");
+    const sourceText = document.getElementById("sourceText");
+    const translationText = document.getElementById("translationText");
+    const notesText = document.getElementById("notesText");
+    const progressStatus = document.getElementById("progressStatus");
+    const reviewStatus = document.getElementById("reviewStatus");
+    const speakerMeta = document.getElementById("speakerMeta");
+    const speakerName = document.getElementById("speakerName");
+    const speakerRole = document.getElementById("speakerRole");
+    const speakerNotes = document.getElementById("speakerNotes");
+
+    const imageTitle = document.getElementById("imageTitle");
+    const imageMeta = document.getElementById("imageMeta");
+    const replacementPath = document.getElementById("replacementPath");
+    const replacementUpload = document.getElementById("replacementUpload");
+    const imageNotes = document.getElementById("imageNotes");
+    const imageProgressStatus = document.getElementById("imageProgressStatus");
+    const imageSubunits = document.getElementById("imageSubunits");
+    const rebuildBtn = document.getElementById("rebuildBtn");
+
+    async function fetchJson(url, options) {
+      const response = await fetch(url, options);
+      if (!response.ok) {
+        const text = await response.text();
+        throw new Error(text || response.statusText);
+      }
+      return response.json();
+    }
+
+    async function loadBundle() {
+      state.bundle = await fetchJson("/bundle");
+      state.categories = state.bundle.dataset.categories;
+      state.items = state.bundle.dataset.items;
+      state.speakerMap = new Map(
+        state.bundle.speakers.map((item) => [item.dialogue_state_token, item])
+      );
+      fontInfo.textContent = `active font: ${state.bundle.dataset.active_font.label || "unknown"}`;
+      state.categoryId = state.bundle.progress.current_category_id || state.categories[0]?.id;
+      renderCategories();
+      renderProgress();
+      selectCategory(state.categoryId);
+    }
+
+    function renderProgress() {
+      progressInfo.textContent = `현재 카테고리: ${state.bundle.progress.current_category_id || "-"} / 현재 review scope: ${state.bundle.progress.current_review_scope || "-"}`;
+      romInfo.textContent = `고정 ROM: ${state.bundle.progress.last_built_rom || state.bundle.dataset.review_rom.fixed_output_path}`;
+    }
+
+    function renderCategories() {
+      categoryList.innerHTML = "";
+      for (const category of state.categories) {
+        const div = document.createElement("div");
+        div.className = "category" + (category.id === state.categoryId ? " active" : "");
+        div.innerHTML = `
+          <strong>${category.label}</strong><br>
+          <span class="meta">${category.description}</span><br>
+          <span class="badge">${category.item_count}개</span>
+          <span class="badge">${category.type}</span>
+          <span class="badge">${category.build_enabled ? "ROM 가능" : "ROM 없음"}</span>
+        `;
+        div.onclick = () => selectCategory(category.id);
+        categoryList.appendChild(div);
+      }
+    }
+
+    function selectCategory(categoryId) {
+      state.categoryId = categoryId;
+      renderCategories();
+      const category = state.categories.find((item) => item.id === categoryId);
+      rebuildBtn.disabled = !category?.build_enabled;
+      const filtered = state.items.filter((item) => item.category_id === categoryId);
+      itemsTitle.textContent = category ? `${category.label} 항목` : "항목";
+      itemList.innerHTML = "";
+      for (const item of filtered) {
+        const div = document.createElement("div");
+        div.className = "item" + (item.item_id === state.itemId ? " active" : "");
+        div.dataset.itemId = item.item_id;
+        const label = item.text || item.label || item.group_id || item.item_id;
+        const token = item.dialogue_state_token ? `<span class="badge">${item.dialogue_state_token}</span>` : "";
+        div.innerHTML = `
+          <strong>${label.slice(0, 36)}</strong><br>
+          <span class="meta">${item.source_group || item.expected_text_kind || ""}</span><br>
+          ${token}
+          <span class="badge">${item.progress_status || "todo"}</span>
+        `;
+        div.onclick = () => selectItem(item.item_id);
+        itemList.appendChild(div);
+      }
+      if (filtered.length) {
+        selectItem(filtered[0].item_id);
+      } else {
+        state.itemId = null;
+        textEditor.classList.add("hidden");
+        imageEditor.classList.add("hidden");
+      }
+    }
+
+    function selectItem(itemId) {
+      state.itemId = itemId;
+      const item = state.items.find((entry) => entry.item_id === itemId);
+      document.querySelectorAll(".item").forEach((node) => {
+        node.classList.toggle("active", node.dataset.itemId === itemId);
+      });
+      if (!item) return;
+      if (item.category_id === "image_review_units") {
+        renderImageItem(item);
+      } else {
+        renderTextItem(item);
+      }
+    }
+
+    function renderTextItem(item) {
+      imageEditor.classList.add("hidden");
+      textEditor.classList.remove("hidden");
+      editorTitle.textContent = item.group_id ? `${item.group_id} / ${item.item_id}` : item.item_id;
+      editorMeta.textContent = `source_group=${item.source_group} / byte_length=${item.byte_length} / rom=${item.rom_address?.toString(16)}`;
+      sourceText.value = item.text || "";
+      translationText.value = item.translation || "";
+      notesText.value = item.notes || "";
+      progressStatus.value = item.progress_status || "todo";
+      reviewStatus.value = item.review_status || "unreviewed";
+      const token = item.dialogue_state_token;
+      if (token && state.speakerMap.has(token)) {
+        const speaker = state.speakerMap.get(token);
+        speakerMeta.textContent = `dialogue_state_token: ${token}`;
+        speakerName.value = speaker.speaker_name || item.speaker_alias || "";
+        speakerRole.value = speaker.speaker_role || "";
+        speakerNotes.value = speaker.notes || "";
+      } else {
+        speakerMeta.textContent = token ? `dialogue_state_token: ${token}` : "dialogue_state_token 없음";
+        speakerName.value = item.speaker_alias || "";
+        speakerRole.value = "";
+        speakerNotes.value = "";
+      }
+    }
+
+    function renderImageItem(item) {
+      textEditor.classList.add("hidden");
+      imageEditor.classList.remove("hidden");
+      imageTitle.textContent = item.label || item.group_id;
+      imageMeta.textContent = `${item.expected_text_kind || ""} / 탐색 방식: ${item.recommended_probe_method || ""}`;
+      replacementPath.value = item.replacement_path || "";
+      imageNotes.value = item.notes || "";
+      imageProgressStatus.value = item.progress_status || "todo";
+      replacementUpload.value = "";
+      imageSubunits.innerHTML = (item.subunits || [])
+        .map((sub) => `<div><span class="badge">${sub.id}</span>${sub.label} / ${sub.first_action}</div>`)
+        .join("");
+    }
+
+    async function saveCurrentItem() {
+      const item = state.items.find((entry) => entry.item_id === state.itemId);
+      if (!item) return;
+      if (item.category_id === "image_review_units") {
+        const payload = {
+          item_id: item.item_id,
+          replacement_path: replacementPath.value,
+          notes: imageNotes.value,
+          progress_status: imageProgressStatus.value,
+          status: item.status,
+        };
+        const saved = await fetchJson("/image-item", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        Object.assign(item, saved);
+      } else {
+        const payload = {
+          item_id: item.item_id,
+          translation: translationText.value,
+          notes: notesText.value,
+          progress_status: progressStatus.value,
+          review_status: reviewStatus.value,
+          speaker_alias: speakerName.value,
+          speaker_confirmed: Boolean(speakerName.value),
+        };
+        const saved = await fetchJson("/item", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        Object.assign(item, saved);
+      }
+    }
+
+    async function saveSpeaker() {
+      const item = state.items.find((entry) => entry.item_id === state.itemId);
+      if (!item || !item.dialogue_state_token) return;
+      const payload = {
+        dialogue_state_token: item.dialogue_state_token,
+        speaker_name: speakerName.value,
+        speaker_role: speakerRole.value,
+        notes: speakerNotes.value,
+        confirmed: Boolean(speakerName.value),
+      };
+      await fetchJson("/speaker", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+    }
+
+    async function saveProgress() {
+      const payload = {
+        current_category_id: state.categoryId,
+        current_item_id: state.itemId,
+        current_review_scope: state.categoryId,
+      };
+      state.bundle.progress = await fetchJson("/progress", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      renderProgress();
+    }
+
+    async function rebuildRom() {
+      const category = state.categories.find((entry) => entry.id === state.categoryId);
+      if (!category?.build_enabled) {
+        alert("이 카테고리는 아직 ROM 재빌드를 지원하지 않습니다.");
+        return;
+      }
+      await saveCurrentItem();
+      await saveProgress();
+      const result = await fetchJson("/rebuild", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ category_id: state.categoryId }),
+      });
+      romInfo.textContent = `고정 ROM: ${result.rom_path}`;
+      alert(`재빌드 완료\n${result.rom_path}`);
+    }
+
+    async function uploadImageReplacement() {
+      const item = state.items.find((entry) => entry.item_id === state.itemId);
+      const file = replacementUpload.files?.[0];
+      if (!item || !file) {
+        alert("업로드할 파일을 먼저 선택해 주세요.");
+        return;
+      }
+      const buffer = await file.arrayBuffer();
+      const bytes = new Uint8Array(buffer);
+      let binary = "";
+      for (const value of bytes) {
+        binary += String.fromCharCode(value);
+      }
+      const contentBase64 = btoa(binary);
+      const saved = await fetchJson("/image-upload", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          item_id: item.item_id,
+          filename: file.name,
+          content_base64: contentBase64,
+        }),
+      });
+      Object.assign(item, saved);
+      replacementPath.value = saved.replacement_path || "";
+      imageProgressStatus.value = saved.progress_status || "edited";
+      alert(`업로드 완료\n${saved.replacement_path}`);
+    }
+
+    document.getElementById("saveItemBtn").onclick = () => saveCurrentItem();
+    document.getElementById("saveSpeakerBtn").onclick = () => saveSpeaker();
+    document.getElementById("saveProgressBtn").onclick = () => saveProgress();
+    document.getElementById("rebuildBtn").onclick = () => rebuildRom();
+    document.getElementById("uploadImageBtn").onclick = () => uploadImageReplacement();
+
+    loadBundle().catch((error) => {
+      alert(error.message);
+      console.error(error);
+    });
+  </script>
+</body>
+</html>
