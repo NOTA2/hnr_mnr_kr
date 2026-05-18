@@ -148,6 +148,11 @@ def build_text_items(dialogue_tokens: dict[str, dict[int, str]], entry8_cluster_
             dialogue_state_token = dialogue_tokens.get(source_group, {}).get(offset)
             cluster_id = entry8_cluster_map.get(offset)
             item_id = f"{workset_id}:{offset:08X}"
+            terminator = record.get("terminator")
+            append_terminator = record.get("append_terminator")
+            if source_group == "save_menu_texts":
+                terminator = None
+                append_terminator = False
             items.append(
                 {
                     "item_id": item_id,
@@ -174,8 +179,8 @@ def build_text_items(dialogue_tokens: dict[str, dict[int, str]], entry8_cluster_
                     "effective_translation": record.get("translation", ""),
                     "translation_source": "seed" if record.get("translation") else "original",
                     "notes": record.get("notes", ""),
-                    "terminator": record.get("terminator"),
-                    "append_terminator": record.get("append_terminator"),
+                    "terminator": terminator,
+                    "append_terminator": append_terminator,
                     "unknown_tokens": record.get("unknown_tokens"),
                     "anchor": record.get("anchor"),
                     "before_bytes": record.get("before_bytes"),
@@ -195,6 +200,11 @@ def build_text_items(dialogue_tokens: dict[str, dict[int, str]], entry8_cluster_
         for order, record in enumerate(records):
             offset = int(record["offset"])
             item_id = f"{cluster_id}:{offset:08X}"
+            terminator = record.get("terminator")
+            append_terminator = record.get("append_terminator")
+            if record["source_group"] == "save_menu_texts":
+                terminator = None
+                append_terminator = False
             items.append(
                 {
                     "item_id": item_id,
@@ -220,8 +230,8 @@ def build_text_items(dialogue_tokens: dict[str, dict[int, str]], entry8_cluster_
                     "effective_translation": record.get("translation", ""),
                     "translation_source": "seed" if record.get("translation") else "original",
                     "notes": record.get("notes", ""),
-                    "terminator": record.get("terminator"),
-                    "append_terminator": record.get("append_terminator"),
+                    "terminator": terminator,
+                    "append_terminator": append_terminator,
                     "unknown_tokens": record.get("unknown_tokens", 0),
                     "anchor": record.get("anchor"),
                     "before_bytes": record.get("before_bytes"),

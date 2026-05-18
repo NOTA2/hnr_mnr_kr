@@ -2949,12 +2949,44 @@ def cmd_inject_text(args: argparse.Namespace) -> int:
 
 
 def parse_record_terminator(record: dict, default_values: Sequence[str]) -> bytes:
+    if str(record.get("source_group", "")) == "save_menu_texts":
+        return b""
     if record.get("append_terminator") is False:
         return b""
     terminator_value = record.get("terminator")
     if terminator_value:
         return bytes([parse_hex_byte(terminator_value)])
     return bytes(parse_hex_byte(value) for value in default_values)
+
+
+def normalize_translation_for_record(record: dict, translation: str) -> str:
+    source_group = str(record.get("source_group", ""))
+    if source_group != "save_menu_texts":
+        return translation
+
+    normalized = translation
+    normalized = normalized.replace("...", "…")
+    normalized = normalized.replace(" ", "　")
+    normalized = normalized.replace("?", "？")
+    normalized = normalized.replace("!", "！")
+
+    bad_ascii = [ch for ch in normalized if 0x20 <= ord(ch) <= 0x7E]
+    if bad_ascii:
+        raise ToolError(
+            "save_menu_texts 계열에는 반각 ASCII 문자를 넣으면 안 됩니다: "
+            + ", ".join(repr(ch) for ch in sorted(set(bad_ascii)))
+        )
+
+    original_char_count = record.get("char_count")
+    if original_char_count is not None:
+        original_char_count = int(original_char_count)
+        if len(normalized) > original_char_count:
+            raise ToolError(
+                f"save_menu_texts 계열 번역이 원본 문자 수를 넘었습니다: "
+                f"{len(normalized)} > {original_char_count}"
+            )
+        normalized = normalized.ljust(original_char_count, "\u3000")
+    return normalized
 
 
 def update_prefixed_char_count_if_present(data: bytearray, record: dict, translation: str) -> Optional[Dict[str, object]]:
@@ -3211,6 +3243,7 @@ def cmd_apply_translations(args: argparse.Namespace) -> int:
         translation = record.get("translation", "")
         if not translation:
             continue
+        translation = normalize_translation_for_record(record, translation)
 
         original_offset = int(record["offset"])
         original_byte_length = int(record["byte_length"])

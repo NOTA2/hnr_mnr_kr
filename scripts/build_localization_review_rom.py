@@ -83,6 +83,11 @@ def build_translation_json(dataset: dict, category_id: str | None) -> list[dict]
     for item in items:
         effective_translation = item["effective_translation"]
         source = item["translation_source"]
+        terminator = item.get("terminator")
+        append_terminator = item.get("append_terminator")
+        if item.get("source_group") == "save_menu_texts":
+            terminator = None
+            append_terminator = False
         payload.append(
             {
                 "offset": item["offset"],
@@ -93,8 +98,8 @@ def build_translation_json(dataset: dict, category_id: str | None) -> list[dict]
                 "prefix": item.get("prefix"),
                 "char_count": item.get("char_count"),
                 "header_bytes": item.get("header_bytes"),
-                "terminator": item.get("terminator"),
-                "append_terminator": item.get("append_terminator"),
+                "terminator": terminator,
+                "append_terminator": append_terminator,
                 "unknown_tokens": item.get("unknown_tokens", 0),
                 "text": item["text"],
                 "translation": effective_translation,

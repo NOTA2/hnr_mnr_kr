@@ -2079,3 +2079,19 @@
 - 교훈:
   - command-stream/fixed-capacity 계열은 **문자열 본문만 바꿔서는 안 되고**, 헤더 글자수와 review ROM 우선순위 규칙까지 같이 닫혀야 한다.
   - GUI/workbench 계층이 있으면 “원본 workset은 짧은 안전 번역인데 review ROM에는 예전 초안이 들어가는” 역행이 생길 수 있으므로, seed/draft/final 우선순위를 명시적으로 고정해야 한다.
+
+### 실험 121
+
+- 가설: `save_menu_texts` 의 실제 문제는 단순히 헤더 글자수 갱신이 아니라, `01 FF <char_count>` counted command-stream 을 일반 종단 문자열처럼 다뤄 `0x10` terminator 와 패딩을 집어넣은 데 있다.
+- 시도:
+  - 원본 ROM 바이트를 저장 메뉴 프롬프트 오프셋들(`0x772E90`, `0x7730A8`, `0x7731AC`) 기준으로 다시 비교했다.
+  - 확인 결과, 문자열 뒤에는 `0x04FF`, `0x10FF`, `0x14FF` 같은 **후속 command-stream** 이 바로 이어지고 있었고, 기존 리뷰 ROM은 짧아진 번역문 뒤에 `0x10` 과 `0xFF` 패딩을 삽입해 그 경계를 깨고 있었다.
+  - [gba_kor_tool/cli.py](/Users/user/test/gba_kor_tool/cli.py) 에서 `save_menu_texts` 는 terminator 를 붙이지 않도록 바꾸고, 번역문을 전각 공백/전각 문장부호 기준으로 정규화한 뒤 `record.char_count` 만큼 우측 패딩하도록 수정했다.
+  - [build_localization_workbench_dataset.py](/Users/user/test/scripts/build_localization_workbench_dataset.py), [build_localization_review_rom.py](/Users/user/test/scripts/build_localization_review_rom.py) 에서도 `save_menu_texts` 메타데이터를 `terminator=None`, `append_terminator=False` 로 강제했다.
+- 결과:
+  - 저장 메뉴 `12`개 문구가 모두 `written_bytes == original byte_length` 로 다시 들어갔고, 패치 후 바이트에서도 prompt 뒤 제어코드 경계가 원본과 같은 위치에 남았다.
+  - 예: `0x772E90` 프롬프트는 `char_count=0x0C`, payload `24 bytes` 를 꽉 채운 뒤 바로 `0x04FF` 로 이어진다.
+- 판정: `성공`
+- 교훈:
+  - counted command-stream 은 “짧은 번역 + 헤더 축소”가 안전하지 않을 수 있다.
+  - 후속 제어코드가 바로 이어지는 family 는 **원래 문자 수와 byte span 을 유지하는 replacement 규칙**이 필요하다.

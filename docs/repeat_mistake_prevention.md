@@ -37,6 +37,11 @@
 - `01 FF <char_count>` 계열 command-stream 문자열은 payload만 바꾸면 안 된다. review/build 경로에서도 `header_offset`, `prefix`, `char_count` 메타데이터를 끝까지 전달해 **헤더 글자수까지 함께 갱신**해야 한다.
 - workbench dataset 재생성과 review ROM 빌드는 병렬로 돌리지 않는다. dataset이 먼저 갱신된 뒤 review ROM을 **순차적으로** 빌드해야 오래된 번역이 다시 들어가지 않는다.
 - review ROM의 실제 적용 우선순위는 `manual_locked translation -> translation -> agent_draft -> original` 이다. `agent_draft` 가 `translation` 보다 앞서면, 길이 검증을 통과한 최종 번역이 다시 에이전트 초안으로 되돌아가 같은 문제를 반복할 수 있다.
+- `01 FF <char_count>` counted command-stream 계열은 일반 종단 문자열처럼 다루지 않는다. 특히 `save_menu_texts` 는:
+  - terminator 를 새로 붙이지 않는다.
+  - 번역문이 짧아도 `char_count` 를 줄여 command-stream 경계를 앞으로 당기지 않는다.
+  - 원래 문자 수를 유지하도록 전각 공백으로 패딩한 뒤 같은 byte span 안에 덮어쓴다.
+  - 반각 ASCII 공백/기호를 넣지 않는다.
 
 ## 작업 전 최소 체크
 
