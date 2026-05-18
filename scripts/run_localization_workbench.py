@@ -15,8 +15,12 @@ from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from typing import Any
 
-
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from gba_kor_tool.translation_normalization import normalize_translation_text
+
 HTML = ROOT / "tools" / "localization_workbench.html"
 WORKBENCH_DIR = ROOT / "confirmed_data" / "localization_workbench"
 DATASET_PATH = WORKBENCH_DIR / "workbench_dataset.json"
@@ -86,6 +90,10 @@ class WorkbenchStore:
         for item in items:
             if item["item_id"] == item_id:
                 previous_translation = item.get("translation", "")
+                if "translation" in updates and isinstance(updates["translation"], str):
+                    updates["translation"] = normalize_translation_text(updates["translation"])
+                if "agent_draft" in updates and isinstance(updates["agent_draft"], str):
+                    updates["agent_draft"] = normalize_translation_text(updates["agent_draft"])
                 current_agent_draft = updates.get("agent_draft", item.get("agent_draft", ""))
                 for field in (
                     "translation",

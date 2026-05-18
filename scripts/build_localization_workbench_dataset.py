@@ -3,18 +3,23 @@
 from __future__ import annotations
 
 import json
+import sys
 from collections import defaultdict
 from datetime import date
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from gba_kor_tool.translation_normalization import PROFILE_PATH, build_default_profile
 DATA_ROOT = ROOT / "confirmed_data"
 WORKSPACE_ROOT = DATA_ROOT / "localization_workbench"
 TRANSLATION_WORKSETS = DATA_ROOT / "translation_worksets"
 TRANSLATION_WORKSPACE = DATA_ROOT / "translation_workspace"
 DIALOGUE_METADATA = DATA_ROOT / "dialogue_metadata"
 IMAGE_INVENTORY = DATA_ROOT / "image_inventory"
+EXTRACTED_TEXTS = DATA_ROOT / "extracted_texts"
 FONT_PROFILE = DATA_ROOT / "font_assets" / "active_hangul_font_profile.json"
 
 OUT_DATASET = WORKSPACE_ROOT / "workbench_dataset.json"
@@ -33,6 +38,21 @@ def load_json_if_exists(path: Path, fallback):
     if path.exists():
         return load_json(path)
     return fallback
+
+
+def build_translation_normalization_profile() -> None:
+    texts: list[str] = []
+    for path in sorted(EXTRACTED_TEXTS.glob("*.json")):
+        payload = load_json(path)
+        if not isinstance(payload, list):
+            continue
+        for record in payload:
+            if isinstance(record, dict):
+                text = record.get("text")
+                if isinstance(text, str) and text:
+                    texts.append(text)
+    profile = build_default_profile(texts)
+    PROFILE_PATH.write_text(json.dumps(profile, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
 
 def build_dialogue_token_map() -> dict[str, dict[int, str]]:
@@ -475,6 +495,7 @@ def render_readme(dataset: dict) -> str:
 
 def main() -> int:
     WORKSPACE_ROOT.mkdir(parents=True, exist_ok=True)
+    build_translation_normalization_profile()
     existing_dataset = load_json_if_exists(OUT_DATASET, None)
     existing_speakers = load_json_if_exists(OUT_SPEAKERS, None)
     existing_speaker_registry = load_json_if_exists(OUT_SPEAKER_REGISTRY, None)
@@ -506,6 +527,7 @@ def main() -> int:
     print(f"wrote {OUT_PROGRESS}")
     print(f"wrote {OUT_IMAGE}")
     print(f"wrote {OUT_README}")
+    print(f"wrote {PROFILE_PATH}")
     return 0
 
 

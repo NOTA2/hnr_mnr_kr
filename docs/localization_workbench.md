@@ -53,6 +53,34 @@ http://127.0.0.1:8766
 즉, 꼭 GUI의 `번역 결과 가져오기` 버튼을 누르지 않아도 된다.
 버튼은 서버를 이미 켜 둔 상태에서 추가 JSON을 즉시 넣고 싶을 때만 쓰면 된다.
 
+## 공통 문자 정규화
+
+작업대는 현재 추출본 전체를 기준으로 만든 공통 정규화 프로필을 사용한다.
+
+- 프로필 파일: [translation_normalization_profile.json](/Users/user/test/confirmed_data/font_assets/translation_normalization_profile.json)
+- 이 프로필은 `build_localization_workbench_dataset.py` 실행 시 자동 갱신된다.
+
+현재 자동 변환되는 대표 규칙:
+
+- `...` → `…`
+- 공백 ` ` → 전각 공백 `　`
+- `!` → `！`
+- `?` → `？`
+- `~` → `～`
+- `(` → `（`
+- `)` → `）`
+- `/` → `／`
+- `-` → `－`
+- `@` → `＠`
+- `$` → `＄`
+
+즉 사용자는 GUI에서 반각 기호를 그대로 입력해도 되고, 저장/가져오기/ROM 적용 전에 안전한 형태로 자동 보정된다.
+
+주의:
+
+- 현재 자동 변환은 **문자 단위 안전 치환**이다.
+- 문장 의미가 달라지는 치환(예: `.` → `。`, `,` → `、`)은 아직 자동으로 하지 않는다.
+
 ## 주요 파일
 
 - [workbench_dataset.json](/Users/user/test/confirmed_data/localization_workbench/workbench_dataset.json)

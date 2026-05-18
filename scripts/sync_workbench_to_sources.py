@@ -3,10 +3,15 @@
 from __future__ import annotations
 
 import json
+import sys
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from gba_kor_tool.translation_normalization import normalize_translation_text
+
 WORKBENCH_DATASET = ROOT / "confirmed_data" / "localization_workbench" / "workbench_dataset.json"
 TRANSLATION_WORKSETS = ROOT / "confirmed_data" / "translation_worksets"
 TRANSLATION_WORKSPACE = ROOT / "confirmed_data" / "translation_workspace"
@@ -77,7 +82,7 @@ def sync_record_list(path: Path, source_file_key: str, index: dict[tuple[str, in
         item = index.get(key)
         if not item:
             continue
-        new_translation = item.get("translation", "")
+        new_translation = normalize_translation_text(item.get("translation", ""))
         if record.get("translation", "") != new_translation:
             record["translation"] = new_translation
             changed += 1
@@ -100,7 +105,7 @@ def sync_record_list_by_group(path: Path, group_key: str, index: dict[str, dict[
         item = group_index.get(build_record_key(record))
         if not item:
             continue
-        new_translation = item.get("translation", "")
+        new_translation = normalize_translation_text(item.get("translation", ""))
         if record.get("translation", "") != new_translation:
             record["translation"] = new_translation
             changed += 1

@@ -9,8 +9,12 @@ import subprocess
 import sys
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from gba_kor_tool.translation_normalization import normalize_translation_text
+
 SOURCE_ROM = ROOT / "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba"
 WORKBENCH_ROOT = ROOT / "confirmed_data" / "localization_workbench"
 DATASET_PATH = WORKBENCH_ROOT / "workbench_dataset.json"
@@ -98,7 +102,7 @@ def build_translation_json(dataset: dict, category_id: str | None, *, include_ri
     items = sorted(deduped.values(), key=lambda item: item["offset"])
     payload = []
     for item in items:
-        effective_translation = item["effective_translation"]
+        effective_translation = normalize_translation_text(item["effective_translation"])
         source = item["translation_source"]
         terminator = item.get("terminator")
         append_terminator = item.get("append_terminator")

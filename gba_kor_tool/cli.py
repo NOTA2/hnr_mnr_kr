@@ -9,6 +9,8 @@ from dataclasses import asdict, dataclass
 from pathlib import Path
 from typing import Dict, Iterable, List, Optional, Sequence, Tuple
 
+from .translation_normalization import normalize_translation_text
+
 ROM_BASE = 0x08000000
 JAPANESE_RE = re.compile(r"[\u3040-\u30ff\u3400-\u9fff]")
 SUSPICIOUS_ASCII_SYMBOLS = set("`|{}[]<>^_~\\")
@@ -2960,15 +2962,10 @@ def parse_record_terminator(record: dict, default_values: Sequence[str]) -> byte
 
 
 def normalize_translation_for_record(record: dict, translation: str) -> str:
+    normalized = normalize_translation_text(translation)
     source_group = str(record.get("source_group", ""))
     if source_group not in {"save_menu_texts", "choice_yes_no_texts"}:
-        return translation
-
-    normalized = translation
-    normalized = normalized.replace("...", "…")
-    normalized = normalized.replace(" ", "　")
-    normalized = normalized.replace("?", "？")
-    normalized = normalized.replace("!", "！")
+        return normalized
 
     bad_ascii = [ch for ch in normalized if 0x20 <= ord(ch) <= 0x7E]
     if bad_ascii:

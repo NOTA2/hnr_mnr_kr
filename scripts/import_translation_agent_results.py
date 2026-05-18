@@ -9,8 +9,12 @@ import sys
 from datetime import datetime
 from pathlib import Path
 
-
 ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from gba_kor_tool.translation_normalization import normalize_translation_text
+
 WORKBENCH_DIR = ROOT / "confirmed_data" / "localization_workbench"
 DATASET_PATH = WORKBENCH_DIR / "workbench_dataset.json"
 SPEAKERS_PATH = WORKBENCH_DIR / "speaker_aliases.json"
@@ -101,6 +105,8 @@ def resolve_target(record: dict, by_item_id: dict[str, dict], by_offset_source: 
 
 def merge_record(target: dict, record: dict) -> str:
     translation = record.get("translation", "")
+    if translation:
+        translation = normalize_translation_text(translation)
     comment = record.get("agent_comment") or record.get("notes") or ""
 
     if target.get("manual_locked"):
