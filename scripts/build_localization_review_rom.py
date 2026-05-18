@@ -18,11 +18,26 @@ PROGRESS_PATH = WORKBENCH_ROOT / "progress_state.json"
 OUT_DIR = ROOT / "patched_roms" / "current_review"
 FIXED_ROM = OUT_DIR / "hnr_localization_review.gba"
 TEMP_JSON = OUT_DIR / "current_review_translations.json"
+VALIDATED_SOURCE_GROUPS = {
+    "startup_intro_texts",
+    "system_messages",
+    "save_menu_texts",
+    "choice_yes_no_texts",
+    "location_texts",
+    "ui_skill_texts",
+    "item_texts",
+    "material_texts",
+    "battle_texts",
+    "ability_texts",
+    "registry_a_entry12_texts",
+    "credits_texts",
+}
 
 
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(description="현재 localization workbench 초안으로 고정 이름 review ROM 을 재빌드합니다.")
     parser.add_argument("--category-id", help="디버그용 선택 카테고리. 기본값은 전체 텍스트 항목 적용")
+    parser.add_argument("--include-risky-dialogue", action="store_true", help="runtime family 가 아직 완전히 닫히지 않은 대사 계열도 포함")
     return parser.parse_args()
 
 
@@ -40,7 +55,7 @@ def resolve_effective_translation(item: dict) -> tuple[str, str]:
     return item["text"], "original_text"
 
 
-def build_translation_json(dataset: dict, category_id: str | None) -> list[dict]:
+def build_translation_json(dataset: dict, category_id: str | None, *, include_risky_dialogue: bool) -> list[dict]:
     items = []
     for item in dataset["items"]:
         if item.get("offset") is None:
@@ -48,6 +63,8 @@ def build_translation_json(dataset: dict, category_id: str | None) -> list[dict]
         if item["category_id"] == "image_review_units":
             continue
         if category_id and item["category_id"] != category_id:
+            continue
+        if not include_risky_dialogue and item.get("source_group") not in VALIDATED_SOURCE_GROUPS:
             continue
         effective_translation, source = resolve_effective_translation(item)
         item["effective_translation"] = effective_translation
@@ -115,7 +132,7 @@ def build_translation_json(dataset: dict, category_id: str | None) -> list[dict]
 def main() -> int:
     args = parse_args()
     dataset = load_json(DATASET_PATH)
-    payload = build_translation_json(dataset, args.category_id)
+    payload = build_translation_json(dataset, args.category_id, include_risky_dialogue=args.include_risky_dialogue)
     if not payload:
         if args.category_id:
             raise SystemExit(f"no text items found for category: {args.category_id}")

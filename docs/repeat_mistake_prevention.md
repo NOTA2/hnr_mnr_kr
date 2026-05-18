@@ -42,6 +42,7 @@
   - 번역문이 짧아도 `char_count` 를 줄여 command-stream 경계를 앞으로 당기지 않는다.
   - 원래 문자 수를 유지하도록 전각 공백으로 패딩한 뒤 같은 byte span 안에 덮어쓴다.
   - 반각 ASCII 공백/기호를 넣지 않는다.
+- review ROM 전체 재빌드는 기본적으로 **검증된 source group** 만 포함한다. `entry8` / `Registry D` 같은 runtime 대사 family 는 구조가 완전히 닫히기 전까지 명시적으로 허용하지 않으면 review ROM에 넣지 않는다.
 
 ## 작업 전 최소 체크
 

@@ -2095,3 +2095,18 @@
 - 교훈:
   - counted command-stream 은 “짧은 번역 + 헤더 축소”가 안전하지 않을 수 있다.
   - 후속 제어코드가 바로 이어지는 family 는 **원래 문자 수와 byte span 을 유지하는 replacement 규칙**이 필요하다.
+
+### 실험 122
+
+- 가설: 한 family를 잘못 이해했을 때 같은 방식으로 전체 review ROM을 다시 만들면, 아직 구조가 덜 닫힌 다른 대사 계열까지 연쇄적으로 깨질 수 있다.
+- 시도:
+  - [build_localization_review_rom.py](/Users/user/test/scripts/build_localization_review_rom.py) 에 `VALIDATED_SOURCE_GROUPS` 를 두고, 기본 리뷰 ROM은 `startup_intro_texts`, `system_messages`, `save_menu_texts`, `choice_yes_no_texts`, `location_texts`, `ui_skill_texts`, `item_texts`, `material_texts`, `battle_texts`, `ability_texts`, `registry_a_entry12_texts`, `credits_texts` 만 포함하도록 바꿨다.
+  - 아직 runtime/page-flow 검증이 덜 끝난 `registry_d_fc_script_texts`, `registry_a_entry8_prefixed_texts` 는 `--include-risky-dialogue` 없이 기본 빌드에 들어가지 않게 했다.
+  - 저장 메뉴 선택지 `　はい　いいえ` 고정 블록도 별도 `choice_yes_no_texts` family 로 분리해 정식 workset에 편입했다.
+- 결과:
+  - 리뷰 ROM은 이제 “현재 확인 가능한 안전 계열” 중심으로만 다시 빌드되고, 미확정 대사 family가 같은 경로로 망가지는 위험이 줄었다.
+  - 저장 화면은 prompt와 choice가 같은 안전 family 규칙으로 함께 관리된다.
+- 판정: `성공`
+- 교훈:
+  - review ROM은 “모든 걸 다 넣는 ROM”보다, **구조 검증이 끝난 family만 기본 포함하는 안전 ROM**이 더 유용하다.
+  - 선택지/예아니오 같은 고정 UI 블록도 일반 대사 문자열과 같은 방식으로 뭉개지지 않게 별도 family로 관리해야 한다.
