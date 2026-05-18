@@ -85,6 +85,8 @@ class WorkbenchStore:
         items = self.dataset["items"]
         for item in items:
             if item["item_id"] == item_id:
+                previous_translation = item.get("translation", "")
+                current_agent_draft = updates.get("agent_draft", item.get("agent_draft", ""))
                 for field in (
                     "translation",
                     "agent_draft",
@@ -96,6 +98,15 @@ class WorkbenchStore:
                 ):
                     if field in updates:
                         item[field] = updates[field]
+                new_translation = item.get("translation", "")
+                if (
+                    "translation" in updates
+                    and new_translation
+                    and new_translation != previous_translation
+                    and new_translation != current_agent_draft
+                    and not updates.get("manual_locked", False)
+                ):
+                    item["manual_locked"] = True
                 write_json(DATASET_PATH, self.dataset)
                 return item
         raise KeyError(item_id)
