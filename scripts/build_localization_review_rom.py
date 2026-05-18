@@ -49,13 +49,38 @@ def build_translation_json(dataset: dict, category_id: str | None) -> list[dict]
             continue
         if category_id and item["category_id"] != category_id:
             continue
-        items.append(item)
-    items.sort(key=lambda item: item["offset"])
-    payload = []
-    for item in items:
         effective_translation, source = resolve_effective_translation(item)
         item["effective_translation"] = effective_translation
         item["translation_source"] = source
+        if effective_translation == item["text"]:
+            continue
+        items.append(item)
+
+    # 같은 offset 이 여러 workset 에 중복될 수 있으므로, 실제 번역이 있는 항목 중
+    # 보다 일반적인 정식 workset 항목을 우선해 하나만 남긴다.
+    priority = {
+        "translation_workset_core_ui": 0,
+        "translation_workset_gameplay_terms": 1,
+        "translation_workset_registry_d_dialogue": 2,
+        "registry_a_entry8_clusters_manifest": 3,
+    }
+    deduped: dict[int, dict] = {}
+    for item in sorted(
+        items,
+        key=lambda item: (
+            item["offset"],
+            priority.get(item.get("category_id", ""), 99),
+            item.get("origin_workset_id", ""),
+            item.get("item_id", ""),
+        ),
+    ):
+        deduped.setdefault(int(item["offset"]), item)
+
+    items = sorted(deduped.values(), key=lambda item: item["offset"])
+    payload = []
+    for item in items:
+        effective_translation = item["effective_translation"]
+        source = item["translation_source"]
         payload.append(
             {
                 "offset": item["offset"],
@@ -82,7 +107,7 @@ def main() -> int:
     if not payload:
         if args.category_id:
             raise SystemExit(f"no text items found for category: {args.category_id}")
-        raise SystemExit("no text items found for full review build")
+        raise SystemExit("no translated text items found for full review build")
     DATASET_PATH.write_text(json.dumps(dataset, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
 
     OUT_DIR.mkdir(parents=True, exist_ok=True)
