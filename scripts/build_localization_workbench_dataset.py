@@ -64,28 +64,46 @@ def build_entry8_cluster_map() -> dict[int, str]:
 def build_categories() -> list[dict]:
     return [
         {
+            "id": "translation_workset_opening_intro",
+            "label": "오프닝/인트로",
+            "type": "text",
+            "sort_order": 0,
+            "path": "confirmed_data/translation_worksets/translation_workset_opening_intro.json",
+            "description": "게임 시작 직후 고정 카드와 오프닝 인트로 텍스트",
+            "build_enabled": True,
+        },
+        {
             "id": "translation_workset_core_ui",
             "label": "코어 UI",
             "type": "text",
-            "sort_order": 0,
+            "sort_order": 1,
             "path": "confirmed_data/translation_worksets/translation_workset_core_ui.json",
-            "description": "시스템/세이브/지역명/UI 기술명/시작 카드 고정 슬롯",
+            "description": "시스템/세이브/지역명/UI 기술명",
             "build_enabled": True,
         },
         {
             "id": "translation_workset_gameplay_terms",
             "label": "게임 용어",
             "type": "text",
-            "sort_order": 1,
+            "sort_order": 2,
             "path": "confirmed_data/translation_worksets/translation_workset_gameplay_terms.json",
             "description": "아이템/전투/능력/재료/설명",
+            "build_enabled": True,
+        },
+        {
+            "id": "translation_workset_credits",
+            "label": "크레딧",
+            "type": "text",
+            "sort_order": 3,
+            "path": "confirmed_data/translation_worksets/translation_workset_credits.json",
+            "description": "엔딩 크레딧/스태프 표기",
             "build_enabled": True,
         },
         {
             "id": "translation_workset_registry_d_dialogue",
             "label": "대사 Registry D",
             "type": "dialogue",
-            "sort_order": 2,
+            "sort_order": 4,
             "path": "confirmed_data/translation_worksets/translation_workset_registry_d_dialogue.json",
             "description": "튜토리얼/이벤트/전투 전후 대사",
             "build_enabled": True,
@@ -94,7 +112,7 @@ def build_categories() -> list[dict]:
             "id": "registry_a_entry8_clusters_manifest",
             "label": "대사 Entry8",
             "type": "dialogue",
-            "sort_order": 3,
+            "sort_order": 5,
             "path": "confirmed_data/translation_workspace/registry_a_entry8_clusters_manifest.json",
             "description": "대형 스토리/이벤트 뱅크 cluster 단위",
             "build_enabled": True,
@@ -103,7 +121,7 @@ def build_categories() -> list[dict]:
             "id": "image_review_units",
             "label": "이미지 작업",
             "type": "image",
-            "sort_order": 4,
+            "sort_order": 6,
             "path": "confirmed_data/image_inventory/image_text_inventory.json",
             "description": "이미지에 구워진 텍스트 자산 검토/교체",
             "build_enabled": False,
@@ -114,9 +132,10 @@ def build_categories() -> list[dict]:
 def build_text_items(dialogue_tokens: dict[str, dict[int, str]], entry8_cluster_map: dict[int, str]) -> list[dict]:
     items: list[dict] = []
     workset_specs = [
-        ("translation_workset_startup_font_showcase.json", "translation_workset_core_ui"),
+        ("translation_workset_opening_intro.json", "translation_workset_opening_intro"),
         ("translation_workset_core_ui.json", "translation_workset_core_ui"),
         ("translation_workset_gameplay_terms.json", "translation_workset_gameplay_terms"),
+        ("translation_workset_credits.json", "translation_workset_credits"),
         ("translation_workset_registry_d_dialogue.json", "translation_workset_registry_d_dialogue"),
     ]
 
@@ -138,9 +157,14 @@ def build_text_items(dialogue_tokens: dict[str, dict[int, str]], entry8_cluster_
                     "offset": offset,
                     "rom_address": int(record["rom_address"]),
                     "byte_length": int(record["byte_length"]),
+                    "header_offset": record.get("header_offset"),
+                    "header_rom_address": record.get("header_rom_address"),
+                    "prefix": record.get("prefix"),
+                    "char_count": record.get("char_count"),
+                    "header_bytes": record.get("header_bytes"),
                     "source_group": source_group,
                     "source_file": record["source_file"],
-                    "source_order": int(record["source_order"]),
+                    "source_order": int(record.get("source_order", order)),
                     "order_in_category": order,
                     "text": record["text"],
                     "translation": record.get("translation", ""),
@@ -179,6 +203,11 @@ def build_text_items(dialogue_tokens: dict[str, dict[int, str]], entry8_cluster_
                     "offset": offset,
                     "rom_address": int(record["rom_address"]),
                     "byte_length": int(record["byte_length"]),
+                    "header_offset": record.get("header_offset"),
+                    "header_rom_address": record.get("header_rom_address"),
+                    "prefix": record.get("prefix"),
+                    "char_count": record.get("char_count"),
+                    "header_bytes": record.get("header_bytes"),
                     "source_group": record["source_group"],
                     "source_file": record["source_file"],
                     "source_order": int(record.get("source_order", cluster.get("cluster_index", 0))),
@@ -294,13 +323,17 @@ def merge_existing_item_state(items: list[dict], existing_dataset: dict | None, 
         existing = existing_map.get(item["item_id"])
         if not existing:
             continue
+        existing_manual_locked = bool(existing.get("manual_locked"))
+
+        if existing_manual_locked and existing.get("translation") not in ("", None):
+            item["translation"] = existing["translation"]
+        elif item.get("translation") in ("", None) and existing.get("translation") not in ("", None):
+            item["translation"] = existing["translation"]
+
         for field in (
-            "translation",
             "agent_draft",
             "agent_comment",
             "manual_locked",
-            "effective_translation",
-            "translation_source",
             "notes",
             "progress_status",
             "review_status",
@@ -312,6 +345,11 @@ def merge_existing_item_state(items: list[dict], existing_dataset: dict | None, 
         ):
             if field in existing and existing[field] not in ("", None):
                 item[field] = existing[field]
+
+        if existing_manual_locked and existing.get("effective_translation") not in ("", None):
+            item["effective_translation"] = existing["effective_translation"]
+        if existing_manual_locked and existing.get("translation_source") not in ("", None):
+            item["translation_source"] = existing["translation_source"]
 
 
 def merge_existing_speaker_aliases(speaker_aliases: list[dict], existing: list[dict] | None) -> list[dict]:
@@ -382,7 +420,7 @@ def build_dataset() -> dict:
             "translation 은 최종 적용 번역이다.",
             "agent_draft 는 번역 에이전트가 제안한 초안이다.",
             "manual_locked=true 인 항목은 에이전트가 translation 을 덮어쓰면 안 된다.",
-            "시작 카드 4줄은 별도 카테고리로 분리하지 않고 코어 UI 안에서 함께 관리한다.",
+            "시작 직후 고정 카드 4줄은 테스트용 코어 UI가 아니라 정식 오프닝/인트로 카테고리로 관리한다.",
         ],
     }
 

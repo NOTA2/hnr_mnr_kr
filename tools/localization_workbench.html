@@ -28,10 +28,22 @@
     }
     .col {
       border-right: 1px solid var(--line);
-      overflow: auto;
+      overflow: hidden;
     }
     .panel {
       padding: 18px;
+    }
+    .column-panel {
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+      gap: 12px;
+    }
+    .scroll-list {
+      flex: 1;
+      min-height: 0;
+      overflow: auto;
+      padding-right: 4px;
     }
     h1, h2, h3 {
       margin: 0 0 12px;
@@ -126,14 +138,25 @@
       opacity: 0.55;
       pointer-events: none;
     }
+    .item-translation {
+      margin-top: 8px;
+      padding-top: 8px;
+      border-top: 1px dashed var(--line);
+      color: var(--text);
+      font-size: 12px;
+      line-height: 1.45;
+      word-break: break-word;
+    }
   </style>
 </head>
 <body>
   <div class="layout">
-    <aside class="col panel">
+    <aside class="col panel column-panel">
+      <div>
         <h1>카테고리</h1>
         <div class="meta" id="fontInfo"></div>
         <div id="categoryList"></div>
+      </div>
       <div class="section">
         <h2>진행 상태</h2>
         <div class="meta" id="progressInfo"></div>
@@ -147,12 +170,14 @@
         <div class="small" id="importInfo"></div>
       </div>
     </aside>
-    <aside class="col panel">
-      <h2 id="itemsTitle">항목</h2>
-      <div class="small">카테고리별 텍스트/이미지 항목</div>
-      <div id="itemList"></div>
+    <aside class="col panel column-panel">
+      <div>
+        <h2 id="itemsTitle">항목</h2>
+        <div class="small">카테고리별 텍스트/이미지 항목</div>
+      </div>
+      <div id="itemList" class="scroll-list"></div>
     </aside>
-    <main class="panel">
+    <main class="panel col">
       <div class="toolbar">
         <button id="saveItemBtn">항목 저장</button>
         <button id="saveSpeakerBtn">토큰 화자 저장</button>
@@ -424,11 +449,18 @@
         div.dataset.itemId = item.item_id;
         const label = item.text || item.label || item.group_id || item.item_id;
         const token = item.dialogue_state_token ? `<span class="badge">${item.dialogue_state_token}</span>` : "";
+        const translationPreview = item.category_id === "image_review_units"
+          ? (item.replacement_path || item.comparison_notes || "").trim()
+          : (item.translation || item.agent_draft || "").trim();
+        const translationHtml = translationPreview
+          ? `<div class="item-translation">${translationPreview.slice(0, 72)}</div>`
+          : `<div class="item-translation meta">번역 없음</div>`;
         div.innerHTML = `
           <strong>${label.slice(0, 36)}</strong><br>
           <span class="meta">${item.source_group || item.expected_text_kind || ""}</span><br>
           ${token}
           <span class="badge">${item.progress_status || "todo"}</span>
+          ${translationHtml}
         `;
         div.onclick = () => selectItem(item.item_id);
         itemList.appendChild(div);

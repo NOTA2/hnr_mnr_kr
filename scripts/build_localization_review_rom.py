@@ -33,10 +33,10 @@ def load_json(path: Path):
 def resolve_effective_translation(item: dict) -> tuple[str, str]:
     if item.get("manual_locked") and item.get("translation"):
         return item["translation"], "manual_locked_translation"
-    if item.get("agent_draft"):
-        return item["agent_draft"], "agent_draft"
     if item.get("translation"):
         return item["translation"], "saved_translation"
+    if item.get("agent_draft"):
+        return item["agent_draft"], "agent_draft"
     return item["text"], "original_text"
 
 
@@ -59,10 +59,12 @@ def build_translation_json(dataset: dict, category_id: str | None) -> list[dict]
     # 같은 offset 이 여러 workset 에 중복될 수 있으므로, 실제 번역이 있는 항목 중
     # 보다 일반적인 정식 workset 항목을 우선해 하나만 남긴다.
     priority = {
-        "translation_workset_core_ui": 0,
-        "translation_workset_gameplay_terms": 1,
-        "translation_workset_registry_d_dialogue": 2,
-        "registry_a_entry8_clusters_manifest": 3,
+        "translation_workset_opening_intro": 0,
+        "translation_workset_core_ui": 1,
+        "translation_workset_gameplay_terms": 2,
+        "translation_workset_credits": 3,
+        "translation_workset_registry_d_dialogue": 4,
+        "registry_a_entry8_clusters_manifest": 5,
     }
     deduped: dict[int, dict] = {}
     for item in sorted(
@@ -86,6 +88,11 @@ def build_translation_json(dataset: dict, category_id: str | None) -> list[dict]
                 "offset": item["offset"],
                 "rom_address": item["rom_address"],
                 "byte_length": item["byte_length"],
+                "header_offset": item.get("header_offset"),
+                "header_rom_address": item.get("header_rom_address"),
+                "prefix": item.get("prefix"),
+                "char_count": item.get("char_count"),
+                "header_bytes": item.get("header_bytes"),
                 "terminator": item.get("terminator"),
                 "append_terminator": item.get("append_terminator"),
                 "unknown_tokens": item.get("unknown_tokens", 0),

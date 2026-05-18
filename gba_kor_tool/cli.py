@@ -2957,6 +2957,35 @@ def parse_record_terminator(record: dict, default_values: Sequence[str]) -> byte
     return bytes(parse_hex_byte(value) for value in default_values)
 
 
+def update_prefixed_char_count_if_present(data: bytearray, record: dict, translation: str) -> Optional[Dict[str, object]]:
+    header_offset = record.get("header_offset")
+    if header_offset is None:
+        return None
+
+    prefix = record.get("prefix")
+    if not prefix:
+        return None
+    prefix_bytes = bytes(parse_hex_byte(value) for value in str(prefix).split())
+    if not prefix_bytes:
+        return None
+
+    header_offset = int(header_offset)
+    if header_offset < 0 or header_offset + len(prefix_bytes) + 2 > len(data):
+        raise ToolError("header_offset 가 ROM 범위를 벗어납니다.")
+    if bytes(data[header_offset:header_offset + len(prefix_bytes)]) != prefix_bytes:
+        raise ToolError(
+            f"{format_offset(header_offset)} 의 prefix 가 기대값 {prefix} 와 다릅니다."
+        )
+
+    char_count = len(translation)
+    data[header_offset + len(prefix_bytes):header_offset + len(prefix_bytes) + 2] = char_count.to_bytes(2, "little")
+    return {
+        "header_offset": header_offset,
+        "prefix": prefix,
+        "char_count": char_count,
+    }
+
+
 def normalize_translation_record(record: dict, *, source_path: Path, source_order: int) -> dict:
     normalized = dict(record)
     normalized.setdefault("translation", "")
@@ -3197,12 +3226,14 @@ def cmd_apply_translations(args: argparse.Namespace) -> int:
                 data[original_offset + len(payload):original_offset + original_capacity] = bytes([pad]) * (
                     original_capacity - len(payload)
                 )
+            header_update = update_prefixed_char_count_if_present(data, record, translation)
             report.append(
                 {
                     "offset": original_offset,
                     "action": "in_place",
                     "translation": translation,
                     "written_bytes": len(payload),
+                    "header_update": header_update,
                 }
             )
             continue
@@ -3249,6 +3280,7 @@ def cmd_apply_translations(args: argparse.Namespace) -> int:
         for pointer_offset in pointers:
             struct.pack_into("<I", data, pointer_offset, pointer_value)
         next_free_search = destination + len(payload)
+        header_update = update_prefixed_char_count_if_present(data, record, translation)
         report.append(
             {
                 "offset": original_offset,
@@ -3256,6 +3288,7 @@ def cmd_apply_translations(args: argparse.Namespace) -> int:
                 "translation": translation,
                 "new_offset": destination,
                 "pointer_count": len(pointers),
+                "header_update": header_update,
             }
         )
 

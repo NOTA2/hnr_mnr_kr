@@ -1,36 +1,36 @@
 # Workset 메타데이터 인덱스
 
 - 마지막 갱신: `2026-05-18`
-- 항목 수: `7`
+- 항목 수: `8`
 - 용도: 번역팀이 실제 번역 시작 전에 workset 별 제약과 QA 범위를 빠르게 확인하는 인덱스
 
 ## 권장 읽기 순서
 
-- 1. translation_workset_startup_font_showcase 로 폰트/삽입 경로를 확인한다.
-- 2. translation_workset_core_ui 와 gameplay_terms 로 실번역을 시작한다.
+- 1. translation_workset_opening_intro 로 오프닝 첫 카드와 고정 슬롯 규칙을 확인한다.
+- 2. translation_workset_core_ui 와 gameplay_terms, credits 로 실번역을 시작한다.
 - 3. Registry D dialogue 와 entry8 cluster 는 대사 sidecar 와 runtime 주의사항을 함께 본다.
 
 ## Workset별 요약
 
-### `translation_workset_startup_font_showcase`
+### `translation_workset_opening_intro`
 
-- 경로: `confirmed_data/translation_worksets/translation_workset_startup_font_showcase.json`
+- 경로: `confirmed_data/translation_worksets/translation_workset_opening_intro.json`
 - 레코드 수: `4`
-- 목적: 폰트/삽입 검증용 시작 화면 4줄
-- 상태: 폰트/삽입 검증용 준비 완료
+- 목적: 게임 시작 직후 오프닝 고정 카드 4줄
+- 상태: 바로 번역 시작 가능
 - layout 전략: 단일 family `startup_intro_fixed_slots` 기준
 - 줄바꿈 규칙: 수동 줄바꿈 금지
 - source_group: `startup_intro_texts`
 - 이미지 겹침 위험: 낮음
 - 필수 보존 요소: append_terminator=false, 고정 byte_length, 뒤 제어코드 위치
-- QA 필요 항목: 고정 슬롯 byte 길이 확인, 첫 화면 4줄 시각 확인
+- QA 필요 항목: 고정 슬롯 byte 길이 확인, 오프닝 첫 카드 4줄 시각 확인
 - 참고:
-  - 모든 레코드는 startup_intro_texts 에서 왔다.
+  - 모든 레코드는 startup_intro_texts 에서 왔고, 게임 시작 직후 고정 카드 4줄이다.
 
 ### `translation_workset_core_ui`
 
 - 경로: `confirmed_data/translation_worksets/translation_workset_core_ui.json`
-- 레코드 수: `43`
+- 레코드 수: `50`
 - 목적: 시스템/세이브/지역명/UI 기술명 등 첫 실제 번역 진입 세트
 - 상태: 바로 번역 시작 가능
 - layout 전략: source_group 별 family 를 먼저 적용
@@ -51,8 +51,8 @@
 ### `translation_workset_gameplay_terms`
 
 - 경로: `confirmed_data/translation_worksets/translation_workset_gameplay_terms.json`
-- 레코드 수: `386`
-- 목적: 아이템/전투/능력/재료/설명 계열 용어 세트
+- 레코드 수: `625`
+- 목적: 아이템/전투/능력/재료/설명/Entry12 계열 전체 용어 세트
 - 상태: 바로 번역 시작 가능
 - layout 전략: source_group 별 family 를 먼저 적용
 - 줄바꿈 규칙: 추가 줄바꿈 지양
@@ -67,8 +67,23 @@
   - `battle_texts` -> `term_description_plain_00_optional_0b`
   - `registry_a_entry12_texts` -> `ui_or_item_plain_00_record`
 - 참고:
-  - 레코드 구조는 대부분 객관적으로 닫혔다.
+  - 아이템/전투/능력/재료/Entry12 텍스트를 전량 포함한 정식 용어 세트다.
   - 다만 runtime box family 가 미확정인 곳이 있어 설명문은 계속 짧게 유지하는 편이 안전하다.
+
+### `translation_workset_credits`
+
+- 경로: `confirmed_data/translation_worksets/translation_workset_credits.json`
+- 레코드 수: `10`
+- 목적: 엔딩 크레딧/스태프 표기 세트
+- 상태: 바로 번역 시작 가능
+- layout 전략: 단일 family `credits_padded_plain_00_record` 기준
+- 줄바꿈 규칙: 기존 패딩/정렬 유지
+- source_group: `credits_texts`
+- 이미지 겹침 위험: 낮음
+- 필수 보존 요소: 전각 공백 패딩, 크레딧 줄 길이 보수적 유지
+- QA 필요 항목: 전각 공백 패딩 유지, 크레딧 화면 줄 정렬 확인
+- 참고:
+  - 크레딧은 일반 텍스트 record 로 추출되어 있으며, 이미지 자산이 아니다.
 
 ### `translation_workset_registry_d_dialogue`
 

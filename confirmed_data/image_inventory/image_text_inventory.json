@@ -193,12 +193,13 @@
           "id": "panel_header_wordmarks",
           "label": "패널 헤더 워드마크",
           "status": "pending_review",
-          "first_action": "저장/옵션/상태창 헤더가 있는지 확인한다."
+          "first_action": "저장/옵션/상태창 헤더가 있는지 확인한다. 특히 세이브 패널의 'セーブ / プレイ時間 / 錬成手帳' 같은 라벨이 이미지인지 우선 확인한다."
         }
       ],
       "notes": [
         "패널, 탭, 프레임형 UI 라벨 중 이미지에 글자가 구워졌을 수 있는 요소는 별도 단위로 검토한다.",
-        "일반 추출 save/menu/system 문자열과는 분리해서 본다."
+        "일반 추출 save/menu/system 문자열과는 분리해서 본다.",
+        "세이브 화면 상단 패널 라벨처럼 텍스트 검색에 잡히지 않는 UI 단어는 이 단위에서 우선 추적한다."
       ],
       "localization_needed": true
     },

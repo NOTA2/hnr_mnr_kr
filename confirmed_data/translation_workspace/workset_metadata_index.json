@@ -2,20 +2,20 @@
   "version": 1,
   "last_updated": "2026-05-18",
   "summary": {
-    "entry_count": 7,
+    "entry_count": 8,
     "usage": "번역팀이 실제 번역 시작 전에 workset 별 제약과 QA 범위를 빠르게 확인하는 인덱스"
   },
   "entries": [
     {
-      "workset_id": "translation_workset_startup_font_showcase",
-      "path": "confirmed_data/translation_worksets/translation_workset_startup_font_showcase.json",
+      "workset_id": "translation_workset_opening_intro",
+      "path": "confirmed_data/translation_worksets/translation_workset_opening_intro.json",
       "record_count": 4,
-      "purpose": "폰트/삽입 검증용 시작 화면 4줄",
+      "purpose": "게임 시작 직후 오프닝 고정 카드 4줄",
       "kind": "uniform",
       "layout_strategy": "단일 family `startup_intro_fixed_slots` 기준",
       "layout_family": "startup_intro_fixed_slots",
       "by_source_group": {},
-      "translation_status": "폰트/삽입 검증용 준비 완료",
+      "translation_status": "바로 번역 시작 가능",
       "line_break_policy": "수동 줄바꿈 금지",
       "must_preserve": [
         "append_terminator=false",
@@ -24,12 +24,12 @@
       ],
       "qa_required": [
         "고정 슬롯 byte 길이 확인",
-        "첫 화면 4줄 시각 확인"
+        "오프닝 첫 카드 4줄 시각 확인"
       ],
       "image_overlap_risk": "낮음",
       "recommended_translation_order": 0,
       "notes": [
-        "모든 레코드는 startup_intro_texts 에서 왔다."
+        "모든 레코드는 startup_intro_texts 에서 왔고, 게임 시작 직후 고정 카드 4줄이다."
       ],
       "source_groups": [
         "startup_intro_texts"
@@ -38,7 +38,7 @@
     {
       "workset_id": "translation_workset_core_ui",
       "path": "confirmed_data/translation_worksets/translation_workset_core_ui.json",
-      "record_count": 43,
+      "record_count": 50,
       "purpose": "시스템/세이브/지역명/UI 기술명 등 첫 실제 번역 진입 세트",
       "kind": "mixed",
       "layout_strategy": "source_group 별 family 를 먼저 적용",
@@ -75,8 +75,8 @@
     {
       "workset_id": "translation_workset_gameplay_terms",
       "path": "confirmed_data/translation_worksets/translation_workset_gameplay_terms.json",
-      "record_count": 386,
-      "purpose": "아이템/전투/능력/재료/설명 계열 용어 세트",
+      "record_count": 625,
+      "purpose": "아이템/전투/능력/재료/설명/Entry12 계열 전체 용어 세트",
       "kind": "mixed",
       "layout_strategy": "source_group 별 family 를 먼저 적용",
       "layout_family": null,
@@ -101,7 +101,7 @@
       "image_overlap_risk": "낮음",
       "recommended_translation_order": 2,
       "notes": [
-        "레코드 구조는 대부분 객관적으로 닫혔다.",
+        "아이템/전투/능력/재료/Entry12 텍스트를 전량 포함한 정식 용어 세트다.",
         "다만 runtime box family 가 미확정인 곳이 있어 설명문은 계속 짧게 유지하는 편이 안전하다."
       ],
       "source_groups": [
@@ -110,6 +110,34 @@
         "item_texts",
         "material_texts",
         "registry_a_entry12_texts"
+      ]
+    },
+    {
+      "workset_id": "translation_workset_credits",
+      "path": "confirmed_data/translation_worksets/translation_workset_credits.json",
+      "record_count": 10,
+      "purpose": "엔딩 크레딧/스태프 표기 세트",
+      "kind": "uniform",
+      "layout_strategy": "단일 family `credits_padded_plain_00_record` 기준",
+      "layout_family": "credits_padded_plain_00_record",
+      "by_source_group": {},
+      "translation_status": "바로 번역 시작 가능",
+      "line_break_policy": "기존 패딩/정렬 유지",
+      "must_preserve": [
+        "전각 공백 패딩",
+        "크레딧 줄 길이 보수적 유지"
+      ],
+      "qa_required": [
+        "전각 공백 패딩 유지",
+        "크레딧 화면 줄 정렬 확인"
+      ],
+      "image_overlap_risk": "낮음",
+      "recommended_translation_order": 3,
+      "notes": [
+        "크레딧은 일반 텍스트 record 로 추출되어 있으며, 이미지 자산이 아니다."
+      ],
+      "source_groups": [
+        "credits_texts"
       ]
     },
     {
@@ -134,7 +162,7 @@
         "화자 state token 참고"
       ],
       "image_overlap_risk": "낮음",
-      "recommended_translation_order": 3,
+      "recommended_translation_order": 4,
       "notes": [
         "FC stop-byte 기준의 record 경계는 확정됐다.",
         "다만 장문 run 의 실제 page-turn 동작은 시각 QA 로 한 번 더 확인해야 한다."
@@ -244,8 +272,8 @@
     }
   ],
   "reading_order": [
-    "1. translation_workset_startup_font_showcase 로 폰트/삽입 경로를 확인한다.",
-    "2. translation_workset_core_ui 와 gameplay_terms 로 실번역을 시작한다.",
+    "1. translation_workset_opening_intro 로 오프닝 첫 카드와 고정 슬롯 규칙을 확인한다.",
+    "2. translation_workset_core_ui 와 gameplay_terms, credits 로 실번역을 시작한다.",
     "3. Registry D dialogue 와 entry8 cluster 는 대사 sidecar 와 runtime 주의사항을 함께 본다."
   ]
 }

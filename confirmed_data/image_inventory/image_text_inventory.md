@@ -70,9 +70,10 @@
   - 작업 폴더: `confirmed_data/image_inventory/workspaces/06_ui_panel_label_art`
   - 세부 단위:
     - `menu_tab_labels`: 메뉴 탭 라벨 / pending_review / 첫 행동: 탭이 텍스트 렌더링인지 이미지인지 먼저 판별한다.
-    - `panel_header_wordmarks`: 패널 헤더 워드마크 / pending_review / 첫 행동: 저장/옵션/상태창 헤더가 있는지 확인한다.
+    - `panel_header_wordmarks`: 패널 헤더 워드마크 / pending_review / 첫 행동: 저장/옵션/상태창 헤더가 있는지 확인한다. 특히 세이브 패널의 `セーブ / プレイ時間 / 錬成手帳` 라벨이 이미지인지 우선 확인한다.
   - 참고: 패널, 탭, 프레임형 UI 라벨 중 이미지에 글자가 구워졌을 수 있는 요소는 별도 단위로 검토한다.
   - 참고: 일반 추출 save/menu/system 문자열과는 분리해서 본다.
+  - 참고: 세이브 화면 상단 패널 라벨처럼 텍스트 검색에 잡히지 않는 UI 단어는 이 단위에서 우선 추적한다.
 - `ui_icon_badge_wordmarks` (`pending_review`, `순서=7`, `우선순위=low`)
   - 목표: 작은 아이콘/배지성 워드마크가 있다면 나중에 교체 난도가 높은 단위로 따로 뺀다.
   - 탐색 방식: 대표 UI 캡처 -> 작은 4bpp 배지 후보 덤프 -> 문자인지 아이콘인지 구분

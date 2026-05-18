@@ -2062,3 +2062,20 @@
 - 판정: `성공`
 - 교훈:
   - 사람 검수가 끼는 번역 파이프라인에서는, 에이전트 결과를 **dataset 병합 단계**로 흡수해 “GUI만 보면 되는 상태”로 만드는 것이 실제 사용성을 크게 높인다.
+
+### 실험 120
+
+- 가설: 저장 화면처럼 `01 FF <char_count>` command-stream 구조를 workbench/review ROM 경로에서 끝까지 보존하고, review ROM 적용 우선순위를 `translation` 중심으로 바로잡으면 저장 프롬프트 깨짐과 같은 계열 문제가 재발하지 않게 줄일 수 있다.
+- 시도:
+  - `translation_workset_core_ui` 의 저장 화면 문구를 전부 정식 workset 에 편입하고, 고정 byte_length 안에 들어가도록 더 짧은 번역문으로 보정했다.
+  - [build_localization_workbench_dataset.py](/Users/user/test/scripts/build_localization_workbench_dataset.py) 에서 `header_offset`, `prefix`, `char_count` 같은 command-stream 메타데이터를 workbench item 으로 끝까지 전달하도록 수정했다.
+  - [build_localization_review_rom.py](/Users/user/test/scripts/build_localization_review_rom.py) 에서 review ROM payload에도 같은 메타데이터를 넣고, 실제 적용 우선순위를 `manual_locked translation -> translation -> agent_draft -> original` 으로 바꿨다.
+  - dataset 재생성과 review ROM 빌드를 병렬이 아니라 **순차 실행**으로 다시 검증했다.
+- 결과:
+  - 저장 화면 관련 `12`개 레코드가 모두 `in_place` 로 들어갔고, apply report 에서 전부 `header_update` 가 기록되었다.
+  - 이전처럼 `agent_draft` 가 더 긴 예전 초안을 다시 집어넣어 `skipped_no_pointer` 를 만들던 경로가 사라졌다.
+  - coverage audit 기준으로 `battle/ability/entry12/credits` 까지 포함한 known source 전부가 정식 workset 편입 상태로 닫혔다.
+- 판정: `성공`
+- 교훈:
+  - command-stream/fixed-capacity 계열은 **문자열 본문만 바꿔서는 안 되고**, 헤더 글자수와 review ROM 우선순위 규칙까지 같이 닫혀야 한다.
+  - GUI/workbench 계층이 있으면 “원본 workset은 짧은 안전 번역인데 review ROM에는 예전 초안이 들어가는” 역행이 생길 수 있으므로, seed/draft/final 우선순위를 명시적으로 고정해야 한다.

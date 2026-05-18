@@ -1,33 +1,36 @@
-# Translation Readiness Report
+# 번역 준비도 보고서
 
-- last_updated: `2026-05-17`
+- 마지막 갱신: `2026-05-17`
 
-## Worksets
+## 작업 세트
 
-- `translation_workset_startup_font_showcase` (`ready_with_fixed_slot_rules`)
-  All records belong to the confirmed startup_intro_fixed_slots family.
-  Use exact byte-length slots and append_terminator=false.
+- `translation_workset_opening_intro` (`ready_with_fixed_slot_rules`)
+  모든 record 가 확정된 startup_intro_fixed_slots family 에 속한다.
+  게임 시작 직후 오프닝 고정 카드 4줄이므로 정확한 byte 길이 슬롯과 append_terminator=false 를 사용한다.
 - `translation_workset_core_ui` (`ready_with_source_specific_rules`)
-  Mixed workset; apply source_group-specific family rules first.
-  system_messages/save_menu still have some runtime uncertainty, but record structures are already usable.
+  혼합 workset 이므로 source_group 별 family 규칙을 먼저 적용한다.
+  system_messages/save_menu 는 runtime 불확실성이 조금 남아 있지만 record 구조는 이미 실사용 가능하다.
 - `translation_workset_gameplay_terms` (`ready_conservative`)
-  Record structures are objective for item/ui/battle/ability/material families.
-  Keep translations concise and preserve 0x0B/padding where present.
+  item/ui/battle/ability/material/entry12 family 는 record 구조가 객관적으로 확인됐고 정식 workset 에 전량 편입됐다.
+  번역은 짧게 유지하고, 0x0B 와 패딩이 있으면 보존한다.
+- `translation_workset_credits` (`ready_with_spacing_conservatism`)
+  크레딧 문자열은 전량 workset 에 편입됐다.
+  전각 공백 패딩과 줄 정렬을 보수적으로 유지한다.
 - `translation_workset_registry_d_dialogue` (`ready_with_multiline_preservation`)
-  Preserve existing explicit newlines.
-  Do not invent extra line breaks until runtime page-flow is visually confirmed.
+  기존 명시적 개행을 보존한다.
+  runtime page-flow 가 시각적으로 확인되기 전까지 추가 줄바꿈을 임의로 만들지 않는다.
 - `registry_a_entry8_clusters_manifest` (`ready_with_singleline_conservatism`)
-  Treat records as short counted single-line payloads unless source data explicitly says otherwise.
-  Do not insert manual newlines.
+  source 데이터가 명시적으로 다르게 말하지 않는 한, record 를 짧은 counted 단일 줄 payload 로 본다.
+  수동 줄바꿈을 넣지 않는다.
 
-## Live Playthrough Still Needed For
+## live playthrough 가 아직 필요한 항목
 
-- final unseen-string sweep
-- visual page-turn confirmation for dialogue runtime
-- image-baked text discovery outside canonical extracted sources
+- 마지막 미발견 문자열 훑기
+- 대사 runtime 의 시각적 page-turn 확인
+- 기준 추출 source 밖에 있는 이미지 구워진 텍스트 확인
 
-## Reading
+## 현재 해석
 
-- Most canonical worksets are translation-ready before live playthrough, as long as source-specific layout rules are followed.
-- Live playthrough is now primarily a final QA sweep, not a prerequisite for starting translation on known sources.
-- This report exists to separate 'translation can start' from 'runtime/page QA is fully closed'.
+- 대부분의 기준 workset 은 source 별 레이아웃 규칙만 지키면 live playthrough 전에도 번역 시작이 가능하다.
+- 이제 live playthrough 는 알려진 source 번역 시작의 전제조건이 아니라, 마지막 QA 훑기 역할에 가깝다.
+- 이 보고서는 '번역을 시작할 수 있음' 과 'runtime/page QA 가 완전히 닫힘' 을 구분하기 위해 존재한다.

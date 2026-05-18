@@ -1,0 +1,126 @@
+{
+  "version": 1,
+  "last_updated": "2026-05-18",
+  "rows": [
+    {
+      "extracted_name": "startup_intro_texts",
+      "source_group": "startup_intro_texts",
+      "expected_workset": "translation_workset_opening_intro",
+      "expectation": "full_expected",
+      "extracted_count": 4,
+      "covered_count": 4,
+      "missing_count": 0,
+      "missing_records": []
+    },
+    {
+      "extracted_name": "system_messages",
+      "source_group": "system_messages",
+      "expected_workset": "translation_workset_core_ui",
+      "expectation": "full_expected",
+      "extracted_count": 4,
+      "covered_count": 4,
+      "missing_count": 0,
+      "missing_records": []
+    },
+    {
+      "extracted_name": "save_menu_prefixed_texts",
+      "source_group": "save_menu_texts",
+      "expected_workset": "translation_workset_core_ui",
+      "expectation": "full_expected",
+      "extracted_count": 12,
+      "covered_count": 12,
+      "missing_count": 0,
+      "missing_records": []
+    },
+    {
+      "extracted_name": "location_texts",
+      "source_group": "location_texts",
+      "expected_workset": "translation_workset_core_ui",
+      "expectation": "full_expected",
+      "extracted_count": 10,
+      "covered_count": 10,
+      "missing_count": 0,
+      "missing_records": []
+    },
+    {
+      "extracted_name": "ui_skill_texts",
+      "source_group": "ui_skill_texts",
+      "expected_workset": "translation_workset_core_ui",
+      "expectation": "full_expected",
+      "extracted_count": 24,
+      "covered_count": 24,
+      "missing_count": 0,
+      "missing_records": []
+    },
+    {
+      "extracted_name": "item_texts",
+      "source_group": "item_texts",
+      "expected_workset": "translation_workset_gameplay_terms",
+      "expectation": "full_expected",
+      "extracted_count": 47,
+      "covered_count": 47,
+      "missing_count": 0,
+      "missing_records": []
+    },
+    {
+      "extracted_name": "material_texts",
+      "source_group": "material_texts",
+      "expected_workset": "translation_workset_gameplay_terms",
+      "expectation": "full_expected",
+      "extracted_count": 43,
+      "covered_count": 43,
+      "missing_count": 0,
+      "missing_records": []
+    },
+    {
+      "extracted_name": "battle_texts",
+      "source_group": "battle_texts",
+      "expected_workset": "translation_workset_gameplay_terms",
+      "expectation": "full_expected",
+      "extracted_count": 104,
+      "covered_count": 104,
+      "missing_count": 0,
+      "missing_records": []
+    },
+    {
+      "extracted_name": "ability_texts",
+      "source_group": "ability_texts",
+      "expected_workset": "translation_workset_gameplay_terms",
+      "expectation": "full_expected",
+      "extracted_count": 409,
+      "covered_count": 409,
+      "missing_count": 0,
+      "missing_records": []
+    },
+    {
+      "extracted_name": "registry_a_entry12_texts",
+      "source_group": "registry_a_entry12_texts",
+      "expected_workset": "translation_workset_gameplay_terms",
+      "expectation": "full_expected",
+      "extracted_count": 22,
+      "covered_count": 22,
+      "missing_count": 0,
+      "missing_records": []
+    },
+    {
+      "extracted_name": "registry_d_fc_script_texts",
+      "source_group": "registry_d_fc_script_texts",
+      "expected_workset": "translation_workset_registry_d_dialogue",
+      "expectation": "full_expected",
+      "extracted_count": 244,
+      "covered_count": 244,
+      "missing_count": 0,
+      "missing_records": []
+    },
+    {
+      "extracted_name": "credits_texts",
+      "source_group": "credits_texts",
+      "expected_workset": "translation_workset_credits",
+      "expectation": "full_expected",
+      "extracted_count": 10,
+      "covered_count": 10,
+      "missing_count": 0,
+      "missing_records": []
+    }
+  ]
+}

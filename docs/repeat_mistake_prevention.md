@@ -34,6 +34,9 @@
 - `scan-text` 의 기본 `--limit` 은 `100` 이다. 넓은 범위를 전수 스캔할 때는 결과가 잘렸는지 먼저 확인하고, 필요하면 `--limit` 을 명시한다.
 - script/control extractor 에서 stop byte 하나로 문자열을 끊을 때는, 해당 바이트가 Shift-JIS trailing byte 로 등장하는지 먼저 확인한다. `FC` 같은 값은 SJIS-aware stop 처리 없이 바로 구분자로 쓰면 entry `8` 같은 대사가 잘릴 수 있다.
 - AI가 급하게 만든 테스트 glyph 는 **렌더러/매핑 검증용 placeholder** 로만 취급한다. 정식 한글 glyph 제작은 반드시 레퍼런스 기반 외부 픽셀 에디터 workflow 로 넘기고, ROM 패치는 그 산출물만 사용한다.
+- `01 FF <char_count>` 계열 command-stream 문자열은 payload만 바꾸면 안 된다. review/build 경로에서도 `header_offset`, `prefix`, `char_count` 메타데이터를 끝까지 전달해 **헤더 글자수까지 함께 갱신**해야 한다.
+- workbench dataset 재생성과 review ROM 빌드는 병렬로 돌리지 않는다. dataset이 먼저 갱신된 뒤 review ROM을 **순차적으로** 빌드해야 오래된 번역이 다시 들어가지 않는다.
+- review ROM의 실제 적용 우선순위는 `manual_locked translation -> translation -> agent_draft -> original` 이다. `agent_draft` 가 `translation` 보다 앞서면, 길이 검증을 통과한 최종 번역이 다시 에이전트 초안으로 되돌아가 같은 문제를 반복할 수 있다.
 
 ## 작업 전 최소 체크
 

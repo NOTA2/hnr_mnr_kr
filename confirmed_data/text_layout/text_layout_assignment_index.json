@@ -143,12 +143,12 @@
     }
   },
   "workset_assignments": {
-    "translation_workset_startup_font_showcase": {
+    "translation_workset_opening_intro": {
       "kind": "uniform",
       "layout_family": "startup_intro_fixed_slots",
       "assignment_status": "confirmed",
       "notes": [
-        "All records come from startup_intro_texts."
+        "All records come from startup_intro_texts and represent the opening intro fixed card."
       ]
     },
     "translation_workset_core_ui": {
@@ -177,6 +177,14 @@
       },
       "notes": [
         "Record structures are now mostly objective even though runtime box families are still unresolved."
+      ]
+    },
+    "translation_workset_credits": {
+      "kind": "uniform",
+      "layout_family": "credits_padded_plain_00_record",
+      "assignment_status": "partially_confirmed",
+      "notes": [
+        "크레딧은 일반 0x00 종단 문자열이지만 전각 공백 패딩과 정렬을 보수적으로 유지해야 한다."
       ]
     },
     "translation_workset_registry_d_dialogue": {
