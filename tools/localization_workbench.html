@@ -206,7 +206,7 @@
     </aside>
     <main class="panel col">
       <div class="toolbar">
-        <button id="saveItemBtn">항목 저장</button>
+        <button id="saveItemBtn">변경사항 전체 저장</button>
         <button id="saveSpeakerBtn">토큰 화자 저장</button>
         <button id="saveSpeakerRegistryBtn">화자 목록 저장</button>
         <button id="saveProgressBtn">현재 위치 저장</button>
@@ -339,6 +339,7 @@
   </div>
 
   <script>
+    const LOCAL_UI_STATE_KEY = "hnr_localization_workbench_ui_state_v1";
     const state = {
       bundle: null,
       categories: [],
@@ -347,6 +348,8 @@
       itemId: null,
       speakerRegistry: [],
       speakerMap: new Map(),
+      draftItems: new Map(),
+      dirtyItemIds: new Set(),
     };
 
     const categoryList = document.getElementById("categoryList");
@@ -404,6 +407,77 @@
       statusInfo.className = `status${tone ? ` ${tone}` : ""}`;
     }
 
+    function loadLocalUiState() {
+      try {
+        const raw = window.localStorage.getItem(LOCAL_UI_STATE_KEY);
+        if (!raw) return null;
+        return JSON.parse(raw);
+      } catch (error) {
+        console.warn("failed to load local ui state", error);
+        return null;
+      }
+    }
+
+    function persistLocalUiState() {
+      try {
+        const drafts = {};
+        for (const [itemId, draft] of state.draftItems.entries()) {
+          drafts[itemId] = draft;
+        }
+        window.localStorage.setItem(
+          LOCAL_UI_STATE_KEY,
+          JSON.stringify({
+            categoryId: state.categoryId,
+            itemId: state.itemId,
+            drafts,
+          })
+        );
+      } catch (error) {
+        console.warn("failed to persist local ui state", error);
+      }
+    }
+
+    function getDraft(itemId) {
+      return state.draftItems.get(itemId) || null;
+    }
+
+    function getEffectiveItem(item) {
+      const draft = getDraft(item.item_id);
+      return draft ? { ...item, ...draft } : item;
+    }
+
+    function collectCurrentItemIntoDraft() {
+      if (!state.itemId) return;
+      const item = state.items.find((entry) => entry.item_id === state.itemId);
+      if (!item) return;
+      if (item.category_id === "image_review_units") {
+        const draft = {
+          source_preview_path: sourcePreviewPath.value,
+          source_download_path: sourcePreviewPath.value,
+          replacement_path: replacementPath.value,
+          comparison_notes: comparisonNotes.value,
+          notes: imageNotes.value,
+          progress_status: imageProgressStatus.value,
+        };
+        state.draftItems.set(item.item_id, draft);
+        state.dirtyItemIds.add(item.item_id);
+      } else {
+        const draft = {
+          translation: translationText.value,
+          agent_draft: agentDraftText.value,
+          agent_comment: agentCommentText.value,
+          manual_locked: manualLockCheckbox.checked,
+          notes: notesText.value,
+          progress_status: progressStatus.value,
+          review_status: reviewStatus.value,
+        };
+        state.draftItems.set(item.item_id, draft);
+        state.dirtyItemIds.add(item.item_id);
+      }
+      persistLocalUiState();
+      renderItemList();
+    }
+
     async function fetchJson(url, options) {
       if (window.location.protocol === "file:") {
         throw new Error("이 HTML을 file://로 직접 열면 저장/가져오기/ROM 재빌드가 동작하지 않습니다.\npython3 scripts/run_localization_workbench.py 실행 후\nhttp://127.0.0.1:8766 으로 접속해 주세요.");
@@ -433,10 +507,22 @@
       } else {
         autoImportInfo.textContent = "서버 시작 시 agent_inbox 안의 JSON을 자동 병합합니다.";
       }
-      state.categoryId = state.bundle.progress.current_category_id || state.categories[0]?.id;
+      const localUiState = loadLocalUiState();
+      if (localUiState?.drafts) {
+        state.draftItems = new Map(Object.entries(localUiState.drafts));
+        state.dirtyItemIds = new Set(Object.keys(localUiState.drafts));
+      }
+      state.categoryId =
+        localUiState?.categoryId ||
+        state.bundle.progress.current_category_id ||
+        state.categories[0]?.id;
+      state.itemId =
+        localUiState?.itemId ||
+        state.bundle.progress.current_item_id ||
+        null;
       renderCategories();
       renderProgress();
-      selectCategory(state.categoryId);
+      selectCategory(state.categoryId, { preferredItemId: state.itemId });
       setStatus("작업대 준비 완료", "ok");
     }
 
@@ -473,15 +559,10 @@
       }
     }
 
-    function selectCategory(categoryId) {
-      state.categoryId = categoryId;
-      renderCategories();
-      const category = state.categories.find((item) => item.id === categoryId);
-      rebuildBtn.disabled = false;
-      const filtered = state.items.filter((item) => item.category_id === categoryId);
-      itemsTitle.textContent = category ? `${category.label} 항목` : "항목";
+    function renderItemList(filtered) {
       itemList.innerHTML = "";
-      for (const item of filtered) {
+      for (const rawItem of filtered) {
+        const item = getEffectiveItem(rawItem);
         const div = document.createElement("div");
         div.className = "item" + (item.item_id === state.itemId ? " active" : "");
         div.dataset.itemId = item.item_id;
@@ -490,6 +571,7 @@
         const translationPreview = item.category_id === "image_review_units"
           ? (item.replacement_path || item.comparison_notes || "").trim()
           : (item.translation || item.agent_draft || "").trim();
+        const dirtyBadge = state.dirtyItemIds.has(item.item_id) ? `<span class="badge">수정됨</span>` : "";
         const translationHtml = translationPreview
           ? `<div class="item-translation">${translationPreview.slice(0, 72)}</div>`
           : `<div class="item-translation meta">번역 없음</div>`;
@@ -498,13 +580,28 @@
           <span class="meta">${item.source_group || item.expected_text_kind || ""}</span><br>
           ${token}
           <span class="badge">${item.progress_status || "todo"}</span>
+          ${dirtyBadge}
           ${translationHtml}
         `;
         div.onclick = () => selectItem(item.item_id);
         itemList.appendChild(div);
       }
+    }
+
+    function selectCategory(categoryId, options = {}) {
+      collectCurrentItemIntoDraft();
+      state.categoryId = categoryId;
+      persistLocalUiState();
+      renderCategories();
+      const category = state.categories.find((item) => item.id === categoryId);
+      rebuildBtn.disabled = false;
+      const filtered = state.items.filter((item) => item.category_id === categoryId);
+      itemsTitle.textContent = category ? `${category.label} 항목` : "항목";
+      renderItemList(filtered);
       if (filtered.length) {
-        selectItem(filtered[0].item_id);
+        const preferredItemId = options.preferredItemId;
+        const targetItem = filtered.find((item) => item.item_id === preferredItemId) || filtered[0];
+        selectItem(targetItem.item_id, { skipDraftCollect: true });
       } else {
         state.itemId = null;
         textEditor.classList.add("hidden");
@@ -512,9 +609,14 @@
       }
     }
 
-    function selectItem(itemId) {
+    function selectItem(itemId, options = {}) {
+      if (!options.skipDraftCollect) {
+        collectCurrentItemIntoDraft();
+      }
       state.itemId = itemId;
-      const item = state.items.find((entry) => entry.item_id === itemId);
+      persistLocalUiState();
+      const rawItem = state.items.find((entry) => entry.item_id === itemId);
+      const item = rawItem ? getEffectiveItem(rawItem) : null;
       document.querySelectorAll(".item").forEach((node) => {
         node.classList.toggle("active", node.dataset.itemId === itemId);
       });
@@ -603,45 +705,62 @@
     }
 
     async function saveCurrentItem() {
-      setStatus("항목 저장 중...");
-      const item = state.items.find((entry) => entry.item_id === state.itemId);
-      if (!item) return;
-      if (item.category_id === "image_review_units") {
-        const payload = {
-          item_id: item.item_id,
-          source_preview_path: sourcePreviewPath.value,
-          source_download_path: sourcePreviewPath.value,
-          replacement_path: replacementPath.value,
-          comparison_notes: comparisonNotes.value,
-          notes: imageNotes.value,
-          progress_status: imageProgressStatus.value,
-          status: item.status,
-        };
-        const saved = await fetchJson("/image-item", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
-        Object.assign(item, saved);
-      } else {
-        const payload = {
-          item_id: item.item_id,
-          translation: translationText.value,
-          agent_draft: agentDraftText.value,
-          agent_comment: agentCommentText.value,
-          manual_locked: manualLockCheckbox.checked,
-          notes: notesText.value,
-          progress_status: progressStatus.value,
-          review_status: reviewStatus.value,
-        };
-        const saved = await fetchJson("/item", {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify(payload),
-        });
-        Object.assign(item, saved);
+      collectCurrentItemIntoDraft();
+      const dirtyIds = Array.from(state.dirtyItemIds);
+      if (!dirtyIds.length) {
+        setStatus("저장할 변경사항이 없습니다.", "ok");
+        return;
       }
-      setStatus("항목 저장 완료", "ok");
+      setStatus(`변경사항 ${dirtyIds.length}개 저장 중...`);
+      for (const itemId of dirtyIds) {
+        const item = state.items.find((entry) => entry.item_id === itemId);
+        const draft = getDraft(itemId);
+        if (!item || !draft) continue;
+        if (item.category_id === "image_review_units") {
+          const payload = {
+            item_id: item.item_id,
+            source_preview_path: draft.source_preview_path ?? item.source_preview_path ?? "",
+            source_download_path: draft.source_download_path ?? item.source_download_path ?? "",
+            replacement_path: draft.replacement_path ?? item.replacement_path ?? "",
+            comparison_notes: draft.comparison_notes ?? item.comparison_notes ?? "",
+            notes: draft.notes ?? item.notes ?? "",
+            progress_status: draft.progress_status ?? item.progress_status ?? "todo",
+            status: item.status,
+          };
+          const saved = await fetchJson("/image-item", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+          Object.assign(item, saved);
+        } else {
+          const payload = {
+            item_id: item.item_id,
+            translation: draft.translation ?? item.translation ?? "",
+            agent_draft: draft.agent_draft ?? item.agent_draft ?? "",
+            agent_comment: draft.agent_comment ?? item.agent_comment ?? "",
+            manual_locked: draft.manual_locked ?? item.manual_locked ?? false,
+            notes: draft.notes ?? item.notes ?? "",
+            progress_status: draft.progress_status ?? item.progress_status ?? "todo",
+            review_status: draft.review_status ?? item.review_status ?? "unreviewed",
+          };
+          const saved = await fetchJson("/item", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+          });
+          Object.assign(item, saved);
+        }
+        state.draftItems.delete(itemId);
+        state.dirtyItemIds.delete(itemId);
+      }
+      persistLocalUiState();
+      const categoryItems = state.items.filter((item) => item.category_id === state.categoryId);
+      renderItemList(categoryItems);
+      if (state.itemId) {
+        selectItem(state.itemId, { skipDraftCollect: true });
+      }
+      setStatus(`변경사항 ${dirtyIds.length}개 저장 완료`, "ok");
     }
 
     async function saveSpeaker() {
@@ -770,6 +889,7 @@
       }
       translationText.value = agentDraftText.value;
       manualLockCheckbox.checked = true;
+      collectCurrentItemIntoDraft();
     }
 
     async function uploadImageReplacement() {
@@ -820,6 +940,24 @@
     document.getElementById("uploadImageBtn").onclick = () => uploadImageReplacement().catch((error) => setStatus(error.message, "error"));
     document.getElementById("newSpeakerRegistryBtn").onclick = () => newSpeakerRegistry();
     speakerRegistrySelect.onchange = () => fillSpeakerRegistryForm(speakerRegistrySelect.value);
+
+    [
+      translationText,
+      agentDraftText,
+      agentCommentText,
+      notesText,
+      manualLockCheckbox,
+      progressStatus,
+      reviewStatus,
+      sourcePreviewPath,
+      replacementPath,
+      comparisonNotes,
+      imageNotes,
+      imageProgressStatus,
+    ].forEach((node) => {
+      const eventName = node.tagName === "SELECT" || node.type === "checkbox" ? "change" : "input";
+      node.addEventListener(eventName, () => collectCurrentItemIntoDraft());
+    });
 
     loadBundle().catch((error) => {
       setStatus(error.message, "error");
