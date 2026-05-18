@@ -48,6 +48,7 @@ http://127.0.0.1:8766
 1. 자동으로 dataset에 병합한다.
 2. 가져온 파일은 [imported_agent_results](/Users/user/test/confirmed_data/localization_workbench/imported_agent_results) 로 이동한다.
 3. 리포트는 [import_reports](/Users/user/test/confirmed_data/localization_workbench/import_reports) 에 남는다.
+4. 잠기지 않은 번역은 workbench dataset뿐 아니라 대응하는 `translation_worksets/*.json` 과 관련 source JSON에도 자동 동기화된다.
 
 즉, 꼭 GUI의 `번역 결과 가져오기` 버튼을 누르지 않아도 된다.
 버튼은 서버를 이미 켜 둔 상태에서 추가 JSON을 즉시 넣고 싶을 때만 쓰면 된다.
@@ -102,6 +103,7 @@ http://127.0.0.1:8766
 3. `번역 결과 가져오기`를 누르면:
    - 잠기지 않은 항목은 `translation` 과 `agent_draft` 에 자동 반영된다.
    - `manual_locked=true` 인 항목은 `translation` 을 유지하고, `agent_draft` / `agent_comment` 만 갱신한다.
+   - 반영된 `translation` 은 workbench dataset뿐 아니라 대응하는 workset/source JSON에도 자동 동기화된다.
 4. 사용자는 필요하면 GUI에서 일부 문장을 직접 수정한다.
 5. `전체 적용 ROM 재빌드`를 누르면 고정 이름 리뷰 ROM에 바로 반영된다.
 

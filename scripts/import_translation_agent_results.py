@@ -4,6 +4,8 @@ from __future__ import annotations
 
 import argparse
 import json
+import subprocess
+import sys
 from datetime import datetime
 from pathlib import Path
 
@@ -154,6 +156,14 @@ def main() -> int:
             summary["comment_only_count"] += 1
 
     write_json(DATASET_PATH, dataset)
+
+    subprocess.run(
+        [sys.executable, "scripts/sync_workbench_to_sources.py"],
+        cwd=ROOT,
+        check=True,
+        capture_output=True,
+        text=True,
+    )
 
     IMPORT_REPORT_DIR.mkdir(parents=True, exist_ok=True)
     report_path = Path(args.report) if args.report else IMPORT_REPORT_DIR / f"{input_path.stem}_import_report.json"

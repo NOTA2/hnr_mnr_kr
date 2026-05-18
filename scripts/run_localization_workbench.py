@@ -108,6 +108,7 @@ class WorkbenchStore:
                 ):
                     item["manual_locked"] = True
                 write_json(DATASET_PATH, self.dataset)
+                self.sync_sources()
                 return item
         raise KeyError(item_id)
 
@@ -197,6 +198,15 @@ class WorkbenchStore:
                 break
         write_json(DATASET_PATH, self.dataset)
         return item
+
+    def sync_sources(self) -> None:
+        subprocess.run(
+            [sys.executable, "scripts/sync_workbench_to_sources.py"],
+            cwd=ROOT,
+            text=True,
+            capture_output=True,
+            check=True,
+        )
 
     def rebuild(self, category_id: str | None) -> dict[str, Any]:
         command = [sys.executable, "scripts/build_localization_review_rom.py"]
