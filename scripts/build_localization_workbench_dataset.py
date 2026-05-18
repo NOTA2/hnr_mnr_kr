@@ -213,6 +213,8 @@ def build_image_items() -> list[dict]:
     inventory = load_json(IMAGE_INVENTORY / "image_text_inventory.json")
     items: list[dict] = []
     for unit in inventory["review_units"]:
+        if not unit.get("localization_needed", True):
+            continue
         items.append(
             {
                 "item_id": f"image:{unit['id']}",

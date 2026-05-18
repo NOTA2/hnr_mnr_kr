@@ -6,6 +6,9 @@
 
 ## 우선 review unit 순서
 
+이 문서의 active 대상은 **실제로 한글화가 필요한 텍스트 이미지 자산**이다.
+초상화, 순수 프레임 장식처럼 텍스트가 구워져 있지 않은 자산은 여기서 우선 추출하지 않는다.
+
 - `title_logo_wordmark` (순서=1)
   - 작업 폴더: `confirmed_data/image_inventory/workspaces/01_title_logo_wordmark`
   - 탐색 방식: 타이틀 화면 진입 스크린샷 확보 -> LZ77 후보 스캔 -> 4bpp 덤프 비교
@@ -15,12 +18,6 @@
 - `event_or_cutscene_text_cards` (순서=3)
   - 작업 폴더: `confirmed_data/image_inventory/workspaces/03_event_or_cutscene_text_cards`
   - 탐색 방식: 대표 장면 스크린샷 수집 -> 카드성 오버레이 후보 LZ77 블록 탐색 -> 덤프 비교
-- `dialogue_window_frame_art` (순서=4)
-  - 작업 폴더: `confirmed_data/image_inventory/workspaces/04_dialogue_window_frame_art`
-  - 탐색 방식: 대사창 스크린샷 -> 프레임/판넬 후보 아트 덤프 -> 텍스트 유무 확인
-- `portrait_headshot_assets` (순서=5)
-  - 작업 폴더: `confirmed_data/image_inventory/workspaces/05_portrait_headshot_assets`
-  - 탐색 방식: 대표 대사 장면 스크린샷 -> portrait 후보 아트 덤프 -> 동일 인물 변형 수집
 - `ui_panel_label_art` (순서=6)
   - 작업 폴더: `confirmed_data/image_inventory/workspaces/06_ui_panel_label_art`
   - 탐색 방식: 메뉴/인벤토리/상태창 스크린샷 -> 패널 후보 시트 덤프 -> 텍스트 여부 확인
@@ -44,6 +41,10 @@
 - `scan_lz77`: `python3 -m gba_kor_tool scan-lz77 <rom>`
 - `dump_4bpp`: `python3 -m gba_kor_tool dump-4bpp <rom> <offset> <tile-count> <output>`
 - `decompress_lz77`: `python3 -m gba_kor_tool decompress-lz77 <rom> <offset> <output>`
+- 여러 review unit을 한 번에 1차 후보 덤프로 준비:
+  - `python3 scripts/extract_image_review_candidates.py all_text_units --limit 8`
+- 특정 review unit 여러 개만 한 번에 준비:
+  - `python3 scripts/extract_image_review_candidates.py title_logo_wordmark title_screen_static_menu_wordmarks event_or_cutscene_text_cards --limit 8`
 
 ## 후보 스캔 기준
 

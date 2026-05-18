@@ -52,7 +52,8 @@
       "notes": [
         "메인 타이틀/로고 계열 텍스트는 현재 기준 추출 source 로 매핑되지 않는다.",
         "막연한 bucket 이 아니라 구체적인 검토 단위로 다룬다."
-      ]
+      ],
+      "localization_needed": true
     },
     {
       "id": "title_screen_static_menu_wordmarks",
@@ -80,7 +81,8 @@
       "notes": [
         "타이틀 화면의 고정 메뉴 라벨과 모드 워드마크는 이미지 기반일 가능성이 있다.",
         "현재 기준 추출 source 중 타이틀 화면 워드마크 아트를 직접 다루는 것은 없다."
-      ]
+      ],
+      "localization_needed": true
     },
     {
       "id": "event_or_cutscene_text_cards",
@@ -108,11 +110,12 @@
       "notes": [
         "스토리/이벤트 카드나 오버레이는 일반 이벤트 일러스트보다 우선순위가 높은 이미지 텍스트 후보이다.",
         "이미 비-이미지 텍스트로 확인된 대사 payload 와는 분리해서 본다."
-      ]
+      ],
+      "localization_needed": true
     },
     {
       "id": "dialogue_window_frame_art",
-      "status": "review_started",
+      "status": "excluded_non_text",
       "review_order": 4,
       "priority": "medium",
       "review_goal": "대사창 프레임 안에 구워진 라벨이나 이름판이 있는지 먼저 분리한다.",
@@ -135,12 +138,14 @@
       ],
       "notes": [
         "대사 텍스트 자체는 추출 텍스트지만, 창 프레임 아트는 별도 시각 자산 family 이다.",
-        "구워진 텍스트가 없더라도 로컬라이징 QA 에서는 중요한 검토 단위다."
-      ]
+        "구워진 텍스트가 없더라도 로컬라이징 QA 에서는 중요한 검토 단위다.",
+        "현재 기준으로 텍스트가 구워진 자산보다 우선순위가 낮으므로 active 추출 대상에서 제외한다."
+      ],
+      "localization_needed": false
     },
     {
       "id": "portrait_headshot_assets",
-      "status": "review_started",
+      "status": "excluded_non_text",
       "review_order": 5,
       "priority": "medium",
       "review_goal": "화상/초상화 자산군을 대사 payload 와 분리해 나중에 이미지 작업 범위를 줄인다.",
@@ -163,8 +168,10 @@
       ],
       "notes": [
         "portrait 는 이미지 자산이 맞다.",
-        "화자 텍스트 자체가 portrait 안에 구워져 있지는 않지만, 대사 QA 와 이후 이미지 작업에는 중요하다."
-      ]
+        "화자 텍스트 자체가 portrait 안에 구워져 있지는 않지만, 대사 QA 와 이후 이미지 작업에는 중요하다.",
+        "현재 기준으로 텍스트가 구워진 자산보다 우선순위가 낮으므로 active 추출 대상에서 제외한다."
+      ],
+      "localization_needed": false
     },
     {
       "id": "ui_panel_label_art",
@@ -192,7 +199,8 @@
       "notes": [
         "패널, 탭, 프레임형 UI 라벨 중 이미지에 글자가 구워졌을 수 있는 요소는 별도 단위로 검토한다.",
         "일반 추출 save/menu/system 문자열과는 분리해서 본다."
-      ]
+      ],
+      "localization_needed": true
     },
     {
       "id": "ui_icon_badge_wordmarks",
@@ -214,7 +222,8 @@
       "notes": [
         "아이콘/배지 크기의 워드마크는 큰 UI 패널과 따로 검토한다.",
         "교체 전략이 패널 아트와 다를 가능성이 커서 분리 유지가 유용하다."
-      ]
+      ],
+      "localization_needed": true
     },
     {
       "id": "battle_result_or_reward_banners",
@@ -242,7 +251,8 @@
       "notes": [
         "결과/보상 배너는 전투나 전투 후 연출에서 이미지 기반 텍스트 후보가 될 수 있다.",
         "이미 추출 텍스트인 대사와 용어 설명 source 와는 분리해서 본다."
-      ]
+      ],
+      "localization_needed": true
     }
   ],
   "operational_reading": [

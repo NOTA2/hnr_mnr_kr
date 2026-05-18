@@ -20,7 +20,7 @@
 - `translation_workset_gameplay_terms`: 게임 용어 / 386개
 - `translation_workset_registry_d_dialogue`: 대사 Registry D / 244개
 - `registry_a_entry8_clusters_manifest`: 대사 Entry8 / 9823개
-- `image_review_units`: 이미지 작업 / 8개
+- `image_review_units`: 이미지 작업 / 6개
 
 ## 사용 용도
 

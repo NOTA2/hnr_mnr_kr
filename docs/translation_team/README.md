@@ -24,6 +24,16 @@
 3. [index.json](/Users/user/test/confirmed_data/translation_workspace/index.json)
 4. 검수 대상 번역 JSON
 
+검수용 JSON에는 가능하면 아래 필드를 함께 넣는다.
+
+- `item_id` 또는 `offset`
+- `text` (원문)
+- `translation` (현재 번역안)
+- `source_group`
+- 가능하면 `dialogue_state_token`
+
+특히 기술명/아이템명/소재명/짧은 고유명사는 원문 없이 번역안만 보면 뜻을 오판하기 쉬우므로, 검수 단계에서는 원문 동봉을 기본으로 본다.
+
 ## 현재 프로젝트 기준 작업 허브
 
 - 전체 기준본: [all_extracted_texts_master.json](/Users/user/test/confirmed_data/translation_workspace/all_extracted_texts_master.json)
