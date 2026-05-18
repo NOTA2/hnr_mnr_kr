@@ -20,29 +20,35 @@
       font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo", sans-serif;
       background: radial-gradient(circle at top, #18342d, var(--bg) 42%);
       color: var(--text);
+      min-height: 100vh;
     }
     .layout {
       display: grid;
       grid-template-columns: 240px 320px 1fr;
-      min-height: 100vh;
+      height: 100vh;
+      overflow: hidden;
     }
     .col {
       border-right: 1px solid var(--line);
       overflow: hidden;
+      min-height: 0;
     }
     .panel {
       padding: 18px;
+      min-height: 0;
     }
     .column-panel {
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
+      min-height: 0;
+      height: 100%;
       gap: 12px;
     }
     .scroll-list {
       flex: 1;
       min-height: 0;
-      overflow: auto;
+      overflow-y: auto;
+      overflow-x: hidden;
       padding-right: 4px;
     }
     h1, h2, h3 {
@@ -147,6 +153,26 @@
       line-height: 1.45;
       word-break: break-word;
     }
+    .status {
+      margin-top: 8px;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+      white-space: pre-wrap;
+    }
+    .status.ok {
+      border-color: var(--accent);
+      color: var(--text);
+      background: rgba(117,199,177,0.08);
+    }
+    .status.error {
+      border-color: #d27a7a;
+      color: #ffd0d0;
+      background: rgba(210,122,122,0.08);
+    }
   </style>
 </head>
 <body>
@@ -168,6 +194,7 @@
         <button id="rebuildBtn">전체 적용 ROM 재빌드</button>
         <div class="small" id="romInfo"></div>
         <div class="small" id="importInfo"></div>
+        <div class="status" id="statusInfo">대기 중</div>
       </div>
     </aside>
     <aside class="col panel column-panel">
@@ -370,8 +397,17 @@
     const imageProgressStatus = document.getElementById("imageProgressStatus");
     const imageSubunits = document.getElementById("imageSubunits");
     const rebuildBtn = document.getElementById("rebuildBtn");
+    const statusInfo = document.getElementById("statusInfo");
+
+    function setStatus(message, tone = "") {
+      statusInfo.textContent = message;
+      statusInfo.className = `status${tone ? ` ${tone}` : ""}`;
+    }
 
     async function fetchJson(url, options) {
+      if (window.location.protocol === "file:") {
+        throw new Error("이 HTML을 file://로 직접 열면 저장/가져오기/ROM 재빌드가 동작하지 않습니다.\npython3 scripts/run_localization_workbench.py 실행 후\nhttp://127.0.0.1:8766 으로 접속해 주세요.");
+      }
       const response = await fetch(url, options);
       if (!response.ok) {
         const text = await response.text();
@@ -381,6 +417,7 @@
     }
 
     async function loadBundle() {
+      setStatus("작업대 데이터를 불러오는 중...");
       state.bundle = await fetchJson("/bundle");
       state.categories = state.bundle.dataset.categories;
       state.items = state.bundle.dataset.items;
@@ -400,6 +437,7 @@
       renderCategories();
       renderProgress();
       selectCategory(state.categoryId);
+      setStatus("작업대 준비 완료", "ok");
     }
 
     function renderProgress() {
@@ -565,6 +603,7 @@
     }
 
     async function saveCurrentItem() {
+      setStatus("항목 저장 중...");
       const item = state.items.find((entry) => entry.item_id === state.itemId);
       if (!item) return;
       if (item.category_id === "image_review_units") {
@@ -602,9 +641,11 @@
         });
         Object.assign(item, saved);
       }
+      setStatus("항목 저장 완료", "ok");
     }
 
     async function saveSpeaker() {
+      setStatus("화자 연결 저장 중...");
       const item = state.items.find((entry) => entry.item_id === state.itemId);
       if (!item || !item.dialogue_state_token) return;
       const payload = {
@@ -620,6 +661,7 @@
       });
       state.speakerMap.set(saved.dialogue_state_token, saved);
       renderTextItem(item);
+      setStatus("화자 연결 저장 완료", "ok");
     }
 
     function fillSpeakerRegistryForm(speakerId) {
@@ -638,6 +680,7 @@
     }
 
     async function saveSpeakerRegistry() {
+      setStatus("화자 목록 저장 중...");
       const payload = {
         speaker_id: speakerRegistrySelect.value,
         speaker_name: registrySpeakerName.value,
@@ -657,6 +700,7 @@
       }
       renderSpeakerRegistryOptions(saved.speaker_id);
       fillSpeakerRegistryForm(saved.speaker_id);
+      setStatus("화자 목록 저장 완료", "ok");
     }
 
     function newSpeakerRegistry() {
@@ -664,6 +708,7 @@
     }
 
     async function saveProgress() {
+      setStatus("현재 위치 저장 중...");
       const payload = {
         current_category_id: state.categoryId,
         current_item_id: state.itemId,
@@ -674,9 +719,11 @@
         body: JSON.stringify(payload),
       });
       renderProgress();
+      setStatus("현재 위치 저장 완료", "ok");
     }
 
     async function rebuildRom() {
+      setStatus("전체 적용 ROM 재빌드 중...");
       await saveCurrentItem();
       await saveProgress();
       const result = await fetchJson("/rebuild", {
@@ -685,10 +732,11 @@
         body: JSON.stringify({}),
       });
       romInfo.textContent = `고정 ROM: ${result.rom_path}`;
-      alert(`재빌드 완료\n${result.rom_path}`);
+      setStatus(`재빌드 완료\n${result.rom_path}`, "ok");
     }
 
     async function importTranslationResults() {
+      setStatus("번역 결과 가져오는 중...");
       const file = translationImportFile.files?.[0];
       if (!file) {
         alert("가져올 번역 결과 JSON 파일을 먼저 선택해 주세요.");
@@ -712,7 +760,7 @@
       importInfo.textContent =
         `가져오기 완료: applied=${result.summary.applied_count}, locked_preserved=${result.summary.locked_preserved_count}, unmatched=${result.summary.unmatched_count}`;
       await loadBundle();
-      alert(`번역 결과 가져오기 완료\n${result.report_path}`);
+      setStatus(`번역 결과 가져오기 완료\n${result.report_path}`, "ok");
     }
 
     function applyDraftToTranslation() {
@@ -725,6 +773,7 @@
     }
 
     async function uploadImageReplacement() {
+      setStatus("교체 이미지 업로드 중...");
       const item = state.items.find((entry) => entry.item_id === state.itemId);
       const file = replacementUpload.files?.[0];
       if (!item || !file) {
@@ -758,22 +807,22 @@
         replacementDownloadLink,
         "교체 이미지가 아직 없습니다."
       );
-      alert(`업로드 완료\n${saved.replacement_path}`);
+      setStatus(`업로드 완료\n${saved.replacement_path}`, "ok");
     }
 
-    document.getElementById("saveItemBtn").onclick = () => saveCurrentItem();
-    document.getElementById("saveSpeakerBtn").onclick = () => saveSpeaker();
-    document.getElementById("saveSpeakerRegistryBtn").onclick = () => saveSpeakerRegistry();
-    document.getElementById("saveProgressBtn").onclick = () => saveProgress();
-    document.getElementById("importTranslationBtn").onclick = () => importTranslationResults();
-    document.getElementById("rebuildBtn").onclick = () => rebuildRom();
+    document.getElementById("saveItemBtn").onclick = () => saveCurrentItem().catch((error) => setStatus(error.message, "error"));
+    document.getElementById("saveSpeakerBtn").onclick = () => saveSpeaker().catch((error) => setStatus(error.message, "error"));
+    document.getElementById("saveSpeakerRegistryBtn").onclick = () => saveSpeakerRegistry().catch((error) => setStatus(error.message, "error"));
+    document.getElementById("saveProgressBtn").onclick = () => saveProgress().catch((error) => setStatus(error.message, "error"));
+    document.getElementById("importTranslationBtn").onclick = () => importTranslationResults().catch((error) => setStatus(error.message, "error"));
+    document.getElementById("rebuildBtn").onclick = () => rebuildRom().catch((error) => setStatus(error.message, "error"));
     document.getElementById("applyDraftBtn").onclick = () => applyDraftToTranslation();
-    document.getElementById("uploadImageBtn").onclick = () => uploadImageReplacement();
+    document.getElementById("uploadImageBtn").onclick = () => uploadImageReplacement().catch((error) => setStatus(error.message, "error"));
     document.getElementById("newSpeakerRegistryBtn").onclick = () => newSpeakerRegistry();
     speakerRegistrySelect.onchange = () => fillSpeakerRegistryForm(speakerRegistrySelect.value);
 
     loadBundle().catch((error) => {
-      alert(error.message);
+      setStatus(error.message, "error");
       console.error(error);
     });
   </script>

@@ -19,6 +19,9 @@ ASCII_TO_FULLWIDTH = {
     "$": "＄",
 }
 
+for digit in range(10):
+    ASCII_TO_FULLWIDTH[str(digit)] = chr(ord("０") + digit)
+
 
 def is_japanese_or_han(ch: str) -> bool:
     return (
@@ -39,7 +42,33 @@ def extract_safe_chars_from_texts(texts: Iterable[str]) -> list[str]:
 
 def build_default_profile(texts: Iterable[str]) -> dict:
     safe_chars = extract_safe_chars_from_texts(texts)
-    preferred_chars = [ch for ch in ["　", "…", "！", "？", "～", "（", "）", "／", "－", "＠", "＄"] if ch in safe_chars]
+    preferred_chars = [
+        ch
+        for ch in [
+            "　",
+            "…",
+            "！",
+            "？",
+            "～",
+            "（",
+            "）",
+            "／",
+            "－",
+            "＠",
+            "＄",
+            "０",
+            "１",
+            "２",
+            "３",
+            "４",
+            "５",
+            "６",
+            "７",
+            "８",
+            "９",
+        ]
+        if ch in safe_chars
+    ]
     replacements = {
         "...": "…" if "…" in safe_chars else "...",
         " ": "　" if "　" in safe_chars else " ",
