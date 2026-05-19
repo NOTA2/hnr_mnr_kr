@@ -765,6 +765,10 @@
       <div class="toolbar">
         <button id="saveItemBtn">현재 항목 저장</button>
         <button id="saveAllItemsBtn">임시 변경 전체 저장</button>
+        <button id="validateDraftsBtn">임시 변경 검증</button>
+        <button id="exportDraftsBtn">임시 변경 백업</button>
+        <button id="importDraftsBtn">백업 불러오기</button>
+        <input id="draftBackupFile" type="file" accept="application/json" class="hidden" />
         <button id="saveSpeakerBtn">토큰 화자 저장</button>
         <button id="saveSpeakerRegistryBtn">화자 목록 저장</button>
         <button id="saveProgressBtn">현재 위치 저장</button>
@@ -1101,6 +1105,7 @@
       auditStatusFilter: "all",
       auditSortMode: "offset",
       auditDecisionMode: "apply",
+      activeOperation: "",
     };
 
     const categoryList = document.getElementById("categoryList");
@@ -1136,6 +1141,17 @@
     const saveReviewRollbackBtn = document.getElementById("saveReviewRollbackBtn");
     const saveReviewApplyBtn = document.getElementById("saveReviewApplyBtn");
     let saveReviewModalResolve = null;
+    const saveItemBtn = document.getElementById("saveItemBtn");
+    const saveAllItemsBtn = document.getElementById("saveAllItemsBtn");
+    const validateDraftsBtn = document.getElementById("validateDraftsBtn");
+    const exportDraftsBtn = document.getElementById("exportDraftsBtn");
+    const importDraftsBtn = document.getElementById("importDraftsBtn");
+    const draftBackupFile = document.getElementById("draftBackupFile");
+    const saveSpeakerBtn = document.getElementById("saveSpeakerBtn");
+    const saveSpeakerRegistryBtn = document.getElementById("saveSpeakerRegistryBtn");
+    const saveProgressBtn = document.getElementById("saveProgressBtn");
+    const applyDraftBtn = document.getElementById("applyDraftBtn");
+    const importTranslationBtn = document.getElementById("importTranslationBtn");
     const openAuditReviewBtn = document.getElementById("openAuditReviewBtn");
     const auditReviewModal = document.getElementById("auditReviewModal");
     const auditReviewMeta = document.getElementById("auditReviewMeta");
@@ -1216,6 +1232,7 @@
     const composerYValue = document.getElementById("composerYValue");
     const composerScaleValue = document.getElementById("composerScaleValue");
     const composerThresholdValue = document.getElementById("composerThresholdValue");
+    const composerUploadBtn = document.getElementById("composerUploadBtn");
     const rebuildBtn = document.getElementById("rebuildBtn");
     const statusInfo = document.getElementById("statusInfo");
     const composerState = {
@@ -1259,6 +1276,47 @@
     function setStatus(message, tone = "") {
       statusInfo.textContent = message;
       statusInfo.className = `status${tone ? ` ${tone}` : ""}`;
+    }
+
+    function actionButtons() {
+      return [
+        saveItemBtn,
+        saveAllItemsBtn,
+        validateDraftsBtn,
+        exportDraftsBtn,
+        importDraftsBtn,
+        saveSpeakerBtn,
+        saveSpeakerRegistryBtn,
+        saveProgressBtn,
+        applyDraftBtn,
+        applySpeakerFamilyBtn,
+        openAuditReviewBtn,
+        importTranslationBtn,
+        rebuildBtn,
+        uploadImageBtn,
+        composerUploadBtn,
+      ].filter(Boolean);
+    }
+
+    function setActionButtonsBusy(isBusy) {
+      for (const button of actionButtons()) {
+        button.disabled = Boolean(isBusy);
+      }
+    }
+
+    async function runExclusiveAction(label, task) {
+      if (state.activeOperation) {
+        setStatus(`${state.activeOperation} 처리 중입니다. 끝난 뒤 다시 실행해 주세요.`, "warn");
+        return null;
+      }
+      state.activeOperation = label;
+      setActionButtonsBusy(true);
+      try {
+        return await task();
+      } finally {
+        state.activeOperation = "";
+        setActionButtonsBusy(false);
+      }
     }
 
     function setSaveProgress(current, total, title, detail = "", tone = "") {
@@ -1823,11 +1881,26 @@
         throw new Error("이 HTML을 file://로 직접 열면 저장/가져오기/ROM 재빌드가 동작하지 않습니다.\npython3 scripts/run_localization_workbench.py 실행 후\nhttp://127.0.0.1:8766 으로 접속해 주세요.");
       }
       const response = await fetch(url, options);
-      if (!response.ok) {
-        const text = await response.text();
-        throw new Error(text || response.statusText);
+      const contentType = response.headers.get("content-type") || "";
+      let payload = null;
+      let text = "";
+      if (contentType.includes("application/json")) {
+        try {
+          payload = await response.json();
+        } catch (error) {
+          payload = null;
+        }
+      } else {
+        text = await response.text();
       }
-      return response.json();
+      if (!response.ok) {
+        const message = payload?.error || payload?.message || text || response.statusText;
+        const error = new Error(message);
+        error.payload = payload;
+        error.status = response.status;
+        throw error;
+      }
+      return payload ?? JSON.parse(text || "{}");
     }
 
     function auditCandidateKey(candidate) {
@@ -3204,7 +3277,7 @@
         composerFilename,
         document.getElementById("composerRenderBtn"),
         document.getElementById("composerDownloadBtn"),
-        document.getElementById("composerUploadBtn"),
+        composerUploadBtn,
       ]) {
         node.disabled = !isReplacementTarget;
       }
@@ -3574,6 +3647,98 @@
       return true;
     }
 
+    function validateDirtyItems({ showAlert = true } = {}) {
+      collectCurrentItemIntoDraft();
+      const dirtyIds = Array.from(state.dirtyItemIds);
+      if (!dirtyIds.length) {
+        setStatus("검증할 임시 변경사항이 없습니다.", "ok");
+        return true;
+      }
+      const errors = limitErrorsForSave(dirtyIds);
+      const summaries = dirtySaveSummaries(dirtyIds);
+      if (errors.length) {
+        if (showAlert) {
+          blockSaveIfLimitExceeded(dirtyIds);
+        } else {
+          focusChangedItem({ itemId: errors[0].itemId });
+          setStatus(`검증 실패: 용량 초과 항목 ${errors.length}개`, "error");
+        }
+        return false;
+      }
+      const textCount = dirtyIds.filter((itemId) => {
+        const item = state.items.find((entry) => entry.item_id === itemId);
+        return item && item.category_id !== "image_review_units";
+      }).length;
+      const imageCount = dirtyIds.length - textCount;
+      setStatus(`검증 통과: 변경 ${summaries.length}개 / 텍스트 ${textCount}개 / 이미지 ${imageCount}개`, "ok");
+      return true;
+    }
+
+    function exportDraftBackup() {
+      collectCurrentItemIntoDraft();
+      const drafts = {};
+      for (const [itemId, draft] of state.draftItems.entries()) {
+        if (state.dirtyItemIds.has(itemId)) {
+          drafts[itemId] = draft;
+        }
+      }
+      const payload = {
+        version: 1,
+        exported_at: new Date().toISOString(),
+        category_id: state.categoryId,
+        item_id: state.itemId,
+        dirty_item_ids: Array.from(state.dirtyItemIds),
+        drafts,
+      };
+      const blob = new Blob([JSON.stringify(payload, null, 2)], { type: "application/json" });
+      const url = URL.createObjectURL(blob);
+      const anchor = document.createElement("a");
+      const stamp = new Date().toISOString().replace(/[:.]/g, "-");
+      anchor.href = url;
+      anchor.download = `hnr_workbench_draft_backup_${stamp}.json`;
+      document.body.appendChild(anchor);
+      anchor.click();
+      anchor.remove();
+      URL.revokeObjectURL(url);
+      setStatus(`임시 변경 백업을 내보냈습니다: ${payload.dirty_item_ids.length}개`, "ok");
+    }
+
+    async function importDraftBackupFromFile(file) {
+      if (!file) return;
+      const text = await file.text();
+      const payload = JSON.parse(text);
+      const drafts = payload.drafts || {};
+      let imported = 0;
+      let skipped = 0;
+      for (const [itemId, draft] of Object.entries(drafts)) {
+        const item = state.items.find((entry) => entry.item_id === itemId);
+        if (!item || !draft || typeof draft !== "object") {
+          skipped += 1;
+          continue;
+        }
+        state.draftItems.set(itemId, draft);
+        state.dirtyItemIds.add(itemId);
+        imported += 1;
+      }
+      if (payload.category_id && state.categories.some((entry) => entry.category_id === payload.category_id)) {
+        state.categoryId = payload.category_id;
+      }
+      if (payload.item_id && state.items.some((entry) => entry.item_id === payload.item_id)) {
+        state.itemId = payload.item_id;
+      }
+      persistLocalUiState();
+      renderCategories();
+      renderProgress();
+      if (state.categoryId) {
+        renderItemList(null, { keepCurrentSelection: true });
+      }
+      if (state.itemId) {
+        focusChangedItem({ itemId: state.itemId });
+      }
+      setStatus(`임시 변경 백업을 불러왔습니다: ${imported}개${skipped ? ` / 건너뜀 ${skipped}개` : ""}`, "ok");
+      validateDirtyItems({ showAlert: false });
+    }
+
     function focusChangedItem(summary) {
       if (!summary?.itemId) return;
       const item = state.items.find((entry) => entry.item_id === summary.itemId);
@@ -3721,14 +3886,19 @@
     async function saveAllItems() {
       collectCurrentItemIntoDraft();
       const dirtyIds = Array.from(state.dirtyItemIds);
+      if (!dirtyIds.length) {
+        setStatus("저장할 임시 변경사항이 없습니다.", "ok");
+        return true;
+      }
       if (blockSaveIfLimitExceeded(dirtyIds)) {
-        return;
+        return false;
       }
       if (!(await confirmDirtySave(dirtyIds, "임시 변경"))) {
         setStatus("저장을 취소했습니다.", "ok");
-        return;
+        return false;
       }
       await saveDirtyItems(dirtyIds, "임시 변경");
+      return true;
     }
 
     async function saveSpeakerToken(token, speakerId, notes) {
@@ -3847,10 +4017,18 @@
       try {
         setBusyActionProgress(0, "전체 적용 ROM 재빌드 준비", "현재 편집 항목과 위치 정보를 먼저 정리합니다.");
         await nextFrame();
-        setBusyActionProgress(15, "현재 항목 저장 확인", "저장되지 않은 현재 항목이 있으면 먼저 저장합니다.");
-        const currentSaved = await saveCurrentItem();
-        if (!currentSaved) {
-          setBusyActionProgress(100, "전체 적용 ROM 재빌드 취소", "현재 항목 저장이 취소되었거나 차단되어 재빌드를 시작하지 않았습니다.", "warn");
+        collectCurrentItemIntoDraft();
+        if (state.dirtyItemIds.size) {
+          setBusyActionProgress(12, "임시 변경 저장 확인", `재빌드 전 임시 변경 ${state.dirtyItemIds.size}개를 먼저 저장합니다.`);
+          if (!(await saveAllItems())) {
+            setBusyActionProgress(100, "전체 적용 ROM 재빌드 취소", "임시 변경 저장이 취소되었거나 차단되어 재빌드를 시작하지 않았습니다.", "warn");
+            return;
+          }
+        } else {
+          setBusyActionProgress(20, "임시 변경 확인 완료", "저장할 임시 변경사항이 없습니다.");
+        }
+        if (state.dirtyItemIds.size) {
+          setBusyActionProgress(100, "전체 적용 ROM 재빌드 취소", "아직 저장되지 않은 임시 변경이 남아 있어 재빌드를 시작하지 않았습니다.", "warn");
           return;
         }
         await nextFrame();
@@ -3960,16 +4138,26 @@
       );
     }
 
-    document.getElementById("saveItemBtn").onclick = () => saveCurrentItem().catch((error) => setStatus(error.message, "error"));
-    document.getElementById("saveAllItemsBtn").onclick = () => saveAllItems().catch((error) => setStatus(error.message, "error"));
-    document.getElementById("saveSpeakerBtn").onclick = () => saveSpeaker().catch((error) => setStatus(error.message, "error"));
-    applySpeakerFamilyBtn.onclick = () => applySpeakerToFamily().catch((error) => setStatus(error.message, "error"));
-    document.getElementById("saveSpeakerRegistryBtn").onclick = () => saveSpeakerRegistry().catch((error) => setStatus(error.message, "error"));
-    document.getElementById("saveProgressBtn").onclick = () => saveProgress().catch((error) => setStatus(error.message, "error"));
-    document.getElementById("importTranslationBtn").onclick = () => importTranslationResults().catch((error) => setStatus(error.message, "error"));
-    document.getElementById("rebuildBtn").onclick = () => rebuildRom().catch((error) => setStatus(error.message, "error"));
-    document.getElementById("applyDraftBtn").onclick = () => applyDraftToTranslation();
-    openAuditReviewBtn.onclick = () => openAuditReview().catch((error) => setStatus(error.message, "error"));
+    saveItemBtn.onclick = () => runExclusiveAction("현재 항목 저장", saveCurrentItem).catch((error) => setStatus(error.message, "error"));
+    saveAllItemsBtn.onclick = () => runExclusiveAction("임시 변경 전체 저장", saveAllItems).catch((error) => setStatus(error.message, "error"));
+    validateDraftsBtn.onclick = () => validateDirtyItems();
+    exportDraftsBtn.onclick = () => exportDraftBackup();
+    importDraftsBtn.onclick = () => draftBackupFile.click();
+    draftBackupFile.onchange = () => runExclusiveAction(
+      "임시 변경 백업 불러오기",
+      async () => {
+        await importDraftBackupFromFile(draftBackupFile.files?.[0]);
+        draftBackupFile.value = "";
+      }
+    ).catch((error) => setStatus(error.message, "error"));
+    saveSpeakerBtn.onclick = () => runExclusiveAction("토큰 화자 저장", saveSpeaker).catch((error) => setStatus(error.message, "error"));
+    applySpeakerFamilyBtn.onclick = () => runExclusiveAction("초상화군 화자 적용", applySpeakerToFamily).catch((error) => setStatus(error.message, "error"));
+    saveSpeakerRegistryBtn.onclick = () => runExclusiveAction("화자 목록 저장", saveSpeakerRegistry).catch((error) => setStatus(error.message, "error"));
+    saveProgressBtn.onclick = () => runExclusiveAction("현재 위치 저장", saveProgress).catch((error) => setStatus(error.message, "error"));
+    importTranslationBtn.onclick = () => runExclusiveAction("번역 결과 가져오기", importTranslationResults).catch((error) => setStatus(error.message, "error"));
+    rebuildBtn.onclick = () => runExclusiveAction("전체 적용 ROM 재빌드", rebuildRom).catch((error) => setStatus(error.message, "error"));
+    applyDraftBtn.onclick = () => applyDraftToTranslation();
+    openAuditReviewBtn.onclick = () => runExclusiveAction("Entry8 후보 검수 열기", openAuditReview).catch((error) => setStatus(error.message, "error"));
     auditCloseBtn.onclick = () => closeAuditReview();
     auditApplySelectedBtn.onclick = () => applyAuditCandidatesToDrafts();
     auditApplyVisibleBtn.onclick = () => setVisibleAuditDecision("apply");
@@ -4014,10 +4202,10 @@
       persistLocalUiState();
       renderAuditReview();
     };
-    uploadImageBtn.onclick = () => uploadImageReplacement().catch((error) => setStatus(error.message, "error"));
+    uploadImageBtn.onclick = () => runExclusiveAction("교체 이미지 업로드", uploadImageReplacement).catch((error) => setStatus(error.message, "error"));
     document.getElementById("composerRenderBtn").onclick = () => renderImageComposer();
     document.getElementById("composerDownloadBtn").onclick = () => downloadComposerPng();
-    document.getElementById("composerUploadBtn").onclick = () => uploadComposerPng().catch((error) => setStatus(error.message, "error"));
+    composerUploadBtn.onclick = () => runExclusiveAction("합성 이미지 업로드", uploadComposerPng).catch((error) => setStatus(error.message, "error"));
     composerOverlayFile.onchange = async () => {
       const file = composerOverlayFile.files?.[0];
       if (!file) return;
@@ -4030,6 +4218,12 @@
       node.addEventListener(eventName, () => renderImageComposer());
     });
     document.getElementById("newSpeakerRegistryBtn").onclick = () => newSpeakerRegistry();
+    window.addEventListener("beforeunload", (event) => {
+      collectCurrentItemIntoDraft();
+      if (!state.dirtyItemIds.size) return;
+      event.preventDefault();
+      event.returnValue = "";
+    });
     speakerRegistrySelect.onchange = () => fillSpeakerRegistryForm(speakerRegistrySelect.value);
     speakerSelect.onchange = () => {
       const item = state.items.find((entry) => entry.item_id === state.itemId);

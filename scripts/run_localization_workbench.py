@@ -252,11 +252,17 @@ class WorkbenchStore:
             if item["item_id"] == item_id:
                 prepared_items.append((item, self.prepare_text_item_updates(item, updates)))
         if prepared_items:
+            before_dataset = json.loads(json.dumps(self.dataset, ensure_ascii=False))
             for item, prepared in prepared_items:
                 self.apply_text_item_updates(item, prepared)
             write_json(DATASET_PATH, self.dataset)
-            if sync_sources:
-                self.sync_sources()
+            try:
+                if sync_sources:
+                    self.sync_sources()
+            except Exception:
+                self.dataset = before_dataset
+                write_json(DATASET_PATH, self.dataset)
+                raise
             return prepared_items[0][0]
         raise KeyError(item_id)
 
@@ -528,6 +534,11 @@ def make_handler(store: WorkbenchStore):
             self.end_headers()
             self.wfile.write(body)
 
+        def _json_error(self, message: str, status: int = 400, **extra: Any) -> None:
+            payload = {"ok": False, "error": message}
+            payload.update(extra)
+            self._json(payload, status)
+
         def do_GET(self) -> None:
             parsed = urllib.parse.urlparse(self.path)
             if parsed.path in ("/", "/index.html"):
@@ -537,6 +548,11 @@ def make_handler(store: WorkbenchStore):
                 self.send_header("Content-Length", str(len(body)))
                 self.end_headers()
                 self.wfile.write(body)
+                return
+            if parsed.path == "/favicon.ico":
+                self.send_response(HTTPStatus.NO_CONTENT)
+                self.send_header("Content-Length", "0")
+                self.end_headers()
                 return
             if parsed.path == "/bundle":
                 store.reload()
@@ -565,8 +581,8 @@ def make_handler(store: WorkbenchStore):
         def do_POST(self) -> None:
             parsed = urllib.parse.urlparse(self.path)
             length = int(self.headers.get("Content-Length", "0"))
-            payload = json.loads(self.rfile.read(length).decode("utf-8")) if length else {}
             try:
+                payload = json.loads(self.rfile.read(length).decode("utf-8")) if length else {}
                 if parsed.path == "/item":
                     result = store.save_item(
                         payload["item_id"],
@@ -621,14 +637,22 @@ def make_handler(store: WorkbenchStore):
                     )
                     self._json(result)
                     return
+            except json.JSONDecodeError as exc:
+                self._json_error(f"JSON 요청을 해석하지 못했습니다: {exc}", HTTPStatus.BAD_REQUEST)
+                return
             except subprocess.CalledProcessError as exc:
-                self.send_error(HTTPStatus.INTERNAL_SERVER_ERROR, exc.stderr or str(exc))
+                self._json_error(
+                    exc.stderr or str(exc),
+                    HTTPStatus.INTERNAL_SERVER_ERROR,
+                    stdout=exc.stdout,
+                    returncode=exc.returncode,
+                )
                 return
             except Exception as exc:
-                self.send_error(HTTPStatus.BAD_REQUEST, str(exc))
+                self._json_error(str(exc), HTTPStatus.BAD_REQUEST)
                 return
 
-            self.send_error(HTTPStatus.NOT_FOUND, "not found")
+            self._json_error("not found", HTTPStatus.NOT_FOUND)
 
         def log_message(self, format: str, *args: Any) -> None:
             return
