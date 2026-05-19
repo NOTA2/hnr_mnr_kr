@@ -1,0 +1,199 @@
+{
+  "status": "safe",
+  "total_odd_length_records": 0,
+  "total_unresolved_reference_candidates": 0,
+  "total_u16_warning_candidates": 6,
+  "segments": [
+    {
+      "table_local": 336,
+      "old_start": 739740,
+      "old_end": 743976,
+      "new_start": 1685172,
+      "delta_total": 8,
+      "touched_records": [
+        {
+          "offset": 7775492,
+          "raw_start": 740276,
+          "raw_start_rel": 536,
+          "old_raw_len": 16,
+          "new_raw_len": 16,
+          "delta": 0,
+          "even_aligned": true,
+          "text": "いいかげん、",
+          "translation": "이제 좀,　　"
+        },
+        {
+          "offset": 7775510,
+          "raw_start": 740294,
+          "raw_start_rel": 554,
+          "old_raw_len": 32,
+          "new_raw_len": 32,
+          "delta": 0,
+          "even_aligned": true,
+          "text": "大人しくしてれば良いのになぁ",
+          "translation": "얌전히 있으면 좋을 텐데　　 "
+        },
+        {
+          "offset": 7775582,
+          "raw_start": 740366,
+          "raw_start_rel": 626,
+          "old_raw_len": 18,
+          "new_raw_len": 18,
+          "delta": 0,
+          "even_aligned": true,
+          "text": "思ってるのか！",
+          "translation": "생각하나!　　 "
+        },
+        {
+          "offset": 7775618,
+          "raw_start": 740402,
+          "raw_start_rel": 662,
+          "old_raw_len": 16,
+          "new_raw_len": 16,
+          "delta": 0,
+          "even_aligned": true,
+          "text": "思ってるよ。",
+          "translation": "생각하는데. "
+        },
+        {
+          "offset": 7775636,
+          "raw_start": 740420,
+          "raw_start_rel": 680,
+          "old_raw_len": 16,
+          "new_raw_len": 16,
+          "delta": 0,
+          "even_aligned": true,
+          "text": "悪いけどさ、",
+          "translation": "미안하지만, "
+        },
+        {
+          "offset": 7775654,
+          "raw_start": 740438,
+          "raw_start_rel": 698,
+          "old_raw_len": 24,
+          "new_raw_len": 24,
+          "delta": 0,
+          "even_aligned": true,
+          "text": "また勝たせてもらうぜ",
+          "translation": "이번에도 이겨 주겠어"
+        },
+        {
+          "offset": 7778808,
+          "raw_start": 743592,
+          "raw_start_rel": 3852,
+          "old_raw_len": 26,
+          "new_raw_len": 28,
+          "delta": 2,
+          "even_aligned": true,
+          "text": "肉体の材料はそろえた。",
+          "translation": "육체의 재료는 다 모았어."
+        },
+        {
+          "offset": 7778878,
+          "raw_start": 743662,
+          "raw_start_rel": 3922,
+          "old_raw_len": 24,
+          "new_raw_len": 30,
+          "delta": 6,
+          "even_aligned": true,
+          "text": "母さんを元に戻そう。",
+          "translation": "엄마를 원래대로 되돌리자. "
+        },
+        {
+          "offset": 7778912,
+          "raw_start": 743696,
+          "raw_start_rel": 3956,
+          "old_raw_len": 22,
+          "new_raw_len": 22,
+          "delta": 0,
+          "even_aligned": true,
+          "text": "生き返らせるんだ！",
+          "translation": "되살리는 거야!　　"
+        },
+        {
+          "offset": 7778954,
+          "raw_start": 743738,
+          "raw_start_rel": 3998,
+          "old_raw_len": 32,
+          "new_raw_len": 32,
+          "delta": 0,
+          "even_aligned": true,
+          "text": "…人体錬成は禁じられてるよ。",
+          "translation": "…인체연성은 금지되어 있어. "
+        }
+      ],
+      "changes": [
+        {
+          "offset": 7778808,
+          "raw_start": 743592,
+          "raw_start_rel": 3852,
+          "old_raw_len": 26,
+          "new_raw_len": 28,
+          "delta": 2,
+          "even_aligned": true,
+          "text": "肉体の材料はそろえた。",
+          "translation": "육체의 재료는 다 모았어."
+        },
+        {
+          "offset": 7778878,
+          "raw_start": 743662,
+          "raw_start_rel": 3922,
+          "old_raw_len": 24,
+          "new_raw_len": 30,
+          "delta": 6,
+          "even_aligned": true,
+          "text": "母さんを元に戻そう。",
+          "translation": "엄마를 원래대로 되돌리자. "
+        }
+      ],
+      "odd_length_records": [],
+      "unresolved_reference_candidate_count": 0,
+      "unresolved_reference_candidates": [],
+      "u16_warning_candidate_count": 6,
+      "u16_warning_candidates": [
+        {
+          "kind": "u16_segment_rel",
+          "field_old_rel": 130,
+          "old_value": 4082,
+          "expected_value": 4090,
+          "actual_value": 4082
+        },
+        {
+          "kind": "u16_segment_rel",
+          "field_old_rel": 498,
+          "old_value": 4096,
+          "expected_value": 4104,
+          "actual_value": 4096
+        },
+        {
+          "kind": "u16_segment_rel",
+          "field_old_rel": 1112,
+          "old_value": 4096,
+          "expected_value": 4104,
+          "actual_value": 4096
+        },
+        {
+          "kind": "u16_segment_rel",
+          "field_old_rel": 1780,
+          "old_value": 4152,
+          "expected_value": 4160,
+          "actual_value": 4152
+        },
+        {
+          "kind": "u16_segment_rel",
+          "field_old_rel": 2102,
+          "old_value": 4096,
+          "expected_value": 4104,
+          "actual_value": 4096
+        },
+        {
+          "kind": "u16_segment_rel",
+          "field_old_rel": 2802,
+          "old_value": 4000,
+          "expected_value": 4008,
+          "actual_value": 4000
+        }
+      ]
+    }
+  ]
+}

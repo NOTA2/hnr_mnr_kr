@@ -11,12 +11,13 @@
 2. 작품 고유 용어와 인명 표기는 이 문서의 용어표를 우선한다.
 3. 캐릭터 대사, 시스템 메시지, 기술 설명, 아이템 설명은 서로 다른 문체로 번역한다.
 4. 한국어 플레이어가 실제 GBA RPG를 플레이할 때 자연스럽게 읽히는 문장을 목표로 한다.
-5. 텍스트 박스 한계가 확정되지 않았으므로, 기본적으로 짧고 명확하게 번역한다.
+5. 고정 슬롯/미확장 UI 계열은 byte/문자 한계 안에서 명확하게 번역하되, 단순히 짧게 줄이는 것이 목표는 아니다. 허용된 길이를 가능한 한 활용해 의미, 말투, 조사, 목적어를 보존한다. 확장 패킹 또는 direct/structural repoint 가 가능한 항목은 원문 슬롯 길이에 억지로 맞추지 말고 자연스러운 한국어를 우선한다.
 6. 추출 JSON에 기존 `translation` 값이 있어도 기준으로 삼지 않는다. 임시 번역은 무시하고, 이 지침을 우선한다.
 7. 깨진 문자열, 의미 없는 바이트 추출, 문자가 아닌 데이터로 보이는 값은 추측 번역하지 않는다.
 8. 정발/공식 용례가 있는 원작 고유명사는 원작 용례를 우선하고, 게임 오리지널 고유명사는 제공된 『미주의 윤무곡』 PDF의 표기를 우선한다.
 9. 사람이 `manual_locked=true` 로 잠근 항목의 `translation` 은 번역 에이전트가 덮어쓰면 안 된다.
 10. 수동 잠금 항목에서 더 나은 안이 있더라도, 에이전트는 `agent_draft` 와 `agent_comment` 로만 제안해야 한다.
+11. 일본어/한자 자체를 제외한 원문의 특수기호, 문장부호, 번호 기호는 가능한 한 원문 형태를 유지한다. 단, 반각/전각 정책은 source family 별로 다르게 적용한다. `Registry D`, 코어 UI, 게임 용어 계열에서 이미 반각 공백/숫자/기호가 안정적으로 쓰인 항목은 반각을 유지한다. `Entry8`, 이벤트 연출 텍스트, 오프닝/세이브/선택지 같은 counted/fixed 계열은 전각을 기본으로 한다. 인명/고유명사 내부의 일본식 중점 `・`는 한국어 번역에서 띄어쓰기로 바꾸고, `・・・` 말줄임표나 `１・２` 같은 숫자 구분 기호는 원문 기호를 유지한다.
 
 ---
 
@@ -38,7 +39,9 @@
   - 바로 뒤 제어코드를 밀어버릴 수 있으므로 **정확한 byte_length 안에 들어가야 한다.**
 - 고정 길이 슬롯에서는 번역자가 임의로 `\n` 같은 강제 줄바꿈을 넣지 않는다.
 - 현재 한글 폰트는 `가~힣` 완성형 기준으로 들어가며, 시작 화면에서는 한글 본체/그림자도 정상 매핑되도록 맞춘 상태다.
-- 숫자, 영문, 기본 기호는 현재 기준으로 원본 게임 폰트를 재사용한다.
+- 숫자와 기본 기호는 현재 기준으로 원본 게임 폰트를 재사용한다.
+- 반각 사용은 source family 별로 다르게 본다. `registry_d_fc_script_texts` 는 반각 사용과 packed relocation 이 가능하다. 코어 UI/게임 용어 계열은 현재 번역 데이터에서 반각 공백/숫자/기호가 광범위하게 쓰이고 있으므로 기존 반각을 보존한다. `registry_a_entry8_prefixed_texts`, `inline_event_texts`, `startup_intro_texts`, `save_menu_texts`, `choice_yes_no_texts` 는 전각 우선 계열로 둔다.
+- 영문 약어/버튼 표기는 반각 ASCII 가 아니라 **전각 영문**을 사용한다. 반각 `HP`, `AS`, `R 버튼` 은 화면에서 일부 글자가 누락될 수 있으므로 `ＨＰ`, `ＡＳ`, `Ｒ 버튼` 으로 쓴다.
 
 ### 부분적으로 구조가 확정된 것
 
@@ -58,28 +61,41 @@
   - 원문에 없는 임의 줄바꿈을 넣지 않는다.
 - 세부 구조는 같은 manifest 의 `entry8_prefixed_01ff_script_line` family 를 따른다.
 - 현재 관측상 이 source 는 **explicit newline 없는 short single-line payload profile** 로 보는 편이 가장 안전하다.
+- Entry8 fixed/in-place 계열은 “짧게”가 아니라 **허용 문자수 안에서 최대한 의미를 살리는 것**을 목표로 한다.
+  - 사용 가능 길이가 충분한데도 의미를 5자 안팎으로 과도하게 압축하지 않는다.
+  - 조사/목적어/화자의 말투를 살릴 수 있으면 허용 길이 안에서 살린다.
+  - 의미 없는 padding 이나 원문에 없는 설명으로 길이를 채우지는 않는다.
+  - `confirmed_repoint` 처럼 길이 변경이 가능한 Entry8 레코드는 길이를 크게 의식하지 말고 자연스러운 의미 보존을 우선한다.
 - Registry D 이벤트/튜토리얼 대사는 일반 `00` 종단 문자열이 아니라 **`FC stop-byte` script line** 구조다.
 - 이 family 에서는:
   - record boundary 를 `FC` 기준으로 유지해야 한다.
   - 본문 뒤에 `00 terminator`를 임의로 붙이면 안 된다.
   - 원문에 있던 명시적 개행은 보존 우선으로 본다.
   - `before_bytes / after_bytes` 로 대표되는 script control stream 을 밀지 않는다.
+- 현재 삽입기는 Registry D entry 를 ROM 끝으로 다시 패킹하고 `0x17C7E4` pointer-length table 을 갱신할 수 있다.
+- 따라서 Registry D 대사는 원문 byte 슬롯보다 길어질 수 있으며, 번역자는 의미를 과도하게 압축하기보다 자연스러운 문장과 화면 줄폭을 우선한다.
 - 세부 구조는 같은 manifest 의 `registry_d_fc_stop_script_line` family 를 따른다.
 - 현재 관측상 이 source 는 **explicit multiline payload profile** 이므로, 원문 개행 보존이 특히 중요하다.
 - system message 일부는 일반 `00` 종단 문자열이지만, 이미 원문 안에 **명시적 개행(`\n`)** 이 들어 있다.
 - 이 family 에서는 원문에 들어 있던 개행 수와 위치를 함부로 바꾸지 않는다.
 - 세부 구조는 같은 manifest 의 `system_messages_plain_newline_00` family 를 따른다.
-- `ui_skill`, `item`, `Registry A entry 12` 일부 gameplay term 은 **짧은 `00` 종단 plain record** family 로 부분 확정됐다.
+- `ui_skill`, `item`, `Registry A entry 12` 일부 gameplay term 은 **`00` 종단 plain record** family 로 부분 확정됐다.
 - 이 family 에서는:
   - 번역문 뒤에 `00 terminator`는 공용 삽입기가 붙인다.
   - 원문에 없는 임의 줄바꿈을 넣지 않는다.
-  - display family 가 아직 미확정이므로 짧고 보수적으로 번역한다.
+  - 직접 포인터가 확인된 항목은 슬롯을 넘겨도 repoint 가능하므로 자연스러운 표현을 우선한다.
+  - 직접 포인터가 없는 항목은 원래 슬롯 안에서 가장 의미가 분명한 표현을 고른다.
 - 세부 구조는 같은 manifest 의 `ui_or_item_plain_00_record` family 를 따른다.
 - `battle`, `ability`, `material` 일부는 **`00` 종단 plain record + optional inline 0x0B separator** family 로 부분 확정됐다.
 - 이 family 에서는:
-  - embedded `0x0B` separator 와 전각 공백 패딩을 함부로 지우거나 바꾸지 않는다.
-  - 원문에 없는 임의 줄바꿈을 넣지 않는다.
-  - display family 가 아직 미확정이므로 짧고 보수적으로 번역한다.
+  - embedded `0x0B` separator 를 함부로 지우거나 바꾸지 않는다.
+  - `0x0B` 는 작업 데이터와 ROM 런타임 양쪽의 이름/설명 구분자이며, 삽입/정규화 도구는 원문 이름 필드 폭을 기준으로 앞쪽 padding 을 자동 복원하고 `0x0B` 자체도 유지한다.
+  - 번역자는 전각/반각 공백을 직접 넣어 이름 필드를 맞추지 않는다.
+  - 원문 이름 필드 폭보다 한국어 앞줄이 짧아 여백이 생기면, 가능하면 그 여백을 의미 있는 조사/목적어/동사 조각으로 활용한다. 예: `오토메일검을\x0b연성해 공격`, `벽을 연성해\x0b상대 공격`, `강철 대포를\x0b연성해 공격`.
+  - 2줄 설명창에서는 윗줄을 먼저 채운다. byte 와 첫 줄 표시 폭이 허용하면 `창을\x0b연성해 공격` 보다 `창을 연성해\x0b공격`, `해머를\x0b연성해 공격` 보다 `해머를 연성해\x0b공격` 처럼 배치한다.
+  - 앞줄 여백 활용은 실제 글자를 추가하는 정책이지 수동 padding 을 넣는 정책이 아니다. 최종 정렬 공백은 정규화/빌드 도구가 복원한다.
+  - 원문에 없는 임의 줄바꿈은 기본적으로 넣지 않는다. 단, 시각적으로 2줄 설명창 계열임이 확인된 짧은 `ability_texts` 설명에서 한 줄 배치가 잘리거나 답답하면, byte 한계와 첫 줄 폭 확인 후 `0x0B` 를 넣을 수 있다.
+  - 포인터가 없는 고정 슬롯이 많으므로 `battle_texts`, `ability_texts`, `material_texts` 번역은 audit 의 `expansion_mode` 를 확인한다. 슬롯 여유가 있으면 더 알아보기 쉬운 표현을 쓰고, 여유가 없으면 byte 한계를 지킨다.
 - 세부 구조는 같은 manifest 의 `term_description_plain_00_optional_0b` family 를 따른다.
 - credits 문자열은 **전각 공백 패딩을 가진 `00` 종단 plain record** family 로 부분 확정됐다.
 - 이 family 에서는 padding 이 레이아웃 힌트 역할을 하므로, spacing-sensitive 수정은 매우 보수적으로 한다.
@@ -91,20 +107,20 @@
 - 일반 대사창의 `한 박스 최대 줄 수`
 - 화면군별 자동 줄바꿈 규칙
 - `\n`, `[WAIT]`, `[PAGE]`, `{NAME}` 같은 제어 토큰의 실제 사용 범위
-- `…`, `―`, `!`, `?`, `·`, `《》` 같은 문장부호의 전체 화면 호환성
+- `…`, `―`, `!`, `?`, `・`, `《》` 같은 문장부호의 전체 화면 호환성
 
 ### 현재 번역팀 운영 규칙
 
 - 전역 수치가 확정되기 전까지는 “한 줄 14자” 같은 값을 임의로 상정하지 않는다.
 - 원문에 명시된 줄바꿈/제어문자가 있으면 **보존 우선**으로 본다.
-- 줄바꿈 정보가 없는 일반 대사는 짧고 명확하게 번역하되, 번역자가 임의로 과도한 줄나눔을 넣지 않는다.
+- 줄바꿈 정보가 없는 일반 대사는 source family 별 삽입 방식을 먼저 본다. Registry D처럼 확장 패킹이 가능하거나 plain record 직접 포인터가 확인된 항목은 자연스러운 한국어를 우선하고, 아직 확장 경로가 없는 counted/UI 계열은 byte 한계 안에서 명확하게 유지한다.
 - 길이 제약이 확정된 workset 은 별도 메모나 필드로 관리하고, 그 규칙이 있으면 그 규칙을 최우선한다.
 - 화자 정보가 필요한 경우, 현재는 extracted JSON 안의 명시적 `speaker` 필드 대신 [confirmed_data/dialogue_metadata/README.md](/Users/user/test/confirmed_data/dialogue_metadata/README.md) 의 `dialogue_state_token` sidecar 를 먼저 참고한다.
 - `dialogue_state_token` 은 확정 화자명이 아니라 **동일 portrait/state 후보를 묶는 객관적 제어 표식**으로만 취급한다.
 - `entry8` 와 `Registry D` 는 둘 다 대사 source 지만 runtime profile 이 다르므로, 둘에 같은 줄바꿈 습관을 적용하지 않는다.
 - [runtime_dialogue_subprofiles.md](/Users/user/test/confirmed_data/text_layout/runtime_dialogue_subprofiles.md) 기준으로:
-  - `entry8` 의 chain-heavy cluster 는 짧은 single-line record 가 외부 script control 로 연속 표시될 가능성이 높으므로, 각 record 를 더 짧고 단단하게 번역한다.
-  - `Registry D` 의 long-multiline tier 는 page-turn risk 가 가장 높으므로, 원문 개행 보존을 더 강하게 우선한다.
+  - `entry8` 의 chain-heavy cluster 는 짧은 single-line record 가 외부 script control 로 연속 표시될 가능성이 높으므로, 각 record 를 한 줄 단위로 명확하게 번역한다. 단, fixed 계열이라도 단순 최소 길이로 줄이지 말고, 허용 문자수 안에서 의미와 말투를 최대한 살린다.
+  - `Registry D` 의 long-multiline tier 는 확장 패킹으로 원문 byte 슬롯보다 길게 넣을 수 있으므로, 의미를 덜어내기보다 원문 개행 보존과 시각 QA 를 우선한다.
 
 ### 코드 기반으로 강하게 좁혀진 것
 
@@ -126,7 +142,7 @@ workset/source 연결은 [text_layout_assignment_index.json](/Users/user/test/co
 주의:
 
 - 위 수치는 번역 길이 감을 잡는 참고치다.
-- 아직 일반 대사창 전 화면군에서 시각 QA까지 끝난 것은 아니므로, 번역팀은 이 값을 **절대 제한**처럼 단정하지 말고 우선 짧고 명확한 번역을 유지한다.
+- 아직 일반 대사창 전 화면군에서 시각 QA까지 끝난 것은 아니므로, 번역팀은 이 값을 **절대 제한**처럼 단정하지 않는다. Registry D 는 자연스러운 번역을 우선하고, 화면에서 잘리면 줄바꿈/문장 분할로 조정한다.
 
 ---
 
@@ -323,7 +339,7 @@ workset/source 연결은 [text_layout_assignment_index.json](/Users/user/test/co
 | 上限 | 상한 | |
 | 回復 | 회복 | |
 | 体力 | 체력 | 원문이 `体力`일 때 |
-| HP / ＨＰ | HP | 원문이 HP일 때 |
+| HP / ＨＰ | ＨＰ | 원문이 HP일 때. 반각 `HP` 금지 |
 | コンビネーションアタック | 콤비네이션 어택 | |
 | アクションゲージ | 액션 게이지 | |
 
@@ -495,7 +511,7 @@ workset/source 연결은 [text_layout_assignment_index.json](/Users/user/test/co
 
 - 과장되고 장중한 말투.
 - 다만 밈처럼 과하게 희화화하지 않는다.
-- 문장이 길어지면 GBA 문장 길이에 맞춰 압축한다.
+- 고정 슬롯/UI 계열에서는 길이를 줄이되, Registry D 대사라면 원문 byte 슬롯에 맞추려고 품격이나 의미를 과도하게 압축하지 않는다.
 
 ### 8.6 코니슈 로이스 / 코니
 
@@ -564,14 +580,16 @@ workset/source 연결은 [text_layout_assignment_index.json](/Users/user/test/co
 
 | 원문/상황 | 기준 |
 |---|---|
-| `…` | 기본적으로 `...` 사용 |
-| `・・・` | `...` 사용 |
-| `！！` | 보통 `!` 하나로 축약 |
-| `？？` | 보통 `?` 하나로 축약 |
-| `！？` | 강한 놀람에만 `!?` 허용 |
-| 일본어 낫표 `「」` | 보통 한국어 따옴표 없이 처리. 강조가 필요하면 사용 가능 |
-| 숫자 | 원문 숫자 유지. 전각 숫자는 반각 숫자로 바꿔도 됨 |
-| `１／５` | `1/5` 권장 |
+| `…` | 원문에 있으면 유지 우선. 해당 family 에서 표시가 깨지거나 길이가 부족할 때만 `...` 등으로 대체 |
+| `・・・` | 원문 형태 유지 우선. 길이/표시 문제가 확인된 경우에만 `…` 또는 `...` 로 축약. `jp_in_translation` 같은 일본어 잔존 검사에서는 보존 특수기호로 취급하고, 실제 가나/한자 잔존과 구분한다 |
+| `！！`, `？？`, `！？` | 원문 기호와 강도를 유지 우선. 길이 부족, 화면 잘림, family 별 기호 제한이 있으면 최소한으로 축약 |
+| 인명/고유명사 내부의 `・` | 한국어 번역에서는 띄어쓰기로 바꾼다. 예: `エドワード・エルリック` -> `에드워드 엘릭`, `ソニー・クリエイティブ` -> `소니 크리에이티브` |
+| `１・２`, `４・５` 같은 숫자 사이의 `・` | 조건/범위 구분 기호로 보아 유지 우선. 표시 문제가 확인된 경우에만 다른 기호로 바꾼다 |
+| `／`, `：`, `①` 같은 특수기호 | 일본어/한자를 제외한 기호는 가능한 한 원문 기호를 그대로 유지 |
+| 일본어 낫표 `「」` | 원문에서 강조/명칭 경계 역할이면 유지 우선. 한국어 문장상 불필요하거나 길이가 부족하면 생략 가능 |
+| 숫자 | `Registry D`, 코어 UI, 게임 용어에서 기존 반각 숫자는 보존. `Entry8`, 이벤트 연출, 오프닝/세이브/선택지 계열은 전각 숫자 우선. 원문 숫자 의미와 번호 체계는 보존 |
+| 영문 약어 | 전각 영문 사용. 예: `ＨＰ`, `ＡＳ`, `Ｒ 버튼` |
+| `１／５` | `Registry D`, 코어 UI, 게임 용어에서 기존 `1/5` 는 보존. `Entry8`, 이벤트 연출, 오프닝/세이브/선택지 계열은 `１／５` 같은 전각 형태 우선 |
 
 문장부호를 장식적으로 늘리지 않는다.
 

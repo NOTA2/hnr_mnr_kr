@@ -1,4 +1,4 @@
-# Translation Worksets
+# 번역 작업 세트
 
 번역팀이 바로 열어 작업할 수 있게 정리한 우선 workset 모음이다.
 

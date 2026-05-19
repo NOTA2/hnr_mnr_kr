@@ -1233,7 +1233,7 @@
   - 번역:
     - `大陸暦` -> `대륙력`
     - `１９１０年　２月` -> `1910년 2월`
-    - `　　リゼンブール村` -> `리젠불 마을`
+    - `　　リゼンブール村` -> `리젠블 마을`
     - `　兄１１歳　　弟１０歳` -> `형 11세    동생 10세`
   - 현재 `full80` glyph 세트에 없는 `륙, 력, 년, 월, 마, 형, 동, 생` 8글자를 [startup_intro_missing_manifest.json](/Users/user/test/analysis/startup_intro_missing_manifest.json) 과 [startup_intro_missing_workbench](/Users/user/test/analysis/startup_intro_missing_workbench) 로 준비했다.
   - 이를 `full80` font ROM 위에 append 한 뒤, merged table [hangul_core_ui_plus_startup.tbl](/Users/user/test/analysis/hangul_core_ui_plus_startup.tbl) 을 사용해 `/private/tmp/hnr_rebuild_check/hnr_startup_intro_test.gba` 를 만들었다.
@@ -1304,7 +1304,7 @@
   - 새 workbench 는 `14 / 14` nonblank glyph 상태임을 `audit-pgm-glyph-set` 로 확인했다.
   - [build_startup_intro_test.sh](/Users/user/test/scripts/build_startup_intro_test.sh) 는 이제 full80 공용 세트 없이, startup 전용 workbench 만 append 해서 ROM 을 만든다.
 - 결과:
-  - `/Users/user/test/patched_roms/startup_nanumsquare_check/hnr_startup_intro_test.gba` 빌드가 다시 통과했고, `대륙력` / `리젠불 마을` search hit 도 유지됐다.
+  - `/Users/user/test/patched_roms/startup_nanumsquare_check/hnr_startup_intro_test.gba` 빌드가 다시 통과했고, `대륙력` / `리젠블 마을` search hit 도 유지됐다.
   - 따라서 startup intro 는 이제 **NanumSquareR 기반 seed glyph 로 독립 검증 가능한 상태** 가 됐다.
 - 판정: `성공`
 - 교훈: 초반 검증 화면은 공용 세트와 분리한 **작은 전용 workbench** 로 닫는 편이 훨씬 안정적이다.
@@ -1654,7 +1654,7 @@
 
 - 가설: startup 폰트 비교는 넓은 한글 범위보다 먼저, 원문 의미를 유지한 첫 카드 번역으로 보는 편이 사용자 판단에 더 적합하다.
 - 시도:
-  - [translation_workset_startup_font_showcase.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_startup_font_showcase.json) 을 `대륙력 / 1910년 2월 / 리젠불 마을 / 형 11세 동생 10세` 로 바꿨다.
+  - [translation_workset_startup_font_showcase.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_startup_font_showcase.json) 을 `대륙력 / 1910년 2월 / 리젠블 마을 / 형 11세 동생 10세` 로 바꿨다.
   - [build_finalist_startup_tests.py](/Users/user/test/scripts/build_finalist_startup_tests.py) 가 빌드된 `3`개 GBA 를 [finalists](/Users/user/test/patched_roms/font_compare/finalists) 폴더로 한 번 더 모으도록 수정했다.
 - 결과:
   - 비교 대상은 여전히 후보 `3`개지만, 이제 첫 화면의 내용도 원문 의미와 맞고 결과 GBA 도 한 폴더에서 바로 열 수 있게 되었다.
@@ -1666,7 +1666,7 @@
 - 가설: startup intro 화면에서 사용자가 본 "회색/흰색이 뒤집힌 느낌"은 단계 수 부족이 아니라, 실제 팔레트 역할에서 `17` 과 `34` 의 의미를 반대로 넣었기 때문일 수 있다.
 - 시도:
   - 원본 glyph 가 `0 / 17 / 34` 단계를 쓴다는 사실은 유지하되, atlas importer 에서 밝은 본체를 `17`, 그림자 톤을 `34` 로 바꾸었다.
-  - startup showcase 문구도 원문 의미와 레이아웃을 더 따르도록 `대륙력 / １９１０년　２월 / 　　리젠불 마을 / 형１１세　　동생１０세` 쪽으로 다시 맞췄다.
+  - startup showcase 문구도 원문 의미와 레이아웃을 더 따르도록 `대륙력 / １９１０년　２월 / 　　리젠블 마을 / 형１１세　　동생１０세` 쪽으로 다시 맞췄다.
   - 후보 `3`개 ROM 을 다시 빌드하고, 한 폴더 [finalists](/Users/user/test/patched_roms/font_compare/finalists) 로 수집했다.
 - 결과:
   - 새 workbench 는 여전히 `0 / 17 / 34` 만 사용하지만, 역할은 `본체=17`, `그림자=34` 로 뒤집혔다.

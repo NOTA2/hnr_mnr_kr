@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "status": "reopened_runtime_screenshot_required",
+  "last_updated": "2026-05-19",
+  "reason": "정적 LZ77/raw contact sheet 에서는 한글화 대상 이미지 라벨이 거의 보이지 않았지만, 실제 플레이에서 번역해야 할 이미지/타일 텍스트가 다수 확인됐다. 따라서 static dump 판정만으로 이미지 감사를 닫지 않는다.",
+  "current_reading": [
+    "GBA 화면의 텍스트형 그래픽은 LZ77 타일만 펼쳐서는 안 보일 수 있다.",
+    "실제 화면은 타일 그래픽 + 타일맵 + 팔레트 + OAM/sprite + 런타임 문자열 렌더링 조합이다.",
+    "일부는 구워진 이미지가 아니라 소형 폰트/글리프 시트와 문자열 테이블 조합일 수 있다.",
+    "따라서 앞으로는 플레이 스크린샷을 기준으로 문제 화면을 등록하고, 각 화면에서 보이는 일본어를 source type 별로 역분류한다."
+  ],
+  "source_type_candidates": [
+    {
+      "type": "rendered_text_string",
+      "meaning": "이미 추출해야 할 일반 문자열 또는 누락 문자열이 폰트로 렌더링되는 경우",
+      "action": "ROM 텍스트 검색/추출 gap audit 로 회수한다."
+    },
+    {
+      "type": "font_or_glyph_sheet",
+      "meaning": "전투 HUD 소형 이름처럼 폰트 자산이 일본어/영문 글리프를 찍는 경우",
+      "action": "문자열은 별도 추출하고, 필요하면 영문판/한글 글리프 시트를 비교 적용한다."
+    },
+    {
+      "type": "tilemap_composed_ui",
+      "meaning": "타일 그래픽 자체와 배치 정보가 분리되어 contact sheet 에서는 깨져 보이는 UI",
+      "action": "스크린샷 기준으로 VRAM/tilemap 또는 영문판 동일 블록 비교로 재구성한다."
+    },
+    {
+      "type": "baked_image_text",
+      "meaning": "장면 카드/로고/배너처럼 글자가 이미지 안에 직접 구워진 경우",
+      "action": "해당 LZ77/raw 블록과 팔레트를 찾아 이미지 교체 대상으로 승격한다."
+    }
+  ],
+  "known_cases": [
+    {
+      "case_id": "battle_hud_small_font_00534874",
+      "status": "patched_from_english_rom",
+      "visible_context": "전투 HUD 의 작은 캐릭터 이름/수치 글자",
+      "source_type": "font_or_glyph_sheet",
+      "offset": "0x00534874",
+      "notes": "영문판 동일 LZ77 블록을 추출해 current_review ROM 에 후처리 적용한다."
+    }
+  ],
+  "intake_policy": [
+    "사용자가 일본어/미번역 이미지가 보이는 화면을 발견하면 스크린샷과 장면 설명을 이 감사 큐에 추가한다.",
+    "같은 화면의 영문판 스크린샷이 있으면 우선 비교한다.",
+    "스크린샷에 보이는 문구를 먼저 일반 텍스트/폰트/타일맵/구운 이미지 중 하나로 분류한다.",
+    "분류 전에는 GUI 이미지 작업 항목으로 확정하지 않는다."
+  ],
+  "open_cases": [
+    {
+      "case_id": "title_screen_logo_and_menu",
+      "status": "open",
+      "registered_at": "2026-05-19T03:48:47",
+      "screenshot": "confirmed_data/image_inventory/runtime_screenshots/title_screen_logo_and_menu.png",
+      "visible_text": "鋼の錬金術師 / 迷走の輪舞曲 / つづきから / はじめから / 通信",
+      "context": "타이틀 화면 로고와 고정 메뉴",
+      "source_type": "unknown",
+      "notes": "정적 LZ77 contact sheet 와 영문판 same-offset diff 로는 바로 확정되지 않음. VRAM/tilemap 기반 역추적 필요."
+    },
+    {
+      "case_id": "title_screen_main_logo_menu",
+      "status": "open",
+      "registered_at": "2026-05-19T03:50:20",
+      "screenshot": "confirmed_data/image_inventory/runtime_screenshots/title_screen_main_logo_menu.png",
+      "visible_text": "鋼の錬金術師 / 迷走の輪舞曲 / つづきから / はじめから / 通信",
+      "context": "타이틀 화면 메인 로고, 부제, 메뉴 라벨, 저작권 표기",
+      "source_type": "unknown",
+      "notes": "한글화 필요가 확인된 대표 케이스. 모든 플레이 화면을 수작업 수집하는 방식이 아니라, 타이틀/메뉴/전투/도감/결과처럼 대표 화면을 등록한 뒤 영문판 diff 와 VRAM/tilemap-aware 역추적으로 자산 위치를 찾는다."
+    }
+  ]
+}

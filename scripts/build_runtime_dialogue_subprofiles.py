@@ -80,9 +80,9 @@ def build_entry8_summary(entry8: dict) -> dict:
         "top_chain_heavy_clusters": [c for c in clusters if c["runtime_chain_profile"] == "chain_heavy_singleline"][:12],
         "top_chain_moderate_clusters": [c for c in clusters if c["runtime_chain_profile"] == "chain_moderate_singleline"][:12],
         "current_reading": [
-            "Entry8 records are still single-line counted payloads, but runtime flow is not purely one-record-per-box.",
-            "Many clusters contain multi-record contiguous state runs, so the remaining runtime question is chaining/page-flow across short records rather than multiline decoding.",
-            "Translation should treat chain-heavy clusters as likely externally sequenced dialogue stretches and keep per-record lines concise.",
+            "Entry8 record 는 여전히 단일 줄 counted payload 이지만, runtime 흐름이 순수하게 one-record-per-box 는 아니다.",
+            "많은 cluster 가 multi-record 연속 상태 run 을 포함하므로, 남은 runtime 질문은 multiline 해독이 아니라 짧은 record 들이 어떻게 이어지는가이다.",
+            "번역은 chain-heavy cluster 를 외부 script 로 이어지는 대사 구간으로 보고, record 단위 줄을 짧게 유지한다.",
         ],
     }
 
@@ -127,9 +127,9 @@ def build_regd_summary(regd: dict) -> dict:
     return {
         "subprofiles": summaries,
         "current_reading": [
-            "Registry D is not one monolithic multiline family; it splits into short single-line battle/tutorial barks, one-break explanatory lines, mid multiline explanations, and a small long-multiline manual/tutorial tier.",
-            "This narrows the remaining runtime risk from generic 'page-flow unknown' to a much smaller question: how the longest multiline tier turns pages inside the shared r3=20 candidate family.",
-            "Translation should preserve existing newlines and avoid adding extra breaks until runtime page-turn QA is locked.",
+            "Registry D 는 하나의 거대한 multiline family 가 아니라, 짧은 단일 줄 전투/튜토리얼 대사, 한 번만 끊기는 설명 줄, 중간 길이 multiline 설명, 소수의 장문 manual/tutorial 계층으로 나뉜다.",
+            "Registry D 는 packed relocation 으로 원문 byte 슬롯보다 긴 번역도 적용 가능하므로, 남은 runtime 위험은 길이 수용 여부보다 가장 긴 multiline 계층이 어떻게 페이지를 넘기는가라는 질문으로 줄어든다.",
+            "번역은 자연스러운 의미 보존과 기존 개행 보존을 우선하고, runtime page-turn QA 에서 잘림이 보이면 줄바꿈/문장 분할로 조정한다.",
         ],
     }
 
@@ -144,31 +144,31 @@ def build() -> dict:
         "entry8": build_entry8_summary(entry8),
         "registry_d": build_regd_summary(regd),
         "operational_reading": [
-            "Entry8 remaining uncertainty is now concentrated in chain-heavy single-line clusters rather than the entire source.",
-            "Registry D remaining uncertainty is now concentrated in a very small long-multiline tier plus page-turn behavior, not the whole source.",
+            "Entry8 의 남은 불확실성은 source 전체가 아니라 chain-heavy 단일 줄 cluster 에 집중돼 있다.",
+            "Registry D 의 남은 불확실성은 source 전체나 원문 슬롯 길이가 아니라, 매우 작은 장문 multiline 계층과 page-turn 동작에 집중돼 있다.",
         ],
     }
 
 
 def render_md(data: dict) -> str:
     lines = [
-        "# Runtime Dialogue Subprofiles",
+        "# runtime 대사 세부 profile",
         "",
-        f"- last_updated: `{data['last_updated']}`",
+        f"- 마지막 갱신: `{data['last_updated']}`",
         "",
         "## Entry8",
         "",
     ]
     for key, value in data["entry8"]["profile_counts"].items():
         lines.append(f"- `{key}`: `{value}` clusters")
-    lines.extend(["", "### Entry8 Focus Clusters", ""])
+    lines.extend(["", "### Entry8 집중 cluster", ""])
     for cluster in data["entry8"]["top_chain_heavy_clusters"][:8]:
         lines.append(
             f"- cluster `{cluster['cluster_index']}` `{cluster['primary_tag']}`: "
             f"`records={cluster['record_count']}`, `runs={cluster['run_count']}`, "
             f"`multi_runs={cluster['multi_record_run_count']}`, `max_run={cluster['max_run_record_count']}`"
         )
-    lines.extend(["", "### Entry8 Reading", ""])
+    lines.extend(["", "### Entry8 해석", ""])
     for note in data["entry8"]["current_reading"]:
         lines.append(f"- {note}")
 
@@ -177,11 +177,11 @@ def render_md(data: dict) -> str:
         lines.append(
             f"- `{group['subprofile']}`: `runs={group['run_count']}`, `record_coverage={group['record_coverage']}`"
         )
-    lines.extend(["", "### Registry D Reading", ""])
+    lines.extend(["", "### Registry D 해석", ""])
     for note in data["registry_d"]["current_reading"]:
         lines.append(f"- {note}")
 
-    lines.extend(["", "## Operational Reading", ""])
+    lines.extend(["", "## 현재 해석", ""])
     for note in data["operational_reading"]:
         lines.append(f"- {note}")
     lines.append("")

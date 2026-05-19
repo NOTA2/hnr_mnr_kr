@@ -1,0 +1,648 @@
+[
+  {
+    "run_id": "entry8_cluster_27_run_0000",
+    "cluster_index": 27,
+    "run_index": 0,
+    "dialogue_state_token": "1bff:F01B",
+    "record_count": 1,
+    "offsets": [
+      7330232
+    ],
+    "source_text": "鎧のパーツ？",
+    "translation_text": "갑옷 부품?",
+    "records": [
+      {
+        "offset": 7330232,
+        "header_offset": 7330228,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 3074,
+        "text": "鎧のパーツ？",
+        "translation": "갑옷 부품?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_27_run_0001",
+    "cluster_index": 27,
+    "run_index": 1,
+    "dialogue_state_token": null,
+    "record_count": 21,
+    "offsets": [
+      7330250,
+      7330276,
+      7330334,
+      7330476,
+      7330506,
+      7330530,
+      7330572,
+      7330592,
+      7330626,
+      7330680,
+      7330706,
+      7330738,
+      7330788,
+      7330818,
+      7330842,
+      7331022,
+      7331038,
+      7331066,
+      7331088,
+      7331118,
+      7331168
+    ],
+    "source_text": "図書館にそんなものが\nあるわけないじゃないですか！\n図書館では静かにしてください\n図書館ってシーンとしてて\n気持ちが良いんだ。\n落ち着くなぁ\nメガネの軍人？\nここにはそんなヤツきてないぜ\nとなりの分館じゃないか？\nあまりにも静かでさ、\n寝ちまうときがあるんだよ。\n今もちょっとネムイ…\n図書館ってシーンとしてて\n気持ちが良いんだ。\n…ぐう、ぐう\n兄ちゃん、\nいいものがあるんだが…\n買わないかい？\n暗黒の５－６、レベル４、\nダークジュエルだ\nビタ一文まからないぞ",
+    "translation_text": "도서관에 그런 게\n있을 리 없잖아요!\n도서관에서는 조용히 해 주세요\n도서관은 조용해서\n기분이 좋아.\n차분해지네\n안경 쓴 군인?\n여기엔 그런 녀석 안 왔어\n옆 별관 아니야?\n너무 조용해서 말이야,\n잠들 때가 있어.\n지금도 좀 졸려…\n도서관은 조용해서\n기분이 좋아.\n…드르렁, 드르렁\n형씨,\n좋은 물건이 있는데…\n사지 않을래?\n암흑 5-6, 레벨 4,\n다크 주얼이야\n한 푼도 못 깎아",
+    "records": [
+      {
+        "offset": 7330250,
+        "header_offset": 7330246,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "図書館にそんなものが",
+        "translation": "도서관에 그런 게"
+      },
+      {
+        "offset": 7330276,
+        "header_offset": 7330272,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "あるわけないじゃないですか！",
+        "translation": "있을 리 없잖아요!"
+      },
+      {
+        "offset": 7330334,
+        "header_offset": 7330330,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 26,
+        "text": "図書館では静かにしてください",
+        "translation": "도서관에서는 조용히 해 주세요"
+      },
+      {
+        "offset": 7330476,
+        "header_offset": 7330472,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 110,
+        "text": "図書館ってシーンとしてて",
+        "translation": "도서관은 조용해서"
+      },
+      {
+        "offset": 7330506,
+        "header_offset": 7330502,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "気持ちが良いんだ。",
+        "translation": "기분이 좋아."
+      },
+      {
+        "offset": 7330530,
+        "header_offset": 7330526,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 2,
+        "text": "落ち着くなぁ",
+        "translation": "차분해지네"
+      },
+      {
+        "offset": 7330572,
+        "header_offset": 7330568,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 26,
+        "text": "メガネの軍人？",
+        "translation": "안경 쓴 군인?"
+      },
+      {
+        "offset": 7330592,
+        "header_offset": 7330588,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "ここにはそんなヤツきてないぜ",
+        "translation": "여기엔 그런 녀석 안 왔어"
+      },
+      {
+        "offset": 7330626,
+        "header_offset": 7330622,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "となりの分館じゃないか？",
+        "translation": "옆 별관 아니야?"
+      },
+      {
+        "offset": 7330680,
+        "header_offset": 7330676,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 26,
+        "text": "あまりにも静かでさ、",
+        "translation": "너무 조용해서 말이야,"
+      },
+      {
+        "offset": 7330706,
+        "header_offset": 7330702,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "寝ちまうときがあるんだよ。",
+        "translation": "잠들 때가 있어."
+      },
+      {
+        "offset": 7330738,
+        "header_offset": 7330734,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "今もちょっとネムイ…",
+        "translation": "지금도 좀 졸려…"
+      },
+      {
+        "offset": 7330788,
+        "header_offset": 7330784,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 26,
+        "text": "図書館ってシーンとしてて",
+        "translation": "도서관은 조용해서"
+      },
+      {
+        "offset": 7330818,
+        "header_offset": 7330814,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "気持ちが良いんだ。",
+        "translation": "기분이 좋아."
+      },
+      {
+        "offset": 7330842,
+        "header_offset": 7330838,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 2,
+        "text": "…ぐう、ぐう",
+        "translation": "…드르렁, 드르렁"
+      },
+      {
+        "offset": 7331022,
+        "header_offset": 7331018,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 164,
+        "text": "兄ちゃん、",
+        "translation": "형씨,"
+      },
+      {
+        "offset": 7331038,
+        "header_offset": 7331034,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "いいものがあるんだが…",
+        "translation": "좋은 물건이 있는데…"
+      },
+      {
+        "offset": 7331066,
+        "header_offset": 7331062,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "買わないかい？",
+        "translation": "사지 않을래?"
+      },
+      {
+        "offset": 7331088,
+        "header_offset": 7331084,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 4,
+        "text": "暗黒の５－６、レベル４、",
+        "translation": "암흑 5-6, 레벨 4,"
+      },
+      {
+        "offset": 7331118,
+        "header_offset": 7331114,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "ダークジュエルだ",
+        "translation": "다크 주얼이야"
+      },
+      {
+        "offset": 7331168,
+        "header_offset": 7331164,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 30,
+        "text": "ビタ一文まからないぞ",
+        "translation": "한 푼도 못 깎아"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_27_run_0002",
+    "cluster_index": 27,
+    "run_index": 2,
+    "dialogue_state_token": "1bff:0500",
+    "record_count": 1,
+    "offsets": [
+      7331218
+    ],
+    "source_text": "暗黒の５－６、レベル４か…",
+    "translation_text": "암흑 5-6, 레벨 4인가…",
+    "records": [
+      {
+        "offset": 7331218,
+        "header_offset": 7331214,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 26,
+        "text": "暗黒の５－６、レベル４か…",
+        "translation": "암흑 5-6, 레벨 4인가…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_27_run_0003",
+    "cluster_index": 27,
+    "run_index": 3,
+    "dialogue_state_token": null,
+    "record_count": 36,
+    "offsets": [
+      7331332,
+      7331452,
+      7331492,
+      7331518,
+      7331544,
+      7331576,
+      7331606,
+      7331676,
+      7331740,
+      7331850,
+      7331874,
+      7331986,
+      7332012,
+      7332040,
+      7332074,
+      7332096,
+      7332130,
+      7332250,
+      7332280,
+      7332422,
+      7332452,
+      7332480,
+      7332600,
+      7332628,
+      7332660,
+      7332682,
+      7332710,
+      7332828,
+      7332856,
+      7332884,
+      7332910,
+      7332932,
+      7332956,
+      7333070,
+      7333102,
+      7333136
+    ],
+    "source_text": "なら、いらない素材をえらびな\nなんだ、いらねえのか？\n素材カードの５枚目に\n入れておいたからな\nどうするかはお前の勝手だ。\nオレから買ったってことは\n他のヤツには言うなよ\n金が足りないじゃねーか…\nま、好きにしな\n機械鎧通信　最新号\nラッシュバレーの歩き方\n特集！最強の素材！？\n鋼のカードにせまる！\n錬成すると高い攻撃力をほこる\n鋼の素材カード\n金属のカードの質量を５以上、\n価値を４以上にすれば錬成可能！\n旅の友、回復薬の作り方①\n石の素材カード「琥珀」\n旅の友、回復薬の作り方②\n自然の素材カード「草」\n質量１か２、価値４か５で錬成\n　　　　戦術指南書①\n同じ敵に続けて攻撃すると、\n連続攻撃が発生\n一人ずつ攻撃するよりも\n大きなダメージを与えられるぞ\n　　　　戦術指南書②\n同じ仲間としばらくの間\n一緒に戦っていると、\n信頼度が上昇！\n信頼度が上がれば、\n援護攻撃をしてくれるぞ！\n特集　ダンジョン内の歩き方\n走ると敵に見つかりやすい！？\nそのウワサの真相にせまる！",
+    "translation_text": "그럼 필요 없는 소재를 골라\n뭐야, 필요 없어?\n소재 카드 다섯 번째에\n넣어 뒀으니까\n어떻게 할지는 네 마음이야.\n나한테 샀다는 건\n다른 녀석들한텐 말하지 마\n돈이 부족하잖아…\n뭐, 마음대로 해\n오토메일 통신 최신호\n러시 밸리 여행법\n특집! 최강의 소재!?\n강철 카드에 다가가다!\n연성하면 높은 공격력을 자랑하는\n강철 소재 카드\n금속 카드의 질량을 5 이상,\n가치를 4 이상으로 하면 연성 가능!\n여행의 친구, 회복약 만드는 법 1\n돌 소재 카드 \"호박\"\n여행의 친구, 회복약 만드는 법 2\n자연 소재 카드 \"풀\"\n질량 1이나 2, 가치 4나 5로 연성\n전술 지침서 1\n같은 적을 연속으로 공격하면,\n연속 공격 발생\n한 명씩 공격하는 것보다\n큰 피해를 줄 수 있다\n전술 지침서 2\n같은 동료와 한동안\n함께 싸우고 있으면,\n신뢰도 상승!\n신뢰도가 오르면,\n원호 공격을 해 준다!\n특집 던전 안을 걷는 법\n달리면 적에게 들키기 쉽다!?\n그 소문의 진상을 파헤친다!",
+    "records": [
+      {
+        "offset": 7331332,
+        "header_offset": 7331328,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 84,
+        "text": "なら、いらない素材をえらびな",
+        "translation": "그럼 필요 없는 소재를 골라"
+      },
+      {
+        "offset": 7331452,
+        "header_offset": 7331448,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 88,
+        "text": "なんだ、いらねえのか？",
+        "translation": "뭐야, 필요 없어?"
+      },
+      {
+        "offset": 7331492,
+        "header_offset": 7331488,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 14,
+        "text": "素材カードの５枚目に",
+        "translation": "소재 카드 다섯 번째에"
+      },
+      {
+        "offset": 7331518,
+        "header_offset": 7331514,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "入れておいたからな",
+        "translation": "넣어 뒀으니까"
+      },
+      {
+        "offset": 7331544,
+        "header_offset": 7331540,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 4,
+        "text": "どうするかはお前の勝手だ。",
+        "translation": "어떻게 할지는 네 마음이야."
+      },
+      {
+        "offset": 7331576,
+        "header_offset": 7331572,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "オレから買ったってことは",
+        "translation": "나한테 샀다는 건"
+      },
+      {
+        "offset": 7331606,
+        "header_offset": 7331602,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "他のヤツには言うなよ",
+        "translation": "다른 녀석들한텐 말하지 마"
+      },
+      {
+        "offset": 7331676,
+        "header_offset": 7331672,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 46,
+        "text": "金が足りないじゃねーか…",
+        "translation": "돈이 부족하잖아…"
+      },
+      {
+        "offset": 7331740,
+        "header_offset": 7331736,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 36,
+        "text": "ま、好きにしな",
+        "translation": "뭐, 마음대로 해"
+      },
+      {
+        "offset": 7331850,
+        "header_offset": 7331846,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 92,
+        "text": "機械鎧通信　最新号",
+        "translation": "오토메일 통신 최신호"
+      },
+      {
+        "offset": 7331874,
+        "header_offset": 7331870,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "ラッシュバレーの歩き方",
+        "translation": "러시 밸리 여행법"
+      },
+      {
+        "offset": 7331986,
+        "header_offset": 7331982,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 86,
+        "text": "特集！最強の素材！？",
+        "translation": "특집! 최강의 소재!?"
+      },
+      {
+        "offset": 7332012,
+        "header_offset": 7332008,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "鋼のカードにせまる！",
+        "translation": "강철 카드에 다가가다!"
+      },
+      {
+        "offset": 7332040,
+        "header_offset": 7332036,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 4,
+        "text": "錬成すると高い攻撃力をほこる",
+        "translation": "연성하면 높은 공격력을 자랑하는"
+      },
+      {
+        "offset": 7332074,
+        "header_offset": 7332070,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "鋼の素材カード",
+        "translation": "강철 소재 카드"
+      },
+      {
+        "offset": 7332096,
+        "header_offset": 7332092,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 4,
+        "text": "金属のカードの質量を５以上、",
+        "translation": "금속 카드의 질량을 5 이상,"
+      },
+      {
+        "offset": 7332130,
+        "header_offset": 7332126,
+        "char_count": 15,
+        "byte_length": 30,
+        "control_gap_length": 2,
+        "text": "価値を４以上にすれば錬成可能！",
+        "translation": "가치를 4 이상으로 하면 연성 가능!"
+      },
+      {
+        "offset": 7332250,
+        "header_offset": 7332246,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 86,
+        "text": "旅の友、回復薬の作り方①",
+        "translation": "여행의 친구, 회복약 만드는 법 1"
+      },
+      {
+        "offset": 7332280,
+        "header_offset": 7332276,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "石の素材カード「琥珀」",
+        "translation": "돌 소재 카드 \"호박\""
+      },
+      {
+        "offset": 7332422,
+        "header_offset": 7332418,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 116,
+        "text": "旅の友、回復薬の作り方②",
+        "translation": "여행의 친구, 회복약 만드는 법 2"
+      },
+      {
+        "offset": 7332452,
+        "header_offset": 7332448,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "自然の素材カード「草」",
+        "translation": "자연 소재 카드 \"풀\""
+      },
+      {
+        "offset": 7332480,
+        "header_offset": 7332476,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "質量１か２、価値４か５で錬成",
+        "translation": "질량 1이나 2, 가치 4나 5로 연성"
+      },
+      {
+        "offset": 7332600,
+        "header_offset": 7332596,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 88,
+        "text": "　　　　戦術指南書①",
+        "translation": "전술 지침서 1"
+      },
+      {
+        "offset": 7332628,
+        "header_offset": 7332624,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 4,
+        "text": "同じ敵に続けて攻撃すると、",
+        "translation": "같은 적을 연속으로 공격하면,"
+      },
+      {
+        "offset": 7332660,
+        "header_offset": 7332656,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "連続攻撃が発生",
+        "translation": "연속 공격 발생"
+      },
+      {
+        "offset": 7332682,
+        "header_offset": 7332678,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 4,
+        "text": "一人ずつ攻撃するよりも",
+        "translation": "한 명씩 공격하는 것보다"
+      },
+      {
+        "offset": 7332710,
+        "header_offset": 7332706,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "大きなダメージを与えられるぞ",
+        "translation": "큰 피해를 줄 수 있다"
+      },
+      {
+        "offset": 7332828,
+        "header_offset": 7332824,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 86,
+        "text": "　　　　戦術指南書②",
+        "translation": "전술 지침서 2"
+      },
+      {
+        "offset": 7332856,
+        "header_offset": 7332852,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 4,
+        "text": "同じ仲間としばらくの間",
+        "translation": "같은 동료와 한동안"
+      },
+      {
+        "offset": 7332884,
+        "header_offset": 7332880,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "一緒に戦っていると、",
+        "translation": "함께 싸우고 있으면,"
+      },
+      {
+        "offset": 7332910,
+        "header_offset": 7332906,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "信頼度が上昇！",
+        "translation": "신뢰도 상승!"
+      },
+      {
+        "offset": 7332932,
+        "header_offset": 7332928,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 4,
+        "text": "信頼度が上がれば、",
+        "translation": "신뢰도가 오르면,"
+      },
+      {
+        "offset": 7332956,
+        "header_offset": 7332952,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "援護攻撃をしてくれるぞ！",
+        "translation": "원호 공격을 해 준다!"
+      },
+      {
+        "offset": 7333070,
+        "header_offset": 7333066,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 86,
+        "text": "特集　ダンジョン内の歩き方",
+        "translation": "특집 던전 안을 걷는 법"
+      },
+      {
+        "offset": 7333102,
+        "header_offset": 7333098,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "走ると敵に見つかりやすい！？",
+        "translation": "달리면 적에게 들키기 쉽다!?"
+      },
+      {
+        "offset": 7333136,
+        "header_offset": 7333132,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "そのウワサの真相にせまる！",
+        "translation": "그 소문의 진상을 파헤친다!"
+      }
+    ],
+    "notes": ""
+  }
+]

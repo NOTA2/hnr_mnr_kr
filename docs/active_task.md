@@ -9,9 +9,10 @@
 - 현재 active 기본값은 [galmuri11_12x12.png](/Users/user/test/third_party/font_atlases/finalists/galmuri11_12x12.png) 이다.
 - 후보군 메타데이터와 export 기준은 [finalist_font_candidates.json](/Users/user/test/confirmed_data/font_assets/finalist_font_candidates.json), [finalist_export_recommendation.md](/Users/user/test/confirmed_data/font_assets/finalist_export_recommendation.md) 에 있다.
 - 새 후보 bitmap PNG 에서 **반드시 필요한 것**은 `가..힣` 완성형 `11,172`자 atlas 다.
-- 숫자/영문/기본 기호는 1차 한글화 기준으로 **원본 게임 공통 폰트**를 그대로 재사용한다.
+- 숫자/영문/기본 기호는 1차 한글화 기준으로 **원본 게임 공통 폰트**를 그대로 재사용하되, 반각/전각은 source family별 정책을 따른다. `Registry D`, 코어 UI, 게임 용어에서 이미 안정적으로 쓰인 반각은 유지하고, `Entry8`, 이벤트 연출 텍스트, 오프닝/세이브/선택지 계열은 전각 우선으로 둔다.
+- 인명/고유명사 내부의 `・`는 한국어에서 띄어쓰기로 통일한다. `・・・` 말줄임표와 숫자 사이의 `・`는 보존한다.
 - 첫 화면 즉시 비교용 startup showcase 세트는 [translation_workset_startup_font_showcase.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_startup_font_showcase.json) 이다.
-- startup 비교 문구는 현재 원문 의미를 유지한 `대륙력 / １９１０년 ２월 / 리젠불 마을 / 형１１세 동생１０세` 기준으로 맞추고 있다.
+- startup 비교 문구는 현재 원문 의미를 유지한 `대륙력 / １９１０년 ２월 / 리젠블 마을 / 형１１세 동생１０세` 기준으로 맞추고 있다.
 - atlas importer 는 PNG 의 밝은 본체와 그림자 역할을 게임 원본 단계인 `0 / 17 / 34` 로 매핑하되, **이 화면에서는 밝은 본체가 `17`, 그림자가 `34` 역할** 이 되도록 반대로 넣는다.
 - startup 첫 카드 `4`줄은 일반 `00` 종단 문자열이 아니라 **고정 길이 슬롯** 이므로, `append_terminator: false` 로 처리한다.
 - 텍스트 박스/공용 렌더러 family 규격은 [text_box_family_manifest.json](/Users/user/test/confirmed_data/text_layout/text_box_family_manifest.json) 에 분리해 둔다.
@@ -27,6 +28,9 @@
 - save/menu prompt 는 `save_menu_prefixed_01ff` family 로 따로 분리해, `01 FF <u16 char_count>` 헤더와 뒤 제어코드를 보존하는 쪽으로 다룬다.
 - `registry_a_entry8_prefixed_texts` 는 `entry8_prefixed_01ff_script_line`, `registry_d_fc_script_texts` 는 `registry_d_fc_stop_script_line` family 로 부분 확정했다.
 - 위 두 source 는 같은 `shared_text_object_r3_20` 후보를 공유하지만, payload 성격은 각각 **single-line counted** / **multiline FC-delimited** 로 갈린다.
+- `Registry D` 는 이제 entry 단위 packed relocation 이 적용된다. 번역문이 원문 byte 슬롯보다 길어져도 ROM 끝으로 entry 를 재패킹하고 `0x17C7E4` pointer-length table 을 갱신할 수 있다.
+- 따라서 `Registry D` 대사는 초압축 번역보다 자연스러운 의미 보존을 우선하고, 화면 잘림은 삭제가 아니라 줄바꿈/page-flow QA 로 조정한다.
+- 추가 개선 과제: 영문판처럼 ROM 을 16MB/32MB 로 확장하고, direct pointer/packed table 이 확인되는 source 부터 확장 영역 repoint 를 늘린다. 단, 당장 진행하지 않고 `ability/battle/material/entry8` 의 참조 구조를 더 닫은 뒤 별도 트랙으로 진행한다.
 - `entry8` 의 남은 runtime 불확실성은 이제 source 전체가 아니라 **chain-heavy single-line cluster** 쪽에 더 몰려 있다.
 - `Registry D` 의 남은 runtime 불확실성은 이제 source 전체가 아니라 **small long-multiline tier + page-turn behavior** 쪽에 더 몰려 있다.
 - 현재 가장 먼저 볼 `entry8` focus cluster 는 `38, 18, 61, 55, 20, 41, 62, 26, 11, 70` 이다.
@@ -36,6 +40,9 @@
 - image-side 감사는 [confirmed_data/image_inventory/README.md](/Users/user/test/confirmed_data/image_inventory/README.md) 기준으로 시작됐다.
 - 이미지 추출 준비 파이프라인은 [image_extraction_pipeline.md](/Users/user/test/confirmed_data/image_inventory/image_extraction_pipeline.md) 에 정리한다.
 - image-side 감사는 이제 `review bucket` 이 아니라 `title_logo_wordmark / event_or_cutscene_text_cards / ui_panel_label_art / battle_result_or_reward_banners` 같은 **review unit** 기준으로 본다.
+- 현재 GUI 기준 확정 한글화 이미지 작업 항목은 `0`개다. 하지만 이는 정적 contact sheet 기준 확정 항목이 없다는 뜻이며, 실제 플레이에서 보이는 미번역 이미지/타일은 [runtime_visual_asset_audit.md](/Users/user/test/confirmed_data/image_inventory/runtime_visual_asset_audit.md) 로 다시 추적한다.
+- 지금까지 확인된 정적 후보들은 대체로 배경/연출/캐릭터/프레임/폰트 자산이며, `0x00534874` 는 전투 HUD 소형 폰트/글리프 시트로 분류했다.
+- 전투 HUD 소형 폰트 후보 `0x00534874` 는 영문판 ROM 에서 동일 블록을 추출해 현재 review ROM 에 후처리 적용한다. 스크립트는 [apply_english_battle_hud_font.py](/Users/user/test/scripts/apply_english_battle_hud_font.py) 이다.
 - 각 image review unit 의 세부 단위, 탐색 방식, 작업 폴더는 [image_text_inventory.md](/Users/user/test/confirmed_data/image_inventory/image_text_inventory.md) 를 본다.
 - image-side 우선 review order 는 `title_logo_wordmark -> title_screen_static_menu_wordmarks -> event_or_cutscene_text_cards -> dialogue_window_frame_art` 순이다.
 - `system_messages` / `save_menu` 는 residual runtime uncertainty 가 남아도, 현재는 **operationally bounded** 로 내려가 주요 blocker 에서 제외한다.
@@ -51,7 +58,7 @@
 3. 남은 텍스트 추출 감사 마감
 4. Galmuri11 기준 재삽입/QA 루프 고정
 5. 번역/검수 workset 운영
-6. 이미지 추출 파이프라인 착수
+6. 이미지/타일 후보 추가 분류 및 예외 자산 추적
 7. 자동 재삽입 + 수동 glyph 수정 루프
 
 ## 바로 쓰는 파일

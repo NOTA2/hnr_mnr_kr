@@ -19,6 +19,8 @@ SOURCES = [
     "system_messages.json",
     "item_texts.json",
     "location_texts.json",
+    "registry_a_map_labels.json",
+    "duplicate_text_slots.json",
     "battle_texts.json",
     "ability_texts.json",
     "material_texts.json",

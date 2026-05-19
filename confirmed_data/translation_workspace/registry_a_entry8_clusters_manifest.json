@@ -1,7 +1,7 @@
 {
   "source": "confirmed_data/extracted_texts/registry_a_entry8_prefixed_texts.json",
   "catalog": "analysis/registry_a_entry8_cluster_catalog.json",
-  "cluster_count": 72,
+  "cluster_count": 73,
   "output_dir": "confirmed_data/translation_workspace/registry_a_entry8_clusters",
   "clusters": [
     {
@@ -17,7 +17,7 @@
         "tutorial",
         "debug_or_script"
       ],
-      "record_count": 232,
+      "record_count": 262,
       "range": {
         "start_offset": 7043638,
         "end_offset_exclusive": 7056652
@@ -42,7 +42,7 @@
         "battle_dialogue",
         "tutorial"
       ],
-      "record_count": 122,
+      "record_count": 133,
       "range": {
         "start_offset": 7063434,
         "end_offset_exclusive": 7070012
@@ -65,7 +65,7 @@
         "battle_dialogue",
         "tutorial"
       ],
-      "record_count": 45,
+      "record_count": 49,
       "range": {
         "start_offset": 7072642,
         "end_offset_exclusive": 7074612
@@ -87,7 +87,7 @@
         "liore",
         "battle_dialogue"
       ],
-      "record_count": 53,
+      "record_count": 62,
       "range": {
         "start_offset": 7076882,
         "end_offset_exclusive": 7079064
@@ -158,7 +158,7 @@
         "battle_dialogue",
         "tutorial"
       ],
-      "record_count": 64,
+      "record_count": 67,
       "range": {
         "start_offset": 7106440,
         "end_offset_exclusive": 7110778
@@ -184,7 +184,7 @@
         "travel_blocked",
         "debug_or_script"
       ],
-      "record_count": 63,
+      "record_count": 65,
       "range": {
         "start_offset": 7114934,
         "end_offset_exclusive": 7118636
@@ -208,7 +208,7 @@
         "shop_npc",
         "tutorial"
       ],
-      "record_count": 84,
+      "record_count": 85,
       "range": {
         "start_offset": 7120542,
         "end_offset_exclusive": 7123888
@@ -231,7 +231,7 @@
         "tutorial",
         "debug_or_script"
       ],
-      "record_count": 155,
+      "record_count": 162,
       "range": {
         "start_offset": 7131678,
         "end_offset_exclusive": 7140374
@@ -258,7 +258,7 @@
         "shop_npc",
         "tutorial"
       ],
-      "record_count": 135,
+      "record_count": 137,
       "range": {
         "start_offset": 7147556,
         "end_offset_exclusive": 7157778
@@ -288,7 +288,7 @@
         "battle_dialogue",
         "tutorial"
       ],
-      "record_count": 258,
+      "record_count": 300,
       "range": {
         "start_offset": 7164810,
         "end_offset_exclusive": 7177316
@@ -310,7 +310,7 @@
         "cat_quest",
         "shop_npc"
       ],
-      "record_count": 15,
+      "record_count": 16,
       "range": {
         "start_offset": 7179742,
         "end_offset_exclusive": 7180442
@@ -335,7 +335,7 @@
         "battle_dialogue",
         "tutorial"
       ],
-      "record_count": 105,
+      "record_count": 115,
       "range": {
         "start_offset": 7182528,
         "end_offset_exclusive": 7187162
@@ -360,7 +360,7 @@
         "shop_npc",
         "tutorial"
       ],
-      "record_count": 102,
+      "record_count": 111,
       "range": {
         "start_offset": 7189990,
         "end_offset_exclusive": 7194450
@@ -385,7 +385,7 @@
         "military",
         "armor_parts"
       ],
-      "record_count": 52,
+      "record_count": 53,
       "range": {
         "start_offset": 7200576,
         "end_offset_exclusive": 7202976
@@ -411,7 +411,7 @@
         "battle_dialogue",
         "tutorial"
       ],
-      "record_count": 155,
+      "record_count": 158,
       "range": {
         "start_offset": 7208222,
         "end_offset_exclusive": 7215696
@@ -436,7 +436,7 @@
         "armor_parts",
         "tutorial"
       ],
-      "record_count": 101,
+      "record_count": 109,
       "range": {
         "start_offset": 7217998,
         "end_offset_exclusive": 7221978
@@ -462,7 +462,7 @@
         "battle_dialogue",
         "tutorial"
       ],
-      "record_count": 523,
+      "record_count": 581,
       "range": {
         "start_offset": 7227594,
         "end_offset_exclusive": 7252004
@@ -485,7 +485,7 @@
         "shop_npc",
         "tutorial"
       ],
-      "record_count": 155,
+      "record_count": 160,
       "range": {
         "start_offset": 7254940,
         "end_offset_exclusive": 7261576
@@ -511,7 +511,7 @@
         "battle_dialogue",
         "tutorial"
       ],
-      "record_count": 325,
+      "record_count": 378,
       "range": {
         "start_offset": 7263738,
         "end_offset_exclusive": 7277140
@@ -539,7 +539,7 @@
         "travel_blocked",
         "tutorial"
       ],
-      "record_count": 86,
+      "record_count": 88,
       "range": {
         "start_offset": 7283598,
         "end_offset_exclusive": 7288158
@@ -586,7 +586,7 @@
         "travel_blocked",
         "tutorial"
       ],
-      "record_count": 38,
+      "record_count": 39,
       "range": {
         "start_offset": 7295088,
         "end_offset_exclusive": 7297088
@@ -630,7 +630,7 @@
         "cat_quest",
         "tutorial"
       ],
-      "record_count": 23,
+      "record_count": 25,
       "range": {
         "start_offset": 7305430,
         "end_offset_exclusive": 7306854
@@ -657,7 +657,7 @@
         "armor_parts",
         "tutorial"
       ],
-      "record_count": 274,
+      "record_count": 303,
       "range": {
         "start_offset": 7314214,
         "end_offset_exclusive": 7327154
@@ -681,7 +681,7 @@
         "reward",
         "tutorial"
       ],
-      "record_count": 59,
+      "record_count": 61,
       "range": {
         "start_offset": 7330232,
         "end_offset_exclusive": 7333162
@@ -706,7 +706,7 @@
         "battle_dialogue",
         "tutorial"
       ],
-      "record_count": 148,
+      "record_count": 152,
       "range": {
         "start_offset": 7335132,
         "end_offset_exclusive": 7341010
@@ -754,7 +754,7 @@
         "reward",
         "tutorial"
       ],
-      "record_count": 59,
+      "record_count": 71,
       "range": {
         "start_offset": 7350506,
         "end_offset_exclusive": 7354356
@@ -775,7 +775,7 @@
       "tags": [
         "liore"
       ],
-      "record_count": 15,
+      "record_count": 18,
       "range": {
         "start_offset": 7355796,
         "end_offset_exclusive": 7356658
@@ -801,7 +801,7 @@
         "travel_blocked",
         "tutorial"
       ],
-      "record_count": 138,
+      "record_count": 142,
       "range": {
         "start_offset": 7377716,
         "end_offset_exclusive": 7385472
@@ -844,7 +844,7 @@
         "military",
         "tutorial"
       ],
-      "record_count": 166,
+      "record_count": 173,
       "range": {
         "start_offset": 7390270,
         "end_offset_exclusive": 7396544
@@ -869,7 +869,7 @@
         "reward",
         "tutorial"
       ],
-      "record_count": 137,
+      "record_count": 139,
       "range": {
         "start_offset": 7399700,
         "end_offset_exclusive": 7406932
@@ -895,7 +895,7 @@
         "travel_blocked",
         "tutorial"
       ],
-      "record_count": 109,
+      "record_count": 116,
       "range": {
         "start_offset": 7409868,
         "end_offset_exclusive": 7415772
@@ -916,7 +916,7 @@
       "tags": [
         "tutorial"
       ],
-      "record_count": 66,
+      "record_count": 67,
       "range": {
         "start_offset": 7418202,
         "end_offset_exclusive": 7420518
@@ -942,7 +942,7 @@
         "battle_dialogue",
         "tutorial"
       ],
-      "record_count": 786,
+      "record_count": 826,
       "range": {
         "start_offset": 7421730,
         "end_offset_exclusive": 7456036
@@ -964,7 +964,7 @@
         "military",
         "reward"
       ],
-      "record_count": 123,
+      "record_count": 126,
       "range": {
         "start_offset": 7458270,
         "end_offset_exclusive": 7464342
@@ -1012,7 +1012,7 @@
         "tutorial",
         "debug_or_script"
       ],
-      "record_count": 306,
+      "record_count": 320,
       "range": {
         "start_offset": 7479324,
         "end_offset_exclusive": 7494004
@@ -1039,7 +1039,7 @@
         "battle_dialogue",
         "tutorial"
       ],
-      "record_count": 154,
+      "record_count": 162,
       "range": {
         "start_offset": 7500240,
         "end_offset_exclusive": 7508372
@@ -1063,7 +1063,7 @@
         "military",
         "tutorial"
       ],
-      "record_count": 173,
+      "record_count": 187,
       "range": {
         "start_offset": 7511166,
         "end_offset_exclusive": 7519828
@@ -1085,7 +1085,7 @@
         "military",
         "tutorial"
       ],
-      "record_count": 150,
+      "record_count": 160,
       "range": {
         "start_offset": 7525100,
         "end_offset_exclusive": 7532206
@@ -1107,7 +1107,7 @@
         "military",
         "tutorial"
       ],
-      "record_count": 115,
+      "record_count": 129,
       "range": {
         "start_offset": 7537304,
         "end_offset_exclusive": 7542610
@@ -1130,7 +1130,7 @@
         "battle_dialogue",
         "tutorial"
       ],
-      "record_count": 155,
+      "record_count": 163,
       "range": {
         "start_offset": 7547960,
         "end_offset_exclusive": 7553764
@@ -1152,7 +1152,7 @@
         "military",
         "battle_dialogue"
       ],
-      "record_count": 187,
+      "record_count": 194,
       "range": {
         "start_offset": 7557030,
         "end_offset_exclusive": 7565354
@@ -1175,7 +1175,7 @@
         "travel_blocked",
         "tutorial"
       ],
-      "record_count": 71,
+      "record_count": 76,
       "range": {
         "start_offset": 7568738,
         "end_offset_exclusive": 7572972
@@ -1198,7 +1198,7 @@
         "military",
         "tutorial"
       ],
-      "record_count": 50,
+      "record_count": 52,
       "range": {
         "start_offset": 7579460,
         "end_offset_exclusive": 7581718
@@ -1221,7 +1221,7 @@
         "reward",
         "tutorial"
       ],
-      "record_count": 178,
+      "record_count": 184,
       "range": {
         "start_offset": 7589332,
         "end_offset_exclusive": 7598394
@@ -1240,7 +1240,7 @@
       "cluster_index": 51,
       "primary_tag": "unclassified",
       "tags": [],
-      "record_count": 43,
+      "record_count": 47,
       "range": {
         "start_offset": 7600664,
         "end_offset_exclusive": 7602714
@@ -1264,7 +1264,7 @@
         "reward",
         "tutorial"
       ],
-      "record_count": 232,
+      "record_count": 240,
       "range": {
         "start_offset": 7605080,
         "end_offset_exclusive": 7614458
@@ -1288,7 +1288,7 @@
         "battle_dialogue",
         "tutorial"
       ],
-      "record_count": 184,
+      "record_count": 195,
       "range": {
         "start_offset": 7621852,
         "end_offset_exclusive": 7630820
@@ -1310,7 +1310,7 @@
         "reward",
         "tutorial"
       ],
-      "record_count": 53,
+      "record_count": 57,
       "range": {
         "start_offset": 7637706,
         "end_offset_exclusive": 7640714
@@ -1336,7 +1336,7 @@
         "battle_dialogue",
         "tutorial"
       ],
-      "record_count": 438,
+      "record_count": 453,
       "range": {
         "start_offset": 7644286,
         "end_offset_exclusive": 7661472
@@ -1359,7 +1359,7 @@
         "battle_dialogue",
         "tutorial"
       ],
-      "record_count": 51,
+      "record_count": 54,
       "range": {
         "start_offset": 7667152,
         "end_offset_exclusive": 7669552
@@ -1404,7 +1404,7 @@
         "battle_dialogue",
         "tutorial"
       ],
-      "record_count": 143,
+      "record_count": 154,
       "range": {
         "start_offset": 7680256,
         "end_offset_exclusive": 7686198
@@ -1427,7 +1427,7 @@
         "battle_dialogue",
         "tutorial"
       ],
-      "record_count": 166,
+      "record_count": 168,
       "range": {
         "start_offset": 7691444,
         "end_offset_exclusive": 7698038
@@ -1449,7 +1449,7 @@
         "military",
         "tutorial"
       ],
-      "record_count": 82,
+      "record_count": 86,
       "range": {
         "start_offset": 7703608,
         "end_offset_exclusive": 7708134
@@ -1471,7 +1471,7 @@
         "military",
         "tutorial"
       ],
-      "record_count": 483,
+      "record_count": 513,
       "range": {
         "start_offset": 7711918,
         "end_offset_exclusive": 7732566
@@ -1497,7 +1497,7 @@
         "shop_npc",
         "tutorial"
       ],
-      "record_count": 291,
+      "record_count": 301,
       "range": {
         "start_offset": 7735754,
         "end_offset_exclusive": 7748594
@@ -1582,7 +1582,7 @@
       "tags": [
         "military"
       ],
-      "record_count": 27,
+      "record_count": 28,
       "range": {
         "start_offset": 7770066,
         "end_offset_exclusive": 7771040
@@ -1622,7 +1622,7 @@
       "tags": [
         "tutorial"
       ],
-      "record_count": 23,
+      "record_count": 30,
       "range": {
         "start_offset": 7778808,
         "end_offset_exclusive": 7780118
@@ -1644,7 +1644,7 @@
         "military",
         "tutorial"
       ],
-      "record_count": 147,
+      "record_count": 149,
       "range": {
         "start_offset": 7781580,
         "end_offset_exclusive": 7787016
@@ -1667,7 +1667,7 @@
         "battle_dialogue",
         "tutorial"
       ],
-      "record_count": 257,
+      "record_count": 263,
       "range": {
         "start_offset": 7789906,
         "end_offset_exclusive": 7799514
@@ -1699,7 +1699,7 @@
         "battle_dialogue",
         "tutorial"
       ],
-      "record_count": 240,
+      "record_count": 245,
       "range": {
         "start_offset": 7800810,
         "end_offset_exclusive": 7811530
@@ -1713,6 +1713,29 @@
         "広場でなにかあるみたいだね"
       ],
       "output_file": "confirmed_data/translation_workspace/registry_a_entry8_clusters/cluster_71_save_menu.json"
+    },
+    {
+      "cluster_index": 72,
+      "primary_tag": "unclassified",
+      "tags": [
+        "unclassified",
+        "catalog_gap"
+      ],
+      "record_count": 5,
+      "range": {
+        "start_offset": 7335094,
+        "end_offset_exclusive": 7547951
+      },
+      "first_text": "…………",
+      "last_text": "え？",
+      "sample_texts": [
+        "…………",
+        "大陸暦",
+        "１９１０年　２月",
+        "…待て",
+        "え？"
+      ],
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_clusters/cluster_72_unclassified.json"
     }
   ],
   "primary_tag_index": {
@@ -1809,7 +1832,8 @@
     ],
     "unclassified": [
       "cluster_51_unclassified.json",
-      "cluster_67_unclassified.json"
+      "cluster_67_unclassified.json",
+      "cluster_72_unclassified.json"
     ],
     "save_menu": [
       "cluster_71_save_menu.json"

@@ -73,6 +73,7 @@ python3 /Users/user/test/scripts/run_localization_workbench.py
 - 사람이 아직 확정하지 않은 항목:
   - 에이전트는 `agent_draft` 를 채운다.
   - 필요하면 `agent_comment` 도 함께 남긴다.
+- AI/에이전트가 만든 번역은 `translation` 에 적용하더라도 같은 값을 `agent_draft` 에도 남겨 되돌림 기준으로 쓴다.
 - 사람이 `수동 잠금`을 켠 항목:
   - 에이전트는 `translation` 을 수정하지 않는다.
   - 대신 `agent_draft` 와 `agent_comment` 에 대안을 적는다.

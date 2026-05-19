@@ -1,19 +1,19 @@
-# Dialogue Metadata
+# 대사 메타데이터
 
-이 폴더는 **화자 이름 추정**이 아니라, 대사 직전 제어군에서 뽑은 **객관적 state token** 과 **state run** 을 담는다.
+이 폴더는 **화자 이름 추정**이 아니라, 대사 직전 제어군에서 뽑은 **객관적 상태 토큰** 과 **상태 run** 을 담는다.
 
 현재 원칙:
 
-- `dialogue_state_token` 은 confirmed speaker ID 가 아니다.
+- `dialogue_state_token` 은 확정 화자 ID 가 아니다.
 - 같은 token 을 공유하는 줄은 같은 active portrait/state 후보로 묶어 볼 수 있다.
-- `state run` 은 연속된 동일 token 묶음이며, 번역 시 같은 톤/호흡을 유지할 후보군으로 본다.
+- `state run` 은 연속된 동일 token 묶음이며, 번역 시 같은 톤과 호흡을 유지할 후보군으로 본다.
 
-## Files
+## 파일
 
-- `entry8_dialogue_state_index.json`: Registry A entry 8 script-line state tokens
-- `registry_d_dialogue_state_index.json`: Registry D FC-script state tokens
-- `entry8_dialogue_state_runs.json`: Entry 8 cluster-local contiguous state runs
-- `registry_d_dialogue_state_runs.json`: Registry D contiguous state runs
+- `entry8_dialogue_state_index.json`: Registry A entry 8 script-line 상태 토큰
+- `registry_d_dialogue_state_index.json`: Registry D FC-script 상태 토큰
+- `entry8_dialogue_state_runs.json`: Entry 8 cluster 내부 연속 상태 run
+- `registry_d_dialogue_state_runs.json`: Registry D 연속 상태 run
 - `entry8_dialogue_state_cluster_summary.json`: Entry 8 cluster별 token/run 요약
 - `registry_d_dialogue_state_summary.json`: Registry D token/run 요약
 - `dialogue_state_cluster_summary.md`: 사람이 빠르게 보는 요약본
@@ -21,7 +21,7 @@
 - Entry8 clusters with runs: `72`
 - Registry D total runs: `207`
 
-## Translation use
+## 번역 활용
 
 - 같은 run 안의 줄들은 우선 같은 화자 상태 후보로 보고 말투 일관성을 체크한다.
 - run 이 바뀌면 speaker/state/portrait 전환 후보로 본다.

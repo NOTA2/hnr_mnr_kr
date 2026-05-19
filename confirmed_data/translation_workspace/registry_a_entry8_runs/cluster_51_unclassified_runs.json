@@ -1,0 +1,740 @@
+[
+  {
+    "run_id": "entry8_cluster_51_run_0000",
+    "cluster_index": 51,
+    "run_index": 0,
+    "dialogue_state_token": "1bff:3B80",
+    "record_count": 1,
+    "offsets": [
+      7600664
+    ],
+    "source_text": "よし、点検完了！",
+    "translation_text": "좋아, 점검 완료!",
+    "records": [
+      {
+        "offset": 7600664,
+        "header_offset": 7600660,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2266,
+        "text": "よし、点検完了！",
+        "translation": "좋아, 점검 완료!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_51_run_0001",
+    "cluster_index": 51,
+    "run_index": 1,
+    "dialogue_state_token": "2bff:8100",
+    "record_count": 1,
+    "offsets": [
+      7600704
+    ],
+    "source_text": "サンキュ！",
+    "translation_text": "고마워!",
+    "records": [
+      {
+        "offset": 7600704,
+        "header_offset": 7600700,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 20,
+        "text": "サンキュ！",
+        "translation": "고마워!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_51_run_0002",
+    "cluster_index": 51,
+    "run_index": 2,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7600720
+    ],
+    "source_text": "いい感じだよ",
+    "translation_text": "느낌 좋은데",
+    "records": [
+      {
+        "offset": 7600720,
+        "header_offset": 7600716,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 2,
+        "text": "いい感じだよ",
+        "translation": "느낌 좋은데"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_51_run_0003",
+    "cluster_index": 51,
+    "run_index": 3,
+    "dialogue_state_token": "2bff:0700",
+    "record_count": 1,
+    "offsets": [
+      7600760
+    ],
+    "source_text": "いくつか部品の交換を",
+    "translation_text": "부품 몇 개는",
+    "records": [
+      {
+        "offset": 7600760,
+        "header_offset": 7600756,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 24,
+        "text": "いくつか部品の交換を",
+        "translation": "부품 몇 개는"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_51_run_0004",
+    "cluster_index": 51,
+    "run_index": 4,
+    "dialogue_state_token": null,
+    "record_count": 3,
+    "offsets": [
+      7600786,
+      7600816,
+      7600830
+    ],
+    "source_text": "しておいたから\nさてと、\n少しかたづけてこなくちゃ",
+    "translation_text": "교체해 뒀으니까\n그럼,\n조금 치우고 와야겠다",
+    "records": [
+      {
+        "offset": 7600786,
+        "header_offset": 7600782,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "しておいたから",
+        "translation": "교체해 뒀으니까"
+      },
+      {
+        "offset": 7600816,
+        "header_offset": 7600812,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 12,
+        "text": "さてと、",
+        "translation": "그럼,"
+      },
+      {
+        "offset": 7600830,
+        "header_offset": 7600826,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "少しかたづけてこなくちゃ",
+        "translation": "조금 치우고 와야겠다"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_51_run_0005",
+    "cluster_index": 51,
+    "run_index": 5,
+    "dialogue_state_token": "1bff:1280",
+    "record_count": 1,
+    "offsets": [
+      7600996
+    ],
+    "source_text": "どうでしたか？",
+    "translation_text": "어땠습니까?",
+    "records": [
+      {
+        "offset": 7600996,
+        "header_offset": 7600992,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 138,
+        "text": "どうでしたか？",
+        "translation": "어땠습니까?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_51_run_0006",
+    "cluster_index": 51,
+    "run_index": 6,
+    "dialogue_state_token": null,
+    "record_count": 3,
+    "offsets": [
+      7601046,
+      7601080,
+      7601110
+    ],
+    "source_text": "もうリゼンブールにはいない。\n向かった先もわかってる。\n行けるか？",
+    "translation_text": "이제 리젠블에는 없어.\n향한 곳도 알아냈어.\n갈 수 있나?",
+    "records": [
+      {
+        "offset": 7601046,
+        "header_offset": 7601042,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 32,
+        "text": "もうリゼンブールにはいない。",
+        "translation": "이제 리젠블에는 없어."
+      },
+      {
+        "offset": 7601080,
+        "header_offset": 7601076,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "向かった先もわかってる。",
+        "translation": "향한 곳도 알아냈어."
+      },
+      {
+        "offset": 7601110,
+        "header_offset": 7601106,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 2,
+        "text": "行けるか？",
+        "translation": "갈 수 있나?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_51_run_0007",
+    "cluster_index": 51,
+    "run_index": 7,
+    "dialogue_state_token": "1bff:3B00",
+    "record_count": 1,
+    "offsets": [
+      7601154
+    ],
+    "source_text": "ああ。こっちのメンテも",
+    "translation_text": "그래. 이쪽 정비도",
+    "records": [
+      {
+        "offset": 7601154,
+        "header_offset": 7601150,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 30,
+        "text": "ああ。こっちのメンテも",
+        "translation": "그래. 이쪽 정비도"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_51_run_0008",
+    "cluster_index": 51,
+    "run_index": 8,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7601182,
+      7601206
+    ],
+    "source_text": "万全だぜ\nで、どこへ逃げたんだ？",
+    "translation_text": "완벽하다고\n그래서 어디로 도망쳤어?",
+    "records": [
+      {
+        "offset": 7601182,
+        "header_offset": 7601178,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 2,
+        "text": "万全だぜ",
+        "translation": "완벽하다고"
+      },
+      {
+        "offset": 7601206,
+        "header_offset": 7601202,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 12,
+        "text": "で、どこへ逃げたんだ？",
+        "translation": "그래서 어디로 도망쳤어?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_51_run_0009",
+    "cluster_index": 51,
+    "run_index": 9,
+    "dialogue_state_token": "1bff:2980",
+    "record_count": 1,
+    "offsets": [
+      7601252
+    ],
+    "source_text": "クルス遺跡だ",
+    "translation_text": "크루스 유적이다",
+    "records": [
+      {
+        "offset": 7601252,
+        "header_offset": 7601248,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 20,
+        "text": "クルス遺跡だ",
+        "translation": "크루스 유적이다"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_51_run_0010",
+    "cluster_index": 51,
+    "run_index": 10,
+    "dialogue_state_token": "1bff:1100",
+    "record_count": 1,
+    "offsets": [
+      7601288
+    ],
+    "source_text": "遺跡なんかに何をしに",
+    "translation_text": "유적 같은 데엔 뭘 하러",
+    "records": [
+      {
+        "offset": 7601288,
+        "header_offset": 7601284,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 20,
+        "text": "遺跡なんかに何をしに",
+        "translation": "유적 같은 데엔 뭘 하러"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_51_run_0011",
+    "cluster_index": 51,
+    "run_index": 11,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7601314
+    ],
+    "source_text": "行ったんでしょうね",
+    "translation_text": "간 걸까요",
+    "records": [
+      {
+        "offset": 7601314,
+        "header_offset": 7601310,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "行ったんでしょうね",
+        "translation": "간 걸까요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_51_run_0012",
+    "cluster_index": 51,
+    "run_index": 12,
+    "dialogue_state_token": "1bff:1200",
+    "record_count": 1,
+    "offsets": [
+      7601382
+    ],
+    "source_text": "鋼の、先に外で待っているぞ",
+    "translation_text": "강철, 먼저 밖에서 기다리겠다",
+    "records": [
+      {
+        "offset": 7601382,
+        "header_offset": 7601378,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 46,
+        "text": "鋼の、先に外で待っているぞ",
+        "translation": "강철, 먼저 밖에서 기다리겠다"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_51_run_0013",
+    "cluster_index": 51,
+    "run_index": 13,
+    "dialogue_state_token": "1bff:3B80",
+    "record_count": 1,
+    "offsets": [
+      7601514
+    ],
+    "source_text": "ばっちゃんとウィンリィに",
+    "translation_text": "할멈이랑 윈리한테",
+    "records": [
+      {
+        "offset": 7601514,
+        "header_offset": 7601510,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 102,
+        "text": "ばっちゃんとウィンリィに",
+        "translation": "할멈이랑 윈리한테"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_51_run_0014",
+    "cluster_index": 51,
+    "run_index": 14,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7601544
+    ],
+    "source_text": "挨拶しようぜ",
+    "translation_text": "인사하자",
+    "records": [
+      {
+        "offset": 7601544,
+        "header_offset": 7601540,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 2,
+        "text": "挨拶しようぜ",
+        "translation": "인사하자"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_51_run_0015",
+    "cluster_index": 51,
+    "run_index": 15,
+    "dialogue_state_token": "1bff:0D00",
+    "record_count": 1,
+    "offsets": [
+      7601586
+    ],
+    "source_text": "そうだね",
+    "translation_text": "그러자",
+    "records": [
+      {
+        "offset": 7601586,
+        "header_offset": 7601582,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 26,
+        "text": "そうだね",
+        "translation": "그러자"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_51_run_0016",
+    "cluster_index": 51,
+    "run_index": 16,
+    "dialogue_state_token": "1bff:3A80",
+    "record_count": 1,
+    "offsets": [
+      7601626
+    ],
+    "source_text": "ばっちゃん！",
+    "translation_text": "할멈!",
+    "records": [
+      {
+        "offset": 7601626,
+        "header_offset": 7601622,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 28,
+        "text": "ばっちゃん！",
+        "translation": "할멈!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_51_run_0017",
+    "cluster_index": 51,
+    "run_index": 17,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7601644,
+      7601662
+    ],
+    "source_text": "ウィンリィ！\nそろそろ行くね",
+    "translation_text": "윈리!\n슬슬 갈게",
+    "records": [
+      {
+        "offset": 7601644,
+        "header_offset": 7601640,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 2,
+        "text": "ウィンリィ！",
+        "translation": "윈리!"
+      },
+      {
+        "offset": 7601662,
+        "header_offset": 7601658,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "そろそろ行くね",
+        "translation": "슬슬 갈게"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_51_run_0018",
+    "cluster_index": 51,
+    "run_index": 18,
+    "dialogue_state_token": "1bff:6C00",
+    "record_count": 1,
+    "offsets": [
+      7602038
+    ],
+    "source_text": "また機械鎧を",
+    "translation_text": "또 오토메일을",
+    "records": [
+      {
+        "offset": 7602038,
+        "header_offset": 7602034,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 358,
+        "text": "また機械鎧を",
+        "translation": "또 오토메일을"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_51_run_0019",
+    "cluster_index": 51,
+    "run_index": 19,
+    "dialogue_state_token": null,
+    "record_count": 10,
+    "offsets": [
+      7602056,
+      7602100,
+      7602156,
+      7602188,
+      7602214,
+      7602254,
+      7602282,
+      7602318,
+      7602350,
+      7602378
+    ],
+    "source_text": "壊したんじゃないだろうね？\nワンワンッ！\nデンも喜んでるみたいだね。\nウィンリィのとこにも\nたまには顔を出しておやり\n定期的に機械鎧の整備も\n必要だからね\n今はもう暇になったのかい？\nなら、機械鎧の整備でも\nしていったらどうだい？",
+    "translation_text": "망가뜨린 건 아니겠지?\n멍멍!\n덴도 기쁜가 보구나.\n윈리한테도\n가끔은 얼굴 비춰 줘라\n정기적으로 오토메일 정비도\n필요하니까\n이젠 좀 한가해진 거냐?\n그럼 오토메일 정비라도\n받고 가는 게 어때?",
+    "records": [
+      {
+        "offset": 7602056,
+        "header_offset": 7602052,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "壊したんじゃないだろうね？",
+        "translation": "망가뜨린 건 아니겠지?"
+      },
+      {
+        "offset": 7602100,
+        "header_offset": 7602096,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 14,
+        "text": "ワンワンッ！",
+        "translation": "멍멍!"
+      },
+      {
+        "offset": 7602156,
+        "header_offset": 7602152,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 40,
+        "text": "デンも喜んでるみたいだね。",
+        "translation": "덴도 기쁜가 보구나."
+      },
+      {
+        "offset": 7602188,
+        "header_offset": 7602184,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "ウィンリィのとこにも",
+        "translation": "윈리한테도"
+      },
+      {
+        "offset": 7602214,
+        "header_offset": 7602210,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "たまには顔を出しておやり",
+        "translation": "가끔은 얼굴 비춰 줘라"
+      },
+      {
+        "offset": 7602254,
+        "header_offset": 7602250,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 12,
+        "text": "定期的に機械鎧の整備も",
+        "translation": "정기적으로 오토메일 정비도"
+      },
+      {
+        "offset": 7602282,
+        "header_offset": 7602278,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 2,
+        "text": "必要だからね",
+        "translation": "필요하니까"
+      },
+      {
+        "offset": 7602318,
+        "header_offset": 7602314,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 20,
+        "text": "今はもう暇になったのかい？",
+        "translation": "이젠 좀 한가해진 거냐?"
+      },
+      {
+        "offset": 7602350,
+        "header_offset": 7602346,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "なら、機械鎧の整備でも",
+        "translation": "그럼 오토메일 정비라도"
+      },
+      {
+        "offset": 7602378,
+        "header_offset": 7602374,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "していったらどうだい？",
+        "translation": "받고 가는 게 어때?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_51_run_0020",
+    "cluster_index": 51,
+    "run_index": 20,
+    "dialogue_state_token": "1bff:6C00",
+    "record_count": 1,
+    "offsets": [
+      7602440
+    ],
+    "source_text": "相変わらず機械鎧を",
+    "translation_text": "여전히 오토메일을",
+    "records": [
+      {
+        "offset": 7602440,
+        "header_offset": 7602436,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 36,
+        "text": "相変わらず機械鎧を",
+        "translation": "여전히 오토메일을"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_51_run_0021",
+    "cluster_index": 51,
+    "run_index": 21,
+    "dialogue_state_token": null,
+    "record_count": 7,
+    "offsets": [
+      7602464,
+      7602484,
+      7602524,
+      7602554,
+      7602576,
+      7602598,
+      7602702
+    ],
+    "source_text": "ムチャな使い方\nしてんじゃないだろうね\nワンワンッ！\n機械鎧を壊すと、\nウィンリィがまた\nうるさいよ\nワンワンッ！",
+    "translation_text": "막무가내로\n쓰는 건 아니겠지\n멍멍!\n오토메일을 망가뜨리면,\n윈리가 또\n시끄러울 거야\n멍멍!",
+    "records": [
+      {
+        "offset": 7602464,
+        "header_offset": 7602460,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "ムチャな使い方",
+        "translation": "막무가내로"
+      },
+      {
+        "offset": 7602484,
+        "header_offset": 7602480,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "してんじゃないだろうね",
+        "translation": "쓰는 건 아니겠지"
+      },
+      {
+        "offset": 7602524,
+        "header_offset": 7602520,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 14,
+        "text": "ワンワンッ！",
+        "translation": "멍멍!"
+      },
+      {
+        "offset": 7602554,
+        "header_offset": 7602550,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 14,
+        "text": "機械鎧を壊すと、",
+        "translation": "오토메일을 망가뜨리면,"
+      },
+      {
+        "offset": 7602576,
+        "header_offset": 7602572,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "ウィンリィがまた",
+        "translation": "윈리가 또"
+      },
+      {
+        "offset": 7602598,
+        "header_offset": 7602594,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 2,
+        "text": "うるさいよ",
+        "translation": "시끄러울 거야"
+      },
+      {
+        "offset": 7602702,
+        "header_offset": 7602698,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 90,
+        "text": "ワンワンッ！",
+        "translation": "멍멍!"
+      }
+    ],
+    "notes": ""
+  }
+]

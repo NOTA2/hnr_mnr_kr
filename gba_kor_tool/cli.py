@@ -3,6 +3,7 @@ from __future__ import annotations
 import argparse
 import json
 import math
+import os
 import re
 import struct
 from dataclasses import asdict, dataclass
@@ -15,6 +16,77 @@ ROM_BASE = 0x08000000
 JAPANESE_RE = re.compile(r"[\u3040-\u30ff\u3400-\u9fff]")
 SUSPICIOUS_ASCII_SYMBOLS = set("`|{}[]<>^_~\\")
 ALLOWED_NONPRINTABLE_TEXT_CHARS = {"\u3000"}
+REGISTRY_A_TABLE_OFFSET = 0x17C2F4
+REGISTRY_A_MIRROR_TABLE_OFFSET = 0x1823A0
+REGISTRY_A_ENTRY8_INDEX = 8
+REGISTRY_A_ENTRY8_SOURCE_GROUP = "registry_a_entry8_prefixed_texts"
+REGISTRY_A_ENTRY8_SEGMENT_TABLE_LOCAL_START = 0x20
+REGISTRY_A_ENTRY8_SEGMENT_TABLE_LOCAL_END = 0x16C
+REGISTRY_A_ENTRY8_PROTECTED_REPOINT_SEGMENTS = {0x150, 0x15C}
+ENTRY8_STABLE_OPCODE_LENGTHS = {
+    0x02: 2,
+    0x03: 2,
+    0x04: 2,
+    0x05: 4,
+    0x06: 6,
+    0x07: 4,
+    0x08: 4,
+    0x09: 4,
+    0x0A: 8,
+    0x0D: 2,
+    0x0E: 4,
+    0x10: 4,
+    0x11: 14,
+    0x13: 4,
+    0x16: 4,
+    0x1A: 6,
+    0x1B: 6,
+    0x1C: 6,
+    0x1D: 6,
+    0x1F: 10,
+    0x20: 6,
+    0x21: 6,
+    0x23: 16,
+    0x24: 4,
+    0x26: 4,
+    0x27: 4,
+    0x28: 6,
+    0x2A: 4,
+    0x2B: 6,
+    0x2D: 4,
+    0x2E: 4,
+    0x33: 2,
+    0x3D: 34,
+    0x3F: 34,
+    0x41: 2,
+    0x42: 2,
+    0x43: 6,
+    0x44: 6,
+    0x46: 2,
+    0x48: 4,
+    0x49: 4,
+    0x4A: 4,
+    0x4C: 4,
+    0x4D: 4,
+    0x4E: 8,
+    0x4F: 4,
+    0x50: 6,
+    0x59: 34,
+    0x5A: 4,
+    0x60: 10,
+    0x64: 4,
+    0x69: 34,
+    0x6B: 34,
+    0x6D: 34,
+    0x6F: 34,
+    0x7F: 34,
+    0xD4: 4,
+    0xFF: 2,
+}
+REGISTRY_D_TABLE_OFFSET = 0x17C7E4
+REGISTRY_D_ENTRY_COUNT = 100
+REGISTRY_D_SOURCE_GROUP = "registry_d_fc_script_texts"
+SAFE_CUSTOM_CODE_TRAILS = set(range(0x40, 0x7F)) | set(range(0x80, 0xFC))
 
 
 class ToolError(Exception):
@@ -123,6 +195,20 @@ def parse_offset(value: str) -> int:
 def parse_hex_byte(value: str) -> int:
     cleaned = value.strip().lower().removeprefix("0x")
     return int(cleaned, 16) & 0xFF
+
+
+def is_safe_custom_code(code: int) -> bool:
+    lead = code >> 8
+    trail = code & 0xFF
+    return 0xE0 <= lead <= 0xEF and trail in SAFE_CUSTOM_CODE_TRAILS
+
+
+def iter_safe_custom_codes(start_code: int) -> Iterable[int]:
+    code = start_code
+    while code <= 0xEFFF:
+        if is_safe_custom_code(code):
+            yield code
+        code += 1
 
 
 def read_terminators(values: Sequence[str]) -> List[int]:
@@ -1151,11 +1237,35 @@ def align_up(value: int, alignment: int) -> int:
 
 def find_free_space(data: bytes, *, start: int, size: int, fill_byte: int, alignment: int) -> int:
     offset = align_up(start, alignment)
+    needle = bytes([fill_byte]) * size
     while offset + size <= len(data):
-        if all(byte == fill_byte for byte in data[offset:offset + size]):
-            return offset
-        offset += alignment
+        found = data.find(needle, offset)
+        if found < 0:
+            break
+        aligned = align_up(found, alignment)
+        if aligned == found:
+            return found
+        offset = aligned
     raise ToolError("요청한 길이만큼의 빈 공간을 찾지 못했습니다.")
+
+
+def find_free_space_or_append(data: bytearray, *, start: int, size: int, fill_byte: int, alignment: int) -> int:
+    try:
+        return find_free_space(data, start=start, size=size, fill_byte=fill_byte, alignment=alignment)
+    except ToolError:
+        destination = align_up(len(data), alignment)
+        if destination > len(data):
+            data.extend(bytes([fill_byte]) * (destination - len(data)))
+        data.extend(bytes([fill_byte]) * size)
+        return destination
+
+
+def append_space(data: bytearray, *, size: int, fill_byte: int, alignment: int) -> int:
+    destination = align_up(len(data), alignment)
+    if destination > len(data):
+        data.extend(bytes([fill_byte]) * (destination - len(data)))
+    data.extend(bytes([fill_byte]) * size)
+    return destination
 
 
 def write_json(path: Path, payload: object) -> None:
@@ -2962,28 +3072,94 @@ def parse_record_terminator(record: dict, default_values: Sequence[str]) -> byte
 
 
 def normalize_translation_for_record(record: dict, translation: str) -> str:
-    normalized = normalize_translation_text(translation)
+    normalized = normalize_translation_text(
+        translation,
+        source_group=record.get("source_group"),
+        reference_text=record.get("text"),
+    )
     source_group = str(record.get("source_group", ""))
-    if source_group not in {"save_menu_texts", "choice_yes_no_texts"}:
-        return normalized
 
-    bad_ascii = [ch for ch in normalized if 0x20 <= ord(ch) <= 0x7E]
-    if bad_ascii:
+    if source_group in {"save_menu_texts", "choice_yes_no_texts"}:
+        bad_ascii = [ch for ch in normalized if 0x20 <= ord(ch) <= 0x7E]
+        if bad_ascii:
+            raise ToolError(
+                f"{source_group} 계열에는 반각 ASCII 문자를 넣으면 안 됩니다: "
+                + ", ".join(repr(ch) for ch in sorted(set(bad_ascii)))
+            )
+
+    return normalized
+
+
+def is_prefixed_counted_fixed_slot(record: dict, terminator: bytes) -> bool:
+    return (
+        record.get("char_count") is not None
+        and record.get("header_offset") is not None
+        and bool(record.get("prefix"))
+        and record.get("append_terminator") is False
+        and not terminator
+    )
+
+
+def pad_prefixed_counted_payload(
+    record: dict,
+    translation: str,
+    encoded_text: bytes,
+    *,
+    encoding: Optional[str],
+    table: Optional[TableCodec],
+) -> Tuple[str, bytes]:
+    original_byte_length = int(record["byte_length"])
+    if len(encoded_text) > original_byte_length:
         raise ToolError(
-            f"{source_group} 계열에는 반각 ASCII 문자를 넣으면 안 됩니다: "
-            + ", ".join(repr(ch) for ch in sorted(set(bad_ascii)))
+            f"{record.get('source_group')} counted 레코드 번역이 원본 payload 바이트를 넘었습니다: "
+            f"{len(encoded_text)} > {original_byte_length}"
         )
 
-    original_char_count = record.get("char_count")
-    if original_char_count is not None:
-        original_char_count = int(original_char_count)
-        if len(normalized) > original_char_count:
+    padded = translation
+    while len(encoded_text) < original_byte_length:
+        remaining = original_byte_length - len(encoded_text)
+        pad_char = "\u3000" if remaining >= 2 else " "
+        padded += pad_char
+        encoded_text = encode_text(padded, encoding=encoding, table=table)
+        if len(encoded_text) > original_byte_length:
             raise ToolError(
-                f"{source_group} 계열 번역이 원본 문자 수를 넘었습니다: "
-                f"{len(normalized)} > {original_char_count}"
+                f"{record.get('source_group')} counted 레코드 payload 패딩이 원본 바이트를 넘었습니다."
             )
-        normalized = normalized.ljust(original_char_count, "\u3000")
-    return normalized
+    return padded, encoded_text
+
+
+def is_inline_event_fixed_slot(record: dict, terminator: bytes) -> bool:
+    return (
+        str(record.get("source_group", "")) == "inline_event_texts"
+        and record.get("append_terminator") is False
+        and not terminator
+    )
+
+
+def pad_inline_event_payload(
+    record: dict,
+    translation: str,
+    encoded_text: bytes,
+    *,
+    encoding: Optional[str],
+    table: Optional[TableCodec],
+) -> Tuple[str, bytes]:
+    original_byte_length = int(record["byte_length"])
+    if len(encoded_text) > original_byte_length:
+        raise ToolError(
+            f"inline event 텍스트 번역이 원본 payload 바이트를 넘었습니다: "
+            f"{len(encoded_text)} > {original_byte_length}"
+        )
+
+    padded = translation
+    while len(encoded_text) < original_byte_length:
+        remaining = original_byte_length - len(encoded_text)
+        pad_char = "\u3000" if remaining >= 2 else " "
+        padded += pad_char
+        encoded_text = encode_text(padded, encoding=encoding, table=table)
+        if len(encoded_text) > original_byte_length:
+            raise ToolError("inline event 텍스트 payload 패딩이 원본 바이트를 넘었습니다.")
+    return padded, encoded_text
 
 
 def update_prefixed_char_count_if_present(data: bytearray, record: dict, translation: str) -> Optional[Dict[str, object]]:
@@ -3015,6 +3191,1163 @@ def update_prefixed_char_count_if_present(data: bytearray, record: dict, transla
     }
 
 
+def read_pointer_length_entry(data: bytes, *, table_offset: int, index: int) -> Tuple[int, int]:
+    entry_offset = table_offset + index * 8
+    if entry_offset + 8 > len(data):
+        raise ToolError(f"테이블 엔트리가 ROM 끝을 넘어갑니다: {format_offset(entry_offset)}")
+    rom_address, length = struct.unpack_from("<II", data, entry_offset)
+    return rom_address - ROM_BASE, length
+
+
+def write_pointer_length_entry(data: bytearray, *, table_offset: int, index: int, offset: int, length: int) -> None:
+    entry_offset = table_offset + index * 8
+    if entry_offset + 8 > len(data):
+        raise ToolError(f"테이블 엔트리가 ROM 끝을 넘어갑니다: {format_offset(entry_offset)}")
+    struct.pack_into("<II", data, entry_offset, ROM_BASE + offset, length)
+
+
+def write_pointer_length_entry_with_mirrors(
+    data: bytearray,
+    *,
+    table_offset: int,
+    mirror_table_offsets: Sequence[int],
+    index: int,
+    offset: int,
+    length: int,
+) -> None:
+    write_pointer_length_entry(data, table_offset=table_offset, index=index, offset=offset, length=length)
+    for mirror_table_offset in mirror_table_offsets:
+        write_pointer_length_entry(data, table_offset=mirror_table_offset, index=index, offset=offset, length=length)
+
+
+def encode_entry8_counted_record(
+    record: dict,
+    translation: str,
+    *,
+    encoding: Optional[str],
+    table: Optional[TableCodec],
+    char_count_override: Optional[int] = None,
+) -> bytes:
+    prefix = record.get("prefix")
+    if not prefix:
+        raise ToolError(f"Entry8 record {format_offset(int(record['offset']))} 에 prefix 가 없습니다.")
+    prefix_bytes = bytes(parse_hex_byte(value) for value in str(prefix).split())
+    if not prefix_bytes:
+        raise ToolError(f"Entry8 record {format_offset(int(record['offset']))} 의 prefix 가 비어 있습니다.")
+    payload = encode_text(translation, encoding=encoding, table=table)
+    char_count = len(translation) if char_count_override is None else int(char_count_override)
+    return prefix_bytes + char_count.to_bytes(2, "little") + payload
+
+
+def map_entry8_old_local_offset(old_local: int, segments: Sequence[Tuple[int, int, int, int]]) -> Optional[int]:
+    for old_start, old_end, new_start, new_end in segments:
+        if old_start <= old_local < old_end:
+            delta = old_local - old_start
+            if new_start + delta < new_end:
+                return new_start + delta
+            return new_start
+    return None
+
+
+def patch_entry8_internal_pointers(
+    rebuilt: bytearray,
+    *,
+    old_entry_offset: int,
+    old_entry_length: int,
+    new_entry_offset: int,
+    segments: Sequence[Tuple[int, int, int, int]],
+) -> int:
+    old_start_addr = ROM_BASE + old_entry_offset
+    old_end_addr = old_start_addr + old_entry_length
+    patched = 0
+    for local_offset in range(0, len(rebuilt) - 3, 4):
+        value = struct.unpack_from("<I", rebuilt, local_offset)[0]
+        if old_start_addr <= value < old_end_addr:
+            mapped_local = map_entry8_old_local_offset(value - old_start_addr, segments)
+            if mapped_local is None:
+                continue
+            struct.pack_into("<I", rebuilt, local_offset, ROM_BASE + new_entry_offset + mapped_local)
+            patched += 1
+    return patched
+
+
+def map_entry8_local_offset(old_local: int, segments: Sequence[Tuple[int, int, int, int]]) -> Optional[int]:
+    # Local offset 0 is a common null/default value in Entry8 data, so only explicit
+    # table patching is allowed to rewrite it.
+    if old_local == 0:
+        return None
+    for old_start, old_end, new_start, new_end in segments:
+        if old_start <= old_local < old_end:
+            delta = old_local - old_start
+            if new_start + delta < new_end:
+                return new_start + delta
+            return new_start
+    return None
+
+
+def patch_entry8_local_offsets(
+    rebuilt: bytearray,
+    *,
+    old_entry_offset: int,
+    old_entry_length: int,
+    local_segments: Sequence[Tuple[int, int, int, int]],
+) -> int:
+    patched = 0
+    old_start_addr = ROM_BASE + old_entry_offset
+    old_end_addr = old_start_addr + old_entry_length
+    for local_offset in range(0, len(rebuilt) - 3, 4):
+        value = struct.unpack_from("<I", rebuilt, local_offset)[0]
+        mapped = map_entry8_local_offset(value, local_segments)
+        if mapped is not None:
+            struct.pack_into("<I", rebuilt, local_offset, mapped)
+            patched += 1
+            continue
+        if old_start_addr <= value < old_end_addr:
+            mapped_addr = map_entry8_local_offset(value - old_start_addr, local_segments)
+            if mapped_addr is not None:
+                struct.pack_into("<I", rebuilt, local_offset, old_start_addr + mapped_addr)
+                patched += 1
+    return patched
+
+
+def read_entry8_segment_table(data: bytes, *, entry_offset: int, entry_length: int) -> List[dict]:
+    candidates: List[dict] = []
+    seen_values: set[int] = set()
+    for table_local in range(
+        REGISTRY_A_ENTRY8_SEGMENT_TABLE_LOCAL_START,
+        REGISTRY_A_ENTRY8_SEGMENT_TABLE_LOCAL_END,
+        4,
+    ):
+        table_offset = entry_offset + table_local
+        if table_offset + 4 > len(data):
+            break
+        value = struct.unpack_from("<I", data, table_offset)[0]
+        if value == 0xFFFFFFFF or value in seen_values or value < 0 or value >= entry_length:
+            continue
+        seen_values.add(value)
+        candidates.append(
+            {
+                "table_local": table_local,
+                "table_offset": table_offset,
+                "old_start": value,
+            }
+        )
+
+    candidates.sort(key=lambda item: int(item["old_start"]))
+    for index, item in enumerate(candidates):
+        if index + 1 < len(candidates):
+            item["old_end"] = int(candidates[index + 1]["old_start"])
+        else:
+            item["old_end"] = entry_length
+    return candidates
+
+
+def build_entry8_text_ranges_by_segment(records: Sequence[dict], *, entry_offset: int, segment_table: Sequence[dict]) -> Dict[int, List[Tuple[int, int]]]:
+    ranges_by_segment: Dict[int, List[Tuple[int, int]]] = {}
+    for record in records:
+        if record.get("source_group") != REGISTRY_A_ENTRY8_SOURCE_GROUP:
+            continue
+        if record.get("header_offset") is None or record.get("offset") is None or record.get("byte_length") is None:
+            continue
+        raw_start = int(record["header_offset"]) - entry_offset
+        raw_end = int(record["offset"]) + int(record["byte_length"]) - entry_offset
+        for segment in segment_table:
+            if int(segment["old_start"]) <= raw_start < int(segment["old_end"]):
+                ranges_by_segment.setdefault(int(segment["old_start"]), []).append((raw_start, raw_end))
+                break
+    for ranges in ranges_by_segment.values():
+        ranges.sort()
+    return ranges_by_segment
+
+
+def entry8_offset_in_ranges(local_offset: int, ranges: Sequence[Tuple[int, int]]) -> bool:
+    return any(start <= local_offset < end for start, end in ranges)
+
+
+def scan_entry8_variable_reference_risk(
+    original_entry: bytes,
+    *,
+    segment_start: int,
+    segment_end: int,
+    change_start: int,
+    text_ranges: Sequence[Tuple[int, int]],
+) -> Tuple[int, int]:
+    segment_blob = original_entry[segment_start:segment_end]
+    u32_refs = 0
+    u16_shift_refs = 0
+
+    for field_rel in range(0, len(segment_blob) - 3, 4):
+        field_local = segment_start + field_rel
+        value = struct.unpack_from("<I", segment_blob, field_rel)[0]
+        if segment_start <= value < segment_end:
+            u32_refs += 1
+
+    for field_rel in range(0, len(segment_blob) - 1, 2):
+        field_local = segment_start + field_rel
+        value = struct.unpack_from("<H", segment_blob, field_rel)[0]
+        target = segment_start + value
+        if value % 2 == 0 and change_start <= target < segment_end:
+            u16_shift_refs += 1
+
+    return u32_refs, u16_shift_refs
+
+
+def collect_entry8_text_anchors(text_ranges: Sequence[Tuple[int, int]]) -> set[int]:
+    return {start for start, _end in text_ranges}
+
+
+def parse_entry8_control_commands(
+    original_entry: bytes,
+    *,
+    gap_start: int,
+    gap_end: int,
+) -> List[Tuple[int, int, bytes]]:
+    commands: List[Tuple[int, int, bytes]] = []
+    pos = gap_start
+    while pos + 1 < gap_end:
+        if original_entry[pos + 1] != 0xFF:
+            pos += 2
+            continue
+        opcode = original_entry[pos]
+        length = ENTRY8_STABLE_OPCODE_LENGTHS.get(opcode)
+        if length is None or pos + length > gap_end:
+            break
+        commands.append((pos, opcode, original_entry[pos + 2:pos + length]))
+        pos += length
+    return commands
+
+
+def build_entry8_control_command_anchors(
+    original_entry: bytes,
+    *,
+    segment_start: int,
+    segment_end: int,
+    text_ranges: Sequence[Tuple[int, int]],
+) -> set[int]:
+    anchors: set[int] = set()
+    cursor = segment_start
+    for text_start, text_end in sorted(text_ranges):
+        if cursor < text_start:
+            for command_local, _opcode, _operands in parse_entry8_control_commands(
+                original_entry,
+                gap_start=cursor,
+                gap_end=text_start,
+            ):
+                anchors.add(command_local)
+        cursor = max(cursor, text_end)
+    if cursor < segment_end and segment_end - cursor <= 0x1000:
+        for command_local, _opcode, _operands in parse_entry8_control_commands(
+            original_entry,
+            gap_start=cursor,
+            gap_end=segment_end,
+        ):
+            anchors.add(command_local)
+    return anchors
+
+
+def patch_entry8_opcode_operand_offsets(
+    rebuilt_blob: bytearray,
+    *,
+    original_entry: bytes,
+    segment_start: int,
+    segment_end: int,
+    segment_blob_start: int,
+    new_local_base: int,
+    local_mappings: Sequence[Tuple[int, int, int, int]],
+    text_ranges: Sequence[Tuple[int, int]],
+) -> int:
+    text_anchors = collect_entry8_text_anchors(text_ranges)
+    command_anchors = build_entry8_control_command_anchors(
+        original_entry,
+        segment_start=segment_start,
+        segment_end=segment_end,
+        text_ranges=text_ranges,
+    )
+    relocatable_targets = text_anchors | command_anchors
+    patched = 0
+    cursor = segment_start
+    gap_ranges: List[Tuple[int, int]] = []
+    for text_start, text_end in sorted(text_ranges):
+        if cursor < text_start:
+            gap_ranges.append((cursor, text_start))
+        cursor = max(cursor, text_end)
+    if cursor < segment_end and segment_end - cursor <= 0x1000:
+        gap_ranges.append((cursor, segment_end))
+
+    for gap_start, gap_end in gap_ranges:
+        for command_local, _opcode, operands in parse_entry8_control_commands(
+            original_entry,
+            gap_start=gap_start,
+            gap_end=gap_end,
+        ):
+            for operand_rel in range(0, len(operands) - 1, 2):
+                field_old_local = command_local + 2 + operand_rel
+                old_value = struct.unpack_from("<H", operands, operand_rel)[0]
+                target_local = segment_start + old_value
+                if target_local not in relocatable_targets:
+                    continue
+                mapped_field = map_entry8_local_offset(field_old_local, local_mappings)
+                mapped_target = map_entry8_local_offset(target_local, local_mappings)
+                if mapped_field is None or mapped_target is None:
+                    continue
+                new_value = mapped_target - segment_blob_start
+                if not (0 <= new_value <= 0xFFFF):
+                    continue
+                if mapped_field + 2 <= len(rebuilt_blob):
+                    current = struct.unpack_from("<H", rebuilt_blob, mapped_field)[0]
+                    if current == old_value:
+                        struct.pack_into("<H", rebuilt_blob, mapped_field, new_value)
+                        patched += 1
+
+            for operand_rel in range(0, len(operands) - 3, 4):
+                field_old_local = command_local + 2 + operand_rel
+                old_value = struct.unpack_from("<I", operands, operand_rel)[0]
+                if old_value not in relocatable_targets:
+                    continue
+                mapped_field = map_entry8_local_offset(field_old_local, local_mappings)
+                mapped_target = map_entry8_local_offset(old_value, local_mappings)
+                if mapped_field is None or mapped_target is None:
+                    continue
+                new_value = new_local_base + mapped_target
+                if mapped_field + 4 <= len(rebuilt_blob):
+                    current = struct.unpack_from("<I", rebuilt_blob, mapped_field)[0]
+                    if current == old_value:
+                        struct.pack_into("<I", rebuilt_blob, mapped_field, new_value)
+                        patched += 1
+
+    return patched
+
+
+def apply_registry_a_entry8_segment_records(
+    data: bytearray,
+    records: Sequence[dict],
+    *,
+    encoding: Optional[str],
+    table: Optional[TableCodec],
+    next_free_search: int,
+    fill_byte: int,
+    alignment: int,
+) -> Tuple[int, List[dict], set[int]]:
+    entry8_records = [
+        record
+        for record in records
+        if record.get("source_group") == REGISTRY_A_ENTRY8_SOURCE_GROUP and record.get("translation")
+    ]
+    if not entry8_records:
+        return next_free_search, [], set()
+
+    entry_offset, entry_length = read_pointer_length_entry(
+        data,
+        table_offset=REGISTRY_A_TABLE_OFFSET,
+        index=REGISTRY_A_ENTRY8_INDEX,
+    )
+    entry_end = entry_offset + entry_length
+    if entry_offset < 0 or entry_end > len(data):
+        raise ToolError(f"Registry A entry 8 범위가 ROM 밖입니다: {format_offset(entry_offset)}")
+
+    original_entry = bytes(data[entry_offset:entry_end])
+    patched_entry = bytearray(original_entry)
+    segment_table = read_entry8_segment_table(data, entry_offset=entry_offset, entry_length=entry_length)
+    if not segment_table:
+        raise ToolError("Registry A entry 8 segment table 을 찾지 못했습니다.")
+    text_ranges_by_segment = build_entry8_text_ranges_by_segment(
+        entry8_records,
+        entry_offset=entry_offset,
+        segment_table=segment_table,
+    )
+
+    variable_segment_rels: Optional[set[int]] = None
+    raw_variable_segments = os.environ.get("ENTRY8_VARIABLE_SEGMENT_RELS", "").strip()
+    if raw_variable_segments:
+        variable_segment_rels = {
+            parse_offset(value.strip())
+            for value in raw_variable_segments.split(",")
+            if value.strip()
+        }
+    variable_offsets: Optional[set[int]] = None
+    raw_variable_offsets = os.environ.get("ENTRY8_VARIABLE_OFFSETS", "").strip()
+    if raw_variable_offsets:
+        variable_offsets = {
+            parse_offset(value.strip())
+            for value in raw_variable_offsets.split(",")
+            if value.strip()
+        }
+
+    records_by_segment: Dict[int, List[Tuple[int, int, bytes, dict, str]]] = {}
+    fixed_records_by_segment: Dict[int, List[Tuple[int, int, bytes, dict, str]]] = {}
+    boundary_crossing_fixed_records: List[Tuple[int, int, int, bytes, dict, str, dict]] = []
+    effective_segment_ends: Dict[int, int] = {}
+    handled_offsets: set[int] = set()
+    report: List[dict] = []
+    for record in sorted(entry8_records, key=lambda item: int(item["header_offset"])):
+        original_offset = int(record["offset"])
+        if original_offset in handled_offsets:
+            continue
+        header_offset = int(record.get("header_offset", -1))
+        raw_start = header_offset - entry_offset
+        raw_end = original_offset + int(record["byte_length"]) - entry_offset
+        matched_segment: Optional[dict] = None
+        for segment in segment_table:
+            if int(segment["old_start"]) <= raw_start < int(segment["old_end"]):
+                matched_segment = segment
+                break
+        if matched_segment is None:
+            raise ToolError(f"Entry8 record {format_offset(original_offset)} 의 segment 를 찾지 못했습니다.")
+        matched_segment_end = int(matched_segment["old_end"])
+
+        if int(matched_segment["old_start"]) == 0:
+            translation = normalize_translation_for_record(record, str(record["translation"]))
+            encoded_text = encode_text(translation, encoding=encoding, table=table)
+            raw_length = raw_end - raw_start
+            if len(encoded_text) > int(record["byte_length"]):
+                report.append(
+                    build_apply_report_entry(
+                        record,
+                        action="entry8_segment0_too_long_original",
+                        translation=translation,
+                        encoded_payload_length=len(encoded_text) + 4,
+                        original_capacity=raw_length,
+                        entry_index=REGISTRY_A_ENTRY8_INDEX,
+                        old_entry_offset=entry_offset,
+                        old_entry_length=entry_length,
+                        segment_table_local=matched_segment["table_local"],
+                        old_segment_start=matched_segment["old_start"],
+                        old_segment_end=matched_segment["old_end"],
+                    )
+                )
+                handled_offsets.add(original_offset)
+                continue
+
+            padded_translation, padded_encoded_text = pad_prefixed_counted_payload(
+                record,
+                translation,
+                encoded_text,
+                encoding=encoding,
+                table=table,
+            )
+            replacement = encode_entry8_counted_record(
+                record,
+                padded_translation,
+                encoding=encoding,
+                table=table,
+                char_count_override=int(record["char_count"]),
+            )
+            if len(replacement) != raw_length:
+                raise ToolError(
+                    f"Entry8 segment 0 replacement 길이가 원본과 다릅니다: "
+                    f"{format_offset(original_offset)} {len(replacement)} != {raw_length}"
+                )
+            data[entry_offset + raw_start:entry_offset + raw_end] = replacement
+            report.append(
+                build_apply_report_entry(
+                    record,
+                    action="entry8_segment0_in_place_length_preserved",
+                    translation=padded_translation,
+                    encoded_payload_length=len(replacement),
+                    original_capacity=raw_length,
+                    entry_index=REGISTRY_A_ENTRY8_INDEX,
+                    old_entry_offset=entry_offset,
+                    old_entry_length=entry_length,
+                    segment_table_local=matched_segment["table_local"],
+                    old_segment_start=matched_segment["old_start"],
+                    old_segment_end=matched_segment["old_end"],
+                )
+            )
+            handled_offsets.add(original_offset)
+            continue
+
+        translation = normalize_translation_for_record(record, str(record["translation"]))
+        encoded_text = encode_text(translation, encoding=encoding, table=table)
+        original_payload_length = int(record["byte_length"])
+        raw_length = raw_end - raw_start
+        allow_variable_length = (
+            (
+                variable_segment_rels is not None
+                and int(matched_segment["table_local"]) in variable_segment_rels
+            )
+            or (
+                variable_offsets is not None
+                and original_offset in variable_offsets
+            )
+        )
+        if raw_end > matched_segment_end:
+            if os.environ.get("ENTRY8_ALLOW_BOUNDARY_CROSSING_IN_PLACE") == "1":
+                if len(encoded_text) > original_payload_length:
+                    report.append(
+                        build_apply_report_entry(
+                            record,
+                            action="entry8_boundary_crossing_too_long_original",
+                            translation=translation,
+                            encoded_payload_length=len(encoded_text) + 4,
+                            original_capacity=raw_length,
+                            entry_index=REGISTRY_A_ENTRY8_INDEX,
+                            old_entry_offset=entry_offset,
+                            old_entry_length=entry_length,
+                            segment_table_local=matched_segment["table_local"],
+                            old_segment_start=matched_segment["old_start"],
+                            old_segment_end=matched_segment["old_end"],
+                        )
+                    )
+                    handled_offsets.add(original_offset)
+                    continue
+                padded_translation, padded_encoded_text = pad_prefixed_counted_payload(
+                    record,
+                    translation,
+                    encoded_text,
+                    encoding=encoding,
+                    table=table,
+                )
+                replacement = encode_entry8_counted_record(
+                    record,
+                    padded_translation,
+                    encoding=encoding,
+                    table=table,
+                    char_count_override=int(record["char_count"]),
+                )
+                if len(replacement) != raw_length:
+                    raise ToolError(
+                        f"Entry8 boundary-crossing in-place replacement 길이가 원본과 다릅니다: "
+                        f"{format_offset(original_offset)} {len(replacement)} != {raw_length}"
+                    )
+                boundary_crossing_fixed_records.append(
+                    (
+                        int(matched_segment["old_start"]),
+                        raw_start,
+                        raw_end,
+                        replacement,
+                        record,
+                        padded_translation,
+                        matched_segment,
+                    )
+                )
+            else:
+                report.append(
+                    build_apply_report_entry(
+                        record,
+                        action="entry8_boundary_crossing_original",
+                        translation=str(record["translation"]),
+                        encoded_payload_length=len(encoded_text) + 4,
+                        original_capacity=raw_length,
+                        entry_index=REGISTRY_A_ENTRY8_INDEX,
+                        old_entry_offset=entry_offset,
+                        old_entry_length=entry_length,
+                        segment_table_local=matched_segment["table_local"],
+                        old_segment_start=matched_segment["old_start"],
+                        old_segment_end=matched_segment["old_end"],
+                    )
+                )
+            handled_offsets.add(original_offset)
+            continue
+        if allow_variable_length:
+            if (
+                int(matched_segment["table_local"]) in REGISTRY_A_ENTRY8_PROTECTED_REPOINT_SEGMENTS
+                and os.environ.get("ENTRY8_ALLOW_PROTECTED_REPOINT") != "1"
+            ):
+                report.append(
+                    build_apply_report_entry(
+                        record,
+                        action="entry8_variable_repoint_protected_segment",
+                        translation=translation,
+                        encoded_payload_length=len(encoded_text) + 4,
+                        original_capacity=raw_length,
+                        entry_index=REGISTRY_A_ENTRY8_INDEX,
+                        old_entry_offset=entry_offset,
+                        old_entry_length=entry_length,
+                        segment_table_local=matched_segment["table_local"],
+                        old_segment_start=matched_segment["old_start"],
+                        old_segment_end=matched_segment["old_end"],
+                    )
+                )
+                handled_offsets.add(original_offset)
+                continue
+            if (
+                os.environ.get("ENTRY8_ALLOW_UNSAFE_REPOINT") != "1"
+                and os.environ.get("ENTRY8_ALLOW_STRUCTURAL_REPOINT") != "1"
+            ):
+                u32_refs, u16_shift_refs = scan_entry8_variable_reference_risk(
+                    original_entry,
+                    segment_start=int(matched_segment["old_start"]),
+                    segment_end=int(matched_segment["old_end"]),
+                    change_start=raw_start,
+                    text_ranges=text_ranges_by_segment.get(int(matched_segment["old_start"]), []),
+                )
+                if u32_refs or u16_shift_refs:
+                    report.append(
+                        build_apply_report_entry(
+                            record,
+                            action="entry8_variable_repoint_reference_risky",
+                            translation=translation,
+                            encoded_payload_length=len(encoded_text) + 4,
+                            original_capacity=raw_length,
+                            entry_index=REGISTRY_A_ENTRY8_INDEX,
+                            old_entry_offset=entry_offset,
+                            old_entry_length=entry_length,
+                            segment_table_local=matched_segment["table_local"],
+                            old_segment_start=matched_segment["old_start"],
+                            old_segment_end=matched_segment["old_end"],
+                            entry8_u32_reference_candidates=u32_refs,
+                            entry8_u16_shift_reference_candidates=u16_shift_refs,
+                        )
+                    )
+                    handled_offsets.add(original_offset)
+                    continue
+            replacement = encode_entry8_counted_record(
+                record,
+                translation,
+                encoding=encoding,
+                table=table,
+            )
+            if len(replacement) % 2:
+                # Entry8 script payloads sit between halfword-oriented command
+                # streams. Keep variable-length text records on an even byte
+                # boundary so the following opcodes do not start misaligned.
+                translation = translation + " "
+                replacement = encode_entry8_counted_record(
+                    record,
+                    translation,
+                    encoding=encoding,
+                    table=table,
+                )
+            target_records = records_by_segment
+        elif len(encoded_text) > original_payload_length:
+            report.append(
+                build_apply_report_entry(
+                    record,
+                    action="entry8_length_preserved_too_long",
+                    translation=translation,
+                    encoded_payload_length=len(encoded_text) + 4,
+                    original_capacity=raw_length,
+                    entry_index=REGISTRY_A_ENTRY8_INDEX,
+                    old_entry_offset=entry_offset,
+                    old_entry_length=entry_length,
+                    segment_table_local=matched_segment["table_local"],
+                    old_segment_start=matched_segment["old_start"],
+                    old_segment_end=matched_segment["old_end"],
+                )
+            )
+            handled_offsets.add(original_offset)
+            continue
+        else:
+            padded_translation, padded_encoded_text = pad_prefixed_counted_payload(
+                record,
+                translation,
+                encoded_text,
+                encoding=encoding,
+                table=table,
+            )
+            replacement = encode_entry8_counted_record(
+                record,
+                padded_translation,
+                encoding=encoding,
+                table=table,
+                char_count_override=int(record["char_count"]),
+            )
+            if len(replacement) != raw_length:
+                raise ToolError(
+                    f"Entry8 length-preserved replacement 길이가 원본과 다릅니다: "
+                    f"{format_offset(original_offset)} {len(replacement)} != {raw_length}"
+                )
+            translation = padded_translation
+            target_records = fixed_records_by_segment
+        target_records.setdefault(int(matched_segment["old_start"]), []).append(
+            (raw_start, raw_end, replacement, record, translation)
+        )
+        segment_start = int(matched_segment["old_start"])
+        if target_records is records_by_segment:
+            effective_segment_ends[segment_start] = max(
+                effective_segment_ends.get(segment_start, int(matched_segment["old_end"])),
+                raw_end,
+            )
+        handled_offsets.add(original_offset)
+
+    for (
+        segment_start,
+        raw_start,
+        raw_end,
+        replacement,
+        record,
+        translation,
+        matched_segment,
+    ) in boundary_crossing_fixed_records:
+        patched_entry[raw_start:raw_end] = replacement
+        if segment_start in records_by_segment:
+            effective_segment_ends[segment_start] = max(
+                effective_segment_ends.get(segment_start, int(matched_segment["old_end"])),
+                raw_end,
+            )
+        data[entry_offset + raw_start:entry_offset + raw_end] = replacement
+        report.append(
+            build_apply_report_entry(
+                record,
+                action="entry8_boundary_crossing_in_place_length_preserved",
+                translation=translation,
+                encoded_payload_length=len(replacement),
+                original_capacity=raw_end - raw_start,
+                entry_index=REGISTRY_A_ENTRY8_INDEX,
+                old_entry_offset=entry_offset,
+                old_entry_length=entry_length,
+                segment_table_local=matched_segment["table_local"],
+                old_segment_start=segment_start,
+                old_segment_end=matched_segment["old_end"],
+            )
+        )
+
+    for segment_start, fixed_records in fixed_records_by_segment.items():
+        if segment_start in records_by_segment:
+            records_by_segment[segment_start].extend(fixed_records)
+            for raw_start, raw_end, _replacement, _record, _translation in fixed_records:
+                effective_segment_ends[segment_start] = max(
+                    effective_segment_ends.get(segment_start, raw_end),
+                    raw_end,
+                )
+            continue
+        for raw_start, raw_end, replacement, record, translation in fixed_records:
+            data[entry_offset + raw_start:entry_offset + raw_end] = replacement
+            matched_segment = next(
+                segment
+                for segment in segment_table
+                if int(segment["old_start"]) == segment_start
+            )
+            report.append(
+                build_apply_report_entry(
+                    record,
+                    action="entry8_in_place_length_preserved",
+                    translation=translation,
+                    encoded_payload_length=len(replacement),
+                    original_capacity=raw_end - raw_start,
+                    entry_index=REGISTRY_A_ENTRY8_INDEX,
+                    old_entry_offset=entry_offset,
+                    old_entry_length=entry_length,
+                    segment_table_local=matched_segment["table_local"],
+                    old_segment_start=segment_start,
+                    old_segment_end=matched_segment["old_end"],
+                )
+            )
+
+    relocated_segments = [segment for segment in segment_table if int(segment["old_start"]) in records_by_segment]
+    rebuilt_blob = bytearray()
+    segment_new_ranges: Dict[int, Tuple[int, int]] = {}
+    local_mappings: List[Tuple[int, int, int, int]] = []
+    segment_raw_deltas: Dict[int, List[Tuple[int, int]]] = {}
+    local_pointer_updates = 0
+
+    for segment in relocated_segments:
+        old_start = int(segment["old_start"])
+        old_end = effective_segment_ends.get(old_start, int(segment["old_end"]))
+        segment_records = records_by_segment[old_start]
+        segment_records.sort(key=lambda item: item[0])
+
+        segment_blob_start = len(rebuilt_blob)
+        cursor = old_start
+        for raw_start, raw_end, replacement, record, translation in segment_records:
+            if raw_start < cursor:
+                raise ToolError(f"Entry8 segment 안에서 record 범위가 겹칩니다: {format_offset(int(record['offset']))}")
+            if cursor < raw_start:
+                new_start = len(rebuilt_blob)
+                rebuilt_blob.extend(patched_entry[cursor:raw_start])
+                local_mappings.append((cursor, raw_start, new_start, len(rebuilt_blob)))
+            new_start = len(rebuilt_blob)
+            rebuilt_blob.extend(replacement)
+            local_mappings.append((raw_start, raw_end, new_start, len(rebuilt_blob)))
+            raw_delta = len(replacement) - (raw_end - raw_start)
+            if raw_delta:
+                segment_raw_deltas.setdefault(old_start, []).append((raw_start - old_start, raw_delta))
+            cursor = raw_end
+            report.append(
+                build_apply_report_entry(
+                    record,
+                    action="entry8_segment_repointed",
+                    translation=translation,
+                    encoded_payload_length=len(replacement),
+                    entry_index=REGISTRY_A_ENTRY8_INDEX,
+                    old_entry_offset=entry_offset,
+                    old_entry_length=entry_length,
+                    segment_table_local=segment["table_local"],
+                    old_segment_start=old_start,
+                    old_segment_end=old_end,
+                )
+            )
+        if cursor < old_end:
+            new_start = len(rebuilt_blob)
+            rebuilt_blob.extend(patched_entry[cursor:old_end])
+            local_mappings.append((cursor, old_end, new_start, len(rebuilt_blob)))
+
+        while len(rebuilt_blob) % 4:
+            rebuilt_blob.append(fill_byte)
+        segment_new_ranges[old_start] = (segment_blob_start, len(rebuilt_blob))
+
+        # Entry8 tutorial/opening segment has an inner event block length at
+        # local 0xE88. The English patch increases this value when it expands
+        # the same block; leaving it at the vanilla length makes the next event
+        # transition fall through into the wrong byte after inline text grows.
+        if int(segment["table_local"]) == 0x150:
+            opening_block_length_at = segment_blob_start + 0xE88
+            if opening_block_length_at + 4 <= len(rebuilt_blob):
+                old_block_length = struct.unpack_from("<I", original_entry, old_start + 0xE88)[0]
+                if old_block_length == 0x5D8:
+                    block_delta = sum(
+                        delta
+                        for rel_start, delta in segment_raw_deltas.get(old_start, [])
+                        if 0xE78 <= rel_start < 0x108C
+                    )
+                    if block_delta:
+                        struct.pack_into(
+                            "<I",
+                            rebuilt_blob,
+                            opening_block_length_at,
+                            old_block_length + block_delta,
+                        )
+
+        segment_deltas = sorted(segment_raw_deltas.get(old_start, []))
+        if os.environ.get("ENTRY8_PATCH_U16_OFFSETS") == "1" and segment_deltas:
+            first_change_rel = min(rel_start for rel_start, _delta in segment_deltas)
+            segment_blob_start, segment_blob_end = segment_new_ranges[old_start]
+            for field_rel in range(0, min(first_change_rel, old_end - old_start - 1), 2):
+                old_value = struct.unpack_from("<H", original_entry, old_start + field_rel)[0]
+                if old_value % 2:
+                    continue
+                target_local = old_start + old_value
+                if not (old_start + first_change_rel <= target_local < old_end):
+                    continue
+                shifted_target = target_local
+                for delta_rel, delta in segment_deltas:
+                    if target_local >= old_start + delta_rel:
+                        shifted_target += delta
+                new_value = shifted_target - old_start
+                if not (0 <= new_value <= 0xFFFF):
+                    continue
+                patch_at = segment_blob_start + field_rel
+                if patch_at + 2 <= segment_blob_end:
+                    current_value = struct.unpack_from("<H", rebuilt_blob, patch_at)[0]
+                    if current_value == old_value:
+                        struct.pack_into("<H", rebuilt_blob, patch_at, new_value)
+                        local_pointer_updates += 1
+
+    destination = append_space(
+        data,
+        size=len(rebuilt_blob),
+        fill_byte=fill_byte,
+        alignment=alignment,
+    )
+    new_local_base = destination - entry_offset
+    opcode_operand_updates = 0
+
+    # English v0.02 keeps the vanilla Entry8 object and only rewrites the top
+    # segment directory. Blindly rewriting local-looking values corrupts script
+    # operands and scene control data, so nested payloads stay untouched unless
+    # a narrow experimental patch is explicitly enabled.
+
+    if os.environ.get("ENTRY8_PATCH_OPCODE_OFFSETS", "1") != "0":
+        for segment in relocated_segments:
+            old_start = int(segment["old_start"])
+            segment_blob_start, _segment_blob_end = segment_new_ranges[old_start]
+            opcode_operand_updates += patch_entry8_opcode_operand_offsets(
+                rebuilt_blob,
+                original_entry=original_entry,
+                segment_start=old_start,
+                segment_end=effective_segment_ends.get(old_start, int(segment["old_end"])),
+                segment_blob_start=segment_blob_start,
+                new_local_base=new_local_base,
+                local_mappings=local_mappings,
+                text_ranges=text_ranges_by_segment.get(old_start, []),
+            )
+
+    for segment in relocated_segments:
+        old_start = int(segment["old_start"])
+        segment_blob_start, _segment_blob_end = segment_new_ranges[old_start]
+        new_local_start = new_local_base + segment_blob_start
+        struct.pack_into("<I", data, int(segment["table_offset"]), new_local_start)
+
+    # Segment 0 contains a copy of the top-level segment table. If it was relocated,
+    # mirror the same table rewrites inside that relocated copy without treating zero
+    # as a generic pointer value.
+    for segment in relocated_segments:
+        old_start = int(segment["old_start"])
+        segment_blob_start, segment_blob_end = segment_new_ranges[old_start]
+        for table_segment in relocated_segments:
+            table_local = int(table_segment["table_local"])
+            if old_start <= table_local < int(segment["old_end"]):
+                patch_at = segment_blob_start + (table_local - old_start)
+                if patch_at + 4 <= segment_blob_end:
+                    target_start = int(table_segment["old_start"])
+                    target_blob_start, _ = segment_new_ranges[target_start]
+                    struct.pack_into("<I", rebuilt_blob, patch_at, new_local_base + target_blob_start)
+
+    data[destination:destination + len(rebuilt_blob)] = rebuilt_blob
+    next_free_search = destination + len(rebuilt_blob)
+
+    for item in report:
+        item["new_entry_offset"] = entry_offset
+        item["new_entry_length"] = entry_length
+        item["entry8_segment_blob_offset"] = destination
+        item["entry8_segment_blob_length"] = len(rebuilt_blob)
+        item["entry8_segment_count"] = len(relocated_segments)
+        item["entry8_local_pointer_updates"] = local_pointer_updates
+        item["entry8_opcode_operand_updates"] = opcode_operand_updates
+
+    return next_free_search, report, handled_offsets
+
+
+def apply_registry_a_entry8_packed_records(
+    data: bytearray,
+    records: Sequence[dict],
+    *,
+    encoding: Optional[str],
+    table: Optional[TableCodec],
+    next_free_search: int,
+    fill_byte: int,
+    alignment: int,
+) -> Tuple[int, List[dict], set[int]]:
+    entry8_records = [
+        record
+        for record in records
+        if record.get("source_group") == REGISTRY_A_ENTRY8_SOURCE_GROUP and record.get("translation")
+    ]
+    if not entry8_records:
+        return next_free_search, [], set()
+
+    entry_offset, entry_length = read_pointer_length_entry(
+        data,
+        table_offset=REGISTRY_A_TABLE_OFFSET,
+        index=REGISTRY_A_ENTRY8_INDEX,
+    )
+    entry_end = entry_offset + entry_length
+    if entry_offset < 0 or entry_end > len(data):
+        raise ToolError(f"Registry A entry 8 범위가 ROM 밖입니다: {format_offset(entry_offset)}")
+
+    replacements = []
+    seen_offsets = set()
+    for record in sorted(entry8_records, key=lambda item: int(item["header_offset"])):
+        original_offset = int(record["offset"])
+        if original_offset in seen_offsets:
+            continue
+        seen_offsets.add(original_offset)
+        header_offset = int(record.get("header_offset", -1))
+        raw_start = header_offset
+        raw_end = original_offset + int(record["byte_length"])
+        if raw_start < entry_offset or raw_end > entry_end or raw_start >= raw_end:
+            raise ToolError(
+                f"Entry8 record {format_offset(original_offset)} 가 Registry A entry 8 범위를 벗어납니다."
+            )
+        translation = normalize_translation_for_record(record, str(record["translation"]))
+        replacement = encode_entry8_counted_record(
+            record,
+            translation,
+            encoding=encoding,
+            table=table,
+        )
+        replacements.append((raw_start - entry_offset, raw_end - entry_offset, replacement, record, translation))
+
+    rebuilt = bytearray()
+    segments: List[Tuple[int, int, int, int]] = []
+    cursor = 0
+    original_entry = bytes(data[entry_offset:entry_end])
+    report: List[dict] = []
+    handled_offsets: set[int] = set()
+    for local_start, local_end, replacement, record, translation in replacements:
+        if local_start < cursor:
+            raise ToolError(f"Registry A entry 8 안에서 record 범위가 겹칩니다: {format_offset(int(record['offset']))}")
+        if cursor < local_start:
+            new_start = len(rebuilt)
+            rebuilt.extend(original_entry[cursor:local_start])
+            segments.append((cursor, local_start, new_start, len(rebuilt)))
+        new_start = len(rebuilt)
+        rebuilt.extend(replacement)
+        segments.append((local_start, local_end, new_start, len(rebuilt)))
+        cursor = local_end
+        handled_offsets.add(int(record["offset"]))
+        report.append(
+            build_apply_report_entry(
+                record,
+                action="packed_repointed",
+                translation=translation,
+                encoded_payload_length=len(replacement),
+                entry_index=REGISTRY_A_ENTRY8_INDEX,
+                old_entry_offset=entry_offset,
+                old_entry_length=entry_length,
+                replacement_bytes=len(replacement),
+            )
+        )
+    if cursor < len(original_entry):
+        new_start = len(rebuilt)
+        rebuilt.extend(original_entry[cursor:])
+        segments.append((cursor, len(original_entry), new_start, len(rebuilt)))
+
+    destination = append_space(
+        data,
+        size=len(rebuilt),
+        fill_byte=fill_byte,
+        alignment=alignment,
+    )
+    internal_pointer_updates = patch_entry8_internal_pointers(
+        rebuilt,
+        old_entry_offset=entry_offset,
+        old_entry_length=entry_length,
+        new_entry_offset=destination,
+        segments=segments,
+    )
+    data[destination:destination + len(rebuilt)] = rebuilt
+    write_pointer_length_entry_with_mirrors(
+        data,
+        table_offset=REGISTRY_A_TABLE_OFFSET,
+        mirror_table_offsets=[REGISTRY_A_MIRROR_TABLE_OFFSET],
+        index=REGISTRY_A_ENTRY8_INDEX,
+        offset=destination,
+        length=len(rebuilt),
+    )
+    next_free_search = destination + len(rebuilt)
+
+    for item in report:
+        item["new_entry_offset"] = destination
+        item["new_entry_length"] = len(rebuilt)
+        item["internal_pointer_updates"] = internal_pointer_updates
+
+    return next_free_search, report, handled_offsets
+
+
+def find_registry_d_entry_index(data: bytes, offset: int) -> Optional[int]:
+    for index in range(REGISTRY_D_ENTRY_COUNT):
+        entry_offset, entry_length = read_pointer_length_entry(
+            data,
+            table_offset=REGISTRY_D_TABLE_OFFSET,
+            index=index,
+        )
+        if entry_offset <= offset < entry_offset + entry_length:
+            return index
+    return None
+
+
+def split_fc_raw_suffix(raw_payload: bytes) -> Tuple[bytes, bytes]:
+    suffix_start = len(raw_payload)
+    while suffix_start > 0 and raw_payload[suffix_start - 1] in {0x00, 0x0C, 0x0D}:
+        suffix_start -= 1
+    return raw_payload[:suffix_start], raw_payload[suffix_start:]
+
+
+def encode_fc_script_translation(text: str, *, encoding: Optional[str], table: Optional[TableCodec], raw_suffix: bytes) -> bytes:
+    out = bytearray()
+    parts = text.split("\n")
+    for index, part in enumerate(parts):
+        if index:
+            # Registry D source text normalizes line-control pairs to "\n".
+            # Use the most common native line-control pair when expanding.
+            out.extend(b"\x0D\x0C")
+        out.extend(encode_text(part, encoding=encoding, table=table))
+    out.extend(raw_suffix)
+    return bytes(out)
+
+
+def apply_registry_d_packed_records(
+    data: bytearray,
+    records: Sequence[dict],
+    *,
+    encoding: Optional[str],
+    table: Optional[TableCodec],
+    next_free_search: int,
+    fill_byte: int,
+    alignment: int,
+) -> Tuple[int, List[dict], set[int]]:
+    records_by_entry: Dict[int, List[dict]] = {}
+    handled_offsets: set[int] = set()
+
+    for record in records:
+        if record.get("source_group") != REGISTRY_D_SOURCE_GROUP:
+            continue
+        if not record.get("translation"):
+            continue
+        if "offset" not in record or record.get("raw_byte_length") is None:
+            continue
+        original_offset = int(record["offset"])
+        entry_index = find_registry_d_entry_index(data, original_offset)
+        if entry_index is None:
+            continue
+        records_by_entry.setdefault(entry_index, []).append(record)
+
+    report: List[dict] = []
+    for entry_index in sorted(records_by_entry):
+        entry_offset, entry_length = read_pointer_length_entry(
+            data,
+            table_offset=REGISTRY_D_TABLE_OFFSET,
+            index=entry_index,
+        )
+        entry_end = entry_offset + entry_length
+        if entry_offset < 0 or entry_end > len(data):
+            raise ToolError(f"Registry D entry {entry_index} 범위가 ROM 밖입니다.")
+
+        replacements = []
+        seen_offsets = set()
+        for record in sorted(records_by_entry[entry_index], key=lambda item: int(item["offset"])):
+            original_offset = int(record["offset"])
+            if original_offset in seen_offsets:
+                continue
+            seen_offsets.add(original_offset)
+
+            raw_length = int(record["raw_byte_length"])
+            raw_start = original_offset
+            raw_end = raw_start + raw_length
+            if raw_start < entry_offset or raw_end > entry_end:
+                raise ToolError(
+                    f"Registry D record {format_offset(original_offset)} 가 entry {entry_index} 범위를 벗어납니다."
+                )
+            raw_payload = bytes(data[raw_start:raw_end])
+            _, raw_suffix = split_fc_raw_suffix(raw_payload)
+            translation = normalize_translation_for_record(record, str(record["translation"]))
+            replacement = encode_fc_script_translation(
+                translation,
+                encoding=encoding,
+                table=table,
+                raw_suffix=raw_suffix,
+            )
+            replacements.append((raw_start - entry_offset, raw_end - entry_offset, replacement, record, translation))
+
+        rebuilt = bytearray()
+        cursor = 0
+        original_entry = bytes(data[entry_offset:entry_end])
+        for local_start, local_end, replacement, record, translation in replacements:
+            if local_start < cursor:
+                raise ToolError(f"Registry D entry {entry_index} 안에서 record 범위가 겹칩니다.")
+            rebuilt.extend(original_entry[cursor:local_start])
+            rebuilt.extend(replacement)
+            cursor = local_end
+            handled_offsets.add(int(record["offset"]))
+            report.append(
+                build_apply_report_entry(
+                    record,
+                    action="packed_repointed",
+                    translation=translation,
+                    encoded_payload_length=len(replacement),
+                    entry_index=entry_index,
+                    old_entry_offset=entry_offset,
+                    old_entry_length=entry_length,
+                    replacement_bytes=len(replacement),
+                )
+            )
+        rebuilt.extend(original_entry[cursor:])
+
+        destination = append_space(
+            data,
+            size=len(rebuilt),
+            fill_byte=fill_byte,
+            alignment=alignment,
+        )
+        data[destination:destination + len(rebuilt)] = rebuilt
+        write_pointer_length_entry(
+            data,
+            table_offset=REGISTRY_D_TABLE_OFFSET,
+            index=entry_index,
+            offset=destination,
+            length=len(rebuilt),
+        )
+        next_free_search = destination + len(rebuilt)
+
+        for item in report:
+            if item.get("entry_index") == entry_index and "new_entry_offset" not in item:
+                item["new_entry_offset"] = destination
+                item["new_entry_length"] = len(rebuilt)
+
+    return next_free_search, report, handled_offsets
+
+
 def normalize_translation_record(record: dict, *, source_path: Path, source_order: int) -> dict:
     normalized = dict(record)
     normalized.setdefault("translation", "")
@@ -3023,6 +4356,34 @@ def normalize_translation_record(record: dict, *, source_path: Path, source_orde
     normalized["source_group"] = source_path.stem
     normalized["source_order"] = source_order
     return normalized
+
+
+def build_apply_report_entry(
+    record: dict,
+    *,
+    action: str,
+    translation: str,
+    encoded_payload_length: Optional[int] = None,
+    original_capacity: Optional[int] = None,
+    **extra: object,
+) -> dict:
+    entry: Dict[str, object] = {
+        "offset": int(record["offset"]),
+        "action": action,
+        "translation": translation,
+        "text": record.get("text"),
+        "source_group": record.get("source_group"),
+        "source_file": record.get("source_file"),
+        "source_order": record.get("source_order"),
+        "byte_length": record.get("byte_length"),
+        "terminator": record.get("terminator"),
+    }
+    if encoded_payload_length is not None:
+        entry["encoded_payload_length"] = encoded_payload_length
+    if original_capacity is not None:
+        entry["capacity_bytes"] = original_capacity
+    entry.update(extra)
+    return entry
 
 
 def collect_hangul_char_stats(values: Iterable[str]) -> Tuple[List[Dict[str, object]], int]:
@@ -3076,8 +4437,12 @@ def cmd_build_hangul_seed_manifest(args: argparse.Namespace) -> int:
     start_code = parse_offset(args.start_code)
     manifest: List[Dict[str, object]] = []
     table_lines: List[str] = []
-    for index, item in enumerate(char_stats):
-        code = start_code + index
+    safe_codes = iter_safe_custom_codes(start_code)
+    for item in char_stats:
+        try:
+            code = next(safe_codes)
+        except StopIteration as exc:
+            raise ToolError("한글 subset 에 배정할 안전한 custom code 가 부족합니다.") from exc
         char = str(item["char"])
         manifest.append(
             {
@@ -3235,8 +4600,34 @@ def cmd_apply_translations(args: argparse.Namespace) -> int:
 
     report = []
     next_free_search = parse_offset(args.search_free_space_from)
+    fill_byte = parse_hex_byte(args.fill_byte)
+
+    next_free_search, entry8_report, entry8_offsets = apply_registry_a_entry8_segment_records(
+        data,
+        records,
+        encoding=args.encoding,
+        table=table,
+        next_free_search=next_free_search,
+        fill_byte=fill_byte,
+        alignment=args.align,
+    )
+    report.extend(entry8_report)
+
+    next_free_search, packed_report, packed_offsets = apply_registry_d_packed_records(
+        data,
+        records,
+        encoding=args.encoding,
+        table=table,
+        next_free_search=next_free_search,
+        fill_byte=fill_byte,
+        alignment=args.align,
+    )
+    report.extend(packed_report)
+    packed_offsets = set(packed_offsets) | set(entry8_offsets)
 
     for record in records:
+        if int(record.get("offset", -1)) in packed_offsets:
+            continue
         translation = record.get("translation", "")
         if not translation:
             continue
@@ -3246,6 +4637,22 @@ def cmd_apply_translations(args: argparse.Namespace) -> int:
         original_byte_length = int(record["byte_length"])
         terminator = parse_record_terminator(record, args.terminator)
         encoded_text = encode_text(translation, encoding=args.encoding, table=table)
+        if is_prefixed_counted_fixed_slot(record, terminator):
+            translation, encoded_text = pad_prefixed_counted_payload(
+                record,
+                translation,
+                encoded_text,
+                encoding=args.encoding,
+                table=table,
+            )
+        elif is_inline_event_fixed_slot(record, terminator):
+            translation, encoded_text = pad_inline_event_payload(
+                record,
+                translation,
+                encoded_text,
+                encoding=args.encoding,
+                table=table,
+            )
         payload = encoded_text + terminator
         original_capacity = original_byte_length + len(terminator)
 
@@ -3258,25 +4665,28 @@ def cmd_apply_translations(args: argparse.Namespace) -> int:
                 )
             header_update = update_prefixed_char_count_if_present(data, record, translation)
             report.append(
-                {
-                    "offset": original_offset,
-                    "action": "in_place",
-                    "translation": translation,
-                    "written_bytes": len(payload),
-                    "header_update": header_update,
-                }
+                build_apply_report_entry(
+                    record,
+                    action="in_place",
+                    translation=translation,
+                    encoded_payload_length=len(payload),
+                    original_capacity=original_capacity,
+                    written_bytes=len(payload),
+                    header_update=header_update,
+                )
             )
             continue
 
         if not args.auto_repoint:
             report.append(
-                {
-                    "offset": original_offset,
-                    "action": "skipped_too_long",
-                    "translation": translation,
-                    "required_bytes": len(payload),
-                    "capacity_bytes": original_capacity,
-                }
+                build_apply_report_entry(
+                    record,
+                    action="skipped_too_long",
+                    translation=translation,
+                    encoded_payload_length=len(payload),
+                    original_capacity=original_capacity,
+                    required_bytes=len(payload),
+                )
             )
             continue
 
@@ -3290,19 +4700,22 @@ def cmd_apply_translations(args: argparse.Namespace) -> int:
             if args.fail_on_missing_pointers:
                 raise ToolError(f"{format_offset(original_offset)} 에 대한 포인터를 찾지 못했습니다.")
             report.append(
-                {
-                    "offset": original_offset,
-                    "action": "skipped_no_pointer",
-                    "translation": translation,
-                }
+                build_apply_report_entry(
+                    record,
+                    action="skipped_no_pointer",
+                    translation=translation,
+                    encoded_payload_length=len(payload),
+                    original_capacity=original_capacity,
+                    required_bytes=len(payload),
+                )
             )
             continue
 
-        destination = find_free_space(
+        destination = find_free_space_or_append(
             data,
             start=next_free_search,
             size=len(payload),
-            fill_byte=parse_hex_byte(args.fill_byte),
+            fill_byte=fill_byte,
             alignment=args.align,
         )
         data[destination:destination + len(payload)] = payload
@@ -3312,21 +4725,23 @@ def cmd_apply_translations(args: argparse.Namespace) -> int:
         next_free_search = destination + len(payload)
         header_update = update_prefixed_char_count_if_present(data, record, translation)
         report.append(
-            {
-                "offset": original_offset,
-                "action": "repointed",
-                "translation": translation,
-                "new_offset": destination,
-                "pointer_count": len(pointers),
-                "header_update": header_update,
-            }
+            build_apply_report_entry(
+                record,
+                action="repointed",
+                translation=translation,
+                encoded_payload_length=len(payload),
+                original_capacity=original_capacity,
+                new_offset=destination,
+                pointer_count=len(pointers),
+                header_update=header_update,
+            )
         )
 
     write_binary(output_path, bytes(data))
     if args.report:
         write_json(Path(args.report), report)
 
-    changed = sum(1 for item in report if item["action"] in {"in_place", "repointed"})
+    changed = sum(1 for item in report if item["action"] in {"in_place", "repointed", "packed_repointed"})
     print(f"patched: {output_path}")
     print(f"changed: {changed}")
     print(f"report : {args.report or '(not written)'}")

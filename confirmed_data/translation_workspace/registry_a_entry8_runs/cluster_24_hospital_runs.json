@@ -1,0 +1,106 @@
+[
+  {
+    "run_id": "entry8_cluster_24_run_0000",
+    "cluster_index": 24,
+    "run_index": 0,
+    "dialogue_state_token": null,
+    "record_count": 9,
+    "offsets": [
+      7298932,
+      7298958,
+      7298980,
+      7299022,
+      7299054,
+      7299268,
+      7299302,
+      7299336,
+      7299356
+    ],
+    "source_text": "早く退院したいのぉ。\n孫と遊べるように\nなりたいのぉ\n孫が毎日来てくれるんです。\nうれしいですなぁ\nさっき上で大きな音がしたの…\nなんだかこわい…\n早く退院して、\nお外で遊びたいな…",
+    "translation_text": "빨리 퇴원하고 싶구먼.\n손자와 놀 수 있게\n되고 싶구먼\n손자가 매일 와 준답니다.\n참 기쁘지요\n아까 위에서 큰 소리가 났어…\n어쩐지 무서워…\n빨리 퇴원해서\n밖에서 놀고 싶어…",
+    "records": [
+      {
+        "offset": 7298932,
+        "header_offset": 7298928,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 1840,
+        "text": "早く退院したいのぉ。",
+        "translation": "빨리 퇴원하고 싶구먼."
+      },
+      {
+        "offset": 7298958,
+        "header_offset": 7298954,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "孫と遊べるように",
+        "translation": "손자와 놀 수 있게"
+      },
+      {
+        "offset": 7298980,
+        "header_offset": 7298976,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 2,
+        "text": "なりたいのぉ",
+        "translation": "되고 싶구먼"
+      },
+      {
+        "offset": 7299022,
+        "header_offset": 7299018,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 26,
+        "text": "孫が毎日来てくれるんです。",
+        "translation": "손자가 매일 와 준답니다."
+      },
+      {
+        "offset": 7299054,
+        "header_offset": 7299050,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "うれしいですなぁ",
+        "translation": "참 기쁘지요"
+      },
+      {
+        "offset": 7299268,
+        "header_offset": 7299264,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 194,
+        "text": "さっき上で大きな音がしたの…",
+        "translation": "아까 위에서 큰 소리가 났어…"
+      },
+      {
+        "offset": 7299302,
+        "header_offset": 7299298,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "なんだかこわい…",
+        "translation": "어쩐지 무서워…"
+      },
+      {
+        "offset": 7299336,
+        "header_offset": 7299332,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 14,
+        "text": "早く退院して、",
+        "translation": "빨리 퇴원해서"
+      },
+      {
+        "offset": 7299356,
+        "header_offset": 7299352,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "お外で遊びたいな…",
+        "translation": "밖에서 놀고 싶어…"
+      }
+    ],
+    "notes": ""
+  }
+]

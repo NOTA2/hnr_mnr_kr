@@ -1,0 +1,52 @@
+# Entry8 Repoint Candidates
+
+- Entry8 offset: `0x6B594C`
+- Entry8 length: `0xBD8FC`
+- Variable candidate offsets: `2531`
+- Boundary-crossing skipped offsets: `21`
+- Safe candidate segments: `1`
+- Tail-safe offsets: `64`
+
+## Candidate Segments
+
+| table | records | too long | delta | u32 refs | u16 warn | offsets |
+|---:|---:|---:|---:|---:|---:|---|
+| `0x148` | 7 | 1 | 2 | 0 | 0 | `0x768FE2` |
+
+## Risk Summary
+
+| status | segments | too long records |
+|---|---:|---:|
+| `candidate` | 1 | 1 |
+| `u16_review_needed` | 58 | 1548 |
+| `hard_ref_risky` | 16 | 982 |
+| `no_variable_needed` | 0 | 0 |
+
+## Tail-Safe Offsets
+
+These offsets stay clear of detected segment-local command operands when accumulated from the end of each segment.
+
+| table | count | offsets |
+|---:|---:|---|
+| `0xC8` | 8 | `0x71BFC8,0x71BFD8,0x71BFF0,0x71C012,0x71C026,0x71C050,0x71C0B4,0x71C0FA` |
+| `0x11C` | 7 | `0x74E2A4,0x74E352,0x74E36A,0x74E37E,0x74E3B0,0x74E43A,0x74E47C` |
+| `0x168` | 7 | `0x772AB2,0x772AF2,0x772BAC,0x772CB8,0x772E96,0x7730B0,0x7731B4` |
+| `0x60` | 5 | `0x6DC138,0x6DC274,0x6DC2A8,0x6DC33E,0x6DC362` |
+| `0xF0` | 5 | `0x733F92,0x733FF4,0x734014,0x734044,0x734096` |
+| `0x13C` | 4 | `0x765CE0,0x765D60,0x765D7E,0x765D98` |
+| `0x74` | 3 | `0x6EC894,0x6EC8B4,0x6EC922` |
+| `0x9C` | 3 | `0x6FFF5A,0x6FFFBC,0x6FFFE6` |
+| `0x110` | 3 | `0x7428C4,0x742A98,0x742BE0` |
+| `0x15C` | 3 | `0x76CCEA,0x76CD42,0x76CD98` |
+| `0x38` | 2 | `0x6C4BF8,0x6C4C34` |
+| `0xA4` | 2 | `0x7031DA,0x703330` |
+| `0xF4` | 2 | `0x736BFE,0x736C2C` |
+| `0xF8` | 2 | `0x7388A6,0x7388EC` |
+| `0x2C` | 1 | `0x6C0062` |
+| `0x48` | 1 | `0x6CAF52` |
+| `0x54` | 1 | `0x6D7FDC` |
+| `0x78` | 1 | `0x6F05E6` |
+| `0xC4` | 1 | `0x71236A` |
+| `0x120` | 1 | `0x75152A` |
+| `0x148` | 1 | `0x768FE2` |
+| `0x150` | 1 | `0x76B326` |

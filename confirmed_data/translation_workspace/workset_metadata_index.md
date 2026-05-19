@@ -1,6 +1,6 @@
 # Workset 메타데이터 인덱스
 
-- 마지막 갱신: `2026-05-18`
+- 마지막 갱신: `2026-05-19`
 - 항목 수: `8`
 - 용도: 번역팀이 실제 번역 시작 전에 workset 별 제약과 QA 범위를 빠르게 확인하는 인덱스
 
@@ -30,12 +30,12 @@
 ### `translation_workset_core_ui`
 
 - 경로: `confirmed_data/translation_worksets/translation_workset_core_ui.json`
-- 레코드 수: `50`
+- 레코드 수: `67`
 - 목적: 시스템/세이브/지역명/UI 기술명 등 첫 실제 번역 진입 세트
 - 상태: 바로 번역 시작 가능
 - layout 전략: source_group 별 family 를 먼저 적용
 - 줄바꿈 규칙: source_group 별 규칙 우선
-- source_group: `location_texts, save_menu_texts, system_messages, ui_skill_texts`
+- source_group: `choice_yes_no_texts, location_texts, save_menu_texts, system_messages, ui_skill_texts`
 - 이미지 겹침 위험: 중간
 - 필수 보존 요소: save_menu 01 FF 헤더, location family 보수적 길이 유지
 - QA 필요 항목: 메뉴/세이브/지역명 대표 화면 확인, 혼합 family 적용 확인
@@ -58,8 +58,8 @@
 - 줄바꿈 규칙: 추가 줄바꿈 지양
 - source_group: `ability_texts, battle_texts, item_texts, material_texts, registry_a_entry12_texts`
 - 이미지 겹침 위험: 낮음
-- 필수 보존 요소: 0x0B separator, 전각 공백 패딩, 짧고 명확한 설명문
-- QA 필요 항목: 용어/설명문 길이 과팽창 방지, 0x0B / 패딩 보존 확인
+- 필수 보존 요소: 0x0B separator, byte 한계 안에서 명확한 설명문, 수동 공백 패딩 금지
+- QA 필요 항목: expansion_mode별 길이 판단, 0x0B separator 보존 및 이름 필드 padding 자동 복원 확인, 0x0B 앞줄 여백의 의미 글자 활용 여부, 2줄 설명창의 윗줄 우선 배치
 - source_group별 family:
   - `item_texts` -> `ui_or_item_plain_00_record`
   - `ability_texts` -> `term_description_plain_00_optional_0b`
@@ -68,7 +68,8 @@
   - `registry_a_entry12_texts` -> `ui_or_item_plain_00_record`
 - 참고:
   - 아이템/전투/능력/재료/Entry12 텍스트를 전량 포함한 정식 용어 세트다.
-  - 다만 runtime box family 가 미확정인 곳이 있어 설명문은 계속 짧게 유지하는 편이 안전하다.
+  - 다만 runtime box family 가 미확정인 곳이 있어 설명문은 expansion audit 의 여유 byte 안에서 자연스럽게 유지한다.
+  - 0x0B 앞 이름 필드에 남는 폭이 있으면 공백으로 버리지 말고 조사/목적어/동사 조각 같은 실제 글자로 활용한다. 2줄 설명창은 윗줄을 먼저 채우고 남은 짧은 의미를 아랫줄로 넘긴다. 최종 padding 은 정규화/빌드 도구가 복원한다.
 
 ### `translation_workset_credits`
 
@@ -90,15 +91,16 @@
 - 경로: `confirmed_data/translation_worksets/translation_workset_registry_d_dialogue.json`
 - 레코드 수: `244`
 - 목적: 튜토리얼/이벤트/전투 전후 대사 세트
-- 상태: 번역 시작 가능, 페이지 QA 후속 필요
+- 상태: 번역 시작 가능, 확장 패킹 적용
 - layout 전략: 단일 family `registry_d_fc_stop_script_line` 기준
-- 줄바꿈 규칙: 기존 개행만 보존, 새 개행은 보수적으로
+- 줄바꿈 규칙: 원문 개행 보존 우선, 잘림 발생 시 줄바꿈/문장 분할로 조정
 - source_group: `registry_d_fc_script_texts`
 - 이미지 겹침 위험: 낮음
-- 필수 보존 요소: FC-delimited 구조, adjacent control stream, dialogue_state sidecar 참고
-- QA 필요 항목: 기존 개행 보존, 장문 run page-turn 확인, 화자 state token 참고
+- 필수 보존 요소: FC-delimited 구조, adjacent control stream, dialogue_state sidecar 참고, Registry D packed relocation
+- QA 필요 항목: 기존 개행 보존, 장문 run page-turn 확인, 화자 state token 참고, 확장 패킹 후 화면 잘림 확인
 - 참고:
   - FC stop-byte 기준의 record 경계는 확정됐다.
+  - 현재 삽입기는 Registry D entry 를 ROM 끝으로 재패킹하고 pointer-length table 을 갱신하므로 원문 byte 슬롯보다 긴 번역도 적용할 수 있다.
   - 다만 장문 run 의 실제 page-turn 동작은 시각 QA 로 한 번 더 확인해야 한다.
 
 ### `registry_a_entry8_clusters_manifest`

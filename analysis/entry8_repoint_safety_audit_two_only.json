@@ -1,0 +1,108 @@
+{
+  "status": "unsafe",
+  "total_odd_length_records": 0,
+  "total_unresolved_reference_candidates": 6,
+  "segments": [
+    {
+      "table_local": 336,
+      "old_start": 739740,
+      "old_end": 743976,
+      "new_start": 1664692,
+      "delta_total": 8,
+      "touched_records": [
+        {
+          "offset": 7778808,
+          "raw_start": 743592,
+          "raw_start_rel": 3852,
+          "old_raw_len": 26,
+          "new_raw_len": 28,
+          "delta": 2,
+          "even_aligned": true,
+          "text": "肉体の材料はそろえた。",
+          "translation": "육체의 재료는 다 모았어."
+        },
+        {
+          "offset": 7778878,
+          "raw_start": 743662,
+          "raw_start_rel": 3922,
+          "old_raw_len": 24,
+          "new_raw_len": 30,
+          "delta": 6,
+          "even_aligned": true,
+          "text": "母さんを元に戻そう。",
+          "translation": "엄마를 원래대로 되돌리자. "
+        }
+      ],
+      "changes": [
+        {
+          "offset": 7778808,
+          "raw_start": 743592,
+          "raw_start_rel": 3852,
+          "old_raw_len": 26,
+          "new_raw_len": 28,
+          "delta": 2,
+          "even_aligned": true,
+          "text": "肉体の材料はそろえた。",
+          "translation": "육체의 재료는 다 모았어."
+        },
+        {
+          "offset": 7778878,
+          "raw_start": 743662,
+          "raw_start_rel": 3922,
+          "old_raw_len": 24,
+          "new_raw_len": 30,
+          "delta": 6,
+          "even_aligned": true,
+          "text": "母さんを元に戻そう。",
+          "translation": "엄마를 원래대로 되돌리자. "
+        }
+      ],
+      "odd_length_records": [],
+      "unresolved_reference_candidate_count": 6,
+      "unresolved_reference_candidates": [
+        {
+          "kind": "u16_segment_rel",
+          "field_old_rel": 130,
+          "old_value": 4082,
+          "expected_value": 4090,
+          "actual_value": 4082
+        },
+        {
+          "kind": "u16_segment_rel",
+          "field_old_rel": 498,
+          "old_value": 4096,
+          "expected_value": 4104,
+          "actual_value": 4096
+        },
+        {
+          "kind": "u16_segment_rel",
+          "field_old_rel": 1112,
+          "old_value": 4096,
+          "expected_value": 4104,
+          "actual_value": 4096
+        },
+        {
+          "kind": "u16_segment_rel",
+          "field_old_rel": 1780,
+          "old_value": 4152,
+          "expected_value": 4160,
+          "actual_value": 4152
+        },
+        {
+          "kind": "u16_segment_rel",
+          "field_old_rel": 2102,
+          "old_value": 4096,
+          "expected_value": 4104,
+          "actual_value": 4096
+        },
+        {
+          "kind": "u16_segment_rel",
+          "field_old_rel": 2802,
+          "old_value": 4000,
+          "expected_value": 4008,
+          "actual_value": 4000
+        }
+      ]
+    }
+  ]
+}

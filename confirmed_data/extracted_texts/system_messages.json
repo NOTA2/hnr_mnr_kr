@@ -1,5 +1,35 @@
 [
   {
+    "offset": 485613,
+    "rom_address": 134703341,
+    "byte_length": 16,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "持っていません　",
+    "translation": "없습니다"
+  },
+  {
+    "offset": 488700,
+    "rom_address": 134706428,
+    "byte_length": 18,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "をストックしました",
+    "translation": " 보관했습니다"
+  },
+  {
+    "offset": 558392,
+    "rom_address": 134776120,
+    "byte_length": 27,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "通信錬成開始？\nはい　いいえ",
+    "translation": "통신 연성을 시작할까요?\n예 아니요",
+    "source_file": "system_messages.json",
+    "source_group": "system_messages",
+    "source_order": 4
+  },
+  {
     "offset": 558424,
     "rom_address": 134776152,
     "byte_length": 12,
@@ -34,5 +64,32 @@
     "unknown_tokens": 0,
     "text": "接続数オーバー！\n接続数を１台にしてください",
     "translation": ""
+  },
+  {
+    "offset": 560444,
+    "rom_address": 134778172,
+    "byte_length": 18,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "全滅しました・・・",
+    "translation": "전멸했습니다…"
+  },
+  {
+    "offset": 560472,
+    "rom_address": 134778200,
+    "byte_length": 16,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "逃げだした・・・",
+    "translation": "도망쳤습니다…"
+  },
+  {
+    "offset": 560508,
+    "rom_address": 134778236,
+    "byte_length": 13,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": " 逃げられない",
+    "translation": "도망 불가"
   }
 ]

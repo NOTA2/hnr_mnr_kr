@@ -1,0 +1,4040 @@
+[
+  {
+    "run_id": "entry8_cluster_00_run_0000",
+    "cluster_index": 0,
+    "run_index": 0,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7043638,
+      7043668
+    ],
+    "source_text": "医者になりたいんだけど、\nどうやったらなれるのかな？",
+    "translation_text": "의사가 되고 싶은데,\n어떻게 해야 될 수 있을까?",
+    "records": [
+      {
+        "offset": 7043638,
+        "header_offset": 7043634,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 0,
+        "text": "医者になりたいんだけど、",
+        "translation": "의사가 되고 싶은데,"
+      },
+      {
+        "offset": 7043668,
+        "header_offset": 7043664,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "どうやったらなれるのかな？",
+        "translation": "어떻게 해야 될 수 있을까?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0001",
+    "cluster_index": 0,
+    "run_index": 1,
+    "dialogue_state_token": "1bff:0200",
+    "record_count": 2,
+    "offsets": [
+      7043874,
+      7043886
+    ],
+    "source_text": "は、\n腹へったぁ…",
+    "translation_text": "하,\n배고파…",
+    "records": [
+      {
+        "offset": 7043874,
+        "header_offset": 7043870,
+        "char_count": 2,
+        "byte_length": 4,
+        "control_gap_length": 176,
+        "text": "は、",
+        "translation": "하,"
+      },
+      {
+        "offset": 7043886,
+        "header_offset": 7043882,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 4,
+        "text": "腹へったぁ…",
+        "translation": "배고파…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0002",
+    "cluster_index": 0,
+    "run_index": 2,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7043908
+    ],
+    "source_text": "のど渇いたぁ…",
+    "translation_text": "목말라…",
+    "records": [
+      {
+        "offset": 7043908,
+        "header_offset": 7043904,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 6,
+        "text": "のど渇いたぁ…",
+        "translation": "목말라…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0003",
+    "cluster_index": 0,
+    "run_index": 3,
+    "dialogue_state_token": "1bff:0B80",
+    "record_count": 1,
+    "offsets": [
+      7043950
+    ],
+    "source_text": "はいはい、もう心配ないよ。",
+    "translation_text": "그래그래, 이제 걱정 마.",
+    "records": [
+      {
+        "offset": 7043950,
+        "header_offset": 7043946,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 24,
+        "text": "はいはい、もう心配ないよ。",
+        "translation": "그래그래, 이제 걱정 마."
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0004",
+    "cluster_index": 0,
+    "run_index": 4,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7043982
+    ],
+    "source_text": "街に着いたからね",
+    "translation_text": "마을에 도착했으니까",
+    "records": [
+      {
+        "offset": 7043982,
+        "header_offset": 7043978,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "街に着いたからね",
+        "translation": "마을에 도착했으니까"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0005",
+    "cluster_index": 0,
+    "run_index": 5,
+    "dialogue_state_token": "2bff:0380",
+    "record_count": 1,
+    "offsets": [
+      7044026
+    ],
+    "source_text": "食いものぉぉぉ…",
+    "translation_text": "먹을 거어어…",
+    "records": [
+      {
+        "offset": 7044026,
+        "header_offset": 7044022,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 24,
+        "text": "食いものぉぉぉ…",
+        "translation": "먹을 거어어…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0006",
+    "cluster_index": 0,
+    "run_index": 6,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7044052
+    ],
+    "source_text": "みずぅぅ…",
+    "translation_text": "물으으…",
+    "records": [
+      {
+        "offset": 7044052,
+        "header_offset": 7044048,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 6,
+        "text": "みずぅぅ…",
+        "translation": "물으으…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0007",
+    "cluster_index": 0,
+    "run_index": 7,
+    "dialogue_state_token": "1bff:0C80",
+    "record_count": 1,
+    "offsets": [
+      7044090
+    ],
+    "source_text": "ははは、兄さんってば",
+    "translation_text": "하하하, 형도 참",
+    "records": [
+      {
+        "offset": 7044090,
+        "header_offset": 7044086,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 24,
+        "text": "ははは、兄さんってば",
+        "translation": "하하하, 형도 참"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0008",
+    "cluster_index": 0,
+    "run_index": 8,
+    "dialogue_state_token": "1bff:5F00",
+    "record_count": 1,
+    "offsets": [
+      7044170
+    ],
+    "source_text": "今日はにぎやかね",
+    "translation_text": "오늘은 떠들썩하네",
+    "records": [
+      {
+        "offset": 7044170,
+        "header_offset": 7044166,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 56,
+        "text": "今日はにぎやかね",
+        "translation": "오늘은 떠들썩하네"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0009",
+    "cluster_index": 0,
+    "run_index": 9,
+    "dialogue_state_token": "27ff:C820",
+    "record_count": 1,
+    "offsets": [
+      7044310
+    ],
+    "source_text": "見慣れない方ですね。",
+    "translation_text": "처음 보는 분들이네요.",
+    "records": [
+      {
+        "offset": 7044310,
+        "header_offset": 7044306,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 120,
+        "text": "見慣れない方ですね。",
+        "translation": "처음 보는 분들이네요."
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0010",
+    "cluster_index": 0,
+    "run_index": 10,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7044340
+    ],
+    "source_text": "旅の方ですか？",
+    "translation_text": "여행자이신가요?",
+    "records": [
+      {
+        "offset": 7044340,
+        "header_offset": 7044336,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 6,
+        "text": "旅の方ですか？",
+        "translation": "여행자이신가요?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0011",
+    "cluster_index": 0,
+    "run_index": 11,
+    "dialogue_state_token": "27ff:C900",
+    "record_count": 1,
+    "offsets": [
+      7044384
+    ],
+    "source_text": "ある物を探して",
+    "translation_text": "찾는 게 있어서",
+    "records": [
+      {
+        "offset": 7044384,
+        "header_offset": 7044380,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 26,
+        "text": "ある物を探して",
+        "translation": "찾는 게 있어서"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0012",
+    "cluster_index": 0,
+    "run_index": 12,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7044404
+    ],
+    "source_text": "旅をしているんだ",
+    "translation_text": "여행 중이야",
+    "records": [
+      {
+        "offset": 7044404,
+        "header_offset": 7044400,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "旅をしているんだ",
+        "translation": "여행 중이야"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0013",
+    "cluster_index": 0,
+    "run_index": 13,
+    "dialogue_state_token": "27ff:CA00",
+    "record_count": 1,
+    "offsets": [
+      7044458
+    ],
+    "source_text": "錬金術師の",
+    "translation_text": "연금술사인",
+    "records": [
+      {
+        "offset": 7044458,
+        "header_offset": 7044454,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 34,
+        "text": "錬金術師の",
+        "translation": "연금술사인"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0014",
+    "cluster_index": 0,
+    "run_index": 14,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7044474
+    ],
+    "source_text": "アルフォンス・エルリックです",
+    "translation_text": "알폰스 엘릭입니다",
+    "records": [
+      {
+        "offset": 7044474,
+        "header_offset": 7044470,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "アルフォンス・エルリックです",
+        "translation": "알폰스 엘릭입니다"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0015",
+    "cluster_index": 0,
+    "run_index": 15,
+    "dialogue_state_token": "27ff:C820",
+    "record_count": 1,
+    "offsets": [
+      7044514
+    ],
+    "source_text": "私はこの街に住む",
+    "translation_text": "저는 이 마을에 사는",
+    "records": [
+      {
+        "offset": 7044514,
+        "header_offset": 7044510,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 8,
+        "text": "私はこの街に住む",
+        "translation": "저는 이 마을에 사는"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0016",
+    "cluster_index": 0,
+    "run_index": 16,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7044536,
+      7044564
+    ],
+    "source_text": "ロゼ・トーマスよ。\nよろしくね",
+    "translation_text": "로제 토마스예요.\n잘 부탁해요",
+    "records": [
+      {
+        "offset": 7044536,
+        "header_offset": 7044532,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "ロゼ・トーマスよ。",
+        "translation": "로제 토마스예요."
+      },
+      {
+        "offset": 7044564,
+        "header_offset": 7044560,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 6,
+        "text": "よろしくね",
+        "translation": "잘 부탁해요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0017",
+    "cluster_index": 0,
+    "run_index": 17,
+    "dialogue_state_token": "27ff:C900",
+    "record_count": 1,
+    "offsets": [
+      7044598
+    ],
+    "source_text": "オレは国家錬金術師の",
+    "translation_text": "나는 국가 연금술사",
+    "records": [
+      {
+        "offset": 7044598,
+        "header_offset": 7044594,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 20,
+        "text": "オレは国家錬金術師の",
+        "translation": "나는 국가 연금술사"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0018",
+    "cluster_index": 0,
+    "run_index": 18,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7044624
+    ],
+    "source_text": "エドワード・エルリック！",
+    "translation_text": "에드워드 엘릭!",
+    "records": [
+      {
+        "offset": 7044624,
+        "header_offset": 7044620,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "エドワード・エルリック！",
+        "translation": "에드워드 엘릭!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0019",
+    "cluster_index": 0,
+    "run_index": 19,
+    "dialogue_state_token": "27ff:C820",
+    "record_count": 1,
+    "offsets": [
+      7044664
+    ],
+    "source_text": "あなた方は兄弟なの？",
+    "translation_text": "두 사람은 형제야?",
+    "records": [
+      {
+        "offset": 7044664,
+        "header_offset": 7044660,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 12,
+        "text": "あなた方は兄弟なの？",
+        "translation": "두 사람은 형제야?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0020",
+    "cluster_index": 0,
+    "run_index": 20,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7044698,
+      7044736
+    ],
+    "source_text": "いいわねぇ、家族がいるって。\nひとりじゃないものね",
+    "translation_text": "좋겠다, 가족이 있다는 건.\n혼자가 아니잖아",
+    "records": [
+      {
+        "offset": 7044698,
+        "header_offset": 7044694,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 10,
+        "text": "いいわねぇ、家族がいるって。",
+        "translation": "좋겠다, 가족이 있다는 건."
+      },
+      {
+        "offset": 7044736,
+        "header_offset": 7044732,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 6,
+        "text": "ひとりじゃないものね",
+        "translation": "혼자가 아니잖아"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0021",
+    "cluster_index": 0,
+    "run_index": 21,
+    "dialogue_state_token": "27ff:C720",
+    "record_count": 1,
+    "offsets": [
+      7044886
+    ],
+    "source_text": "錬金術って何？",
+    "translation_text": "연금술이 뭐야?",
+    "records": [
+      {
+        "offset": 7044886,
+        "header_offset": 7044882,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 126,
+        "text": "錬金術って何？",
+        "translation": "연금술이 뭐야?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0022",
+    "cluster_index": 0,
+    "run_index": 22,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7044914,
+      7044942
+    ],
+    "source_text": "私、詳しくないの。\n教えてくれる？",
+    "translation_text": "나, 잘 모르거든.\n알려 줄래?",
+    "records": [
+      {
+        "offset": 7044914,
+        "header_offset": 7044910,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 10,
+        "text": "私、詳しくないの。",
+        "translation": "나, 잘 모르거든."
+      },
+      {
+        "offset": 7044942,
+        "header_offset": 7044938,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 6,
+        "text": "教えてくれる？",
+        "translation": "알려 줄래?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0023",
+    "cluster_index": 0,
+    "run_index": 23,
+    "dialogue_state_token": "1bff:0B00",
+    "record_count": 1,
+    "offsets": [
+      7044984
+    ],
+    "source_text": "いいですよ",
+    "translation_text": "좋아요",
+    "records": [
+      {
+        "offset": 7044984,
+        "header_offset": 7044980,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 24,
+        "text": "いいですよ",
+        "translation": "좋아요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0024",
+    "cluster_index": 0,
+    "run_index": 24,
+    "dialogue_state_token": "1bff:0100",
+    "record_count": 1,
+    "offsets": [
+      7045012
+    ],
+    "source_text": "錬金術ってのは科学だ。",
+    "translation_text": "연금술이란 건 과학이야.",
+    "records": [
+      {
+        "offset": 7045012,
+        "header_offset": 7045008,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 14,
+        "text": "錬金術ってのは科学だ。",
+        "translation": "연금술이란 건 과학이야."
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0025",
+    "cluster_index": 0,
+    "run_index": 25,
+    "dialogue_state_token": null,
+    "record_count": 4,
+    "offsets": [
+      7045044,
+      7045070,
+      7045118,
+      7045140
+    ],
+    "source_text": "だから術師ってよりは\nオレたちは科学者なわけ\n科学者…\nどんな事ができるの？",
+    "translation_text": "그러니까 술사라기보다는\n우린 과학자인 셈이지\n과학자…\n어떤 걸 할 수 있어?",
+    "records": [
+      {
+        "offset": 7045044,
+        "header_offset": 7045040,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 6,
+        "text": "だから術師ってよりは",
+        "translation": "그러니까 술사라기보다는"
+      },
+      {
+        "offset": 7045070,
+        "header_offset": 7045066,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "オレたちは科学者なわけ",
+        "translation": "우린 과학자인 셈이지"
+      },
+      {
+        "offset": 7045118,
+        "header_offset": 7045114,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 22,
+        "text": "科学者…",
+        "translation": "과학자…"
+      },
+      {
+        "offset": 7045140,
+        "header_offset": 7045136,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 10,
+        "text": "どんな事ができるの？",
+        "translation": "어떤 걸 할 수 있어?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0026",
+    "cluster_index": 0,
+    "run_index": 26,
+    "dialogue_state_token": "1bff:0B00",
+    "record_count": 1,
+    "offsets": [
+      7045184
+    ],
+    "source_text": "例えばラジオが壊れたとするね",
+    "translation_text": "예를 들어 라디오가 고장났다고 치자",
+    "records": [
+      {
+        "offset": 7045184,
+        "header_offset": 7045180,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 20,
+        "text": "例えばラジオが壊れたとするね",
+        "translation": "예를 들어 라디오가 고장났다고 치자"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0027",
+    "cluster_index": 0,
+    "run_index": 27,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7045218
+    ],
+    "source_text": "それを直すことができるんだよ",
+    "translation_text": "그걸 고칠 수 있어",
+    "records": [
+      {
+        "offset": 7045218,
+        "header_offset": 7045214,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "それを直すことができるんだよ",
+        "translation": "그걸 고칠 수 있어"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0028",
+    "cluster_index": 0,
+    "run_index": 28,
+    "dialogue_state_token": "1bff:0A00",
+    "record_count": 1,
+    "offsets": [
+      7045286
+    ],
+    "source_text": "こういう風に",
+    "translation_text": "이런 식으로",
+    "records": [
+      {
+        "offset": 7045286,
+        "header_offset": 7045282,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 36,
+        "text": "こういう風に",
+        "translation": "이런 식으로"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0029",
+    "cluster_index": 0,
+    "run_index": 29,
+    "dialogue_state_token": "2bff:2980",
+    "record_count": 1,
+    "offsets": [
+      7045376
+    ],
+    "source_text": "あーっ！",
+    "translation_text": "아앗!",
+    "records": [
+      {
+        "offset": 7045376,
+        "header_offset": 7045372,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 74,
+        "text": "あーっ！",
+        "translation": "아앗!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0030",
+    "cluster_index": 0,
+    "run_index": 30,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7045390
+    ],
+    "source_text": "ちょっと困るな、お客さん",
+    "translation_text": "손님, 이러시면 곤란한데요",
+    "records": [
+      {
+        "offset": 7045390,
+        "header_offset": 7045386,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "ちょっと困るな、お客さん",
+        "translation": "손님, 이러시면 곤란한데요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0031",
+    "cluster_index": 0,
+    "run_index": 31,
+    "dialogue_state_token": "2bff:0600",
+    "record_count": 1,
+    "offsets": [
+      7045452
+    ],
+    "source_text": "すぐ直すからさ。",
+    "translation_text": "바로 고칠게",
+    "records": [
+      {
+        "offset": 7045452,
+        "header_offset": 7045448,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 34,
+        "text": "すぐ直すからさ。",
+        "translation": "바로 고칠게"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0032",
+    "cluster_index": 0,
+    "run_index": 32,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7045474
+    ],
+    "source_text": "まぁ見てなって",
+    "translation_text": "자, 잘 봐",
+    "records": [
+      {
+        "offset": 7045474,
+        "header_offset": 7045470,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "まぁ見てなって",
+        "translation": "자, 잘 봐"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0033",
+    "cluster_index": 0,
+    "run_index": 33,
+    "dialogue_state_token": "1bff:0B00",
+    "record_count": 1,
+    "offsets": [
+      7045548
+    ],
+    "source_text": "そんじゃ、いきまーす",
+    "translation_text": "그럼, 갑니다",
+    "records": [
+      {
+        "offset": 7045548,
+        "header_offset": 7045544,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 56,
+        "text": "そんじゃ、いきまーす",
+        "translation": "그럼, 갑니다"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0034",
+    "cluster_index": 0,
+    "run_index": 34,
+    "dialogue_state_token": "1bff:0A00",
+    "record_count": 1,
+    "offsets": [
+      7045678
+    ],
+    "source_text": "これでいいかな？",
+    "translation_text": "이 정도 됐나?",
+    "records": [
+      {
+        "offset": 7045678,
+        "header_offset": 7045674,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 106,
+        "text": "これでいいかな？",
+        "translation": "이 정도 됐나?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0035",
+    "cluster_index": 0,
+    "run_index": 35,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7045716
+    ],
+    "source_text": "こりゃ、驚いた",
+    "translation_text": "이거 놀랍군",
+    "records": [
+      {
+        "offset": 7045716,
+        "header_offset": 7045712,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 18,
+        "text": "こりゃ、驚いた",
+        "translation": "이거 놀랍군"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0036",
+    "cluster_index": 0,
+    "run_index": 36,
+    "dialogue_state_token": "1bff:5E80",
+    "record_count": 1,
+    "offsets": [
+      7045776
+    ],
+    "source_text": "…それは",
+    "translation_text": "…그건",
+    "records": [
+      {
+        "offset": 7045776,
+        "header_offset": 7045772,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 42,
+        "text": "…それは",
+        "translation": "…그건"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0037",
+    "cluster_index": 0,
+    "run_index": 37,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7045792
+    ],
+    "source_text": "「奇跡の業」の事？",
+    "translation_text": "「기적의 업」을 말하는 거야?",
+    "records": [
+      {
+        "offset": 7045792,
+        "header_offset": 7045788,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 4,
+        "text": "「奇跡の業」の事？",
+        "translation": "「기적의 업」을 말하는 거야?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0038",
+    "cluster_index": 0,
+    "run_index": 38,
+    "dialogue_state_token": "1bff:0B00",
+    "record_count": 1,
+    "offsets": [
+      7045838
+    ],
+    "source_text": "そういう神秘的なものとは",
+    "translation_text": "그런 신비로운 것과는",
+    "records": [
+      {
+        "offset": 7045838,
+        "header_offset": 7045834,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 24,
+        "text": "そういう神秘的なものとは",
+        "translation": "그런 신비로운 것과는"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0039",
+    "cluster_index": 0,
+    "run_index": 39,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7045868
+    ],
+    "source_text": "少し違うんだよ",
+    "translation_text": "조금 달라요",
+    "records": [
+      {
+        "offset": 7045868,
+        "header_offset": 7045864,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "少し違うんだよ",
+        "translation": "조금 달라요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0040",
+    "cluster_index": 0,
+    "run_index": 40,
+    "dialogue_state_token": "1bff:0100",
+    "record_count": 1,
+    "offsets": [
+      7045900
+    ],
+    "source_text": "そうだなぁ、",
+    "translation_text": "그렇네,",
+    "records": [
+      {
+        "offset": 7045900,
+        "header_offset": 7045896,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 14,
+        "text": "そうだなぁ、",
+        "translation": "그렇네,"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0041",
+    "cluster_index": 0,
+    "run_index": 41,
+    "dialogue_state_token": null,
+    "record_count": 3,
+    "offsets": [
+      7045924,
+      7045942,
+      7045974
+    ],
+    "source_text": "例えば…\n手品も仕掛けがわからないと\nとても不思議で神秘的だよな",
+    "translation_text": "예를 들면…\n마술도 장치를 모르면\n아주 이상하고 신비롭잖아",
+    "records": [
+      {
+        "offset": 7045924,
+        "header_offset": 7045920,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 8,
+        "text": "例えば…",
+        "translation": "예를 들면…"
+      },
+      {
+        "offset": 7045942,
+        "header_offset": 7045938,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 6,
+        "text": "手品も仕掛けがわからないと",
+        "translation": "마술도 장치를 모르면"
+      },
+      {
+        "offset": 7045974,
+        "header_offset": 7045970,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "とても不思議で神秘的だよな",
+        "translation": "아주 이상하고 신비롭잖아"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0042",
+    "cluster_index": 0,
+    "run_index": 42,
+    "dialogue_state_token": "1bff:5E80",
+    "record_count": 1,
+    "offsets": [
+      7046054
+    ],
+    "source_text": "錬金術も同じだ。",
+    "translation_text": "연금술도 마찬가지야.",
+    "records": [
+      {
+        "offset": 7046054,
+        "header_offset": 7046050,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 50,
+        "text": "錬金術も同じだ。",
+        "translation": "연금술도 마찬가지야."
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0043",
+    "cluster_index": 0,
+    "run_index": 43,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7046076,
+      7046108
+    ],
+    "source_text": "必ず、原理原則がある。\nそれを知らないと…",
+    "translation_text": "반드시 원리와 원칙이 있어.\n그걸 모르면…",
+    "records": [
+      {
+        "offset": 7046076,
+        "header_offset": 7046072,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "必ず、原理原則がある。",
+        "translation": "반드시 원리와 원칙이 있어."
+      },
+      {
+        "offset": 7046108,
+        "header_offset": 7046104,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 6,
+        "text": "それを知らないと…",
+        "translation": "그걸 모르면…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0044",
+    "cluster_index": 0,
+    "run_index": 44,
+    "dialogue_state_token": "1bff:1100",
+    "record_count": 1,
+    "offsets": [
+      7046148
+    ],
+    "source_text": "不思議だったり、",
+    "translation_text": "신기하게 보이거나,",
+    "records": [
+      {
+        "offset": 7046148,
+        "header_offset": 7046144,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 18,
+        "text": "不思議だったり、",
+        "translation": "신기하게 보이거나,"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0045",
+    "cluster_index": 0,
+    "run_index": 45,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7046170
+    ],
+    "source_text": "神秘的だったりするんだよ",
+    "translation_text": "신비롭게 보이는 거죠",
+    "records": [
+      {
+        "offset": 7046170,
+        "header_offset": 7046166,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "神秘的だったりするんだよ",
+        "translation": "신비롭게 보이는 거죠"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0046",
+    "cluster_index": 0,
+    "run_index": 46,
+    "dialogue_state_token": "1bff:5F80",
+    "record_count": 1,
+    "offsets": [
+      7046222
+    ],
+    "source_text": "…私にはちょっと難しいかな。",
+    "translation_text": "…나한테는 좀 어렵겠네.",
+    "records": [
+      {
+        "offset": 7046222,
+        "header_offset": 7046218,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 24,
+        "text": "…私にはちょっと難しいかな。",
+        "translation": "…나한테는 좀 어렵겠네."
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0047",
+    "cluster_index": 0,
+    "run_index": 47,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7046264,
+      7046294
+    ],
+    "source_text": "教えてくれてありがとう。\nそれじゃ、私は教会へ行くわ",
+    "translation_text": "알려 줘서 고마워.\n그럼 난 교회에 갈게",
+    "records": [
+      {
+        "offset": 7046264,
+        "header_offset": 7046260,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 10,
+        "text": "教えてくれてありがとう。",
+        "translation": "알려 줘서 고마워."
+      },
+      {
+        "offset": 7046294,
+        "header_offset": 7046290,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "それじゃ、私は教会へ行くわ",
+        "translation": "그럼 난 교회에 갈게"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0048",
+    "cluster_index": 0,
+    "run_index": 48,
+    "dialogue_state_token": "2bff:0680",
+    "record_count": 1,
+    "offsets": [
+      7046382
+    ],
+    "source_text": "ロゼも明るくなったよなぁ。",
+    "translation_text": "로제도 밝아졌구나.",
+    "records": [
+      {
+        "offset": 7046382,
+        "header_offset": 7046378,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 58,
+        "text": "ロゼも明るくなったよなぁ。",
+        "translation": "로제도 밝아졌구나."
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0049",
+    "cluster_index": 0,
+    "run_index": 49,
+    "dialogue_state_token": null,
+    "record_count": 9,
+    "offsets": [
+      7046414,
+      7046444,
+      7046490,
+      7046516,
+      7046562,
+      7046596,
+      7046620,
+      7046652,
+      7046674
+    ],
+    "source_text": "これも教主様のおかげだ\n元々、身寄りがなくてさ\nその上、去年恋人まで\n事故で亡くしちまって\nあん時の落ち込み様と言ったら\n可哀想でなぁ。\n見ていられなかったよ\nそこを救ったのが\nコーネロ教主様の教えだ！",
+    "translation_text": "이것도 교주님 덕분이야\n원래 의지할 데가 없었는데\n게다가 작년에 연인까지\n사고로 잃어 버려서\n그때 풀이 죽은 모습이란\n불쌍해서 말이야.\n차마 보고 있을 수가 없었어\n그런 로제를 구한 게\n코넬로 교주님의 가르침이지!",
+    "records": [
+      {
+        "offset": 7046414,
+        "header_offset": 7046410,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "これも教主様のおかげだ",
+        "translation": "이것도 교주님 덕분이야"
+      },
+      {
+        "offset": 7046444,
+        "header_offset": 7046440,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 4,
+        "text": "元々、身寄りがなくてさ",
+        "translation": "원래 의지할 데가 없었는데"
+      },
+      {
+        "offset": 7046490,
+        "header_offset": 7046486,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 20,
+        "text": "その上、去年恋人まで",
+        "translation": "게다가 작년에 연인까지"
+      },
+      {
+        "offset": 7046516,
+        "header_offset": 7046512,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "事故で亡くしちまって",
+        "translation": "사고로 잃어 버려서"
+      },
+      {
+        "offset": 7046562,
+        "header_offset": 7046558,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 22,
+        "text": "あん時の落ち込み様と言ったら",
+        "translation": "그때 풀이 죽은 모습이란"
+      },
+      {
+        "offset": 7046596,
+        "header_offset": 7046592,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "可哀想でなぁ。",
+        "translation": "불쌍해서 말이야."
+      },
+      {
+        "offset": 7046620,
+        "header_offset": 7046616,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 6,
+        "text": "見ていられなかったよ",
+        "translation": "차마 보고 있을 수가 없었어"
+      },
+      {
+        "offset": 7046652,
+        "header_offset": 7046648,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 8,
+        "text": "そこを救ったのが",
+        "translation": "그런 로제를 구한 게"
+      },
+      {
+        "offset": 7046674,
+        "header_offset": 7046670,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "コーネロ教主様の教えだ！",
+        "translation": "코넬로 교주님의 가르침이지!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0050",
+    "cluster_index": 0,
+    "run_index": 50,
+    "dialogue_state_token": "1bff:0B00",
+    "record_count": 1,
+    "offsets": [
+      7046810
+    ],
+    "source_text": "兄さん、そっちは砂漠だよ",
+    "translation_text": "형, 그쪽은 사막이야",
+    "records": [
+      {
+        "offset": 7046810,
+        "header_offset": 7046806,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 108,
+        "text": "兄さん、そっちは砂漠だよ",
+        "translation": "형, 그쪽은 사막이야"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0051",
+    "cluster_index": 0,
+    "run_index": 51,
+    "dialogue_state_token": "2bff:0D00",
+    "record_count": 1,
+    "offsets": [
+      7046948
+    ],
+    "source_text": "あんたらも、コーネロ様の",
+    "translation_text": "너희도 코넬로 님의",
+    "records": [
+      {
+        "offset": 7046948,
+        "header_offset": 7046944,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 110,
+        "text": "あんたらも、コーネロ様の",
+        "translation": "너희도 코넬로 님의"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0052",
+    "cluster_index": 0,
+    "run_index": 52,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7046978,
+      7047012
+    ],
+    "source_text": "「奇跡の業」を一度見てみな。\nそろそろ広場で始まるぞ",
+    "translation_text": "「기적의 업」을 한번 봐 봐.\n슬슬 광장에서 시작할 거야",
+    "records": [
+      {
+        "offset": 7046978,
+        "header_offset": 7046974,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "「奇跡の業」を一度見てみな。",
+        "translation": "「기적의 업」을 한번 봐 봐."
+      },
+      {
+        "offset": 7047012,
+        "header_offset": 7047008,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "そろそろ広場で始まるぞ",
+        "translation": "슬슬 광장에서 시작할 거야"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0053",
+    "cluster_index": 0,
+    "run_index": 53,
+    "dialogue_state_token": "1bff:0900",
+    "record_count": 1,
+    "offsets": [
+      7047068
+    ],
+    "source_text": "ところでさ、",
+    "translation_text": "그런데,",
+    "records": [
+      {
+        "offset": 7047068,
+        "header_offset": 7047064,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 30,
+        "text": "ところでさ、",
+        "translation": "그런데,"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0054",
+    "cluster_index": 0,
+    "run_index": 54,
+    "dialogue_state_token": null,
+    "record_count": 16,
+    "offsets": [
+      7047086,
+      7047134,
+      7047166,
+      7047194,
+      7047222,
+      7047244,
+      7047278,
+      7047302,
+      7047328,
+      7047362,
+      7047390,
+      7047448,
+      7047474,
+      7047500,
+      7047530,
+      7047564
+    ],
+    "source_text": "コーネロ教主って何者なの？\nよそ者にはわからねぇよなぁ\n「奇跡の業」のレト教、\n太陽神レトの代理人さ\n数年前に現れて、\n俺達に神の道を説いて下さった\n素晴らしい方さ！\nコーネロ様が使われる\n「奇跡の業」は凄いのなんの。\nありゃ、本当に奇跡！\nまさに、神の御業さね\nコーネロ教主が現れて\n我々は幸せになった\nあんたらも、コーネロ様の\n「奇跡の業」を一度見てみな。\nそろそろ広場で始まるぞ",
+    "translation_text": "코넬로 교주가 누구야?\n외지인은 모를 만하지\n「기적의 업」의 레토교,\n태양신 레토의 대리인이야\n몇 년 전에 나타나서,\n우리에게 신의 길을 설파해 주신\n훌륭한 분이지!\n코넬로 님이 쓰시는\n「기적의 업」은 정말 대단해.\n그건 진짜 기적이야!\n그야말로 신의 업이지\n코넬로 교주가 나타나고\n우리는 행복해졌어\n너희도 코넬로 님의\n「기적의 업」을 한번 봐 봐.\n슬슬 광장에서 시작할 거야",
+    "records": [
+      {
+        "offset": 7047086,
+        "header_offset": 7047082,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "コーネロ教主って何者なの？",
+        "translation": "코넬로 교주가 누구야?"
+      },
+      {
+        "offset": 7047134,
+        "header_offset": 7047130,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 18,
+        "text": "よそ者にはわからねぇよなぁ",
+        "translation": "외지인은 모를 만하지"
+      },
+      {
+        "offset": 7047166,
+        "header_offset": 7047162,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "「奇跡の業」のレト教、",
+        "translation": "「기적의 업」의 레토교,"
+      },
+      {
+        "offset": 7047194,
+        "header_offset": 7047190,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "太陽神レトの代理人さ",
+        "translation": "태양신 레토의 대리인이야"
+      },
+      {
+        "offset": 7047222,
+        "header_offset": 7047218,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 4,
+        "text": "数年前に現れて、",
+        "translation": "몇 년 전에 나타나서,"
+      },
+      {
+        "offset": 7047244,
+        "header_offset": 7047240,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "俺達に神の道を説いて下さった",
+        "translation": "우리에게 신의 길을 설파해 주신"
+      },
+      {
+        "offset": 7047278,
+        "header_offset": 7047274,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "素晴らしい方さ！",
+        "translation": "훌륭한 분이지!"
+      },
+      {
+        "offset": 7047302,
+        "header_offset": 7047298,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 4,
+        "text": "コーネロ様が使われる",
+        "translation": "코넬로 님이 쓰시는"
+      },
+      {
+        "offset": 7047328,
+        "header_offset": 7047324,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "「奇跡の業」は凄いのなんの。",
+        "translation": "「기적의 업」은 정말 대단해."
+      },
+      {
+        "offset": 7047362,
+        "header_offset": 7047358,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "ありゃ、本当に奇跡！",
+        "translation": "그건 진짜 기적이야!"
+      },
+      {
+        "offset": 7047390,
+        "header_offset": 7047386,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 4,
+        "text": "まさに、神の御業さね",
+        "translation": "그야말로 신의 업이지"
+      },
+      {
+        "offset": 7047448,
+        "header_offset": 7047444,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 34,
+        "text": "コーネロ教主が現れて",
+        "translation": "코넬로 교주가 나타나고"
+      },
+      {
+        "offset": 7047474,
+        "header_offset": 7047470,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "我々は幸せになった",
+        "translation": "우리는 행복해졌어"
+      },
+      {
+        "offset": 7047500,
+        "header_offset": 7047496,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 4,
+        "text": "あんたらも、コーネロ様の",
+        "translation": "너희도 코넬로 님의"
+      },
+      {
+        "offset": 7047530,
+        "header_offset": 7047526,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "「奇跡の業」を一度見てみな。",
+        "translation": "「기적의 업」을 한번 봐 봐."
+      },
+      {
+        "offset": 7047564,
+        "header_offset": 7047560,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "そろそろ広場で始まるぞ",
+        "translation": "슬슬 광장에서 시작할 거야"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0055",
+    "cluster_index": 0,
+    "run_index": 55,
+    "dialogue_state_token": "1bff:0500",
+    "record_count": 1,
+    "offsets": [
+      7047606
+    ],
+    "source_text": "「奇跡の業」ねぇ…",
+    "translation_text": "「기적의 업」이라…",
+    "records": [
+      {
+        "offset": 7047606,
+        "header_offset": 7047602,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 16,
+        "text": "「奇跡の業」ねぇ…",
+        "translation": "「기적의 업」이라…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0056",
+    "cluster_index": 0,
+    "run_index": 56,
+    "dialogue_state_token": null,
+    "record_count": 7,
+    "offsets": [
+      7047672,
+      7047690,
+      7047714,
+      7047768,
+      7047786,
+      7047812,
+      7047850
+    ],
+    "source_text": "教主様の姿を\n見かけないんだけど\nどうしちまったのかね？\n教主様かい？\n教会へいってみなよ。\nいつもいらっしゃるよ\nお、ひさしぶりだね！",
+    "translation_text": "교주님의 모습을\n못 본 것 같은데\n무슨 일이 생긴 걸까?\n교주님 말이니?\n교회에 가 봐.\n늘 거기 계셔\n오, 오랜만이네!",
+    "records": [
+      {
+        "offset": 7047672,
+        "header_offset": 7047668,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 44,
+        "text": "教主様の姿を",
+        "translation": "교주님의 모습을"
+      },
+      {
+        "offset": 7047690,
+        "header_offset": 7047686,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "見かけないんだけど",
+        "translation": "못 본 것 같은데"
+      },
+      {
+        "offset": 7047714,
+        "header_offset": 7047710,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "どうしちまったのかね？",
+        "translation": "무슨 일이 생긴 걸까?"
+      },
+      {
+        "offset": 7047768,
+        "header_offset": 7047764,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 28,
+        "text": "教主様かい？",
+        "translation": "교주님 말이니?"
+      },
+      {
+        "offset": 7047786,
+        "header_offset": 7047782,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "教会へいってみなよ。",
+        "translation": "교회에 가 봐."
+      },
+      {
+        "offset": 7047812,
+        "header_offset": 7047808,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "いつもいらっしゃるよ",
+        "translation": "늘 거기 계셔"
+      },
+      {
+        "offset": 7047850,
+        "header_offset": 7047846,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 14,
+        "text": "お、ひさしぶりだね！",
+        "translation": "오, 오랜만이네!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0057",
+    "cluster_index": 0,
+    "run_index": 57,
+    "dialogue_state_token": "1bff:0880",
+    "record_count": 1,
+    "offsets": [
+      7048158
+    ],
+    "source_text": "けっこう集まってるなぁ",
+    "translation_text": "꽤 모였네",
+    "records": [
+      {
+        "offset": 7048158,
+        "header_offset": 7048154,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 284,
+        "text": "けっこう集まってるなぁ",
+        "translation": "꽤 모였네"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0058",
+    "cluster_index": 0,
+    "run_index": 58,
+    "dialogue_state_token": "1bff:0D80",
+    "record_count": 1,
+    "offsets": [
+      7048204
+    ],
+    "source_text": "兄さん、見える？",
+    "translation_text": "형, 보여?",
+    "records": [
+      {
+        "offset": 7048204,
+        "header_offset": 7048200,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 20,
+        "text": "兄さん、見える？",
+        "translation": "형, 보여?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0059",
+    "cluster_index": 0,
+    "run_index": 59,
+    "dialogue_state_token": "1bff:0480",
+    "record_count": 1,
+    "offsets": [
+      7048244
+    ],
+    "source_text": "…うるせぇ！",
+    "translation_text": "…시끄러워!",
+    "records": [
+      {
+        "offset": 7048244,
+        "header_offset": 7048240,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 20,
+        "text": "…うるせぇ！",
+        "translation": "…시끄러워!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0060",
+    "cluster_index": 0,
+    "run_index": 60,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7048262
+    ],
+    "source_text": "ちゃんと見えるよ！",
+    "translation_text": "잘 보이거든!",
+    "records": [
+      {
+        "offset": 7048262,
+        "header_offset": 7048258,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "ちゃんと見えるよ！",
+        "translation": "잘 보이거든!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0061",
+    "cluster_index": 0,
+    "run_index": 61,
+    "dialogue_state_token": "2bff:0680",
+    "record_count": 1,
+    "offsets": [
+      7048324
+    ],
+    "source_text": "　教主様！",
+    "translation_text": " 교주님!",
+    "records": [
+      {
+        "offset": 7048324,
+        "header_offset": 7048320,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 40,
+        "text": "　教主様！",
+        "translation": " 교주님!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0062",
+    "cluster_index": 0,
+    "run_index": 62,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7048360
+    ],
+    "source_text": "　　御業を！",
+    "translation_text": "  권능을!",
+    "records": [
+      {
+        "offset": 7048360,
+        "header_offset": 7048356,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 22,
+        "text": "　　御業を！",
+        "translation": "  권능을!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0063",
+    "cluster_index": 0,
+    "run_index": 63,
+    "dialogue_state_token": "1bff:6280",
+    "record_count": 1,
+    "offsets": [
+      7048584
+    ],
+    "source_text": "奇跡の御業だ！",
+    "translation_text": "기적의 권능이다!",
+    "records": [
+      {
+        "offset": 7048584,
+        "header_offset": 7048580,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 208,
+        "text": "奇跡の御業だ！",
+        "translation": "기적의 권능이다!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0064",
+    "cluster_index": 0,
+    "run_index": 64,
+    "dialogue_state_token": "1bff:0580",
+    "record_count": 1,
+    "offsets": [
+      7048642
+    ],
+    "source_text": "あの「奇跡の業」どう思う？",
+    "translation_text": "저 「기적의 업」, 어떻게 생각해?",
+    "records": [
+      {
+        "offset": 7048642,
+        "header_offset": 7048638,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 40,
+        "text": "あの「奇跡の業」どう思う？",
+        "translation": "저 「기적의 업」, 어떻게 생각해?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0065",
+    "cluster_index": 0,
+    "run_index": 65,
+    "dialogue_state_token": "1bff:0B80",
+    "record_count": 1,
+    "offsets": [
+      7048696
+    ],
+    "source_text": "どうもこうもあの変成反応は",
+    "translation_text": "어떻게 생각하고 뭐고, 저 변성 반응은",
+    "records": [
+      {
+        "offset": 7048696,
+        "header_offset": 7048692,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 24,
+        "text": "どうもこうもあの変成反応は",
+        "translation": "어떻게 생각하고 뭐고, 저 변성 반응은"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0066",
+    "cluster_index": 0,
+    "run_index": 66,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7048728
+    ],
+    "source_text": "錬金術でしょ",
+    "translation_text": "연금술이지",
+    "records": [
+      {
+        "offset": 7048728,
+        "header_offset": 7048724,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 2,
+        "text": "錬金術でしょ",
+        "translation": "연금술이지"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0067",
+    "cluster_index": 0,
+    "run_index": 67,
+    "dialogue_state_token": "1bff:5F80",
+    "record_count": 1,
+    "offsets": [
+      7048820
+    ],
+    "source_text": "来てらしたのね。",
+    "translation_text": "와 계셨군요.",
+    "records": [
+      {
+        "offset": 7048820,
+        "header_offset": 7048816,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 76,
+        "text": "来てらしたのね。",
+        "translation": "와 계셨군요."
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0068",
+    "cluster_index": 0,
+    "run_index": 68,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7048846,
+      7048862
+    ],
+    "source_text": "どうです！\nまさに奇跡の力でしょう",
+    "translation_text": "어떻습니까!\n그야말로 기적의 힘이지요",
+    "records": [
+      {
+        "offset": 7048846,
+        "header_offset": 7048842,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 6,
+        "text": "どうです！",
+        "translation": "어떻습니까!"
+      },
+      {
+        "offset": 7048862,
+        "header_offset": 7048858,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "まさに奇跡の力でしょう",
+        "translation": "그야말로 기적의 힘이지요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0069",
+    "cluster_index": 0,
+    "run_index": 69,
+    "dialogue_state_token": "1bff:0580",
+    "record_count": 1,
+    "offsets": [
+      7048922
+    ],
+    "source_text": "どう見ても錬金術だよ。",
+    "translation_text": "아무리 봐도 연금술이야.",
+    "records": [
+      {
+        "offset": 7048922,
+        "header_offset": 7048918,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 34,
+        "text": "どう見ても錬金術だよ。",
+        "translation": "아무리 봐도 연금술이야."
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0070",
+    "cluster_index": 0,
+    "run_index": 70,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7048950
+    ],
+    "source_text": "ヤツはとんだペテン野郎だ",
+    "translation_text": "저 녀석은 터무니없는 사기꾼이야",
+    "records": [
+      {
+        "offset": 7048950,
+        "header_offset": 7048946,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "ヤツはとんだペテン野郎だ",
+        "translation": "저 녀석은 터무니없는 사기꾼이야"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0071",
+    "cluster_index": 0,
+    "run_index": 71,
+    "dialogue_state_token": "1bff:6180",
+    "record_count": 1,
+    "offsets": [
+      7048996
+    ],
+    "source_text": "なんて事を！",
+    "translation_text": "무슨 말씀을!",
+    "records": [
+      {
+        "offset": 7048996,
+        "header_offset": 7048992,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 18,
+        "text": "なんて事を！",
+        "translation": "무슨 말씀을!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0072",
+    "cluster_index": 0,
+    "run_index": 72,
+    "dialogue_state_token": "1bff:1180",
+    "record_count": 1,
+    "offsets": [
+      7049030
+    ],
+    "source_text": "まぁまぁ、落ち着いて…",
+    "translation_text": "자자, 진정하세요…",
+    "records": [
+      {
+        "offset": 7049030,
+        "header_offset": 7049026,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 18,
+        "text": "まぁまぁ、落ち着いて…",
+        "translation": "자자, 진정하세요…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0073",
+    "cluster_index": 0,
+    "run_index": 73,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7049062,
+      7049096
+    ],
+    "source_text": "でも…あの人の錬金術は法則を\n無視してるんだよね",
+    "translation_text": "하지만… 그 사람의 연금술은 법칙을\n무시하고 있잖아",
+    "records": [
+      {
+        "offset": 7049062,
+        "header_offset": 7049058,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 6,
+        "text": "でも…あの人の錬金術は法則を",
+        "translation": "하지만… 그 사람의 연금술은 법칙을"
+      },
+      {
+        "offset": 7049096,
+        "header_offset": 7049092,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "無視してるんだよね",
+        "translation": "무시하고 있잖아"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0074",
+    "cluster_index": 0,
+    "run_index": 74,
+    "dialogue_state_token": "1bff:0580",
+    "record_count": 1,
+    "offsets": [
+      7049166
+    ],
+    "source_text": "何かを得ようとするなら",
+    "translation_text": "무언가를 얻으려면",
+    "records": [
+      {
+        "offset": 7049166,
+        "header_offset": 7049162,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 48,
+        "text": "何かを得ようとするなら",
+        "translation": "무언가를 얻으려면"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0075",
+    "cluster_index": 0,
+    "run_index": 75,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7049194,
+      7049230
+    ],
+    "source_text": "同等の代価が必要だって事。\n…それを無視してる",
+    "translation_text": "동등한 대가가 필요하다는 것.\n…그걸 무시하고 있어",
+    "records": [
+      {
+        "offset": 7049194,
+        "header_offset": 7049190,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "同等の代価が必要だって事。",
+        "translation": "동등한 대가가 필요하다는 것."
+      },
+      {
+        "offset": 7049230,
+        "header_offset": 7049226,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 6,
+        "text": "…それを無視してる",
+        "translation": "…그걸 무시하고 있어"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0076",
+    "cluster_index": 0,
+    "run_index": 76,
+    "dialogue_state_token": "1bff:5E80",
+    "record_count": 1,
+    "offsets": [
+      7049270
+    ],
+    "source_text": "だから奇跡なんです！",
+    "translation_text": "그래서 기적인 거예요!",
+    "records": [
+      {
+        "offset": 7049270,
+        "header_offset": 7049266,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 18,
+        "text": "だから奇跡なんです！",
+        "translation": "그래서 기적인 거예요!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0077",
+    "cluster_index": 0,
+    "run_index": 77,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7049296,
+      7049316
+    ],
+    "source_text": "錬金術で奇跡を\n起こせるんですか？",
+    "translation_text": "연금술로 기적을\n일으킬 수 있나요?",
+    "records": [
+      {
+        "offset": 7049296,
+        "header_offset": 7049292,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "錬金術で奇跡を",
+        "translation": "연금술로 기적을"
+      },
+      {
+        "offset": 7049316,
+        "header_offset": 7049312,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "起こせるんですか？",
+        "translation": "일으킬 수 있나요?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0078",
+    "cluster_index": 0,
+    "run_index": 78,
+    "dialogue_state_token": "1bff:0F80",
+    "record_count": 1,
+    "offsets": [
+      7049358
+    ],
+    "source_text": "兄さん、",
+    "translation_text": "형,",
+    "records": [
+      {
+        "offset": 7049358,
+        "header_offset": 7049354,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 20,
+        "text": "兄さん、",
+        "translation": "형,"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0079",
+    "cluster_index": 0,
+    "run_index": 79,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7049378
+    ],
+    "source_text": "ひょっとして……",
+    "translation_text": "혹시……",
+    "records": [
+      {
+        "offset": 7049378,
+        "header_offset": 7049374,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 8,
+        "text": "ひょっとして……",
+        "translation": "혹시……"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0080",
+    "cluster_index": 0,
+    "run_index": 80,
+    "dialogue_state_token": "1bff:0A80",
+    "record_count": 1,
+    "offsets": [
+      7049414
+    ],
+    "source_text": "ああ…ひょっとすると",
+    "translation_text": "그래… 어쩌면",
+    "records": [
+      {
+        "offset": 7049414,
+        "header_offset": 7049410,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 16,
+        "text": "ああ…ひょっとすると",
+        "translation": "그래… 어쩌면"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0081",
+    "cluster_index": 0,
+    "run_index": 81,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7049442,
+      7049460
+    ],
+    "source_text": "、だな。\nあの、おっさんに会ってみるか",
+    "translation_text": "일지도.\n저 아저씨를 만나 볼까",
+    "records": [
+      {
+        "offset": 7049442,
+        "header_offset": 7049438,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 4,
+        "text": "、だな。",
+        "translation": "일지도."
+      },
+      {
+        "offset": 7049460,
+        "header_offset": 7049456,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 6,
+        "text": "あの、おっさんに会ってみるか",
+        "translation": "저 아저씨를 만나 볼까"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0082",
+    "cluster_index": 0,
+    "run_index": 82,
+    "dialogue_state_token": "1bff:0B80",
+    "record_count": 1,
+    "offsets": [
+      7049506
+    ],
+    "source_text": "そうだね",
+    "translation_text": "그러자",
+    "records": [
+      {
+        "offset": 7049506,
+        "header_offset": 7049502,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 14,
+        "text": "そうだね",
+        "translation": "그러자"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0083",
+    "cluster_index": 0,
+    "run_index": 83,
+    "dialogue_state_token": "1bff:5F80",
+    "record_count": 1,
+    "offsets": [
+      7049544
+    ],
+    "source_text": "ぜひ、会って下さい。",
+    "translation_text": "꼭 만나 주세요.",
+    "records": [
+      {
+        "offset": 7049544,
+        "header_offset": 7049540,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 26,
+        "text": "ぜひ、会って下さい。",
+        "translation": "꼭 만나 주세요."
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0084",
+    "cluster_index": 0,
+    "run_index": 84,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7049570,
+      7049600
+    ],
+    "source_text": "そうすれば、コーネロ様の\n素晴らしさがわかります",
+    "translation_text": "그러면 코넬로 님의\n훌륭함을 알게 될 거예요",
+    "records": [
+      {
+        "offset": 7049570,
+        "header_offset": 7049566,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "そうすれば、コーネロ様の",
+        "translation": "그러면 코넬로 님의"
+      },
+      {
+        "offset": 7049600,
+        "header_offset": 7049596,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "素晴らしさがわかります",
+        "translation": "훌륭함을 알게 될 거예요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0085",
+    "cluster_index": 0,
+    "run_index": 85,
+    "dialogue_state_token": "1bff:6080",
+    "record_count": 1,
+    "offsets": [
+      7049908
+    ],
+    "source_text": "うそよ…",
+    "translation_text": "거짓말이야…",
+    "records": [
+      {
+        "offset": 7049908,
+        "header_offset": 7049904,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 282,
+        "text": "うそよ…",
+        "translation": "거짓말이야…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0086",
+    "cluster_index": 0,
+    "run_index": 86,
+    "dialogue_state_token": null,
+    "record_count": 9,
+    "offsets": [
+      7049924,
+      7049950,
+      7049996,
+      7050058,
+      7050090,
+      7050124,
+      7050164,
+      7050204,
+      7050254
+    ],
+    "source_text": "コーネロ様はケインを\n生き返らせてくれるって\nその時はもうすぐだって\nあきらめな、あのおっさんは\n最初から生き返らせるつもりは\nなかったんだよ\nなんて事をしてくれたのよ！\nこれから何を希望にすれば\n何にすがればいいのよ！",
+    "translation_text": "코넬로 님은 케인을\n되살려 주시겠다고\n그때가 곧 올 거라고\n포기해, 저 아저씨는\n처음부터 되살릴 생각 따윈\n없었던 거야\n무슨 짓을 한 거야!\n이제 뭘 희망 삼아\n뭘 붙잡고 살아가란 말이야!",
+    "records": [
+      {
+        "offset": 7049924,
+        "header_offset": 7049920,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 4,
+        "text": "コーネロ様はケインを",
+        "translation": "코넬로 님은 케인을"
+      },
+      {
+        "offset": 7049950,
+        "header_offset": 7049946,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "生き返らせてくれるって",
+        "translation": "되살려 주시겠다고"
+      },
+      {
+        "offset": 7049996,
+        "header_offset": 7049992,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 20,
+        "text": "その時はもうすぐだって",
+        "translation": "그때가 곧 올 거라고"
+      },
+      {
+        "offset": 7050058,
+        "header_offset": 7050054,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 36,
+        "text": "あきらめな、あのおっさんは",
+        "translation": "포기해, 저 아저씨는"
+      },
+      {
+        "offset": 7050090,
+        "header_offset": 7050086,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "最初から生き返らせるつもりは",
+        "translation": "처음부터 되살릴 생각 따윈"
+      },
+      {
+        "offset": 7050124,
+        "header_offset": 7050120,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "なかったんだよ",
+        "translation": "없었던 거야"
+      },
+      {
+        "offset": 7050164,
+        "header_offset": 7050160,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 22,
+        "text": "なんて事をしてくれたのよ！",
+        "translation": "무슨 짓을 한 거야!"
+      },
+      {
+        "offset": 7050204,
+        "header_offset": 7050200,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 10,
+        "text": "これから何を希望にすれば",
+        "translation": "이제 뭘 희망 삼아"
+      },
+      {
+        "offset": 7050254,
+        "header_offset": 7050250,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 22,
+        "text": "何にすがればいいのよ！",
+        "translation": "뭘 붙잡고 살아가란 말이야!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0087",
+    "cluster_index": 0,
+    "run_index": 87,
+    "dialogue_state_token": "1bff:1000",
+    "record_count": 1,
+    "offsets": [
+      7050332
+    ],
+    "source_text": "ねぇ、教えてよ",
+    "translation_text": "있잖아, 말해 줘",
+    "records": [
+      {
+        "offset": 7050332,
+        "header_offset": 7050328,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 52,
+        "text": "ねぇ、教えてよ",
+        "translation": "있잖아, 말해 줘"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0088",
+    "cluster_index": 0,
+    "run_index": 88,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7050352,
+      7050368
+    ],
+    "source_text": "どうやって\n生きていけばいいの？",
+    "translation_text": "어떻게\n살아가면 돼?",
+    "records": [
+      {
+        "offset": 7050352,
+        "header_offset": 7050348,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 2,
+        "text": "どうやって",
+        "translation": "어떻게"
+      },
+      {
+        "offset": 7050368,
+        "header_offset": 7050364,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "生きていけばいいの？",
+        "translation": "살아가면 돼?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0089",
+    "cluster_index": 0,
+    "run_index": 89,
+    "dialogue_state_token": "1bff:3A00",
+    "record_count": 1,
+    "offsets": [
+      7050416
+    ],
+    "source_text": "そんなこと、自分で考えろ。",
+    "translation_text": "그런 건 스스로 생각해.",
+    "records": [
+      {
+        "offset": 7050416,
+        "header_offset": 7050412,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 24,
+        "text": "そんなこと、自分で考えろ。",
+        "translation": "그런 건 스스로 생각해."
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0090",
+    "cluster_index": 0,
+    "run_index": 90,
+    "dialogue_state_token": null,
+    "record_count": 4,
+    "offsets": [
+      7050452,
+      7050474,
+      7050502,
+      7050526
+    ],
+    "source_text": "立って歩け。\n前へ進め\nお前には立派な足が\nあるじゃないか",
+    "translation_text": "일어나서 걸어.\n앞으로 나아가\n너한텐 멀쩡한 다리가\n있잖아",
+    "records": [
+      {
+        "offset": 7050452,
+        "header_offset": 7050448,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 6,
+        "text": "立って歩け。",
+        "translation": "일어나서 걸어."
+      },
+      {
+        "offset": 7050474,
+        "header_offset": 7050470,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 6,
+        "text": "前へ進め",
+        "translation": "앞으로 나아가"
+      },
+      {
+        "offset": 7050502,
+        "header_offset": 7050498,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 16,
+        "text": "お前には立派な足が",
+        "translation": "너한텐 멀쩡한 다리가"
+      },
+      {
+        "offset": 7050526,
+        "header_offset": 7050522,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "あるじゃないか",
+        "translation": "있잖아"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0091",
+    "cluster_index": 0,
+    "run_index": 91,
+    "dialogue_state_token": "1bff:1080",
+    "record_count": 1,
+    "offsets": [
+      7050592
+    ],
+    "source_text": "ロゼ、兄さんは…",
+    "translation_text": "로제, 형은…",
+    "records": [
+      {
+        "offset": 7050592,
+        "header_offset": 7050588,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 48,
+        "text": "ロゼ、兄さんは…",
+        "translation": "로제, 형은…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0092",
+    "cluster_index": 0,
+    "run_index": 92,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7050614
+    ],
+    "source_text": "君のために…",
+    "translation_text": "너를 위해서…",
+    "records": [
+      {
+        "offset": 7050614,
+        "header_offset": 7050610,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 2,
+        "text": "君のために…",
+        "translation": "너를 위해서…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0093",
+    "cluster_index": 0,
+    "run_index": 93,
+    "dialogue_state_token": "1bff:6000",
+    "record_count": 1,
+    "offsets": [
+      7050672
+    ],
+    "source_text": "お世話よ…",
+    "translation_text": "쓸데없는 참견이야…",
+    "records": [
+      {
+        "offset": 7050672,
+        "header_offset": 7050668,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 42,
+        "text": "お世話よ…",
+        "translation": "쓸데없는 참견이야…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0094",
+    "cluster_index": 0,
+    "run_index": 94,
+    "dialogue_state_token": "1bff:1080",
+    "record_count": 1,
+    "offsets": [
+      7050714
+    ],
+    "source_text": "…僕達行くね。",
+    "translation_text": "…우리 갈게.",
+    "records": [
+      {
+        "offset": 7050714,
+        "header_offset": 7050710,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 28,
+        "text": "…僕達行くね。",
+        "translation": "…우리 갈게."
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0095",
+    "cluster_index": 0,
+    "run_index": 95,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7050738
+    ],
+    "source_text": "元気で…",
+    "translation_text": "잘 지내…",
+    "records": [
+      {
+        "offset": 7050738,
+        "header_offset": 7050734,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 6,
+        "text": "元気で…",
+        "translation": "잘 지내…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0096",
+    "cluster_index": 0,
+    "run_index": 96,
+    "dialogue_state_token": "2bff:1F00",
+    "record_count": 1,
+    "offsets": [
+      7050890
+    ],
+    "source_text": "こちらからは入れません。",
+    "translation_text": "이쪽으로는 들어갈 수 없습니다.",
+    "records": [
+      {
+        "offset": 7050890,
+        "header_offset": 7050886,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 140,
+        "text": "こちらからは入れません。",
+        "translation": "이쪽으로는 들어갈 수 없습니다."
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0097",
+    "cluster_index": 0,
+    "run_index": 97,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7050920
+    ],
+    "source_text": "広場入口の方へお回りください",
+    "translation_text": "광장 입구 쪽으로 돌아가 주세요",
+    "records": [
+      {
+        "offset": 7050920,
+        "header_offset": 7050916,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "広場入口の方へお回りください",
+        "translation": "광장 입구 쪽으로 돌아가 주세요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0098",
+    "cluster_index": 0,
+    "run_index": 98,
+    "dialogue_state_token": "2bff:0D80",
+    "record_count": 1,
+    "offsets": [
+      7051050
+    ],
+    "source_text": "教主様のおかげで",
+    "translation_text": "교주님 덕분에",
+    "records": [
+      {
+        "offset": 7051050,
+        "header_offset": 7051046,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 98,
+        "text": "教主様のおかげで",
+        "translation": "교주님 덕분에"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0099",
+    "cluster_index": 0,
+    "run_index": 99,
+    "dialogue_state_token": null,
+    "record_count": 7,
+    "offsets": [
+      7051072,
+      7051096,
+      7051138,
+      7051166,
+      7051198,
+      7051310,
+      7051340
+    ],
+    "source_text": "長年の心のつかえが\nとれましたわい\n教主様が行方知れずだと\n聞きましたが…ああ、神よ、\nどうしたら良いのですか\nこちらからは入れません。\n広場入口の方へお回りください",
+    "translation_text": "오랫동안 마음에 맺힌 것이\n풀렸습니다\n교주님이 행방불명이라고\n들었습니다만… 아아, 신이시여,\n어찌하면 좋습니까\n이쪽으로는 들어갈 수 없습니다.\n광장 입구 쪽으로 돌아가 주세요",
+    "records": [
+      {
+        "offset": 7051072,
+        "header_offset": 7051068,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "長年の心のつかえが",
+        "translation": "오랫동안 마음에 맺힌 것이"
+      },
+      {
+        "offset": 7051096,
+        "header_offset": 7051092,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "とれましたわい",
+        "translation": "풀렸습니다"
+      },
+      {
+        "offset": 7051138,
+        "header_offset": 7051134,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 24,
+        "text": "教主様が行方知れずだと",
+        "translation": "교주님이 행방불명이라고"
+      },
+      {
+        "offset": 7051166,
+        "header_offset": 7051162,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "聞きましたが…ああ、神よ、",
+        "translation": "들었습니다만… 아아, 신이시여,"
+      },
+      {
+        "offset": 7051198,
+        "header_offset": 7051194,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "どうしたら良いのですか",
+        "translation": "어찌하면 좋습니까"
+      },
+      {
+        "offset": 7051310,
+        "header_offset": 7051306,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 86,
+        "text": "こちらからは入れません。",
+        "translation": "이쪽으로는 들어갈 수 없습니다."
+      },
+      {
+        "offset": 7051340,
+        "header_offset": 7051336,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "広場入口の方へお回りください",
+        "translation": "광장 입구 쪽으로 돌아가 주세요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0100",
+    "cluster_index": 0,
+    "run_index": 100,
+    "dialogue_state_token": "2bff:0B00",
+    "record_count": 1,
+    "offsets": [
+      7051524
+    ],
+    "source_text": "コーネロ様にお会いしたいなら",
+    "translation_text": "코넬로 님을 만나고 싶다면",
+    "records": [
+      {
+        "offset": 7051524,
+        "header_offset": 7051520,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 152,
+        "text": "コーネロ様にお会いしたいなら",
+        "translation": "코넬로 님을 만나고 싶다면"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0101",
+    "cluster_index": 0,
+    "run_index": 101,
+    "dialogue_state_token": null,
+    "record_count": 34,
+    "offsets": [
+      7051558,
+      7051594,
+      7051620,
+      7051664,
+      7051692,
+      7051716,
+      7051774,
+      7051800,
+      7051918,
+      7051952,
+      7051980,
+      7052100,
+      7052120,
+      7052150,
+      7052198,
+      7052214,
+      7052240,
+      7052284,
+      7052308,
+      7052336,
+      7052382,
+      7052400,
+      7052434,
+      7052628,
+      7052664,
+      7052716,
+      7052762,
+      7052786,
+      7052824,
+      7052850,
+      7053174,
+      7053204,
+      7053326,
+      7054302
+    ],
+    "source_text": "教会へおゆきなさい\n早く広場に行かないと\n奇跡の御業を見損ねちゃうよ\n毎日元気でいられるのは\nコーネロ様が守って\n下さってるからよ\n教主様がいなくても、\n日々の暮らしに励まなくちゃね\n教主様は「奇跡の業」によって\n太陽の神レトさまの力を\nしめされるんだ\n誰か、私たちの\n教主様の行方を知らない？\n…知らないわよね\n砂ぼこりで\n洗濯物もザラザラして\n困っちゃうわ\n世の中の人がみんな\nコーネロ様の教えに耳を\nかたむければ平和になれるのに\nコーネロ様…\n「奇跡の業」でリオールの街に\n祝福をお与え下さい\n「奇跡の業」がインチキだって、\nそんな話も聞いたが…\n今日も暑いなぁ\nこの街が豊かなのも\nレト教あってこそだ\n奇跡の業を見たかい？\n何度見ても感動するなぁ\n申し訳ありませんが、今は\n教会に入ることはできません\nヴィヴァスから出る「１」\nセントラルから出る「０」",
+    "translation_text": "교회로 가세요\n빨리 광장에 가지 않으면\n기적의 권능을 놓치겠어\n매일 건강하게 지낼 수 있는 건\n코넬로 님이 지켜\n주시기 때문이야\n교주님이 안 계셔도,\n하루하루 열심히 살아야지\n교주님은 「기적의 업」으로\n태양신 레토 님의 힘을\n보여 주시는 거야\n누가 우리\n교주님의 행방을 몰라?\n…모르겠지\n모래 먼지 때문에\n빨래도 까끌까끌해져서\n곤란하다니까\n세상 사람들이 모두\n코넬로 님의 가르침에 귀를\n기울이면 평화로워질 텐데\n코넬로 님…\n「기적의 업」으로 리올 마을에\n축복을 내려 주세요\n「기적의 업」이 가짜라니,\n그런 이야기도 들었지만…\n오늘도 덥네\n이 마을이 풍요로운 것도\n레토교가 있어서야\n기적의 업을 봤어?\n몇 번을 봐도 감동적이야\n죄송하지만 지금은\n교회에 들어갈 수 없습니다\n비바스에서 나오는 「1」\n센트럴에서 나오는 「0」",
+    "records": [
+      {
+        "offset": 7051558,
+        "header_offset": 7051554,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "教会へおゆきなさい",
+        "translation": "교회로 가세요"
+      },
+      {
+        "offset": 7051594,
+        "header_offset": 7051590,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 14,
+        "text": "早く広場に行かないと",
+        "translation": "빨리 광장에 가지 않으면"
+      },
+      {
+        "offset": 7051620,
+        "header_offset": 7051616,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "奇跡の御業を見損ねちゃうよ",
+        "translation": "기적의 권능을 놓치겠어"
+      },
+      {
+        "offset": 7051664,
+        "header_offset": 7051660,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 14,
+        "text": "毎日元気でいられるのは",
+        "translation": "매일 건강하게 지낼 수 있는 건"
+      },
+      {
+        "offset": 7051692,
+        "header_offset": 7051688,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "コーネロ様が守って",
+        "translation": "코넬로 님이 지켜"
+      },
+      {
+        "offset": 7051716,
+        "header_offset": 7051712,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "下さってるからよ",
+        "translation": "주시기 때문이야"
+      },
+      {
+        "offset": 7051774,
+        "header_offset": 7051770,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 38,
+        "text": "教主様がいなくても、",
+        "translation": "교주님이 안 계셔도,"
+      },
+      {
+        "offset": 7051800,
+        "header_offset": 7051796,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "日々の暮らしに励まなくちゃね",
+        "translation": "하루하루 열심히 살아야지"
+      },
+      {
+        "offset": 7051918,
+        "header_offset": 7051914,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 86,
+        "text": "教主様は「奇跡の業」によって",
+        "translation": "교주님은 「기적의 업」으로"
+      },
+      {
+        "offset": 7051952,
+        "header_offset": 7051948,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "太陽の神レトさまの力を",
+        "translation": "태양신 레토 님의 힘을"
+      },
+      {
+        "offset": 7051980,
+        "header_offset": 7051976,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "しめされるんだ",
+        "translation": "보여 주시는 거야"
+      },
+      {
+        "offset": 7052100,
+        "header_offset": 7052096,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 102,
+        "text": "誰か、私たちの",
+        "translation": "누가 우리"
+      },
+      {
+        "offset": 7052120,
+        "header_offset": 7052116,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "教主様の行方を知らない？",
+        "translation": "교주님의 행방을 몰라?"
+      },
+      {
+        "offset": 7052150,
+        "header_offset": 7052146,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "…知らないわよね",
+        "translation": "…모르겠지"
+      },
+      {
+        "offset": 7052198,
+        "header_offset": 7052194,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 28,
+        "text": "砂ぼこりで",
+        "translation": "모래 먼지 때문에"
+      },
+      {
+        "offset": 7052214,
+        "header_offset": 7052210,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "洗濯物もザラザラして",
+        "translation": "빨래도 까끌까끌해져서"
+      },
+      {
+        "offset": 7052240,
+        "header_offset": 7052236,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 2,
+        "text": "困っちゃうわ",
+        "translation": "곤란하다니까"
+      },
+      {
+        "offset": 7052284,
+        "header_offset": 7052280,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 28,
+        "text": "世の中の人がみんな",
+        "translation": "세상 사람들이 모두"
+      },
+      {
+        "offset": 7052308,
+        "header_offset": 7052304,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "コーネロ様の教えに耳を",
+        "translation": "코넬로 님의 가르침에 귀를"
+      },
+      {
+        "offset": 7052336,
+        "header_offset": 7052332,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "かたむければ平和になれるのに",
+        "translation": "기울이면 평화로워질 텐데"
+      },
+      {
+        "offset": 7052382,
+        "header_offset": 7052378,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 14,
+        "text": "コーネロ様…",
+        "translation": "코넬로 님…"
+      },
+      {
+        "offset": 7052400,
+        "header_offset": 7052396,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "「奇跡の業」でリオールの街に",
+        "translation": "「기적의 업」으로 리올 마을에"
+      },
+      {
+        "offset": 7052434,
+        "header_offset": 7052430,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "祝福をお与え下さい",
+        "translation": "축복을 내려 주세요"
+      },
+      {
+        "offset": 7052628,
+        "header_offset": 7052624,
+        "char_count": 15,
+        "byte_length": 30,
+        "control_gap_length": 172,
+        "text": "「奇跡の業」がインチキだって、",
+        "translation": "「기적의 업」이 가짜라니,"
+      },
+      {
+        "offset": 7052664,
+        "header_offset": 7052660,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "そんな話も聞いたが…",
+        "translation": "그런 이야기도 들었지만…"
+      },
+      {
+        "offset": 7052716,
+        "header_offset": 7052712,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 28,
+        "text": "今日も暑いなぁ",
+        "translation": "오늘도 덥네"
+      },
+      {
+        "offset": 7052762,
+        "header_offset": 7052758,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 28,
+        "text": "この街が豊かなのも",
+        "translation": "이 마을이 풍요로운 것도"
+      },
+      {
+        "offset": 7052786,
+        "header_offset": 7052782,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "レト教あってこそだ",
+        "translation": "레토교가 있어서야"
+      },
+      {
+        "offset": 7052824,
+        "header_offset": 7052820,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 16,
+        "text": "奇跡の業を見たかい？",
+        "translation": "기적의 업을 봤어?"
+      },
+      {
+        "offset": 7052850,
+        "header_offset": 7052846,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "何度見ても感動するなぁ",
+        "translation": "몇 번을 봐도 감동적이야"
+      },
+      {
+        "offset": 7053174,
+        "header_offset": 7053170,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 298,
+        "text": "申し訳ありませんが、今は",
+        "translation": "죄송하지만 지금은"
+      },
+      {
+        "offset": 7053204,
+        "header_offset": 7053200,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "教会に入ることはできません",
+        "translation": "교회에 들어갈 수 없습니다"
+      },
+      {
+        "offset": 7053326,
+        "header_offset": 7053322,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 92,
+        "text": "ヴィヴァスから出る「１」",
+        "translation": "비바스에서 나오는 「1」"
+      },
+      {
+        "offset": 7054302,
+        "header_offset": 7054298,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 948,
+        "text": "セントラルから出る「０」",
+        "translation": "센트럴에서 나오는 「0」"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0102",
+    "cluster_index": 0,
+    "run_index": 102,
+    "dialogue_state_token": "1bff:0D80",
+    "record_count": 1,
+    "offsets": [
+      7054580
+    ],
+    "source_text": "あ、兄さん！",
+    "translation_text": "아, 형!",
+    "records": [
+      {
+        "offset": 7054580,
+        "header_offset": 7054576,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 250,
+        "text": "あ、兄さん！",
+        "translation": "아, 형!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0103",
+    "cluster_index": 0,
+    "run_index": 103,
+    "dialogue_state_token": null,
+    "record_count": 3,
+    "offsets": [
+      7054602,
+      7054626,
+      7054656
+    ],
+    "source_text": "見て、猫だよ！\nカワイイなぁ～♪\nああ、そうだな…",
+    "translation_text": "봐, 고양이야!\n귀엽다아～♪\n그래, 그렇네…",
+    "records": [
+      {
+        "offset": 7054602,
+        "header_offset": 7054598,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 6,
+        "text": "見て、猫だよ！",
+        "translation": "봐, 고양이야!"
+      },
+      {
+        "offset": 7054626,
+        "header_offset": 7054622,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 6,
+        "text": "カワイイなぁ～♪",
+        "translation": "귀엽다아～♪"
+      },
+      {
+        "offset": 7054656,
+        "header_offset": 7054652,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 10,
+        "text": "ああ、そうだな…",
+        "translation": "그래, 그렇네…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0104",
+    "cluster_index": 0,
+    "run_index": 104,
+    "dialogue_state_token": "1bff:0300",
+    "record_count": 1,
+    "offsets": [
+      7054716
+    ],
+    "source_text": "って、オイ！",
+    "translation_text": "아니, 야!",
+    "records": [
+      {
+        "offset": 7054716,
+        "header_offset": 7054712,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 40,
+        "text": "って、オイ！",
+        "translation": "아니, 야!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0105",
+    "cluster_index": 0,
+    "run_index": 105,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7054734
+    ],
+    "source_text": "何やってんだ、アル！！",
+    "translation_text": "뭐 하는 거야, 알!!",
+    "records": [
+      {
+        "offset": 7054734,
+        "header_offset": 7054730,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "何やってんだ、アル！！",
+        "translation": "뭐 하는 거야, 알!!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0106",
+    "cluster_index": 0,
+    "run_index": 106,
+    "dialogue_state_token": "2bff:3F02",
+    "record_count": 1,
+    "offsets": [
+      7054780
+    ],
+    "source_text": "兄さん、飼ってもいいでしょ！",
+    "translation_text": "형, 키워도 되지!",
+    "records": [
+      {
+        "offset": 7054780,
+        "header_offset": 7054776,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 20,
+        "text": "兄さん、飼ってもいいでしょ！",
+        "translation": "형, 키워도 되지!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0107",
+    "cluster_index": 0,
+    "run_index": 107,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7054970
+    ],
+    "source_text": "ダメ～！",
+    "translation_text": "안 돼～!",
+    "records": [
+      {
+        "offset": 7054970,
+        "header_offset": 7054966,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 158,
+        "text": "ダメ～！",
+        "translation": "안 돼～!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0108",
+    "cluster_index": 0,
+    "run_index": 108,
+    "dialogue_state_token": "1bff:0F80",
+    "record_count": 1,
+    "offsets": [
+      7055006
+    ],
+    "source_text": "お願いだよ、いいでしょ？",
+    "translation_text": "부탁이야, 되지?",
+    "records": [
+      {
+        "offset": 7055006,
+        "header_offset": 7055002,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 24,
+        "text": "お願いだよ、いいでしょ？",
+        "translation": "부탁이야, 되지?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0109",
+    "cluster_index": 0,
+    "run_index": 109,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7055044
+    ],
+    "source_text": "ちゃんと世話するから！",
+    "translation_text": "제대로 돌볼게!",
+    "records": [
+      {
+        "offset": 7055044,
+        "header_offset": 7055040,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 10,
+        "text": "ちゃんと世話するから！",
+        "translation": "제대로 돌볼게!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0110",
+    "cluster_index": 0,
+    "run_index": 110,
+    "dialogue_state_token": "1bff:0700",
+    "record_count": 1,
+    "offsets": [
+      7055090
+    ],
+    "source_text": "ったく、",
+    "translation_text": "정말,",
+    "records": [
+      {
+        "offset": 7055090,
+        "header_offset": 7055086,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 20,
+        "text": "ったく、",
+        "translation": "정말,"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0111",
+    "cluster_index": 0,
+    "run_index": 111,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7055110,
+      7055138
+    ],
+    "source_text": "しょうがねえなぁ…\nホントにちゃんと世話しろよ！",
+    "translation_text": "어쩔 수 없네…\n진짜로 제대로 돌봐야 해!",
+    "records": [
+      {
+        "offset": 7055110,
+        "header_offset": 7055106,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 8,
+        "text": "しょうがねえなぁ…",
+        "translation": "어쩔 수 없네…"
+      },
+      {
+        "offset": 7055138,
+        "header_offset": 7055134,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 6,
+        "text": "ホントにちゃんと世話しろよ！",
+        "translation": "진짜로 제대로 돌봐야 해!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0112",
+    "cluster_index": 0,
+    "run_index": 112,
+    "dialogue_state_token": "1bff:0C80",
+    "record_count": 1,
+    "offsets": [
+      7055194
+    ],
+    "source_text": "やった～♪",
+    "translation_text": "신난다～♪",
+    "records": [
+      {
+        "offset": 7055194,
+        "header_offset": 7055190,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 24,
+        "text": "やった～♪",
+        "translation": "신난다～♪"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0113",
+    "cluster_index": 0,
+    "run_index": 113,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7055214
+    ],
+    "source_text": "ありがとう、兄さん！",
+    "translation_text": "고마워, 형!",
+    "records": [
+      {
+        "offset": 7055214,
+        "header_offset": 7055210,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 6,
+        "text": "ありがとう、兄さん！",
+        "translation": "고마워, 형!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0114",
+    "cluster_index": 0,
+    "run_index": 114,
+    "dialogue_state_token": "2bff:0900",
+    "record_count": 1,
+    "offsets": [
+      7055422
+    ],
+    "source_text": "う、うぅぅぅぅ…",
+    "translation_text": "으, 으으으으…",
+    "records": [
+      {
+        "offset": 7055422,
+        "header_offset": 7055418,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 184,
+        "text": "う、うぅぅぅぅ…",
+        "translation": "으, 으으으으…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0115",
+    "cluster_index": 0,
+    "run_index": 115,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7055444
+    ],
+    "source_text": "み、みずをくれ…",
+    "translation_text": "무, 물 좀 줘…",
+    "records": [
+      {
+        "offset": 7055444,
+        "header_offset": 7055440,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "み、みずをくれ…",
+        "translation": "무, 물 좀 줘…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0116",
+    "cluster_index": 0,
+    "run_index": 116,
+    "dialogue_state_token": "1bff:0700",
+    "record_count": 1,
+    "offsets": [
+      7055490
+    ],
+    "source_text": "水だな！",
+    "translation_text": "물 말이지!",
+    "records": [
+      {
+        "offset": 7055490,
+        "header_offset": 7055486,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 26,
+        "text": "水だな！",
+        "translation": "물 말이지!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0117",
+    "cluster_index": 0,
+    "run_index": 117,
+    "dialogue_state_token": null,
+    "record_count": 7,
+    "offsets": [
+      7055780,
+      7055826,
+      7055854,
+      7055884,
+      7055920,
+      7055950,
+      7055978
+    ],
+    "source_text": "おお、ありがたい！\nいや、生き返りました！\nここは砂漠の真ん中なのに\n噴水がワインじゃないですか？\n私はお酒が飲めなくてね。\nとにかく助かりました。\nこれはほんのお礼です",
+    "translation_text": "오오, 고맙습니다!\n아니, 살았습니다!\n여기는 사막 한가운데인데\n분수가 와인이지 않습니까?\n저는 술을 못 마셔서요.\n아무튼 살았습니다.\n이건 작은 보답입니다",
+    "records": [
+      {
+        "offset": 7055780,
+        "header_offset": 7055776,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 278,
+        "text": "おお、ありがたい！",
+        "translation": "오오, 고맙습니다!"
+      },
+      {
+        "offset": 7055826,
+        "header_offset": 7055822,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 24,
+        "text": "いや、生き返りました！",
+        "translation": "아니, 살았습니다!"
+      },
+      {
+        "offset": 7055854,
+        "header_offset": 7055850,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "ここは砂漠の真ん中なのに",
+        "translation": "여기는 사막 한가운데인데"
+      },
+      {
+        "offset": 7055884,
+        "header_offset": 7055880,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "噴水がワインじゃないですか？",
+        "translation": "분수가 와인이지 않습니까?"
+      },
+      {
+        "offset": 7055920,
+        "header_offset": 7055916,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 4,
+        "text": "私はお酒が飲めなくてね。",
+        "translation": "저는 술을 못 마셔서요."
+      },
+      {
+        "offset": 7055950,
+        "header_offset": 7055946,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "とにかく助かりました。",
+        "translation": "아무튼 살았습니다."
+      },
+      {
+        "offset": 7055978,
+        "header_offset": 7055974,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "これはほんのお礼です",
+        "translation": "이건 작은 보답입니다"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0118",
+    "cluster_index": 0,
+    "run_index": 118,
+    "dialogue_state_token": "2bff:3F02",
+    "record_count": 1,
+    "offsets": [
+      7056042
+    ],
+    "source_text": "５０００００センズ手に入れた",
+    "translation_text": "500000센즈를 손에 넣었다",
+    "records": [
+      {
+        "offset": 7056042,
+        "header_offset": 7056038,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 40,
+        "text": "５０００００センズ手に入れた",
+        "translation": "500000센즈를 손에 넣었다"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0119",
+    "cluster_index": 0,
+    "run_index": 119,
+    "dialogue_state_token": "2bff:3400",
+    "record_count": 1,
+    "offsets": [
+      7056116
+    ],
+    "source_text": "それでは私はこれで…",
+    "translation_text": "그럼 저는 이만…",
+    "records": [
+      {
+        "offset": 7056116,
+        "header_offset": 7056112,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 42,
+        "text": "それでは私はこれで…",
+        "translation": "그럼 저는 이만…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0120",
+    "cluster_index": 0,
+    "run_index": 120,
+    "dialogue_state_token": null,
+    "record_count": 4,
+    "offsets": [
+      7056216,
+      7056264,
+      7056362,
+      7056482
+    ],
+    "source_text": "うう…殺生な…\nぶんきミス\n回復薬３を手に入れた\n回復薬３を手に入れた",
+    "translation_text": "으으… 너무하십니다…\n분기 실수\n회복약 3을 손에 넣었다\n회복약 3을 손에 넣었다",
+    "records": [
+      {
+        "offset": 7056216,
+        "header_offset": 7056212,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 76,
+        "text": "うう…殺生な…",
+        "translation": "으으… 너무하십니다…"
+      },
+      {
+        "offset": 7056264,
+        "header_offset": 7056260,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 30,
+        "text": "ぶんきミス",
+        "translation": "분기 실수"
+      },
+      {
+        "offset": 7056362,
+        "header_offset": 7056358,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 84,
+        "text": "回復薬３を手に入れた",
+        "translation": "회복약 3을 손에 넣었다"
+      },
+      {
+        "offset": 7056482,
+        "header_offset": 7056478,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 96,
+        "text": "回復薬３を手に入れた",
+        "translation": "회복약 3을 손에 넣었다"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_00_run_0121",
+    "cluster_index": 0,
+    "run_index": 121,
+    "dialogue_state_token": "1bff:0100",
+    "record_count": 1,
+    "offsets": [
+      7056624
+    ],
+    "source_text": "カギが閉まってて入れないな…",
+    "translation_text": "열쇠가 잠겨 있어서 못 들어가겠네…",
+    "records": [
+      {
+        "offset": 7056624,
+        "header_offset": 7056620,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 118,
+        "text": "カギが閉まってて入れないな…",
+        "translation": "열쇠가 잠겨 있어서 못 들어가겠네…"
+      }
+    ],
+    "notes": ""
+  }
+]

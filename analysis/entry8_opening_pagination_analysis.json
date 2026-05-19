@@ -1,0 +1,291 @@
+{
+  "summary": {
+    "jp_seg150": 739740,
+    "jp_seg15c": 743976,
+    "en_seg150": 2023356,
+    "en_seg15c": 2027780,
+    "jp_seg150_block_len": 1496,
+    "en_seg150_block_len": 1680,
+    "record_count": 12
+  },
+  "records": [
+    {
+      "offset": 7778808,
+      "offset_hex": "0x76B1F8",
+      "text": "肉体の材料はそろえた。",
+      "translation": "",
+      "table_rel": 336,
+      "jp_header_local": 743592,
+      "jp_segment_rel": 3852,
+      "jp_header": {
+        "prefix": "01 ff",
+        "char_count": 11
+      },
+      "en_header_local": 2024038,
+      "en_segment_rel": 682,
+      "en_header": {
+        "prefix": "01 ff",
+        "char_count": 10
+      },
+      "jp_control_gap_after": 44,
+      "en_control_gap_after": 3146
+    },
+    {
+      "offset": 7778878,
+      "offset_hex": "0x76B23E",
+      "text": "母さんを元に戻そう。",
+      "translation": "",
+      "table_rel": 336,
+      "jp_header_local": 743662,
+      "jp_segment_rel": 3922,
+      "jp_header": {
+        "prefix": "01 ff",
+        "char_count": 10
+      },
+      "en_header_local": 2027208,
+      "en_segment_rel": 3852,
+      "en_header": {
+        "prefix": "01 ff",
+        "char_count": 7
+      },
+      "jp_control_gap_after": 10,
+      "en_control_gap_after": 2
+    },
+    {
+      "offset": 7778912,
+      "offset_hex": "0x76B260",
+      "text": "生き返らせるんだ！",
+      "translation": "",
+      "table_rel": 336,
+      "jp_header_local": 743696,
+      "jp_segment_rel": 3956,
+      "jp_header": {
+        "prefix": "01 ff",
+        "char_count": 9
+      },
+      "en_header_local": 2027228,
+      "en_segment_rel": 3872,
+      "en_header": {
+        "prefix": "01 ff",
+        "char_count": 7
+      },
+      "jp_control_gap_after": 20,
+      "en_control_gap_after": 2
+    },
+    {
+      "offset": 7778954,
+      "offset_hex": "0x76B28A",
+      "text": "…人体錬成は禁じられてるよ。",
+      "translation": "",
+      "table_rel": 336,
+      "jp_header_local": 743738,
+      "jp_segment_rel": 3998,
+      "jp_header": {
+        "prefix": "01 ff",
+        "char_count": 14
+      },
+      "en_header_local": 2027248,
+      "en_segment_rel": 3892,
+      "en_header": {
+        "prefix": "01 ff",
+        "char_count": 6
+      },
+      "jp_control_gap_after": 6,
+      "en_control_gap_after": 14
+    },
+    {
+      "offset": 7778992,
+      "offset_hex": "0x76B2B0",
+      "text": "それに錬金術は等価交換…",
+      "translation": "",
+      "table_rel": 336,
+      "jp_header_local": 743776,
+      "jp_segment_rel": 4036,
+      "jp_header": {
+        "prefix": "01 ff",
+        "char_count": 12
+      },
+      "en_header_local": 2027278,
+      "en_segment_rel": 3922,
+      "en_header": {
+        "prefix": "01 ff",
+        "char_count": 1
+      },
+      "jp_control_gap_after": 18,
+      "en_control_gap_after": 8
+    },
+    {
+      "offset": 7779038,
+      "offset_hex": "0x76B2DE",
+      "text": "肉体は交換できても、",
+      "translation": "",
+      "table_rel": 336,
+      "jp_header_local": 743822,
+      "jp_segment_rel": 4082,
+      "jp_header": {
+        "prefix": "01 ff",
+        "char_count": 10
+      },
+      "en_header_local": 2027292,
+      "en_segment_rel": 3936,
+      "en_header": {
+        "prefix": "01 ff",
+        "char_count": 2
+      },
+      "jp_control_gap_after": 48,
+      "en_control_gap_after": 12
+    },
+    {
+      "offset": 7779110,
+      "offset_hex": "0x76B326",
+      "text": "なにと交換するの？",
+      "translation": "",
+      "table_rel": 336,
+      "jp_header_local": 743894,
+      "jp_segment_rel": 4154,
+      "jp_header": {
+        "prefix": "01 ff",
+        "char_count": 9
+      },
+      "en_header_local": 2027312,
+      "en_segment_rel": 3956,
+      "en_header": {
+        "prefix": "01 ff",
+        "char_count": 9
+      },
+      "jp_control_gap_after": 52,
+      "en_control_gap_after": 2
+    },
+    {
+      "offset": 7779184,
+      "offset_hex": "0x76B370",
+      "text": "いいから、",
+      "translation": "",
+      "table_rel": 336,
+      "jp_header_local": 743968,
+      "jp_segment_rel": 4228,
+      "jp_header": {
+        "prefix": "01 ff",
+        "char_count": 5
+      },
+      "en_header_local": 2027336,
+      "en_segment_rel": 3980,
+      "en_header": {
+        "prefix": "01 ff",
+        "char_count": 6
+      },
+      "jp_control_gap_after": null,
+      "en_control_gap_after": null
+    },
+    {
+      "offset": 7779202,
+      "offset_hex": "0x76B382",
+      "text": "指だせ。",
+      "translation": "",
+      "table_rel": 348,
+      "jp_header_local": 743986,
+      "jp_segment_rel": 10,
+      "jp_header": {
+        "prefix": "01 ff",
+        "char_count": 4
+      },
+      "en_header_local": 2027790,
+      "en_segment_rel": 10,
+      "en_header": {
+        "prefix": "01 ff",
+        "char_count": 12
+      },
+      "jp_control_gap_after": 6,
+      "en_control_gap_after": 50
+    },
+    {
+      "offset": 7779220,
+      "offset_hex": "0x76B394",
+      "text": "オレたちの血も必要なんだ。",
+      "translation": "",
+      "table_rel": 348,
+      "jp_header_local": 744004,
+      "jp_segment_rel": 28,
+      "jp_header": {
+        "prefix": "01 ff",
+        "char_count": 13
+      },
+      "en_header_local": 2027868,
+      "en_segment_rel": 88,
+      "en_header": {
+        "prefix": "01 ff",
+        "char_count": 2
+      },
+      "jp_control_gap_after": 70,
+      "en_control_gap_after": 36
+    },
+    {
+      "offset": 7779320,
+      "offset_hex": "0x76B3F8",
+      "text": "イタッ！！",
+      "translation": "",
+      "table_rel": 348,
+      "jp_header_local": 744104,
+      "jp_segment_rel": 128,
+      "jp_header": {
+        "prefix": "01 ff",
+        "char_count": 5
+      },
+      "en_header_local": 2027912,
+      "en_segment_rel": 132,
+      "en_header": {
+        "prefix": "01 ff",
+        "char_count": 8
+      },
+      "jp_control_gap_after": 36,
+      "en_control_gap_after": 2
+    },
+    {
+      "offset": 7779370,
+      "offset_hex": "0x76B42A",
+      "text": "この血で魂の情報はよしっ",
+      "translation": "",
+      "table_rel": 348,
+      "jp_header_local": 744154,
+      "jp_segment_rel": 178,
+      "jp_header": {
+        "prefix": "01 ff",
+        "char_count": 12
+      },
+      "en_header_local": 2027934,
+      "en_segment_rel": 154,
+      "en_header": {
+        "prefix": "01 ff",
+        "char_count": 10
+      },
+      "jp_control_gap_after": null,
+      "en_control_gap_after": null
+    }
+  ],
+  "snippets": [
+    {
+      "name": "jp_seg150_opening_text_area",
+      "file_start": 7778648,
+      "file_end": 7779192,
+      "bytes": "01 f0 01 f0 01 f0 01 40 01 00 00 00 02 00 00 00 ff ff ff ff 00 00 00 00 d8 05 00 00 00 00 00 00 00 00 00 00 ff ff ff ff ff ff ff ff 00 80 df 01 00 00 00 00 00 04 36 c0 08 20 34 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 4f ff 01 00 ..."
+    },
+    {
+      "name": "en_seg150_early_first_line_area",
+      "file_start": 9059176,
+      "file_end": 9059368,
+      "bytes": "90 bc 93 67 8e e3 93 68 91 50 82 e2 10 ff 81 00 0d ff 02 ff 10 ff 00 00 06 ff 80 00 05 00 01 ff 08 00 8b 7d 8e d0 82 db 8f d0 91 9c 82 db 8f c1 93 5f 04 ff 01 ff 08 00 8c f8 92 b5 94 9a 82 c9 93 be 82 de 8e e7 92 89 04 ff 01 ff 0a 00 8f a0 90 67 8f 87 93 72 82 de 90 67 82 c8 8f 91 90 67 ..."
+    },
+    {
+      "name": "en_seg150_opening_text_area",
+      "file_start": 9062392,
+      "file_end": 9062680,
+      "bytes": "2d ff 0f 00 1a ff 06 1e 00 00 05 ff 1e 00 06 ff 80 80 05 00 07 ff 00 80 08 ff 06 00 01 ff 07 00 8d b0 83 57 8e e3 8f 91 93 67 8f 50 8e fa 04 ff 01 ff 07 00 93 67 8e e3 91 4e 93 66 92 96 8e 41 92 c4 04 ff 01 ff 06 00 8f 7a 92 6c 8d cb 8e 7b 8e e2 83 7e 10 ff 01 00 05 ff 46 00 02 ff 10 ff ..."
+    },
+    {
+      "name": "en_seg15c_start_area",
+      "file_start": 9062992,
+      "file_end": 9063280,
+      "bytes": "04 ff 08 ff 04 00 05 ff 14 00 01 ff 0c 00 8b 80 90 f9 8f a0 90 67 8f 87 93 72 82 ca 93 be 82 d0 93 54 91 a0 94 47 10 ff 01 00 05 ff 46 00 07 ff 00 00 05 ff 1e 00 2b ff 69 00 36 00 2b ff 69 00 37 00 05 ff 1e 00 10 ff 80 00 06 ff 40 0c 05 00 07 ff 00 80 08 ff 03 00 01 ff 02 00 8c 98 82 e2 ..."
+    }
+  ]
+}

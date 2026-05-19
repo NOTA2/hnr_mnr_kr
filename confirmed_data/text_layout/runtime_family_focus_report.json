@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-05-17",
+  "last_updated": "2026-05-18",
   "structural_extraction_status": "closed_for_known_sources",
   "runtime_resolution_scope": {
     "high_priority_dialogue_or_page_flow": [
@@ -21,18 +21,20 @@
       "credits_texts"
     ]
   },
-  "operational_note": "system_messages/save_menu are now treated as operationally bounded rather than major blockers.",
+  "operational_note": "Registry D is no longer byte-slot blocked because packed relocation is supported; its remaining focus is visual page-flow QA. system_messages/save_menu are now treated as operationally bounded rather than major blockers.",
   "priority_buckets": {
     "high": [
       {
         "source_group": "registry_d_fc_script_texts",
         "layout_family": "registry_d_fc_stop_script_line",
-        "translation_risk": "high",
+        "translation_risk": "medium",
         "runtime_candidate_family": "shared_text_object_r3_20",
         "notes": [
           "FC stop-byte delimited script lines are objectively extracted.",
           "Record boundary/control-stream handling is no longer unknown.",
-          "Runtime behavior is now narrowed to a multiline payload profile on the shared r3=20 candidate family."
+          "Insertion now supports packed Registry D entry relocation: affected entries are appended to expanded ROM space and the 0x17C7E4 pointer-length table is updated.",
+          "Runtime behavior is now narrowed to a multiline payload profile on the shared r3=20 candidate family.",
+          "Translations do not need to fit the original byte slot, but visual line width/page-turn QA is still required."
         ]
       },
       {
@@ -77,7 +79,7 @@
         "runtime_candidate_family": null,
         "notes": [
           "Plain 0x00-terminated battle term/description records are objective.",
-          "Some description rows contain inline 0x0B separators and ideographic padding that must be preserved.",
+          "Some description rows contain inline 0x0B separators; Korean insertion treats them as logical name/description splits and restores the fixed-width name-field padding from the source record.",
           "Runtime battle box family is still unresolved."
         ]
       },
@@ -88,7 +90,7 @@
         "runtime_candidate_family": null,
         "notes": [
           "Plain 0x00-terminated term/description records are objective.",
-          "Many rows contain inline 0x0B separators and ideographic padding that must be preserved.",
+          "Many rows contain inline 0x0B separators; Korean insertion treats them as logical name/description splits and restores the fixed-width name-field padding from the source record.",
           "Runtime display family is still unresolved."
         ]
       },
@@ -132,7 +134,7 @@
         "runtime_candidate_family": null,
         "notes": [
           "Gameplay/item-adjacent short plain records are objective.",
-          "Display family remains unresolved, so translations should stay concise."
+          "Display family remains unresolved and this source does not yet have packed bank relocation, so use the expansion audit: keep fixed/exact records within byte limits, but use available slack for clearer terms."
         ]
       },
       {

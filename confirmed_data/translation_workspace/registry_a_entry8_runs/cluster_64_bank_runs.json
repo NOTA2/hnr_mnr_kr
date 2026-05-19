@@ -1,0 +1,258 @@
+[
+  {
+    "run_id": "entry8_cluster_64_run_0000",
+    "cluster_index": 64,
+    "run_index": 0,
+    "dialogue_state_token": "2bff:8400",
+    "record_count": 1,
+    "offsets": [
+      7756916
+    ],
+    "source_text": "わたしは暴力は反対です。",
+    "translation_text": "저는 폭력에 반대합니다.",
+    "records": [
+      {
+        "offset": 7756916,
+        "header_offset": 7756912,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 3350,
+        "text": "わたしは暴力は反対です。",
+        "translation": "저는 폭력에 반대합니다."
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_64_run_0001",
+    "cluster_index": 64,
+    "run_index": 1,
+    "dialogue_state_token": null,
+    "record_count": 17,
+    "offsets": [
+      7756946,
+      7756968,
+      7757024,
+      7757152,
+      7757182,
+      7757208,
+      7757266,
+      7757392,
+      7757416,
+      7757466,
+      7757492,
+      7757616,
+      7757672,
+      7757702,
+      7757878,
+      7757906,
+      7757930
+    ],
+    "source_text": "だから、大人しく\n強盗の言うことをききます\n愛する家族は私が守る！\n主人は優しい人なんです。\nでも、イザという時は\n家族を守ってくれ…ないわね\n頼もしいわ、あなた\nパパはいつもママに\nケンカで負けるんだ\nボクもワルイやつから\nみんなを守るぞ！\nわたしは優しいパパが好き\nはぁ…、せっかくの旅行が\nだいなしだわ\nなんだぁそのツラはぁ！\nナマイキなチビだ。\n言うことをきかせてやる！",
+    "translation_text": "그러니 얌전히\n강도 말에 따르겠습니다\n사랑하는 가족은 내가 지킨다!\n남편은 다정한 사람이에요.\n하지만 막상 필요할 때는\n가족을 지켜 주지… 못하네요\n든든하네요, 여보\n아빠는 언제나 엄마한테\n말싸움에서 져\n나도 나쁜 녀석들한테서\n모두를 지킬 거야!\n난 다정한 아빠가 좋아\n하아… 모처럼 온 여행이\n엉망이 됐네요\n뭐냐, 그 낯짝은!\n건방진 꼬맹이군.\n말을 듣게 해 주마!",
+    "records": [
+      {
+        "offset": 7756946,
+        "header_offset": 7756942,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "だから、大人しく",
+        "translation": "그러니 얌전히"
+      },
+      {
+        "offset": 7756968,
+        "header_offset": 7756964,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "強盗の言うことをききます",
+        "translation": "강도 말에 따르겠습니다"
+      },
+      {
+        "offset": 7757024,
+        "header_offset": 7757020,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 28,
+        "text": "愛する家族は私が守る！",
+        "translation": "사랑하는 가족은 내가 지킨다!"
+      },
+      {
+        "offset": 7757152,
+        "header_offset": 7757148,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 102,
+        "text": "主人は優しい人なんです。",
+        "translation": "남편은 다정한 사람이에요."
+      },
+      {
+        "offset": 7757182,
+        "header_offset": 7757178,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "でも、イザという時は",
+        "translation": "하지만 막상 필요할 때는"
+      },
+      {
+        "offset": 7757208,
+        "header_offset": 7757204,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "家族を守ってくれ…ないわね",
+        "translation": "가족을 지켜 주지… 못하네요"
+      },
+      {
+        "offset": 7757266,
+        "header_offset": 7757262,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 28,
+        "text": "頼もしいわ、あなた",
+        "translation": "든든하네요, 여보"
+      },
+      {
+        "offset": 7757392,
+        "header_offset": 7757388,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 104,
+        "text": "パパはいつもママに",
+        "translation": "아빠는 언제나 엄마한테"
+      },
+      {
+        "offset": 7757416,
+        "header_offset": 7757412,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "ケンカで負けるんだ",
+        "translation": "말싸움에서 져"
+      },
+      {
+        "offset": 7757466,
+        "header_offset": 7757462,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 28,
+        "text": "ボクもワルイやつから",
+        "translation": "나도 나쁜 녀석들한테서"
+      },
+      {
+        "offset": 7757492,
+        "header_offset": 7757488,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "みんなを守るぞ！",
+        "translation": "모두를 지킬 거야!"
+      },
+      {
+        "offset": 7757616,
+        "header_offset": 7757612,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 104,
+        "text": "わたしは優しいパパが好き",
+        "translation": "난 다정한 아빠가 좋아"
+      },
+      {
+        "offset": 7757672,
+        "header_offset": 7757668,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 28,
+        "text": "はぁ…、せっかくの旅行が",
+        "translation": "하아… 모처럼 온 여행이"
+      },
+      {
+        "offset": 7757702,
+        "header_offset": 7757698,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 2,
+        "text": "だいなしだわ",
+        "translation": "엉망이 됐네요"
+      },
+      {
+        "offset": 7757878,
+        "header_offset": 7757874,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 160,
+        "text": "なんだぁそのツラはぁ！",
+        "translation": "뭐냐, 그 낯짝은!"
+      },
+      {
+        "offset": 7757906,
+        "header_offset": 7757902,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "ナマイキなチビだ。",
+        "translation": "건방진 꼬맹이군."
+      },
+      {
+        "offset": 7757930,
+        "header_offset": 7757926,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "言うことをきかせてやる！",
+        "translation": "말을 듣게 해 주마!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_64_run_0002",
+    "cluster_index": 64,
+    "run_index": 2,
+    "dialogue_state_token": "2bff:8400",
+    "record_count": 1,
+    "offsets": [
+      7758190
+    ],
+    "source_text": "なんだ、キサマらは！",
+    "translation_text": "뭐냐, 네놈들은!",
+    "records": [
+      {
+        "offset": 7758190,
+        "header_offset": 7758186,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 232,
+        "text": "なんだ、キサマらは！",
+        "translation": "뭐냐, 네놈들은!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_64_run_0003",
+    "cluster_index": 64,
+    "run_index": 3,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7758216
+    ],
+    "source_text": "計画の邪魔はさせねぇ！",
+    "translation_text": "계획을 방해하게 둘 순 없다!",
+    "records": [
+      {
+        "offset": 7758216,
+        "header_offset": 7758212,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "計画の邪魔はさせねぇ！",
+        "translation": "계획을 방해하게 둘 순 없다!"
+      }
+    ],
+    "notes": ""
+  }
+]

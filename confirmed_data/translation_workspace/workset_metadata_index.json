@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-05-18",
+  "last_updated": "2026-05-19",
   "summary": {
     "entry_count": 8,
     "usage": "번역팀이 실제 번역 시작 전에 workset 별 제약과 QA 범위를 빠르게 확인하는 인덱스"
@@ -38,7 +38,7 @@
     {
       "workset_id": "translation_workset_core_ui",
       "path": "confirmed_data/translation_worksets/translation_workset_core_ui.json",
-      "record_count": 50,
+      "record_count": 67,
       "purpose": "시스템/세이브/지역명/UI 기술명 등 첫 실제 번역 진입 세트",
       "kind": "mixed",
       "layout_strategy": "source_group 별 family 를 먼저 적용",
@@ -66,6 +66,7 @@
         "반드시 source_group 별 family 를 먼저 적용한다."
       ],
       "source_groups": [
+        "choice_yes_no_texts",
         "location_texts",
         "save_menu_texts",
         "system_messages",
@@ -91,18 +92,21 @@
       "line_break_policy": "추가 줄바꿈 지양",
       "must_preserve": [
         "0x0B separator",
-        "전각 공백 패딩",
-        "짧고 명확한 설명문"
+        "byte 한계 안에서 명확한 설명문",
+        "수동 공백 패딩 금지"
       ],
       "qa_required": [
-        "용어/설명문 길이 과팽창 방지",
-        "0x0B / 패딩 보존 확인"
+        "expansion_mode별 길이 판단",
+        "0x0B separator 보존 및 이름 필드 padding 자동 복원 확인",
+        "0x0B 앞줄 여백의 의미 글자 활용 여부",
+        "2줄 설명창의 윗줄 우선 배치"
       ],
       "image_overlap_risk": "낮음",
       "recommended_translation_order": 2,
       "notes": [
         "아이템/전투/능력/재료/Entry12 텍스트를 전량 포함한 정식 용어 세트다.",
-        "다만 runtime box family 가 미확정인 곳이 있어 설명문은 계속 짧게 유지하는 편이 안전하다."
+        "다만 runtime box family 가 미확정인 곳이 있어 설명문은 expansion audit 의 여유 byte 안에서 자연스럽게 유지한다.",
+        "0x0B 앞 이름 필드에 남는 폭이 있으면 공백으로 버리지 말고 조사/목적어/동사 조각 같은 실제 글자로 활용한다. 2줄 설명창은 윗줄을 먼저 채우고 남은 짧은 의미를 아랫줄로 넘긴다. 최종 padding 은 정규화/빌드 도구가 복원한다."
       ],
       "source_groups": [
         "ability_texts",
@@ -149,22 +153,25 @@
       "layout_strategy": "단일 family `registry_d_fc_stop_script_line` 기준",
       "layout_family": "registry_d_fc_stop_script_line",
       "by_source_group": {},
-      "translation_status": "번역 시작 가능, 페이지 QA 후속 필요",
-      "line_break_policy": "기존 개행만 보존, 새 개행은 보수적으로",
+      "translation_status": "번역 시작 가능, 확장 패킹 적용",
+      "line_break_policy": "원문 개행 보존 우선, 잘림 발생 시 줄바꿈/문장 분할로 조정",
       "must_preserve": [
         "FC-delimited 구조",
         "adjacent control stream",
-        "dialogue_state sidecar 참고"
+        "dialogue_state sidecar 참고",
+        "Registry D packed relocation"
       ],
       "qa_required": [
         "기존 개행 보존",
         "장문 run page-turn 확인",
-        "화자 state token 참고"
+        "화자 state token 참고",
+        "확장 패킹 후 화면 잘림 확인"
       ],
       "image_overlap_risk": "낮음",
       "recommended_translation_order": 4,
       "notes": [
         "FC stop-byte 기준의 record 경계는 확정됐다.",
+        "현재 삽입기는 Registry D entry 를 ROM 끝으로 재패킹하고 pointer-length table 을 갱신하므로 원문 byte 슬롯보다 긴 번역도 적용할 수 있다.",
         "다만 장문 run 의 실제 page-turn 동작은 시각 QA 로 한 번 더 확인해야 한다."
       ],
       "source_groups": [

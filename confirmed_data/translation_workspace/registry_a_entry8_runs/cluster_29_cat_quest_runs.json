@@ -1,0 +1,176 @@
+[
+  {
+    "run_id": "entry8_cluster_29_run_0000",
+    "cluster_index": 29,
+    "run_index": 0,
+    "dialogue_state_token": "1bff:0280",
+    "record_count": 1,
+    "offsets": [
+      7343366
+    ],
+    "source_text": "猫だらけだ…＄",
+    "translation_text": "고양이투성이네…＄",
+    "records": [
+      {
+        "offset": 7343366,
+        "header_offset": 7343362,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2352,
+        "text": "猫だらけだ…＄",
+        "translation": "고양이투성이네…＄"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_29_run_0001",
+    "cluster_index": 29,
+    "run_index": 1,
+    "dialogue_state_token": null,
+    "record_count": 3,
+    "offsets": [
+      7343386,
+      7343426,
+      7343454
+    ],
+    "source_text": "もらっていってもいいかな？\nダメに決まってるだろ！\nひとんちの猫なんだから",
+    "translation_text": "데려가도 괜찮을까?\n안 되는 게 당연하잖아!\n남의 집 고양이니까",
+    "records": [
+      {
+        "offset": 7343386,
+        "header_offset": 7343382,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "もらっていってもいいかな？",
+        "translation": "데려가도 괜찮을까?"
+      },
+      {
+        "offset": 7343426,
+        "header_offset": 7343422,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 10,
+        "text": "ダメに決まってるだろ！",
+        "translation": "안 되는 게 당연하잖아!"
+      },
+      {
+        "offset": 7343454,
+        "header_offset": 7343450,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "ひとんちの猫なんだから",
+        "translation": "남의 집 고양이니까"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_29_run_0002",
+    "cluster_index": 29,
+    "run_index": 2,
+    "dialogue_state_token": "1bff:1000",
+    "record_count": 1,
+    "offsets": [
+      7343506
+    ],
+    "source_text": "やっぱり…？",
+    "translation_text": "역시…?",
+    "records": [
+      {
+        "offset": 7343506,
+        "header_offset": 7343502,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 26,
+        "text": "やっぱり…？",
+        "translation": "역시…?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_29_run_0003",
+    "cluster_index": 29,
+    "run_index": 3,
+    "dialogue_state_token": "1bff:0280",
+    "record_count": 1,
+    "offsets": [
+      7343674
+    ],
+    "source_text": "兄さん、いいよね？",
+    "translation_text": "형, 괜찮지?",
+    "records": [
+      {
+        "offset": 7343674,
+        "header_offset": 7343670,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 152,
+        "text": "兄さん、いいよね？",
+        "translation": "형, 괜찮지?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_29_run_0004",
+    "cluster_index": 29,
+    "run_index": 4,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7343706,
+      7343746
+    ],
+    "source_text": "ああ、もう勝手にしろぃ\nやった～♪",
+    "translation_text": "그래, 이제 마음대로 해라\n야호～♪",
+    "records": [
+      {
+        "offset": 7343706,
+        "header_offset": 7343702,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 10,
+        "text": "ああ、もう勝手にしろぃ",
+        "translation": "그래, 이제 마음대로 해라"
+      },
+      {
+        "offset": 7343746,
+        "header_offset": 7343742,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 14,
+        "text": "やった～♪",
+        "translation": "야호～♪"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_29_run_0005",
+    "cluster_index": 29,
+    "run_index": 5,
+    "dialogue_state_token": "2bff:3F02",
+    "record_count": 1,
+    "offsets": [
+      7343878
+    ],
+    "source_text": "お待たせ、兄さん！",
+    "translation_text": "기다렸지, 형!",
+    "records": [
+      {
+        "offset": 7343878,
+        "header_offset": 7343874,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 118,
+        "text": "お待たせ、兄さん！",
+        "translation": "기다렸지, 형!"
+      }
+    ],
+    "notes": ""
+  }
+]

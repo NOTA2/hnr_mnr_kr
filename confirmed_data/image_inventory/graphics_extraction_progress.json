@@ -1,0 +1,49 @@
+{
+  "generated_at": "2026-05-19T07:15:26",
+  "rom_static_extraction": {
+    "lz77_blocks": 442,
+    "raw_windows": 512,
+    "rle_blocks": 1084
+  },
+  "english_patch_diff": {
+    "lz77_compared": 439,
+    "lz77_changed": 2,
+    "rle_compared": 1084,
+    "rle_changed": 20
+  },
+  "runtime_matching": {
+    "captures_with_match_json": 10,
+    "matched_lz77_offsets": 28,
+    "matched_rle_offsets": 50,
+    "matched_raw_offsets": 1,
+    "matched_total_unique_offsets": 79
+  },
+  "workbench": {
+    "image_items": 14,
+    "directly_editable_items": 14,
+    "uploaded_replacements": 2,
+    "items_with_apply_errors": 0,
+    "progress_status_counts": {
+      "candidate_found": 12,
+      "edited": 2
+    },
+    "actual_localization_targets": 11,
+    "focused_runtime_tilemap_targets": 4
+  },
+  "preview_assets": {
+    "global_lz77_pngs": 0,
+    "global_lz77_pgms": 442,
+    "rle_pgms": 1084,
+    "runtime_match_pngs": 149,
+    "runtime_tilemap_pngs": 56,
+    "runtime_rle_screen_order_workspaces": 30,
+    "runtime_rle_screen_order_pngs": 181,
+    "edit_pack_pngs": 5
+  },
+  "open_risks": [
+    "Static extraction counts are discovery totals, not localization-needed totals.",
+    "Raw RLE tile sheets can be misleading when the game reorders tiles through runtime tilemaps.",
+    "Runtime coverage depends on collected savestates/screens; newly reached screens can reveal more image assets.",
+    "Title-screen menu graphics need tilemap-aware replacement testing, not blind raw tile replacement."
+  ]
+}

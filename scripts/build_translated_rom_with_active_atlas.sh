@@ -25,13 +25,33 @@ python3 -m gba_kor_tool audit-pgm-glyph-set \
   --fail-on-blank \
   --output "$OUTPUT_DIR/${SLUG}_glyph_audit.json"
 
+PAYLOAD_LENGTH=$(python3 - "$WORKBENCH_DIR/prepared_manifest.json" <<'PY'
+import json
+import math
+import sys
+from pathlib import Path
+
+manifest = Path(sys.argv[1])
+glyph_count = len(json.loads(manifest.read_text()))
+old_length = 0x3DDE8
+stride = 0x48
+minimum = 0x42000
+margin = 0x2000
+needed = old_length + glyph_count * stride + margin
+aligned = (needed + 0xFFF) & ~0xFFF
+print(hex(max(minimum, aligned)))
+PY
+)
+
+echo "payload_length: ${PAYLOAD_LENGTH}"
+
 python3 -m gba_kor_tool relocate-chunk \
   "$SOURCE_ROM" \
   "$OUTPUT_DIR/${SLUG}_font_expand_base.gba" \
   --table 0x17C2F4 \
   --index 0 \
   --layout pointer-length \
-  --new-length 0x42000 \
+  --new-length "$PAYLOAD_LENGTH" \
   --destination-offset 0x800000 \
   --mirror-table 0x1823A0 \
   --report "$OUTPUT_DIR/${SLUG}_font_expand_base_report.json"
@@ -40,7 +60,7 @@ python3 -m gba_kor_tool append-fnt-glyph-set \
   "$OUTPUT_DIR/${SLUG}_font_expand_base.gba" \
   "$OUTPUT_DIR/${SLUG}_font_ready.gba" \
   0x800000 \
-  --payload-length 0x42000 \
+  --payload-length "$PAYLOAD_LENGTH" \
   --manifest "$WORKBENCH_DIR/prepared_manifest.json" \
   --report "$OUTPUT_DIR/${SLUG}_font_append_report.json"
 

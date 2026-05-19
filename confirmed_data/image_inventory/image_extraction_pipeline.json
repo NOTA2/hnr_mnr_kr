@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-05-18",
+  "last_updated": "2026-05-19",
   "status": "prepared",
   "pipeline_goal": "이미지에 구워진 텍스트 자산을 review unit 단위로 찾고, 덤프/수정/교체 가능한 작업 폴더를 준비한다.",
   "review_unit_order": [
@@ -8,13 +8,13 @@
       "id": "title_logo_wordmark",
       "review_order": 1,
       "workspace": "confirmed_data/image_inventory/workspaces/01_title_logo_wordmark",
-      "probe_method": "타이틀 화면 진입 스크린샷 확보 -> LZ77 후보 스캔 -> 4bpp 덤프 비교"
+      "probe_method": "타이틀 화면 런타임 케이스 등록 -> 영문판/일판 LZ77 diff 확인 -> 후보가 안 보이면 VRAM/tilemap/palette 역추적"
     },
     {
       "id": "title_screen_static_menu_wordmarks",
       "review_order": 2,
       "workspace": "confirmed_data/image_inventory/workspaces/02_title_screen_static_menu_wordmarks",
-      "probe_method": "타이틀 화면 캡처 -> 후보 타일 시트 덤프 -> 라벨별 분리 가능성 확인"
+      "probe_method": "타이틀 화면 런타임 케이스 등록 -> 영문판/일판 LZ77 diff 확인 -> 후보가 안 보이면 VRAM/tilemap/palette 역추적"
     },
     {
       "id": "event_or_cutscene_text_cards",
@@ -57,25 +57,35 @@
     {
       "step": 1,
       "name": "대표 화면 확보",
-      "description": "각 review unit 별로 실제 게임 화면 스크린샷 또는 참고 이미지를 모아, 무엇을 찾아야 하는지 고정한다."
+      "description": "각 review unit 별로 실제 게임 화면 스크린샷 또는 참고 이미지를 최소 대표 케이스로 모아, 무엇을 찾아야 하는지 고정한다. 모든 화면을 수작업 수집하는 방식으로 진행하지 않는다."
     },
     {
       "step": 2,
-      "name": "후보 자산 탐색",
-      "description": "LZ77 scan, 4bpp dump, raw tile dump 를 써서 해당 화면과 닮은 후보 자산을 찾는다."
+      "name": "영문판/일판 ROM 차이 확인",
+      "description": "영문 패치 ROM 이 같은 화면을 수정했다면 같은 오프셋 LZ77 diff, 확장 영역 LZ77 후보, raw/tile 후보를 먼저 비교한다."
     },
     {
       "step": 3,
+      "name": "후보 자산 탐색",
+      "description": "LZ77 scan, 4bpp dump, raw tile dump 를 쓰되, 결과가 보이지 않으면 실패가 아니라 tilemap/palette 분리 가능성으로 본다."
+    },
+    {
+      "step": 4,
+      "name": "런타임 타일맵 추적",
+      "description": "후보가 contact sheet 에 드러나지 않는 화면은 VRAM/tilemap/palette/OAM 조합으로 재구성되는 자산으로 보고 런타임 덤프나 스크린샷 기반 역추적을 수행한다."
+    },
+    {
+      "step": 5,
       "name": "덤프 시각 비교",
       "description": "후보 덤프를 PNG/타일 시트 형태로 모아 실제 화면과 비교하고, 맞는 후보만 남긴다."
     },
     {
-      "step": 4,
+      "step": 6,
       "name": "편집용 산출물 분리",
       "description": "수정 대상이 확인되면 exports 폴더에 편집용 산출물을 만들고, notes 폴더에 포맷/팔레트/압축 여부를 기록한다."
     },
     {
-      "step": 5,
+      "step": 7,
       "name": "교체 전략 결정",
       "description": "원위치 덮어쓰기, 재압축 후 교체, 포인터 재배치 중 어느 방식이 필요한지 결정한다."
     }
@@ -83,12 +93,14 @@
   "tooling_reference": {
     "scan_lz77": "python3 -m gba_kor_tool scan-lz77 <rom>",
     "dump_4bpp": "python3 -m gba_kor_tool dump-4bpp <rom> <offset> <tile-count> <output>",
-    "decompress_lz77": "python3 -m gba_kor_tool decompress-lz77 <rom> <offset> <output>"
+    "decompress_lz77": "python3 -m gba_kor_tool decompress-lz77 <rom> <offset> <output>",
+    "runtime_case": "python3 scripts/register_runtime_visual_case.py <screenshot> --case-id <id> --visible-text <text> --context <context> --source-type unknown",
+    "english_diff": "python3 scripts/compare_english_patch_lz77_graphics.py"
   },
   "candidate_scan": {
     "lz77_scan_path": "confirmed_data/image_inventory/lz77_blocks.json",
     "exists": true,
-    "block_count": 400,
+    "block_count": 518,
     "note": "review unit 후보 탐색의 출발점으로 쓰는 전역 LZ77 스캔 결과다."
   },
   "workspace_layout": {
@@ -106,5 +118,5 @@
     "02_title_screen_static_menu_wordmarks",
     "03_event_or_cutscene_text_cards"
   ],
-  "note": "이 문서는 실제 이미지 교체를 완료했다는 뜻이 아니라, review unit 별 추출/덤프/정리 루프를 바로 시작할 수 있게 scaffold 를 준비한 것이다."
+  "note": "이 문서는 실제 이미지 교체를 완료했다는 뜻이 아니라, review unit 별 추출/덤프/정리 루프를 바로 시작할 수 있게 scaffold 를 준비한 것이다. 타이틀처럼 contact sheet 에 바로 보이지 않는 그래픽은 런타임 tilemap-aware 추적으로 승격한다."
 }

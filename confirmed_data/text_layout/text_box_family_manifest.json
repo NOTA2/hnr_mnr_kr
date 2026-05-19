@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-05-17",
+  "last_updated": "2026-05-18",
   "families": [
     {
       "id": "startup_intro_fixed_slots",
@@ -154,7 +154,8 @@
         "append_terminator": false,
         "preserve_explicit_newline": true,
         "allow_manual_newline": "only when source already has it",
-        "translator_must_preserve_adjacent_control_stream": true
+        "translator_must_preserve_adjacent_control_stream": true,
+        "packed_relocation_supported": true
       },
       "runtime_candidate_family": "shared_text_object_r3_20",
       "observed_runtime_profile": {
@@ -169,6 +170,8 @@
         "Representative source is registry_d_fc_script_texts.json.",
         "Records are delimited by stop-byte FC inside a larger control stream rather than by a plain 0x00 terminator.",
         "before_bytes / after_bytes are useful evidence that the payload sits between control opcodes.",
+        "The current build pipeline can repack each Registry D entry to expanded ROM space and update the Registry D pointer-length table.",
+        "Translations may exceed the original in-place payload length; prioritize natural meaning, then fix visual overflow with line/page QA.",
         "Explicit multiline payloads are common here, which makes this family materially different from the entry8 single-line script profile.",
         "Runtime dialogue box/page family is still unresolved, but current strongest code-side candidate is the shared r3=20 text-object family."
       ],
@@ -242,7 +245,7 @@
         "Representative sources are ui_skill_texts.json, item_texts.json, and registry_a_entry12_texts.json.",
         "The records are short plain strings with no object-level counted header.",
         "item_texts and ui_skill_texts already have direct pointer-index evidence into local UI/data tables.",
-        "Runtime window family is still unresolved, so translations should stay concise and avoid inserting manual line breaks."
+        "Runtime window family is still unresolved and this family does not yet have packed bank relocation, so use the expansion audit: keep fixed/exact records within byte limits, use available slack for clearer terms, and avoid inserting manual line breaks."
       ],
       "samples": [
         {
@@ -275,14 +278,15 @@
         "append_terminator": true,
         "inline_separator": "0x0B optional",
         "preserve_inline_separator": true,
-        "preserve_ideographic_padding": true,
+        "preserve_ideographic_padding": false,
+        "korean_separator_normalization": "strip_padding_keep_0x0b",
         "allow_manual_newline": false
       },
       "notes": [
         "Representative sources are battle_texts.json, ability_texts.json, and material_texts.json.",
-        "Some records are short names only, while many description records use ideographic-space padding plus an inline 0x0B split.",
+        "Some records are short names only, while many description records use ideographic-space padding plus an inline 0x0B split in the Japanese source.",
         "The structure is objective even though the runtime battle/menu box family remains unresolved.",
-        "Translator-side tooling should preserve embedded 0x0B separators unless a source-specific replacement rule is confirmed later."
+        "Korean tooling restores the fixed-width name-field padding before the runtime 0x0B separator; replacing 0x0B with a normal newline can hide the description in alchemy info panels."
       ],
       "samples": [
         {

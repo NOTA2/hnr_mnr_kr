@@ -1,0 +1,305 @@
+{
+  "records": [
+    {
+      "item_id": "translation_workset_core_ui:00088558",
+      "offset": 558424,
+      "source_group": "system_messages",
+      "translation": "통신 중...",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:00088568",
+      "offset": 558440,
+      "source_group": "system_messages",
+      "translation": "통신 오류!\n케이블을 확인해 주세요",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:00088594",
+      "offset": 558484,
+      "source_group": "system_messages",
+      "translation": "통신 오류!\n데이터를 전송하지 못했습니다",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:000885C0",
+      "offset": 558528,
+      "source_group": "system_messages",
+      "translation": "접속 수 초과!\n접속 대수를 1대로 맞춰 주세요",
+      "agent_comment": "시스템 문구에서 '접속 수'보다 '접속 대수'가 자연스러워 수정."
+    },
+    {
+      "item_id": "translation_workset_core_ui:00772E64",
+      "offset": 7810660,
+      "source_group": "save_menu_texts",
+      "translation": "저장할 수 없습니다",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:007730B0",
+      "offset": 7811248,
+      "source_group": "save_menu_texts",
+      "translation": "지금까지의 여정을 저장할까요?",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:00773106",
+      "offset": 7811334,
+      "source_group": "save_menu_texts",
+      "translation": "이전 데이터를 덮어쓸까요?",
+      "agent_comment": "조사 사용을 자연스럽게 다듬음."
+    },
+    {
+      "item_id": "translation_workset_core_ui:00773164",
+      "offset": 7811428,
+      "source_group": "save_menu_texts",
+      "translation": "저장 중...",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:007731B4",
+      "offset": 7811508,
+      "source_group": "save_menu_texts",
+      "translation": "이대로 여정을 계속할까요?",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:0018425C",
+      "offset": 1589852,
+      "source_group": "location_texts",
+      "translation": "센트럴 시티",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:00184288",
+      "offset": 1589896,
+      "source_group": "location_texts",
+      "translation": "비바스",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:001842B4",
+      "offset": 1589940,
+      "source_group": "location_texts",
+      "translation": "리올",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:001842E0",
+      "offset": 1589984,
+      "source_group": "location_texts",
+      "translation": "솔링",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:0018430C",
+      "offset": 1590028,
+      "source_group": "location_texts",
+      "translation": "다이무라 저택",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:00184338",
+      "offset": 1590072,
+      "source_group": "location_texts",
+      "translation": "올헨티노스 성",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:00184364",
+      "offset": 1590116,
+      "source_group": "location_texts",
+      "translation": "이스트 시티",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:00184390",
+      "offset": 1590160,
+      "source_group": "location_texts",
+      "translation": "레돈드",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:001843BC",
+      "offset": 1590204,
+      "source_group": "location_texts",
+      "translation": "리젠블",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:001843E8",
+      "offset": 1590248,
+      "source_group": "location_texts",
+      "translation": "크루스 유적",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:0008B62C",
+      "offset": 570924,
+      "source_group": "ui_skill_texts",
+      "translation": "크로스 다트",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:0008B63C",
+      "offset": 570940,
+      "source_group": "ui_skill_texts",
+      "translation": "상대의 치유력을 높여 회복",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:0008B65C",
+      "offset": 570972,
+      "source_group": "ui_skill_texts",
+      "translation": "치유 연성",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:0008B668",
+      "offset": 570984,
+      "source_group": "ui_skill_texts",
+      "translation": "눈에도 안 보이는 초고속 발도술",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:0008B688",
+      "offset": 571016,
+      "source_group": "ui_skill_texts",
+      "translation": "신뢰",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:0008B690",
+      "offset": 571024,
+      "source_group": "ui_skill_texts",
+      "translation": "적진에 뛰어들어 적 전체에 번개 공격",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:0008B6B0",
+      "offset": 571056,
+      "source_group": "ui_skill_texts",
+      "translation": "원뢰",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:0008B6B8",
+      "offset": 571064,
+      "source_group": "ui_skill_texts",
+      "translation": "번개를 두른 칼로 적을 벤다",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:0008B6D4",
+      "offset": 571092,
+      "source_group": "ui_skill_texts",
+      "translation": "자전",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:0008B6DC",
+      "offset": 571100,
+      "source_group": "ui_skill_texts",
+      "translation": "지면을 쳐 적 아래에서 공격",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:0008B6FC",
+      "offset": 571132,
+      "source_group": "ui_skill_texts",
+      "translation": "AS식 연성술 2",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:0008B70C",
+      "offset": 571148,
+      "source_group": "ui_skill_texts",
+      "translation": "잔해를 펀치로 연성해 날린다",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:0008B72C",
+      "offset": 571180,
+      "source_group": "ui_skill_texts",
+      "translation": "AS식 연성술 1",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:0008B73C",
+      "offset": 571196,
+      "source_group": "ui_skill_texts",
+      "translation": "고속 펀치 연타 기술",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:0008B758",
+      "offset": 571224,
+      "source_group": "ui_skill_texts",
+      "translation": "마하 펀치",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:0008B768",
+      "offset": 571240,
+      "source_group": "ui_skill_texts",
+      "translation": "한 점에 집중해 총을 연사",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:0008B780",
+      "offset": 571264,
+      "source_group": "ui_skill_texts",
+      "translation": "총 연사",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:0008B78C",
+      "offset": 571276,
+      "source_group": "ui_skill_texts",
+      "translation": "가차 없는 발화 공격",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:0008B7A4",
+      "offset": 571300,
+      "source_group": "ui_skill_texts",
+      "translation": "발화",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:0008B7AC",
+      "offset": 571308,
+      "source_group": "ui_skill_texts",
+      "translation": "모은 고양이들이 알을 위해 공격",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:0008B7CC",
+      "offset": 571340,
+      "source_group": "ui_skill_texts",
+      "translation": "고양이",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:0008B7D0",
+      "offset": 571344,
+      "source_group": "ui_skill_texts",
+      "translation": "연속 공격을 퍼붓는다",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:0008B7E8",
+      "offset": 571368,
+      "source_group": "ui_skill_texts",
+      "translation": "격철고장",
+      "agent_comment": ""
+    },
+    {
+      "item_id": "translation_workset_core_ui:0008B7F4",
+      "offset": 571380,
+      "source_group": "ui_skill_texts",
+      "translation": "벽을 연성해 상대를 공격",
+      "agent_comment": "문장 성분 누락을 보완해 자연스럽게 수정."
+    }
+  ]
+}

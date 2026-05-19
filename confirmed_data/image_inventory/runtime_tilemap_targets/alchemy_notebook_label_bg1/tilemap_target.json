@@ -1,0 +1,192 @@
+{
+  "target_id": "alchemy_notebook_label_bg1",
+  "label": "연성수첩 메뉴 라벨",
+  "scene": "no_entry8_latest_ss2",
+  "frame": "frame_008774",
+  "bg": 1,
+  "tile_rect": [
+    0,
+    0,
+    6,
+    2
+  ],
+  "text_seen": "錬成手帳",
+  "korean_goal": "연성수첩",
+  "notes": "ROM 블록 매칭이 잡히지 않아 런타임 폰트/문자 타일 가능성이 높은 BG tilemap 영역.",
+  "bg_control": {
+    "bg": 1,
+    "bgcnt": 6148,
+    "char_base": 16384,
+    "screen_base": 24,
+    "is_8bpp": false,
+    "size": 0,
+    "scroll_x": 1,
+    "scroll_y": 1
+  },
+  "viewport_path": "confirmed_data/image_inventory/runtime_tilemaps/no_entry8_latest_ss2/frame_008774/bg1_viewport.png",
+  "crop_path": "confirmed_data/image_inventory/runtime_tilemap_targets/alchemy_notebook_label_bg1/crop.png",
+  "crop_4x_path": "confirmed_data/image_inventory/runtime_tilemap_targets/alchemy_notebook_label_bg1/crop_4x.png",
+  "tile_entries": [
+    {
+      "screen_tile_x": 0,
+      "screen_tile_y": 0,
+      "map_tile_x": 0,
+      "map_tile_y": 0,
+      "screen_entry_addr": 49152,
+      "screen_entry": 4097,
+      "tile_index": 1,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 1
+    },
+    {
+      "screen_tile_x": 1,
+      "screen_tile_y": 0,
+      "map_tile_x": 1,
+      "map_tile_y": 0,
+      "screen_entry_addr": 49154,
+      "screen_entry": 4098,
+      "tile_index": 2,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 1
+    },
+    {
+      "screen_tile_x": 2,
+      "screen_tile_y": 0,
+      "map_tile_x": 2,
+      "map_tile_y": 0,
+      "screen_entry_addr": 49156,
+      "screen_entry": 4099,
+      "tile_index": 3,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 1
+    },
+    {
+      "screen_tile_x": 3,
+      "screen_tile_y": 0,
+      "map_tile_x": 3,
+      "map_tile_y": 0,
+      "screen_entry_addr": 49158,
+      "screen_entry": 4100,
+      "tile_index": 4,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 1
+    },
+    {
+      "screen_tile_x": 4,
+      "screen_tile_y": 0,
+      "map_tile_x": 4,
+      "map_tile_y": 0,
+      "screen_entry_addr": 49160,
+      "screen_entry": 4101,
+      "tile_index": 5,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 1
+    },
+    {
+      "screen_tile_x": 5,
+      "screen_tile_y": 0,
+      "map_tile_x": 5,
+      "map_tile_y": 0,
+      "screen_entry_addr": 49162,
+      "screen_entry": 4102,
+      "tile_index": 6,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 1
+    },
+    {
+      "screen_tile_x": 0,
+      "screen_tile_y": 1,
+      "map_tile_x": 0,
+      "map_tile_y": 1,
+      "screen_entry_addr": 49216,
+      "screen_entry": 4129,
+      "tile_index": 33,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 1
+    },
+    {
+      "screen_tile_x": 1,
+      "screen_tile_y": 1,
+      "map_tile_x": 1,
+      "map_tile_y": 1,
+      "screen_entry_addr": 49218,
+      "screen_entry": 4130,
+      "tile_index": 34,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 1
+    },
+    {
+      "screen_tile_x": 2,
+      "screen_tile_y": 1,
+      "map_tile_x": 2,
+      "map_tile_y": 1,
+      "screen_entry_addr": 49220,
+      "screen_entry": 4131,
+      "tile_index": 35,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 1
+    },
+    {
+      "screen_tile_x": 3,
+      "screen_tile_y": 1,
+      "map_tile_x": 3,
+      "map_tile_y": 1,
+      "screen_entry_addr": 49222,
+      "screen_entry": 4132,
+      "tile_index": 36,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 1
+    },
+    {
+      "screen_tile_x": 4,
+      "screen_tile_y": 1,
+      "map_tile_x": 4,
+      "map_tile_y": 1,
+      "screen_entry_addr": 49224,
+      "screen_entry": 4133,
+      "tile_index": 37,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 1
+    },
+    {
+      "screen_tile_x": 5,
+      "screen_tile_y": 1,
+      "map_tile_x": 5,
+      "map_tile_y": 1,
+      "screen_entry_addr": 49226,
+      "screen_entry": 4134,
+      "tile_index": 38,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 1
+    }
+  ],
+  "unique_tile_indexes": [
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    33,
+    34,
+    35,
+    36,
+    37,
+    38
+  ],
+  "unique_palette_banks": [
+    1
+  ]
+}

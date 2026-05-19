@@ -1,0 +1,3032 @@
+[
+  {
+    "run_id": "entry8_cluster_71_run_0000",
+    "cluster_index": 71,
+    "run_index": 0,
+    "dialogue_state_token": "1bff:0B00",
+    "record_count": 1,
+    "offsets": [
+      7800810
+    ],
+    "source_text": "なんか変な街だね。",
+    "translation_text": "어쩐지 이상한 거리네.",
+    "records": [
+      {
+        "offset": 7800810,
+        "header_offset": 7800806,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 1292,
+        "text": "なんか変な街だね。",
+        "translation": "어쩐지 이상한 거리네."
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0001",
+    "cluster_index": 71,
+    "run_index": 1,
+    "dialogue_state_token": null,
+    "record_count": 16,
+    "offsets": [
+      7800834,
+      7800866,
+      7800924,
+      7800982,
+      7801016,
+      7801044,
+      7801092,
+      7801106,
+      7801160,
+      7801192,
+      7801248,
+      7801282,
+      7801342,
+      7801368,
+      7801418,
+      7801452
+    ],
+    "source_text": "フードショップのおじさんに\nもっと話を聞いてみようか？\n広場でなにかあるみたいだね\nあのコーネロって怪しいよね。\n会って話を聞いてみる？\n教会にいるかな？\n兄さん、\nコーネロに会ってみよう\nコーネロを追いかけないと！\nきっと教会の奥にいるよ！\nはやく列車強盗のボスを倒して\n人質の人を助けてあげなきゃ！\nキメラをぜんぶ倒して\n街を取り戻すんだ！\nもうキメラはいないみたいだね\nセントラルシティへ行こうか、",
+    "translation_text": "푸드숍 아저씨에게\n좀 더 이야기를 들어 볼까?\n광장에서 뭔가 있는 것 같아\n그 코넬로라는 사람 수상하지?\n만나서 얘기 들어 볼래?\n교회에 있으려나?\n형,\n코넬로를 만나 보자\n코넬로를 쫓아가야 해!\n분명 교회 안쪽에 있을 거야!\n빨리 열차 강도 두목을 쓰러뜨리고\n인질을 구해 줘야 해!\n키메라를 전부 쓰러뜨리고\n거리를 되찾자!\n이제 키메라는 없는 것 같네\n센트럴 시티로 갈까,",
+    "records": [
+      {
+        "offset": 7800834,
+        "header_offset": 7800830,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "フードショップのおじさんに",
+        "translation": "푸드숍 아저씨에게"
+      },
+      {
+        "offset": 7800866,
+        "header_offset": 7800862,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "もっと話を聞いてみようか？",
+        "translation": "좀 더 이야기를 들어 볼까?"
+      },
+      {
+        "offset": 7800924,
+        "header_offset": 7800920,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 28,
+        "text": "広場でなにかあるみたいだね",
+        "translation": "광장에서 뭔가 있는 것 같아"
+      },
+      {
+        "offset": 7800982,
+        "header_offset": 7800978,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 28,
+        "text": "あのコーネロって怪しいよね。",
+        "translation": "그 코넬로라는 사람 수상하지?"
+      },
+      {
+        "offset": 7801016,
+        "header_offset": 7801012,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "会って話を聞いてみる？",
+        "translation": "만나서 얘기 들어 볼래?"
+      },
+      {
+        "offset": 7801044,
+        "header_offset": 7801040,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "教会にいるかな？",
+        "translation": "교회에 있으려나?"
+      },
+      {
+        "offset": 7801092,
+        "header_offset": 7801088,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 28,
+        "text": "兄さん、",
+        "translation": "형,"
+      },
+      {
+        "offset": 7801106,
+        "header_offset": 7801102,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "コーネロに会ってみよう",
+        "translation": "코넬로를 만나 보자"
+      },
+      {
+        "offset": 7801160,
+        "header_offset": 7801156,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 28,
+        "text": "コーネロを追いかけないと！",
+        "translation": "코넬로를 쫓아가야 해!"
+      },
+      {
+        "offset": 7801192,
+        "header_offset": 7801188,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "きっと教会の奥にいるよ！",
+        "translation": "분명 교회 안쪽에 있을 거야!"
+      },
+      {
+        "offset": 7801248,
+        "header_offset": 7801244,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 28,
+        "text": "はやく列車強盗のボスを倒して",
+        "translation": "빨리 열차 강도 두목을 쓰러뜨리고"
+      },
+      {
+        "offset": 7801282,
+        "header_offset": 7801278,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "人質の人を助けてあげなきゃ！",
+        "translation": "인질을 구해 줘야 해!"
+      },
+      {
+        "offset": 7801342,
+        "header_offset": 7801338,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 28,
+        "text": "キメラをぜんぶ倒して",
+        "translation": "키메라를 전부 쓰러뜨리고"
+      },
+      {
+        "offset": 7801368,
+        "header_offset": 7801364,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "街を取り戻すんだ！",
+        "translation": "거리를 되찾자!"
+      },
+      {
+        "offset": 7801418,
+        "header_offset": 7801414,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 28,
+        "text": "もうキメラはいないみたいだね",
+        "translation": "이제 키메라는 없는 것 같네"
+      },
+      {
+        "offset": 7801452,
+        "header_offset": 7801448,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "セントラルシティへ行こうか、",
+        "translation": "센트럴 시티로 갈까,"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0002",
+    "cluster_index": 71,
+    "run_index": 2,
+    "dialogue_state_token": "1bff:0B00",
+    "record_count": 1,
+    "offsets": [
+      7801618
+    ],
+    "source_text": "コニィを軍司令部まで",
+    "translation_text": "코니를 군사령부까지",
+    "records": [
+      {
+        "offset": 7801618,
+        "header_offset": 7801614,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 134,
+        "text": "コニィを軍司令部まで",
+        "translation": "코니를 군사령부까지"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0003",
+    "cluster_index": 71,
+    "run_index": 3,
+    "dialogue_state_token": null,
+    "record_count": 47,
+    "offsets": [
+      7801644,
+      7801668,
+      7801688,
+      7801712,
+      7801764,
+      7801790,
+      7801820,
+      7801872,
+      7801900,
+      7801934,
+      7801994,
+      7802024,
+      7802058,
+      7802108,
+      7802134,
+      7802158,
+      7802184,
+      7802240,
+      7802262,
+      7802290,
+      7802348,
+      7802372,
+      7802400,
+      7802444,
+      7802478,
+      7802526,
+      7802548,
+      7802604,
+      7802632,
+      7802664,
+      7802716,
+      7802742,
+      7802796,
+      7802822,
+      7802866,
+      7802892,
+      7802934,
+      7802962,
+      7803018,
+      7803064,
+      7803088,
+      7803174,
+      7803224,
+      7803252,
+      7803272,
+      7803336,
+      7803382
+    ],
+    "source_text": "案内するんだよね\n中央軍司令部は\nセントラルシティの\n北側区画だったっけ？\nコニィの試験の相手は\nアームストロング少佐か…\n会場は中庭だったよね\n兄さん、大総統に会いに\n行かないとまずいんじゃない？\n大総統府は中央軍司令部だよね\nヒューズ中佐、どこかな？\n軍司令部の受付のおねーさんに\n聞けばわかるかな？\nヒューズ中佐は自宅に\n帰ったんだって。\nヒューズ中佐の自宅は\nセントラルの中央区画だよ\nグレイシアさん、\nヒューズ中佐は図書館の\n分館にいるって言ってたよね\n中央軍司令部にいる\nアームストロング少佐に\n会いに行こう\n列車でイーストシティへ出発だ\n駅は南側区画だよ\nバルドを探そう。\nきっと、列車の上にいるよ\n大佐に会いに行こうよ。\nイーストシティの北側にある\n東方軍司令部にいるよ\n大佐を追いかけよう。\n広場は東側だったっけ？\nマーティンスって人を\n探さないとね\nキメラを倒さないと！\n急ごう！！\n目的地はレドンドだよ。\n早く行こう\n兄さん、レドンドへ行かないと\nまず、街の人に話を\n聞いてみようよ\n兄さん、レドンドへ行かないと\n行き詰まった時は現場に\n行ってみるのも\nいいんじゃないかな\n兄さん、犯人は金庫室の奥だよ\nきっとこの奥に犯人がいるよ",
+    "translation_text": "안내하는 거지?\n중앙군 사령부는\n센트럴 시티의\n북쪽 구역이었지?\n코니의 시험 상대는\n암스트롱 소령인가…\n회장은 안뜰이었지\n형, 대총통을 만나러\n안 가면 곤란하지 않아?\n대총통부는 중앙군 사령부지\n휴즈 중령, 어디 있을까?\n군사령부 접수처 누나에게\n물어보면 알 수 있으려나?\n휴즈 중령은 집으로\n돌아갔대.\n휴즈 중령의 집은\n센트럴 중앙 구역이야\n그레이시아 씨,\n휴즈 중령은 도서관\n분관에 있다고 했지\n중앙군 사령부에 있는\n암스트롱 소령을\n만나러 가자\n열차로 이스트 시티에 출발이야\n역은 남쪽 구역이야\n발드를 찾자.\n분명 열차 위에 있을 거야\n대령을 만나러 가자.\n이스트 시티 북쪽에 있는\n동방군 사령부에 있어\n대령을 쫓아가자.\n광장은 동쪽이었지?\n마틴스라는 사람을\n찾아야 해\n키메라를 쓰러뜨려야 해!\n서두르자!!\n목적지는 레돈도야.\n빨리 가자\n형, 레돈도로 가야 해\n우선 거리 사람들에게\n이야기를 들어 보자\n형, 레돈도로 가야 해\n막혔을 때는 현장에\n가 보는 것도\n괜찮지 않을까\n형, 범인은 금고실 안쪽이야\n분명 이 안쪽에 범인이 있어",
+    "records": [
+      {
+        "offset": 7801644,
+        "header_offset": 7801640,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "案内するんだよね",
+        "translation": "안내하는 거지?"
+      },
+      {
+        "offset": 7801668,
+        "header_offset": 7801664,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 4,
+        "text": "中央軍司令部は",
+        "translation": "중앙군 사령부는"
+      },
+      {
+        "offset": 7801688,
+        "header_offset": 7801684,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "セントラルシティの",
+        "translation": "센트럴 시티의"
+      },
+      {
+        "offset": 7801712,
+        "header_offset": 7801708,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "北側区画だったっけ？",
+        "translation": "북쪽 구역이었지?"
+      },
+      {
+        "offset": 7801764,
+        "header_offset": 7801760,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 28,
+        "text": "コニィの試験の相手は",
+        "translation": "코니의 시험 상대는"
+      },
+      {
+        "offset": 7801790,
+        "header_offset": 7801786,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "アームストロング少佐か…",
+        "translation": "암스트롱 소령인가…"
+      },
+      {
+        "offset": 7801820,
+        "header_offset": 7801816,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "会場は中庭だったよね",
+        "translation": "회장은 안뜰이었지"
+      },
+      {
+        "offset": 7801872,
+        "header_offset": 7801868,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 28,
+        "text": "兄さん、大総統に会いに",
+        "translation": "형, 대총통을 만나러"
+      },
+      {
+        "offset": 7801900,
+        "header_offset": 7801896,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "行かないとまずいんじゃない？",
+        "translation": "안 가면 곤란하지 않아?"
+      },
+      {
+        "offset": 7801934,
+        "header_offset": 7801930,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "大総統府は中央軍司令部だよね",
+        "translation": "대총통부는 중앙군 사령부지"
+      },
+      {
+        "offset": 7801994,
+        "header_offset": 7801990,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 28,
+        "text": "ヒューズ中佐、どこかな？",
+        "translation": "휴즈 중령, 어디 있을까?"
+      },
+      {
+        "offset": 7802024,
+        "header_offset": 7802020,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "軍司令部の受付のおねーさんに",
+        "translation": "군사령부 접수처 누나에게"
+      },
+      {
+        "offset": 7802058,
+        "header_offset": 7802054,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "聞けばわかるかな？",
+        "translation": "물어보면 알 수 있으려나?"
+      },
+      {
+        "offset": 7802108,
+        "header_offset": 7802104,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 28,
+        "text": "ヒューズ中佐は自宅に",
+        "translation": "휴즈 중령은 집으로"
+      },
+      {
+        "offset": 7802134,
+        "header_offset": 7802130,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "帰ったんだって。",
+        "translation": "돌아갔대."
+      },
+      {
+        "offset": 7802158,
+        "header_offset": 7802154,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 4,
+        "text": "ヒューズ中佐の自宅は",
+        "translation": "휴즈 중령의 집은"
+      },
+      {
+        "offset": 7802184,
+        "header_offset": 7802180,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "セントラルの中央区画だよ",
+        "translation": "센트럴 중앙 구역이야"
+      },
+      {
+        "offset": 7802240,
+        "header_offset": 7802236,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 28,
+        "text": "グレイシアさん、",
+        "translation": "그레이시아 씨,"
+      },
+      {
+        "offset": 7802262,
+        "header_offset": 7802258,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "ヒューズ中佐は図書館の",
+        "translation": "휴즈 중령은 도서관"
+      },
+      {
+        "offset": 7802290,
+        "header_offset": 7802286,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "分館にいるって言ってたよね",
+        "translation": "분관에 있다고 했지"
+      },
+      {
+        "offset": 7802348,
+        "header_offset": 7802344,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 28,
+        "text": "中央軍司令部にいる",
+        "translation": "중앙군 사령부에 있는"
+      },
+      {
+        "offset": 7802372,
+        "header_offset": 7802368,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "アームストロング少佐に",
+        "translation": "암스트롱 소령을"
+      },
+      {
+        "offset": 7802400,
+        "header_offset": 7802396,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 2,
+        "text": "会いに行こう",
+        "translation": "만나러 가자"
+      },
+      {
+        "offset": 7802444,
+        "header_offset": 7802440,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 28,
+        "text": "列車でイーストシティへ出発だ",
+        "translation": "열차로 이스트 시티에 출발이야"
+      },
+      {
+        "offset": 7802478,
+        "header_offset": 7802474,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "駅は南側区画だよ",
+        "translation": "역은 남쪽 구역이야"
+      },
+      {
+        "offset": 7802526,
+        "header_offset": 7802522,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 28,
+        "text": "バルドを探そう。",
+        "translation": "발드를 찾자."
+      },
+      {
+        "offset": 7802548,
+        "header_offset": 7802544,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "きっと、列車の上にいるよ",
+        "translation": "분명 열차 위에 있을 거야"
+      },
+      {
+        "offset": 7802604,
+        "header_offset": 7802600,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 28,
+        "text": "大佐に会いに行こうよ。",
+        "translation": "대령을 만나러 가자."
+      },
+      {
+        "offset": 7802632,
+        "header_offset": 7802628,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "イーストシティの北側にある",
+        "translation": "이스트 시티 북쪽에 있는"
+      },
+      {
+        "offset": 7802664,
+        "header_offset": 7802660,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "東方軍司令部にいるよ",
+        "translation": "동방군 사령부에 있어"
+      },
+      {
+        "offset": 7802716,
+        "header_offset": 7802712,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 28,
+        "text": "大佐を追いかけよう。",
+        "translation": "대령을 쫓아가자."
+      },
+      {
+        "offset": 7802742,
+        "header_offset": 7802738,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "広場は東側だったっけ？",
+        "translation": "광장은 동쪽이었지?"
+      },
+      {
+        "offset": 7802796,
+        "header_offset": 7802792,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 28,
+        "text": "マーティンスって人を",
+        "translation": "마틴스라는 사람을"
+      },
+      {
+        "offset": 7802822,
+        "header_offset": 7802818,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 2,
+        "text": "探さないとね",
+        "translation": "찾아야 해"
+      },
+      {
+        "offset": 7802866,
+        "header_offset": 7802862,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 28,
+        "text": "キメラを倒さないと！",
+        "translation": "키메라를 쓰러뜨려야 해!"
+      },
+      {
+        "offset": 7802892,
+        "header_offset": 7802888,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 2,
+        "text": "急ごう！！",
+        "translation": "서두르자!!"
+      },
+      {
+        "offset": 7802934,
+        "header_offset": 7802930,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 28,
+        "text": "目的地はレドンドだよ。",
+        "translation": "목적지는 레돈도야."
+      },
+      {
+        "offset": 7802962,
+        "header_offset": 7802958,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 2,
+        "text": "早く行こう",
+        "translation": "빨리 가자"
+      },
+      {
+        "offset": 7803018,
+        "header_offset": 7803014,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 42,
+        "text": "兄さん、レドンドへ行かないと",
+        "translation": "형, 레돈도로 가야 해"
+      },
+      {
+        "offset": 7803064,
+        "header_offset": 7803060,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 14,
+        "text": "まず、街の人に話を",
+        "translation": "우선 거리 사람들에게"
+      },
+      {
+        "offset": 7803088,
+        "header_offset": 7803084,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "聞いてみようよ",
+        "translation": "이야기를 들어 보자"
+      },
+      {
+        "offset": 7803174,
+        "header_offset": 7803170,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 68,
+        "text": "兄さん、レドンドへ行かないと",
+        "translation": "형, 레돈도로 가야 해"
+      },
+      {
+        "offset": 7803224,
+        "header_offset": 7803220,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 18,
+        "text": "行き詰まった時は現場に",
+        "translation": "막혔을 때는 현장에"
+      },
+      {
+        "offset": 7803252,
+        "header_offset": 7803248,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "行ってみるのも",
+        "translation": "가 보는 것도"
+      },
+      {
+        "offset": 7803272,
+        "header_offset": 7803268,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "いいんじゃないかな",
+        "translation": "괜찮지 않을까"
+      },
+      {
+        "offset": 7803336,
+        "header_offset": 7803332,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 42,
+        "text": "兄さん、犯人は金庫室の奥だよ",
+        "translation": "형, 범인은 금고실 안쪽이야"
+      },
+      {
+        "offset": 7803382,
+        "header_offset": 7803378,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 14,
+        "text": "きっとこの奥に犯人がいるよ",
+        "translation": "분명 이 안쪽에 범인이 있어"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0004",
+    "cluster_index": 71,
+    "run_index": 4,
+    "dialogue_state_token": "1bff:0B00",
+    "record_count": 1,
+    "offsets": [
+      7803536
+    ],
+    "source_text": "どうしたの？",
+    "translation_text": "무슨 일이야?",
+    "records": [
+      {
+        "offset": 7803536,
+        "header_offset": 7803532,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 124,
+        "text": "どうしたの？",
+        "translation": "무슨 일이야?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0005",
+    "cluster_index": 71,
+    "run_index": 5,
+    "dialogue_state_token": null,
+    "record_count": 27,
+    "offsets": [
+      7803554,
+      7803586,
+      7803628,
+      7803684,
+      7803710,
+      7803738,
+      7803782,
+      7803814,
+      7803870,
+      7803898,
+      7803958,
+      7803980,
+      7804008,
+      7804048,
+      7804098,
+      7804132,
+      7804154,
+      7804202,
+      7804232,
+      7804252,
+      7804298,
+      7804330,
+      7804384,
+      7804408,
+      7804460,
+      7804504,
+      7804532
+    ],
+    "source_text": "ソリンに行って二人組の事を\n調べようよ\n村の人に話を聞いてみよう\nボクたちのニセモノは\n裏山にいるみたいだね。\n探してみよう\nそのダイムラーさんって人が\n怪しいのか…探してみよう\nなんだか怪しい人だね。\nどこかから家に入れないかな？\n鍵を錬成するには\n金属の２－４のカードが\n必要だよ\nきっと中にいるよ！\n兄さん、リゼンブールだって！\n久しぶりだなぁ、\nみんな元気かなぁ\nばっちゃんとウィンリィに\n会いに行こう。\nはやく、はやく\nダイムラーはクルスの遺跡に\n向かったって言ってたね\nダイムラーはきっと\n遺跡の奥に逃げたんだ\nいったい誰がダイムラーを…\nレドンド後～クルス遺跡\nフラグミス",
+    "translation_text": "소린에 가서 두 사람에 대해\n조사해 보자\n마을 사람들에게 이야기를 들어 보자\n우리 가짜들은\n뒷산에 있는 것 같네.\n찾아보자\n그 다이무라 씨라는 사람이\n수상한가… 찾아보자\n어쩐지 수상한 사람이네.\n어디선가 집에 들어갈 수 없을까?\n열쇠를 연성하려면\n금속 2-4 카드가\n필요해\n분명 안에 있어!\n형, 리젠블이래!\n오랜만이네,\n다들 잘 지내려나\n할머니랑 윈리를\n만나러 가자.\n빨리, 빨리\n다이무라는 크루스 유적으로\n향했다고 했지\n다이무라는 분명\n유적 안쪽으로 도망쳤어\n대체 누가 다이무라를…\n레돈도 후～크루스 유적\n플래그 오류",
+    "records": [
+      {
+        "offset": 7803554,
+        "header_offset": 7803550,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "ソリンに行って二人組の事を",
+        "translation": "소린에 가서 두 사람에 대해"
+      },
+      {
+        "offset": 7803586,
+        "header_offset": 7803582,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 2,
+        "text": "調べようよ",
+        "translation": "조사해 보자"
+      },
+      {
+        "offset": 7803628,
+        "header_offset": 7803624,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 28,
+        "text": "村の人に話を聞いてみよう",
+        "translation": "마을 사람들에게 이야기를 들어 보자"
+      },
+      {
+        "offset": 7803684,
+        "header_offset": 7803680,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 28,
+        "text": "ボクたちのニセモノは",
+        "translation": "우리 가짜들은"
+      },
+      {
+        "offset": 7803710,
+        "header_offset": 7803706,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "裏山にいるみたいだね。",
+        "translation": "뒷산에 있는 것 같네."
+      },
+      {
+        "offset": 7803738,
+        "header_offset": 7803734,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 2,
+        "text": "探してみよう",
+        "translation": "찾아보자"
+      },
+      {
+        "offset": 7803782,
+        "header_offset": 7803778,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 28,
+        "text": "そのダイムラーさんって人が",
+        "translation": "그 다이무라 씨라는 사람이"
+      },
+      {
+        "offset": 7803814,
+        "header_offset": 7803810,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "怪しいのか…探してみよう",
+        "translation": "수상한가… 찾아보자"
+      },
+      {
+        "offset": 7803870,
+        "header_offset": 7803866,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 28,
+        "text": "なんだか怪しい人だね。",
+        "translation": "어쩐지 수상한 사람이네."
+      },
+      {
+        "offset": 7803898,
+        "header_offset": 7803894,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "どこかから家に入れないかな？",
+        "translation": "어디선가 집에 들어갈 수 없을까?"
+      },
+      {
+        "offset": 7803958,
+        "header_offset": 7803954,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 28,
+        "text": "鍵を錬成するには",
+        "translation": "열쇠를 연성하려면"
+      },
+      {
+        "offset": 7803980,
+        "header_offset": 7803976,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "金属の２－４のカードが",
+        "translation": "금속 2-4 카드가"
+      },
+      {
+        "offset": 7804008,
+        "header_offset": 7804004,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 2,
+        "text": "必要だよ",
+        "translation": "필요해"
+      },
+      {
+        "offset": 7804048,
+        "header_offset": 7804044,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 28,
+        "text": "きっと中にいるよ！",
+        "translation": "분명 안에 있어!"
+      },
+      {
+        "offset": 7804098,
+        "header_offset": 7804094,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 28,
+        "text": "兄さん、リゼンブールだって！",
+        "translation": "형, 리젠블이래!"
+      },
+      {
+        "offset": 7804132,
+        "header_offset": 7804128,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "久しぶりだなぁ、",
+        "translation": "오랜만이네,"
+      },
+      {
+        "offset": 7804154,
+        "header_offset": 7804150,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "みんな元気かなぁ",
+        "translation": "다들 잘 지내려나"
+      },
+      {
+        "offset": 7804202,
+        "header_offset": 7804198,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 28,
+        "text": "ばっちゃんとウィンリィに",
+        "translation": "할머니랑 윈리를"
+      },
+      {
+        "offset": 7804232,
+        "header_offset": 7804228,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "会いに行こう。",
+        "translation": "만나러 가자."
+      },
+      {
+        "offset": 7804252,
+        "header_offset": 7804248,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "はやく、はやく",
+        "translation": "빨리, 빨리"
+      },
+      {
+        "offset": 7804298,
+        "header_offset": 7804294,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 28,
+        "text": "ダイムラーはクルスの遺跡に",
+        "translation": "다이무라는 크루스 유적으로"
+      },
+      {
+        "offset": 7804330,
+        "header_offset": 7804326,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "向かったって言ってたね",
+        "translation": "향했다고 했지"
+      },
+      {
+        "offset": 7804384,
+        "header_offset": 7804380,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 28,
+        "text": "ダイムラーはきっと",
+        "translation": "다이무라는 분명"
+      },
+      {
+        "offset": 7804408,
+        "header_offset": 7804404,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "遺跡の奥に逃げたんだ",
+        "translation": "유적 안쪽으로 도망쳤어"
+      },
+      {
+        "offset": 7804460,
+        "header_offset": 7804456,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 28,
+        "text": "いったい誰がダイムラーを…",
+        "translation": "대체 누가 다이무라를…"
+      },
+      {
+        "offset": 7804504,
+        "header_offset": 7804500,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 14,
+        "text": "レドンド後～クルス遺跡",
+        "translation": "레돈도 후～크루스 유적"
+      },
+      {
+        "offset": 7804532,
+        "header_offset": 7804528,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 2,
+        "text": "フラグミス",
+        "translation": "플래그 오류"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0006",
+    "cluster_index": 71,
+    "run_index": 6,
+    "dialogue_state_token": "1bff:0B00",
+    "record_count": 1,
+    "offsets": [
+      7804656
+    ],
+    "source_text": "下水道でリンカーを探さなきゃ",
+    "translation_text": "하수도에서 링커를 찾아야 해",
+    "records": [
+      {
+        "offset": 7804656,
+        "header_offset": 7804652,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 110,
+        "text": "下水道でリンカーを探さなきゃ",
+        "translation": "하수도에서 링커를 찾아야 해"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0007",
+    "cluster_index": 71,
+    "run_index": 7,
+    "dialogue_state_token": null,
+    "record_count": 32,
+    "offsets": [
+      7804690,
+      7804744,
+      7804768,
+      7804820,
+      7804844,
+      7804888,
+      7804908,
+      7804938,
+      7804986,
+      7805020,
+      7805046,
+      7805104,
+      7805138,
+      7805192,
+      7805212,
+      7805266,
+      7805300,
+      7805360,
+      7805388,
+      7805414,
+      7805472,
+      7805506,
+      7805532,
+      7805578,
+      7805594,
+      7805620,
+      7805674,
+      7805700,
+      7805728,
+      7805778,
+      7805812,
+      7805872
+    ],
+    "source_text": "下水道の入口は西側だよ\nきっと下水道の奥に\nリンカーがいるんだよ\nマーティンス中佐、\n大丈夫かな…\n東方軍司令部が\nキメラに襲われてるんだ！\n早く行かないと！\nキメラがうじゃうじゃいるね。\n建物をまわりこんで、\n司令部の裏口から入ろうか？\n仕方がないから、大佐の手帳を\n取りに行ってあげようよ\nキメラの親玉が\n練兵場にいるようだよ！\n久しぶりにゆっくりできるね。\nイースト南側の宿屋に行こうよ\nもうリンカーの居場所の\n情報は入ってるかな？\n大佐のところにいってみよう\n早くリンカーを捕まえなきゃ。\nイーストシティ近くの\n古城だったよね\nリンカーは\n城の奥にいるのかな？\nまずは進んでみようか…\nどうして、あの人が？\n…やっぱり、リンカーは\n「賢者の石」を！？\n兄さん、石の７－６のカードで\nいったい何をするつもりなの？\n先をいそごう！",
+    "translation_text": "하수도 입구는 서쪽이야\n분명 하수도 안쪽에\n링커가 있을 거야\n마틴스 중령,\n괜찮을까…\n동방군 사령부가\n키메라에게 습격당하고 있어!\n빨리 가야 해!\n키메라가 우글우글하네.\n건물을 돌아서\n사령부 뒤쪽 문으로 들어갈까?\n어쩔 수 없으니 대령의 수첩을\n가지러 가 주자\n키메라 우두머리가\n연병장에 있는 것 같아!\n오랜만에 느긋하게 쉴 수 있겠네.\n이스트 남쪽 숙소에 가자\n이제 링커의 위치\n정보가 들어왔을까?\n대령에게 가 보자\n빨리 링커를 잡아야 해.\n이스트 시티 근처의\n고성이었지\n링커는\n성 안쪽에 있으려나?\n우선 나아가 보자…\n왜 그 사람이?\n…역시 링커는\n\"현자의 돌\"을!?\n형, 돌 7-6 카드로\n대체 뭘 하려는 거야?\n앞을 서두르자!",
+    "records": [
+      {
+        "offset": 7804690,
+        "header_offset": 7804686,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "下水道の入口は西側だよ",
+        "translation": "하수도 입구는 서쪽이야"
+      },
+      {
+        "offset": 7804744,
+        "header_offset": 7804740,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 28,
+        "text": "きっと下水道の奥に",
+        "translation": "분명 하수도 안쪽에"
+      },
+      {
+        "offset": 7804768,
+        "header_offset": 7804764,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "リンカーがいるんだよ",
+        "translation": "링커가 있을 거야"
+      },
+      {
+        "offset": 7804820,
+        "header_offset": 7804816,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 28,
+        "text": "マーティンス中佐、",
+        "translation": "마틴스 중령,"
+      },
+      {
+        "offset": 7804844,
+        "header_offset": 7804840,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 2,
+        "text": "大丈夫かな…",
+        "translation": "괜찮을까…"
+      },
+      {
+        "offset": 7804888,
+        "header_offset": 7804884,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 28,
+        "text": "東方軍司令部が",
+        "translation": "동방군 사령부가"
+      },
+      {
+        "offset": 7804908,
+        "header_offset": 7804904,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "キメラに襲われてるんだ！",
+        "translation": "키메라에게 습격당하고 있어!"
+      },
+      {
+        "offset": 7804938,
+        "header_offset": 7804934,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "早く行かないと！",
+        "translation": "빨리 가야 해!"
+      },
+      {
+        "offset": 7804986,
+        "header_offset": 7804982,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 28,
+        "text": "キメラがうじゃうじゃいるね。",
+        "translation": "키메라가 우글우글하네."
+      },
+      {
+        "offset": 7805020,
+        "header_offset": 7805016,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "建物をまわりこんで、",
+        "translation": "건물을 돌아서"
+      },
+      {
+        "offset": 7805046,
+        "header_offset": 7805042,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "司令部の裏口から入ろうか？",
+        "translation": "사령부 뒤쪽 문으로 들어갈까?"
+      },
+      {
+        "offset": 7805104,
+        "header_offset": 7805100,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 28,
+        "text": "仕方がないから、大佐の手帳を",
+        "translation": "어쩔 수 없으니 대령의 수첩을"
+      },
+      {
+        "offset": 7805138,
+        "header_offset": 7805134,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "取りに行ってあげようよ",
+        "translation": "가지러 가 주자"
+      },
+      {
+        "offset": 7805192,
+        "header_offset": 7805188,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 28,
+        "text": "キメラの親玉が",
+        "translation": "키메라 우두머리가"
+      },
+      {
+        "offset": 7805212,
+        "header_offset": 7805208,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "練兵場にいるようだよ！",
+        "translation": "연병장에 있는 것 같아!"
+      },
+      {
+        "offset": 7805266,
+        "header_offset": 7805262,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 28,
+        "text": "久しぶりにゆっくりできるね。",
+        "translation": "오랜만에 느긋하게 쉴 수 있겠네."
+      },
+      {
+        "offset": 7805300,
+        "header_offset": 7805296,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "イースト南側の宿屋に行こうよ",
+        "translation": "이스트 남쪽 숙소에 가자"
+      },
+      {
+        "offset": 7805360,
+        "header_offset": 7805356,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 28,
+        "text": "もうリンカーの居場所の",
+        "translation": "이제 링커의 위치"
+      },
+      {
+        "offset": 7805388,
+        "header_offset": 7805384,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "情報は入ってるかな？",
+        "translation": "정보가 들어왔을까?"
+      },
+      {
+        "offset": 7805414,
+        "header_offset": 7805410,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "大佐のところにいってみよう",
+        "translation": "대령에게 가 보자"
+      },
+      {
+        "offset": 7805472,
+        "header_offset": 7805468,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 28,
+        "text": "早くリンカーを捕まえなきゃ。",
+        "translation": "빨리 링커를 잡아야 해."
+      },
+      {
+        "offset": 7805506,
+        "header_offset": 7805502,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "イーストシティ近くの",
+        "translation": "이스트 시티 근처의"
+      },
+      {
+        "offset": 7805532,
+        "header_offset": 7805528,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "古城だったよね",
+        "translation": "고성이었지"
+      },
+      {
+        "offset": 7805578,
+        "header_offset": 7805574,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 28,
+        "text": "リンカーは",
+        "translation": "링커는"
+      },
+      {
+        "offset": 7805594,
+        "header_offset": 7805590,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "城の奥にいるのかな？",
+        "translation": "성 안쪽에 있으려나?"
+      },
+      {
+        "offset": 7805620,
+        "header_offset": 7805616,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "まずは進んでみようか…",
+        "translation": "우선 나아가 보자…"
+      },
+      {
+        "offset": 7805674,
+        "header_offset": 7805670,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 28,
+        "text": "どうして、あの人が？",
+        "translation": "왜 그 사람이?"
+      },
+      {
+        "offset": 7805700,
+        "header_offset": 7805696,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "…やっぱり、リンカーは",
+        "translation": "…역시 링커는"
+      },
+      {
+        "offset": 7805728,
+        "header_offset": 7805724,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "「賢者の石」を！？",
+        "translation": "\"현자의 돌\"을!?"
+      },
+      {
+        "offset": 7805778,
+        "header_offset": 7805774,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 28,
+        "text": "兄さん、石の７－６のカードで",
+        "translation": "형, 돌 7-6 카드로"
+      },
+      {
+        "offset": 7805812,
+        "header_offset": 7805808,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "いったい何をするつもりなの？",
+        "translation": "대체 뭘 하려는 거야?"
+      },
+      {
+        "offset": 7805872,
+        "header_offset": 7805868,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 28,
+        "text": "先をいそごう！",
+        "translation": "앞을 서두르자!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0008",
+    "cluster_index": 71,
+    "run_index": 8,
+    "dialogue_state_token": "1bff:0B00",
+    "record_count": 1,
+    "offsets": [
+      7806012
+    ],
+    "source_text": "ランディは軍の人が",
+    "translation_text": "랜디는 군 사람들이",
+    "records": [
+      {
+        "offset": 7806012,
+        "header_offset": 7806008,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 122,
+        "text": "ランディは軍の人が",
+        "translation": "랜디는 군 사람들이"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0009",
+    "cluster_index": 71,
+    "run_index": 9,
+    "dialogue_state_token": null,
+    "record_count": 17,
+    "offsets": [
+      7806036,
+      7806058,
+      7806122,
+      7806168,
+      7806200,
+      7806218,
+      7806246,
+      7806286,
+      7806300,
+      7806346,
+      7806402,
+      7806430,
+      7806486,
+      7806518,
+      7806552,
+      7806576,
+      7806602
+    ],
+    "source_text": "連れて行ったよ。\nボクらは先に進もう\n先をいそごう！\n先をいそごう！\n扉を壊すなら\n金属の７－４のカードが\n必要だね\n兄さん、\n先をいそごう！\n早く中佐を追わなきゃ！\n自然の６－４のカードで\n壁に足場を作るんだよね！\nやっぱりマーティンス中佐は\n裏切り者なんかじゃなかった♪\nボクは信じてたよ\nメンバーも揃ったし、\nリンカーのところへ急ごう！",
+    "translation_text": "데려갔어.\n우리는 먼저 나아가자\n앞을 서두르자!\n앞을 서두르자!\n문을 부수려면\n금속 7-4 카드가\n필요하겠네\n형,\n앞을 서두르자!\n빨리 중령을 쫓아가야 해!\n자연 6-4 카드로\n벽에 발판을 만드는 거지!\n역시 마틴스 중령은\n배신자 같은 게 아니었어!\n나는 믿고 있었어\n멤버도 다 모였으니\n링커에게 서두르자!",
+    "records": [
+      {
+        "offset": 7806036,
+        "header_offset": 7806032,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "連れて行ったよ。",
+        "translation": "데려갔어."
+      },
+      {
+        "offset": 7806058,
+        "header_offset": 7806054,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "ボクらは先に進もう",
+        "translation": "우리는 먼저 나아가자"
+      },
+      {
+        "offset": 7806122,
+        "header_offset": 7806118,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 42,
+        "text": "先をいそごう！",
+        "translation": "앞을 서두르자!"
+      },
+      {
+        "offset": 7806168,
+        "header_offset": 7806164,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 28,
+        "text": "先をいそごう！",
+        "translation": "앞을 서두르자!"
+      },
+      {
+        "offset": 7806200,
+        "header_offset": 7806196,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 14,
+        "text": "扉を壊すなら",
+        "translation": "문을 부수려면"
+      },
+      {
+        "offset": 7806218,
+        "header_offset": 7806214,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "金属の７－４のカードが",
+        "translation": "금속 7-4 카드가"
+      },
+      {
+        "offset": 7806246,
+        "header_offset": 7806242,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 2,
+        "text": "必要だね",
+        "translation": "필요하겠네"
+      },
+      {
+        "offset": 7806286,
+        "header_offset": 7806282,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 28,
+        "text": "兄さん、",
+        "translation": "형,"
+      },
+      {
+        "offset": 7806300,
+        "header_offset": 7806296,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "先をいそごう！",
+        "translation": "앞을 서두르자!"
+      },
+      {
+        "offset": 7806346,
+        "header_offset": 7806342,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 28,
+        "text": "早く中佐を追わなきゃ！",
+        "translation": "빨리 중령을 쫓아가야 해!"
+      },
+      {
+        "offset": 7806402,
+        "header_offset": 7806398,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 30,
+        "text": "自然の６－４のカードで",
+        "translation": "자연 6-4 카드로"
+      },
+      {
+        "offset": 7806430,
+        "header_offset": 7806426,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "壁に足場を作るんだよね！",
+        "translation": "벽에 발판을 만드는 거지!"
+      },
+      {
+        "offset": 7806486,
+        "header_offset": 7806482,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 28,
+        "text": "やっぱりマーティンス中佐は",
+        "translation": "역시 마틴스 중령은"
+      },
+      {
+        "offset": 7806518,
+        "header_offset": 7806514,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "裏切り者なんかじゃなかった♪",
+        "translation": "배신자 같은 게 아니었어!"
+      },
+      {
+        "offset": 7806552,
+        "header_offset": 7806548,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "ボクは信じてたよ",
+        "translation": "나는 믿고 있었어"
+      },
+      {
+        "offset": 7806576,
+        "header_offset": 7806572,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 4,
+        "text": "メンバーも揃ったし、",
+        "translation": "멤버도 다 모였으니"
+      },
+      {
+        "offset": 7806602,
+        "header_offset": 7806598,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "リンカーのところへ急ごう！",
+        "translation": "링커에게 서두르자!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0010",
+    "cluster_index": 71,
+    "run_index": 10,
+    "dialogue_state_token": "1bff:0D00",
+    "record_count": 1,
+    "offsets": [
+      7806758
+    ],
+    "source_text": "アームストロング少佐、",
+    "translation_text": "암스트롱 소령,",
+    "records": [
+      {
+        "offset": 7806758,
+        "header_offset": 7806754,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 126,
+        "text": "アームストロング少佐、",
+        "translation": "암스트롱 소령,"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0011",
+    "cluster_index": 71,
+    "run_index": 11,
+    "dialogue_state_token": null,
+    "record_count": 26,
+    "offsets": [
+      7806786,
+      7806812,
+      7806866,
+      7806880,
+      7806936,
+      7806960,
+      7806986,
+      7807062,
+      7807096,
+      7807124,
+      7807144,
+      7807202,
+      7807236,
+      7807290,
+      7807304,
+      7807330,
+      7807380,
+      7807410,
+      7807456,
+      7807526,
+      7807556,
+      7807584,
+      7807636,
+      7807656,
+      7807696,
+      7807738
+    ],
+    "source_text": "中央軍司令部の中庭に\n来いっていってたよね\n兄さん、\n中庭で少佐が待ってるよ\nたくさん戦ったから\nつかれたんじゃない？\nセントラルの宿屋に泊まろうよ\n兄さん、エリシアちゃんのこと\nヒューズ中佐に知らせに\n行かないと！\nきっと軍法会議所にいるよ！\nヒューズ中佐を追いかけよう！\n中佐の家は中央区画だよ\n兄さん、\n早くエリシアちゃんを\nさがしにいこうよ！\nかくれんぼだったとはね♪\nさ、エリシアちゃんを探そうよ\nエリシア捜しフラグミス\nハボック少尉…なんだか、\nすごくあやしかったね…\n追いかけてみようか？\nハボック少尉、\n東側区画へ行ったみたい\nハボック追跡フラグミス\n兄さん、どこへ行こうか？",
+    "translation_text": "중앙군 사령부 안뜰로\n오라고 했었지\n형,\n안뜰에서 소령이 기다리고 있어\n많이 싸웠으니\n피곤하지 않아?\n센트럴 숙소에서 묵자\n형, 엘리시아를\n휴즈 중령에게 알리러\n가야 해!\n분명 군법회의소에 있을 거야!\n휴즈 중령을 쫓아가자!\n중령의 집은 중앙 구역이야\n형,\n빨리 엘리시아를\n찾으러 가자!\n숨바꼭질이었다니!\n자, 엘리시아를 찾자\n엘리시아 찾기 플래그 오류\n하보크 소위… 어쩐지\n엄청 수상했지…\n쫓아가 볼까?\n하보크 소위,\n동쪽 구역으로 간 것 같아\n하보크 추적 플래그 오류\n형, 어디로 갈까?",
+    "records": [
+      {
+        "offset": 7806786,
+        "header_offset": 7806782,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "中央軍司令部の中庭に",
+        "translation": "중앙군 사령부 안뜰로"
+      },
+      {
+        "offset": 7806812,
+        "header_offset": 7806808,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "来いっていってたよね",
+        "translation": "오라고 했었지"
+      },
+      {
+        "offset": 7806866,
+        "header_offset": 7806862,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 30,
+        "text": "兄さん、",
+        "translation": "형,"
+      },
+      {
+        "offset": 7806880,
+        "header_offset": 7806876,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "中庭で少佐が待ってるよ",
+        "translation": "안뜰에서 소령이 기다리고 있어"
+      },
+      {
+        "offset": 7806936,
+        "header_offset": 7806932,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 30,
+        "text": "たくさん戦ったから",
+        "translation": "많이 싸웠으니"
+      },
+      {
+        "offset": 7806960,
+        "header_offset": 7806956,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "つかれたんじゃない？",
+        "translation": "피곤하지 않아?"
+      },
+      {
+        "offset": 7806986,
+        "header_offset": 7806982,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "セントラルの宿屋に泊まろうよ",
+        "translation": "센트럴 숙소에서 묵자"
+      },
+      {
+        "offset": 7807062,
+        "header_offset": 7807058,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 44,
+        "text": "兄さん、エリシアちゃんのこと",
+        "translation": "형, 엘리시아를"
+      },
+      {
+        "offset": 7807096,
+        "header_offset": 7807092,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "ヒューズ中佐に知らせに",
+        "translation": "휴즈 중령에게 알리러"
+      },
+      {
+        "offset": 7807124,
+        "header_offset": 7807120,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 2,
+        "text": "行かないと！",
+        "translation": "가야 해!"
+      },
+      {
+        "offset": 7807144,
+        "header_offset": 7807140,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 4,
+        "text": "きっと軍法会議所にいるよ！",
+        "translation": "분명 군법회의소에 있을 거야!"
+      },
+      {
+        "offset": 7807202,
+        "header_offset": 7807198,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 28,
+        "text": "ヒューズ中佐を追いかけよう！",
+        "translation": "휴즈 중령을 쫓아가자!"
+      },
+      {
+        "offset": 7807236,
+        "header_offset": 7807232,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "中佐の家は中央区画だよ",
+        "translation": "중령의 집은 중앙 구역이야"
+      },
+      {
+        "offset": 7807290,
+        "header_offset": 7807286,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 28,
+        "text": "兄さん、",
+        "translation": "형,"
+      },
+      {
+        "offset": 7807304,
+        "header_offset": 7807300,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "早くエリシアちゃんを",
+        "translation": "빨리 엘리시아를"
+      },
+      {
+        "offset": 7807330,
+        "header_offset": 7807326,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "さがしにいこうよ！",
+        "translation": "찾으러 가자!"
+      },
+      {
+        "offset": 7807380,
+        "header_offset": 7807376,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 28,
+        "text": "かくれんぼだったとはね♪",
+        "translation": "숨바꼭질이었다니!"
+      },
+      {
+        "offset": 7807410,
+        "header_offset": 7807406,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "さ、エリシアちゃんを探そうよ",
+        "translation": "자, 엘리시아를 찾자"
+      },
+      {
+        "offset": 7807456,
+        "header_offset": 7807452,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 14,
+        "text": "エリシア捜しフラグミス",
+        "translation": "엘리시아 찾기 플래그 오류"
+      },
+      {
+        "offset": 7807526,
+        "header_offset": 7807522,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 44,
+        "text": "ハボック少尉…なんだか、",
+        "translation": "하보크 소위… 어쩐지"
+      },
+      {
+        "offset": 7807556,
+        "header_offset": 7807552,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "すごくあやしかったね…",
+        "translation": "엄청 수상했지…"
+      },
+      {
+        "offset": 7807584,
+        "header_offset": 7807580,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "追いかけてみようか？",
+        "translation": "쫓아가 볼까?"
+      },
+      {
+        "offset": 7807636,
+        "header_offset": 7807632,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 28,
+        "text": "ハボック少尉、",
+        "translation": "하보크 소위,"
+      },
+      {
+        "offset": 7807656,
+        "header_offset": 7807652,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "東側区画へ行ったみたい",
+        "translation": "동쪽 구역으로 간 것 같아"
+      },
+      {
+        "offset": 7807696,
+        "header_offset": 7807692,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 14,
+        "text": "ハボック追跡フラグミス",
+        "translation": "하보크 추적 플래그 오류"
+      },
+      {
+        "offset": 7807738,
+        "header_offset": 7807734,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 16,
+        "text": "兄さん、どこへ行こうか？",
+        "translation": "형, 어디로 갈까?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0012",
+    "cluster_index": 71,
+    "run_index": 12,
+    "dialogue_state_token": "1bff:0B00",
+    "record_count": 1,
+    "offsets": [
+      7807894
+    ],
+    "source_text": "兄さん、最上階へいそごう！",
+    "translation_text": "형, 최상층으로 서두르자!",
+    "records": [
+      {
+        "offset": 7807894,
+        "header_offset": 7807890,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 128,
+        "text": "兄さん、最上階へいそごう！",
+        "translation": "형, 최상층으로 서두르자!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0013",
+    "cluster_index": 71,
+    "run_index": 13,
+    "dialogue_state_token": "1bff:1300",
+    "record_count": 1,
+    "offsets": [
+      7807954
+    ],
+    "source_text": "なんのようだね、",
+    "translation_text": "무슨 일인가,",
+    "records": [
+      {
+        "offset": 7807954,
+        "header_offset": 7807950,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 30,
+        "text": "なんのようだね、",
+        "translation": "무슨 일인가,"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0014",
+    "cluster_index": 71,
+    "run_index": 14,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7807994
+    ],
+    "source_text": "そんなに私と話したいのか？",
+    "translation_text": "그렇게 나와 이야기하고 싶은가?",
+    "records": [
+      {
+        "offset": 7807994,
+        "header_offset": 7807990,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 20,
+        "text": "そんなに私と話したいのか？",
+        "translation": "그렇게 나와 이야기하고 싶은가?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0015",
+    "cluster_index": 71,
+    "run_index": 15,
+    "dialogue_state_token": "1bff:0E80",
+    "record_count": 1,
+    "offsets": [
+      7808078
+    ],
+    "source_text": "ここはボクの出番なんだから",
+    "translation_text": "여기는 내가 나설 차례니까",
+    "records": [
+      {
+        "offset": 7808078,
+        "header_offset": 7808074,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 54,
+        "text": "ここはボクの出番なんだから",
+        "translation": "여기는 내가 나설 차례니까"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0016",
+    "cluster_index": 71,
+    "run_index": 16,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7808110
+    ],
+    "source_text": "取らないでくださいよ！",
+    "translation_text": "빼앗지 말아 주세요!",
+    "records": [
+      {
+        "offset": 7808110,
+        "header_offset": 7808106,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "取らないでくださいよ！",
+        "translation": "빼앗지 말아 주세요!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0017",
+    "cluster_index": 71,
+    "run_index": 17,
+    "dialogue_state_token": "1bff:0B00",
+    "record_count": 1,
+    "offsets": [
+      7808156
+    ],
+    "source_text": "オホン、オホン！",
+    "translation_text": "흠흠, 흠흠!",
+    "records": [
+      {
+        "offset": 7808156,
+        "header_offset": 7808152,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 20,
+        "text": "オホン、オホン！",
+        "translation": "흠흠, 흠흠!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0018",
+    "cluster_index": 71,
+    "run_index": 18,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7808178
+    ],
+    "source_text": "兄さん、最上階へいそごう！",
+    "translation_text": "형, 최상층으로 서두르자!",
+    "records": [
+      {
+        "offset": 7808178,
+        "header_offset": 7808174,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "兄さん、最上階へいそごう！",
+        "translation": "형, 최상층으로 서두르자!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0019",
+    "cluster_index": 71,
+    "run_index": 19,
+    "dialogue_state_token": "1bff:0B00",
+    "record_count": 1,
+    "offsets": [
+      7808258
+    ],
+    "source_text": "兄さん、最上階へいそごう！",
+    "translation_text": "형, 최상층으로 서두르자!",
+    "records": [
+      {
+        "offset": 7808258,
+        "header_offset": 7808254,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 50,
+        "text": "兄さん、最上階へいそごう！",
+        "translation": "형, 최상층으로 서두르자!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0020",
+    "cluster_index": 71,
+    "run_index": 20,
+    "dialogue_state_token": null,
+    "record_count": 4,
+    "offsets": [
+      7808316,
+      7808374,
+      7808432,
+      7808472
+    ],
+    "source_text": "兄さん、最上階へいそごう！\n兄さん、最上階へいそごう！\n兄さん、いよいよだね！\n兄さん、目指すは古城だよ！",
+    "translation_text": "형, 최상층으로 서두르자!\n형, 최상층으로 서두르자!\n형, 드디어 때가 왔네!\n형, 목표는 고성이야!",
+    "records": [
+      {
+        "offset": 7808316,
+        "header_offset": 7808312,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 28,
+        "text": "兄さん、最上階へいそごう！",
+        "translation": "형, 최상층으로 서두르자!"
+      },
+      {
+        "offset": 7808374,
+        "header_offset": 7808370,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 28,
+        "text": "兄さん、最上階へいそごう！",
+        "translation": "형, 최상층으로 서두르자!"
+      },
+      {
+        "offset": 7808432,
+        "header_offset": 7808428,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 28,
+        "text": "兄さん、いよいよだね！",
+        "translation": "형, 드디어 때가 왔네!"
+      },
+      {
+        "offset": 7808472,
+        "header_offset": 7808468,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 14,
+        "text": "兄さん、目指すは古城だよ！",
+        "translation": "형, 목표는 고성이야!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0021",
+    "cluster_index": 71,
+    "run_index": 21,
+    "dialogue_state_token": "1bff:0B00",
+    "record_count": 1,
+    "offsets": [
+      7808610
+    ],
+    "source_text": "中央軍司令部の受付で",
+    "translation_text": "중앙군 사령부 접수처에서",
+    "records": [
+      {
+        "offset": 7808610,
+        "header_offset": 7808606,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 108,
+        "text": "中央軍司令部の受付で",
+        "translation": "중앙군 사령부 접수처에서"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0022",
+    "cluster_index": 71,
+    "run_index": 22,
+    "dialogue_state_token": null,
+    "record_count": 12,
+    "offsets": [
+      7808636,
+      7808696,
+      7808722,
+      7808774,
+      7808796,
+      7808822,
+      7808872,
+      7808900,
+      7808926,
+      7808980,
+      7809004,
+      7809028
+    ],
+    "source_text": "書類をもらってくるんだったね\nブラッドレイ大総統に\nこの書類を届けなきゃ\n今度はこの書類を\n東方軍司令部の受付に\n届けるんっだったね\nさ、この書類を大総統に\n届けたら終わりだね。\nホントに終わるのかな…\n花なんか取ってきて\nどうするんだろう？\n奥さんへのプレゼントかな…？",
+    "translation_text": "서류를 받아 오기로 했지\n브래드레이 대총통에게\n이 서류를 전해야 해\n이번엔 이 서류를\n동방군 사령부 접수처에\n전하기로 했지\n자, 이 서류를 대총통에게\n전하면 끝이네.\n정말 끝나는 걸까…\n꽃 같은 걸 따 와서\n뭘 하려는 걸까?\n아내에게 주는 선물인가…?",
+    "records": [
+      {
+        "offset": 7808636,
+        "header_offset": 7808632,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "書類をもらってくるんだったね",
+        "translation": "서류를 받아 오기로 했지"
+      },
+      {
+        "offset": 7808696,
+        "header_offset": 7808692,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 28,
+        "text": "ブラッドレイ大総統に",
+        "translation": "브래드레이 대총통에게"
+      },
+      {
+        "offset": 7808722,
+        "header_offset": 7808718,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "この書類を届けなきゃ",
+        "translation": "이 서류를 전해야 해"
+      },
+      {
+        "offset": 7808774,
+        "header_offset": 7808770,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 28,
+        "text": "今度はこの書類を",
+        "translation": "이번엔 이 서류를"
+      },
+      {
+        "offset": 7808796,
+        "header_offset": 7808792,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "東方軍司令部の受付に",
+        "translation": "동방군 사령부 접수처에"
+      },
+      {
+        "offset": 7808822,
+        "header_offset": 7808818,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "届けるんっだったね",
+        "translation": "전하기로 했지"
+      },
+      {
+        "offset": 7808872,
+        "header_offset": 7808868,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 28,
+        "text": "さ、この書類を大総統に",
+        "translation": "자, 이 서류를 대총통에게"
+      },
+      {
+        "offset": 7808900,
+        "header_offset": 7808896,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "届けたら終わりだね。",
+        "translation": "전하면 끝이네."
+      },
+      {
+        "offset": 7808926,
+        "header_offset": 7808922,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "ホントに終わるのかな…",
+        "translation": "정말 끝나는 걸까…"
+      },
+      {
+        "offset": 7808980,
+        "header_offset": 7808976,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 28,
+        "text": "花なんか取ってきて",
+        "translation": "꽃 같은 걸 따 와서"
+      },
+      {
+        "offset": 7809004,
+        "header_offset": 7809000,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "どうするんだろう？",
+        "translation": "뭘 하려는 걸까?"
+      },
+      {
+        "offset": 7809028,
+        "header_offset": 7809024,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "奥さんへのプレゼントかな…？",
+        "translation": "아내에게 주는 선물인가…?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0023",
+    "cluster_index": 71,
+    "run_index": 23,
+    "dialogue_state_token": "1bff:0480",
+    "record_count": 1,
+    "offsets": [
+      7809076
+    ],
+    "source_text": "もし、そうだったらキレるぞ！",
+    "translation_text": "만약 그렇다면 열받을 거야!",
+    "records": [
+      {
+        "offset": 7809076,
+        "header_offset": 7809072,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 16,
+        "text": "もし、そうだったらキレるぞ！",
+        "translation": "만약 그렇다면 열받을 거야!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0024",
+    "cluster_index": 71,
+    "run_index": 24,
+    "dialogue_state_token": null,
+    "record_count": 6,
+    "offsets": [
+      7809140,
+      7809162,
+      7809222,
+      7809252,
+      7809274,
+      7809310
+    ],
+    "source_text": "さあ、この花束を\nブラッドレイ大総統に届けよう\nこの花束を母さんのお墓に\n供えろだなんて、\nいい人だね、兄さん\n大総統のお使いフラグミス",
+    "translation_text": "자, 이 꽃다발을\n브래드레이 대총통에게 전하자\n이 꽃다발을 엄마 묘에\n바치라니,\n좋은 사람이네, 형\n대총통 심부름 플래그 오류",
+    "records": [
+      {
+        "offset": 7809140,
+        "header_offset": 7809136,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 32,
+        "text": "さあ、この花束を",
+        "translation": "자, 이 꽃다발을"
+      },
+      {
+        "offset": 7809162,
+        "header_offset": 7809158,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "ブラッドレイ大総統に届けよう",
+        "translation": "브래드레이 대총통에게 전하자"
+      },
+      {
+        "offset": 7809222,
+        "header_offset": 7809218,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 28,
+        "text": "この花束を母さんのお墓に",
+        "translation": "이 꽃다발을 엄마 묘에"
+      },
+      {
+        "offset": 7809252,
+        "header_offset": 7809248,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "供えろだなんて、",
+        "translation": "바치라니,"
+      },
+      {
+        "offset": 7809274,
+        "header_offset": 7809270,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "いい人だね、兄さん",
+        "translation": "좋은 사람이네, 형"
+      },
+      {
+        "offset": 7809310,
+        "header_offset": 7809306,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 14,
+        "text": "大総統のお使いフラグミス",
+        "translation": "대총통 심부름 플래그 오류"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0025",
+    "cluster_index": 71,
+    "run_index": 25,
+    "dialogue_state_token": "1bff:0B00",
+    "record_count": 1,
+    "offsets": [
+      7809446
+    ],
+    "source_text": "兄さん、",
+    "translation_text": "형,",
+    "records": [
+      {
+        "offset": 7809446,
+        "header_offset": 7809442,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 108,
+        "text": "兄さん、",
+        "translation": "형,"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0026",
+    "cluster_index": 71,
+    "run_index": 26,
+    "dialogue_state_token": null,
+    "record_count": 5,
+    "offsets": [
+      7809460,
+      7809490,
+      7809530,
+      7809544,
+      7809576
+    ],
+    "source_text": "もう残っているイベントは\nないんじゃないかな…？\n兄さん、\nボクのことを待っている猫が\nまだどこかにいると思うんだ！",
+    "translation_text": "이제 남은 이벤트는\n없는 것 같지 않아…?\n형,\n나를 기다리는 고양이가\n아직 어딘가에 있을 것 같아!",
+    "records": [
+      {
+        "offset": 7809460,
+        "header_offset": 7809456,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "もう残っているイベントは",
+        "translation": "이제 남은 이벤트는"
+      },
+      {
+        "offset": 7809490,
+        "header_offset": 7809486,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "ないんじゃないかな…？",
+        "translation": "없는 것 같지 않아…?"
+      },
+      {
+        "offset": 7809530,
+        "header_offset": 7809526,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 14,
+        "text": "兄さん、",
+        "translation": "형,"
+      },
+      {
+        "offset": 7809544,
+        "header_offset": 7809540,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "ボクのことを待っている猫が",
+        "translation": "나를 기다리는 고양이가"
+      },
+      {
+        "offset": 7809576,
+        "header_offset": 7809572,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "まだどこかにいると思うんだ！",
+        "translation": "아직 어딘가에 있을 것 같아!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0027",
+    "cluster_index": 71,
+    "run_index": 27,
+    "dialogue_state_token": "1bff:1800",
+    "record_count": 1,
+    "offsets": [
+      7809714
+    ],
+    "source_text": "鋼の、キメラはこの先だ！",
+    "translation_text": "강철, 키메라는 이 앞이다!",
+    "records": [
+      {
+        "offset": 7809714,
+        "header_offset": 7809710,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 106,
+        "text": "鋼の、キメラはこの先だ！",
+        "translation": "강철, 키메라는 이 앞이다!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0028",
+    "cluster_index": 71,
+    "run_index": 28,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7809744
+    ],
+    "source_text": "いそぐぞ！",
+    "translation_text": "서두르자!",
+    "records": [
+      {
+        "offset": 7809744,
+        "header_offset": 7809740,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 2,
+        "text": "いそぐぞ！",
+        "translation": "서두르자!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0029",
+    "cluster_index": 71,
+    "run_index": 29,
+    "dialogue_state_token": "1bff:0280",
+    "record_count": 1,
+    "offsets": [
+      7809778
+    ],
+    "source_text": "だからその顔で",
+    "translation_text": "그러니까 그 얼굴로",
+    "records": [
+      {
+        "offset": 7809778,
+        "header_offset": 7809774,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 20,
+        "text": "だからその顔で",
+        "translation": "그러니까 그 얼굴로"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0030",
+    "cluster_index": 71,
+    "run_index": 30,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7809798
+    ],
+    "source_text": "カッコつけられてもさ…",
+    "translation_text": "폼 잡아도 말이지…",
+    "records": [
+      {
+        "offset": 7809798,
+        "header_offset": 7809794,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "カッコつけられてもさ…",
+        "translation": "폼 잡아도 말이지…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0031",
+    "cluster_index": 71,
+    "run_index": 31,
+    "dialogue_state_token": "1bff:1C00",
+    "record_count": 1,
+    "offsets": [
+      7809916
+    ],
+    "source_text": "大佐、バルド人形は",
+    "translation_text": "대령, 발드 인형은",
+    "records": [
+      {
+        "offset": 7809916,
+        "header_offset": 7809912,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 92,
+        "text": "大佐、バルド人形は",
+        "translation": "대령, 발드 인형은"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0032",
+    "cluster_index": 71,
+    "run_index": 32,
+    "dialogue_state_token": null,
+    "record_count": 6,
+    "offsets": [
+      7809940,
+      7809964,
+      7810008,
+      7810050,
+      7810070,
+      7810092
+    ],
+    "source_text": "西側区画の下水道に\n隠れていると思われます\n大佐はあてにならないわね…\nエドワード君、\nアルフォンス君、\n私たちだけで何とかしましょう",
+    "translation_text": "서쪽 구역 하수도에\n숨어 있는 것으로 보입니다\n대령은 믿을 수가 없네…\n에드워드 군,\n알폰스 군,\n우리끼리 어떻게 해 보죠",
+    "records": [
+      {
+        "offset": 7809940,
+        "header_offset": 7809936,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "西側区画の下水道に",
+        "translation": "서쪽 구역 하수도에"
+      },
+      {
+        "offset": 7809964,
+        "header_offset": 7809960,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "隠れていると思われます",
+        "translation": "숨어 있는 것으로 보입니다"
+      },
+      {
+        "offset": 7810008,
+        "header_offset": 7810004,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 18,
+        "text": "大佐はあてにならないわね…",
+        "translation": "대령은 믿을 수가 없네…"
+      },
+      {
+        "offset": 7810050,
+        "header_offset": 7810046,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 12,
+        "text": "エドワード君、",
+        "translation": "에드워드 군,"
+      },
+      {
+        "offset": 7810070,
+        "header_offset": 7810066,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "アルフォンス君、",
+        "translation": "알폰스 군,"
+      },
+      {
+        "offset": 7810092,
+        "header_offset": 7810088,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "私たちだけで何とかしましょう",
+        "translation": "우리끼리 어떻게 해 보죠"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0033",
+    "cluster_index": 71,
+    "run_index": 33,
+    "dialogue_state_token": "1bff:1F00",
+    "record_count": 1,
+    "offsets": [
+      7810172
+    ],
+    "source_text": "あのコ、どこ行ったのかしら…",
+    "translation_text": "그 아이, 어디로 간 걸까…",
+    "records": [
+      {
+        "offset": 7810172,
+        "header_offset": 7810168,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 48,
+        "text": "あのコ、どこ行ったのかしら…",
+        "translation": "그 아이, 어디로 간 걸까…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0034",
+    "cluster_index": 71,
+    "run_index": 34,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7810206,
+      7810232
+    ],
+    "source_text": "イーストシティからは\n出ていないとは思うけど…",
+    "translation_text": "이스트 시티에서는\n나가지 않았을 것 같은데…",
+    "records": [
+      {
+        "offset": 7810206,
+        "header_offset": 7810202,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "イーストシティからは",
+        "translation": "이스트 시티에서는"
+      },
+      {
+        "offset": 7810232,
+        "header_offset": 7810228,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "出ていないとは思うけど…",
+        "translation": "나가지 않았을 것 같은데…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0035",
+    "cluster_index": 71,
+    "run_index": 35,
+    "dialogue_state_token": "1bff:0700",
+    "record_count": 1,
+    "offsets": [
+      7810308
+    ],
+    "source_text": "今はアルがいないんだ！",
+    "translation_text": "지금은 알이 없어!",
+    "records": [
+      {
+        "offset": 7810308,
+        "header_offset": 7810304,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 48,
+        "text": "今はアルがいないんだ！",
+        "translation": "지금은 알이 없어!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0036",
+    "cluster_index": 71,
+    "run_index": 36,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7810336
+    ],
+    "source_text": "オレがなんとかしないと！",
+    "translation_text": "내가 어떻게든 해야 해!",
+    "records": [
+      {
+        "offset": 7810336,
+        "header_offset": 7810332,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "オレがなんとかしないと！",
+        "translation": "내가 어떻게든 해야 해!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0037",
+    "cluster_index": 71,
+    "run_index": 37,
+    "dialogue_state_token": "1bff:0200",
+    "record_count": 1,
+    "offsets": [
+      7810412
+    ],
+    "source_text": "今はアルがいないだろ。",
+    "translation_text": "지금은 알이 없잖아.",
+    "records": [
+      {
+        "offset": 7810412,
+        "header_offset": 7810408,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 48,
+        "text": "今はアルがいないだろ。",
+        "translation": "지금은 알이 없잖아."
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0038",
+    "cluster_index": 71,
+    "run_index": 38,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7810440,
+      7810498
+    ],
+    "source_text": "一体なにを期待してんだ？\nアルいない時、フラグミス",
+    "translation_text": "대체 뭘 기대하는 거야?\n알 부재 시 플래그 오류",
+    "records": [
+      {
+        "offset": 7810440,
+        "header_offset": 7810436,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "一体なにを期待してんだ？",
+        "translation": "대체 뭘 기대하는 거야?"
+      },
+      {
+        "offset": 7810498,
+        "header_offset": 7810494,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 30,
+        "text": "アルいない時、フラグミス",
+        "translation": "알 부재 시 플래그 오류"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0039",
+    "cluster_index": 71,
+    "run_index": 39,
+    "dialogue_state_token": "1bff:0100",
+    "record_count": 1,
+    "offsets": [
+      7810634
+    ],
+    "source_text": "今はアルがいないから",
+    "translation_text": "지금은 알이 없으니까",
+    "records": [
+      {
+        "offset": 7810634,
+        "header_offset": 7810630,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 108,
+        "text": "今はアルがいないから",
+        "translation": "지금은 알이 없으니까"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0040",
+    "cluster_index": 71,
+    "run_index": 40,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7810660
+    ],
+    "source_text": "セーブはできないぞ",
+    "translation_text": "저장할 수 없습니다",
+    "records": [
+      {
+        "offset": 7810660,
+        "header_offset": 7810656,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "セーブはできないぞ",
+        "translation": "저장할 수 없습니다"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0041",
+    "cluster_index": 71,
+    "run_index": 41,
+    "dialogue_state_token": "1bff:0D00",
+    "record_count": 1,
+    "offsets": [
+      7810710
+    ],
+    "source_text": "これまでの旅を記録する？",
+    "translation_text": "지금까지의 여정을 기록할까요?",
+    "records": [
+      {
+        "offset": 7810710,
+        "header_offset": 7810706,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 28,
+        "text": "これまでの旅を記録する？",
+        "translation": "지금까지의 여정을 기록할까요?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0042",
+    "cluster_index": 71,
+    "run_index": 42,
+    "dialogue_state_token": null,
+    "record_count": 4,
+    "offsets": [
+      7810786,
+      7810874,
+      7810908,
+      7810938
+    ],
+    "source_text": "前の記録に上書きしてもいい？\nセーブ中だよ\nセーブ完了！\nこのままゲームを続けるの？",
+    "translation_text": "이전 기록에 덮어써도 될까요?\n저장 중…\n저장 완료!\n이대로 게임을 계속할까요?",
+    "records": [
+      {
+        "offset": 7810786,
+        "header_offset": 7810782,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 48,
+        "text": "前の記録に上書きしてもいい？",
+        "translation": "이전 기록에 덮어써도 될까요?"
+      },
+      {
+        "offset": 7810874,
+        "header_offset": 7810870,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 56,
+        "text": "セーブ中だよ",
+        "translation": "저장 중…"
+      },
+      {
+        "offset": 7810908,
+        "header_offset": 7810904,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 18,
+        "text": "セーブ完了！",
+        "translation": "저장 완료!"
+      },
+      {
+        "offset": 7810938,
+        "header_offset": 7810934,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 14,
+        "text": "このままゲームを続けるの？",
+        "translation": "이대로 게임을 계속할까요?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0043",
+    "cluster_index": 71,
+    "run_index": 43,
+    "dialogue_state_token": "1bff:0100",
+    "record_count": 1,
+    "offsets": [
+      7811248
+    ],
+    "source_text": "今までの旅をセーブするか？",
+    "translation_text": "지금까지의 여정을 저장할까요?",
+    "records": [
+      {
+        "offset": 7811248,
+        "header_offset": 7811244,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 280,
+        "text": "今までの旅をセーブするか？",
+        "translation": "지금까지의 여정을 저장할까요?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_71_run_0044",
+    "cluster_index": 71,
+    "run_index": 44,
+    "dialogue_state_token": null,
+    "record_count": 4,
+    "offsets": [
+      7811334,
+      7811428,
+      7811470,
+      7811508
+    ],
+    "source_text": "前のデータに上書きするぞ？\nセーブ中だ…\nセーブ完了！\nこのまま旅を続けるか？",
+    "translation_text": "이전 데이터에 덮어쓸까요?\n저장 중…\n저장 완료!\n이대로 여행을 계속할까요?",
+    "records": [
+      {
+        "offset": 7811334,
+        "header_offset": 7811330,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 56,
+        "text": "前のデータに上書きするぞ？",
+        "translation": "이전 데이터에 덮어쓸까요?"
+      },
+      {
+        "offset": 7811428,
+        "header_offset": 7811424,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 64,
+        "text": "セーブ中だ…",
+        "translation": "저장 중…"
+      },
+      {
+        "offset": 7811470,
+        "header_offset": 7811466,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 26,
+        "text": "セーブ完了！",
+        "translation": "저장 완료!"
+      },
+      {
+        "offset": 7811508,
+        "header_offset": 7811504,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 22,
+        "text": "このまま旅を続けるか？",
+        "translation": "이대로 여행을 계속할까요?"
+      }
+    ],
+    "notes": ""
+  }
+]

@@ -1,0 +1,134 @@
+[
+  {
+    "run_id": "entry8_cluster_33_run_0000",
+    "cluster_index": 33,
+    "run_index": 0,
+    "dialogue_state_token": null,
+    "record_count": 6,
+    "offsets": [
+      7387970,
+      7387990,
+      7388016,
+      7388114,
+      7388158,
+      7388172
+    ],
+    "source_text": "いらっしゃい。\n泊まっていくかい？\n一泊、２００センズだよ。\nお金が足りないよ\nはいよ。\nゆっくり休んでいきな…",
+    "translation_text": "어서 와.\n묵고 갈래?\n하룻밤에 200 센즈야.\n돈이 부족해\n자.\n푹 쉬고 가…",
+    "records": [
+      {
+        "offset": 7387970,
+        "header_offset": 7387966,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2494,
+        "text": "いらっしゃい。",
+        "translation": "어서 와."
+      },
+      {
+        "offset": 7387990,
+        "header_offset": 7387986,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "泊まっていくかい？",
+        "translation": "묵고 갈래?"
+      },
+      {
+        "offset": 7388016,
+        "header_offset": 7388012,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 4,
+        "text": "一泊、２００センズだよ。",
+        "translation": "하룻밤에 200 센즈야."
+      },
+      {
+        "offset": 7388114,
+        "header_offset": 7388110,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 70,
+        "text": "お金が足りないよ",
+        "translation": "돈이 부족해"
+      },
+      {
+        "offset": 7388158,
+        "header_offset": 7388154,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 24,
+        "text": "はいよ。",
+        "translation": "자."
+      },
+      {
+        "offset": 7388172,
+        "header_offset": 7388168,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "ゆっくり休んでいきな…",
+        "translation": "푹 쉬고 가…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_33_run_0001",
+    "cluster_index": 33,
+    "run_index": 1,
+    "dialogue_state_token": "2bff:0700",
+    "record_count": 1,
+    "offsets": [
+      7388332
+    ],
+    "source_text": "また、きておくれ",
+    "translation_text": "또 오렴",
+    "records": [
+      {
+        "offset": 7388332,
+        "header_offset": 7388328,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 134,
+        "text": "また、きておくれ",
+        "translation": "또 오렴"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_33_run_0002",
+    "cluster_index": 33,
+    "run_index": 2,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7388372,
+      7388388
+    ],
+    "source_text": "そうかい？\nまた、きておくれ",
+    "translation_text": "그래?\n또 오렴",
+    "records": [
+      {
+        "offset": 7388372,
+        "header_offset": 7388368,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 20,
+        "text": "そうかい？",
+        "translation": "그래?"
+      },
+      {
+        "offset": 7388388,
+        "header_offset": 7388384,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "また、きておくれ",
+        "translation": "또 오렴"
+      }
+    ],
+    "notes": ""
+  }
+]

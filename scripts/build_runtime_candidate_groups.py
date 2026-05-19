@@ -95,19 +95,19 @@ def build() -> dict:
         "entry8_focus_groups": entry8_groups,
         "registry_d_focus_groups": regd_groups,
         "operational_reading": [
-            "These are objective candidate groups for the remaining runtime/page-flow work.",
-            "They do not assign speaker names; they only reduce the unresolved set into smaller control-behavior families.",
+            "이 목록은 남은 runtime/page-flow 작업을 위한 객관적 후보군이다.",
+            "화자 이름을 붙이는 것이 아니라, 남은 미확정 집합을 더 작은 제어 동작 family 로 줄이는 역할만 한다.",
         ],
     }
 
 
 def render_md(data: dict) -> str:
     lines = [
-        "# Runtime Candidate Groups",
+        "# runtime 후보군",
         "",
-        f"- last_updated: `{data['last_updated']}`",
+        f"- 마지막 갱신: `{data['last_updated']}`",
         "",
-        "## Entry8 Focus Groups",
+        "## Entry8 집중 후보군",
         "",
     ]
     for item in data["entry8_focus_groups"]:
@@ -115,13 +115,13 @@ def render_md(data: dict) -> str:
             f"- cluster `{item['cluster_index']}` `{item['primary_tag']}` -> `{item['candidate_group']}` "
             f"(`records={item['record_count']}`, `runs={item['run_count']}`)"
         )
-    lines.extend(["", "## Registry D Focus Groups", ""])
+    lines.extend(["", "## Registry D 집중 후보군", ""])
     for item in data["registry_d_focus_groups"]:
         lines.append(
             f"- run `{item['focus_index']}` token `{item['dialogue_state_token']}` -> `{item['candidate_group']}` "
             f"(`records={item['record_count']}`)"
         )
-    lines.extend(["", "## Operational Reading", ""])
+    lines.extend(["", "## 현재 해석", ""])
     for note in data["operational_reading"]:
         lines.append(f"- {note}")
     lines.append("")

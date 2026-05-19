@@ -1,0 +1,94 @@
+{
+  "summary": {
+    "record_count": 10417,
+    "issue_count": 0,
+    "policy_counts": {
+      "fixed_slot": 7929,
+      "candidate_repoint_keep_conservative": 2428,
+      "confirmed_repoint": 60
+    }
+  },
+  "parts": [
+    {
+      "part": 1,
+      "path": "confirmed_data/translation_workspace/entry8_full_retranslation/batches/part_01.json",
+      "status": "done",
+      "unit_count": 465,
+      "record_count": 1041,
+      "issues": {}
+    },
+    {
+      "part": 2,
+      "path": "confirmed_data/translation_workspace/entry8_full_retranslation/batches/part_02.json",
+      "status": "done",
+      "unit_count": 465,
+      "record_count": 1042,
+      "issues": {}
+    },
+    {
+      "part": 3,
+      "path": "confirmed_data/translation_workspace/entry8_full_retranslation/batches/part_03.json",
+      "status": "done",
+      "unit_count": 462,
+      "record_count": 1042,
+      "issues": {}
+    },
+    {
+      "part": 4,
+      "path": "confirmed_data/translation_workspace/entry8_full_retranslation/batches/part_04.json",
+      "status": "translated_length_checked",
+      "unit_count": 464,
+      "record_count": 1041,
+      "issues": {}
+    },
+    {
+      "part": 5,
+      "path": "confirmed_data/translation_workspace/entry8_full_retranslation/batches/part_05.json",
+      "status": "translated_length_checked",
+      "unit_count": 468,
+      "record_count": 1039,
+      "issues": {}
+    },
+    {
+      "part": 6,
+      "path": "confirmed_data/translation_workspace/entry8_full_retranslation/batches/part_06.json",
+      "status": "translated_length_checked",
+      "unit_count": 493,
+      "record_count": 1043,
+      "issues": {}
+    },
+    {
+      "part": 7,
+      "path": "confirmed_data/translation_workspace/entry8_full_retranslation/batches/part_07.json",
+      "status": "translated_length_checked",
+      "unit_count": 488,
+      "record_count": 1043,
+      "issues": {}
+    },
+    {
+      "part": 8,
+      "path": "confirmed_data/translation_workspace/entry8_full_retranslation/batches/part_08.json",
+      "status": "translated_length_checked",
+      "unit_count": 467,
+      "record_count": 1040,
+      "issues": {}
+    },
+    {
+      "part": 9,
+      "path": "confirmed_data/translation_workspace/entry8_full_retranslation/batches/part_09.json",
+      "status": "translated_length_checked",
+      "unit_count": 469,
+      "record_count": 1042,
+      "issues": {}
+    },
+    {
+      "part": 10,
+      "path": "confirmed_data/translation_workspace/entry8_full_retranslation/batches/part_10.json",
+      "status": "translated_length_checked",
+      "unit_count": 474,
+      "record_count": 1044,
+      "issues": {}
+    }
+  ],
+  "issues": []
+}

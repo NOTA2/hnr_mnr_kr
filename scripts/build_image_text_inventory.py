@@ -21,6 +21,16 @@ def build() -> dict:
         "last_updated": date.today().isoformat(),
         "status": "in_progress",
         "note": "이 레이어는 inventory / 상태 관리용이며, 이미지에 구워진 텍스트 추출이 완료됐다는 뜻은 아니다.",
+        "known_non_localizable_image_candidates": [
+            {
+                "offset": "0x00534874",
+                "workspace": "confirmed_data/image_inventory/workspaces/07_ui_icon_badge_wordmarks",
+                "preview": "confirmed_data/image_inventory/workspaces/07_ui_icon_badge_wordmarks/png_exports/004_off_00534874.png",
+                "classification": "battle_hud_small_font_or_glyph_sheet",
+                "localization_needed": False,
+                "reason": "전투 HUD 의 작은 이름/수치 글자와 같은 계열로 보이는 원본 소형 폰트/글리프 시트 후보이다. 화면에 구워진 UI 라벨이나 문장 이미지가 아니므로 이미지 교체 대상은 아니다. 위쪽 깨짐은 타일맵/팔레트 없이 4bpp 타일을 일렬로 펼친 덤프 특성으로 본다.",
+            }
+        ],
         "confirmed_non_image_text_contexts": [
             {
                 "context": "startup_intro_card",
@@ -46,11 +56,12 @@ def build() -> dict:
         "review_units": [
             {
                 "id": "title_logo_wordmark",
-                "status": "pending_review",
+                "localization_needed": True,
+                "status": "runtime_case_registered",
                 "review_order": 1,
                 "priority": "high",
                 "review_goal": "타이틀 로고와 부제/워드마크가 텍스트 추출 밖의 이미지 자산인지 확인하고, 이후 교체 단위를 분리한다.",
-                "recommended_probe_method": "타이틀 화면 진입 스크린샷 확보 -> LZ77 후보 스캔 -> 4bpp 덤프 비교",
+                "recommended_probe_method": "타이틀 화면 런타임 케이스 등록 -> 영문판/일판 LZ77 diff 확인 -> 후보가 안 보이면 VRAM/tilemap/palette 역추적",
                 "future_workspace": "confirmed_data/image_inventory/workspaces/01_title_logo_wordmark",
                 "expected_text_kind": "메인 로고, 부제, 게임명 워드마크",
                 "subunits": [
@@ -69,16 +80,18 @@ def build() -> dict:
                 ],
                 "notes": [
                     "메인 타이틀/로고 계열 텍스트는 현재 기준 추출 source 로 매핑되지 않는다.",
+                    "사용자 제공 런타임 스크린샷에서 일본어 노출이 확인됐으므로 한글화 필요 케이스로 관리한다.",
                     "막연한 bucket 이 아니라 구체적인 검토 단위로 다룬다.",
                 ],
             },
             {
                 "id": "title_screen_static_menu_wordmarks",
-                "status": "pending_review",
+                "localization_needed": True,
+                "status": "runtime_case_registered",
                 "review_order": 2,
                 "priority": "high",
                 "review_goal": "타이틀 화면의 새 게임/이어하기/통신 등 고정 워드마크가 이미지인지 확인한다.",
-                "recommended_probe_method": "타이틀 화면 캡처 -> 후보 타일 시트 덤프 -> 라벨별 분리 가능성 확인",
+                "recommended_probe_method": "타이틀 화면 런타임 케이스 등록 -> 영문판/일판 LZ77 diff 확인 -> 후보가 안 보이면 VRAM/tilemap/palette 역추적",
                 "future_workspace": "confirmed_data/image_inventory/workspaces/02_title_screen_static_menu_wordmarks",
                 "expected_text_kind": "타이틀 메뉴 라벨, 모드 선택 라벨",
                 "subunits": [
@@ -97,11 +110,13 @@ def build() -> dict:
                 ],
                 "notes": [
                     "타이틀 화면의 고정 메뉴 라벨과 모드 워드마크는 이미지 기반일 가능성이 있다.",
+                    "사용자 제공 런타임 스크린샷에서 `つづきから`, `はじめから`, `通信` 노출이 확인됐다.",
                     "현재 기준 추출 source 중 타이틀 화면 워드마크 아트를 직접 다루는 것은 없다.",
                 ],
             },
             {
                 "id": "event_or_cutscene_text_cards",
+                "localization_needed": False,
                 "status": "pending_review",
                 "review_order": 3,
                 "priority": "high",
@@ -130,6 +145,7 @@ def build() -> dict:
             },
             {
                 "id": "dialogue_window_frame_art",
+                "localization_needed": False,
                 "status": "review_started",
                 "review_order": 4,
                 "priority": "medium",
@@ -158,6 +174,7 @@ def build() -> dict:
             },
             {
                 "id": "portrait_headshot_assets",
+                "localization_needed": False,
                 "status": "review_started",
                 "review_order": 5,
                 "priority": "medium",
@@ -186,6 +203,7 @@ def build() -> dict:
             },
             {
                 "id": "ui_panel_label_art",
+                "localization_needed": False,
                 "status": "pending_review",
                 "review_order": 6,
                 "priority": "medium",
@@ -214,6 +232,7 @@ def build() -> dict:
             },
             {
                 "id": "ui_icon_badge_wordmarks",
+                "localization_needed": False,
                 "status": "pending_review",
                 "review_order": 7,
                 "priority": "low",
@@ -236,6 +255,7 @@ def build() -> dict:
             },
             {
                 "id": "battle_result_or_reward_banners",
+                "localization_needed": False,
                 "status": "pending_review",
                 "review_order": 8,
                 "priority": "medium",
@@ -265,11 +285,13 @@ def build() -> dict:
         ],
         "operational_reading": [
             "이미지 텍스트 inventory 는 이제 별도 감사 트랙으로 시작된 상태다.",
+            "정적 contact sheet 에서 보이지 않는다고 이미지 한글화 대상이 없다고 판정하지 않는다.",
+            "타이틀/메뉴처럼 실제 화면에서 확인된 케이스는 runtime_visual_asset_audit 에 등록하고 tilemap-aware 추적으로 처리한다.",
             "몇몇 중요한 텍스트 문맥은 이미 비-이미지 텍스트로 확인됐으므로 번역 진행을 막지 않는다.",
             "남은 일은 기준 추출을 다시 여는 것이 아니라, 구체적인 review_unit 기준으로 자산을 검토하는 것이다."
         ],
         "next_actions": [
-            "우선순위 1~3 review unit 부터 후보 자산 탐색용 스크린샷/덤프를 모은다.",
+            "우선순위 1~2 review unit 인 타이틀 로고/메뉴부터 영문판 diff 와 런타임 tilemap 추적을 진행한다.",
             "review unit 별 workspace 아래에 candidate / dump / export / note 산출물을 모은다.",
             "image extraction pipeline 문서와 함께 실제 추출 단계로 이어간다.",
         ],
@@ -283,9 +305,14 @@ def render_md(data: dict) -> str:
         f"- 상태: `{data['status']}`",
         f"- 마지막 갱신: `{data['last_updated']}`",
         "",
-        "## 비-이미지 텍스트로 확인된 문맥",
+        "## 한글화 대상이 아닌 이미지 후보",
         "",
     ]
+    for item in data.get("known_non_localizable_image_candidates", []):
+        lines.append(
+            f"- `{item['offset']}`: {item['classification']} / 한글화 대상 아님 / {item['reason']}"
+        )
+    lines.extend(["", "## 비-이미지 텍스트로 확인된 문맥", ""])
     for item in data["confirmed_non_image_text_contexts"]:
         lines.append(f"- `{item['context']}`: {item['reason']}")
     lines.extend(["", "## 검토 단위", ""])

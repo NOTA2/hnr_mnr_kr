@@ -1,0 +1,30 @@
+{
+  "jp_rom": "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba",
+  "en_rom": "local_roms/english_patched/Fullmetal Alchemist Stray Rondo (English Patched v0.02).gba",
+  "compared": 439,
+  "changed_count": 2,
+  "skipped_invalid": 3,
+  "contact_sheet": "confirmed_data/image_inventory/english_patch_diff/changed_lz77_contact.png",
+  "items": [
+    {
+      "offset": 5448620,
+      "offset_hex": "0x005323AC",
+      "jp_consumed": 459,
+      "en_consumed": 441,
+      "jp_decompressed_size": 2048,
+      "en_decompressed_size": 2048,
+      "jp_png": "confirmed_data/image_inventory/english_patch_diff/jp_png/off_005323AC_size_000800.png",
+      "en_png": "confirmed_data/image_inventory/english_patch_diff/en_png/off_005323AC_size_000800.png"
+    },
+    {
+      "offset": 5458036,
+      "offset_hex": "0x00534874",
+      "jp_consumed": 3031,
+      "en_consumed": 3018,
+      "jp_decompressed_size": 8192,
+      "en_decompressed_size": 8192,
+      "jp_png": "confirmed_data/image_inventory/english_patch_diff/jp_png/off_00534874_size_002000.png",
+      "en_png": "confirmed_data/image_inventory/english_patch_diff/en_png/off_00534874_size_002000.png"
+    }
+  ]
+}

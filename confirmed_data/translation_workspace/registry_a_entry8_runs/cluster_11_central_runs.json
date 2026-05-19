@@ -1,0 +1,3828 @@
+[
+  {
+    "run_id": "entry8_cluster_11_run_0000",
+    "cluster_index": 11,
+    "run_index": 0,
+    "dialogue_state_token": "1bff:0100",
+    "record_count": 1,
+    "offsets": [
+      7164810
+    ],
+    "source_text": "相手は子供だ。",
+    "translation_text": "상대는 아이야.",
+    "records": [
+      {
+        "offset": 7164810,
+        "header_offset": 7164806,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 7028,
+        "text": "相手は子供だ。",
+        "translation": "상대는 아이야."
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0001",
+    "cluster_index": 11,
+    "run_index": 1,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7164830,
+      7164860
+    ],
+    "source_text": "遠くには行ってないだろ。\nきっとこの区画にいるはずだ",
+    "translation_text": "멀리는 못 갔겠지.\n분명 이 구역에 있을 거야",
+    "records": [
+      {
+        "offset": 7164830,
+        "header_offset": 7164826,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "遠くには行ってないだろ。",
+        "translation": "멀리는 못 갔겠지."
+      },
+      {
+        "offset": 7164860,
+        "header_offset": 7164856,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "きっとこの区画にいるはずだ",
+        "translation": "분명 이 구역에 있을 거야"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0002",
+    "cluster_index": 11,
+    "run_index": 2,
+    "dialogue_state_token": "1bff:0100",
+    "record_count": 1,
+    "offsets": [
+      7165038
+    ],
+    "source_text": "相手は子供だ。",
+    "translation_text": "상대는 아이야.",
+    "records": [
+      {
+        "offset": 7165038,
+        "header_offset": 7165034,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 148,
+        "text": "相手は子供だ。",
+        "translation": "상대는 아이야."
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0003",
+    "cluster_index": 11,
+    "run_index": 3,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7165058,
+      7165088
+    ],
+    "source_text": "遠くへは行ってないだろ。\nきっとこの区画にいるはずだ",
+    "translation_text": "멀리는 못 갔겠지.\n분명 이 구역에 있을 거야",
+    "records": [
+      {
+        "offset": 7165058,
+        "header_offset": 7165054,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "遠くへは行ってないだろ。",
+        "translation": "멀리는 못 갔겠지."
+      },
+      {
+        "offset": 7165088,
+        "header_offset": 7165084,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "きっとこの区画にいるはずだ",
+        "translation": "분명 이 구역에 있을 거야"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0004",
+    "cluster_index": 11,
+    "run_index": 4,
+    "dialogue_state_token": "2bff:0C00",
+    "record_count": 1,
+    "offsets": [
+      7165396
+    ],
+    "source_text": "恐ろしいものを見たの。",
+    "translation_text": "무서운 걸 봤어.",
+    "records": [
+      {
+        "offset": 7165396,
+        "header_offset": 7165392,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 278,
+        "text": "恐ろしいものを見たの。",
+        "translation": "무서운 걸 봤어."
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0005",
+    "cluster_index": 11,
+    "run_index": 5,
+    "dialogue_state_token": null,
+    "record_count": 56,
+    "offsets": [
+      7165424,
+      7165448,
+      7165476,
+      7165504,
+      7165524,
+      7165576,
+      7165602,
+      7165624,
+      7165676,
+      7165732,
+      7165758,
+      7165776,
+      7165826,
+      7165854,
+      7165884,
+      7166008,
+      7166040,
+      7166086,
+      7166108,
+      7166134,
+      7166178,
+      7166208,
+      7166238,
+      7166294,
+      7166328,
+      7166358,
+      7166496,
+      7166518,
+      7166578,
+      7166600,
+      7166680,
+      7166710,
+      7166758,
+      7166786,
+      7166836,
+      7166862,
+      7166890,
+      7166922,
+      7166946,
+      7166976,
+      7167100,
+      7167132,
+      7167150,
+      7167204,
+      7167234,
+      7167276,
+      7167306,
+      7167388,
+      7167410,
+      7167432,
+      7167484,
+      7167502,
+      7167530,
+      7167584,
+      7167600,
+      7167630
+    ],
+    "source_text": "空を飛ぶ鎧の頭よ。\n何かのバケモノかしら\nどこに飛んで行ったか？\nさあ？恐くて、\n目を逸らしちゃったもの\nブラッドレイ大総統に\n会ってみたいわ。\n素敵な方ってウワサよ\n素敵な出会いはないかしら…\nイーストシティじゃ、\n軍司令部まで\n襲われたってホント？\n地方では事件も多いけど\nここセントラルにいれば、\n絶対安心ね\n大きな街だが、軍のおかげで\n毎日が平和じゃよ\nイーストシティが\nキメラに襲われたって\n本当じゃろうか\nついに東方軍司令部まで…\n軍はなにをしておるんじゃ\nセントラルもあやういかのぉ\n平和すぎるのも退屈じゃがな。\nおっと、これはぜいたくな\n悩みってやつじゃな\n病院で売っている\n薬草のおかげで毎日健康ですよ\nヒューズさんなら\nさっき家に戻られてたね\nヒューズさんちの娘さんも\n大きくなったのぉ\nまだセントラルシティは\n安全だと思いますよ\n平和なのはいいけど、\n軍のことを悪く言う人も\n多いようですよ\n鎧ねぇ、あたしゃ、\nそういう物騒なものには、\n興味がないからねぇ\nさっきの爆発、なんだろう？\n鎧のパーツ？\n頭が飛んでたような…\nここはセントラルシティの\n中央区画だよ\nさっきメガネの軍人さんが\n顔をニヤけさせて走ってたよ\nあそこの女の人、\nいつもいるけど、\nオレに気があるのかな？\n聞いたかよ？\n何でもイーストシティが\nキメラに襲われたらしいぜ\nどうだい？\nさすがセントラルシティは\nにぎやかだろ？",
+    "translation_text": "하늘을 나는 갑옷 머리였어.\n무슨 괴물일까\n어디로 날아갔냐고?\n글쎄? 무서워서\n눈을 돌려 버렸거든\n브래드레이 대총통을\n만나 보고 싶어.\n멋진 분이라는 소문이야\n멋진 만남은 없을까…\n이스트 시티에서는\n군 사령부까지\n습격당했다는 게 정말이야?\n지방에는 사건도 많지만\n여기 센트럴에 있으면,\n절대 안심이지\n큰 도시지만, 군 덕분에\n매일 평화롭다네\n이스트 시티가\n키메라에게 습격당했다는 게\n정말일까\n마침내 동방군 사령부까지…\n군은 뭘 하고 있는 게냐\n센트럴도 위험한가 보구먼\n너무 평화로운 것도 심심하지만 말이야.\n이런, 이건 사치스러운\n고민이라는 거지\n병원에서 파는\n약초 덕분에 매일 건강해요\n휴즈 씨라면\n아까 집으로 돌아가셨지\n휴즈 씨네 따님도\n많이 컸구먼\n아직 센트럴 시티는\n안전하다고 생각해요\n평화로운 건 좋지만,\n군을 나쁘게 말하는 사람도\n많은 것 같아요\n갑옷이라, 나는\n그런 위험한 것에는\n관심이 없어서 말이야\n아까 그 폭발, 뭐였을까?\n갑옷 부품?\n머리가 날아간 것 같던데…\n여기는 센트럴 시티의\n중앙 구역이야\n아까 안경 쓴 군인이\n얼굴을 히죽거리며 달려갔어\n저기 여자,\n늘 있던데,\n나한테 관심 있는 걸까?\n들었어?\n뭐 이스트 시티가\n키메라에게 습격당했다더라\n어때?\n역시 센트럴 시티는\n북적이지?",
+    "records": [
+      {
+        "offset": 7165424,
+        "header_offset": 7165420,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "空を飛ぶ鎧の頭よ。",
+        "translation": "하늘을 나는 갑옷 머리였어."
+      },
+      {
+        "offset": 7165448,
+        "header_offset": 7165444,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "何かのバケモノかしら",
+        "translation": "무슨 괴물일까"
+      },
+      {
+        "offset": 7165476,
+        "header_offset": 7165472,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 4,
+        "text": "どこに飛んで行ったか？",
+        "translation": "어디로 날아갔냐고?"
+      },
+      {
+        "offset": 7165504,
+        "header_offset": 7165500,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "さあ？恐くて、",
+        "translation": "글쎄? 무서워서"
+      },
+      {
+        "offset": 7165524,
+        "header_offset": 7165520,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "目を逸らしちゃったもの",
+        "translation": "눈을 돌려 버렸거든"
+      },
+      {
+        "offset": 7165576,
+        "header_offset": 7165572,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 26,
+        "text": "ブラッドレイ大総統に",
+        "translation": "브래드레이 대총통을"
+      },
+      {
+        "offset": 7165602,
+        "header_offset": 7165598,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "会ってみたいわ。",
+        "translation": "만나 보고 싶어."
+      },
+      {
+        "offset": 7165624,
+        "header_offset": 7165620,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "素敵な方ってウワサよ",
+        "translation": "멋진 분이라는 소문이야"
+      },
+      {
+        "offset": 7165676,
+        "header_offset": 7165672,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 28,
+        "text": "素敵な出会いはないかしら…",
+        "translation": "멋진 만남은 없을까…"
+      },
+      {
+        "offset": 7165732,
+        "header_offset": 7165728,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 26,
+        "text": "イーストシティじゃ、",
+        "translation": "이스트 시티에서는"
+      },
+      {
+        "offset": 7165758,
+        "header_offset": 7165754,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 2,
+        "text": "軍司令部まで",
+        "translation": "군 사령부까지"
+      },
+      {
+        "offset": 7165776,
+        "header_offset": 7165772,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "襲われたってホント？",
+        "translation": "습격당했다는 게 정말이야?"
+      },
+      {
+        "offset": 7165826,
+        "header_offset": 7165822,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 26,
+        "text": "地方では事件も多いけど",
+        "translation": "지방에는 사건도 많지만"
+      },
+      {
+        "offset": 7165854,
+        "header_offset": 7165850,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "ここセントラルにいれば、",
+        "translation": "여기 센트럴에 있으면,"
+      },
+      {
+        "offset": 7165884,
+        "header_offset": 7165880,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 2,
+        "text": "絶対安心ね",
+        "translation": "절대 안심이지"
+      },
+      {
+        "offset": 7166008,
+        "header_offset": 7166004,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 110,
+        "text": "大きな街だが、軍のおかげで",
+        "translation": "큰 도시지만, 군 덕분에"
+      },
+      {
+        "offset": 7166040,
+        "header_offset": 7166036,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "毎日が平和じゃよ",
+        "translation": "매일 평화롭다네"
+      },
+      {
+        "offset": 7166086,
+        "header_offset": 7166082,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 26,
+        "text": "イーストシティが",
+        "translation": "이스트 시티가"
+      },
+      {
+        "offset": 7166108,
+        "header_offset": 7166104,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "キメラに襲われたって",
+        "translation": "키메라에게 습격당했다는 게"
+      },
+      {
+        "offset": 7166134,
+        "header_offset": 7166130,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "本当じゃろうか",
+        "translation": "정말일까"
+      },
+      {
+        "offset": 7166178,
+        "header_offset": 7166174,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 26,
+        "text": "ついに東方軍司令部まで…",
+        "translation": "마침내 동방군 사령부까지…"
+      },
+      {
+        "offset": 7166208,
+        "header_offset": 7166204,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "軍はなにをしておるんじゃ",
+        "translation": "군은 뭘 하고 있는 게냐"
+      },
+      {
+        "offset": 7166238,
+        "header_offset": 7166234,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "セントラルもあやういかのぉ",
+        "translation": "센트럴도 위험한가 보구먼"
+      },
+      {
+        "offset": 7166294,
+        "header_offset": 7166290,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 26,
+        "text": "平和すぎるのも退屈じゃがな。",
+        "translation": "너무 평화로운 것도 심심하지만 말이야."
+      },
+      {
+        "offset": 7166328,
+        "header_offset": 7166324,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "おっと、これはぜいたくな",
+        "translation": "이런, 이건 사치스러운"
+      },
+      {
+        "offset": 7166358,
+        "header_offset": 7166354,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "悩みってやつじゃな",
+        "translation": "고민이라는 거지"
+      },
+      {
+        "offset": 7166496,
+        "header_offset": 7166492,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 116,
+        "text": "病院で売っている",
+        "translation": "병원에서 파는"
+      },
+      {
+        "offset": 7166518,
+        "header_offset": 7166514,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "薬草のおかげで毎日健康ですよ",
+        "translation": "약초 덕분에 매일 건강해요"
+      },
+      {
+        "offset": 7166578,
+        "header_offset": 7166574,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 28,
+        "text": "ヒューズさんなら",
+        "translation": "휴즈 씨라면"
+      },
+      {
+        "offset": 7166600,
+        "header_offset": 7166596,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "さっき家に戻られてたね",
+        "translation": "아까 집으로 돌아가셨지"
+      },
+      {
+        "offset": 7166680,
+        "header_offset": 7166676,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 54,
+        "text": "ヒューズさんちの娘さんも",
+        "translation": "휴즈 씨네 따님도"
+      },
+      {
+        "offset": 7166710,
+        "header_offset": 7166706,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "大きくなったのぉ",
+        "translation": "많이 컸구먼"
+      },
+      {
+        "offset": 7166758,
+        "header_offset": 7166754,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 28,
+        "text": "まだセントラルシティは",
+        "translation": "아직 센트럴 시티는"
+      },
+      {
+        "offset": 7166786,
+        "header_offset": 7166782,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "安全だと思いますよ",
+        "translation": "안전하다고 생각해요"
+      },
+      {
+        "offset": 7166836,
+        "header_offset": 7166832,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 28,
+        "text": "平和なのはいいけど、",
+        "translation": "평화로운 건 좋지만,"
+      },
+      {
+        "offset": 7166862,
+        "header_offset": 7166858,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "軍のことを悪く言う人も",
+        "translation": "군을 나쁘게 말하는 사람도"
+      },
+      {
+        "offset": 7166890,
+        "header_offset": 7166886,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "多いようですよ",
+        "translation": "많은 것 같아요"
+      },
+      {
+        "offset": 7166922,
+        "header_offset": 7166918,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 14,
+        "text": "鎧ねぇ、あたしゃ、",
+        "translation": "갑옷이라, 나는"
+      },
+      {
+        "offset": 7166946,
+        "header_offset": 7166942,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "そういう物騒なものには、",
+        "translation": "그런 위험한 것에는"
+      },
+      {
+        "offset": 7166976,
+        "header_offset": 7166972,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "興味がないからねぇ",
+        "translation": "관심이 없어서 말이야"
+      },
+      {
+        "offset": 7167100,
+        "header_offset": 7167096,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 102,
+        "text": "さっきの爆発、なんだろう？",
+        "translation": "아까 그 폭발, 뭐였을까?"
+      },
+      {
+        "offset": 7167132,
+        "header_offset": 7167128,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 2,
+        "text": "鎧のパーツ？",
+        "translation": "갑옷 부품?"
+      },
+      {
+        "offset": 7167150,
+        "header_offset": 7167146,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "頭が飛んでたような…",
+        "translation": "머리가 날아간 것 같던데…"
+      },
+      {
+        "offset": 7167204,
+        "header_offset": 7167200,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 30,
+        "text": "ここはセントラルシティの",
+        "translation": "여기는 센트럴 시티의"
+      },
+      {
+        "offset": 7167234,
+        "header_offset": 7167230,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 2,
+        "text": "中央区画だよ",
+        "translation": "중앙 구역이야"
+      },
+      {
+        "offset": 7167276,
+        "header_offset": 7167272,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 26,
+        "text": "さっきメガネの軍人さんが",
+        "translation": "아까 안경 쓴 군인이"
+      },
+      {
+        "offset": 7167306,
+        "header_offset": 7167302,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "顔をニヤけさせて走ってたよ",
+        "translation": "얼굴을 히죽거리며 달려갔어"
+      },
+      {
+        "offset": 7167388,
+        "header_offset": 7167384,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 52,
+        "text": "あそこの女の人、",
+        "translation": "저기 여자,"
+      },
+      {
+        "offset": 7167410,
+        "header_offset": 7167406,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "いつもいるけど、",
+        "translation": "늘 있던데,"
+      },
+      {
+        "offset": 7167432,
+        "header_offset": 7167428,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "オレに気があるのかな？",
+        "translation": "나한테 관심 있는 걸까?"
+      },
+      {
+        "offset": 7167484,
+        "header_offset": 7167480,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 26,
+        "text": "聞いたかよ？",
+        "translation": "들었어?"
+      },
+      {
+        "offset": 7167502,
+        "header_offset": 7167498,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "何でもイーストシティが",
+        "translation": "뭐 이스트 시티가"
+      },
+      {
+        "offset": 7167530,
+        "header_offset": 7167526,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "キメラに襲われたらしいぜ",
+        "translation": "키메라에게 습격당했다더라"
+      },
+      {
+        "offset": 7167584,
+        "header_offset": 7167580,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 26,
+        "text": "どうだい？",
+        "translation": "어때?"
+      },
+      {
+        "offset": 7167600,
+        "header_offset": 7167596,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "さすがセントラルシティは",
+        "translation": "역시 센트럴 시티는"
+      },
+      {
+        "offset": 7167630,
+        "header_offset": 7167626,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "にぎやかだろ？",
+        "translation": "북적이지?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0006",
+    "cluster_index": 11,
+    "run_index": 6,
+    "dialogue_state_token": "1bff:0100",
+    "record_count": 1,
+    "offsets": [
+      7167762
+    ],
+    "source_text": "相手は子供だ。",
+    "translation_text": "상대는 아이야.",
+    "records": [
+      {
+        "offset": 7167762,
+        "header_offset": 7167758,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 114,
+        "text": "相手は子供だ。",
+        "translation": "상대는 아이야."
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0007",
+    "cluster_index": 11,
+    "run_index": 7,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7167782,
+      7167812
+    ],
+    "source_text": "遠くへは行ってないだろ。\nきっとこの区画にいるはずだ",
+    "translation_text": "멀리는 못 갔겠지.\n분명 이 구역에 있을 거야",
+    "records": [
+      {
+        "offset": 7167782,
+        "header_offset": 7167778,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "遠くへは行ってないだろ。",
+        "translation": "멀리는 못 갔겠지."
+      },
+      {
+        "offset": 7167812,
+        "header_offset": 7167808,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "きっとこの区画にいるはずだ",
+        "translation": "분명 이 구역에 있을 거야"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0008",
+    "cluster_index": 11,
+    "run_index": 8,
+    "dialogue_state_token": "1bff:0100",
+    "record_count": 1,
+    "offsets": [
+      7167990
+    ],
+    "source_text": "相手は子供だ。",
+    "translation_text": "상대는 아이야.",
+    "records": [
+      {
+        "offset": 7167990,
+        "header_offset": 7167986,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 148,
+        "text": "相手は子供だ。",
+        "translation": "상대는 아이야."
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0009",
+    "cluster_index": 11,
+    "run_index": 9,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7168010,
+      7168040
+    ],
+    "source_text": "遠くには行ってないだろ。\nきっとこの区画にいるはずだ",
+    "translation_text": "멀리는 못 갔겠지.\n분명 이 구역에 있을 거야",
+    "records": [
+      {
+        "offset": 7168010,
+        "header_offset": 7168006,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "遠くには行ってないだろ。",
+        "translation": "멀리는 못 갔겠지."
+      },
+      {
+        "offset": 7168040,
+        "header_offset": 7168036,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "きっとこの区画にいるはずだ",
+        "translation": "분명 이 구역에 있을 거야"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0010",
+    "cluster_index": 11,
+    "run_index": 10,
+    "dialogue_state_token": "2bff:0900",
+    "record_count": 1,
+    "offsets": [
+      7168298
+    ],
+    "source_text": "あのぅ…",
+    "translation_text": "저기요…",
+    "records": [
+      {
+        "offset": 7168298,
+        "header_offset": 7168294,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 228,
+        "text": "あのぅ…",
+        "translation": "저기요…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0011",
+    "cluster_index": 11,
+    "run_index": 11,
+    "dialogue_state_token": null,
+    "record_count": 3,
+    "offsets": [
+      7168320,
+      7168370,
+      7168398
+    ],
+    "source_text": "鋼の錬金術師さんですよね？\nファンなんですっ！\nこれ、もらってください！",
+    "translation_text": "강철의 연금술사님 맞죠?\n팬이에요!\n이거 받아 주세요!",
+    "records": [
+      {
+        "offset": 7168320,
+        "header_offset": 7168316,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 10,
+        "text": "鋼の錬金術師さんですよね？",
+        "translation": "강철의 연금술사님 맞죠?"
+      },
+      {
+        "offset": 7168370,
+        "header_offset": 7168366,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 20,
+        "text": "ファンなんですっ！",
+        "translation": "팬이에요!"
+      },
+      {
+        "offset": 7168398,
+        "header_offset": 7168394,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 6,
+        "text": "これ、もらってください！",
+        "translation": "이거 받아 주세요!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0012",
+    "cluster_index": 11,
+    "run_index": 12,
+    "dialogue_state_token": "1bff:0E00",
+    "record_count": 1,
+    "offsets": [
+      7168522
+    ],
+    "source_text": "ボクじゃなくって",
+    "translation_text": "내가 아니라",
+    "records": [
+      {
+        "offset": 7168522,
+        "header_offset": 7168518,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 96,
+        "text": "ボクじゃなくって",
+        "translation": "내가 아니라"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0013",
+    "cluster_index": 11,
+    "run_index": 13,
+    "dialogue_state_token": "2bff:5C02",
+    "record_count": 1,
+    "offsets": [
+      7168624
+    ],
+    "source_text": "なんだろう、",
+    "translation_text": "뭐지,",
+    "records": [
+      {
+        "offset": 7168624,
+        "header_offset": 7168620,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 82,
+        "text": "なんだろう、",
+        "translation": "뭐지,"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0014",
+    "cluster_index": 11,
+    "run_index": 14,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7168644
+    ],
+    "source_text": "この箱？",
+    "translation_text": "이 상자?",
+    "records": [
+      {
+        "offset": 7168644,
+        "header_offset": 7168640,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 4,
+        "text": "この箱？",
+        "translation": "이 상자?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0015",
+    "cluster_index": 11,
+    "run_index": 15,
+    "dialogue_state_token": "1bff:0480",
+    "record_count": 1,
+    "offsets": [
+      7168730
+    ],
+    "source_text": "きっとプレゼントだぜ。",
+    "translation_text": "분명 선물이야.",
+    "records": [
+      {
+        "offset": 7168730,
+        "header_offset": 7168726,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 74,
+        "text": "きっとプレゼントだぜ。",
+        "translation": "분명 선물이야."
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0016",
+    "cluster_index": 11,
+    "run_index": 16,
+    "dialogue_state_token": null,
+    "record_count": 5,
+    "offsets": [
+      7168762,
+      7168808,
+      7168824,
+      7168856,
+      7168898
+    ],
+    "source_text": "良かったな！\n兄さん、\n顔が恐いよ\nそんなことないぞ！\n鋼の錬金術師アルよ！",
+    "translation_text": "잘됐네!\n형,\n얼굴이 무서워\n그렇지 않아!\n강철의 연금술사 알이시다!",
+    "records": [
+      {
+        "offset": 7168762,
+        "header_offset": 7168758,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 6,
+        "text": "良かったな！",
+        "translation": "잘됐네!"
+      },
+      {
+        "offset": 7168808,
+        "header_offset": 7168804,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 30,
+        "text": "兄さん、",
+        "translation": "형,"
+      },
+      {
+        "offset": 7168824,
+        "header_offset": 7168820,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 4,
+        "text": "顔が恐いよ",
+        "translation": "얼굴이 무서워"
+      },
+      {
+        "offset": 7168856,
+        "header_offset": 7168852,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 18,
+        "text": "そんなことないぞ！",
+        "translation": "그렇지 않아!"
+      },
+      {
+        "offset": 7168898,
+        "header_offset": 7168894,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 20,
+        "text": "鋼の錬金術師アルよ！",
+        "translation": "강철의 연금술사 알이시다!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0017",
+    "cluster_index": 11,
+    "run_index": 17,
+    "dialogue_state_token": "2bff:0702",
+    "record_count": 1,
+    "offsets": [
+      7168958
+    ],
+    "source_text": "兄さん…",
+    "translation_text": "형…",
+    "records": [
+      {
+        "offset": 7168958,
+        "header_offset": 7168954,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 36,
+        "text": "兄さん…",
+        "translation": "형…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0018",
+    "cluster_index": 11,
+    "run_index": 18,
+    "dialogue_state_token": null,
+    "record_count": 4,
+    "offsets": [
+      7168974,
+      7169000,
+      7169022,
+      7169046
+    ],
+    "source_text": "このプレゼント、\nあげるよ…\nじゃなくって、\nもともと兄さん宛だから…",
+    "translation_text": "이 선물,\n줄게…\n아니,\n원래 형 앞으로 온 거니까…",
+    "records": [
+      {
+        "offset": 7168974,
+        "header_offset": 7168970,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 4,
+        "text": "このプレゼント、",
+        "translation": "이 선물,"
+      },
+      {
+        "offset": 7169000,
+        "header_offset": 7168996,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 6,
+        "text": "あげるよ…",
+        "translation": "줄게…"
+      },
+      {
+        "offset": 7169022,
+        "header_offset": 7169018,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 8,
+        "text": "じゃなくって、",
+        "translation": "아니,"
+      },
+      {
+        "offset": 7169046,
+        "header_offset": 7169042,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 6,
+        "text": "もともと兄さん宛だから…",
+        "translation": "원래 형 앞으로 온 거니까…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0019",
+    "cluster_index": 11,
+    "run_index": 19,
+    "dialogue_state_token": "1bff:6B00",
+    "record_count": 1,
+    "offsets": [
+      7169142
+    ],
+    "source_text": "ふははははっ！",
+    "translation_text": "후하하하하!",
+    "records": [
+      {
+        "offset": 7169142,
+        "header_offset": 7169138,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 68,
+        "text": "ふははははっ！",
+        "translation": "후하하하하!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0020",
+    "cluster_index": 11,
+    "run_index": 20,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7169166,
+      7169196
+    ],
+    "source_text": "まんまと引っかかったな、\n鋼の錬金術師よ！",
+    "translation_text": "보기 좋게 걸려들었구나,\n강철의 연금술사여!",
+    "records": [
+      {
+        "offset": 7169166,
+        "header_offset": 7169162,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 6,
+        "text": "まんまと引っかかったな、",
+        "translation": "보기 좋게 걸려들었구나,"
+      },
+      {
+        "offset": 7169196,
+        "header_offset": 7169192,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "鋼の錬金術師よ！",
+        "translation": "강철의 연금술사여!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0021",
+    "cluster_index": 11,
+    "run_index": 21,
+    "dialogue_state_token": "1bff:0D80",
+    "record_count": 1,
+    "offsets": [
+      7169240
+    ],
+    "source_text": "バルド出すぎ",
+    "translation_text": "발드 너무 나옴",
+    "records": [
+      {
+        "offset": 7169240,
+        "header_offset": 7169236,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 24,
+        "text": "バルド出すぎ",
+        "translation": "발드 너무 나옴"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0022",
+    "cluster_index": 11,
+    "run_index": 22,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7169274
+    ],
+    "source_text": "その爆弾で貴様の命も",
+    "translation_text": "그 폭탄으로 네 목숨도",
+    "records": [
+      {
+        "offset": 7169274,
+        "header_offset": 7169270,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 18,
+        "text": "その爆弾で貴様の命も",
+        "translation": "그 폭탄으로 네 목숨도"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0023",
+    "cluster_index": 11,
+    "run_index": 23,
+    "dialogue_state_token": "1bff:6901",
+    "record_count": 1,
+    "offsets": [
+      7169368
+    ],
+    "source_text": "鋼の錬金術師に",
+    "translation_text": "강철의 연금술사에게",
+    "records": [
+      {
+        "offset": 7169368,
+        "header_offset": 7169364,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 70,
+        "text": "鋼の錬金術師に",
+        "translation": "강철의 연금술사에게"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0024",
+    "cluster_index": 11,
+    "run_index": 24,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7169388,
+      7169440
+    ],
+    "source_text": "渡せって言っただろ\nだからあのヨロイの方に…",
+    "translation_text": "넘기라고 했잖아\n그래서 저 갑옷 쪽한테…",
+    "records": [
+      {
+        "offset": 7169388,
+        "header_offset": 7169384,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "渡せって言っただろ",
+        "translation": "넘기라고 했잖아"
+      },
+      {
+        "offset": 7169440,
+        "header_offset": 7169436,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 30,
+        "text": "だからあのヨロイの方に…",
+        "translation": "그래서 저 갑옷 쪽한테…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0025",
+    "cluster_index": 11,
+    "run_index": 25,
+    "dialogue_state_token": "1bff:6A01",
+    "record_count": 1,
+    "offsets": [
+      7169514
+    ],
+    "source_text": "鋼の錬金術師は、",
+    "translation_text": "강철의 연금술사는",
+    "records": [
+      {
+        "offset": 7169514,
+        "header_offset": 7169510,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 46,
+        "text": "鋼の錬金術師は、",
+        "translation": "강철의 연금술사는"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0026",
+    "cluster_index": 11,
+    "run_index": 26,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7169536
+    ],
+    "source_text": "あの小さい方だ！",
+    "translation_text": "저 작은 쪽이다!",
+    "records": [
+      {
+        "offset": 7169536,
+        "header_offset": 7169532,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "あの小さい方だ！",
+        "translation": "저 작은 쪽이다!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0027",
+    "cluster_index": 11,
+    "run_index": 27,
+    "dialogue_state_token": "1bff:0380",
+    "record_count": 1,
+    "offsets": [
+      7169576
+    ],
+    "source_text": "誰が小さいだってぇ！！",
+    "translation_text": "누가 작다고 했냐!!",
+    "records": [
+      {
+        "offset": 7169576,
+        "header_offset": 7169572,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 20,
+        "text": "誰が小さいだってぇ！！",
+        "translation": "누가 작다고 했냐!!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0028",
+    "cluster_index": 11,
+    "run_index": 28,
+    "dialogue_state_token": "1bff:6B01",
+    "record_count": 1,
+    "offsets": [
+      7169638
+    ],
+    "source_text": "仕方ねぇ！",
+    "translation_text": "어쩔 수 없지!",
+    "records": [
+      {
+        "offset": 7169638,
+        "header_offset": 7169634,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 36,
+        "text": "仕方ねぇ！",
+        "translation": "어쩔 수 없지!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0029",
+    "cluster_index": 11,
+    "run_index": 29,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7169658,
+      7169692
+    ],
+    "source_text": "弟の方でガマンしてやる！\nスイッチオン！",
+    "translation_text": "동생 쪽으로 참아 주마!\n스위치 온!",
+    "records": [
+      {
+        "offset": 7169658,
+        "header_offset": 7169654,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 6,
+        "text": "弟の方でガマンしてやる！",
+        "translation": "동생 쪽으로 참아 주마!"
+      },
+      {
+        "offset": 7169692,
+        "header_offset": 7169688,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 6,
+        "text": "スイッチオン！",
+        "translation": "스위치 온!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0030",
+    "cluster_index": 11,
+    "run_index": 30,
+    "dialogue_state_token": "1bff:0700",
+    "record_count": 1,
+    "offsets": [
+      7169816
+    ],
+    "source_text": "アルーーーっ！！",
+    "translation_text": "알---!!",
+    "records": [
+      {
+        "offset": 7169816,
+        "header_offset": 7169812,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 106,
+        "text": "アルーーーっ！！",
+        "translation": "알---!!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0031",
+    "cluster_index": 11,
+    "run_index": 31,
+    "dialogue_state_token": "2bff:0202",
+    "record_count": 1,
+    "offsets": [
+      7169946
+    ],
+    "source_text": "アルっ！",
+    "translation_text": "알!",
+    "records": [
+      {
+        "offset": 7169946,
+        "header_offset": 7169942,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 110,
+        "text": "アルっ！",
+        "translation": "알!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0032",
+    "cluster_index": 11,
+    "run_index": 32,
+    "dialogue_state_token": null,
+    "record_count": 12,
+    "offsets": [
+      7169964,
+      7170028,
+      7170076,
+      7170134,
+      7170158,
+      7170190,
+      7170236,
+      7170254,
+      7170276,
+      7170322,
+      7170352,
+      7170380
+    ],
+    "source_text": "返事をしてくれよっ！\n兄さん…\n大丈夫かっ！？\nなんとか…\n血印は無事だったから。\nでも身体のパーツが…\nくそっ！\nオレがぜったいに\n全部のパーツを集めてやる！\n探さなきゃならないのは、\n頭と両腕、両足か。\n待ってろ、アル！",
+    "translation_text": "대답 좀 해!\n형…\n괜찮아!?\n어떻게든…\n혈인은 무사했으니까.\n하지만 몸 부품이…\n젠장!\n내가 반드시\n모든 부품을 모아 줄게!\n찾아야 하는 건\n머리와 양팔, 양다리인가.\n기다려, 알!",
+    "records": [
+      {
+        "offset": 7169964,
+        "header_offset": 7169960,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 6,
+        "text": "返事をしてくれよっ！",
+        "translation": "대답 좀 해!"
+      },
+      {
+        "offset": 7170028,
+        "header_offset": 7170024,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 40,
+        "text": "兄さん…",
+        "translation": "형…"
+      },
+      {
+        "offset": 7170076,
+        "header_offset": 7170072,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 36,
+        "text": "大丈夫かっ！？",
+        "translation": "괜찮아!?"
+      },
+      {
+        "offset": 7170134,
+        "header_offset": 7170130,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 40,
+        "text": "なんとか…",
+        "translation": "어떻게든…"
+      },
+      {
+        "offset": 7170158,
+        "header_offset": 7170154,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 10,
+        "text": "血印は無事だったから。",
+        "translation": "혈인은 무사했으니까."
+      },
+      {
+        "offset": 7170190,
+        "header_offset": 7170186,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 6,
+        "text": "でも身体のパーツが…",
+        "translation": "하지만 몸 부품이…"
+      },
+      {
+        "offset": 7170236,
+        "header_offset": 7170232,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 22,
+        "text": "くそっ！",
+        "translation": "젠장!"
+      },
+      {
+        "offset": 7170254,
+        "header_offset": 7170250,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 6,
+        "text": "オレがぜったいに",
+        "translation": "내가 반드시"
+      },
+      {
+        "offset": 7170276,
+        "header_offset": 7170272,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "全部のパーツを集めてやる！",
+        "translation": "모든 부품을 모아 줄게!"
+      },
+      {
+        "offset": 7170322,
+        "header_offset": 7170318,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 16,
+        "text": "探さなきゃならないのは、",
+        "translation": "찾아야 하는 건"
+      },
+      {
+        "offset": 7170352,
+        "header_offset": 7170348,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "頭と両腕、両足か。",
+        "translation": "머리와 양팔, 양다리인가."
+      },
+      {
+        "offset": 7170380,
+        "header_offset": 7170376,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 6,
+        "text": "待ってろ、アル！",
+        "translation": "기다려, 알!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0033",
+    "cluster_index": 11,
+    "run_index": 33,
+    "dialogue_state_token": "1bff:0B80",
+    "record_count": 1,
+    "offsets": [
+      7170686
+    ],
+    "source_text": "子供たちが遊んでるよ。",
+    "translation_text": "아이들이 놀고 있어.",
+    "records": [
+      {
+        "offset": 7170686,
+        "header_offset": 7170682,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 286,
+        "text": "子供たちが遊んでるよ。",
+        "translation": "아이들이 놀고 있어."
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0034",
+    "cluster_index": 11,
+    "run_index": 34,
+    "dialogue_state_token": null,
+    "record_count": 8,
+    "offsets": [
+      7170718,
+      7170756,
+      7170776,
+      7170796,
+      7170880,
+      7170906,
+      7170926,
+      7170956
+    ],
+    "source_text": "あの子達に聞いてみようか\nそうだな。\n子供のことは、\n子供に聞くのが一番だ\nなあ、君たちさ、\n小さな女の子を\n見なかったか？\nエリシアちゃんって言って、",
+    "translation_text": "저 아이들에게 물어볼까\n그래.\n아이 일은\n아이에게 묻는 게 최고지\n저기, 얘들아,\n작은 여자아이를\n못 봤어?\n엘리시아라고 하는데,",
+    "records": [
+      {
+        "offset": 7170718,
+        "header_offset": 7170714,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 6,
+        "text": "あの子達に聞いてみようか",
+        "translation": "저 아이들에게 물어볼까"
+      },
+      {
+        "offset": 7170756,
+        "header_offset": 7170752,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 10,
+        "text": "そうだな。",
+        "translation": "그래."
+      },
+      {
+        "offset": 7170776,
+        "header_offset": 7170772,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 6,
+        "text": "子供のことは、",
+        "translation": "아이 일은"
+      },
+      {
+        "offset": 7170796,
+        "header_offset": 7170792,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "子供に聞くのが一番だ",
+        "translation": "아이에게 묻는 게 최고지"
+      },
+      {
+        "offset": 7170880,
+        "header_offset": 7170876,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 60,
+        "text": "なあ、君たちさ、",
+        "translation": "저기, 얘들아,"
+      },
+      {
+        "offset": 7170906,
+        "header_offset": 7170902,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 6,
+        "text": "小さな女の子を",
+        "translation": "작은 여자아이를"
+      },
+      {
+        "offset": 7170926,
+        "header_offset": 7170922,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "見なかったか？",
+        "translation": "못 봤어?"
+      },
+      {
+        "offset": 7170956,
+        "header_offset": 7170952,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 12,
+        "text": "エリシアちゃんって言って、",
+        "translation": "엘리시아라고 하는데,"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0035",
+    "cluster_index": 11,
+    "run_index": 35,
+    "dialogue_state_token": "2bff:0600",
+    "record_count": 1,
+    "offsets": [
+      7170998
+    ],
+    "source_text": "ここの家の子なんだけど",
+    "translation_text": "이 집 아이거든",
+    "records": [
+      {
+        "offset": 7170998,
+        "header_offset": 7170994,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 12,
+        "text": "ここの家の子なんだけど",
+        "translation": "이 집 아이거든"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0036",
+    "cluster_index": 11,
+    "run_index": 36,
+    "dialogue_state_token": "1bff:0200",
+    "record_count": 1,
+    "offsets": [
+      7171140
+    ],
+    "source_text": "恐がられてるぞ",
+    "translation_text": "무서워하잖아",
+    "records": [
+      {
+        "offset": 7171140,
+        "header_offset": 7171136,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 116,
+        "text": "恐がられてるぞ",
+        "translation": "무서워하잖아"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0037",
+    "cluster_index": 11,
+    "run_index": 37,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7171172,
+      7171204
+    ],
+    "source_text": "えっ！？\nそんなぁ",
+    "translation_text": "엣!?\n그럴 수가",
+    "records": [
+      {
+        "offset": 7171172,
+        "header_offset": 7171168,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 14,
+        "text": "えっ！？",
+        "translation": "엣!?"
+      },
+      {
+        "offset": 7171204,
+        "header_offset": 7171200,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 20,
+        "text": "そんなぁ",
+        "translation": "그럴 수가"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0038",
+    "cluster_index": 11,
+    "run_index": 38,
+    "dialogue_state_token": "1bff:0900",
+    "record_count": 1,
+    "offsets": [
+      7171232
+    ],
+    "source_text": "こういうのはな、",
+    "translation_text": "이런 건 말이지,",
+    "records": [
+      {
+        "offset": 7171232,
+        "header_offset": 7171228,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 16,
+        "text": "こういうのはな、",
+        "translation": "이런 건 말이지,"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0039",
+    "cluster_index": 11,
+    "run_index": 39,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7171258
+    ],
+    "source_text": "子供の目線になってだな…",
+    "translation_text": "아이 눈높이가 되어야…",
+    "records": [
+      {
+        "offset": 7171258,
+        "header_offset": 7171254,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 6,
+        "text": "子供の目線になってだな…",
+        "translation": "아이 눈높이가 되어야…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0040",
+    "cluster_index": 11,
+    "run_index": 40,
+    "dialogue_state_token": "1bff:0D80",
+    "record_count": 1,
+    "offsets": [
+      7171306
+    ],
+    "source_text": "さすが、",
+    "translation_text": "역시",
+    "records": [
+      {
+        "offset": 7171306,
+        "header_offset": 7171302,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 20,
+        "text": "さすが、",
+        "translation": "역시"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0041",
+    "cluster_index": 11,
+    "run_index": 41,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7171322,
+      7171340
+    ],
+    "source_text": "兄さん。\n目線が近いからね",
+    "translation_text": "형.\n눈높이가 가까우니까",
+    "records": [
+      {
+        "offset": 7171322,
+        "header_offset": 7171318,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 4,
+        "text": "兄さん。",
+        "translation": "형."
+      },
+      {
+        "offset": 7171340,
+        "header_offset": 7171336,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 6,
+        "text": "目線が近いからね",
+        "translation": "눈높이가 가까우니까"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0042",
+    "cluster_index": 11,
+    "run_index": 42,
+    "dialogue_state_token": "1bff:0400",
+    "record_count": 1,
+    "offsets": [
+      7171376
+    ],
+    "source_text": "…アル、",
+    "translation_text": "…알,",
+    "records": [
+      {
+        "offset": 7171376,
+        "header_offset": 7171372,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 16,
+        "text": "…アル、",
+        "translation": "…알,"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0043",
+    "cluster_index": 11,
+    "run_index": 43,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7171394,
+      7171446
+    ],
+    "source_text": "今何か言わなかったか？\nなにも言ってません！",
+    "translation_text": "지금 뭐라고 하지 않았냐?\n아무 말도 안 했습니다!",
+    "records": [
+      {
+        "offset": 7171394,
+        "header_offset": 7171390,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 6,
+        "text": "今何か言わなかったか？",
+        "translation": "지금 뭐라고 하지 않았냐?"
+      },
+      {
+        "offset": 7171446,
+        "header_offset": 7171442,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 26,
+        "text": "なにも言ってません！",
+        "translation": "아무 말도 안 했습니다!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0044",
+    "cluster_index": 11,
+    "run_index": 44,
+    "dialogue_state_token": "2bff:0700",
+    "record_count": 1,
+    "offsets": [
+      7171536
+    ],
+    "source_text": "うぜーガキどもだな。",
+    "translation_text": "짜증 나는 꼬맹이들이군.",
+    "records": [
+      {
+        "offset": 7171536,
+        "header_offset": 7171532,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 66,
+        "text": "うぜーガキどもだな。",
+        "translation": "짜증 나는 꼬맹이들이군."
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0045",
+    "cluster_index": 11,
+    "run_index": 45,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7171686
+    ],
+    "source_text": "お前も道をあけろ！",
+    "translation_text": "너도 길을 비켜!",
+    "records": [
+      {
+        "offset": 7171686,
+        "header_offset": 7171682,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 126,
+        "text": "お前も道をあけろ！",
+        "translation": "너도 길을 비켜!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0046",
+    "cluster_index": 11,
+    "run_index": 46,
+    "dialogue_state_token": "1bff:0400",
+    "record_count": 1,
+    "offsets": [
+      7171738
+    ],
+    "source_text": "…チビ？",
+    "translation_text": "…꼬맹이?",
+    "records": [
+      {
+        "offset": 7171738,
+        "header_offset": 7171734,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 30,
+        "text": "…チビ？",
+        "translation": "…꼬맹이?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0047",
+    "cluster_index": 11,
+    "run_index": 47,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7171756
+    ],
+    "source_text": "…ガキ？",
+    "translation_text": "…애송이?",
+    "records": [
+      {
+        "offset": 7171756,
+        "header_offset": 7171752,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 6,
+        "text": "…ガキ？",
+        "translation": "…애송이?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0048",
+    "cluster_index": 11,
+    "run_index": 48,
+    "dialogue_state_token": "1bff:0D80",
+    "record_count": 1,
+    "offsets": [
+      7171798
+    ],
+    "source_text": "兄さん！",
+    "translation_text": "형!",
+    "records": [
+      {
+        "offset": 7171798,
+        "header_offset": 7171794,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 30,
+        "text": "兄さん！",
+        "translation": "형!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0049",
+    "cluster_index": 11,
+    "run_index": 49,
+    "dialogue_state_token": null,
+    "record_count": 14,
+    "offsets": [
+      7171816,
+      7171848,
+      7171892,
+      7171928,
+      7171950,
+      7171976,
+      7172020,
+      7172042,
+      7172058,
+      7172100,
+      7172118,
+      7172168,
+      7172204,
+      7172256
+    ],
+    "source_text": "ここは落ち着いて話を…\nああ、目がもう怒ってる\nコイツは悪人だ\nに、兄さん？\n人をあんまり見かけで\n判断しちゃいけないと思うよ\nきっと、コイツが\nエリシアを\n誘拐したに違いないぞ\n兄さん、\nそれは飛躍しすぎだよー\nなにをブツブツ言ってんだ？\nチビとヨロイ野郎が！\nチビ…？",
+    "translation_text": "여기선 차분하게 대화를…\n아아, 눈이 벌써 화났어\n이놈은 악당이다\n혀, 형?\n사람을 너무 겉모습으로\n판단하면 안 된다고 생각해\n분명 이놈이\n엘리시아를\n유괴한 게 틀림없어\n형,\n그건 너무 비약이야\n뭘 중얼거리는 거냐?\n꼬맹이랑 갑옷 녀석이!\n꼬맹이…?",
+    "records": [
+      {
+        "offset": 7171816,
+        "header_offset": 7171812,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 6,
+        "text": "ここは落ち着いて話を…",
+        "translation": "여기선 차분하게 대화를…"
+      },
+      {
+        "offset": 7171848,
+        "header_offset": 7171844,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 6,
+        "text": "ああ、目がもう怒ってる",
+        "translation": "아아, 눈이 벌써 화났어"
+      },
+      {
+        "offset": 7171892,
+        "header_offset": 7171888,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 18,
+        "text": "コイツは悪人だ",
+        "translation": "이놈은 악당이다"
+      },
+      {
+        "offset": 7171928,
+        "header_offset": 7171924,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 18,
+        "text": "に、兄さん？",
+        "translation": "혀, 형?"
+      },
+      {
+        "offset": 7171950,
+        "header_offset": 7171946,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 6,
+        "text": "人をあんまり見かけで",
+        "translation": "사람을 너무 겉모습으로"
+      },
+      {
+        "offset": 7171976,
+        "header_offset": 7171972,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "判断しちゃいけないと思うよ",
+        "translation": "판단하면 안 된다고 생각해"
+      },
+      {
+        "offset": 7172020,
+        "header_offset": 7172016,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 14,
+        "text": "きっと、コイツが",
+        "translation": "분명 이놈이"
+      },
+      {
+        "offset": 7172042,
+        "header_offset": 7172038,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 2,
+        "text": "エリシアを",
+        "translation": "엘리시아를"
+      },
+      {
+        "offset": 7172058,
+        "header_offset": 7172054,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "誘拐したに違いないぞ",
+        "translation": "유괴한 게 틀림없어"
+      },
+      {
+        "offset": 7172100,
+        "header_offset": 7172096,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 18,
+        "text": "兄さん、",
+        "translation": "형,"
+      },
+      {
+        "offset": 7172118,
+        "header_offset": 7172114,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 6,
+        "text": "それは飛躍しすぎだよー",
+        "translation": "그건 너무 비약이야"
+      },
+      {
+        "offset": 7172168,
+        "header_offset": 7172164,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 24,
+        "text": "なにをブツブツ言ってんだ？",
+        "translation": "뭘 중얼거리는 거냐?"
+      },
+      {
+        "offset": 7172204,
+        "header_offset": 7172200,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 6,
+        "text": "チビとヨロイ野郎が！",
+        "translation": "꼬맹이랑 갑옷 녀석이!"
+      },
+      {
+        "offset": 7172256,
+        "header_offset": 7172252,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 28,
+        "text": "チビ…？",
+        "translation": "꼬맹이…?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0050",
+    "cluster_index": 11,
+    "run_index": 50,
+    "dialogue_state_token": "1bff:1180",
+    "record_count": 1,
+    "offsets": [
+      7172300
+    ],
+    "source_text": "ヨロイ野郎？",
+    "translation_text": "갑옷 녀석?",
+    "records": [
+      {
+        "offset": 7172300,
+        "header_offset": 7172296,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 32,
+        "text": "ヨロイ野郎？",
+        "translation": "갑옷 녀석?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0051",
+    "cluster_index": 11,
+    "run_index": 51,
+    "dialogue_state_token": "1bff:0300",
+    "record_count": 1,
+    "offsets": [
+      7172366
+    ],
+    "source_text": "…てめぇ、",
+    "translation_text": "…네놈,",
+    "records": [
+      {
+        "offset": 7172366,
+        "header_offset": 7172362,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 50,
+        "text": "…てめぇ、",
+        "translation": "…네놈,"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0052",
+    "cluster_index": 11,
+    "run_index": 52,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7172384
+    ],
+    "source_text": "ぶっ飛ばーす！",
+    "translation_text": "날려 버리겠어!",
+    "records": [
+      {
+        "offset": 7172384,
+        "header_offset": 7172380,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 4,
+        "text": "ぶっ飛ばーす！",
+        "translation": "날려 버리겠어!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0053",
+    "cluster_index": 11,
+    "run_index": 53,
+    "dialogue_state_token": "1bff:0400",
+    "record_count": 1,
+    "offsets": [
+      7172522
+    ],
+    "source_text": "さあ、とっとと",
+    "translation_text": "자, 얼른",
+    "records": [
+      {
+        "offset": 7172522,
+        "header_offset": 7172518,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 120,
+        "text": "さあ、とっとと",
+        "translation": "자, 얼른"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0054",
+    "cluster_index": 11,
+    "run_index": 54,
+    "dialogue_state_token": null,
+    "record_count": 3,
+    "offsets": [
+      7172542,
+      7172564,
+      7172602
+    ],
+    "source_text": "吐いたらどうだ？\n誘拐犯め！\n俺は誘拐犯なんかじゃねぇよ！",
+    "translation_text": "털어놓는 게 어때?\n유괴범 놈!\n난 유괴범 같은 게 아니야!",
+    "records": [
+      {
+        "offset": 7172542,
+        "header_offset": 7172538,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "吐いたらどうだ？",
+        "translation": "털어놓는 게 어때?"
+      },
+      {
+        "offset": 7172564,
+        "header_offset": 7172560,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 2,
+        "text": "誘拐犯め！",
+        "translation": "유괴범 놈!"
+      },
+      {
+        "offset": 7172602,
+        "header_offset": 7172598,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 24,
+        "text": "俺は誘拐犯なんかじゃねぇよ！",
+        "translation": "난 유괴범 같은 게 아니야!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0055",
+    "cluster_index": 11,
+    "run_index": 55,
+    "dialogue_state_token": "1bff:0D80",
+    "record_count": 1,
+    "offsets": [
+      7172686
+    ],
+    "source_text": "ほら、やっぱり。",
+    "translation_text": "봐, 역시.",
+    "records": [
+      {
+        "offset": 7172686,
+        "header_offset": 7172682,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 52,
+        "text": "ほら、やっぱり。",
+        "translation": "봐, 역시."
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0056",
+    "cluster_index": 11,
+    "run_index": 56,
+    "dialogue_state_token": null,
+    "record_count": 4,
+    "offsets": [
+      7172712,
+      7172794,
+      7172816,
+      7172840
+    ],
+    "source_text": "兄さんは先走りすぎなんだよ\nエリシアちゃんを\n探してる人って\nお兄ちゃんたち？",
+    "translation_text": "형은 너무 앞서간다니까\n엘리시아를\n찾는 사람들이\n형들이야?",
+    "records": [
+      {
+        "offset": 7172712,
+        "header_offset": 7172708,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 6,
+        "text": "兄さんは先走りすぎなんだよ",
+        "translation": "형은 너무 앞서간다니까"
+      },
+      {
+        "offset": 7172794,
+        "header_offset": 7172790,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 52,
+        "text": "エリシアちゃんを",
+        "translation": "엘리시아를"
+      },
+      {
+        "offset": 7172816,
+        "header_offset": 7172812,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "探してる人って",
+        "translation": "찾는 사람들이"
+      },
+      {
+        "offset": 7172840,
+        "header_offset": 7172836,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 6,
+        "text": "お兄ちゃんたち？",
+        "translation": "형들이야?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0057",
+    "cluster_index": 11,
+    "run_index": 57,
+    "dialogue_state_token": "1bff:0B00",
+    "record_count": 1,
+    "offsets": [
+      7172886
+    ],
+    "source_text": "そうだけど、",
+    "translation_text": "그렇긴 한데,",
+    "records": [
+      {
+        "offset": 7172886,
+        "header_offset": 7172882,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 26,
+        "text": "そうだけど、",
+        "translation": "그렇긴 한데,"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0058",
+    "cluster_index": 11,
+    "run_index": 58,
+    "dialogue_state_token": null,
+    "record_count": 4,
+    "offsets": [
+      7172908,
+      7172954,
+      7172972,
+      7173006
+    ],
+    "source_text": "キミたち、知ってるの？\n…うん。\nエリシアちゃんと、ボクたち、\nかくれんぼしてたんだ",
+    "translation_text": "너희들, 알고 있어?\n…응.\n엘리시아랑 우리,\n숨바꼭질하고 있었어",
+    "records": [
+      {
+        "offset": 7172908,
+        "header_offset": 7172904,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 6,
+        "text": "キミたち、知ってるの？",
+        "translation": "너희들, 알고 있어?"
+      },
+      {
+        "offset": 7172954,
+        "header_offset": 7172950,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 20,
+        "text": "…うん。",
+        "translation": "…응."
+      },
+      {
+        "offset": 7172972,
+        "header_offset": 7172968,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 6,
+        "text": "エリシアちゃんと、ボクたち、",
+        "translation": "엘리시아랑 우리,"
+      },
+      {
+        "offset": 7173006,
+        "header_offset": 7173002,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "かくれんぼしてたんだ",
+        "translation": "숨바꼭질하고 있었어"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0059",
+    "cluster_index": 11,
+    "run_index": 59,
+    "dialogue_state_token": "1bff:0880",
+    "record_count": 1,
+    "offsets": [
+      7173068
+    ],
+    "source_text": "かくれんぼ？",
+    "translation_text": "숨바꼭질?",
+    "records": [
+      {
+        "offset": 7173068,
+        "header_offset": 7173064,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 38,
+        "text": "かくれんぼ？",
+        "translation": "숨바꼭질?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0060",
+    "cluster_index": 11,
+    "run_index": 60,
+    "dialogue_state_token": null,
+    "record_count": 11,
+    "offsets": [
+      7173090,
+      7173134,
+      7173156,
+      7173192,
+      7173232,
+      7173258,
+      7173280,
+      7173324,
+      7173340,
+      7173374,
+      7173392
+    ],
+    "source_text": "…じゃ、誘拐じゃなかったのか\nなんだ、ぜんぜん\n事件じゃなかったんじゃん。\n中佐は騒ぎすぎなんだよ\nねえ、キミたち、\nエリシアちゃんは\n今どこにいるのかな？\nうーん、\nわかんない\n…兄さん、\nどうする？",
+    "translation_text": "…그럼 유괴가 아니었던 건가\n뭐야, 전혀\n사건이 아니었잖아.\n중령이 너무 호들갑이야\n있잖아, 얘들아,\n엘리시아는\n지금 어디에 있을까?\n음,\n몰라\n…형,\n어떡할래?",
+    "records": [
+      {
+        "offset": 7173090,
+        "header_offset": 7173086,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 6,
+        "text": "…じゃ、誘拐じゃなかったのか",
+        "translation": "…그럼 유괴가 아니었던 건가"
+      },
+      {
+        "offset": 7173134,
+        "header_offset": 7173130,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 12,
+        "text": "なんだ、ぜんぜん",
+        "translation": "뭐야, 전혀"
+      },
+      {
+        "offset": 7173156,
+        "header_offset": 7173152,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "事件じゃなかったんじゃん。",
+        "translation": "사건이 아니었잖아."
+      },
+      {
+        "offset": 7173192,
+        "header_offset": 7173188,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 6,
+        "text": "中佐は騒ぎすぎなんだよ",
+        "translation": "중령이 너무 호들갑이야"
+      },
+      {
+        "offset": 7173232,
+        "header_offset": 7173228,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 14,
+        "text": "ねえ、キミたち、",
+        "translation": "있잖아, 얘들아,"
+      },
+      {
+        "offset": 7173258,
+        "header_offset": 7173254,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 6,
+        "text": "エリシアちゃんは",
+        "translation": "엘리시아는"
+      },
+      {
+        "offset": 7173280,
+        "header_offset": 7173276,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "今どこにいるのかな？",
+        "translation": "지금 어디에 있을까?"
+      },
+      {
+        "offset": 7173324,
+        "header_offset": 7173320,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 20,
+        "text": "うーん、",
+        "translation": "음,"
+      },
+      {
+        "offset": 7173340,
+        "header_offset": 7173336,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 4,
+        "text": "わかんない",
+        "translation": "몰라"
+      },
+      {
+        "offset": 7173374,
+        "header_offset": 7173370,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 20,
+        "text": "…兄さん、",
+        "translation": "…형,"
+      },
+      {
+        "offset": 7173392,
+        "header_offset": 7173388,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 4,
+        "text": "どうする？",
+        "translation": "어떡할래?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0061",
+    "cluster_index": 11,
+    "run_index": 61,
+    "dialogue_state_token": "1bff:0A80",
+    "record_count": 1,
+    "offsets": [
+      7173436
+    ],
+    "source_text": "こうなったら、",
+    "translation_text": "이렇게 된 이상,",
+    "records": [
+      {
+        "offset": 7173436,
+        "header_offset": 7173432,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 30,
+        "text": "こうなったら、",
+        "translation": "이렇게 된 이상,"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0062",
+    "cluster_index": 11,
+    "run_index": 62,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7173456
+    ],
+    "source_text": "街の中、探し回るぞ！",
+    "translation_text": "도시 안을 샅샅이 찾자!",
+    "records": [
+      {
+        "offset": 7173456,
+        "header_offset": 7173452,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "街の中、探し回るぞ！",
+        "translation": "도시 안을 샅샅이 찾자!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0063",
+    "cluster_index": 11,
+    "run_index": 63,
+    "dialogue_state_token": "1bff:0100",
+    "record_count": 1,
+    "offsets": [
+      7173640
+    ],
+    "source_text": "カギが閉まってて入れないな…",
+    "translation_text": "열쇠가 잠겨 있어 들어갈 수 없겠네…",
+    "records": [
+      {
+        "offset": 7173640,
+        "header_offset": 7173636,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 160,
+        "text": "カギが閉まってて入れないな…",
+        "translation": "열쇠가 잠겨 있어 들어갈 수 없겠네…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0064",
+    "cluster_index": 11,
+    "run_index": 64,
+    "dialogue_state_token": "1bff:6980",
+    "record_count": 1,
+    "offsets": [
+      7173778
+    ],
+    "source_text": "あの～、",
+    "translation_text": "저기요,",
+    "records": [
+      {
+        "offset": 7173778,
+        "header_offset": 7173774,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 106,
+        "text": "あの～、",
+        "translation": "저기요,"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0065",
+    "cluster_index": 11,
+    "run_index": 65,
+    "dialogue_state_token": null,
+    "record_count": 7,
+    "offsets": [
+      7173794,
+      7173810,
+      7173838,
+      7173876,
+      7173892,
+      7173918,
+      7173936
+    ],
+    "source_text": "このへんで\nヘンな鎧の頭とか、\n見ませんでした？\n兄さん、\nひどい…\nあ～ん、\nなんのことだ…？",
+    "translation_text": "이 근처에서\n이상한 갑옷 머리라든가\n못 보셨나요?\n형,\n너무해…\n아앙,\n무슨 말이지…?",
+    "records": [
+      {
+        "offset": 7173794,
+        "header_offset": 7173790,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 4,
+        "text": "このへんで",
+        "translation": "이 근처에서"
+      },
+      {
+        "offset": 7173810,
+        "header_offset": 7173806,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "ヘンな鎧の頭とか、",
+        "translation": "이상한 갑옷 머리라든가"
+      },
+      {
+        "offset": 7173838,
+        "header_offset": 7173834,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 6,
+        "text": "見ませんでした？",
+        "translation": "못 보셨나요?"
+      },
+      {
+        "offset": 7173876,
+        "header_offset": 7173872,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 18,
+        "text": "兄さん、",
+        "translation": "형,"
+      },
+      {
+        "offset": 7173892,
+        "header_offset": 7173888,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 4,
+        "text": "ひどい…",
+        "translation": "너무해…"
+      },
+      {
+        "offset": 7173918,
+        "header_offset": 7173914,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 14,
+        "text": "あ～ん、",
+        "translation": "아앙,"
+      },
+      {
+        "offset": 7173936,
+        "header_offset": 7173932,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 6,
+        "text": "なんのことだ…？",
+        "translation": "무슨 말이지…?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0066",
+    "cluster_index": 11,
+    "run_index": 66,
+    "dialogue_state_token": "1bff:0700",
+    "record_count": 1,
+    "offsets": [
+      7173980
+    ],
+    "source_text": "ああーっ！！",
+    "translation_text": "아아악!!",
+    "records": [
+      {
+        "offset": 7173980,
+        "header_offset": 7173976,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 24,
+        "text": "ああーっ！！",
+        "translation": "아아악!!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0067",
+    "cluster_index": 11,
+    "run_index": 67,
+    "dialogue_state_token": "1bff:6A81",
+    "record_count": 1,
+    "offsets": [
+      7174078
+    ],
+    "source_text": "貴様っ！",
+    "translation_text": "네놈!",
+    "records": [
+      {
+        "offset": 7174078,
+        "header_offset": 7174074,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 82,
+        "text": "貴様っ！",
+        "translation": "네놈!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0068",
+    "cluster_index": 11,
+    "run_index": 68,
+    "dialogue_state_token": null,
+    "record_count": 9,
+    "offsets": [
+      7174104,
+      7174132,
+      7174152,
+      7174170,
+      7174216,
+      7174234,
+      7174272,
+      7174290,
+      7174314
+    ],
+    "source_text": "…見つけたっ！\nバルド…\nよくもアルを\nバラバラにしてくれたな！\nボクの頭、\n頭返して～！\nだいたい、\n刑務所にいるはずの\nバルドがなんで",
+    "translation_text": "…찾았다!\n발드…\n감히 알을\n산산조각 내다니!\n내 머리,\n머리 돌려줘～!\n애초에\n감옥에 있어야 할\n발드가 왜",
+    "records": [
+      {
+        "offset": 7174104,
+        "header_offset": 7174100,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 14,
+        "text": "…見つけたっ！",
+        "translation": "…찾았다!"
+      },
+      {
+        "offset": 7174132,
+        "header_offset": 7174128,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 10,
+        "text": "バルド…",
+        "translation": "발드…"
+      },
+      {
+        "offset": 7174152,
+        "header_offset": 7174148,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 8,
+        "text": "よくもアルを",
+        "translation": "감히 알을"
+      },
+      {
+        "offset": 7174170,
+        "header_offset": 7174166,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "バラバラにしてくれたな！",
+        "translation": "산산조각 내다니!"
+      },
+      {
+        "offset": 7174216,
+        "header_offset": 7174212,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 18,
+        "text": "ボクの頭、",
+        "translation": "내 머리,"
+      },
+      {
+        "offset": 7174234,
+        "header_offset": 7174230,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 4,
+        "text": "頭返して～！",
+        "translation": "머리 돌려줘～!"
+      },
+      {
+        "offset": 7174272,
+        "header_offset": 7174268,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 22,
+        "text": "だいたい、",
+        "translation": "애초에"
+      },
+      {
+        "offset": 7174290,
+        "header_offset": 7174286,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 4,
+        "text": "刑務所にいるはずの",
+        "translation": "감옥에 있어야 할"
+      },
+      {
+        "offset": 7174314,
+        "header_offset": 7174310,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "バルドがなんで",
+        "translation": "발드가 왜"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0069",
+    "cluster_index": 11,
+    "run_index": 69,
+    "dialogue_state_token": "1bff:0200",
+    "record_count": 1,
+    "offsets": [
+      7174388
+    ],
+    "source_text": "…ったく、",
+    "translation_text": "…정말,",
+    "records": [
+      {
+        "offset": 7174388,
+        "header_offset": 7174384,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 56,
+        "text": "…ったく、",
+        "translation": "…정말,"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0070",
+    "cluster_index": 11,
+    "run_index": 70,
+    "dialogue_state_token": null,
+    "record_count": 3,
+    "offsets": [
+      7174406,
+      7174430,
+      7174458
+    ],
+    "source_text": "ケイトのヤツ、\n自分の作った人形くらい\nちゃんと管理しとけよ",
+    "translation_text": "케이트 녀석,\n자기가 만든 인형 정도는\n제대로 관리하라고",
+    "records": [
+      {
+        "offset": 7174406,
+        "header_offset": 7174402,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 4,
+        "text": "ケイトのヤツ、",
+        "translation": "케이트 녀석,"
+      },
+      {
+        "offset": 7174430,
+        "header_offset": 7174426,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 6,
+        "text": "自分の作った人形くらい",
+        "translation": "자기가 만든 인형 정도는"
+      },
+      {
+        "offset": 7174458,
+        "header_offset": 7174454,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "ちゃんと管理しとけよ",
+        "translation": "제대로 관리하라고"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0071",
+    "cluster_index": 11,
+    "run_index": 71,
+    "dialogue_state_token": "1bff:6B81",
+    "record_count": 1,
+    "offsets": [
+      7174502
+    ],
+    "source_text": "なにをブツブツ言ってやがる！",
+    "translation_text": "뭘 중얼거리고 있는 거냐!",
+    "records": [
+      {
+        "offset": 7174502,
+        "header_offset": 7174498,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 20,
+        "text": "なにをブツブツ言ってやがる！",
+        "translation": "뭘 중얼거리고 있는 거냐!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0072",
+    "cluster_index": 11,
+    "run_index": 72,
+    "dialogue_state_token": null,
+    "record_count": 18,
+    "offsets": [
+      7174540,
+      7174564,
+      7174610,
+      7174652,
+      7174672,
+      7174706,
+      7174740,
+      7174756,
+      7174782,
+      7174822,
+      7174844,
+      7174874,
+      7174910,
+      7174928,
+      7174942,
+      7174978,
+      7175004,
+      7175030
+    ],
+    "source_text": "ちょうどいい。\nここで決着をつけてやる！\nニセモノがエラそうに\nニセモノ？\n何の話だ！？\n…気づいてないのね\n弱いくせに\nしつっこいところは、\nホンモノにそっくりだよな\nケイトもさ、\nこういう執念深い性格まで\nコピーするなよ\nええーい、\nうだうだ\n言ってるんじゃない！\n鋼の錬金術師よ！\n今度こそ、貴様の方を\nこっぱみじんにしてやるわっ！",
+    "translation_text": "마침 잘됐다.\n여기서 결판을 내 주마!\n가짜가 잘난 척하긴\n가짜?\n무슨 소리냐!?\n…눈치 못 챘구나\n약한 주제에\n끈질긴 점은\n진짜랑 똑같네\n케이트도 참,\n이런 집요한 성격까지\n베끼지 말라고\n에에잇,\n구시렁구시렁\n말하지 마라!\n강철의 연금술사여!\n이번에야말로 네놈을\n산산조각 내 주마!",
+    "records": [
+      {
+        "offset": 7174540,
+        "header_offset": 7174536,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 6,
+        "text": "ちょうどいい。",
+        "translation": "마침 잘됐다."
+      },
+      {
+        "offset": 7174564,
+        "header_offset": 7174560,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 6,
+        "text": "ここで決着をつけてやる！",
+        "translation": "여기서 결판을 내 주마!"
+      },
+      {
+        "offset": 7174610,
+        "header_offset": 7174606,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 18,
+        "text": "ニセモノがエラそうに",
+        "translation": "가짜가 잘난 척하긴"
+      },
+      {
+        "offset": 7174652,
+        "header_offset": 7174648,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 18,
+        "text": "ニセモノ？",
+        "translation": "가짜?"
+      },
+      {
+        "offset": 7174672,
+        "header_offset": 7174668,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 6,
+        "text": "何の話だ！？",
+        "translation": "무슨 소리냐!?"
+      },
+      {
+        "offset": 7174706,
+        "header_offset": 7174702,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 18,
+        "text": "…気づいてないのね",
+        "translation": "…눈치 못 챘구나"
+      },
+      {
+        "offset": 7174740,
+        "header_offset": 7174736,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 12,
+        "text": "弱いくせに",
+        "translation": "약한 주제에"
+      },
+      {
+        "offset": 7174756,
+        "header_offset": 7174752,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "しつっこいところは、",
+        "translation": "끈질긴 점은"
+      },
+      {
+        "offset": 7174782,
+        "header_offset": 7174778,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "ホンモノにそっくりだよな",
+        "translation": "진짜랑 똑같네"
+      },
+      {
+        "offset": 7174822,
+        "header_offset": 7174818,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 12,
+        "text": "ケイトもさ、",
+        "translation": "케이트도 참,"
+      },
+      {
+        "offset": 7174844,
+        "header_offset": 7174840,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 6,
+        "text": "こういう執念深い性格まで",
+        "translation": "이런 집요한 성격까지"
+      },
+      {
+        "offset": 7174874,
+        "header_offset": 7174870,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "コピーするなよ",
+        "translation": "베끼지 말라고"
+      },
+      {
+        "offset": 7174910,
+        "header_offset": 7174906,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 18,
+        "text": "ええーい、",
+        "translation": "에에잇,"
+      },
+      {
+        "offset": 7174928,
+        "header_offset": 7174924,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 4,
+        "text": "うだうだ",
+        "translation": "구시렁구시렁"
+      },
+      {
+        "offset": 7174942,
+        "header_offset": 7174938,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "言ってるんじゃない！",
+        "translation": "말하지 마라!"
+      },
+      {
+        "offset": 7174978,
+        "header_offset": 7174974,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 12,
+        "text": "鋼の錬金術師よ！",
+        "translation": "강철의 연금술사여!"
+      },
+      {
+        "offset": 7175004,
+        "header_offset": 7175000,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 6,
+        "text": "今度こそ、貴様の方を",
+        "translation": "이번에야말로 네놈을"
+      },
+      {
+        "offset": 7175030,
+        "header_offset": 7175026,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "こっぱみじんにしてやるわっ！",
+        "translation": "산산조각 내 주마!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0073",
+    "cluster_index": 11,
+    "run_index": 73,
+    "dialogue_state_token": "1bff:0D80",
+    "record_count": 1,
+    "offsets": [
+      7175274
+    ],
+    "source_text": "これでよしっと！",
+    "translation_text": "이걸로 됐다!",
+    "records": [
+      {
+        "offset": 7175274,
+        "header_offset": 7175270,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 212,
+        "text": "これでよしっと！",
+        "translation": "이걸로 됐다!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0074",
+    "cluster_index": 11,
+    "run_index": 74,
+    "dialogue_state_token": "2bff:0900",
+    "record_count": 1,
+    "offsets": [
+      7175344
+    ],
+    "source_text": "やっと身体が元に戻ったよ。",
+    "translation_text": "드디어 몸이 원래대로 돌아왔어.",
+    "records": [
+      {
+        "offset": 7175344,
+        "header_offset": 7175340,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 50,
+        "text": "やっと身体が元に戻ったよ。",
+        "translation": "드디어 몸이 원래대로 돌아왔어."
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0075",
+    "cluster_index": 11,
+    "run_index": 75,
+    "dialogue_state_token": null,
+    "record_count": 6,
+    "offsets": [
+      7175380,
+      7175432,
+      7175454,
+      7175486,
+      7175506,
+      7175524
+    ],
+    "source_text": "兄さん、ありがとう\n本当に喜ぶのは、\n先に取っておけよ\nアルの身体が、\n本当にもとに\n戻ったときのためにさ",
+    "translation_text": "형, 고마워\n진짜 기뻐하는 건\n나중으로 미뤄 둬\n알의 몸이\n정말 원래대로\n돌아왔을 때를 위해서 말이야",
+    "records": [
+      {
+        "offset": 7175380,
+        "header_offset": 7175376,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 6,
+        "text": "兄さん、ありがとう",
+        "translation": "형, 고마워"
+      },
+      {
+        "offset": 7175432,
+        "header_offset": 7175428,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 30,
+        "text": "本当に喜ぶのは、",
+        "translation": "진짜 기뻐하는 건"
+      },
+      {
+        "offset": 7175454,
+        "header_offset": 7175450,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "先に取っておけよ",
+        "translation": "나중으로 미뤄 둬"
+      },
+      {
+        "offset": 7175486,
+        "header_offset": 7175482,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 12,
+        "text": "アルの身体が、",
+        "translation": "알의 몸이"
+      },
+      {
+        "offset": 7175506,
+        "header_offset": 7175502,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 2,
+        "text": "本当にもとに",
+        "translation": "정말 원래대로"
+      },
+      {
+        "offset": 7175524,
+        "header_offset": 7175520,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "戻ったときのためにさ",
+        "translation": "돌아왔을 때를 위해서 말이야"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0076",
+    "cluster_index": 11,
+    "run_index": 76,
+    "dialogue_state_token": "1bff:0C80",
+    "record_count": 1,
+    "offsets": [
+      7175568
+    ],
+    "source_text": "…そうだね。",
+    "translation_text": "…그래.",
+    "records": [
+      {
+        "offset": 7175568,
+        "header_offset": 7175564,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 20,
+        "text": "…そうだね。",
+        "translation": "…그래."
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0077",
+    "cluster_index": 11,
+    "run_index": 77,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7175590,
+      7175706
+    ],
+    "source_text": "兄さん、行こっか\nわーーーーっ！",
+    "translation_text": "형, 가자\n와아아아아!",
+    "records": [
+      {
+        "offset": 7175590,
+        "header_offset": 7175586,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 6,
+        "text": "兄さん、行こっか",
+        "translation": "형, 가자"
+      },
+      {
+        "offset": 7175706,
+        "header_offset": 7175702,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 96,
+        "text": "わーーーーっ！",
+        "translation": "와아아아아!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0078",
+    "cluster_index": 11,
+    "run_index": 78,
+    "dialogue_state_token": "1bff:0D80",
+    "record_count": 1,
+    "offsets": [
+      7175910
+    ],
+    "source_text": "エリシアちゃん、",
+    "translation_text": "엘리시아,",
+    "records": [
+      {
+        "offset": 7175910,
+        "header_offset": 7175906,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 186,
+        "text": "エリシアちゃん、",
+        "translation": "엘리시아,"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0079",
+    "cluster_index": 11,
+    "run_index": 79,
+    "dialogue_state_token": null,
+    "record_count": 4,
+    "offsets": [
+      7175936,
+      7175960,
+      7176006,
+      7176028
+    ],
+    "source_text": "みーっけ！\n…見っかっちゃったぁ！\nお兄ちゃんたちも\nかくれんぼ？",
+    "translation_text": "찾았다!\n…들켜 버렸다!\n형들도\n숨바꼭질?",
+    "records": [
+      {
+        "offset": 7175936,
+        "header_offset": 7175932,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 6,
+        "text": "みーっけ！",
+        "translation": "찾았다!"
+      },
+      {
+        "offset": 7175960,
+        "header_offset": 7175956,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 10,
+        "text": "…見っかっちゃったぁ！",
+        "translation": "…들켜 버렸다!"
+      },
+      {
+        "offset": 7176006,
+        "header_offset": 7176002,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 20,
+        "text": "お兄ちゃんたちも",
+        "translation": "형들도"
+      },
+      {
+        "offset": 7176028,
+        "header_offset": 7176024,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 2,
+        "text": "かくれんぼ？",
+        "translation": "숨바꼭질?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0080",
+    "cluster_index": 11,
+    "run_index": 80,
+    "dialogue_state_token": "1bff:0200",
+    "record_count": 1,
+    "offsets": [
+      7176110
+    ],
+    "source_text": "やれやれ。",
+    "translation_text": "이런.",
+    "records": [
+      {
+        "offset": 7176110,
+        "header_offset": 7176106,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 66,
+        "text": "やれやれ。",
+        "translation": "이런."
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0081",
+    "cluster_index": 11,
+    "run_index": 81,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7176130,
+      7176156
+    ],
+    "source_text": "これでヒューズ中佐も\n安心して仕事ができるな…",
+    "translation_text": "이걸로 휴즈 중령도\n안심하고 일할 수 있겠네…",
+    "records": [
+      {
+        "offset": 7176130,
+        "header_offset": 7176126,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 6,
+        "text": "これでヒューズ中佐も",
+        "translation": "이걸로 휴즈 중령도"
+      },
+      {
+        "offset": 7176156,
+        "header_offset": 7176152,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "安心して仕事ができるな…",
+        "translation": "안심하고 일할 수 있겠네…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0082",
+    "cluster_index": 11,
+    "run_index": 82,
+    "dialogue_state_token": "1bff:0E00",
+    "record_count": 1,
+    "offsets": [
+      7176360
+    ],
+    "source_text": "猫ですね♪",
+    "translation_text": "고양이네요♪",
+    "records": [
+      {
+        "offset": 7176360,
+        "header_offset": 7176356,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 176,
+        "text": "猫ですね♪",
+        "translation": "고양이네요♪"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0083",
+    "cluster_index": 11,
+    "run_index": 83,
+    "dialogue_state_token": "1bff:0280",
+    "record_count": 1,
+    "offsets": [
+      7176390
+    ],
+    "source_text": "ああ、猫だな",
+    "translation_text": "그래, 고양이네",
+    "records": [
+      {
+        "offset": 7176390,
+        "header_offset": 7176386,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 16,
+        "text": "ああ、猫だな",
+        "translation": "그래, 고양이네"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0084",
+    "cluster_index": 11,
+    "run_index": 84,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7176420
+    ],
+    "source_text": "旅は道連れ＄",
+    "translation_text": "길동무가 생겼네＄",
+    "records": [
+      {
+        "offset": 7176420,
+        "header_offset": 7176416,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 14,
+        "text": "旅は道連れ＄",
+        "translation": "길동무가 생겼네＄"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0085",
+    "cluster_index": 11,
+    "run_index": 85,
+    "dialogue_state_token": "1bff:0E00",
+    "record_count": 1,
+    "offsets": [
+      7176644
+    ],
+    "source_text": "猫だよ～♪",
+    "translation_text": "고양이다～♪",
+    "records": [
+      {
+        "offset": 7176644,
+        "header_offset": 7176640,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 208,
+        "text": "猫だよ～♪",
+        "translation": "고양이다～♪"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0086",
+    "cluster_index": 11,
+    "run_index": 86,
+    "dialogue_state_token": "2bff:0800",
+    "record_count": 1,
+    "offsets": [
+      7176814
+    ],
+    "source_text": "　中央区画",
+    "translation_text": " 중앙 구역",
+    "records": [
+      {
+        "offset": 7176814,
+        "header_offset": 7176810,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 156,
+        "text": "　中央区画",
+        "translation": " 중앙 구역"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0087",
+    "cluster_index": 11,
+    "run_index": 87,
+    "dialogue_state_token": "1bff:0100",
+    "record_count": 1,
+    "offsets": [
+      7176932
+    ],
+    "source_text": "閉まってるぞ…",
+    "translation_text": "닫혀 있어…",
+    "records": [
+      {
+        "offset": 7176932,
+        "header_offset": 7176928,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 104,
+        "text": "閉まってるぞ…",
+        "translation": "닫혀 있어…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_11_run_0088",
+    "cluster_index": 11,
+    "run_index": 88,
+    "dialogue_state_token": null,
+    "record_count": 4,
+    "offsets": [
+      7177038,
+      7177154,
+      7177176,
+      7177290
+    ],
+    "source_text": "エリシアちゃん、どこかな？\nお兄ちゃんたち、\nエリシアちゃん見つかった？\nいないなぁ、エリシアちゃん",
+    "translation_text": "엘리시아, 어디 있을까?\n형들,\n엘리시아 찾았어?\n없네, 엘리시아",
+    "records": [
+      {
+        "offset": 7177038,
+        "header_offset": 7177034,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 88,
+        "text": "エリシアちゃん、どこかな？",
+        "translation": "엘리시아, 어디 있을까?"
+      },
+      {
+        "offset": 7177154,
+        "header_offset": 7177150,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 86,
+        "text": "お兄ちゃんたち、",
+        "translation": "형들,"
+      },
+      {
+        "offset": 7177176,
+        "header_offset": 7177172,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "エリシアちゃん見つかった？",
+        "translation": "엘리시아 찾았어?"
+      },
+      {
+        "offset": 7177290,
+        "header_offset": 7177286,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 84,
+        "text": "いないなぁ、エリシアちゃん",
+        "translation": "없네, 엘리시아"
+      }
+    ],
+    "notes": ""
+  }
+]

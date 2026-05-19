@@ -1,194 +1,651 @@
 [
   {
-    "item_id": "image:title_logo_wordmark",
+    "item_id": "image:field_alchemy_label_005323AC",
     "category_id": "image_review_units",
-    "group_id": "title_logo_wordmark",
-    "label": "title_logo_wordmark",
-    "status": "pending_review",
+    "group_id": "field_alchemy_label_005323AC",
+    "label": "필드/카드 라벨 錬成 이미지 블록",
+    "status": "candidate_found",
     "priority": "high",
-    "review_order": 1,
-    "review_goal": "타이틀 로고와 부제/워드마크가 텍스트 추출 밖의 이미지 자산인지 확인하고, 이후 교체 단위를 분리한다.",
-    "recommended_probe_method": "타이틀 화면 진입 스크린샷 확보 -> LZ77 후보 스캔 -> 4bpp 덤프 비교",
-    "future_workspace": "confirmed_data/image_inventory/workspaces/01_title_logo_wordmark",
-    "expected_text_kind": "메인 로고, 부제, 게임명 워드마크",
-    "notes": "메인 타이틀/로고 계열 텍스트는 현재 기준 추출 source 로 매핑되지 않는다.\n막연한 bucket 이 아니라 구체적인 검토 단위로 다룬다.",
+    "review_order": 8490,
+    "review_goal": "ss1 런타임 매칭으로 확인된 錬成 이미지 블록을 한글화 후보로 검토",
+    "recommended_probe_method": "mGBA savestate runtime match + English patch LZ77 diff / offset 0x005323AC",
+    "future_workspace": "confirmed_data/image_inventory/english_patch_diff",
+    "expected_text_kind": "field_card_label_wordmark",
+    "notes": "사용자 ss1 기준 runtime_tile_matches/no_entry8_ss1 갤러리 마지막 후보에서 보인 실제 ROM 이미지 블록. 일본판은 錬成, 영문판은 Item으로 바뀌어 있어 타일 이미지 교체 대상으로 확정한다. 캡처 화면 자체를 등록하지 않고 이처럼 매칭된 ROM 블록만 GUI에 노출한다.",
     "subunits": [
       {
-        "id": "main_title_logo",
-        "label": "메인 타이틀 로고",
-        "status": "pending_review",
-        "first_action": "타이틀 화면 대표 스크린샷과 대조할 메인 로고 후보를 찾는다."
-      },
-      {
-        "id": "subtitle_or_series_mark",
-        "label": "부제/시리즈 표기",
-        "status": "pending_review",
-        "first_action": "메인 로고와 별도 자산인지, 같은 시트 안의 일부인지 먼저 구분한다."
+        "id": "lz77_005323AC",
+        "label": "ROM offset 0x005323AC",
+        "first_action": "일본판/영문판/ss1 매칭 PNG를 비교하고 한국어 라벨 배치 검토"
       }
     ],
-    "source_preview_path": "",
-    "source_download_path": "",
+    "source_preview_path": "confirmed_data/image_inventory/runtime_tile_matches/no_entry8_ss1/matched_previews/lz77_0294_off_005323AC.png",
+    "source_download_path": "confirmed_data/image_inventory/runtime_tile_matches/no_entry8_ss1/matched_previews/lz77_0294_off_005323AC.png",
     "replacement_path": "",
     "comparison_notes": "",
-    "progress_status": "todo"
+    "candidate_gallery": [
+      {
+        "index": 1,
+        "offset": 5448620,
+        "source": "runtime_matched_block",
+        "png_path": "confirmed_data/image_inventory/runtime_tile_matches/no_entry8_ss1/matched_previews/lz77_0294_off_005323AC.png",
+        "preview_path": "confirmed_data/image_inventory/runtime_tile_matches/no_entry8_ss1/matched_previews/lz77_0294_off_005323AC.png",
+        "decompressed_size": 2048
+      },
+      {
+        "index": 2,
+        "offset": 5448620,
+        "source": "jp_original",
+        "png_path": "confirmed_data/image_inventory/english_patch_diff/jp_png/off_005323AC_size_000800.png",
+        "preview_path": "confirmed_data/image_inventory/english_patch_diff/jp_png/off_005323AC_size_000800.png",
+        "decompressed_size": 2048
+      },
+      {
+        "index": 3,
+        "offset": 5448620,
+        "source": "english_patch",
+        "png_path": "confirmed_data/image_inventory/english_patch_diff/en_png/off_005323AC_size_000800.png",
+        "preview_path": "confirmed_data/image_inventory/english_patch_diff/en_png/off_005323AC_size_000800.png",
+        "decompressed_size": 2048
+      }
+    ],
+    "progress_status": "todo",
+    "default_review_included": false
   },
   {
-    "item_id": "image:title_screen_static_menu_wordmarks",
+    "item_id": "image:english_battle_hud_small_font",
     "category_id": "image_review_units",
-    "group_id": "title_screen_static_menu_wordmarks",
-    "label": "title_screen_static_menu_wordmarks",
-    "status": "pending_review",
+    "group_id": "english_battle_hud_small_font",
+    "label": "영문판 전투 HUD 소형 글자 블록",
+    "status": "candidate_found",
     "priority": "high",
-    "review_order": 2,
-    "review_goal": "타이틀 화면의 새 게임/이어하기/통신 등 고정 워드마크가 이미지인지 확인한다.",
-    "recommended_probe_method": "타이틀 화면 캡처 -> 후보 타일 시트 덤프 -> 라벨별 분리 가능성 확인",
-    "future_workspace": "confirmed_data/image_inventory/workspaces/02_title_screen_static_menu_wordmarks",
-    "expected_text_kind": "타이틀 메뉴 라벨, 모드 선택 라벨",
-    "notes": "타이틀 화면의 고정 메뉴 라벨과 모드 워드마크는 이미지 기반일 가능성이 있다.\n현재 기준 추출 source 중 타이틀 화면 워드마크 아트를 직접 다루는 것은 없다.",
+    "review_order": 8500,
+    "review_goal": "영문판에서 가져온 전투 HUD 소형 글자 블록을 한글화 가능 후보로 유지",
+    "recommended_probe_method": "English patch LZ77 diff / offset 0x00534874",
+    "future_workspace": "confirmed_data/image_inventory/english_patch_diff",
+    "expected_text_kind": "battle_hud_small_font",
+    "notes": "기존에 영문판 블록으로 대체한 전투 HUD 작은 글자 영역. 공간이 매우 작아 영문판 유지가 안전하지만, 한글 축약 글꼴/타일 편집 가능성을 검토한다.",
     "subunits": [
       {
-        "id": "title_primary_menu_labels",
-        "label": "타이틀 기본 메뉴 라벨",
-        "status": "pending_review",
-        "first_action": "새 게임/이어하기 계열 고정 라벨 후보를 묶는다."
-      },
-      {
-        "id": "title_mode_wordmarks",
-        "label": "통신/부가 모드 워드마크",
-        "status": "pending_review",
-        "first_action": "기본 메뉴와 다른 시트인지 먼저 확인한다."
+        "id": "lz77_00534874",
+        "label": "ROM offset 0x00534874",
+        "first_action": "영문판/일본판 PNG를 비교하고 한글화 가능 영역 확인"
       }
     ],
-    "source_preview_path": "",
-    "source_download_path": "",
+    "source_preview_path": "confirmed_data/image_inventory/english_patch_diff/en_png/off_00534874_size_002000.png",
+    "source_download_path": "confirmed_data/image_inventory/english_patch_diff/en_png/off_00534874_size_002000.png",
     "replacement_path": "",
     "comparison_notes": "",
-    "progress_status": "todo"
+    "candidate_gallery": [
+      {
+        "index": 1,
+        "offset": 5458036,
+        "source": "jp_original",
+        "png_path": "confirmed_data/image_inventory/english_patch_diff/jp_png/off_00534874_size_002000.png",
+        "preview_path": "confirmed_data/image_inventory/english_patch_diff/jp_png/off_00534874_size_002000.png",
+        "decompressed_size": 8192
+      },
+      {
+        "index": 2,
+        "offset": 5458036,
+        "source": "english_patch",
+        "png_path": "confirmed_data/image_inventory/english_patch_diff/en_png/off_00534874_size_002000.png",
+        "preview_path": "confirmed_data/image_inventory/english_patch_diff/en_png/off_00534874_size_002000.png",
+        "decompressed_size": 8192
+      }
+    ],
+    "progress_status": "candidate_found",
+    "default_review_included": false
   },
   {
-    "item_id": "image:event_or_cutscene_text_cards",
+    "item_id": "image:field_label_0053257C",
     "category_id": "image_review_units",
-    "group_id": "event_or_cutscene_text_cards",
-    "label": "event_or_cutscene_text_cards",
-    "status": "pending_review",
+    "group_id": "field_label_0053257C",
+    "label": "필드/카드 라벨 アセやし 이미지 블록",
+    "status": "candidate_found",
     "priority": "high",
-    "review_order": 3,
-    "review_goal": "이벤트 카드/장면 카드/챕터 카드처럼 화면 전체에 뜨는 이미지 텍스트를 우선 분류한다.",
-    "recommended_probe_method": "대표 장면 스크린샷 수집 -> 카드성 오버레이 후보 LZ77 블록 탐색 -> 덤프 비교",
-    "future_workspace": "confirmed_data/image_inventory/workspaces/03_event_or_cutscene_text_cards",
-    "expected_text_kind": "장면 카드, 챕터 카드, 오버레이 캡션",
-    "notes": "스토리/이벤트 카드나 오버레이는 일반 이벤트 일러스트보다 우선순위가 높은 이미지 텍스트 후보이다.\n이미 비-이미지 텍스트로 확인된 대사 payload 와는 분리해서 본다.",
+    "review_order": 8491,
+    "review_goal": "ss2 런타임 매칭으로 확인된 필드/카드 라벨 이미지 한글화 후보 검토",
+    "recommended_probe_method": "mGBA savestate runtime match / offset 0x0053257C",
+    "future_workspace": "confirmed_data/image_inventory/runtime_tile_matches",
+    "expected_text_kind": "field_card_label_wordmark",
+    "notes": "사용자 ss2 기준 runtime_tile_matches/no_entry8_ss2 갤러리 마지막 후보에서 확인한 LZ77 이미지 블록. 텍스트가 폰트 문자열이 아니라 타일 이미지에 구워진 라벨로 보여, 캡처 화면이 아닌 ROM 블록 단위로 등록한다.",
     "subunits": [
       {
-        "id": "chapter_or_location_cards",
-        "label": "챕터/지역 카드",
-        "status": "pending_review",
-        "first_action": "고정형 카드 레이아웃이 있는지부터 구분한다."
-      },
-      {
-        "id": "dramatic_overlay_captions",
-        "label": "연출용 오버레이 자막",
-        "status": "pending_review",
-        "first_action": "카드형과 즉시 분리해 후속 교체 전략을 나눈다."
+        "id": "lz77_0053257C",
+        "label": "ROM offset 0x0053257C",
+        "first_action": "일본어 라벨의 실제 의미와 화면 배치를 확인한 뒤 한국어 교체 이미지 준비"
       }
     ],
-    "source_preview_path": "",
-    "source_download_path": "",
+    "source_preview_path": "confirmed_data/image_inventory/runtime_tile_matches/no_entry8_ss2/matched_previews/lz77_0295_off_0053257C.png",
+    "source_download_path": "confirmed_data/image_inventory/runtime_tile_matches/no_entry8_ss2/matched_previews/lz77_0295_off_0053257C.png",
     "replacement_path": "",
     "comparison_notes": "",
-    "progress_status": "todo"
+    "candidate_gallery": [
+      {
+        "index": 1,
+        "offset": 5449084,
+        "source": "lz77",
+        "png_path": "confirmed_data/image_inventory/runtime_tile_matches/no_entry8_ss2/matched_previews/lz77_0295_off_0053257C.png",
+        "preview_path": "confirmed_data/image_inventory/runtime_tile_matches/no_entry8_ss2/matched_previews/lz77_0295_off_0053257C.png",
+        "decompressed_size": ""
+      }
+    ],
+    "progress_status": "candidate_found",
+    "default_review_included": false
   },
   {
-    "item_id": "image:ui_panel_label_art",
+    "item_id": "image:battle_menu_wordmarks_003A206C",
     "category_id": "image_review_units",
-    "group_id": "ui_panel_label_art",
-    "label": "ui_panel_label_art",
-    "status": "pending_review",
+    "group_id": "battle_menu_wordmarks_003A206C",
+    "label": "전투 메뉴 워드마크 ALCHEMY/SKILL/ITEM/CARD/NETWORK 블록",
+    "status": "candidate_found",
     "priority": "medium",
-    "review_order": 6,
-    "review_goal": "패널 제목/탭/상태판처럼 이미지 라벨일 가능성이 높은 UI 자산을 먼저 묶는다.",
-    "recommended_probe_method": "메뉴/인벤토리/상태창 스크린샷 -> 패널 후보 시트 덤프 -> 텍스트 여부 확인",
-    "future_workspace": "confirmed_data/image_inventory/workspaces/06_ui_panel_label_art",
-    "expected_text_kind": "패널 제목, 탭 라벨, 상단 헤더",
-    "notes": "패널, 탭, 프레임형 UI 라벨 중 이미지에 글자가 구워졌을 수 있는 요소는 별도 단위로 검토한다.\n일반 추출 save/menu/system 문자열과는 분리해서 본다.",
+    "review_order": 8492,
+    "review_goal": "ss3 런타임 매칭으로 확인된 전투 메뉴 이미지 워드마크의 한글화 가능성 검토",
+    "recommended_probe_method": "mGBA savestate runtime match / RLE offset 0x003A206C",
+    "future_workspace": "confirmed_data/image_inventory/runtime_tile_matches",
+    "expected_text_kind": "battle_menu_wordmark",
+    "notes": "사용자 ss3 기준 실제 전투 화면에서 쓰이는 RLE 이미지 블록. 현재는 영문 워드마크라 일본어 누락은 아니지만, 한글화 대상 후보로 따로 식별해 둔다. 영문판 same-offset RLE diff가 있으므로 영문판 배치/축약을 우선 참고한다.",
     "subunits": [
       {
-        "id": "menu_tab_labels",
-        "label": "메뉴 탭 라벨",
-        "status": "pending_review",
-        "first_action": "탭이 텍스트 렌더링인지 이미지인지 먼저 판별한다."
+        "id": "rle_003A206C",
+        "label": "ROM offset 0x003A206C",
+        "first_action": "영문 워드마크를 유지할지 한국어 축약 타일로 바꿀지 결정"
+      }
+    ],
+    "source_preview_path": "confirmed_data/image_inventory/gui_display_previews/rle_0831_off_003A206C_display.png",
+    "source_download_path": "confirmed_data/image_inventory/runtime_tile_matches/no_entry8_ss3/matched_previews/rle_0831_off_003A206C.png",
+    "replacement_path": "",
+    "comparison_notes": "",
+    "candidate_gallery": [
+      {
+        "index": 2,
+        "offset": 3809388,
+        "source": "rle",
+        "png_path": "confirmed_data/image_inventory/runtime_tile_matches/no_entry8_ss3/matched_previews/rle_0831_off_003A206C.png",
+        "preview_path": "confirmed_data/image_inventory/runtime_tile_matches/no_entry8_ss3/matched_previews/rle_0831_off_003A206C.png",
+        "decompressed_size": ""
       },
       {
-        "id": "panel_header_wordmarks",
-        "label": "패널 헤더 워드마크",
-        "status": "pending_review",
-        "first_action": "저장/옵션/상태창 헤더가 있는지 확인한다. 특히 세이브 패널의 'セーブ / プレイ時間 / 錬成手帳' 같은 라벨이 이미지인지 우선 확인한다."
+        "index": "english_reference",
+        "offset": 3809388,
+        "source": "english_patch_same_offset_rle",
+        "png_path": "confirmed_data/image_inventory/english_patch_diff/rle_same_offset/en_png/off_003A206C_size_001800_8cols_4x.png",
+        "preview_path": "confirmed_data/image_inventory/english_patch_diff/rle_same_offset/en_png/off_003A206C_size_001800_8cols_4x.png",
+        "decompressed_size": 6144,
+        "jp_reference_path": "confirmed_data/image_inventory/english_patch_diff/rle_same_offset/jp_png/off_003A206C_size_001800_8cols_4x.png"
       }
     ],
-    "source_preview_path": "",
-    "source_download_path": "",
-    "replacement_path": "",
-    "comparison_notes": "",
-    "progress_status": "todo"
+    "progress_status": "candidate_found",
+    "default_review_included": false
   },
   {
-    "item_id": "image:ui_icon_badge_wordmarks",
+    "item_id": "image:field_status_label_00532764",
     "category_id": "image_review_units",
-    "group_id": "ui_icon_badge_wordmarks",
-    "label": "ui_icon_badge_wordmarks",
-    "status": "pending_review",
-    "priority": "low",
-    "review_order": 7,
-    "review_goal": "작은 아이콘/배지성 워드마크가 있다면 나중에 교체 난도가 높은 단위로 따로 뺀다.",
-    "recommended_probe_method": "대표 UI 캡처 -> 작은 4bpp 배지 후보 덤프 -> 문자인지 아이콘인지 구분",
-    "future_workspace": "confirmed_data/image_inventory/workspaces/07_ui_icon_badge_wordmarks",
-    "expected_text_kind": "작은 워드마크, 배지, 미니 라벨",
-    "notes": "아이콘/배지 크기의 워드마크는 큰 UI 패널과 따로 검토한다.\n교체 전략이 패널 아트와 다를 가능성이 커서 분리 유지가 유용하다.",
+    "group_id": "field_status_label_00532764",
+    "label": "필드/메뉴 라벨 ステータス 이미지 블록",
+    "status": "candidate_found",
+    "priority": "high",
+    "review_order": 8493,
+    "review_goal": "ss 기반 후보 주변 탐색으로 발견한 ステータス 이미지 라벨 한글화 후보 검토",
+    "recommended_probe_method": "neighbor scan around ss runtime matches / offset 0x00532764",
+    "future_workspace": "confirmed_data/image_inventory/runtime_tile_matches",
+    "expected_text_kind": "field_menu_label_wordmark",
+    "notes": "0x005323AC/0x0053257C 주변 LZ77 블록을 함께 펼쳐 확인한 추가 후보. 사용자 저장상태에서 하나가 걸리면 같은 근처 라벨 묶음도 함께 검토한다는 정책의 첫 적용 사례다.",
     "subunits": [
       {
-        "id": "mini_badge_labels",
-        "label": "미니 배지 라벨",
-        "status": "pending_review",
-        "first_action": "텍스트 기반인지 장식 아이콘인지 먼저 판별한다."
+        "id": "lz77_00532764",
+        "label": "ROM offset 0x00532764",
+        "first_action": "ステータス 라벨을 한국어 메뉴 라벨로 교체 가능한지 폭 확인"
       }
     ],
-    "source_preview_path": "",
-    "source_download_path": "",
+    "source_preview_path": "confirmed_data/image_inventory/runtime_tile_matches/curated_neighborhoods/lz77_0296_off_00532764.png",
+    "source_download_path": "confirmed_data/image_inventory/runtime_tile_matches/curated_neighborhoods/lz77_0296_off_00532764.png",
     "replacement_path": "",
     "comparison_notes": "",
-    "progress_status": "todo"
+    "candidate_gallery": [
+      {
+        "index": 3,
+        "offset": 5449572,
+        "source": "lz77_neighbor_scan",
+        "png_path": "confirmed_data/image_inventory/runtime_tile_matches/curated_neighborhoods/lz77_0296_off_00532764.png",
+        "preview_path": "confirmed_data/image_inventory/runtime_tile_matches/curated_neighborhoods/lz77_0296_off_00532764.png",
+        "decompressed_size": ""
+      }
+    ],
+    "progress_status": "candidate_found",
+    "default_review_included": false
   },
   {
-    "item_id": "image:battle_result_or_reward_banners",
+    "item_id": "image:field_save_label_0053293C",
     "category_id": "image_review_units",
-    "group_id": "battle_result_or_reward_banners",
-    "label": "battle_result_or_reward_banners",
-    "status": "pending_review",
-    "priority": "medium",
-    "review_order": 8,
-    "review_goal": "전투 결과/획득/보상 배너처럼 짧고 강한 워드마크 자산을 분리한다.",
-    "recommended_probe_method": "전투 결과 화면 캡처 -> 배너 후보 LZ77/4bpp 덤프 -> 고정 워드마크 여부 확인",
-    "future_workspace": "confirmed_data/image_inventory/workspaces/08_battle_result_or_reward_banners",
-    "expected_text_kind": "승리/획득/보상 배너",
-    "notes": "결과/보상 배너는 전투나 전투 후 연출에서 이미지 기반 텍스트 후보가 될 수 있다.\n이미 추출 텍스트인 대사와 용어 설명 source 와는 분리해서 본다.",
+    "group_id": "field_save_label_0053293C",
+    "label": "필드/메뉴 라벨 セーブ 이미지 블록",
+    "status": "candidate_found",
+    "priority": "high",
+    "review_order": 8494,
+    "review_goal": "ss 기반 후보 주변 탐색으로 발견한 セーブ 이미지 라벨 한글화 후보 검토",
+    "recommended_probe_method": "neighbor scan around ss runtime matches / offset 0x0053293C",
+    "future_workspace": "confirmed_data/image_inventory/runtime_tile_matches",
+    "expected_text_kind": "field_menu_label_wordmark",
+    "notes": "0x005323AC/0x0053257C 주변 LZ77 블록을 함께 펼쳐 확인한 추가 후보. GUI에는 대량 시트가 아니라 이처럼 실제 텍스트가 보이는 개별 ROM 블록만 등록한다.",
     "subunits": [
       {
-        "id": "battle_result_banners",
-        "label": "전투 결과 배너",
-        "status": "pending_review",
-        "first_action": "결과 화면의 큰 워드마크를 우선 찾는다."
+        "id": "lz77_0053293C",
+        "label": "ROM offset 0x0053293C",
+        "first_action": "セーブ 라벨을 한국어 메뉴 라벨로 교체 가능한지 폭 확인"
+      }
+    ],
+    "source_preview_path": "confirmed_data/image_inventory/runtime_tile_matches/curated_neighborhoods/lz77_0297_off_0053293C.png",
+    "source_download_path": "confirmed_data/image_inventory/runtime_tile_matches/curated_neighborhoods/lz77_0297_off_0053293C.png",
+    "replacement_path": "",
+    "comparison_notes": "",
+    "candidate_gallery": [
+      {
+        "index": 4,
+        "offset": 5450044,
+        "source": "lz77_neighbor_scan",
+        "png_path": "confirmed_data/image_inventory/runtime_tile_matches/curated_neighborhoods/lz77_0297_off_0053293C.png",
+        "preview_path": "confirmed_data/image_inventory/runtime_tile_matches/curated_neighborhoods/lz77_0297_off_0053293C.png",
+        "decompressed_size": ""
+      }
+    ],
+    "progress_status": "candidate_found",
+    "default_review_included": false
+  },
+  {
+    "item_id": "image:rle_screen_order:no_entry8_latest_ss1:frame_007084:bg0:003AF23C",
+    "category_id": "image_review_units",
+    "group_id": "rle_screen_order_no_entry8_latest_ss1_frame_007084_bg0_003AF23C",
+    "label": "화면순 RLE 편집 - 연성/사용/버리기/돌아가기 팝업",
+    "status": "candidate_found",
+    "priority": "high",
+    "review_order": 8552,
+    "review_goal": "실제 화면 배치로 재조립된 팝업 본문을 한국어 이미지로 교체",
+    "recommended_probe_method": "runtime BG tilemap screen-order rebuild + tile_map-aware RLE apply",
+    "future_workspace": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss1/frame_007084_bg0_rle_003AF23C",
+    "expected_text_kind": "rle_screen_order_editable_image",
+    "notes": "scene=no_entry8_latest_ss1, frame=frame_007084, bg=0, matched_tiles=72. 원본 다운로드는 화면순으로 재조립된 편집용 PNG다. 업로드 시 tile_map.json을 사용해 원래 RLE 타일 순서로 되돌려 압축하므로, 일반 분석용 스크린샷보다 실제 교체 가능성이 높다. 단, 같은 원본 타일이 여러 화면 위치에 반복 사용된 경우 각 위치를 서로 다르게 바꾸는 것은 아직 제한된다.",
+    "replacement_target": true,
+    "replacement_target_reason": "",
+    "subunits": [
+      {
+        "id": "rle_screen_order_003AF23C",
+        "label": "ROM offset 0x003AF23C",
+        "first_action": "다운로드 PNG를 수정해 업로드하고 리뷰 ROM에서 실제 화면 확인"
+      }
+    ],
+    "source_preview_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss1/frame_007084_bg0_rle_003AF23C/context_crop_4x.png",
+    "source_download_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss1/frame_007084_bg0_rle_003AF23C/matched_tiles_screen_order_4x.png",
+    "tile_map_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss1/frame_007084_bg0_rle_003AF23C/tile_map.json",
+    "replacement_path": "",
+    "comparison_notes": "",
+    "candidate_gallery": [
+      {
+        "index": "context",
+        "offset": 3863100,
+        "source": "runtime_screen_order_context",
+        "png_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss1/frame_007084_bg0_rle_003AF23C/context_crop_4x.png",
+        "preview_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss1/frame_007084_bg0_rle_003AF23C/context_crop_4x.png",
+        "decompressed_size": 72
       },
       {
-        "id": "reward_get_banners",
-        "label": "획득/보상 배너",
-        "status": "pending_review",
-        "first_action": "결과 배너와 다른 시트를 쓰는지 먼저 구분한다."
+        "index": "editable",
+        "offset": 3863100,
+        "source": "runtime_screen_order_editable_tiles",
+        "png_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss1/frame_007084_bg0_rle_003AF23C/matched_tiles_screen_order_4x.png",
+        "preview_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss1/frame_007084_bg0_rle_003AF23C/matched_tiles_screen_order_4x.png",
+        "decompressed_size": 72
       }
     ],
-    "source_preview_path": "",
-    "source_download_path": "",
+    "progress_status": "candidate_found",
+    "default_review_included": false
+  },
+  {
+    "item_id": "image:rle_screen_order:no_entry8_latest_ss1:frame_007084:bg1:003A206C",
+    "category_id": "image_review_units",
+    "group_id": "rle_screen_order_no_entry8_latest_ss1_frame_007084_bg1_003A206C",
+    "label": "화면순 RLE 편집 - 전투 카드/ALCHEMY 패널",
+    "status": "candidate_found",
+    "priority": "high",
+    "review_order": 8553,
+    "review_goal": "전투 카드/ALCHEMY 패널의 이미지 워드마크와 UI 문구를 화면순으로 검토",
+    "recommended_probe_method": "runtime BG tilemap screen-order rebuild + tile_map-aware RLE apply",
+    "future_workspace": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss1/frame_007084_bg1_rle_003A206C",
+    "expected_text_kind": "rle_screen_order_editable_image",
+    "notes": "scene=no_entry8_latest_ss1, frame=frame_007084, bg=1, matched_tiles=245. 원본 다운로드는 화면순으로 재조립된 편집용 PNG다. 업로드 시 tile_map.json을 사용해 원래 RLE 타일 순서로 되돌려 압축하므로, 일반 분석용 스크린샷보다 실제 교체 가능성이 높다. 단, 같은 원본 타일이 여러 화면 위치에 반복 사용된 경우 각 위치를 서로 다르게 바꾸는 것은 아직 제한된다.",
+    "replacement_target": true,
+    "replacement_target_reason": "",
+    "subunits": [
+      {
+        "id": "rle_screen_order_003A206C",
+        "label": "ROM offset 0x003A206C",
+        "first_action": "다운로드 PNG를 수정해 업로드하고 리뷰 ROM에서 실제 화면 확인"
+      }
+    ],
+    "source_preview_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss1/frame_007084_bg1_rle_003A206C/context_crop_4x.png",
+    "source_download_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss1/frame_007084_bg1_rle_003A206C/matched_tiles_screen_order_4x.png",
+    "tile_map_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss1/frame_007084_bg1_rle_003A206C/tile_map.json",
     "replacement_path": "",
     "comparison_notes": "",
-    "progress_status": "todo"
+    "candidate_gallery": [
+      {
+        "index": "context",
+        "offset": 3809388,
+        "source": "runtime_screen_order_context",
+        "png_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss1/frame_007084_bg1_rle_003A206C/context_crop_4x.png",
+        "preview_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss1/frame_007084_bg1_rle_003A206C/context_crop_4x.png",
+        "decompressed_size": 245
+      },
+      {
+        "index": "editable",
+        "offset": 3809388,
+        "source": "runtime_screen_order_editable_tiles",
+        "png_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss1/frame_007084_bg1_rle_003A206C/matched_tiles_screen_order_4x.png",
+        "preview_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss1/frame_007084_bg1_rle_003A206C/matched_tiles_screen_order_4x.png",
+        "decompressed_size": 245
+      }
+    ],
+    "progress_status": "candidate_found",
+    "default_review_included": false
+  },
+  {
+    "item_id": "image:rle_screen_order:timeline_with_rle:frame_001200:bg0:007E0000",
+    "category_id": "image_review_units",
+    "group_id": "rle_screen_order_timeline_with_rle_frame_001200_bg0_007E0000",
+    "label": "화면순 RLE 편집 - 타이틀 로고/저작권",
+    "status": "candidate_found",
+    "priority": "high",
+    "review_order": 8579,
+    "review_goal": "타이틀 로고와 저작권 영역을 실제 배치에 가까운 PNG로 편집",
+    "recommended_probe_method": "runtime BG tilemap screen-order rebuild + tile_map-aware RLE apply",
+    "future_workspace": "confirmed_data/image_inventory/runtime_rle_screen_order/timeline_with_rle/frame_001200_bg0_rle_007E0000",
+    "expected_text_kind": "rle_screen_order_editable_image",
+    "notes": "scene=timeline_with_rle, frame=frame_001200, bg=0, matched_tiles=429. 원본 다운로드는 화면순으로 재조립된 편집용 PNG다. 업로드 시 tile_map.json을 사용해 원래 RLE 타일 순서로 되돌려 압축하므로, 일반 분석용 스크린샷보다 실제 교체 가능성이 높다. 단, 같은 원본 타일이 여러 화면 위치에 반복 사용된 경우 각 위치를 서로 다르게 바꾸는 것은 아직 제한된다.",
+    "replacement_target": true,
+    "replacement_target_reason": "",
+    "subunits": [
+      {
+        "id": "rle_screen_order_007E0000",
+        "label": "ROM offset 0x007E0000",
+        "first_action": "다운로드 PNG를 수정해 업로드하고 리뷰 ROM에서 실제 화면 확인"
+      }
+    ],
+    "source_preview_path": "confirmed_data/image_inventory/runtime_rle_screen_order/timeline_with_rle/frame_001200_bg0_rle_007E0000/context_crop_4x.png",
+    "source_download_path": "confirmed_data/image_inventory/runtime_rle_screen_order/timeline_with_rle/frame_001200_bg0_rle_007E0000/matched_tiles_screen_order_4x.png",
+    "tile_map_path": "confirmed_data/image_inventory/runtime_rle_screen_order/timeline_with_rle/frame_001200_bg0_rle_007E0000/tile_map.json",
+    "replacement_path": "",
+    "comparison_notes": "",
+    "candidate_gallery": [
+      {
+        "index": "context",
+        "offset": 8257536,
+        "source": "runtime_screen_order_context",
+        "png_path": "confirmed_data/image_inventory/runtime_rle_screen_order/timeline_with_rle/frame_001200_bg0_rle_007E0000/context_crop_4x.png",
+        "preview_path": "confirmed_data/image_inventory/runtime_rle_screen_order/timeline_with_rle/frame_001200_bg0_rle_007E0000/context_crop_4x.png",
+        "decompressed_size": 429
+      },
+      {
+        "index": "editable",
+        "offset": 8257536,
+        "source": "runtime_screen_order_editable_tiles",
+        "png_path": "confirmed_data/image_inventory/runtime_rle_screen_order/timeline_with_rle/frame_001200_bg0_rle_007E0000/matched_tiles_screen_order_4x.png",
+        "preview_path": "confirmed_data/image_inventory/runtime_rle_screen_order/timeline_with_rle/frame_001200_bg0_rle_007E0000/matched_tiles_screen_order_4x.png",
+        "decompressed_size": 429
+      }
+    ],
+    "progress_status": "candidate_found",
+    "default_review_included": false
+  },
+  {
+    "item_id": "image:rle:007E0000",
+    "category_id": "image_review_units",
+    "group_id": "rle_007E0000",
+    "label": "타이틀 화면 - 로고/저작권 (고급)",
+    "status": "candidate_found",
+    "priority": "high",
+    "review_order": 9010,
+    "review_goal": "RLE 압축 이미지/타일의 한글화 필요 여부 검토 및 교체본 등록",
+    "recommended_probe_method": "GBA RLE decompress + pymgba runtime tile match",
+    "future_workspace": "confirmed_data/image_inventory/runtime_tile_matches/timeline_with_rle",
+    "expected_text_kind": "rle_runtime_image",
+    "notes": "runtime frame=frame_001200, charblock=0, score=1223.0, shared_tiles=429, run=50. 원본 다운로드 PNG를 수정하고 같은 항목에 업로드하면 자동 RLE 적용 대상이 된다. 고급 항목. 로고 전체는 화면 배치 재조립본을 더 만든 뒤 편집하는 편이 안전하다.",
+    "subunits": [
+      {
+        "id": "rle_007E0000",
+        "label": "ROM offset 0x007E0000",
+        "first_action": "텍스트 포함 여부 확인 후 교체 PNG 준비"
+      }
+    ],
+    "source_preview_path": "confirmed_data/image_inventory/edit_packs/title_screen/90_logo_copyright__007E0000__advanced_edit_4x.png",
+    "source_download_path": "confirmed_data/image_inventory/edit_packs/title_screen/90_logo_copyright__007E0000__advanced_edit_4x.png",
+    "tile_columns": 8,
+    "replacement_path": "",
+    "replacement_target": true,
+    "replacement_target_reason": "",
+    "comparison_notes": "",
+    "candidate_gallery": [
+      {
+        "index": "editable_source",
+        "offset": 8257536,
+        "source": "editable_8cols_4x",
+        "png_path": "confirmed_data/image_inventory/edit_packs/title_screen/90_logo_copyright__007E0000__advanced_edit_4x.png",
+        "preview_path": "confirmed_data/image_inventory/edit_packs/title_screen/90_logo_copyright__007E0000__advanced_edit_4x.png",
+        "decompressed_size": 16384
+      },
+      {
+        "index": 1069,
+        "offset": 8257536,
+        "source": "rle_runtime_match",
+        "png_path": "confirmed_data/image_inventory/runtime_tile_matches/timeline_with_rle/matched_previews/rle_1069_off_007E0000.png",
+        "preview_path": "confirmed_data/image_inventory/runtime_tile_matches/timeline_with_rle/matched_previews/rle_1069_off_007E0000.png",
+        "decompressed_size": 16384,
+        "score": 1223.0,
+        "shared_tiles": 429
+      }
+    ],
+    "progress_status": "candidate_found",
+    "default_review_included": false
+  },
+  {
+    "item_id": "image:rle:007E9158",
+    "category_id": "image_review_units",
+    "group_id": "rle_007E9158",
+    "label": "타이틀 화면 - PUSH START",
+    "status": "candidate_found",
+    "priority": "high",
+    "review_order": 9011,
+    "review_goal": "RLE 압축 이미지/타일의 한글화 필요 여부 검토 및 교체본 등록",
+    "recommended_probe_method": "GBA RLE decompress + pymgba runtime tile match",
+    "future_workspace": "confirmed_data/image_inventory/runtime_tile_matches/timeline_with_rle",
+    "expected_text_kind": "rle_runtime_image",
+    "notes": "runtime frame=frame_001200, charblock=4, score=138.3333, shared_tiles=20, run=10. 원본 다운로드 PNG를 수정하고 같은 항목에 업로드하면 자동 RLE 적용 대상이 된다. 원본 다운로드 PNG를 수정한 뒤 이 항목에 업로드하면 된다.",
+    "subunits": [
+      {
+        "id": "rle_007E9158",
+        "label": "ROM offset 0x007E9158",
+        "first_action": "텍스트 포함 여부 확인 후 교체 PNG 준비"
+      }
+    ],
+    "source_preview_path": "confirmed_data/image_inventory/edit_packs/title_screen/01_push_start__007E9158__edit_4x.png",
+    "source_download_path": "confirmed_data/image_inventory/edit_packs/title_screen/01_push_start__007E9158__edit_4x.png",
+    "tile_columns": 8,
+    "replacement_path": "",
+    "replacement_target": true,
+    "replacement_target_reason": "",
+    "comparison_notes": "",
+    "candidate_gallery": [
+      {
+        "index": "editable_source",
+        "offset": 8294744,
+        "source": "editable_8cols_4x",
+        "png_path": "confirmed_data/image_inventory/edit_packs/title_screen/01_push_start__007E9158__edit_4x.png",
+        "preview_path": "confirmed_data/image_inventory/edit_packs/title_screen/01_push_start__007E9158__edit_4x.png",
+        "decompressed_size": 2048
+      },
+      {
+        "index": 1077,
+        "offset": 8294744,
+        "source": "rle_runtime_match",
+        "png_path": "confirmed_data/image_inventory/runtime_tile_matches/timeline_with_rle/matched_previews/rle_1077_off_007E9158.png",
+        "preview_path": "confirmed_data/image_inventory/runtime_tile_matches/timeline_with_rle/matched_previews/rle_1077_off_007E9158.png",
+        "decompressed_size": 2048,
+        "score": 138.3333,
+        "shared_tiles": 20
+      }
+    ],
+    "progress_status": "candidate_found",
+    "default_review_included": false
+  },
+  {
+    "item_id": "image:rle:007E9404",
+    "category_id": "image_review_units",
+    "group_id": "rle_007E9404",
+    "label": "타이틀 화면 - 처음부터",
+    "status": "candidate_found",
+    "priority": "high",
+    "review_order": 9012,
+    "review_goal": "RLE 압축 이미지/타일의 한글화 필요 여부 검토 및 교체본 등록",
+    "recommended_probe_method": "GBA RLE decompress + pymgba runtime tile match",
+    "future_workspace": "confirmed_data/image_inventory/runtime_tile_matches/timeline_with_rle",
+    "expected_text_kind": "rle_runtime_image",
+    "notes": "runtime frame=frame_001200, charblock=4, score=115.6667, shared_tiles=16, run=8. 원본 다운로드 PNG를 수정하고 같은 항목에 업로드하면 자동 RLE 적용 대상이 된다. 권장 문구: 처음부터. 원본 다운로드 PNG를 수정한 뒤 이 항목에 업로드하면 된다.",
+    "subunits": [
+      {
+        "id": "rle_007E9404",
+        "label": "ROM offset 0x007E9404",
+        "first_action": "텍스트 포함 여부 확인 후 교체 PNG 준비"
+      }
+    ],
+    "source_preview_path": "confirmed_data/image_inventory/edit_packs/title_screen/02_new_game__007E9404__edit_4x.png",
+    "source_download_path": "confirmed_data/image_inventory/edit_packs/title_screen/02_new_game__007E9404__edit_4x.png",
+    "tile_columns": 8,
+    "replacement_path": "",
+    "replacement_target": true,
+    "replacement_target_reason": "",
+    "comparison_notes": "",
+    "candidate_gallery": [
+      {
+        "index": "editable_source",
+        "offset": 8295428,
+        "source": "editable_8cols_4x",
+        "png_path": "confirmed_data/image_inventory/edit_packs/title_screen/02_new_game__007E9404__edit_4x.png",
+        "preview_path": "confirmed_data/image_inventory/edit_packs/title_screen/02_new_game__007E9404__edit_4x.png",
+        "decompressed_size": 2048
+      },
+      {
+        "index": 1078,
+        "offset": 8295428,
+        "source": "rle_runtime_match",
+        "png_path": "confirmed_data/image_inventory/runtime_tile_matches/timeline_with_rle/matched_previews/rle_1078_off_007E9404.png",
+        "preview_path": "confirmed_data/image_inventory/runtime_tile_matches/timeline_with_rle/matched_previews/rle_1078_off_007E9404.png",
+        "decompressed_size": 2048,
+        "score": 115.6667,
+        "shared_tiles": 16
+      }
+    ],
+    "progress_status": "todo",
+    "default_review_included": false
+  },
+  {
+    "item_id": "image:rle:007E95E0",
+    "category_id": "image_review_units",
+    "group_id": "rle_007E95E0",
+    "label": "타이틀 화면 - 이어하기",
+    "status": "candidate_found",
+    "priority": "high",
+    "review_order": 9013,
+    "review_goal": "RLE 압축 이미지/타일의 한글화 필요 여부 검토 및 교체본 등록",
+    "recommended_probe_method": "GBA RLE decompress + pymgba runtime tile match",
+    "future_workspace": "confirmed_data/image_inventory/runtime_tile_matches/timeline_with_rle",
+    "expected_text_kind": "rle_runtime_image",
+    "notes": "runtime frame=frame_001200, charblock=4, score=115.6667, shared_tiles=16, run=8. 원본 다운로드 PNG를 수정하고 같은 항목에 업로드하면 자동 RLE 적용 대상이 된다. 권장 문구: 이어하기. 원본 다운로드 PNG를 수정한 뒤 이 항목에 업로드하면 된다.",
+    "subunits": [
+      {
+        "id": "rle_007E95E0",
+        "label": "ROM offset 0x007E95E0",
+        "first_action": "텍스트 포함 여부 확인 후 교체 PNG 준비"
+      }
+    ],
+    "source_preview_path": "confirmed_data/image_inventory/edit_packs/title_screen/03_continue__007E95E0__edit_4x.png",
+    "source_download_path": "confirmed_data/image_inventory/edit_packs/title_screen/03_continue__007E95E0__edit_4x.png",
+    "tile_columns": 8,
+    "replacement_path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_007E95E0/00ef6e99-06dd-4b1d-be4e-28178dcc2dd4.png",
+    "replacement_target": true,
+    "replacement_target_reason": "",
+    "comparison_notes": "직접 raw RLE 타일시트 교체 시 런타임 tilemap 순서와 어긋나 타이틀 화면이 깨진 사례. 화면 배치 기반 패치 구현 전까지 자동 적용 금지.",
+    "candidate_gallery": [
+      {
+        "index": "editable_source",
+        "offset": 8295904,
+        "source": "editable_8cols_4x",
+        "png_path": "confirmed_data/image_inventory/edit_packs/title_screen/03_continue__007E95E0__edit_4x.png",
+        "preview_path": "confirmed_data/image_inventory/edit_packs/title_screen/03_continue__007E95E0__edit_4x.png",
+        "decompressed_size": 2048
+      },
+      {
+        "index": 1079,
+        "offset": 8295904,
+        "source": "rle_runtime_match",
+        "png_path": "confirmed_data/image_inventory/runtime_tile_matches/timeline_with_rle/matched_previews/rle_1079_off_007E95E0.png",
+        "preview_path": "confirmed_data/image_inventory/runtime_tile_matches/timeline_with_rle/matched_previews/rle_1079_off_007E95E0.png",
+        "decompressed_size": 2048,
+        "score": 115.6667,
+        "shared_tiles": 16
+      }
+    ],
+    "progress_status": "edited",
+    "default_review_included": false
+  },
+  {
+    "item_id": "image:rle:007E97A4",
+    "category_id": "image_review_units",
+    "group_id": "rle_007E97A4",
+    "label": "타이틀 화면 - 통신",
+    "status": "candidate_found",
+    "priority": "high",
+    "review_order": 9014,
+    "review_goal": "RLE 압축 이미지/타일의 한글화 필요 여부 검토 및 교체본 등록",
+    "recommended_probe_method": "GBA RLE decompress + pymgba runtime tile match",
+    "future_workspace": "confirmed_data/image_inventory/runtime_tile_matches/timeline_with_rle",
+    "expected_text_kind": "rle_runtime_image",
+    "notes": "runtime frame=frame_001200, charblock=4, score=70.3333, shared_tiles=8, run=4. 원본 다운로드 PNG를 수정하고 같은 항목에 업로드하면 자동 RLE 적용 대상이 된다. 권장 문구: 통신. 원본 다운로드 PNG를 수정한 뒤 이 항목에 업로드하면 된다.",
+    "subunits": [
+      {
+        "id": "rle_007E97A4",
+        "label": "ROM offset 0x007E97A4",
+        "first_action": "텍스트 포함 여부 확인 후 교체 PNG 준비"
+      }
+    ],
+    "source_preview_path": "confirmed_data/image_inventory/edit_packs/title_screen/04_link__007E97A4__edit_4x.png",
+    "source_download_path": "confirmed_data/image_inventory/edit_packs/title_screen/04_link__007E97A4__edit_4x.png",
+    "tile_columns": 8,
+    "replacement_path": "",
+    "replacement_target": true,
+    "replacement_target_reason": "",
+    "comparison_notes": "",
+    "candidate_gallery": [
+      {
+        "index": "editable_source",
+        "offset": 8296356,
+        "source": "editable_8cols_4x",
+        "png_path": "confirmed_data/image_inventory/edit_packs/title_screen/04_link__007E97A4__edit_4x.png",
+        "preview_path": "confirmed_data/image_inventory/edit_packs/title_screen/04_link__007E97A4__edit_4x.png",
+        "decompressed_size": 2048
+      },
+      {
+        "index": 1080,
+        "offset": 8296356,
+        "source": "rle_runtime_match",
+        "png_path": "confirmed_data/image_inventory/runtime_tile_matches/timeline_with_rle/matched_previews/rle_1080_off_007E97A4.png",
+        "preview_path": "confirmed_data/image_inventory/runtime_tile_matches/timeline_with_rle/matched_previews/rle_1080_off_007E97A4.png",
+        "decompressed_size": 2048,
+        "score": 70.3333,
+        "shared_tiles": 8
+      }
+    ],
+    "progress_status": "candidate_found",
+    "default_review_included": false
   }
 ]

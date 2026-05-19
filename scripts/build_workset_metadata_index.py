@@ -37,14 +37,14 @@ def build_entry(layout_index: dict, workset_id: str, path: str, record_count: in
     else:
         layout_strategy = "별도 manifest / 특수 절차 기준"
 
-    if workset_id == "translation_workset_startup_font_showcase":
-        translation_status = "폰트/삽입 검증용 준비 완료"
-        qa_required = ["고정 슬롯 byte 길이 확인", "첫 화면 4줄 시각 확인"]
+    if workset_id == "translation_workset_opening_intro":
+        translation_status = "바로 번역 시작 가능"
+        qa_required = ["고정 슬롯 byte 길이 확인", "오프닝 첫 카드 4줄 시각 확인"]
         image_overlap_risk = "낮음"
         line_break_policy = "수동 줄바꿈 금지"
         must_preserve = ["append_terminator=false", "고정 byte_length", "뒤 제어코드 위치"]
         recommended_order = 0
-        notes = ["모든 레코드는 startup_intro_texts 에서 왔다."]
+        notes = ["모든 레코드는 startup_intro_texts 에서 왔고, 게임 시작 직후 고정 카드 4줄이다."]
     elif workset_id == "translation_workset_core_ui":
         translation_status = "바로 번역 시작 가능"
         qa_required = ["메뉴/세이브/지역명 대표 화면 확인", "혼합 family 적용 확인"]
@@ -58,24 +58,36 @@ def build_entry(layout_index: dict, workset_id: str, path: str, record_count: in
         ]
     elif workset_id == "translation_workset_gameplay_terms":
         translation_status = "바로 번역 시작 가능"
-        qa_required = ["용어/설명문 길이 과팽창 방지", "0x0B / 패딩 보존 확인"]
+        qa_required = ["expansion_mode별 길이 판단", "0x0B separator 보존 및 이름 필드 padding 자동 복원 확인", "0x0B 앞줄 여백의 의미 글자 활용 여부", "2줄 설명창의 윗줄 우선 배치"]
         image_overlap_risk = "낮음"
         line_break_policy = "추가 줄바꿈 지양"
-        must_preserve = ["0x0B separator", "전각 공백 패딩", "짧고 명확한 설명문"]
+        must_preserve = ["0x0B separator", "byte 한계 안에서 명확한 설명문", "수동 공백 패딩 금지"]
         recommended_order = 2
         notes = [
-            "레코드 구조는 대부분 객관적으로 닫혔다.",
-            "다만 runtime box family 가 미확정인 곳이 있어 설명문은 계속 짧게 유지하는 편이 안전하다.",
+            "아이템/전투/능력/재료/Entry12 텍스트를 전량 포함한 정식 용어 세트다.",
+            "다만 runtime box family 가 미확정인 곳이 있어 설명문은 expansion audit 의 여유 byte 안에서 자연스럽게 유지한다.",
+            "0x0B 앞 이름 필드에 남는 폭이 있으면 공백으로 버리지 말고 조사/목적어/동사 조각 같은 실제 글자로 활용한다. 2줄 설명창은 윗줄을 먼저 채우고 남은 짧은 의미를 아랫줄로 넘긴다. 최종 padding 은 정규화/빌드 도구가 복원한다.",
         ]
-    elif workset_id == "translation_workset_registry_d_dialogue":
-        translation_status = "번역 시작 가능, 페이지 QA 후속 필요"
-        qa_required = ["기존 개행 보존", "장문 run page-turn 확인", "화자 state token 참고"]
+    elif workset_id == "translation_workset_credits":
+        translation_status = "바로 번역 시작 가능"
+        qa_required = ["전각 공백 패딩 유지", "크레딧 화면 줄 정렬 확인"]
         image_overlap_risk = "낮음"
-        line_break_policy = "기존 개행만 보존, 새 개행은 보수적으로"
-        must_preserve = ["FC-delimited 구조", "adjacent control stream", "dialogue_state sidecar 참고"]
+        line_break_policy = "기존 패딩/정렬 유지"
+        must_preserve = ["전각 공백 패딩", "크레딧 줄 길이 보수적 유지"]
         recommended_order = 3
         notes = [
+            "크레딧은 일반 텍스트 record 로 추출되어 있으며, 이미지 자산이 아니다.",
+        ]
+    elif workset_id == "translation_workset_registry_d_dialogue":
+        translation_status = "번역 시작 가능, 확장 패킹 적용"
+        qa_required = ["기존 개행 보존", "장문 run page-turn 확인", "화자 state token 참고", "확장 패킹 후 화면 잘림 확인"]
+        image_overlap_risk = "낮음"
+        line_break_policy = "원문 개행 보존 우선, 잘림 발생 시 줄바꿈/문장 분할로 조정"
+        must_preserve = ["FC-delimited 구조", "adjacent control stream", "dialogue_state sidecar 참고", "Registry D packed relocation"]
+        recommended_order = 4
+        notes = [
             "FC stop-byte 기준의 record 경계는 확정됐다.",
+            "현재 삽입기는 Registry D entry 를 ROM 끝으로 재패킹하고 pointer-length table 을 갱신하므로 원문 byte 슬롯보다 긴 번역도 적용할 수 있다.",
             "다만 장문 run 의 실제 page-turn 동작은 시각 QA 로 한 번 더 확인해야 한다.",
         ]
     elif workset_id == "translation_workset_intro_full_test":
@@ -131,9 +143,9 @@ def build() -> dict:
 
     workset_specs = [
         (
-            "translation_workset_startup_font_showcase",
-            WORKSETS_DIR / "translation_workset_startup_font_showcase.json",
-            "폰트/삽입 검증용 시작 화면 4줄",
+            "translation_workset_opening_intro",
+            WORKSETS_DIR / "translation_workset_opening_intro.json",
+            "게임 시작 직후 오프닝 고정 카드 4줄",
         ),
         (
             "translation_workset_core_ui",
@@ -143,7 +155,12 @@ def build() -> dict:
         (
             "translation_workset_gameplay_terms",
             WORKSETS_DIR / "translation_workset_gameplay_terms.json",
-            "아이템/전투/능력/재료/설명 계열 용어 세트",
+            "아이템/전투/능력/재료/설명/Entry12 계열 전체 용어 세트",
+        ),
+        (
+            "translation_workset_credits",
+            WORKSETS_DIR / "translation_workset_credits.json",
+            "엔딩 크레딧/스태프 표기 세트",
         ),
         (
             "translation_workset_registry_d_dialogue",
@@ -203,8 +220,8 @@ def build() -> dict:
         },
         "entries": entries,
         "reading_order": [
-            "1. translation_workset_startup_font_showcase 로 폰트/삽입 경로를 확인한다.",
-            "2. translation_workset_core_ui 와 gameplay_terms 로 실번역을 시작한다.",
+            "1. translation_workset_opening_intro 로 오프닝 첫 카드와 고정 슬롯 규칙을 확인한다.",
+            "2. translation_workset_core_ui 와 gameplay_terms, credits 로 실번역을 시작한다.",
             "3. Registry D dialogue 와 entry8 cluster 는 대사 sidecar 와 runtime 주의사항을 함께 본다.",
         ],
     }

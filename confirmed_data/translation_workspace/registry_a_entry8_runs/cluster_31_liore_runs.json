@@ -1,0 +1,166 @@
+[
+  {
+    "run_id": "entry8_cluster_31_run_0000",
+    "cluster_index": 31,
+    "run_index": 0,
+    "dialogue_state_token": null,
+    "record_count": 15,
+    "offsets": [
+      7355796,
+      7355976,
+      7356008,
+      7356044,
+      7356074,
+      7356110,
+      7356136,
+      7356180,
+      7356212,
+      7356234,
+      7356282,
+      7356558,
+      7356574,
+      7356602,
+      7356632
+    ],
+    "source_text": "　　リゼンブール村\n人は何かの犠牲無しに、\n何も得ることはできない\n何かを得るためには、\n同等の代価が必要となる\nそれが錬金術における\n等価交換の原則だ…\nその頃ぼくらはそれが世界の\n真実だと、\n信じていた………\n東方辺境の街　　リオール\n…ワード…\n……リックよ…\n…エルリックよ…\nエドワード・エルリックよ…",
+    "translation_text": "리젠블 마을\n사람은 무언가의 희생 없이는,\n아무것도 얻을 수 없다\n무언가를 얻기 위해서는,\n동등한 대가가 필요하다\n그것이 연금술에서 말하는\n등가교환의 원칙이다…\n그 무렵 우리는 그것이 세상의\n진실이라고,\n믿고 있었다…\n동방 변방의 도시 리올\n…워드…\n…릭이여…\n…엘릭이여…\n에드워드 엘릭이여…",
+    "records": [
+      {
+        "offset": 7355796,
+        "header_offset": 7355792,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 1436,
+        "text": "　　リゼンブール村",
+        "translation": "리젠블 마을"
+      },
+      {
+        "offset": 7355976,
+        "header_offset": 7355972,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 158,
+        "text": "人は何かの犠牲無しに、",
+        "translation": "사람은 무언가의 희생 없이는,"
+      },
+      {
+        "offset": 7356008,
+        "header_offset": 7356004,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 6,
+        "text": "何も得ることはできない",
+        "translation": "아무것도 얻을 수 없다"
+      },
+      {
+        "offset": 7356044,
+        "header_offset": 7356040,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 10,
+        "text": "何かを得るためには、",
+        "translation": "무언가를 얻기 위해서는,"
+      },
+      {
+        "offset": 7356074,
+        "header_offset": 7356070,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 6,
+        "text": "同等の代価が必要となる",
+        "translation": "동등한 대가가 필요하다"
+      },
+      {
+        "offset": 7356110,
+        "header_offset": 7356106,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 10,
+        "text": "それが錬金術における",
+        "translation": "그것이 연금술에서 말하는"
+      },
+      {
+        "offset": 7356136,
+        "header_offset": 7356132,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "等価交換の原則だ…",
+        "translation": "등가교환의 원칙이다…"
+      },
+      {
+        "offset": 7356180,
+        "header_offset": 7356176,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 22,
+        "text": "その頃ぼくらはそれが世界の",
+        "translation": "그 무렵 우리는 그것이 세상의"
+      },
+      {
+        "offset": 7356212,
+        "header_offset": 7356208,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 2,
+        "text": "真実だと、",
+        "translation": "진실이라고,"
+      },
+      {
+        "offset": 7356234,
+        "header_offset": 7356230,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 8,
+        "text": "信じていた………",
+        "translation": "믿고 있었다…"
+      },
+      {
+        "offset": 7356282,
+        "header_offset": 7356278,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 28,
+        "text": "東方辺境の街　　リオール",
+        "translation": "동방 변방의 도시 리올"
+      },
+      {
+        "offset": 7356558,
+        "header_offset": 7356554,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 248,
+        "text": "…ワード…",
+        "translation": "…워드…"
+      },
+      {
+        "offset": 7356574,
+        "header_offset": 7356570,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "……リックよ…",
+        "translation": "…릭이여…"
+      },
+      {
+        "offset": 7356602,
+        "header_offset": 7356598,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 10,
+        "text": "…エルリックよ…",
+        "translation": "…엘릭이여…"
+      },
+      {
+        "offset": 7356632,
+        "header_offset": 7356628,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 10,
+        "text": "エドワード・エルリックよ…",
+        "translation": "에드워드 엘릭이여…"
+      }
+    ],
+    "notes": ""
+  }
+]

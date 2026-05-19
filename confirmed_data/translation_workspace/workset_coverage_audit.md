@@ -19,8 +19,8 @@
 - source_group: `system_messages`
 - 기대 workset: `translation_workset_core_ui`
 - 기대 상태: `full_expected`
-- 추출 수: `4`
-- 편입 수: `4`
+- 추출 수: `10`
+- 편입 수: `10`
 - 누락 수: `0`
 
 ### `save_menu_prefixed_texts`
@@ -41,13 +41,22 @@
 - 편입 수: `10`
 - 누락 수: `0`
 
+### `registry_a_map_labels`
+
+- source_group: `registry_a_map_labels`
+- 기대 workset: `translation_workset_core_ui`
+- 기대 상태: `full_expected`
+- 추출 수: `48`
+- 편입 수: `48`
+- 누락 수: `0`
+
 ### `ui_skill_texts`
 
 - source_group: `ui_skill_texts`
 - 기대 workset: `translation_workset_core_ui`
 - 기대 상태: `full_expected`
-- 추출 수: `24`
-- 편입 수: `24`
+- 추출 수: `25`
+- 편입 수: `25`
 - 누락 수: `0`
 
 ### `item_texts`
@@ -55,8 +64,8 @@
 - source_group: `item_texts`
 - 기대 workset: `translation_workset_gameplay_terms`
 - 기대 상태: `full_expected`
-- 추출 수: `47`
-- 편입 수: `47`
+- 추출 수: `49`
+- 편입 수: `49`
 - 누락 수: `0`
 
 ### `material_texts`
@@ -64,8 +73,8 @@
 - source_group: `material_texts`
 - 기대 workset: `translation_workset_gameplay_terms`
 - 기대 상태: `full_expected`
-- 추출 수: `43`
-- 편입 수: `43`
+- 추출 수: `44`
+- 편입 수: `44`
 - 누락 수: `0`
 
 ### `battle_texts`
@@ -82,8 +91,8 @@
 - source_group: `ability_texts`
 - 기대 workset: `translation_workset_gameplay_terms`
 - 기대 상태: `full_expected`
-- 추출 수: `409`
-- 편입 수: `409`
+- 추출 수: `412`
+- 편입 수: `412`
 - 누락 수: `0`
 
 ### `registry_a_entry12_texts`

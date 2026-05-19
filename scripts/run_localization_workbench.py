@@ -66,14 +66,21 @@ class WorkbenchStore:
         self.progress = load_json(PROGRESS_PATH)
         self.image_replacements = load_json(IMAGE_REPLACEMENTS_PATH)
 
+    def reload_sidecars(self) -> None:
+        self.speakers = load_json(SPEAKERS_PATH)
+        self.speaker_registry = load_json(SPEAKER_REGISTRY_PATH)
+        self.progress = load_json(PROGRESS_PATH)
+        self.image_replacements = load_json(IMAGE_REPLACEMENTS_PATH)
+
     def bundle(self) -> dict[str, Any]:
+        self.reload_sidecars()
         dataset = json.loads(json.dumps(self.dataset, ensure_ascii=False))
         image_map = {item["item_id"]: item for item in self.image_replacements}
         for item in dataset["items"]:
             if item["category_id"] == "image_review_units":
                 sidecar = image_map.get(item["item_id"])
                 if sidecar:
-                    for field in ("source_preview_path", "source_download_path", "replacement_path", "comparison_notes", "notes", "progress_status", "status"):
+                    for field in ("source_preview_path", "source_download_path", "replacement_path", "comparison_notes", "notes", "progress_status", "status", "candidate_gallery"):
                         if field in sidecar:
                             item[field] = sidecar[field]
         return {
@@ -90,10 +97,19 @@ class WorkbenchStore:
         for item in items:
             if item["item_id"] == item_id:
                 previous_translation = item.get("translation", "")
+                source_group = item.get("source_group")
                 if "translation" in updates and isinstance(updates["translation"], str):
-                    updates["translation"] = normalize_translation_text(updates["translation"])
+                    updates["translation"] = normalize_translation_text(
+                        updates["translation"],
+                        source_group=source_group,
+                        reference_text=item.get("text"),
+                    )
                 if "agent_draft" in updates and isinstance(updates["agent_draft"], str):
-                    updates["agent_draft"] = normalize_translation_text(updates["agent_draft"])
+                    updates["agent_draft"] = normalize_translation_text(
+                        updates["agent_draft"],
+                        source_group=source_group,
+                        reference_text=item.get("text"),
+                    )
                 current_agent_draft = updates.get("agent_draft", item.get("agent_draft", ""))
                 for field in (
                     "translation",
@@ -166,7 +182,7 @@ class WorkbenchStore:
     def save_image_item(self, item_id: str, updates: dict[str, Any]) -> dict[str, Any]:
         for item in self.image_replacements:
             if item["item_id"] == item_id:
-                for field in ("source_preview_path", "source_download_path", "replacement_path", "comparison_notes", "notes", "progress_status", "status"):
+                for field in ("source_preview_path", "source_download_path", "replacement_path", "comparison_notes", "notes", "progress_status", "status", "candidate_gallery"):
                     if field in updates:
                         item[field] = updates[field]
                 write_json(IMAGE_REPLACEMENTS_PATH, self.image_replacements)
@@ -205,7 +221,38 @@ class WorkbenchStore:
                 dataset_item["progress_status"] = "edited"
                 break
         write_json(DATASET_PATH, self.dataset)
+        apply_result = self.apply_image_replacements(item_id)
+        item["last_apply_report"] = apply_result.get("report_path", "")
+        item["last_apply_summary"] = apply_result.get("summary", {})
+        write_json(IMAGE_REPLACEMENTS_PATH, self.image_replacements)
         return item
+
+    def apply_image_replacements(self, item_id: str | None = None) -> dict[str, Any]:
+        report_path = WORKBENCH_DIR / "image_apply_report.json"
+        command = [
+            sys.executable,
+            "scripts/apply_image_replacements.py",
+            "--report",
+            str(report_path),
+        ]
+        if item_id:
+            command.extend(["--item-id", item_id])
+        completed = subprocess.run(
+            command,
+            cwd=ROOT,
+            text=True,
+            capture_output=True,
+            check=False,
+        )
+        summary = load_json(report_path) if report_path.exists() else {}
+        return {
+            "ok": completed.returncode == 0,
+            "report_path": str(report_path.relative_to(ROOT)),
+            "summary": summary,
+            "stdout": completed.stdout,
+            "stderr": completed.stderr,
+            "returncode": completed.returncode,
+        }
 
     def sync_sources(self) -> None:
         subprocess.run(
@@ -228,11 +275,13 @@ class WorkbenchStore:
             check=True,
         )
         self.progress["last_built_rom"] = "patched_roms/current_review/hnr_localization_review.gba"
+        image_apply = self.apply_image_replacements()
         write_json(PROGRESS_PATH, self.progress)
         return {
             "ok": True,
             "rom_path": self.progress["last_built_rom"],
             "stdout": completed.stdout,
+            "image_apply": image_apply,
         }
 
     def import_translation_results(self, filename: str, content_base64: str) -> dict[str, Any]:

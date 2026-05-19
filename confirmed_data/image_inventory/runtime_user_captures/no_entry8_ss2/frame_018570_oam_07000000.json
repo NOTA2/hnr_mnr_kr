@@ -1,0 +1,1282 @@
+[
+  {
+    "index": 0,
+    "x": 133,
+    "y": 55,
+    "tile": 512,
+    "palette": 12,
+    "attr0": 4919,
+    "attr1": 42629,
+    "attr2": 50688
+  },
+  {
+    "index": 1,
+    "x": 89,
+    "y": 101,
+    "tile": 516,
+    "palette": 12,
+    "attr0": 4197,
+    "attr1": 32857,
+    "attr2": 50692
+  },
+  {
+    "index": 2,
+    "x": 13,
+    "y": 55,
+    "tile": 520,
+    "palette": 12,
+    "attr0": 4919,
+    "attr1": 43021,
+    "attr2": 50696
+  },
+  {
+    "index": 3,
+    "x": 73,
+    "y": 25,
+    "tile": 524,
+    "palette": 12,
+    "attr0": 4889,
+    "attr1": 43593,
+    "attr2": 50700
+  },
+  {
+    "index": 4,
+    "x": 165,
+    "y": 109,
+    "tile": 646,
+    "palette": 12,
+    "attr0": 36973,
+    "attr1": 165,
+    "attr2": 50822
+  },
+  {
+    "index": 5,
+    "x": 149,
+    "y": 109,
+    "tile": 644,
+    "palette": 12,
+    "attr0": 4205,
+    "attr1": 16533,
+    "attr2": 50820
+  },
+  {
+    "index": 6,
+    "x": 117,
+    "y": 109,
+    "tile": 640,
+    "palette": 12,
+    "attr0": 20589,
+    "attr1": 32885,
+    "attr2": 50816
+  },
+  {
+    "index": 7,
+    "x": 93,
+    "y": 70,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 36934,
+    "attr1": 32861,
+    "attr2": 2048
+  },
+  {
+    "index": 8,
+    "x": 109,
+    "y": 70,
+    "tile": 2,
+    "palette": 0,
+    "attr0": 36934,
+    "attr1": 16493,
+    "attr2": 2050
+  },
+  {
+    "index": 9,
+    "x": 114,
+    "y": 43,
+    "tile": 4,
+    "palette": 1,
+    "attr0": 4139,
+    "attr1": 32882,
+    "attr2": 6148
+  },
+  {
+    "index": 10,
+    "x": 114,
+    "y": 75,
+    "tile": 132,
+    "palette": 1,
+    "attr0": 20555,
+    "attr1": 32882,
+    "attr2": 6276
+  },
+  {
+    "index": 11,
+    "x": 124,
+    "y": 34,
+    "tile": 12,
+    "palette": 8,
+    "attr0": 36898,
+    "attr1": 32892,
+    "attr2": 35852
+  },
+  {
+    "index": 12,
+    "x": 140,
+    "y": 34,
+    "tile": 14,
+    "palette": 8,
+    "attr0": 36898,
+    "attr1": 16524,
+    "attr2": 35854
+  },
+  {
+    "index": 13,
+    "x": 124,
+    "y": 66,
+    "tile": 140,
+    "palette": 8,
+    "attr0": 20546,
+    "attr1": 124,
+    "attr2": 35980
+  },
+  {
+    "index": 14,
+    "x": 140,
+    "y": 66,
+    "tile": 142,
+    "palette": 8,
+    "attr0": 4162,
+    "attr1": 140,
+    "attr2": 35982
+  },
+  {
+    "index": 15,
+    "x": 92,
+    "y": 34,
+    "tile": 16,
+    "palette": 8,
+    "attr0": 36898,
+    "attr1": 32860,
+    "attr2": 34832
+  },
+  {
+    "index": 16,
+    "x": 108,
+    "y": 34,
+    "tile": 18,
+    "palette": 8,
+    "attr0": 36898,
+    "attr1": 16492,
+    "attr2": 34834
+  },
+  {
+    "index": 17,
+    "x": 92,
+    "y": 66,
+    "tile": 144,
+    "palette": 8,
+    "attr0": 20546,
+    "attr1": 92,
+    "attr2": 34960
+  },
+  {
+    "index": 18,
+    "x": 108,
+    "y": 66,
+    "tile": 146,
+    "palette": 8,
+    "attr0": 4162,
+    "attr1": 108,
+    "attr2": 34962
+  },
+  {
+    "index": 19,
+    "x": 240,
+    "y": 160,
+    "tile": 18,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 34834
+  },
+  {
+    "index": 20,
+    "x": 240,
+    "y": 160,
+    "tile": 144,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 34960
+  },
+  {
+    "index": 21,
+    "x": 240,
+    "y": 160,
+    "tile": 146,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 34962
+  },
+  {
+    "index": 22,
+    "x": 240,
+    "y": 160,
+    "tile": 144,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 34960
+  },
+  {
+    "index": 23,
+    "x": 240,
+    "y": 160,
+    "tile": 146,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 34962
+  },
+  {
+    "index": 24,
+    "x": 240,
+    "y": 160,
+    "tile": 146,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 34962
+  },
+  {
+    "index": 25,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 2048
+  },
+  {
+    "index": 26,
+    "x": 240,
+    "y": 160,
+    "tile": 2,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 2050
+  },
+  {
+    "index": 27,
+    "x": 240,
+    "y": 160,
+    "tile": 16,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 34832
+  },
+  {
+    "index": 28,
+    "x": 240,
+    "y": 160,
+    "tile": 18,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 34834
+  },
+  {
+    "index": 29,
+    "x": 240,
+    "y": 160,
+    "tile": 144,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 34960
+  },
+  {
+    "index": 30,
+    "x": 240,
+    "y": 160,
+    "tile": 146,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 34962
+  },
+  {
+    "index": 31,
+    "x": 240,
+    "y": 160,
+    "tile": 12,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 35852
+  },
+  {
+    "index": 32,
+    "x": 240,
+    "y": 160,
+    "tile": 14,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 35854
+  },
+  {
+    "index": 33,
+    "x": 240,
+    "y": 160,
+    "tile": 140,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 35980
+  },
+  {
+    "index": 34,
+    "x": 240,
+    "y": 160,
+    "tile": 142,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 35982
+  },
+  {
+    "index": 35,
+    "x": 240,
+    "y": 160,
+    "tile": 324,
+    "palette": 10,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 43332
+  },
+  {
+    "index": 36,
+    "x": 240,
+    "y": 160,
+    "tile": 326,
+    "palette": 10,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 43334
+  },
+  {
+    "index": 37,
+    "x": 240,
+    "y": 160,
+    "tile": 142,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 35982
+  },
+  {
+    "index": 38,
+    "x": 240,
+    "y": 160,
+    "tile": 324,
+    "palette": 10,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 43332
+  },
+  {
+    "index": 39,
+    "x": 240,
+    "y": 160,
+    "tile": 326,
+    "palette": 10,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 43334
+  },
+  {
+    "index": 40,
+    "x": 240,
+    "y": 160,
+    "tile": 144,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 34960
+  },
+  {
+    "index": 41,
+    "x": 240,
+    "y": 160,
+    "tile": 146,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 34962
+  },
+  {
+    "index": 42,
+    "x": 240,
+    "y": 160,
+    "tile": 12,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 35852
+  },
+  {
+    "index": 43,
+    "x": 240,
+    "y": 160,
+    "tile": 14,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 35854
+  },
+  {
+    "index": 44,
+    "x": 240,
+    "y": 160,
+    "tile": 140,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 35980
+  },
+  {
+    "index": 45,
+    "x": 240,
+    "y": 160,
+    "tile": 142,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 35982
+  },
+  {
+    "index": 46,
+    "x": 240,
+    "y": 160,
+    "tile": 324,
+    "palette": 10,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 43332
+  },
+  {
+    "index": 47,
+    "x": 240,
+    "y": 160,
+    "tile": 326,
+    "palette": 10,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 43334
+  },
+  {
+    "index": 48,
+    "x": 240,
+    "y": 160,
+    "tile": 142,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 35982
+  },
+  {
+    "index": 49,
+    "x": 240,
+    "y": 160,
+    "tile": 324,
+    "palette": 10,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 43332
+  },
+  {
+    "index": 50,
+    "x": 240,
+    "y": 160,
+    "tile": 326,
+    "palette": 10,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 43334
+  },
+  {
+    "index": 51,
+    "x": 240,
+    "y": 160,
+    "tile": 146,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 34962
+  },
+  {
+    "index": 52,
+    "x": 240,
+    "y": 160,
+    "tile": 18,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 34834
+  },
+  {
+    "index": 53,
+    "x": 240,
+    "y": 160,
+    "tile": 144,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 34960
+  },
+  {
+    "index": 54,
+    "x": 240,
+    "y": 160,
+    "tile": 146,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 34962
+  },
+  {
+    "index": 55,
+    "x": 240,
+    "y": 160,
+    "tile": 132,
+    "palette": 1,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 6276
+  },
+  {
+    "index": 56,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 2048
+  },
+  {
+    "index": 57,
+    "x": 240,
+    "y": 160,
+    "tile": 2,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 2050
+  },
+  {
+    "index": 58,
+    "x": 240,
+    "y": 160,
+    "tile": 12,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 35852
+  },
+  {
+    "index": 59,
+    "x": 240,
+    "y": 160,
+    "tile": 14,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 35854
+  },
+  {
+    "index": 60,
+    "x": 240,
+    "y": 160,
+    "tile": 140,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 35980
+  },
+  {
+    "index": 61,
+    "x": 240,
+    "y": 160,
+    "tile": 142,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 35982
+  },
+  {
+    "index": 62,
+    "x": 240,
+    "y": 160,
+    "tile": 16,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 34832
+  },
+  {
+    "index": 63,
+    "x": 240,
+    "y": 160,
+    "tile": 18,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 34834
+  },
+  {
+    "index": 64,
+    "x": 240,
+    "y": 160,
+    "tile": 144,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 34960
+  },
+  {
+    "index": 65,
+    "x": 240,
+    "y": 160,
+    "tile": 146,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 34962
+  },
+  {
+    "index": 66,
+    "x": 240,
+    "y": 160,
+    "tile": 18,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 34834
+  },
+  {
+    "index": 67,
+    "x": 240,
+    "y": 160,
+    "tile": 144,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 34960
+  },
+  {
+    "index": 68,
+    "x": 240,
+    "y": 160,
+    "tile": 146,
+    "palette": 8,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 34962
+  },
+  {
+    "index": 69,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 70,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 71,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 72,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 73,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 74,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 75,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 76,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 77,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 78,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 79,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 80,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 81,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 82,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 83,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 84,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 85,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 86,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 87,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 88,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 89,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 90,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 91,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 92,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 93,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 94,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 95,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 96,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 97,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 98,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 99,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 100,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 101,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 102,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 103,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 104,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 105,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 106,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 107,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 108,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 109,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 110,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 111,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 112,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 113,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 114,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 115,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 116,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 117,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 118,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 119,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 120,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 121,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 122,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 123,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 124,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 125,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 126,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  },
+  {
+    "index": 127,
+    "x": 240,
+    "y": 160,
+    "tile": 0,
+    "palette": 0,
+    "attr0": 160,
+    "attr1": 240,
+    "attr2": 0
+  }
+]

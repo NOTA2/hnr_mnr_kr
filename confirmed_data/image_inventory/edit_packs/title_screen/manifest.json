@@ -1,0 +1,72 @@
+[
+  {
+    "item_id": "image:rle:007E9158",
+    "offset": 8294744,
+    "label": "PUSH START",
+    "role": "title_menu_push_start",
+    "source": "rle_007E9158_rle_8cols_4x.png",
+    "editable": "01_push_start__007E9158__edit_4x.png",
+    "suggested_korean": "PRESS START는 영어 유지도 가능. 한글화 시 '시작' 또는 '눌러 시작'.",
+    "editable_path": "confirmed_data/image_inventory/edit_packs/title_screen/01_push_start__007E9158__edit_4x.png",
+    "source_path": "confirmed_data/image_inventory/runtime_rle_patch_previews/single_rle_layouts/rle_007E9158_rle_8cols_4x.png",
+    "scale": 4,
+    "columns": 8,
+    "upload_note": "이 PNG를 수정해 같은 GUI 항목에 업로드하면 자동 RLE 적용 대상이 된다."
+  },
+  {
+    "item_id": "image:rle:007E9404",
+    "offset": 8295428,
+    "label": "はじめから",
+    "role": "title_menu_new_game",
+    "source": "rle_007E9404_rle_8cols_4x.png",
+    "editable": "02_new_game__007E9404__edit_4x.png",
+    "suggested_korean": "처음부터",
+    "editable_path": "confirmed_data/image_inventory/edit_packs/title_screen/02_new_game__007E9404__edit_4x.png",
+    "source_path": "confirmed_data/image_inventory/runtime_rle_patch_previews/single_rle_layouts/rle_007E9404_rle_8cols_4x.png",
+    "scale": 4,
+    "columns": 8,
+    "upload_note": "이 PNG를 수정해 같은 GUI 항목에 업로드하면 자동 RLE 적용 대상이 된다."
+  },
+  {
+    "item_id": "image:rle:007E95E0",
+    "offset": 8295904,
+    "label": "つづきから",
+    "role": "title_menu_continue",
+    "source": "rle_007E95E0_rle_8cols_4x.png",
+    "editable": "03_continue__007E95E0__edit_4x.png",
+    "suggested_korean": "이어하기",
+    "editable_path": "confirmed_data/image_inventory/edit_packs/title_screen/03_continue__007E95E0__edit_4x.png",
+    "source_path": "confirmed_data/image_inventory/runtime_rle_patch_previews/single_rle_layouts/rle_007E95E0_rle_8cols_4x.png",
+    "scale": 4,
+    "columns": 8,
+    "upload_note": "이 PNG를 수정해 같은 GUI 항목에 업로드하면 자동 RLE 적용 대상이 된다."
+  },
+  {
+    "item_id": "image:rle:007E97A4",
+    "offset": 8296356,
+    "label": "通信",
+    "role": "title_menu_link",
+    "source": "rle_007E97A4_rle_8cols_4x.png",
+    "editable": "04_link__007E97A4__edit_4x.png",
+    "suggested_korean": "통신",
+    "editable_path": "confirmed_data/image_inventory/edit_packs/title_screen/04_link__007E97A4__edit_4x.png",
+    "source_path": "confirmed_data/image_inventory/runtime_rle_patch_previews/single_rle_layouts/rle_007E97A4_rle_8cols_4x.png",
+    "scale": 4,
+    "columns": 8,
+    "upload_note": "이 PNG를 수정해 같은 GUI 항목에 업로드하면 자동 RLE 적용 대상이 된다."
+  },
+  {
+    "item_id": "image:rle:007E0000",
+    "offset": 8257536,
+    "label": "타이틀 로고/저작권",
+    "role": "title_logo_copyright_advanced",
+    "source": "rle_007E0000_rle_8cols_4x.png",
+    "editable": "90_logo_copyright__007E0000__advanced_edit_4x.png",
+    "suggested_korean": "고급 항목. 로고 전체는 화면 배치 재조립 후 편집하는 편이 안전.",
+    "editable_path": "confirmed_data/image_inventory/edit_packs/title_screen/90_logo_copyright__007E0000__advanced_edit_4x.png",
+    "source_path": "confirmed_data/image_inventory/runtime_rle_patch_previews/single_rle_layouts/rle_007E0000_rle_8cols_4x.png",
+    "scale": 4,
+    "columns": 8,
+    "upload_note": "이 PNG를 수정해 같은 GUI 항목에 업로드하면 자동 RLE 적용 대상이 된다."
+  }
+]

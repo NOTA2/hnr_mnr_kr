@@ -1,0 +1,3120 @@
+[
+  {
+    "run_id": "entry8_cluster_46_run_0000",
+    "cluster_index": 46,
+    "run_index": 0,
+    "dialogue_state_token": "27ff:F003",
+    "record_count": 1,
+    "offsets": [
+      7547960
+    ],
+    "source_text": "大佐、どうしたんですか？",
+    "translation_text": "대령,입니까 확인 필요",
+    "records": [
+      {
+        "offset": 7547960,
+        "header_offset": 7547956,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 5346,
+        "text": "大佐、どうしたんですか？",
+        "translation": "대령,입니까 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0001",
+    "cluster_index": 46,
+    "run_index": 1,
+    "dialogue_state_token": "1bff:2100",
+    "record_count": 1,
+    "offsets": [
+      7548014
+    ],
+    "source_text": "どうやら少しは骨のある相手が",
+    "translation_text": "조금는의가 확인 필요",
+    "records": [
+      {
+        "offset": 7548014,
+        "header_offset": 7548010,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 26,
+        "text": "どうやら少しは骨のある相手が",
+        "translation": "조금는의가 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0002",
+    "cluster_index": 46,
+    "run_index": 2,
+    "dialogue_state_token": null,
+    "record_count": 6,
+    "offsets": [
+      7548048,
+      7548086,
+      7548102,
+      7548134,
+      7548156,
+      7548190
+    ],
+    "source_text": "お出迎えのようですな\nなーんだ、\nもう気づかれちゃってんの。\nつまんないなー\nやっぱさ、ランディくんってば\n気配隠す練習しろってカンジ？",
+    "translation_text": "의야입니다군 확인 필요\n군ー 확인 필요\n이제라고의 확인 필요\n군군ー 확인 필요\n말이야,라고 확인 필요\n라고? 확인 필요",
+    "records": [
+      {
+        "offset": 7548048,
+        "header_offset": 7548044,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "お出迎えのようですな",
+        "translation": "의야입니다군 확인 필요"
+      },
+      {
+        "offset": 7548086,
+        "header_offset": 7548082,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 14,
+        "text": "なーんだ、",
+        "translation": "군ー 확인 필요"
+      },
+      {
+        "offset": 7548102,
+        "header_offset": 7548098,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "もう気づかれちゃってんの。",
+        "translation": "이제라고의 확인 필요"
+      },
+      {
+        "offset": 7548134,
+        "header_offset": 7548130,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "つまんないなー",
+        "translation": "군군ー 확인 필요"
+      },
+      {
+        "offset": 7548156,
+        "header_offset": 7548152,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 4,
+        "text": "やっぱさ、ランディくんってば",
+        "translation": "말이야,라고 확인 필요"
+      },
+      {
+        "offset": 7548190,
+        "header_offset": 7548186,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "気配隠す練習しろってカンジ？",
+        "translation": "라고? 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0003",
+    "cluster_index": 46,
+    "run_index": 3,
+    "dialogue_state_token": "1bff:0480",
+    "record_count": 1,
+    "offsets": [
+      7548232
+    ],
+    "source_text": "うっせー！",
+    "translation_text": "ー! 확인 필요",
+    "records": [
+      {
+        "offset": 7548232,
+        "header_offset": 7548228,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 10,
+        "text": "うっせー！",
+        "translation": "ー! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0004",
+    "cluster_index": 46,
+    "run_index": 4,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7548248,
+      7548270
+    ],
+    "source_text": "なんでチビッコに\nんなこと言われなきゃ…",
+    "translation_text": "군에서에 확인 필요\n군와야군 확인 필요",
+    "records": [
+      {
+        "offset": 7548248,
+        "header_offset": 7548244,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "なんでチビッコに",
+        "translation": "군에서에 확인 필요"
+      },
+      {
+        "offset": 7548270,
+        "header_offset": 7548266,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "んなこと言われなきゃ…",
+        "translation": "군와야군 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0005",
+    "cluster_index": 46,
+    "run_index": 5,
+    "dialogue_state_token": "2bff:0702",
+    "record_count": 1,
+    "offsets": [
+      7548312
+    ],
+    "source_text": "ああん！？",
+    "translation_text": "!? 확인 필요",
+    "records": [
+      {
+        "offset": 7548312,
+        "header_offset": 7548308,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 16,
+        "text": "ああん！？",
+        "translation": "!? 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0006",
+    "cluster_index": 46,
+    "run_index": 6,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7548328,
+      7548354
+    ],
+    "source_text": "誰がチビッコだぁ！？\n姿、あらわせっ！",
+    "translation_text": "누가가!? 확인 필요\n야! 확인 필요",
+    "records": [
+      {
+        "offset": 7548328,
+        "header_offset": 7548324,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "誰がチビッコだぁ！？",
+        "translation": "누가가!? 확인 필요"
+      },
+      {
+        "offset": 7548354,
+        "header_offset": 7548350,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "姿、あらわせっ！",
+        "translation": "야! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0007",
+    "cluster_index": 46,
+    "run_index": 7,
+    "dialogue_state_token": "1bff:0D00",
+    "record_count": 1,
+    "offsets": [
+      7548400
+    ],
+    "source_text": "兄さんのことじゃないって",
+    "translation_text": "형의와아니라고 확인 필요",
+    "records": [
+      {
+        "offset": 7548400,
+        "header_offset": 7548396,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 26,
+        "text": "兄さんのことじゃないって",
+        "translation": "형의와아니라고 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0008",
+    "cluster_index": 46,
+    "run_index": 8,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7548560,
+      7548582
+    ],
+    "source_text": "鋼の錬金術師よ！\nまた会ったなっ！",
+    "translation_text": "강철연금술사야!\n또군! 확인 필요",
+    "records": [
+      {
+        "offset": 7548560,
+        "header_offset": 7548556,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 132,
+        "text": "鋼の錬金術師よ！",
+        "translation": "강철연금술사야!"
+      },
+      {
+        "offset": 7548582,
+        "header_offset": 7548578,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "また会ったなっ！",
+        "translation": "또군! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0009",
+    "cluster_index": 46,
+    "run_index": 9,
+    "dialogue_state_token": "27ff:C940",
+    "record_count": 1,
+    "offsets": [
+      7548614
+    ],
+    "source_text": "…またかよ",
+    "translation_text": "또야 확인 필요",
+    "records": [
+      {
+        "offset": 7548614,
+        "header_offset": 7548610,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 12,
+        "text": "…またかよ",
+        "translation": "또야 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0010",
+    "cluster_index": 46,
+    "run_index": 10,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7548630
+    ],
+    "source_text": "で、何の用だ？",
+    "translation_text": "에서,뭐의냐 확인 필요",
+    "records": [
+      {
+        "offset": 7548630,
+        "header_offset": 7548626,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "で、何の用だ？",
+        "translation": "에서,뭐의냐 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0011",
+    "cluster_index": 46,
+    "run_index": 11,
+    "dialogue_state_token": "27ff:E510",
+    "record_count": 1,
+    "offsets": [
+      7548660
+    ],
+    "source_text": "何の用かって言われてもな…",
+    "translation_text": "뭐의라고야도군 확인 필요",
+    "records": [
+      {
+        "offset": 7548660,
+        "header_offset": 7548656,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 12,
+        "text": "何の用かって言われてもな…",
+        "translation": "뭐의라고야도군 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0012",
+    "cluster_index": 46,
+    "run_index": 12,
+    "dialogue_state_token": "27ff:C940",
+    "record_count": 1,
+    "offsets": [
+      7548702
+    ],
+    "source_text": "用がないんなら、邪魔。",
+    "translation_text": "가군군 확인 필요",
+    "records": [
+      {
+        "offset": 7548702,
+        "header_offset": 7548698,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 12,
+        "text": "用がないんなら、邪魔。",
+        "translation": "가군군 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0013",
+    "cluster_index": 46,
+    "run_index": 13,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7548730,
+      7548750
+    ],
+    "source_text": "狭いんだから、\n端を歩くのがマナーだろ",
+    "translation_text": "그러니까 확인 필요\n를의가ー 확인 필요",
+    "records": [
+      {
+        "offset": 7548730,
+        "header_offset": 7548726,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "狭いんだから、",
+        "translation": "그러니까 확인 필요"
+      },
+      {
+        "offset": 7548750,
+        "header_offset": 7548746,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "端を歩くのがマナーだろ",
+        "translation": "를의가ー 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0014",
+    "cluster_index": 46,
+    "run_index": 14,
+    "dialogue_state_token": "27ff:CA40",
+    "record_count": 1,
+    "offsets": [
+      7548792
+    ],
+    "source_text": "あ、スンマセンシタ",
+    "translation_text": "번역 확인 필요",
+    "records": [
+      {
+        "offset": 7548792,
+        "header_offset": 7548788,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 16,
+        "text": "あ、スンマセンシタ",
+        "translation": "번역 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0015",
+    "cluster_index": 46,
+    "run_index": 15,
+    "dialogue_state_token": "27ff:E820",
+    "record_count": 1,
+    "offsets": [
+      7548850
+    ],
+    "source_text": "…じゃねーだろうが！",
+    "translation_text": "…아니겠지가!",
+    "records": [
+      {
+        "offset": 7548850,
+        "header_offset": 7548846,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 36,
+        "text": "…じゃねーだろうが！",
+        "translation": "…아니겠지가!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0016",
+    "cluster_index": 46,
+    "run_index": 16,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7548876
+    ],
+    "source_text": "なんで俺が謝ってんだよ",
+    "translation_text": "군에서나가라고야 확인 필요",
+    "records": [
+      {
+        "offset": 7548876,
+        "header_offset": 7548872,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "なんで俺が謝ってんだよ",
+        "translation": "군에서나가라고야 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0017",
+    "cluster_index": 46,
+    "run_index": 17,
+    "dialogue_state_token": "27ff:EA30",
+    "record_count": 1,
+    "offsets": [
+      7548918
+    ],
+    "source_text": "…やっぱ、お兄ちゃんが",
+    "translation_text": "가 확인 필요",
+    "records": [
+      {
+        "offset": 7548918,
+        "header_offset": 7548914,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 16,
+        "text": "…やっぱ、お兄ちゃんが",
+        "translation": "가 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0018",
+    "cluster_index": 46,
+    "run_index": 18,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7548946,
+      7548976
+    ],
+    "source_text": "ついてけって言った理由が\nよーくわかった",
+    "translation_text": "라고가 확인 필요\n야ー야 확인 필요",
+    "records": [
+      {
+        "offset": 7548946,
+        "header_offset": 7548942,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "ついてけって言った理由が",
+        "translation": "라고가 확인 필요"
+      },
+      {
+        "offset": 7548976,
+        "header_offset": 7548972,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "よーくわかった",
+        "translation": "야ー야 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0019",
+    "cluster_index": 46,
+    "run_index": 19,
+    "dialogue_state_token": "27ff:ED00",
+    "record_count": 1,
+    "offsets": [
+      7549006
+    ],
+    "source_text": "結局、あたしがいないと",
+    "translation_text": "나가군와 확인 필요",
+    "records": [
+      {
+        "offset": 7549006,
+        "header_offset": 7549002,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 12,
+        "text": "結局、あたしがいないと",
+        "translation": "나가군와 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0020",
+    "cluster_index": 46,
+    "run_index": 20,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7549034
+    ],
+    "source_text": "なーんもできないんじゃん",
+    "translation_text": "군ー도에서군잖아 확인 필요",
+    "records": [
+      {
+        "offset": 7549034,
+        "header_offset": 7549030,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "なーんもできないんじゃん",
+        "translation": "군ー도에서군잖아 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0021",
+    "cluster_index": 46,
+    "run_index": 21,
+    "dialogue_state_token": "27ff:E930",
+    "record_count": 1,
+    "offsets": [
+      7549074
+    ],
+    "source_text": "うっせー、うっせー！",
+    "translation_text": "ー,ー! 확인 필요",
+    "records": [
+      {
+        "offset": 7549074,
+        "header_offset": 7549070,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 12,
+        "text": "うっせー、うっせー！",
+        "translation": "ー,ー! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0022",
+    "cluster_index": 46,
+    "run_index": 22,
+    "dialogue_state_token": "27ff:EA30",
+    "record_count": 1,
+    "offsets": [
+      7549184
+    ],
+    "source_text": "で、結局、何の用なんだ？",
+    "translation_text": "에서,,뭐의군냐 확인 필요",
+    "records": [
+      {
+        "offset": 7549184,
+        "header_offset": 7549180,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 86,
+        "text": "で、結局、何の用なんだ？",
+        "translation": "에서,,뭐의군냐 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0023",
+    "cluster_index": 46,
+    "run_index": 23,
+    "dialogue_state_token": null,
+    "record_count": 4,
+    "offsets": [
+      7549214,
+      7549234,
+      7549268,
+      7549290
+    ],
+    "source_text": "二人で漫才でも\n見せにきたのか？\nあ、そうだった！\n鋼の錬金術師と、その一行！",
+    "translation_text": "에서하지만 확인 필요\n에의까 확인 필요\n! 확인 필요\n강철연금술사와,그! 확인 필요",
+    "records": [
+      {
+        "offset": 7549214,
+        "header_offset": 7549210,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "二人で漫才でも",
+        "translation": "에서하지만 확인 필요"
+      },
+      {
+        "offset": 7549234,
+        "header_offset": 7549230,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "見せにきたのか？",
+        "translation": "에의까 확인 필요"
+      },
+      {
+        "offset": 7549268,
+        "header_offset": 7549264,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 14,
+        "text": "あ、そうだった！",
+        "translation": "! 확인 필요"
+      },
+      {
+        "offset": 7549290,
+        "header_offset": 7549286,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "鋼の錬金術師と、その一行！",
+        "translation": "강철연금술사와,그! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0024",
+    "cluster_index": 46,
+    "run_index": 24,
+    "dialogue_state_token": "1bff:1380",
+    "record_count": 1,
+    "offsets": [
+      7549346
+    ],
+    "source_text": "待て。鋼のオマケみたいな",
+    "translation_text": "강철군 확인 필요",
+    "records": [
+      {
+        "offset": 7549346,
+        "header_offset": 7549342,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 26,
+        "text": "待て。鋼のオマケみたいな",
+        "translation": "강철군 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0025",
+    "cluster_index": 46,
+    "run_index": 25,
+    "dialogue_state_token": null,
+    "record_count": 3,
+    "offsets": [
+      7549376,
+      7549416,
+      7549444
+    ],
+    "source_text": "言われ方は気に食わんな\n焔の錬金術師とその一行\nというべきだな",
+    "translation_text": "야는에야군 확인 필요\n의연금술사와그 확인 필요\n와군 확인 필요",
+    "records": [
+      {
+        "offset": 7549376,
+        "header_offset": 7549372,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "言われ方は気に食わんな",
+        "translation": "야는에야군 확인 필요"
+      },
+      {
+        "offset": 7549416,
+        "header_offset": 7549412,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 14,
+        "text": "焔の錬金術師とその一行",
+        "translation": "의연금술사와그 확인 필요"
+      },
+      {
+        "offset": 7549444,
+        "header_offset": 7549440,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "というべきだな",
+        "translation": "와군 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0026",
+    "cluster_index": 46,
+    "run_index": 26,
+    "dialogue_state_token": "1bff:5480",
+    "record_count": 1,
+    "offsets": [
+      7549488
+    ],
+    "source_text": "あ、スイマセン",
+    "translation_text": "번역 확인 필요",
+    "records": [
+      {
+        "offset": 7549488,
+        "header_offset": 7549484,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 26,
+        "text": "あ、スイマセン",
+        "translation": "번역 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0027",
+    "cluster_index": 46,
+    "run_index": 27,
+    "dialogue_state_token": "2bff:0401",
+    "record_count": 1,
+    "offsets": [
+      7549526
+    ],
+    "source_text": "…って、そんなの",
+    "translation_text": "라고,군의 확인 필요",
+    "records": [
+      {
+        "offset": 7549526,
+        "header_offset": 7549522,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 20,
+        "text": "…って、そんなの",
+        "translation": "라고,군의 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0028",
+    "cluster_index": 46,
+    "run_index": 28,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7549548
+    ],
+    "source_text": "どっちでもいいんだよ！",
+    "translation_text": "하지만좋아야! 확인 필요",
+    "records": [
+      {
+        "offset": 7549548,
+        "header_offset": 7549544,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "どっちでもいいんだよ！",
+        "translation": "하지만좋아야! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0029",
+    "cluster_index": 46,
+    "run_index": 29,
+    "dialogue_state_token": "1bff:5780",
+    "record_count": 1,
+    "offsets": [
+      7549612
+    ],
+    "source_text": "あーっ、もう！",
+    "translation_text": "ー,이제! 확인 필요",
+    "records": [
+      {
+        "offset": 7549612,
+        "header_offset": 7549608,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 38,
+        "text": "あーっ、もう！",
+        "translation": "ー,이제! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0030",
+    "cluster_index": 46,
+    "run_index": 30,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7549632,
+      7549656
+    ],
+    "source_text": "話が進まないから、\nあたしが説明するわよっ！",
+    "translation_text": "가군부터 확인 필요\n나가야야! 확인 필요",
+    "records": [
+      {
+        "offset": 7549632,
+        "header_offset": 7549628,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "話が進まないから、",
+        "translation": "가군부터 확인 필요"
+      },
+      {
+        "offset": 7549656,
+        "header_offset": 7549652,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "あたしが説明するわよっ！",
+        "translation": "나가야야! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0031",
+    "cluster_index": 46,
+    "run_index": 31,
+    "dialogue_state_token": "2bff:0800",
+    "record_count": 1,
+    "offsets": [
+      7549704
+    ],
+    "source_text": "お兄ちゃんがね、",
+    "translation_text": "가네 확인 필요",
+    "records": [
+      {
+        "offset": 7549704,
+        "header_offset": 7549700,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 20,
+        "text": "お兄ちゃんがね、",
+        "translation": "가네 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0032",
+    "cluster_index": 46,
+    "run_index": 32,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7549726,
+      7549756
+    ],
+    "source_text": "あんたたちと、ちょーっと\n遊んできていいって",
+    "translation_text": "와,ー와 확인 필요\n에서좋아라고 확인 필요",
+    "records": [
+      {
+        "offset": 7549726,
+        "header_offset": 7549722,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "あんたたちと、ちょーっと",
+        "translation": "와,ー와 확인 필요"
+      },
+      {
+        "offset": 7549756,
+        "header_offset": 7549752,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "遊んできていいって",
+        "translation": "에서좋아라고 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0033",
+    "cluster_index": 46,
+    "run_index": 33,
+    "dialogue_state_token": "1bff:1380",
+    "record_count": 1,
+    "offsets": [
+      7549810
+    ],
+    "source_text": "あー、オホン。",
+    "translation_text": "ー 확인 필요",
+    "records": [
+      {
+        "offset": 7549810,
+        "header_offset": 7549806,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 32,
+        "text": "あー、オホン。",
+        "translation": "ー 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0034",
+    "cluster_index": 46,
+    "run_index": 34,
+    "dialogue_state_token": null,
+    "record_count": 5,
+    "offsets": [
+      7549830,
+      7549848,
+      7549894,
+      7549918,
+      7549942
+    ],
+    "source_text": "残念ながら、\n私は子供を相手にする気はない\n相手は妙齢の女性と\n決めているのでな…\n遊び相手なら別をあたるんだな",
+    "translation_text": "군가 확인 필요\n나는를에는군 확인 필요\n는의와 확인 필요\n의에서군 확인 필요\n군를군 확인 필요",
+    "records": [
+      {
+        "offset": 7549830,
+        "header_offset": 7549826,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 2,
+        "text": "残念ながら、",
+        "translation": "군가 확인 필요"
+      },
+      {
+        "offset": 7549848,
+        "header_offset": 7549844,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "私は子供を相手にする気はない",
+        "translation": "나는를에는군 확인 필요"
+      },
+      {
+        "offset": 7549894,
+        "header_offset": 7549890,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 14,
+        "text": "相手は妙齢の女性と",
+        "translation": "는의와 확인 필요"
+      },
+      {
+        "offset": 7549918,
+        "header_offset": 7549914,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "決めているのでな…",
+        "translation": "의에서군 확인 필요"
+      },
+      {
+        "offset": 7549942,
+        "header_offset": 7549938,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "遊び相手なら別をあたるんだな",
+        "translation": "군를군 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0035",
+    "cluster_index": 46,
+    "run_index": 35,
+    "dialogue_state_token": "1bff:5700",
+    "record_count": 1,
+    "offsets": [
+      7549994
+    ],
+    "source_text": "ふーん、",
+    "translation_text": "ー 확인 필요",
+    "records": [
+      {
+        "offset": 7549994,
+        "header_offset": 7549990,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 20,
+        "text": "ふーん、",
+        "translation": "ー 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0036",
+    "cluster_index": 46,
+    "run_index": 36,
+    "dialogue_state_token": "1bff:5800",
+    "record_count": 1,
+    "offsets": [
+      7550088
+    ],
+    "source_text": "だけど、残念ながら、",
+    "translation_text": "지만,군가 확인 필요",
+    "records": [
+      {
+        "offset": 7550088,
+        "header_offset": 7550084,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 82,
+        "text": "だけど、残念ながら、",
+        "translation": "지만,군가 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0037",
+    "cluster_index": 46,
+    "run_index": 37,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7550114
+    ],
+    "source_text": "イヤでも遊んでもらうよん",
+    "translation_text": "하지만하지만야 확인 필요",
+    "records": [
+      {
+        "offset": 7550114,
+        "header_offset": 7550110,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "イヤでも遊んでもらうよん",
+        "translation": "하지만하지만야 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0038",
+    "cluster_index": 46,
+    "run_index": 38,
+    "dialogue_state_token": "1bff:0280",
+    "record_count": 1,
+    "offsets": [
+      7550162
+    ],
+    "source_text": "ったく、長々と時間を",
+    "translation_text": "々와를 확인 필요",
+    "records": [
+      {
+        "offset": 7550162,
+        "header_offset": 7550158,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 20,
+        "text": "ったく、長々と時間を",
+        "translation": "々와를 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0039",
+    "cluster_index": 46,
+    "run_index": 39,
+    "dialogue_state_token": null,
+    "record_count": 3,
+    "offsets": [
+      7550188,
+      7550214,
+      7550264
+    ],
+    "source_text": "取ったけど、要するに\n先には行かせないってことだろ\nあったりー！",
+    "translation_text": "지만,에 확인 필요\n에는군라고와 확인 필요\nー! 확인 필요",
+    "records": [
+      {
+        "offset": 7550188,
+        "header_offset": 7550184,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "取ったけど、要するに",
+        "translation": "지만,에 확인 필요"
+      },
+      {
+        "offset": 7550214,
+        "header_offset": 7550210,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "先には行かせないってことだろ",
+        "translation": "에는군라고와 확인 필요"
+      },
+      {
+        "offset": 7550264,
+        "header_offset": 7550260,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 18,
+        "text": "あったりー！",
+        "translation": "ー! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0040",
+    "cluster_index": 46,
+    "run_index": 40,
+    "dialogue_state_token": "1bff:5480",
+    "record_count": 1,
+    "offsets": [
+      7550306
+    ],
+    "source_text": "まてまてまてーーっ！",
+    "translation_text": "ーー! 확인 필요",
+    "records": [
+      {
+        "offset": 7550306,
+        "header_offset": 7550302,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 26,
+        "text": "まてまてまてーーっ！",
+        "translation": "ーー! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0041",
+    "cluster_index": 46,
+    "run_index": 41,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7550332
+    ],
+    "source_text": "勝手に話を進めんな！",
+    "translation_text": "에를군! 확인 필요",
+    "records": [
+      {
+        "offset": 7550332,
+        "header_offset": 7550328,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "勝手に話を進めんな！",
+        "translation": "에를군! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0042",
+    "cluster_index": 46,
+    "run_index": 42,
+    "dialogue_state_token": "1bff:5900",
+    "record_count": 1,
+    "offsets": [
+      7550382
+    ],
+    "source_text": "だって、ランディくんに",
+    "translation_text": "라고,에 확인 필요",
+    "records": [
+      {
+        "offset": 7550382,
+        "header_offset": 7550378,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 26,
+        "text": "だって、ランディくんに",
+        "translation": "라고,에 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0043",
+    "cluster_index": 46,
+    "run_index": 43,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7550410
+    ],
+    "source_text": "任せてたら日がくれちゃうよ",
+    "translation_text": "가야 확인 필요",
+    "records": [
+      {
+        "offset": 7550410,
+        "header_offset": 7550406,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "任せてたら日がくれちゃうよ",
+        "translation": "가야 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0044",
+    "cluster_index": 46,
+    "run_index": 44,
+    "dialogue_state_token": "2bff:2A02",
+    "record_count": 1,
+    "offsets": [
+      7550464
+    ],
+    "source_text": "うっせー、うっせー！",
+    "translation_text": "ー,ー! 확인 필요",
+    "records": [
+      {
+        "offset": 7550464,
+        "header_offset": 7550460,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 24,
+        "text": "うっせー、うっせー！",
+        "translation": "ー,ー! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0045",
+    "cluster_index": 46,
+    "run_index": 45,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7550490
+    ],
+    "source_text": "大将に任されたのは俺だろが！",
+    "translation_text": "에말이야의는나가! 확인 필요",
+    "records": [
+      {
+        "offset": 7550490,
+        "header_offset": 7550486,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "大将に任されたのは俺だろが！",
+        "translation": "에말이야의는나가! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0046",
+    "cluster_index": 46,
+    "run_index": 46,
+    "dialogue_state_token": "1bff:5280",
+    "record_count": 1,
+    "offsets": [
+      7550542
+    ],
+    "source_text": "だから俺が話を進める！",
+    "translation_text": "그러니까나가를! 확인 필요",
+    "records": [
+      {
+        "offset": 7550542,
+        "header_offset": 7550538,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 20,
+        "text": "だから俺が話を進める！",
+        "translation": "그러니까나가를! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0047",
+    "cluster_index": 46,
+    "run_index": 47,
+    "dialogue_state_token": "1bff:2500",
+    "record_count": 1,
+    "offsets": [
+      7550610
+    ],
+    "source_text": "よくぞ言った！",
+    "translation_text": "야다! 확인 필요",
+    "records": [
+      {
+        "offset": 7550610,
+        "header_offset": 7550606,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 42,
+        "text": "よくぞ言った！",
+        "translation": "야다! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0048",
+    "cluster_index": 46,
+    "run_index": 48,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7550634
+    ],
+    "source_text": "その意気や良し！",
+    "translation_text": "그! 확인 필요",
+    "records": [
+      {
+        "offset": 7550634,
+        "header_offset": 7550630,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 6,
+        "text": "その意気や良し！",
+        "translation": "그! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0049",
+    "cluster_index": 46,
+    "run_index": 49,
+    "dialogue_state_token": "1bff:5380",
+    "record_count": 1,
+    "offsets": [
+      7550692
+    ],
+    "source_text": "やるじゃねーか！",
+    "translation_text": "아니! 확인 필요",
+    "records": [
+      {
+        "offset": 7550692,
+        "header_offset": 7550688,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 38,
+        "text": "やるじゃねーか！",
+        "translation": "아니! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0050",
+    "cluster_index": 46,
+    "run_index": 50,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7550714
+    ],
+    "source_text": "イカス肉体をしたオッサンよ！",
+    "translation_text": "를야 확인 필요",
+    "records": [
+      {
+        "offset": 7550714,
+        "header_offset": 7550710,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "イカス肉体をしたオッサンよ！",
+        "translation": "를야 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0051",
+    "cluster_index": 46,
+    "run_index": 51,
+    "dialogue_state_token": "1bff:2500",
+    "record_count": 1,
+    "offsets": [
+      7550778
+    ],
+    "source_text": "オッサンとは失礼な！",
+    "translation_text": "와는군! 확인 필요",
+    "records": [
+      {
+        "offset": 7550778,
+        "header_offset": 7550774,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 32,
+        "text": "オッサンとは失礼な！",
+        "translation": "와는군! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0052",
+    "cluster_index": 46,
+    "run_index": 52,
+    "dialogue_state_token": null,
+    "record_count": 3,
+    "offsets": [
+      7550816,
+      7550854,
+      7550884
+    ],
+    "source_text": "お主もなかなか！\nやるか？\nうむ、望むところ！",
+    "translation_text": "도군려나! 확인 필요\n까 확인 필요\n와! 확인 필요",
+    "records": [
+      {
+        "offset": 7550816,
+        "header_offset": 7550812,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 14,
+        "text": "お主もなかなか！",
+        "translation": "도군려나! 확인 필요"
+      },
+      {
+        "offset": 7550854,
+        "header_offset": 7550850,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 18,
+        "text": "やるか？",
+        "translation": "까 확인 필요"
+      },
+      {
+        "offset": 7550884,
+        "header_offset": 7550880,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 18,
+        "text": "うむ、望むところ！",
+        "translation": "와! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0053",
+    "cluster_index": 46,
+    "run_index": 53,
+    "dialogue_state_token": "1bff:0E80",
+    "record_count": 1,
+    "offsets": [
+      7550946
+    ],
+    "source_text": "なんだか変なことに…",
+    "translation_text": "군군와에 확인 필요",
+    "records": [
+      {
+        "offset": 7550946,
+        "header_offset": 7550942,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 40,
+        "text": "なんだか変なことに…",
+        "translation": "군군와에 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0054",
+    "cluster_index": 46,
+    "run_index": 54,
+    "dialogue_state_token": "1bff:0200",
+    "record_count": 1,
+    "offsets": [
+      7550992
+    ],
+    "source_text": "おいおい、そっちこそ",
+    "translation_text": "번역 확인 필요",
+    "records": [
+      {
+        "offset": 7550992,
+        "header_offset": 7550988,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 22,
+        "text": "おいおい、そっちこそ",
+        "translation": "번역 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0055",
+    "cluster_index": 46,
+    "run_index": 55,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7551018
+    ],
+    "source_text": "勝手に話を進めんなよ…",
+    "translation_text": "에를군야 확인 필요",
+    "records": [
+      {
+        "offset": 7551018,
+        "header_offset": 7551014,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "勝手に話を進めんなよ…",
+        "translation": "에를군야 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0056",
+    "cluster_index": 46,
+    "run_index": 56,
+    "dialogue_state_token": "1bff:5480",
+    "record_count": 1,
+    "offsets": [
+      7551064
+    ],
+    "source_text": "おい、鋼の錬金術師！",
+    "translation_text": "강철연금술사! 확인 필요",
+    "records": [
+      {
+        "offset": 7551064,
+        "header_offset": 7551060,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 20,
+        "text": "おい、鋼の錬金術師！",
+        "translation": "강철연금술사! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0057",
+    "cluster_index": 46,
+    "run_index": 57,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7551094,
+      7551130
+    ],
+    "source_text": "お前にも借りがあるからな！\n一緒に相手してやるぜ！",
+    "translation_text": "너에도가부터군! 확인 필요\n에라고! 확인 필요",
+    "records": [
+      {
+        "offset": 7551094,
+        "header_offset": 7551090,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 6,
+        "text": "お前にも借りがあるからな！",
+        "translation": "너에도가부터군! 확인 필요"
+      },
+      {
+        "offset": 7551130,
+        "header_offset": 7551126,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 6,
+        "text": "一緒に相手してやるぜ！",
+        "translation": "에라고! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0058",
+    "cluster_index": 46,
+    "run_index": 58,
+    "dialogue_state_token": "2bff:0600",
+    "record_count": 1,
+    "offsets": [
+      7551180
+    ],
+    "source_text": "なに勝手なことを…",
+    "translation_text": "군에군와를 확인 필요",
+    "records": [
+      {
+        "offset": 7551180,
+        "header_offset": 7551176,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 24,
+        "text": "なに勝手なことを…",
+        "translation": "군에군와를 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0059",
+    "cluster_index": 46,
+    "run_index": 59,
+    "dialogue_state_token": "2bff:2A02",
+    "record_count": 1,
+    "offsets": [
+      7551226
+    ],
+    "source_text": "うっせー！",
+    "translation_text": "ー! 확인 필요",
+    "records": [
+      {
+        "offset": 7551226,
+        "header_offset": 7551222,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 24,
+        "text": "うっせー！",
+        "translation": "ー! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0060",
+    "cluster_index": 46,
+    "run_index": 60,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7551246
+    ],
+    "source_text": "いくぞっ！",
+    "translation_text": "다! 확인 필요",
+    "records": [
+      {
+        "offset": 7551246,
+        "header_offset": 7551242,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 6,
+        "text": "いくぞっ！",
+        "translation": "다! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0061",
+    "cluster_index": 46,
+    "run_index": 61,
+    "dialogue_state_token": "1bff:5880",
+    "record_count": 1,
+    "offsets": [
+      7551410
+    ],
+    "source_text": "おい、お前ら！",
+    "translation_text": "너희! 확인 필요",
+    "records": [
+      {
+        "offset": 7551410,
+        "header_offset": 7551406,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 150,
+        "text": "おい、お前ら！",
+        "translation": "너희! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0062",
+    "cluster_index": 46,
+    "run_index": 62,
+    "dialogue_state_token": null,
+    "record_count": 3,
+    "offsets": [
+      7551434,
+      7551470,
+      7551498
+    ],
+    "source_text": "まだやるつもりか？\nに…にゃはははは。\n…いち、ぬーけた！",
+    "translation_text": "아직도까 확인 필요\n에…에는는는는 확인 필요\nー! 확인 필요",
+    "records": [
+      {
+        "offset": 7551434,
+        "header_offset": 7551430,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 6,
+        "text": "まだやるつもりか？",
+        "translation": "아직도까 확인 필요"
+      },
+      {
+        "offset": 7551470,
+        "header_offset": 7551466,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 14,
+        "text": "に…にゃはははは。",
+        "translation": "에…에는는는는 확인 필요"
+      },
+      {
+        "offset": 7551498,
+        "header_offset": 7551494,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 6,
+        "text": "…いち、ぬーけた！",
+        "translation": "ー! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0063",
+    "cluster_index": 46,
+    "run_index": 63,
+    "dialogue_state_token": "1bff:0280",
+    "record_count": 1,
+    "offsets": [
+      7551562
+    ],
+    "source_text": "あ、ケイト！",
+    "translation_text": "! 확인 필요",
+    "records": [
+      {
+        "offset": 7551562,
+        "header_offset": 7551558,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 42,
+        "text": "あ、ケイト！",
+        "translation": "! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0064",
+    "cluster_index": 46,
+    "run_index": 64,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7551580
+    ],
+    "source_text": "勝手に帰るな！",
+    "translation_text": "에돌아가군! 확인 필요",
+    "records": [
+      {
+        "offset": 7551580,
+        "header_offset": 7551576,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "勝手に帰るな！",
+        "translation": "에돌아가군! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0065",
+    "cluster_index": 46,
+    "run_index": 65,
+    "dialogue_state_token": "1bff:5200",
+    "record_count": 1,
+    "offsets": [
+      7551622
+    ],
+    "source_text": "オッサン…",
+    "translation_text": "번역 확인 필요",
+    "records": [
+      {
+        "offset": 7551622,
+        "header_offset": 7551618,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 24,
+        "text": "オッサン…",
+        "translation": "번역 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0066",
+    "cluster_index": 46,
+    "run_index": 66,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7551642,
+      7551670
+    ],
+    "source_text": "オッサンの拳…\nアツかったぜ！",
+    "translation_text": "의 확인 필요\n라고! 확인 필요",
+    "records": [
+      {
+        "offset": 7551642,
+        "header_offset": 7551638,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 6,
+        "text": "オッサンの拳…",
+        "translation": "의 확인 필요"
+      },
+      {
+        "offset": 7551670,
+        "header_offset": 7551666,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 10,
+        "text": "アツかったぜ！",
+        "translation": "라고! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0067",
+    "cluster_index": 46,
+    "run_index": 67,
+    "dialogue_state_token": "1bff:2280",
+    "record_count": 1,
+    "offsets": [
+      7551752
+    ],
+    "source_text": "憎いことを言いおるわ",
+    "translation_text": "와를야 확인 필요",
+    "records": [
+      {
+        "offset": 7551752,
+        "header_offset": 7551748,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 64,
+        "text": "憎いことを言いおるわ",
+        "translation": "와를야 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0068",
+    "cluster_index": 46,
+    "run_index": 68,
+    "dialogue_state_token": null,
+    "record_count": 3,
+    "offsets": [
+      7551790,
+      7551808,
+      7551828
+    ],
+    "source_text": "へっへーん！\n悔しかったら、\n捕まえてみればー！",
+    "translation_text": "에에ー! 확인 필요\n번역 확인 필요\nー! 확인 필요",
+    "records": [
+      {
+        "offset": 7551790,
+        "header_offset": 7551786,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 14,
+        "text": "へっへーん！",
+        "translation": "에에ー! 확인 필요"
+      },
+      {
+        "offset": 7551808,
+        "header_offset": 7551804,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "悔しかったら、",
+        "translation": "번역 확인 필요"
+      },
+      {
+        "offset": 7551828,
+        "header_offset": 7551824,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "捕まえてみればー！",
+        "translation": "ー! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0069",
+    "cluster_index": 46,
+    "run_index": 69,
+    "dialogue_state_token": "1bff:0480",
+    "record_count": 1,
+    "offsets": [
+      7551866
+    ],
+    "source_text": "ムカッ！",
+    "translation_text": "! 확인 필요",
+    "records": [
+      {
+        "offset": 7551866,
+        "header_offset": 7551862,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 16,
+        "text": "ムカッ！",
+        "translation": "! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0070",
+    "cluster_index": 46,
+    "run_index": 70,
+    "dialogue_state_token": "1bff:0180",
+    "record_count": 1,
+    "offsets": [
+      7551910
+    ],
+    "source_text": "兄さん、今はリンカーを",
+    "translation_text": "형,지금는링커를",
+    "records": [
+      {
+        "offset": 7551910,
+        "header_offset": 7551906,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 32,
+        "text": "兄さん、今はリンカーを",
+        "translation": "형,지금는링커를"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0071",
+    "cluster_index": 46,
+    "run_index": 71,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7551938
+    ],
+    "source_text": "探す方が重要だよ",
+    "translation_text": "찾가야 확인 필요",
+    "records": [
+      {
+        "offset": 7551938,
+        "header_offset": 7551934,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "探す方が重要だよ",
+        "translation": "찾가야 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0072",
+    "cluster_index": 46,
+    "run_index": 72,
+    "dialogue_state_token": "2bff:0800",
+    "record_count": 1,
+    "offsets": [
+      7551978
+    ],
+    "source_text": "…そ、そうだな",
+    "translation_text": "군 확인 필요",
+    "records": [
+      {
+        "offset": 7551978,
+        "header_offset": 7551974,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 20,
+        "text": "…そ、そうだな",
+        "translation": "군 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0073",
+    "cluster_index": 46,
+    "run_index": 73,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7551998
+    ],
+    "source_text": "今回は見逃してやるか",
+    "translation_text": "지금는 확인 필요",
+    "records": [
+      {
+        "offset": 7551998,
+        "header_offset": 7551994,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "今回は見逃してやるか",
+        "translation": "지금는 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0074",
+    "cluster_index": 46,
+    "run_index": 74,
+    "dialogue_state_token": "1bff:3900",
+    "record_count": 1,
+    "offsets": [
+      7552252
+    ],
+    "source_text": "本当にマーティンス中佐、",
+    "translation_text": "정말에ー중령 확인 필요",
+    "records": [
+      {
+        "offset": 7552252,
+        "header_offset": 7552248,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 230,
+        "text": "本当にマーティンス中佐、",
+        "translation": "정말에ー중령 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0075",
+    "cluster_index": 46,
+    "run_index": 75,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7552282
+    ],
+    "source_text": "大丈夫でしょうか？",
+    "translation_text": "에서까 확인 필요",
+    "records": [
+      {
+        "offset": 7552282,
+        "header_offset": 7552278,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "大丈夫でしょうか？",
+        "translation": "에서까 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0076",
+    "cluster_index": 46,
+    "run_index": 76,
+    "dialogue_state_token": "1bff:0900",
+    "record_count": 1,
+    "offsets": [
+      7552324
+    ],
+    "source_text": "コニィは心配性だな。",
+    "translation_text": "코니는걱정군 확인 필요",
+    "records": [
+      {
+        "offset": 7552324,
+        "header_offset": 7552320,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 20,
+        "text": "コニィは心配性だな。",
+        "translation": "코니는걱정군 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0077",
+    "cluster_index": 46,
+    "run_index": 77,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7552350,
+      7552368
+    ],
+    "source_text": "中佐だって、\n国家錬金術師だぜ？",
+    "translation_text": "중령라고 확인 필요\n국가연금술사라고?",
+    "records": [
+      {
+        "offset": 7552350,
+        "header_offset": 7552346,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 2,
+        "text": "中佐だって、",
+        "translation": "중령라고 확인 필요"
+      },
+      {
+        "offset": 7552368,
+        "header_offset": 7552364,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "国家錬金術師だぜ？",
+        "translation": "국가연금술사라고?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0078",
+    "cluster_index": 46,
+    "run_index": 78,
+    "dialogue_state_token": "1bff:2100",
+    "record_count": 1,
+    "offsets": [
+      7552404
+    ],
+    "source_text": "うむ。コーニッシュ嬢の",
+    "translation_text": "코니시의 확인 필요",
+    "records": [
+      {
+        "offset": 7552404,
+        "header_offset": 7552400,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 14,
+        "text": "うむ。コーニッシュ嬢の",
+        "translation": "코니시의 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0079",
+    "cluster_index": 46,
+    "run_index": 79,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7552432,
+      7552456
+    ],
+    "source_text": "優しさはわかるが、\nこの程度で中佐は死なぬよ",
+    "translation_text": "말이야는야가 확인 필요\n이에서중령는군야 확인 필요",
+    "records": [
+      {
+        "offset": 7552432,
+        "header_offset": 7552428,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "優しさはわかるが、",
+        "translation": "말이야는야가 확인 필요"
+      },
+      {
+        "offset": 7552456,
+        "header_offset": 7552452,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "この程度で中佐は死なぬよ",
+        "translation": "이에서중령는군야 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0080",
+    "cluster_index": 46,
+    "run_index": 80,
+    "dialogue_state_token": "1bff:3900",
+    "record_count": 1,
+    "offsets": [
+      7552504
+    ],
+    "source_text": "でも、でも…水が冷たくって",
+    "translation_text": "하지만,하지만…가라고 확인 필요",
+    "records": [
+      {
+        "offset": 7552504,
+        "header_offset": 7552500,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 20,
+        "text": "でも、でも…水が冷たくって",
+        "translation": "하지만,하지만…가라고 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0081",
+    "cluster_index": 46,
+    "run_index": 81,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7552536
+    ],
+    "source_text": "風邪をひいちゃったり…",
+    "translation_text": "를 확인 필요",
+    "records": [
+      {
+        "offset": 7552536,
+        "header_offset": 7552532,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "風邪をひいちゃったり…",
+        "translation": "를 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0082",
+    "cluster_index": 46,
+    "run_index": 82,
+    "dialogue_state_token": "1bff:1B00",
+    "record_count": 1,
+    "offsets": [
+      7552582
+    ],
+    "source_text": "…いいよな、",
+    "translation_text": "…좋아야군,",
+    "records": [
+      {
+        "offset": 7552582,
+        "header_offset": 7552578,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 20,
+        "text": "…いいよな、",
+        "translation": "…좋아야군,"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0083",
+    "cluster_index": 46,
+    "run_index": 83,
+    "dialogue_state_token": null,
+    "record_count": 4,
+    "offsets": [
+      7552600,
+      7552624,
+      7552658,
+      7552672
+    ],
+    "source_text": "マーティンス中佐は\nあんなに心配されて\n片や私は\n冷たい人呼ばわりだ",
+    "translation_text": "ー중령는 확인 필요\n군에걱정말이야 확인 필요\n나는 확인 필요\n야 확인 필요",
+    "records": [
+      {
+        "offset": 7552600,
+        "header_offset": 7552596,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "マーティンス中佐は",
+        "translation": "ー중령는 확인 필요"
+      },
+      {
+        "offset": 7552624,
+        "header_offset": 7552620,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "あんなに心配されて",
+        "translation": "군에걱정말이야 확인 필요"
+      },
+      {
+        "offset": 7552658,
+        "header_offset": 7552654,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 12,
+        "text": "片や私は",
+        "translation": "나는 확인 필요"
+      },
+      {
+        "offset": 7552672,
+        "header_offset": 7552668,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "冷たい人呼ばわりだ",
+        "translation": "야 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0084",
+    "cluster_index": 46,
+    "run_index": 84,
+    "dialogue_state_token": "1bff:1C00",
+    "record_count": 1,
+    "offsets": [
+      7552714
+    ],
+    "source_text": "大佐、なにを",
+    "translation_text": "대령,군에를",
+    "records": [
+      {
+        "offset": 7552714,
+        "header_offset": 7552710,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 20,
+        "text": "大佐、なにを",
+        "translation": "대령,군에를"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0085",
+    "cluster_index": 46,
+    "run_index": 85,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7552732
+    ],
+    "source_text": "ひがんでるんですか",
+    "translation_text": "가에서입니다까 확인 필요",
+    "records": [
+      {
+        "offset": 7552732,
+        "header_offset": 7552728,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "ひがんでるんですか",
+        "translation": "가에서입니다까 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0086",
+    "cluster_index": 46,
+    "run_index": 86,
+    "dialogue_state_token": "1bff:1C00",
+    "record_count": 1,
+    "offsets": [
+      7552768
+    ],
+    "source_text": "エドワード君には、",
+    "translation_text": "에드워드자네에는,",
+    "records": [
+      {
+        "offset": 7552768,
+        "header_offset": 7552764,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 14,
+        "text": "エドワード君には、",
+        "translation": "에드워드자네에는,"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0087",
+    "cluster_index": 46,
+    "run_index": 87,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7552792,
+      7552816
+    ],
+    "source_text": "冷たいと言われても\n気にならないのに…",
+    "translation_text": "와야도 확인 필요\n에군군의에 확인 필요",
+    "records": [
+      {
+        "offset": 7552792,
+        "header_offset": 7552788,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "冷たいと言われても",
+        "translation": "와야도 확인 필요"
+      },
+      {
+        "offset": 7552816,
+        "header_offset": 7552812,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "気にならないのに…",
+        "translation": "에군군의에 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0088",
+    "cluster_index": 46,
+    "run_index": 88,
+    "dialogue_state_token": "1bff:1700",
+    "record_count": 1,
+    "offsets": [
+      7552858
+    ],
+    "source_text": "当たり前だろう！",
+    "translation_text": "당연하지! 확인 필요",
+    "records": [
+      {
+        "offset": 7552858,
+        "header_offset": 7552854,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 20,
+        "text": "当たり前だろう！",
+        "translation": "당연하지! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0089",
+    "cluster_index": 46,
+    "run_index": 89,
+    "dialogue_state_token": "1bff:1E00",
+    "record_count": 1,
+    "offsets": [
+      7552892
+    ],
+    "source_text": "そんな力いっぱい",
+    "translation_text": "군 확인 필요",
+    "records": [
+      {
+        "offset": 7552892,
+        "header_offset": 7552888,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 14,
+        "text": "そんな力いっぱい",
+        "translation": "군 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0090",
+    "cluster_index": 46,
+    "run_index": 90,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7552914
+    ],
+    "source_text": "言わなくても…",
+    "translation_text": "야군도 확인 필요",
+    "records": [
+      {
+        "offset": 7552914,
+        "header_offset": 7552910,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "言わなくても…",
+        "translation": "야군도 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0091",
+    "cluster_index": 46,
+    "run_index": 91,
+    "dialogue_state_token": "1bff:3500",
+    "record_count": 1,
+    "offsets": [
+      7552952
+    ],
+    "source_text": "エド、先を急ぎましょう！",
+    "translation_text": "에드,를하죠! 확인 필요",
+    "records": [
+      {
+        "offset": 7552952,
+        "header_offset": 7552948,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 20,
+        "text": "エド、先を急ぎましょう！",
+        "translation": "에드,를하죠! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0092",
+    "cluster_index": 46,
+    "run_index": 92,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7552982,
+      7553012
+    ],
+    "source_text": "マーティンス中佐のことを\n探さなくちゃ！",
+    "translation_text": "ー중령의와를 확인 필요\n말이야군! 확인 필요",
+    "records": [
+      {
+        "offset": 7552982,
+        "header_offset": 7552978,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "マーティンス中佐のことを",
+        "translation": "ー중령의와를 확인 필요"
+      },
+      {
+        "offset": 7553012,
+        "header_offset": 7553008,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "探さなくちゃ！",
+        "translation": "말이야군! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0093",
+    "cluster_index": 46,
+    "run_index": 93,
+    "dialogue_state_token": "1bff:0100",
+    "record_count": 1,
+    "offsets": [
+      7553044
+    ],
+    "source_text": "そんなに急がなくっても",
+    "translation_text": "군에가군라고도 확인 필요",
+    "records": [
+      {
+        "offset": 7553044,
+        "header_offset": 7553040,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 14,
+        "text": "そんなに急がなくっても",
+        "translation": "군에가군라고도 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0094",
+    "cluster_index": 46,
+    "run_index": 94,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7553072,
+      7553092
+    ],
+    "source_text": "大丈夫だって。\nなんでそんなに…",
+    "translation_text": "라고 확인 필요\n군에서군에 확인 필요",
+    "records": [
+      {
+        "offset": 7553072,
+        "header_offset": 7553068,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "大丈夫だって。",
+        "translation": "라고 확인 필요"
+      },
+      {
+        "offset": 7553092,
+        "header_offset": 7553088,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "なんでそんなに…",
+        "translation": "군에서군에 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0095",
+    "cluster_index": 46,
+    "run_index": 95,
+    "dialogue_state_token": "1bff:3000",
+    "record_count": 1,
+    "offsets": [
+      7553126
+    ],
+    "source_text": "…においがするんです",
+    "translation_text": "에가입니다 확인 필요",
+    "records": [
+      {
+        "offset": 7553126,
+        "header_offset": 7553122,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 14,
+        "text": "…においがするんです",
+        "translation": "에가입니다 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0096",
+    "cluster_index": 46,
+    "run_index": 96,
+    "dialogue_state_token": "1bff:0900",
+    "record_count": 1,
+    "offsets": [
+      7553174
+    ],
+    "source_text": "下水道のにおいなら",
+    "translation_text": "하수도의에군 확인 필요",
+    "records": [
+      {
+        "offset": 7553174,
+        "header_offset": 7553170,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 24,
+        "text": "下水道のにおいなら",
+        "translation": "하수도의에군 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0097",
+    "cluster_index": 46,
+    "run_index": 97,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7553198
+    ],
+    "source_text": "さっきからずっとしてるけど…",
+    "translation_text": "말이야부터와지만 확인 필요",
+    "records": [
+      {
+        "offset": 7553198,
+        "header_offset": 7553194,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "さっきからずっとしてるけど…",
+        "translation": "말이야부터와지만 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0098",
+    "cluster_index": 46,
+    "run_index": 98,
+    "dialogue_state_token": "1bff:3500",
+    "record_count": 1,
+    "offsets": [
+      7553244
+    ],
+    "source_text": "違います！",
+    "translation_text": "합니다! 확인 필요",
+    "records": [
+      {
+        "offset": 7553244,
+        "header_offset": 7553240,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 14,
+        "text": "違います！",
+        "translation": "합니다! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0099",
+    "cluster_index": 46,
+    "run_index": 99,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7553260
+    ],
+    "source_text": "兄さん…みたいなにおい",
+    "translation_text": "형…군에 확인 필요",
+    "records": [
+      {
+        "offset": 7553260,
+        "header_offset": 7553256,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "兄さん…みたいなにおい",
+        "translation": "형…군에 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0100",
+    "cluster_index": 46,
+    "run_index": 100,
+    "dialogue_state_token": "1bff:0800",
+    "record_count": 1,
+    "offsets": [
+      7553300
+    ],
+    "source_text": "マーティンス中佐が？",
+    "translation_text": "ー중령가? 확인 필요",
+    "records": [
+      {
+        "offset": 7553300,
+        "header_offset": 7553296,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 14,
+        "text": "マーティンス中佐が？",
+        "translation": "ー중령가? 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0101",
+    "cluster_index": 46,
+    "run_index": 101,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7553326,
+      7553350
+    ],
+    "source_text": "コニィの兄貴って、\nあんなお調子ものなわけ？",
+    "translation_text": "코니의라고 확인 필요\n군상태도의군야? 확인 필요",
+    "records": [
+      {
+        "offset": 7553326,
+        "header_offset": 7553322,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "コニィの兄貴って、",
+        "translation": "코니의라고 확인 필요"
+      },
+      {
+        "offset": 7553350,
+        "header_offset": 7553346,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "あんなお調子ものなわけ？",
+        "translation": "군상태도의군야? 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0102",
+    "cluster_index": 46,
+    "run_index": 102,
+    "dialogue_state_token": "1bff:1100",
+    "record_count": 1,
+    "offsets": [
+      7553398
+    ],
+    "source_text": "兄さん、",
+    "translation_text": "형,",
+    "records": [
+      {
+        "offset": 7553398,
+        "header_offset": 7553394,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 20,
+        "text": "兄さん、",
+        "translation": "형,"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0103",
+    "cluster_index": 46,
+    "run_index": 103,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7553412,
+      7553438
+    ],
+    "source_text": "本人がいないところで\nいいすぎだよ",
+    "translation_text": "가군와에서 확인 필요\n좋아야 확인 필요",
+    "records": [
+      {
+        "offset": 7553412,
+        "header_offset": 7553408,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "本人がいないところで",
+        "translation": "가군와에서 확인 필요"
+      },
+      {
+        "offset": 7553438,
+        "header_offset": 7553434,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 2,
+        "text": "いいすぎだよ",
+        "translation": "좋아야 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0104",
+    "cluster_index": 46,
+    "run_index": 104,
+    "dialogue_state_token": "1bff:3200",
+    "record_count": 1,
+    "offsets": [
+      7553468
+    ],
+    "source_text": "私のセラフィ兄さんは",
+    "translation_text": "나의형는 확인 필요",
+    "records": [
+      {
+        "offset": 7553468,
+        "header_offset": 7553464,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 14,
+        "text": "私のセラフィ兄さんは",
+        "translation": "나의형는 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0105",
+    "cluster_index": 46,
+    "run_index": 105,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7553494
+    ],
+    "source_text": "まじめな人です！",
+    "translation_text": "군입니다! 확인 필요",
+    "records": [
+      {
+        "offset": 7553494,
+        "header_offset": 7553490,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "まじめな人です！",
+        "translation": "군입니다! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0106",
+    "cluster_index": 46,
+    "run_index": 106,
+    "dialogue_state_token": "1bff:3000",
+    "record_count": 1,
+    "offsets": [
+      7553528
+    ],
+    "source_text": "だけど、不思議と中佐と",
+    "translation_text": "지만,와중령와 확인 필요",
+    "records": [
+      {
+        "offset": 7553528,
+        "header_offset": 7553524,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 14,
+        "text": "だけど、不思議と中佐と",
+        "translation": "지만,와중령와 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0107",
+    "cluster_index": 46,
+    "run_index": 107,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7553556,
+      7553576
+    ],
+    "source_text": "一緒にいると、\n兄さんみたいなにおいが…",
+    "translation_text": "에와 확인 필요\n형군에가 확인 필요",
+    "records": [
+      {
+        "offset": 7553556,
+        "header_offset": 7553552,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "一緒にいると、",
+        "translation": "에와 확인 필요"
+      },
+      {
+        "offset": 7553576,
+        "header_offset": 7553572,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "兄さんみたいなにおいが…",
+        "translation": "형군에가 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0108",
+    "cluster_index": 46,
+    "run_index": 108,
+    "dialogue_state_token": "1bff:0180",
+    "record_count": 1,
+    "offsets": [
+      7553630
+    ],
+    "source_text": "ふーん。よし、コニィが",
+    "translation_text": "ー.야,코니가 확인 필요",
+    "records": [
+      {
+        "offset": 7553630,
+        "header_offset": 7553626,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 26,
+        "text": "ふーん。よし、コニィが",
+        "translation": "ー.야,코니가 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0109",
+    "cluster_index": 46,
+    "run_index": 109,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7553658,
+      7553682
+    ],
+    "source_text": "そうまで言うなら、\n急いで中佐を探すか！",
+    "translation_text": "에서말하군 확인 필요\n에서중령를찾! 확인 필요",
+    "records": [
+      {
+        "offset": 7553658,
+        "header_offset": 7553654,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "そうまで言うなら、",
+        "translation": "에서말하군 확인 필요"
+      },
+      {
+        "offset": 7553682,
+        "header_offset": 7553678,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "急いで中佐を探すか！",
+        "translation": "에서중령를찾! 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0110",
+    "cluster_index": 46,
+    "run_index": 110,
+    "dialogue_state_token": "1bff:0B00",
+    "record_count": 1,
+    "offsets": [
+      7553720
+    ],
+    "source_text": "リンカーもこの奥に",
+    "translation_text": "링커도이에 확인 필요",
+    "records": [
+      {
+        "offset": 7553720,
+        "header_offset": 7553716,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 14,
+        "text": "リンカーもこの奥に",
+        "translation": "링커도이에 확인 필요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_46_run_0111",
+    "cluster_index": 46,
+    "run_index": 111,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7553744
+    ],
+    "source_text": "いるんだろうからね！",
+    "translation_text": "겠지부터네! 확인 필요",
+    "records": [
+      {
+        "offset": 7553744,
+        "header_offset": 7553740,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "いるんだろうからね！",
+        "translation": "겠지부터네! 확인 필요"
+      }
+    ],
+    "notes": ""
+  }
+]

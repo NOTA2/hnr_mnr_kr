@@ -1,0 +1,5441 @@
+{
+  "part": "06-04",
+  "part_count": 10,
+  "status": "translated_length_checked",
+  "record_count": 182,
+  "unit_count": 83,
+  "instructions": [
+    "translation_text 와 records[].translation 을 채운다.",
+    "confirmed_repoint 는 자연스러운 번역을 우선한다.",
+    "fixed_slot / candidate_repoint_keep_conservative 는 records[].max_korean_chars 이내로 짧게 맞춘다.",
+    "source_text 가 여러 줄이면 문맥을 같이 보고, records 배열 순서대로 자연스럽게 나눠 담는다."
+  ],
+  "units": [
+    {
+      "unit_id": "entry8_unit:722C2A",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 4,
+      "offsets": [
+        7482410,
+        7482456,
+        7482486,
+        7482516
+      ],
+      "offsets_hex": [
+        "0x722C2A",
+        "0x722C58",
+        "0x722C76",
+        "0x722C94"
+      ],
+      "source_text": "何をするんですかっ！！\n作戦だ\n作戦？\n本当に作戦ですか？",
+      "translation_text": "뭐 하는 거예요!!\n작전\n작전?\n정말 작전인가요?",
+      "length_policy_summary": {
+        "fixed_slot": 4
+      },
+      "records": [
+        {
+          "offset": 7482410,
+          "offset_hex": "0x722C2A",
+          "header_offset": 7482406,
+          "header_offset_hex": "0x722C26",
+          "char_count": 11,
+          "byte_length": 22,
+          "max_korean_chars": 11,
+          "length_policy": "fixed_slot",
+          "text": "何をするんですかっ！！",
+          "previous_translation_reference": "뭐 하는 거예요!!",
+          "translation": "뭐 하는 거예요!!",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "1bff:1380",
+          "before_bytes": "05 00 2b ff 07 00 07 00 07 ff 00 80",
+          "after_bytes": "10 ff 01 00 0d ff 02 ff 2b ff 36 00"
+        },
+        {
+          "offset": 7482456,
+          "offset_hex": "0x722C58",
+          "header_offset": 7482452,
+          "header_offset_hex": "0x722C54",
+          "char_count": 3,
+          "byte_length": 6,
+          "max_korean_chars": 3,
+          "length_policy": "fixed_slot",
+          "text": "作戦だ",
+          "previous_translation_reference": "",
+          "translation": "작전",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "2b ff 36 00 03 00 06 ff 40 00 05 00",
+          "after_bytes": "10 ff 81 00 0d ff 02 ff 1b ff 04 00"
+        },
+        {
+          "offset": 7482486,
+          "offset_hex": "0x722C76",
+          "header_offset": 7482482,
+          "header_offset_hex": "0x722C72",
+          "char_count": 3,
+          "byte_length": 6,
+          "max_korean_chars": 3,
+          "length_policy": "fixed_slot",
+          "text": "作戦？",
+          "previous_translation_reference": "",
+          "translation": "작전?",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "1b ff 04 00 00 00 06 ff 80 00 05 00",
+          "after_bytes": "10 ff 01 00 0d ff 02 ff 1b ff 33 80"
+        },
+        {
+          "offset": 7482516,
+          "offset_hex": "0x722C94",
+          "header_offset": 7482512,
+          "header_offset_hex": "0x722C90",
+          "char_count": 9,
+          "byte_length": 18,
+          "max_korean_chars": 9,
+          "length_policy": "fixed_slot",
+          "text": "本当に作戦ですか？",
+          "previous_translation_reference": "정말 작전인가요?",
+          "translation": "정말 작전인가요?",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "1bff:3380",
+          "before_bytes": "1b ff 33 80 00 00 06 ff 40 00 05 00",
+          "after_bytes": "10 ff 81 00 0d ff 02 ff 2b ff 36 00"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 26
+    },
+    {
+      "unit_id": "entry8_unit:722CC4",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 2,
+      "offsets": [
+        7482564,
+        7482588
+      ],
+      "offsets_hex": [
+        "0x722CC4",
+        "0x722CDC"
+      ],
+      "source_text": "エルリック兄弟なら\n心配いらないわ",
+      "translation_text": "엘릭 형제라면\n걱정 없어",
+      "length_policy_summary": {
+        "fixed_slot": 1,
+        "candidate_repoint_keep_conservative": 1
+      },
+      "records": [
+        {
+          "offset": 7482564,
+          "offset_hex": "0x722CC4",
+          "header_offset": 7482560,
+          "header_offset_hex": "0x722CC0",
+          "char_count": 9,
+          "byte_length": 18,
+          "max_korean_chars": 9,
+          "length_policy": "fixed_slot",
+          "text": "エルリック兄弟なら",
+          "previous_translation_reference": "엘릭 형제라면",
+          "translation": "엘릭 형제라면",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "1bff:1D00",
+          "before_bytes": "1b ff 1d 00 00 00 06 ff 80 00 05 00",
+          "after_bytes": "04 ff 01 ff 07 00 90 53 94 7a 82 a2"
+        },
+        {
+          "offset": 7482588,
+          "offset_hex": "0x722CDC",
+          "header_offset": 7482584,
+          "header_offset_hex": "0x722CD8",
+          "char_count": 7,
+          "byte_length": 14,
+          "max_korean_chars": 7,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "心配いらないわ",
+          "previous_translation_reference": "걱정할 필요 없어",
+          "translation": "걱정 없어",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "83 4e 8c 5a 92 ed 82 c8 82 e7 04 ff",
+          "after_bytes": "10 ff 01 00 0d ff 02 ff 1b ff 39 80"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 20
+    },
+    {
+      "unit_id": "entry8_unit:722D02",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 1,
+      "offsets": [
+        7482626
+      ],
+      "offsets_hex": [
+        "0x722D02"
+      ],
+      "source_text": "そうは見えないんですけど…",
+      "translation_text": "그렇게 안 보이는데...",
+      "length_policy_summary": {
+        "fixed_slot": 1
+      },
+      "records": [
+        {
+          "offset": 7482626,
+          "offset_hex": "0x722D02",
+          "header_offset": 7482622,
+          "header_offset_hex": "0x722CFE",
+          "char_count": 13,
+          "byte_length": 26,
+          "max_korean_chars": 13,
+          "length_policy": "fixed_slot",
+          "text": "そうは見えないんですけど…",
+          "previous_translation_reference": "그렇게는 안 보이는데요…",
+          "translation": "그렇게 안 보이는데...",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "1bff:3980",
+          "before_bytes": "1b ff 39 80 00 00 06 ff 40 00 05 00",
+          "after_bytes": "10 ff 81 00 0d ff 02 ff 2b ff 08 00"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 46
+    },
+    {
+      "unit_id": "entry8_unit:722D4E",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 3,
+      "offsets": [
+        7482702,
+        7482724,
+        7482752
+      ],
+      "offsets_hex": [
+        "0x722D4E",
+        "0x722D64",
+        "0x722D80"
+      ],
+      "source_text": "火事はどこだぁ\nこれはマスタング大佐、\nホークアイ中尉",
+      "translation_text": "불은 어디냐\n머스탱 대령,\n호크아이 중위",
+      "length_policy_summary": {
+        "fixed_slot": 3
+      },
+      "records": [
+        {
+          "offset": 7482702,
+          "offset_hex": "0x722D4E",
+          "header_offset": 7482698,
+          "header_offset_hex": "0x722D4A",
+          "char_count": 7,
+          "byte_length": 14,
+          "max_korean_chars": 7,
+          "length_policy": "fixed_slot",
+          "text": "火事はどこだぁ",
+          "previous_translation_reference": "불은 어디냐!",
+          "translation": "불은 어디냐",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "2bff:0800",
+          "before_bytes": "0e 00 60 ff 48 00 06 00 21 00 10 00",
+          "after_bytes": "0d ff 02 ff 01 ff 0b 00 82 b1 82 ea"
+        },
+        {
+          "offset": 7482724,
+          "offset_hex": "0x722D64",
+          "header_offset": 7482720,
+          "header_offset_hex": "0x722D60",
+          "char_count": 11,
+          "byte_length": 22,
+          "max_korean_chars": 11,
+          "length_policy": "fixed_slot",
+          "text": "これはマスタング大佐、",
+          "previous_translation_reference": "이거 머스탱 대령,",
+          "translation": "머스탱 대령,",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 c7 82 b1 82 be 82 9f 0d ff 02 ff",
+          "after_bytes": "04 ff 01 ff 07 00 83 7a 81 5b 83 4e"
+        },
+        {
+          "offset": 7482752,
+          "offset_hex": "0x722D80",
+          "header_offset": 7482748,
+          "header_offset_hex": "0x722D7C",
+          "char_count": 7,
+          "byte_length": 14,
+          "max_korean_chars": 7,
+          "length_policy": "fixed_slot",
+          "text": "ホークアイ中尉",
+          "previous_translation_reference": "호크아이 중위",
+          "translation": "호크아이 중위",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "83 93 83 4f 91 e5 8d b2 81 41 04 ff",
+          "after_bytes": "0d ff 02 ff 1b ff 12 00 00 00 06 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 16
+    },
+    {
+      "unit_id": "entry8_unit:722DA2",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 2,
+      "offsets": [
+        7482786,
+        7482800
+      ],
+      "offsets_hex": [
+        "0x722DA2",
+        "0x722DB0"
+      ],
+      "source_text": "ご苦労。\n放火犯は現行犯逮捕した",
+      "translation_text": "수고했다\n방화범은 현행체포다",
+      "length_policy_summary": {
+        "candidate_repoint_keep_conservative": 2
+      },
+      "records": [
+        {
+          "offset": 7482786,
+          "offset_hex": "0x722DA2",
+          "header_offset": 7482782,
+          "header_offset_hex": "0x722D9E",
+          "char_count": 4,
+          "byte_length": 8,
+          "max_korean_chars": 4,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "ご苦労。",
+          "previous_translation_reference": "수고했다.",
+          "translation": "수고했다",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "1bff:1200",
+          "before_bytes": "1b ff 12 00 00 00 06 ff 80 cc 05 00",
+          "after_bytes": "04 ff 01 ff 0b 00 95 fa 89 ce 94 c6"
+        },
+        {
+          "offset": 7482800,
+          "offset_hex": "0x722DB0",
+          "header_offset": 7482796,
+          "header_offset_hex": "0x722DAC",
+          "char_count": 11,
+          "byte_length": 22,
+          "max_korean_chars": 11,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "放火犯は現行犯逮捕した",
+          "previous_translation_reference": "방화범은 현행범으로 체포했다",
+          "translation": "방화범은 현행체포다",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "04 00 82 b2 8b ea 98 4a 81 42 04 ff",
+          "after_bytes": "10 ff 01 00 50 ff 48 00 00 00 0d ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 20
+    },
+    {
+      "unit_id": "entry8_unit:722DDE",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 1,
+      "offsets": [
+        7482846
+      ],
+      "offsets_hex": [
+        "0x722DDE"
+      ],
+      "source_text": "犯人は？",
+      "translation_text": "범인은?",
+      "length_policy_summary": {
+        "fixed_slot": 1
+      },
+      "records": [
+        {
+          "offset": 7482846,
+          "offset_hex": "0x722DDE",
+          "header_offset": 7482842,
+          "header_offset_hex": "0x722DDA",
+          "char_count": 4,
+          "byte_length": 8,
+          "max_korean_chars": 4,
+          "length_policy": "fixed_slot",
+          "text": "犯人は？",
+          "previous_translation_reference": "범인은?",
+          "translation": "범인은?",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "00 00 0d ff 02 ff 06 ff 03 cc 06 00",
+          "after_bytes": "0d ff 02 ff 1b ff 12 80 00 00 06 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 16
+    },
+    {
+      "unit_id": "entry8_unit:722DFA",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 4,
+      "offsets": [
+        7482874,
+        7482920,
+        7482950,
+        7482980
+      ],
+      "offsets_hex": [
+        "0x722DFA",
+        "0x722E28",
+        "0x722E46",
+        "0x722E64"
+      ],
+      "source_text": "この二人だ\nオレ？\nボク？\n放置自転車に",
+      "translation_text": "이 둘이다\n나?\n나?\n방치자전거에",
+      "length_policy_summary": {
+        "fixed_slot": 3,
+        "candidate_repoint_keep_conservative": 1
+      },
+      "records": [
+        {
+          "offset": 7482874,
+          "offset_hex": "0x722DFA",
+          "header_offset": 7482870,
+          "header_offset_hex": "0x722DF6",
+          "char_count": 5,
+          "byte_length": 10,
+          "max_korean_chars": 5,
+          "length_policy": "fixed_slot",
+          "text": "この二人だ",
+          "previous_translation_reference": "이 둘이다",
+          "translation": "이 둘이다",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "1bff:1280",
+          "before_bytes": "1b ff 12 80 00 00 06 ff 40 cc 05 00",
+          "after_bytes": "10 ff 81 00 0d ff 02 ff 2b ff 09 00"
+        },
+        {
+          "offset": 7482920,
+          "offset_hex": "0x722E28",
+          "header_offset": 7482916,
+          "header_offset_hex": "0x722E24",
+          "char_count": 3,
+          "byte_length": 6,
+          "max_korean_chars": 3,
+          "length_policy": "fixed_slot",
+          "text": "オレ？",
+          "previous_translation_reference": "",
+          "translation": "나?",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "1b ff 08 00 00 00 06 ff 80 00 05 00",
+          "after_bytes": "10 ff 01 00 0d ff 02 ff 1b ff 0d 80"
+        },
+        {
+          "offset": 7482950,
+          "offset_hex": "0x722E46",
+          "header_offset": 7482946,
+          "header_offset_hex": "0x722E42",
+          "char_count": 3,
+          "byte_length": 6,
+          "max_korean_chars": 3,
+          "length_policy": "fixed_slot",
+          "text": "ボク？",
+          "previous_translation_reference": "",
+          "translation": "나?",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "1b ff 0d 80 00 00 06 ff 40 00 05 00",
+          "after_bytes": "10 ff 81 00 0d ff 02 ff 1b ff 13 00"
+        },
+        {
+          "offset": 7482980,
+          "offset_hex": "0x722E64",
+          "header_offset": 7482976,
+          "header_offset_hex": "0x722E60",
+          "char_count": 6,
+          "byte_length": 12,
+          "max_korean_chars": 6,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "放置自転車に",
+          "previous_translation_reference": "방치된 자전거에",
+          "translation": "방치자전거에",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "1bff:1300",
+          "before_bytes": "1b ff 13 00 00 00 06 ff 80 00 05 00",
+          "after_bytes": "04 ff 01 ff 0a 00 89 ce 82 f0 82 c2"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 2
+    },
+    {
+      "unit_id": "entry8_unit:722E76",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 2,
+      "offsets": [
+        7482998,
+        7483024
+      ],
+      "offsets_hex": [
+        "0x722E76",
+        "0x722E90"
+      ],
+      "source_text": "火をつけた放火魔だ。\nこの小さい方は国家錬金術師だ",
+      "translation_text": "불 지른 방화범이다\n이 꼬마는 국가 연금술사다",
+      "length_policy_summary": {
+        "candidate_repoint_keep_conservative": 1,
+        "fixed_slot": 1
+      },
+      "records": [
+        {
+          "offset": 7482998,
+          "offset_hex": "0x722E76",
+          "header_offset": 7482994,
+          "header_offset_hex": "0x722E72",
+          "char_count": 10,
+          "byte_length": 20,
+          "max_korean_chars": 10,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "火をつけた放火魔だ。",
+          "previous_translation_reference": "불을 지른 방화범이다.",
+          "translation": "불 지른 방화범이다",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "92 75 8e a9 93 5d 8e d4 82 c9 04 ff",
+          "after_bytes": "04 ff 01 ff 0e 00 82 b1 82 cc 8f ac"
+        },
+        {
+          "offset": 7483024,
+          "offset_hex": "0x722E90",
+          "header_offset": 7483020,
+          "header_offset_hex": "0x722E8C",
+          "char_count": 14,
+          "byte_length": 28,
+          "max_korean_chars": 14,
+          "length_policy": "fixed_slot",
+          "text": "この小さい方は国家錬金術師だ",
+          "previous_translation_reference": "이 작은 쪽은 국가 연금술사다",
+          "translation": "이 꼬마는 국가 연금술사다",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "95 fa 89 ce 96 82 82 be 81 42 04 ff",
+          "after_bytes": "10 ff 01 00 0d ff 02 ff 1b ff 03 80"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 20
+    },
+    {
+      "unit_id": "entry8_unit:722EC4",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 1,
+      "offsets": [
+        7483076
+      ],
+      "offsets_hex": [
+        "0x722EC4"
+      ],
+      "source_text": "小さい言うな！！",
+      "translation_text": "작다 하지마!!",
+      "length_policy_summary": {
+        "fixed_slot": 1
+      },
+      "records": [
+        {
+          "offset": 7483076,
+          "offset_hex": "0x722EC4",
+          "header_offset": 7483072,
+          "header_offset_hex": "0x722EC0",
+          "char_count": 8,
+          "byte_length": 16,
+          "max_korean_chars": 8,
+          "length_policy": "fixed_slot",
+          "text": "小さい言うな！！",
+          "previous_translation_reference": "작다고 하지 마!!",
+          "translation": "작다 하지마!!",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "1bff:0380",
+          "before_bytes": "1b ff 03 80 00 00 06 ff 40 00 05 00",
+          "after_bytes": "10 ff 81 00 0d ff 02 ff 2b ff 09 00"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 26
+    },
+    {
+      "unit_id": "entry8_unit:722EF2",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 2,
+      "offsets": [
+        7483122,
+        7483138
+      ],
+      "offsets_hex": [
+        "0x722EF2",
+        "0x722F02"
+      ],
+      "source_text": "黙れっ！\n国家錬金術師の犯罪は…",
+      "translation_text": "닥쳐!\n국가연금술사 죄...",
+      "length_policy_summary": {
+        "fixed_slot": 1,
+        "candidate_repoint_keep_conservative": 1
+      },
+      "records": [
+        {
+          "offset": 7483122,
+          "offset_hex": "0x722EF2",
+          "header_offset": 7483118,
+          "header_offset_hex": "0x722EEE",
+          "char_count": 4,
+          "byte_length": 8,
+          "max_korean_chars": 4,
+          "length_policy": "fixed_slot",
+          "text": "黙れっ！",
+          "previous_translation_reference": "닥쳐라!",
+          "translation": "닥쳐!",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "2bff:0900",
+          "before_bytes": "2b ff 09 00 48 00 06 ff 03 cc 06 00",
+          "after_bytes": "0d ff 02 ff 01 ff 0b 00 8d 91 89 c6"
+        },
+        {
+          "offset": 7483138,
+          "offset_hex": "0x722F02",
+          "header_offset": 7483134,
+          "header_offset_hex": "0x722EFE",
+          "char_count": 11,
+          "byte_length": 22,
+          "max_korean_chars": 11,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "国家錬金術師の犯罪は…",
+          "previous_translation_reference": "국가 연금술사의 범죄는…",
+          "translation": "국가연금술사 죄...",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "96 d9 82 ea 82 c1 81 49 0d ff 02 ff",
+          "after_bytes": "0d ff 02 ff 1b ff 13 00 00 00 06 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 16
+    },
+    {
+      "unit_id": "entry8_unit:722F2C",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 1,
+      "offsets": [
+        7483180
+      ],
+      "offsets_hex": [
+        "0x722F2C"
+      ],
+      "source_text": "軽くて、終身刑だな",
+      "translation_text": "가벼워도 종신형",
+      "length_policy_summary": {
+        "candidate_repoint_keep_conservative": 1
+      },
+      "records": [
+        {
+          "offset": 7483180,
+          "offset_hex": "0x722F2C",
+          "header_offset": 7483176,
+          "header_offset_hex": "0x722F28",
+          "char_count": 9,
+          "byte_length": 18,
+          "max_korean_chars": 9,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "軽くて、終身刑だな",
+          "previous_translation_reference": "가벼워도 종신형이다",
+          "translation": "가벼워도 종신형",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "1bff:1300",
+          "before_bytes": "1b ff 13 00 00 00 06 ff 80 cc 05 00",
+          "after_bytes": "10 ff 01 00 0d ff 02 ff 1b ff 07 80"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 20
+    },
+    {
+      "unit_id": "entry8_unit:722F56",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 2,
+      "offsets": [
+        7483222,
+        7483242
+      ],
+      "offsets_hex": [
+        "0x722F56",
+        "0x722F6A"
+      ],
+      "source_text": "ちょっと待て！\n軽くねえぞ！",
+      "translation_text": "잠깐만!\n안 가볍다!",
+      "length_policy_summary": {
+        "fixed_slot": 2
+      },
+      "records": [
+        {
+          "offset": 7483222,
+          "offset_hex": "0x722F56",
+          "header_offset": 7483218,
+          "header_offset_hex": "0x722F52",
+          "char_count": 7,
+          "byte_length": 14,
+          "max_korean_chars": 7,
+          "length_policy": "fixed_slot",
+          "text": "ちょっと待て！",
+          "previous_translation_reference": "잠깐만!",
+          "translation": "잠깐만!",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "1bff:0780",
+          "before_bytes": "1b ff 07 80 00 00 06 ff 40 00 05 00",
+          "after_bytes": "04 ff 01 ff 06 00 8c 79 82 ad 82 cb"
+        },
+        {
+          "offset": 7483242,
+          "offset_hex": "0x722F6A",
+          "header_offset": 7483238,
+          "header_offset_hex": "0x722F66",
+          "char_count": 6,
+          "byte_length": 12,
+          "max_korean_chars": 6,
+          "length_policy": "fixed_slot",
+          "text": "軽くねえぞ！",
+          "previous_translation_reference": "안 가볍잖아!",
+          "translation": "안 가볍다!",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 c1 82 c6 91 d2 82 c4 81 49 04 ff",
+          "after_bytes": "10 ff 81 00 0d ff 02 ff 1b ff 12 00"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 20
+    },
+    {
+      "unit_id": "entry8_unit:722F8E",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 3,
+      "offsets": [
+        7483278,
+        7483300,
+        7483328
+      ],
+      "offsets_hex": [
+        "0x722F8E",
+        "0x722FA4",
+        "0x722FC0"
+      ],
+      "source_text": "そういうわけだ。\n二人まとめて軍刑務所に\n入れておけ！",
+      "translation_text": "그런 셈이다\n둘 다 군형무소에\n넣어 둬라!",
+      "length_policy_summary": {
+        "fixed_slot": 3
+      },
+      "records": [
+        {
+          "offset": 7483278,
+          "offset_hex": "0x722F8E",
+          "header_offset": 7483274,
+          "header_offset_hex": "0x722F8A",
+          "char_count": 8,
+          "byte_length": 16,
+          "max_korean_chars": 8,
+          "length_policy": "fixed_slot",
+          "text": "そういうわけだ。",
+          "previous_translation_reference": "그런 셈이다.",
+          "translation": "그런 셈이다",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "1bff:1200",
+          "before_bytes": "1b ff 12 00 00 00 06 ff 80 00 05 00",
+          "after_bytes": "04 ff 01 ff 0b 00 93 f1 90 6c 82 dc"
+        },
+        {
+          "offset": 7483300,
+          "offset_hex": "0x722FA4",
+          "header_offset": 7483296,
+          "header_offset_hex": "0x722FA0",
+          "char_count": 11,
+          "byte_length": 22,
+          "max_korean_chars": 11,
+          "length_policy": "fixed_slot",
+          "text": "二人まとめて軍刑務所に",
+          "previous_translation_reference": "둘 다 군 형무소에",
+          "translation": "둘 다 군형무소에",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 a4 82 ed 82 af 82 be 81 42 04 ff",
+          "after_bytes": "04 ff 01 ff 06 00 93 fc 82 ea 82 c4"
+        },
+        {
+          "offset": 7483328,
+          "offset_hex": "0x722FC0",
+          "header_offset": 7483324,
+          "header_offset_hex": "0x722FBC",
+          "char_count": 6,
+          "byte_length": 12,
+          "max_korean_chars": 6,
+          "length_policy": "fixed_slot",
+          "text": "入れておけ！",
+          "previous_translation_reference": "넣어 둬라!",
+          "translation": "넣어 둬라!",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "8c 52 8c 59 96 b1 8f 8a 82 c9 04 ff",
+          "after_bytes": "10 ff 01 00 0d ff 02 ff 2b ff 06 00"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 26
+    },
+    {
+      "unit_id": "entry8_unit:722FEA",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 2,
+      "offsets": [
+        7483370,
+        7483406
+      ],
+      "offsets_hex": [
+        "0x722FEA",
+        "0x72300E"
+      ],
+      "source_text": "はっ！！\nさっさと来るんだ",
+      "translation_text": "옛!!\n빨리 따라와",
+      "length_policy_summary": {
+        "fixed_slot": 2
+      },
+      "records": [
+        {
+          "offset": 7483370,
+          "offset_hex": "0x722FEA",
+          "header_offset": 7483366,
+          "header_offset_hex": "0x722FE6",
+          "char_count": 4,
+          "byte_length": 8,
+          "max_korean_chars": 4,
+          "length_policy": "fixed_slot",
+          "text": "はっ！！",
+          "previous_translation_reference": "예!!",
+          "translation": "옛!!",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "2bff:0600",
+          "before_bytes": "2b ff 06 00 48 00 06 ff 03 cc 06 00",
+          "after_bytes": "04 ff 2b ff 09 00 21 00 2b ff 0d 00"
+        },
+        {
+          "offset": 7483406,
+          "offset_hex": "0x72300E",
+          "header_offset": 7483402,
+          "header_offset_hex": "0x72300A",
+          "char_count": 8,
+          "byte_length": 16,
+          "max_korean_chars": 8,
+          "length_policy": "fixed_slot",
+          "text": "さっさと来るんだ",
+          "previous_translation_reference": "얼른 와라",
+          "translation": "빨리 따라와",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "2bff:0600",
+          "before_bytes": "48 00 05 ff 14 00 2b ff 06 00 48 00",
+          "after_bytes": "0d ff 02 ff 1b ff 03 80 00 00 06 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 16
+    },
+    {
+      "unit_id": "entry8_unit:723032",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 3,
+      "offsets": [
+        7483442,
+        7483456,
+        7483476
+      ],
+      "offsets_hex": [
+        "0x723032",
+        "0x723040",
+        "0x723054"
+      ],
+      "source_text": "おいっ！\nちょっと待て！\nなんで、こうなるんだ？",
+      "translation_text": "어이!\n잠깐만!\n왜 이렇게 돼?",
+      "length_policy_summary": {
+        "fixed_slot": 3
+      },
+      "records": [
+        {
+          "offset": 7483442,
+          "offset_hex": "0x723032",
+          "header_offset": 7483438,
+          "header_offset_hex": "0x72302E",
+          "char_count": 4,
+          "byte_length": 8,
+          "max_korean_chars": 4,
+          "length_policy": "fixed_slot",
+          "text": "おいっ！",
+          "previous_translation_reference": "야!",
+          "translation": "어이!",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "1bff:0380",
+          "before_bytes": "1b ff 03 80 00 00 06 ff 40 cc 05 00",
+          "after_bytes": "04 ff 01 ff 07 00 82 bf 82 e5 82 c1"
+        },
+        {
+          "offset": 7483456,
+          "offset_hex": "0x723040",
+          "header_offset": 7483452,
+          "header_offset_hex": "0x72303C",
+          "char_count": 7,
+          "byte_length": 14,
+          "max_korean_chars": 7,
+          "length_policy": "fixed_slot",
+          "text": "ちょっと待て！",
+          "previous_translation_reference": "잠깐만!",
+          "translation": "잠깐만!",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "04 00 82 a8 82 a2 82 c1 81 49 04 ff",
+          "after_bytes": "04 ff 01 ff 0b 00 82 c8 82 f1 82 c5"
+        },
+        {
+          "offset": 7483476,
+          "offset_hex": "0x723054",
+          "header_offset": 7483472,
+          "header_offset_hex": "0x723050",
+          "char_count": 11,
+          "byte_length": 22,
+          "max_korean_chars": 11,
+          "length_policy": "fixed_slot",
+          "text": "なんで、こうなるんだ？",
+          "previous_translation_reference": "왜 이렇게 되는 건데?",
+          "translation": "왜 이렇게 돼?",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 c1 82 c6 91 d2 82 c4 81 49 04 ff",
+          "after_bytes": "10 ff 81 00 0d ff 02 ff 10 ff 80 00"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 12
+    },
+    {
+      "unit_id": "entry8_unit:72307A",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 4,
+      "offsets": [
+        7483514,
+        7483534,
+        7483574,
+        7483586
+      ],
+      "offsets_hex": [
+        "0x72307A",
+        "0x72308E",
+        "0x7230B6",
+        "0x7230C2"
+      ],
+      "source_text": "弁護士を呼べ！\n弁護士を！\nエド！\nアル！",
+      "translation_text": "변호사 불러!\n변호사를!\n에드!\n알!",
+      "length_policy_summary": {
+        "fixed_slot": 4
+      },
+      "records": [
+        {
+          "offset": 7483514,
+          "offset_hex": "0x72307A",
+          "header_offset": 7483510,
+          "header_offset_hex": "0x723076",
+          "char_count": 7,
+          "byte_length": 14,
+          "max_korean_chars": 7,
+          "length_policy": "fixed_slot",
+          "text": "弁護士を呼べ！",
+          "previous_translation_reference": "변호사를 불러!",
+          "translation": "변호사 불러!",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "10 ff 81 00 0d ff 02 ff 10 ff 80 00",
+          "after_bytes": "04 ff 01 ff 05 00 95 d9 8c ec 8e 6d"
+        },
+        {
+          "offset": 7483534,
+          "offset_hex": "0x72308E",
+          "header_offset": 7483530,
+          "header_offset_hex": "0x72308A",
+          "char_count": 5,
+          "byte_length": 10,
+          "max_korean_chars": 5,
+          "length_policy": "fixed_slot",
+          "text": "弁護士を！",
+          "previous_translation_reference": "변호사를!",
+          "translation": "변호사를!",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "8e 6d 82 f0 8c c4 82 d7 81 49 04 ff",
+          "after_bytes": "10 ff 81 00 0d ff 02 ff 2b ff 83 00"
+        },
+        {
+          "offset": 7483574,
+          "offset_hex": "0x7230B6",
+          "header_offset": 7483570,
+          "header_offset_hex": "0x7230B2",
+          "char_count": 3,
+          "byte_length": 6,
+          "max_korean_chars": 3,
+          "length_policy": "fixed_slot",
+          "text": "エド！",
+          "previous_translation_reference": "",
+          "translation": "에드!",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "1b ff 39 00 00 00 06 ff 80 00 05 00",
+          "after_bytes": "04 ff 01 ff 03 00 83 41 83 8b 81 49"
+        },
+        {
+          "offset": 7483586,
+          "offset_hex": "0x7230C2",
+          "header_offset": 7483582,
+          "header_offset_hex": "0x7230BE",
+          "char_count": 3,
+          "byte_length": 6,
+          "max_korean_chars": 3,
+          "length_policy": "fixed_slot",
+          "text": "アル！",
+          "previous_translation_reference": "",
+          "translation": "알!",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "01 ff 03 00 83 47 83 68 81 49 04 ff",
+          "after_bytes": "10 ff 01 00 0d ff 02 ff 1b ff 1d 80"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 20
+    },
+    {
+      "unit_id": "entry8_unit:7230E0",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 2,
+      "offsets": [
+        7483616,
+        7483632
+      ],
+      "offsets_hex": [
+        "0x7230E0",
+        "0x7230F0"
+      ],
+      "source_text": "がんばって\nおつとめしてきなさいね",
+      "translation_text": "힘내서\n복역 잘하고 와",
+      "length_policy_summary": {
+        "fixed_slot": 2
+      },
+      "records": [
+        {
+          "offset": 7483616,
+          "offset_hex": "0x7230E0",
+          "header_offset": 7483612,
+          "header_offset_hex": "0x7230DC",
+          "char_count": 5,
+          "byte_length": 10,
+          "max_korean_chars": 5,
+          "length_policy": "fixed_slot",
+          "text": "がんばって",
+          "previous_translation_reference": "힘내",
+          "translation": "힘내서",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "1bff:1D80",
+          "before_bytes": "1b ff 1d 80 00 00 06 ff 40 00 05 00",
+          "after_bytes": "04 ff 01 ff 0b 00 82 a8 82 c2 82 c6"
+        },
+        {
+          "offset": 7483632,
+          "offset_hex": "0x7230F0",
+          "header_offset": 7483628,
+          "header_offset_hex": "0x7230EC",
+          "char_count": 11,
+          "byte_length": 22,
+          "max_korean_chars": 11,
+          "length_policy": "fixed_slot",
+          "text": "おつとめしてきなさいね",
+          "previous_translation_reference": "복역 잘하고 와",
+          "translation": "복역 잘하고 와",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 aa 82 f1 82 ce 82 c1 82 c4 04 ff",
+          "after_bytes": "10 ff 81 00 0d ff 02 ff 1b ff 03 00"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 20
+    },
+    {
+      "unit_id": "entry8_unit:72311E",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 2,
+      "offsets": [
+        7483678,
+        7483692
+      ],
+      "offsets_hex": [
+        "0x72311E",
+        "0x72312C"
+      ],
+      "source_text": "くっそぉ\n大佐、おぼえてろよー",
+      "translation_text": "젠장\n대령, 두고 보자",
+      "length_policy_summary": {
+        "fixed_slot": 2
+      },
+      "records": [
+        {
+          "offset": 7483678,
+          "offset_hex": "0x72311E",
+          "header_offset": 7483674,
+          "header_offset_hex": "0x72311A",
+          "char_count": 4,
+          "byte_length": 8,
+          "max_korean_chars": 4,
+          "length_policy": "fixed_slot",
+          "text": "くっそぉ",
+          "previous_translation_reference": "젠장",
+          "translation": "젠장",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "1bff:0300",
+          "before_bytes": "1b ff 03 00 00 00 06 ff 80 00 05 00",
+          "after_bytes": "04 ff 01 ff 0a 00 91 e5 8d b2 81 41"
+        },
+        {
+          "offset": 7483692,
+          "offset_hex": "0x72312C",
+          "header_offset": 7483688,
+          "header_offset_hex": "0x723128",
+          "char_count": 10,
+          "byte_length": 20,
+          "max_korean_chars": 10,
+          "length_policy": "fixed_slot",
+          "text": "大佐、おぼえてろよー",
+          "previous_translation_reference": "대령, 두고 보자!",
+          "translation": "대령, 두고 보자",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "04 00 82 ad 82 c1 82 bb 82 a7 04 ff",
+          "after_bytes": "10 ff 01 00 0d ff 02 ff 1b ff 13 80"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 20
+    },
+    {
+      "unit_id": "entry8_unit:723158",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 1,
+      "offsets": [
+        7483736
+      ],
+      "offsets_hex": [
+        "0x723158"
+      ],
+      "source_text": "よくおぼえておくさ、鋼の",
+      "translation_text": "잘 기억해 두지,강철",
+      "length_policy_summary": {
+        "fixed_slot": 1
+      },
+      "records": [
+        {
+          "offset": 7483736,
+          "offset_hex": "0x723158",
+          "header_offset": 7483732,
+          "header_offset_hex": "0x723154",
+          "char_count": 12,
+          "byte_length": 24,
+          "max_korean_chars": 12,
+          "length_policy": "fixed_slot",
+          "text": "よくおぼえておくさ、鋼の",
+          "previous_translation_reference": "잘 기억해 두지, 강철",
+          "translation": "잘 기억해 두지,강철",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "1bff:1380",
+          "before_bytes": "1b ff 13 80 00 00 06 ff 40 00 05 00",
+          "after_bytes": "10 ff 81 00 0d ff 07 ff 00 00 1a ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 372
+    },
+    {
+      "unit_id": "entry8_unit:7232E8",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 2,
+      "offsets": [
+        7484136,
+        7484160
+      ],
+      "offsets_hex": [
+        "0x7232E8",
+        "0x723300"
+      ],
+      "source_text": "そっちは下水道じゃ\nありませんよ。",
+      "translation_text": "그쪽은 하수도가\n아닙니다.",
+      "length_policy_summary": {
+        "fixed_slot": 2
+      },
+      "records": [
+        {
+          "offset": 7484136,
+          "offset_hex": "0x7232E8",
+          "header_offset": 7484132,
+          "header_offset_hex": "0x7232E4",
+          "char_count": 9,
+          "byte_length": 18,
+          "max_korean_chars": 9,
+          "length_policy": "fixed_slot",
+          "text": "そっちは下水道じゃ",
+          "previous_translation_reference": "그쪽은 하수도가",
+          "translation": "그쪽은 하수도가",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "1bff:2080",
+          "before_bytes": "00 00 06 ff 80 00 05 00 07 ff 00 80",
+          "after_bytes": "04 ff 01 ff 07 00 82 a0 82 e8 82 dc"
+        },
+        {
+          "offset": 7484160,
+          "offset_hex": "0x723300",
+          "header_offset": 7484156,
+          "header_offset_hex": "0x7232FC",
+          "char_count": 7,
+          "byte_length": 14,
+          "max_korean_chars": 7,
+          "length_policy": "fixed_slot",
+          "text": "ありませんよ。",
+          "previous_translation_reference": "아닙니다.",
+          "translation": "아닙니다.",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "89 ba 90 85 93 b9 82 b6 82 e1 04 ff",
+          "after_bytes": "04 ff 10 ff 01 00 05 ff 14 00 06 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 16
+    },
+    {
+      "unit_id": "entry8_unit:723322",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 1,
+      "offsets": [
+        7484194
+      ],
+      "offsets_hex": [
+        "0x723322"
+      ],
+      "source_text": "少しはマジメに仕事して下さい",
+      "translation_text": "조금은 성실히 일하세요",
+      "length_policy_summary": {
+        "fixed_slot": 1
+      },
+      "records": [
+        {
+          "offset": 7484194,
+          "offset_hex": "0x723322",
+          "header_offset": 7484190,
+          "header_offset_hex": "0x72331E",
+          "char_count": 14,
+          "byte_length": 28,
+          "max_korean_chars": 14,
+          "length_policy": "fixed_slot",
+          "text": "少しはマジメに仕事して下さい",
+          "previous_translation_reference": "조금은 성실히 일해 주세요",
+          "translation": "조금은 성실히 일하세요",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "01 00 05 ff 14 00 06 ff 40 00 05 00",
+          "after_bytes": "10 ff 81 00 0d ff 02 ff 07 ff 00 00"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 60
+    },
+    {
+      "unit_id": "entry8_unit:72337E",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 3,
+      "offsets": [
+        7484286,
+        7484310,
+        7484334
+      ],
+      "offsets_hex": [
+        "0x72337E",
+        "0x723396",
+        "0x7233AE"
+      ],
+      "source_text": "ブラックハヤテ号が\nイーストシティから\n出ることはありえないわね",
+      "translation_text": "블랙 하야테호가\n이스트 시티를\n나갔을 리 없어요",
+      "length_policy_summary": {
+        "fixed_slot": 3
+      },
+      "records": [
+        {
+          "offset": 7484286,
+          "offset_hex": "0x72337E",
+          "header_offset": 7484282,
+          "header_offset_hex": "0x72337A",
+          "char_count": 9,
+          "byte_length": 18,
+          "max_korean_chars": 9,
+          "length_policy": "fixed_slot",
+          "text": "ブラックハヤテ号が",
+          "previous_translation_reference": "블랙 하야테 호가",
+          "translation": "블랙 하야테호가",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "1bff:1C00",
+          "before_bytes": "00 00 06 ff 80 00 05 00 07 ff 00 80",
+          "after_bytes": "04 ff 01 ff 09 00 83 43 81 5b 83 58"
+        },
+        {
+          "offset": 7484310,
+          "offset_hex": "0x723396",
+          "header_offset": 7484306,
+          "header_offset_hex": "0x723392",
+          "char_count": 9,
+          "byte_length": 18,
+          "max_korean_chars": 9,
+          "length_policy": "fixed_slot",
+          "text": "イーストシティから",
+          "previous_translation_reference": "이스트 시티에서",
+          "translation": "이스트 시티를",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "83 6e 83 84 83 65 8d 86 82 aa 04 ff",
+          "after_bytes": "04 ff 01 ff 0c 00 8f 6f 82 e9 82 b1"
+        },
+        {
+          "offset": 7484334,
+          "offset_hex": "0x7233AE",
+          "header_offset": 7484330,
+          "header_offset_hex": "0x7233AA",
+          "char_count": 12,
+          "byte_length": 24,
+          "max_korean_chars": 12,
+          "length_policy": "fixed_slot",
+          "text": "出ることはありえないわね",
+          "previous_translation_reference": "나갔을 리는 없겠네요",
+          "translation": "나갔을 리 없어요",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "83 56 83 65 83 42 82 a9 82 e7 04 ff",
+          "after_bytes": "10 ff 01 00 0d ff 07 ff 00 00 2b ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 96
+    },
+    {
+      "unit_id": "entry8_unit:72342A",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 3,
+      "offsets": [
+        7484458,
+        7484492,
+        7484522
+      ],
+      "offsets_hex": [
+        "0x72342A",
+        "0x72344C",
+        "0x72346A"
+      ],
+      "source_text": "兄さん、まだイーストシティで\nやらなきゃいけないことが\nあるんじゃない？",
+      "translation_text": "형,아직 이스트 시티에\n해야 할 일이\n있는 거 아냐?",
+      "length_policy_summary": {
+        "fixed_slot": 3
+      },
+      "records": [
+        {
+          "offset": 7484458,
+          "offset_hex": "0x72342A",
+          "header_offset": 7484454,
+          "header_offset_hex": "0x723426",
+          "char_count": 14,
+          "byte_length": 28,
+          "max_korean_chars": 14,
+          "length_policy": "fixed_slot",
+          "text": "兄さん、まだイーストシティで",
+          "previous_translation_reference": "형, 아직 이스트 시티에서",
+          "translation": "형,아직 이스트 시티에",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "1bff:0B00",
+          "before_bytes": "00 00 06 ff 80 00 05 00 07 ff 00 80",
+          "after_bytes": "04 ff 01 ff 0c 00 82 e2 82 e7 82 c8"
+        },
+        {
+          "offset": 7484492,
+          "offset_hex": "0x72344C",
+          "header_offset": 7484488,
+          "header_offset_hex": "0x723448",
+          "char_count": 12,
+          "byte_length": 24,
+          "max_korean_chars": 12,
+          "length_policy": "fixed_slot",
+          "text": "やらなきゃいけないことが",
+          "previous_translation_reference": "해야 할 일이",
+          "translation": "해야 할 일이",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "83 67 83 56 83 65 83 42 82 c5 04 ff",
+          "after_bytes": "04 ff 01 ff 08 00 82 a0 82 e9 82 f1"
+        },
+        {
+          "offset": 7484522,
+          "offset_hex": "0x72346A",
+          "header_offset": 7484518,
+          "header_offset_hex": "0x723466",
+          "char_count": 8,
+          "byte_length": 16,
+          "max_korean_chars": 8,
+          "length_policy": "fixed_slot",
+          "text": "あるんじゃない？",
+          "previous_translation_reference": "있는 거 아냐?",
+          "translation": "있는 거 아냐?",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 c8 82 a2 82 b1 82 c6 82 aa 04 ff",
+          "after_bytes": "0d ff 07 ff 00 00 2b ff 0d 00 01 00"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 252
+    },
+    {
+      "unit_id": "entry8_unit:72357A",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 2,
+      "offsets": [
+        7484794,
+        7484818
+      ],
+      "offsets_hex": [
+        "0x72357A",
+        "0x723592"
+      ],
+      "source_text": "この広場はみんなの\nいこいの場なのよ",
+      "translation_text": "이 광장은 모두의\n휴식처야",
+      "length_policy_summary": {
+        "fixed_slot": 2
+      },
+      "records": [
+        {
+          "offset": 7484794,
+          "offset_hex": "0x72357A",
+          "header_offset": 7484790,
+          "header_offset_hex": "0x723576",
+          "char_count": 9,
+          "byte_length": 18,
+          "max_korean_chars": 9,
+          "length_policy": "fixed_slot",
+          "text": "この広場はみんなの",
+          "previous_translation_reference": "이 광장은 모두의",
+          "translation": "이 광장은 모두의",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "2bff:0D00",
+          "before_bytes": "82 00 06 ff 00 80 06 00 07 ff 00 80",
+          "after_bytes": "04 ff 01 ff 08 00 82 a2 82 b1 82 a2"
+        },
+        {
+          "offset": 7484818,
+          "offset_hex": "0x723592",
+          "header_offset": 7484814,
+          "header_offset_hex": "0x72358E",
+          "char_count": 8,
+          "byte_length": 16,
+          "max_korean_chars": 8,
+          "length_policy": "fixed_slot",
+          "text": "いこいの場なのよ",
+          "previous_translation_reference": "휴식처야",
+          "translation": "휴식처야",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 cd 82 dd 82 f1 82 c8 82 cc 04 ff",
+          "after_bytes": "0d ff 07 ff 00 00 22 ff 03 ff 09 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 26
+    },
+    {
+      "unit_id": "entry8_unit:7235C0",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 3,
+      "offsets": [
+        7484864,
+        7484894,
+        7484924
+      ],
+      "offsets_hex": [
+        "0x7235C0",
+        "0x7235DE",
+        "0x7235FC"
+      ],
+      "source_text": "この間、マスタング大佐が\nこの広場を視察したのよ。\n素敵な人ねぇ",
+      "translation_text": "얼마 전 머스탱 대령이\n이 광장을 시찰했어\n멋진 분이야",
+      "length_policy_summary": {
+        "fixed_slot": 2,
+        "candidate_repoint_keep_conservative": 1
+      },
+      "records": [
+        {
+          "offset": 7484864,
+          "offset_hex": "0x7235C0",
+          "header_offset": 7484860,
+          "header_offset_hex": "0x7235BC",
+          "char_count": 12,
+          "byte_length": 24,
+          "max_korean_chars": 12,
+          "length_policy": "fixed_slot",
+          "text": "この間、マスタング大佐が",
+          "previous_translation_reference": "얼마 전 머스탱 대령이",
+          "translation": "얼마 전 머스탱 대령이",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "03 ff 06 ff 00 80 06 00 07 ff 00 80",
+          "after_bytes": "04 ff 01 ff 0c 00 82 b1 82 cc 8d 4c"
+        },
+        {
+          "offset": 7484894,
+          "offset_hex": "0x7235DE",
+          "header_offset": 7484890,
+          "header_offset_hex": "0x7235DA",
+          "char_count": 12,
+          "byte_length": 24,
+          "max_korean_chars": 12,
+          "length_policy": "fixed_slot",
+          "text": "この広場を視察したのよ。",
+          "previous_translation_reference": "이 광장을 시찰했어.",
+          "translation": "이 광장을 시찰했어",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "83 93 83 4f 91 e5 8d b2 82 aa 04 ff",
+          "after_bytes": "04 ff 01 ff 06 00 91 66 93 47 82 c8"
+        },
+        {
+          "offset": 7484924,
+          "offset_hex": "0x7235FC",
+          "header_offset": 7484920,
+          "header_offset_hex": "0x7235F8",
+          "char_count": 6,
+          "byte_length": 12,
+          "max_korean_chars": 6,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "素敵な人ねぇ",
+          "previous_translation_reference": "멋진 분이더라",
+          "translation": "멋진 분이야",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 b5 82 bd 82 cc 82 e6 81 42 04 ff",
+          "after_bytes": "0d ff 07 ff 00 00 22 ff 03 ff 09 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 26
+    },
+    {
+      "unit_id": "entry8_unit:723626",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 3,
+      "offsets": [
+        7484966,
+        7484994,
+        7485028
+      ],
+      "offsets_hex": [
+        "0x723626",
+        "0x723642",
+        "0x723664"
+      ],
+      "source_text": "例のキメラ事件、犯人が\nこのイーストシティにいるって\nホントかしら",
+      "translation_text": "키메라 사건 범인이\n이 이스트 시티에 있다니\n정말일까",
+      "length_policy_summary": {
+        "fixed_slot": 3
+      },
+      "records": [
+        {
+          "offset": 7484966,
+          "offset_hex": "0x723626",
+          "header_offset": 7484962,
+          "header_offset_hex": "0x723622",
+          "char_count": 11,
+          "byte_length": 22,
+          "max_korean_chars": 11,
+          "length_policy": "fixed_slot",
+          "text": "例のキメラ事件、犯人が",
+          "previous_translation_reference": "그 키메라 사건, 범인이",
+          "translation": "키메라 사건 범인이",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "03 ff 06 ff 00 80 06 00 07 ff 00 80",
+          "after_bytes": "04 ff 01 ff 0e 00 82 b1 82 cc 83 43"
+        },
+        {
+          "offset": 7484994,
+          "offset_hex": "0x723642",
+          "header_offset": 7484990,
+          "header_offset_hex": "0x72363E",
+          "char_count": 14,
+          "byte_length": 28,
+          "max_korean_chars": 14,
+          "length_policy": "fixed_slot",
+          "text": "このイーストシティにいるって",
+          "previous_translation_reference": "이 이스트 시티에 있다던데",
+          "translation": "이 이스트 시티에 있다니",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "8c 8f 81 41 94 c6 90 6c 82 aa 04 ff",
+          "after_bytes": "04 ff 01 ff 06 00 83 7a 83 93 83 67"
+        },
+        {
+          "offset": 7485028,
+          "offset_hex": "0x723664",
+          "header_offset": 7485024,
+          "header_offset_hex": "0x723660",
+          "char_count": 6,
+          "byte_length": 12,
+          "max_korean_chars": 6,
+          "length_policy": "fixed_slot",
+          "text": "ホントかしら",
+          "previous_translation_reference": "정말일까",
+          "translation": "정말일까",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 c9 82 a2 82 e9 82 c1 82 c4 04 ff",
+          "after_bytes": "0d ff 07 ff 00 00 22 ff 03 ff 09 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 26
+    },
+    {
+      "unit_id": "entry8_unit:72368E",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 3,
+      "offsets": [
+        7485070,
+        7485096,
+        7485118
+      ],
+      "offsets_hex": [
+        "0x72368E",
+        "0x7236A8",
+        "0x7236BE"
+      ],
+      "source_text": "東方軍司令部が襲撃？\nマスタング大佐は\nご無事でしたか？",
+      "translation_text": "동방군사령부 습격?\n머스탱 대령은\n무사하셨나요?",
+      "length_policy_summary": {
+        "candidate_repoint_keep_conservative": 1,
+        "fixed_slot": 2
+      },
+      "records": [
+        {
+          "offset": 7485070,
+          "offset_hex": "0x72368E",
+          "header_offset": 7485066,
+          "header_offset_hex": "0x72368A",
+          "char_count": 10,
+          "byte_length": 20,
+          "max_korean_chars": 10,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "東方軍司令部が襲撃？",
+          "previous_translation_reference": "동방군 사령부가 습격?",
+          "translation": "동방군사령부 습격?",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "03 ff 06 ff 00 80 06 00 07 ff 00 80",
+          "after_bytes": "04 ff 01 ff 08 00 83 7d 83 58 83 5e"
+        },
+        {
+          "offset": 7485096,
+          "offset_hex": "0x7236A8",
+          "header_offset": 7485092,
+          "header_offset_hex": "0x7236A4",
+          "char_count": 8,
+          "byte_length": 16,
+          "max_korean_chars": 8,
+          "length_policy": "fixed_slot",
+          "text": "マスタング大佐は",
+          "previous_translation_reference": "머스탱 대령은",
+          "translation": "머스탱 대령은",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "95 94 82 aa 8f 50 8c 82 81 48 04 ff",
+          "after_bytes": "04 ff 01 ff 08 00 82 b2 96 b3 8e 96"
+        },
+        {
+          "offset": 7485118,
+          "offset_hex": "0x7236BE",
+          "header_offset": 7485114,
+          "header_offset_hex": "0x7236BA",
+          "char_count": 8,
+          "byte_length": 16,
+          "max_korean_chars": 8,
+          "length_policy": "fixed_slot",
+          "text": "ご無事でしたか？",
+          "previous_translation_reference": "무사하셨나요?",
+          "translation": "무사하셨나요?",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "83 93 83 4f 91 e5 8d b2 82 cd 04 ff",
+          "after_bytes": "0d ff 07 ff 00 00 22 ff 03 ff 09 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 26
+    },
+    {
+      "unit_id": "entry8_unit:7236EC",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 2,
+      "offsets": [
+        7485164,
+        7485180
+      ],
+      "offsets_hex": [
+        "0x7236EC",
+        "0x7236FC"
+      ],
+      "source_text": "この平和が\n長く続くといいわね",
+      "translation_text": "이 평화가\n오래 가면 좋겠네",
+      "length_policy_summary": {
+        "fixed_slot": 1,
+        "candidate_repoint_keep_conservative": 1
+      },
+      "records": [
+        {
+          "offset": 7485164,
+          "offset_hex": "0x7236EC",
+          "header_offset": 7485160,
+          "header_offset_hex": "0x7236E8",
+          "char_count": 5,
+          "byte_length": 10,
+          "max_korean_chars": 5,
+          "length_policy": "fixed_slot",
+          "text": "この平和が",
+          "previous_translation_reference": "이 평화가",
+          "translation": "이 평화가",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "03 ff 06 ff 00 80 06 00 07 ff 00 80",
+          "after_bytes": "04 ff 01 ff 09 00 92 b7 82 ad 91 b1"
+        },
+        {
+          "offset": 7485180,
+          "offset_hex": "0x7236FC",
+          "header_offset": 7485176,
+          "header_offset_hex": "0x7236F8",
+          "char_count": 9,
+          "byte_length": 18,
+          "max_korean_chars": 9,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "長く続くといいわね",
+          "previous_translation_reference": "오래 이어지면 좋겠네",
+          "translation": "오래 가면 좋겠네",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 b1 82 cc 95 bd 98 61 82 aa 04 ff",
+          "after_bytes": "0d ff 07 ff 00 00 22 ff 03 ff 09 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 26
+    },
+    {
+      "unit_id": "entry8_unit:72372C",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 3,
+      "offsets": [
+        7485228,
+        7485254,
+        7485280
+      ],
+      "offsets_hex": [
+        "0x72372C",
+        "0x723746",
+        "0x723760"
+      ],
+      "source_text": "タバコの軍人さんなら\n広場で見かけたわよ。\nまだいると思うわ",
+      "translation_text": "담배 군인이라면\n광장에서 봤어\n아직 있을 거야",
+      "length_policy_summary": {
+        "candidate_repoint_keep_conservative": 1,
+        "fixed_slot": 2
+      },
+      "records": [
+        {
+          "offset": 7485228,
+          "offset_hex": "0x72372C",
+          "header_offset": 7485224,
+          "header_offset_hex": "0x723728",
+          "char_count": 10,
+          "byte_length": 20,
+          "max_korean_chars": 10,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "タバコの軍人さんなら",
+          "previous_translation_reference": "담배 피우는 군인이라면",
+          "translation": "담배 군인이라면",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "03 ff 06 ff 00 80 06 00 07 ff 00 80",
+          "after_bytes": "04 ff 01 ff 0a 00 8d 4c 8f ea 82 c5"
+        },
+        {
+          "offset": 7485254,
+          "offset_hex": "0x723746",
+          "header_offset": 7485250,
+          "header_offset_hex": "0x723742",
+          "char_count": 10,
+          "byte_length": 20,
+          "max_korean_chars": 10,
+          "length_policy": "fixed_slot",
+          "text": "広場で見かけたわよ。",
+          "previous_translation_reference": "광장에서 봤어.",
+          "translation": "광장에서 봤어",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "90 6c 82 b3 82 f1 82 c8 82 e7 04 ff",
+          "after_bytes": "04 ff 01 ff 08 00 82 dc 82 be 82 a2"
+        },
+        {
+          "offset": 7485280,
+          "offset_hex": "0x723760",
+          "header_offset": 7485276,
+          "header_offset_hex": "0x72375C",
+          "char_count": 8,
+          "byte_length": 16,
+          "max_korean_chars": 8,
+          "length_policy": "fixed_slot",
+          "text": "まだいると思うわ",
+          "previous_translation_reference": "아직 있을 거야",
+          "translation": "아직 있을 거야",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 af 82 bd 82 ed 82 e6 81 42 04 ff",
+          "after_bytes": "0d ff 07 ff 00 00 22 ff 03 ff 09 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 26
+    },
+    {
+      "unit_id": "entry8_unit:72378E",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 3,
+      "offsets": [
+        7485326,
+        7485350,
+        7485370
+      ],
+      "offsets_hex": [
+        "0x72378E",
+        "0x7237A6",
+        "0x7237BA"
+      ],
+      "source_text": "また事件ですって？\nいい加減にして\n欲しいわね",
+      "translation_text": "또 사건이라고?\n이제 그만 좀\n해 줘요",
+      "length_policy_summary": {
+        "fixed_slot": 2,
+        "candidate_repoint_keep_conservative": 1
+      },
+      "records": [
+        {
+          "offset": 7485326,
+          "offset_hex": "0x72378E",
+          "header_offset": 7485322,
+          "header_offset_hex": "0x72378A",
+          "char_count": 9,
+          "byte_length": 18,
+          "max_korean_chars": 9,
+          "length_policy": "fixed_slot",
+          "text": "また事件ですって？",
+          "previous_translation_reference": "또 사건이라고?",
+          "translation": "또 사건이라고?",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "03 ff 06 ff 00 80 06 00 07 ff 00 80",
+          "after_bytes": "04 ff 01 ff 07 00 82 a2 82 a2 89 c1"
+        },
+        {
+          "offset": 7485350,
+          "offset_hex": "0x7237A6",
+          "header_offset": 7485346,
+          "header_offset_hex": "0x7237A2",
+          "char_count": 7,
+          "byte_length": 14,
+          "max_korean_chars": 7,
+          "length_policy": "fixed_slot",
+          "text": "いい加減にして",
+          "previous_translation_reference": "이제 그만 좀",
+          "translation": "이제 그만 좀",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 c5 82 b7 82 c1 82 c4 81 48 04 ff",
+          "after_bytes": "04 ff 01 ff 05 00 97 7e 82 b5 82 a2"
+        },
+        {
+          "offset": 7485370,
+          "offset_hex": "0x7237BA",
+          "header_offset": 7485366,
+          "header_offset_hex": "0x7237B6",
+          "char_count": 5,
+          "byte_length": 10,
+          "max_korean_chars": 5,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "欲しいわね",
+          "previous_translation_reference": "했으면 좋겠네",
+          "translation": "해 줘요",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "89 c1 8c b8 82 c9 82 b5 82 c4 04 ff",
+          "after_bytes": "0d ff 07 ff 00 00 22 ff 00 00 82 a4"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 216
+    },
+    {
+      "unit_id": "entry8_unit:7238A0",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 1,
+      "offsets": [
+        7485600
+      ],
+      "offsets_hex": [
+        "0x7238A0"
+      ],
+      "source_text": "毎日、広場に来てますじゃ",
+      "translation_text": "매일 광장에 오고 있네",
+      "length_policy_summary": {
+        "fixed_slot": 1
+      },
+      "records": [
+        {
+          "offset": 7485600,
+          "offset_hex": "0x7238A0",
+          "header_offset": 7485596,
+          "header_offset_hex": "0x72389C",
+          "char_count": 12,
+          "byte_length": 24,
+          "max_korean_chars": 12,
+          "length_policy": "fixed_slot",
+          "text": "毎日、広場に来てますじゃ",
+          "previous_translation_reference": "매일 광장에 오고 있네",
+          "translation": "매일 광장에 오고 있네",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "68 00 06 ff 00 80 06 00 07 ff 00 80",
+          "after_bytes": "0d ff 07 ff 00 00 22 ff 03 ff 09 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 26
+    },
+    {
+      "unit_id": "entry8_unit:7238D6",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 2,
+      "offsets": [
+        7485654,
+        7485674
+      ],
+      "offsets_hex": [
+        "0x7238D6",
+        "0x7238EA"
+      ],
+      "source_text": "すこしばかり、\n歩き疲れたのぉ",
+      "translation_text": "조금이나마,\n걷다 지쳤구먼",
+      "length_policy_summary": {
+        "fixed_slot": 2
+      },
+      "records": [
+        {
+          "offset": 7485654,
+          "offset_hex": "0x7238D6",
+          "header_offset": 7485650,
+          "header_offset_hex": "0x7238D2",
+          "char_count": 7,
+          "byte_length": 14,
+          "max_korean_chars": 7,
+          "length_policy": "fixed_slot",
+          "text": "すこしばかり、",
+          "previous_translation_reference": "조금",
+          "translation": "조금이나마,",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "03 ff 06 ff 00 80 06 00 07 ff 00 80",
+          "after_bytes": "04 ff 01 ff 07 00 95 e0 82 ab 94 e6"
+        },
+        {
+          "offset": 7485674,
+          "offset_hex": "0x7238EA",
+          "header_offset": 7485670,
+          "header_offset_hex": "0x7238E6",
+          "char_count": 7,
+          "byte_length": 14,
+          "max_korean_chars": 7,
+          "length_policy": "fixed_slot",
+          "text": "歩き疲れたのぉ",
+          "previous_translation_reference": "걷다 지쳤구먼",
+          "translation": "걷다 지쳤구먼",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 b5 82 ce 82 a9 82 e8 81 41 04 ff",
+          "after_bytes": "0d ff 07 ff 00 00 22 ff 03 ff 09 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 26
+    },
+    {
+      "unit_id": "entry8_unit:723916",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 3,
+      "offsets": [
+        7485718,
+        7485746,
+        7485766
+      ],
+      "offsets_hex": [
+        "0x723916",
+        "0x723932",
+        "0x723946"
+      ],
+      "source_text": "キメラが街を襲うとは、\n物騒な世の中に\nなったもんじゃの",
+      "translation_text": "키메라 거리 습격\n흉흉한 세상이\n됐구먼",
+      "length_policy_summary": {
+        "candidate_repoint_keep_conservative": 2,
+        "fixed_slot": 1
+      },
+      "records": [
+        {
+          "offset": 7485718,
+          "offset_hex": "0x723916",
+          "header_offset": 7485714,
+          "header_offset_hex": "0x723912",
+          "char_count": 11,
+          "byte_length": 22,
+          "max_korean_chars": 11,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "キメラが街を襲うとは、",
+          "previous_translation_reference": "키메라가 거리를 습격하다니",
+          "translation": "키메라 거리 습격",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "03 ff 06 ff 00 80 06 00 07 ff 00 80",
+          "after_bytes": "04 ff 01 ff 07 00 95 a8 91 9b 82 c8"
+        },
+        {
+          "offset": 7485746,
+          "offset_hex": "0x723932",
+          "header_offset": 7485742,
+          "header_offset_hex": "0x72392E",
+          "char_count": 7,
+          "byte_length": 14,
+          "max_korean_chars": 7,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "物騒な世の中に",
+          "previous_translation_reference": "뒤숭숭한 세상이",
+          "translation": "흉흉한 세상이",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "8f 50 82 a4 82 c6 82 cd 81 41 04 ff",
+          "after_bytes": "04 ff 01 ff 08 00 82 c8 82 c1 82 bd"
+        },
+        {
+          "offset": 7485766,
+          "offset_hex": "0x723946",
+          "header_offset": 7485762,
+          "header_offset_hex": "0x723942",
+          "char_count": 8,
+          "byte_length": 16,
+          "max_korean_chars": 8,
+          "length_policy": "fixed_slot",
+          "text": "なったもんじゃの",
+          "previous_translation_reference": "됐구먼",
+          "translation": "됐구먼",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 c8 90 a2 82 cc 92 86 82 c9 04 ff",
+          "after_bytes": "0d ff 07 ff 00 00 22 ff 03 ff 09 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 26
+    },
+    {
+      "unit_id": "entry8_unit:723974",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 3,
+      "offsets": [
+        7485812,
+        7485840,
+        7485860
+      ],
+      "offsets_hex": [
+        "0x723974",
+        "0x723990",
+        "0x7239A4"
+      ],
+      "source_text": "ついに軍司令部までも…\n物騒な世の中に\nなったもんじゃ",
+      "translation_text": "이젠 군사령부까지\n흉흉한 세상이\n됐구먼",
+      "length_policy_summary": {
+        "fixed_slot": 2,
+        "candidate_repoint_keep_conservative": 1
+      },
+      "records": [
+        {
+          "offset": 7485812,
+          "offset_hex": "0x723974",
+          "header_offset": 7485808,
+          "header_offset_hex": "0x723970",
+          "char_count": 11,
+          "byte_length": 22,
+          "max_korean_chars": 11,
+          "length_policy": "fixed_slot",
+          "text": "ついに軍司令部までも…",
+          "previous_translation_reference": "드디어 군 사령부까지…",
+          "translation": "이젠 군사령부까지",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "03 ff 06 ff 00 80 06 00 07 ff 00 80",
+          "after_bytes": "04 ff 01 ff 07 00 95 a8 91 9b 82 c8"
+        },
+        {
+          "offset": 7485840,
+          "offset_hex": "0x723990",
+          "header_offset": 7485836,
+          "header_offset_hex": "0x72398C",
+          "char_count": 7,
+          "byte_length": 14,
+          "max_korean_chars": 7,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "物騒な世の中に",
+          "previous_translation_reference": "뒤숭숭한 세상이",
+          "translation": "흉흉한 세상이",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "95 94 82 dc 82 c5 82 e0 81 63 04 ff",
+          "after_bytes": "04 ff 01 ff 07 00 82 c8 82 c1 82 bd"
+        },
+        {
+          "offset": 7485860,
+          "offset_hex": "0x7239A4",
+          "header_offset": 7485856,
+          "header_offset_hex": "0x7239A0",
+          "char_count": 7,
+          "byte_length": 14,
+          "max_korean_chars": 7,
+          "length_policy": "fixed_slot",
+          "text": "なったもんじゃ",
+          "previous_translation_reference": "됐구먼",
+          "translation": "됐구먼",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 c8 90 a2 82 cc 92 86 82 c9 04 ff",
+          "after_bytes": "0d ff 07 ff 00 00 22 ff 03 ff 09 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 26
+    },
+    {
+      "unit_id": "entry8_unit:7239D0",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 2,
+      "offsets": [
+        7485904,
+        7485936
+      ],
+      "offsets_hex": [
+        "0x7239D0",
+        "0x7239F0"
+      ],
+      "source_text": "ワ、ワシはまだ若いモンには\n負けんぞーっ！",
+      "translation_text": "나,난 아직 젊은것들에겐\n안 진다!",
+      "length_policy_summary": {
+        "candidate_repoint_keep_conservative": 1,
+        "fixed_slot": 1
+      },
+      "records": [
+        {
+          "offset": 7485904,
+          "offset_hex": "0x7239D0",
+          "header_offset": 7485900,
+          "header_offset_hex": "0x7239CC",
+          "char_count": 13,
+          "byte_length": 26,
+          "max_korean_chars": 13,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "ワ、ワシはまだ若いモンには",
+          "previous_translation_reference": "나, 나는 아직 젊은 것들에게",
+          "translation": "나,난 아직 젊은것들에겐",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "03 ff 06 ff 00 80 06 00 07 ff 00 80",
+          "after_bytes": "04 ff 01 ff 07 00 95 89 82 af 82 f1"
+        },
+        {
+          "offset": 7485936,
+          "offset_hex": "0x7239F0",
+          "header_offset": 7485932,
+          "header_offset_hex": "0x7239EC",
+          "char_count": 7,
+          "byte_length": 14,
+          "max_korean_chars": 7,
+          "length_policy": "fixed_slot",
+          "text": "負けんぞーっ！",
+          "previous_translation_reference": "지지 않는다!",
+          "translation": "안 진다!",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 a2 83 82 83 93 82 c9 82 cd 04 ff",
+          "after_bytes": "0d ff 07 ff 00 00 22 ff 03 ff 09 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 26
+    },
+    {
+      "unit_id": "entry8_unit:723A1C",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 3,
+      "offsets": [
+        7485980,
+        7486008,
+        7486034
+      ],
+      "offsets_hex": [
+        "0x723A1C",
+        "0x723A38",
+        "0x723A52"
+      ],
+      "source_text": "最近の軍はたるんどる！\nワシに任せるがいい！\n…イテテテ、腰が",
+      "translation_text": "요즘 군은 빠졌어!\n내게 맡기게!\n...아야,허리",
+      "length_policy_summary": {
+        "fixed_slot": 3
+      },
+      "records": [
+        {
+          "offset": 7485980,
+          "offset_hex": "0x723A1C",
+          "header_offset": 7485976,
+          "header_offset_hex": "0x723A18",
+          "char_count": 11,
+          "byte_length": 22,
+          "max_korean_chars": 11,
+          "length_policy": "fixed_slot",
+          "text": "最近の軍はたるんどる！",
+          "previous_translation_reference": "요즘 군은 빠져 있어!",
+          "translation": "요즘 군은 빠졌어!",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "03 ff 06 ff 00 80 06 00 07 ff 00 80",
+          "after_bytes": "04 ff 01 ff 0a 00 83 8f 83 56 82 c9"
+        },
+        {
+          "offset": 7486008,
+          "offset_hex": "0x723A38",
+          "header_offset": 7486004,
+          "header_offset_hex": "0x723A34",
+          "char_count": 10,
+          "byte_length": 20,
+          "max_korean_chars": 10,
+          "length_policy": "fixed_slot",
+          "text": "ワシに任せるがいい！",
+          "previous_translation_reference": "나한테 맡겨라!",
+          "translation": "내게 맡기게!",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 e9 82 f1 82 c7 82 e9 81 49 04 ff",
+          "after_bytes": "04 ff 01 ff 08 00 81 63 83 43 83 65"
+        },
+        {
+          "offset": 7486034,
+          "offset_hex": "0x723A52",
+          "header_offset": 7486030,
+          "header_offset_hex": "0x723A4E",
+          "char_count": 8,
+          "byte_length": 16,
+          "max_korean_chars": 8,
+          "length_policy": "fixed_slot",
+          "text": "…イテテテ、腰が",
+          "previous_translation_reference": "…아야야, 허리가",
+          "translation": "...아야,허리",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 e9 82 aa 82 a2 82 a2 81 49 04 ff",
+          "after_bytes": "0d ff 07 ff 00 00 22 ff 00 00 00 00"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 214
+    },
+    {
+      "unit_id": "entry8_unit:723B3C",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 2,
+      "offsets": [
+        7486268,
+        7486302
+      ],
+      "offsets_hex": [
+        "0x723B3C",
+        "0x723B5E"
+      ],
+      "source_text": "最近、化け物がでるんですよ。\n恐ろしいですわ",
+      "translation_text": "요즘 괴물이 나온답니다\n무섭네요",
+      "length_policy_summary": {
+        "fixed_slot": 2
+      },
+      "records": [
+        {
+          "offset": 7486268,
+          "offset_hex": "0x723B3C",
+          "header_offset": 7486264,
+          "header_offset_hex": "0x723B38",
+          "char_count": 14,
+          "byte_length": 28,
+          "max_korean_chars": 14,
+          "length_policy": "fixed_slot",
+          "text": "最近、化け物がでるんですよ。",
+          "previous_translation_reference": "요즘 괴물이 나온다더군요.",
+          "translation": "요즘 괴물이 나온답니다",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "68 00 06 ff 00 80 06 00 07 ff 00 80",
+          "after_bytes": "04 ff 01 ff 07 00 8b b0 82 eb 82 b5"
+        },
+        {
+          "offset": 7486302,
+          "offset_hex": "0x723B5E",
+          "header_offset": 7486298,
+          "header_offset_hex": "0x723B5A",
+          "char_count": 7,
+          "byte_length": 14,
+          "max_korean_chars": 7,
+          "length_policy": "fixed_slot",
+          "text": "恐ろしいですわ",
+          "previous_translation_reference": "무섭습니다",
+          "translation": "무섭네요",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 f1 82 c5 82 b7 82 e6 81 42 04 ff",
+          "after_bytes": "0d ff 07 ff 00 00 22 ff 03 ff 09 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 26
+    },
+    {
+      "unit_id": "entry8_unit:723B8A",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 3,
+      "offsets": [
+        7486346,
+        7486374,
+        7486394
+      ],
+      "offsets_hex": [
+        "0x723B8A",
+        "0x723BA6",
+        "0x723BBA"
+      ],
+      "source_text": "とうとう街にも化け物が\n出たんですよ。\nすぐに軍が退治しましたけどね",
+      "translation_text": "마침내 거리에 괴물이\n나왔어요\n바로 군이 퇴치했지만요",
+      "length_policy_summary": {
+        "fixed_slot": 3
+      },
+      "records": [
+        {
+          "offset": 7486346,
+          "offset_hex": "0x723B8A",
+          "header_offset": 7486342,
+          "header_offset_hex": "0x723B86",
+          "char_count": 11,
+          "byte_length": 22,
+          "max_korean_chars": 11,
+          "length_policy": "fixed_slot",
+          "text": "とうとう街にも化け物が",
+          "previous_translation_reference": "마침내 거리에도 괴물이",
+          "translation": "마침내 거리에 괴물이",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "03 ff 06 ff 00 80 06 00 07 ff 00 80",
+          "after_bytes": "04 ff 01 ff 07 00 8f 6f 82 bd 82 f1"
+        },
+        {
+          "offset": 7486374,
+          "offset_hex": "0x723BA6",
+          "header_offset": 7486370,
+          "header_offset_hex": "0x723BA2",
+          "char_count": 7,
+          "byte_length": 14,
+          "max_korean_chars": 7,
+          "length_policy": "fixed_slot",
+          "text": "出たんですよ。",
+          "previous_translation_reference": "나왔어요.",
+          "translation": "나왔어요",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 e0 89 bb 82 af 95 a8 82 aa 04 ff",
+          "after_bytes": "04 ff 01 ff 0e 00 82 b7 82 ae 82 c9"
+        },
+        {
+          "offset": 7486394,
+          "offset_hex": "0x723BBA",
+          "header_offset": 7486390,
+          "header_offset_hex": "0x723BB6",
+          "char_count": 14,
+          "byte_length": 28,
+          "max_korean_chars": 14,
+          "length_policy": "fixed_slot",
+          "text": "すぐに軍が退治しましたけどね",
+          "previous_translation_reference": "바로 군이 퇴치했지만요",
+          "translation": "바로 군이 퇴치했지만요",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 f1 82 c5 82 b7 82 e6 81 42 04 ff",
+          "after_bytes": "0d ff 07 ff 00 00 22 ff 03 ff 09 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 26
+    },
+    {
+      "unit_id": "entry8_unit:723BF4",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 3,
+      "offsets": [
+        7486452,
+        7486474,
+        7486502
+      ],
+      "offsets_hex": [
+        "0x723BF4",
+        "0x723C0A",
+        "0x723C26"
+      ],
+      "source_text": "早く軍にキメラを\n全部退治してもらって、\n安心したいねぇ",
+      "translation_text": "어서 군이\n키메라 전부 잡아\n안심하고파",
+      "length_policy_summary": {
+        "candidate_repoint_keep_conservative": 2,
+        "fixed_slot": 1
+      },
+      "records": [
+        {
+          "offset": 7486452,
+          "offset_hex": "0x723BF4",
+          "header_offset": 7486448,
+          "header_offset_hex": "0x723BF0",
+          "char_count": 8,
+          "byte_length": 16,
+          "max_korean_chars": 8,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "早く軍にキメラを",
+          "previous_translation_reference": "빨리 군이 키메라를",
+          "translation": "어서 군이",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "03 ff 06 ff 00 80 06 00 07 ff 00 80",
+          "after_bytes": "04 ff 01 ff 0b 00 91 53 95 94 91 de"
+        },
+        {
+          "offset": 7486474,
+          "offset_hex": "0x723C0A",
+          "header_offset": 7486470,
+          "header_offset_hex": "0x723C06",
+          "char_count": 11,
+          "byte_length": 22,
+          "max_korean_chars": 11,
+          "length_policy": "fixed_slot",
+          "text": "全部退治してもらって、",
+          "previous_translation_reference": "전부 퇴치해 줘서",
+          "translation": "키메라 전부 잡아",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 c9 83 4c 83 81 83 89 82 f0 04 ff",
+          "after_bytes": "04 ff 01 ff 07 00 88 c0 90 53 82 b5"
+        },
+        {
+          "offset": 7486502,
+          "offset_hex": "0x723C26",
+          "header_offset": 7486498,
+          "header_offset_hex": "0x723C22",
+          "char_count": 7,
+          "byte_length": 14,
+          "max_korean_chars": 7,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "安心したいねぇ",
+          "previous_translation_reference": "안심하고 싶네요",
+          "translation": "안심하고파",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 e0 82 e7 82 c1 82 c4 81 41 04 ff",
+          "after_bytes": "0d ff 07 ff 00 00 22 ff 03 ff 09 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 26
+    },
+    {
+      "unit_id": "entry8_unit:723C52",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 3,
+      "offsets": [
+        7486546,
+        7486570,
+        7486596
+      ],
+      "offsets_hex": [
+        "0x723C52",
+        "0x723C6A",
+        "0x723C84"
+      ],
+      "source_text": "軍が早くこの事件を\n解決してくれることを\n祈っておりますよ",
+      "translation_text": "군이 이 일을\n해결해 주기를\n기도합니다",
+      "length_policy_summary": {
+        "candidate_repoint_keep_conservative": 2,
+        "fixed_slot": 1
+      },
+      "records": [
+        {
+          "offset": 7486546,
+          "offset_hex": "0x723C52",
+          "header_offset": 7486542,
+          "header_offset_hex": "0x723C4E",
+          "char_count": 9,
+          "byte_length": 18,
+          "max_korean_chars": 9,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "軍が早くこの事件を",
+          "previous_translation_reference": "군이 빨리 이 사건을",
+          "translation": "군이 이 일을",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "03 ff 06 ff 00 80 06 00 07 ff 00 80",
+          "after_bytes": "04 ff 01 ff 0a 00 89 f0 8c 88 82 b5"
+        },
+        {
+          "offset": 7486570,
+          "offset_hex": "0x723C6A",
+          "header_offset": 7486566,
+          "header_offset_hex": "0x723C66",
+          "char_count": 10,
+          "byte_length": 20,
+          "max_korean_chars": 10,
+          "length_policy": "fixed_slot",
+          "text": "解決してくれることを",
+          "previous_translation_reference": "해결해 주기를",
+          "translation": "해결해 주기를",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 b1 82 cc 8e 96 8c 8f 82 f0 04 ff",
+          "after_bytes": "04 ff 01 ff 08 00 8b 46 82 c1 82 c4"
+        },
+        {
+          "offset": 7486596,
+          "offset_hex": "0x723C84",
+          "header_offset": 7486592,
+          "header_offset_hex": "0x723C80",
+          "char_count": 8,
+          "byte_length": 16,
+          "max_korean_chars": 8,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "祈っておりますよ",
+          "previous_translation_reference": "기도하고 있습니다",
+          "translation": "기도합니다",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 ea 82 e9 82 b1 82 c6 82 f0 04 ff",
+          "after_bytes": "0d ff 07 ff 00 00 22 ff 03 ff 09 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 26
+    },
+    {
+      "unit_id": "entry8_unit:723CB2",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 3,
+      "offsets": [
+        7486642,
+        7486664,
+        7486682
+      ],
+      "offsets_hex": [
+        "0x723CB2",
+        "0x723CC8",
+        "0x723CDA"
+      ],
+      "source_text": "こういう日には、\n日向ぼっこが\n気持ちいいわねぇ",
+      "translation_text": "이런 날에는,\n햇볕 쬐기\n기분 좋네요",
+      "length_policy_summary": {
+        "fixed_slot": 3
+      },
+      "records": [
+        {
+          "offset": 7486642,
+          "offset_hex": "0x723CB2",
+          "header_offset": 7486638,
+          "header_offset_hex": "0x723CAE",
+          "char_count": 8,
+          "byte_length": 16,
+          "max_korean_chars": 8,
+          "length_policy": "fixed_slot",
+          "text": "こういう日には、",
+          "previous_translation_reference": "이런 날에는",
+          "translation": "이런 날에는,",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "03 ff 06 ff 00 80 06 00 07 ff 00 80",
+          "after_bytes": "04 ff 01 ff 06 00 93 fa 8c fc 82 da"
+        },
+        {
+          "offset": 7486664,
+          "offset_hex": "0x723CC8",
+          "header_offset": 7486660,
+          "header_offset_hex": "0x723CC4",
+          "char_count": 6,
+          "byte_length": 12,
+          "max_korean_chars": 6,
+          "length_policy": "fixed_slot",
+          "text": "日向ぼっこが",
+          "previous_translation_reference": "햇볕 쬐기가",
+          "translation": "햇볕 쬐기",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 a4 93 fa 82 c9 82 cd 81 41 04 ff",
+          "after_bytes": "04 ff 01 ff 08 00 8b 43 8e 9d 82 bf"
+        },
+        {
+          "offset": 7486682,
+          "offset_hex": "0x723CDA",
+          "header_offset": 7486678,
+          "header_offset_hex": "0x723CD6",
+          "char_count": 8,
+          "byte_length": 16,
+          "max_korean_chars": 8,
+          "length_policy": "fixed_slot",
+          "text": "気持ちいいわねぇ",
+          "previous_translation_reference": "기분 좋네요",
+          "translation": "기분 좋네요",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "8c fc 82 da 82 c1 82 b1 82 aa 04 ff",
+          "after_bytes": "0d ff 07 ff 00 00 22 ff 03 ff 09 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 26
+    },
+    {
+      "unit_id": "entry8_unit:723D08",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 3,
+      "offsets": [
+        7486728,
+        7486748,
+        7486772
+      ],
+      "offsets_hex": [
+        "0x723D08",
+        "0x723D1C",
+        "0x723D34"
+      ],
+      "source_text": "おじいさんにも\n困ったものですよ。\nおとなしくしてればいいのに",
+      "translation_text": "할아버지도\n참 곤란해요\n얌전히 계시면 좋을 텐데",
+      "length_policy_summary": {
+        "fixed_slot": 2,
+        "candidate_repoint_keep_conservative": 1
+      },
+      "records": [
+        {
+          "offset": 7486728,
+          "offset_hex": "0x723D08",
+          "header_offset": 7486724,
+          "header_offset_hex": "0x723D04",
+          "char_count": 7,
+          "byte_length": 14,
+          "max_korean_chars": 7,
+          "length_policy": "fixed_slot",
+          "text": "おじいさんにも",
+          "previous_translation_reference": "할아버지도",
+          "translation": "할아버지도",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "03 ff 06 ff 00 80 06 00 07 ff 00 80",
+          "after_bytes": "04 ff 01 ff 09 00 8d a2 82 c1 82 bd"
+        },
+        {
+          "offset": 7486748,
+          "offset_hex": "0x723D1C",
+          "header_offset": 7486744,
+          "header_offset_hex": "0x723D18",
+          "char_count": 9,
+          "byte_length": 18,
+          "max_korean_chars": 9,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "困ったものですよ。",
+          "previous_translation_reference": "참 곤란한 분이에요.",
+          "translation": "참 곤란해요",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 a2 82 b3 82 f1 82 c9 82 e0 04 ff",
+          "after_bytes": "04 ff 01 ff 0d 00 82 a8 82 c6 82 c8"
+        },
+        {
+          "offset": 7486772,
+          "offset_hex": "0x723D34",
+          "header_offset": 7486768,
+          "header_offset_hex": "0x723D30",
+          "char_count": 13,
+          "byte_length": 26,
+          "max_korean_chars": 13,
+          "length_policy": "fixed_slot",
+          "text": "おとなしくしてればいいのに",
+          "previous_translation_reference": "얌전히 계시면 좋을 텐데",
+          "translation": "얌전히 계시면 좋을 텐데",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 cc 82 c5 82 b7 82 e6 81 42 04 ff",
+          "after_bytes": "0d ff 07 ff 00 00 22 ff 00 00 00 00"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 214
+    },
+    {
+      "unit_id": "entry8_unit:723E28",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 2,
+      "offsets": [
+        7487016,
+        7487038
+      ],
+      "offsets_hex": [
+        "0x723E28",
+        "0x723E3E"
+      ],
+      "source_text": "ボール遊びすると\nおこられるんだ",
+      "translation_text": "공놀이하면\n혼나",
+      "length_policy_summary": {
+        "fixed_slot": 2
+      },
+      "records": [
+        {
+          "offset": 7487016,
+          "offset_hex": "0x723E28",
+          "header_offset": 7487012,
+          "header_offset_hex": "0x723E24",
+          "char_count": 8,
+          "byte_length": 16,
+          "max_korean_chars": 8,
+          "length_policy": "fixed_slot",
+          "text": "ボール遊びすると",
+          "previous_translation_reference": "공놀이하면",
+          "translation": "공놀이하면",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "68 00 06 ff 00 80 06 00 07 ff 00 80",
+          "after_bytes": "04 ff 01 ff 07 00 82 a8 82 b1 82 e7"
+        },
+        {
+          "offset": 7487038,
+          "offset_hex": "0x723E3E",
+          "header_offset": 7487034,
+          "header_offset_hex": "0x723E3A",
+          "char_count": 7,
+          "byte_length": 14,
+          "max_korean_chars": 7,
+          "length_policy": "fixed_slot",
+          "text": "おこられるんだ",
+          "previous_translation_reference": "혼나",
+          "translation": "혼나",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "97 56 82 d1 82 b7 82 e9 82 c6 04 ff",
+          "after_bytes": "0d ff 07 ff 00 00 22 ff 03 ff 09 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 26
+    },
+    {
+      "unit_id": "entry8_unit:723E6A",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 2,
+      "offsets": [
+        7487082,
+        7487100
+      ],
+      "offsets_hex": [
+        "0x723E6A",
+        "0x723E7C"
+      ],
+      "source_text": "キメラ見た？\nボク見られなかったよ",
+      "translation_text": "키메라 봤니\n난 못 봤어",
+      "length_policy_summary": {
+        "fixed_slot": 2
+      },
+      "records": [
+        {
+          "offset": 7487082,
+          "offset_hex": "0x723E6A",
+          "header_offset": 7487078,
+          "header_offset_hex": "0x723E66",
+          "char_count": 6,
+          "byte_length": 12,
+          "max_korean_chars": 6,
+          "length_policy": "fixed_slot",
+          "text": "キメラ見た？",
+          "previous_translation_reference": "키메라 봤어?",
+          "translation": "키메라 봤니",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "03 ff 06 ff 00 80 06 00 07 ff 00 80",
+          "after_bytes": "04 ff 01 ff 0a 00 83 7b 83 4e 8c a9"
+        },
+        {
+          "offset": 7487100,
+          "offset_hex": "0x723E7C",
+          "header_offset": 7487096,
+          "header_offset_hex": "0x723E78",
+          "char_count": 10,
+          "byte_length": 20,
+          "max_korean_chars": 10,
+          "length_policy": "fixed_slot",
+          "text": "ボク見られなかったよ",
+          "previous_translation_reference": "난 못 봤어",
+          "translation": "난 못 봤어",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "83 81 83 89 8c a9 82 bd 81 48 04 ff",
+          "after_bytes": "0d ff 07 ff 00 00 22 ff 03 ff 09 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 26
+    },
+    {
+      "unit_id": "entry8_unit:723EAE",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 3,
+      "offsets": [
+        7487150,
+        7487174,
+        7487200
+      ],
+      "offsets_hex": [
+        "0x723EAE",
+        "0x723EC6",
+        "0x723EE0"
+      ],
+      "source_text": "ボク、知ってるよ。\nキメラって、この街の\n下水道に住んでるんだよね？",
+      "translation_text": "나, 알고 있어\n키메라는 이 도시\n하수도에 산다며?",
+      "length_policy_summary": {
+        "fixed_slot": 3
+      },
+      "records": [
+        {
+          "offset": 7487150,
+          "offset_hex": "0x723EAE",
+          "header_offset": 7487146,
+          "header_offset_hex": "0x723EAA",
+          "char_count": 9,
+          "byte_length": 18,
+          "max_korean_chars": 9,
+          "length_policy": "fixed_slot",
+          "text": "ボク、知ってるよ。",
+          "previous_translation_reference": "나 알아.",
+          "translation": "나, 알고 있어",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "03 ff 06 ff 00 80 06 00 07 ff 00 80",
+          "after_bytes": "04 ff 01 ff 0a 00 83 4c 83 81 83 89"
+        },
+        {
+          "offset": 7487174,
+          "offset_hex": "0x723EC6",
+          "header_offset": 7487170,
+          "header_offset_hex": "0x723EC2",
+          "char_count": 10,
+          "byte_length": 20,
+          "max_korean_chars": 10,
+          "length_policy": "fixed_slot",
+          "text": "キメラって、この街の",
+          "previous_translation_reference": "키메라는 이 도시의",
+          "translation": "키메라는 이 도시",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 c1 82 c4 82 e9 82 e6 81 42 04 ff",
+          "after_bytes": "04 ff 01 ff 0d 00 89 ba 90 85 93 b9"
+        },
+        {
+          "offset": 7487200,
+          "offset_hex": "0x723EE0",
+          "header_offset": 7487196,
+          "header_offset_hex": "0x723EDC",
+          "char_count": 13,
+          "byte_length": 26,
+          "max_korean_chars": 13,
+          "length_policy": "fixed_slot",
+          "text": "下水道に住んでるんだよね？",
+          "previous_translation_reference": "하수도에 사는 거지?",
+          "translation": "하수도에 산다며?",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "81 41 82 b1 82 cc 8a 58 82 cc 04 ff",
+          "after_bytes": "0d ff 07 ff 00 00 22 ff 03 ff 09 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 26
+    },
+    {
+      "unit_id": "entry8_unit:723F18",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 2,
+      "offsets": [
+        7487256,
+        7487272
+      ],
+      "offsets_hex": [
+        "0x723F18",
+        "0x723F28"
+      ],
+      "source_text": "ねぇねぇ、\nキメラって強いのかな？",
+      "translation_text": "있잖아,\n키메라는 강할까?",
+      "length_policy_summary": {
+        "candidate_repoint_keep_conservative": 1,
+        "fixed_slot": 1
+      },
+      "records": [
+        {
+          "offset": 7487256,
+          "offset_hex": "0x723F18",
+          "header_offset": 7487252,
+          "header_offset_hex": "0x723F14",
+          "char_count": 5,
+          "byte_length": 10,
+          "max_korean_chars": 5,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "ねぇねぇ、",
+          "previous_translation_reference": "저기, 저기,",
+          "translation": "있잖아,",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "03 ff 06 ff 00 80 06 00 07 ff 00 80",
+          "after_bytes": "04 ff 01 ff 0b 00 83 4c 83 81 83 89"
+        },
+        {
+          "offset": 7487272,
+          "offset_hex": "0x723F28",
+          "header_offset": 7487268,
+          "header_offset_hex": "0x723F24",
+          "char_count": 11,
+          "byte_length": 22,
+          "max_korean_chars": 11,
+          "length_policy": "fixed_slot",
+          "text": "キメラって強いのかな？",
+          "previous_translation_reference": "키메라는 강할까?",
+          "translation": "키메라는 강할까?",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 cb 82 a5 82 cb 82 a5 81 41 04 ff",
+          "after_bytes": "0d ff 07 ff 00 00 22 ff 03 ff 09 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 26
+    },
+    {
+      "unit_id": "entry8_unit:723F5C",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 2,
+      "offsets": [
+        7487324,
+        7487350
+      ],
+      "offsets_hex": [
+        "0x723F5C",
+        "0x723F76"
+      ],
+      "source_text": "ボク、大きくなったら\nきっと大総統になるんだっ！",
+      "translation_text": "난 크면\n반드시 대총통이 될 거야",
+      "length_policy_summary": {
+        "fixed_slot": 2
+      },
+      "records": [
+        {
+          "offset": 7487324,
+          "offset_hex": "0x723F5C",
+          "header_offset": 7487320,
+          "header_offset_hex": "0x723F58",
+          "char_count": 10,
+          "byte_length": 20,
+          "max_korean_chars": 10,
+          "length_policy": "fixed_slot",
+          "text": "ボク、大きくなったら",
+          "previous_translation_reference": "난 커서",
+          "translation": "난 크면",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "03 ff 06 ff 00 80 06 00 07 ff 00 80",
+          "after_bytes": "04 ff 01 ff 0d 00 82 ab 82 c1 82 c6"
+        },
+        {
+          "offset": 7487350,
+          "offset_hex": "0x723F76",
+          "header_offset": 7487346,
+          "header_offset_hex": "0x723F72",
+          "char_count": 13,
+          "byte_length": 26,
+          "max_korean_chars": 13,
+          "length_policy": "fixed_slot",
+          "text": "きっと大総統になるんだっ！",
+          "previous_translation_reference": "반드시 대총통이 될 거야!",
+          "translation": "반드시 대총통이 될 거야",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 ad 82 c8 82 c1 82 bd 82 e7 04 ff",
+          "after_bytes": "0d ff 07 ff 00 00 22 ff 03 ff 09 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 26
+    },
+    {
+      "unit_id": "entry8_unit:723FAE",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 2,
+      "offsets": [
+        7487406,
+        7487434
+      ],
+      "offsets_hex": [
+        "0x723FAE",
+        "0x723FCA"
+      ],
+      "source_text": "錬金術師ゴッコするもの\n集まれ～！",
+      "translation_text": "연금술사 놀이할 사람\n모여라~!",
+      "length_policy_summary": {
+        "fixed_slot": 2
+      },
+      "records": [
+        {
+          "offset": 7487406,
+          "offset_hex": "0x723FAE",
+          "header_offset": 7487402,
+          "header_offset_hex": "0x723FAA",
+          "char_count": 11,
+          "byte_length": 22,
+          "max_korean_chars": 11,
+          "length_policy": "fixed_slot",
+          "text": "錬金術師ゴッコするもの",
+          "previous_translation_reference": "연금술사 놀이할 사람",
+          "translation": "연금술사 놀이할 사람",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "03 ff 06 ff 00 80 06 00 07 ff 00 80",
+          "after_bytes": "04 ff 01 ff 05 00 8f 57 82 dc 82 ea"
+        },
+        {
+          "offset": 7487434,
+          "offset_hex": "0x723FCA",
+          "header_offset": 7487430,
+          "header_offset_hex": "0x723FC6",
+          "char_count": 5,
+          "byte_length": 10,
+          "max_korean_chars": 5,
+          "length_policy": "fixed_slot",
+          "text": "集まれ～！",
+          "previous_translation_reference": "모여라～!",
+          "translation": "모여라~!",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "83 52 82 b7 82 e9 82 e0 82 cc 04 ff",
+          "after_bytes": "0d ff 07 ff 00 00 22 ff 00 00 0d 00"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 216
+    },
+    {
+      "unit_id": "entry8_unit:7240B0",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 3,
+      "offsets": [
+        7487664,
+        7487692,
+        7487712
+      ],
+      "offsets_hex": [
+        "0x7240B0",
+        "0x7240CC",
+        "0x7240E0"
+      ],
+      "source_text": "あの男の子、いっしょに\nおままごとして\nあそんでくれないかしら",
+      "translation_text": "저 남자애,같이\n소꿉놀이하고\n놀아 주지 않을까",
+      "length_policy_summary": {
+        "fixed_slot": 3
+      },
+      "records": [
+        {
+          "offset": 7487664,
+          "offset_hex": "0x7240B0",
+          "header_offset": 7487660,
+          "header_offset_hex": "0x7240AC",
+          "char_count": 11,
+          "byte_length": 22,
+          "max_korean_chars": 11,
+          "length_policy": "fixed_slot",
+          "text": "あの男の子、いっしょに",
+          "previous_translation_reference": "저 남자아이, 같이",
+          "translation": "저 남자애,같이",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "68 00 06 ff 00 80 06 00 07 ff 00 80",
+          "after_bytes": "04 ff 01 ff 07 00 82 a8 82 dc 82 dc"
+        },
+        {
+          "offset": 7487692,
+          "offset_hex": "0x7240CC",
+          "header_offset": 7487688,
+          "header_offset_hex": "0x7240C8",
+          "char_count": 7,
+          "byte_length": 14,
+          "max_korean_chars": 7,
+          "length_policy": "fixed_slot",
+          "text": "おままごとして",
+          "previous_translation_reference": "소꿉놀이하면서",
+          "translation": "소꿉놀이하고",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 a2 82 c1 82 b5 82 e5 82 c9 04 ff",
+          "after_bytes": "04 ff 01 ff 0b 00 82 a0 82 bb 82 f1"
+        },
+        {
+          "offset": 7487712,
+          "offset_hex": "0x7240E0",
+          "header_offset": 7487708,
+          "header_offset_hex": "0x7240DC",
+          "char_count": 11,
+          "byte_length": 22,
+          "max_korean_chars": 11,
+          "length_policy": "fixed_slot",
+          "text": "あそんでくれないかしら",
+          "previous_translation_reference": "놀아 주지 않을까",
+          "translation": "놀아 주지 않을까",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 dc 82 b2 82 c6 82 b5 82 c4 04 ff",
+          "after_bytes": "0d ff 07 ff 00 00 22 ff 03 ff 09 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 26
+    },
+    {
+      "unit_id": "entry8_unit:724114",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 1,
+      "offsets": [
+        7487764
+      ],
+      "offsets_hex": [
+        "0x724114"
+      ],
+      "source_text": "女の子のおともだちがほしいわ",
+      "translation_text": "여자 친구가 있으면 좋겠어",
+      "length_policy_summary": {
+        "fixed_slot": 1
+      },
+      "records": [
+        {
+          "offset": 7487764,
+          "offset_hex": "0x724114",
+          "header_offset": 7487760,
+          "header_offset_hex": "0x724110",
+          "char_count": 14,
+          "byte_length": 28,
+          "max_korean_chars": 14,
+          "length_policy": "fixed_slot",
+          "text": "女の子のおともだちがほしいわ",
+          "previous_translation_reference": "여자 친구가 있었으면 좋겠어",
+          "translation": "여자 친구가 있으면 좋겠어",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "03 ff 06 ff 00 80 06 00 07 ff 00 80",
+          "after_bytes": "0d ff 07 ff 00 00 22 ff 03 ff 09 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 26
+    },
+    {
+      "unit_id": "entry8_unit:72414E",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 3,
+      "offsets": [
+        7487822,
+        7487840,
+        7487864
+      ],
+      "offsets_hex": [
+        "0x72414E",
+        "0x724160",
+        "0x724178"
+      ],
+      "source_text": "私、見たの。\n下水道の中で、何か\nコソコソしてる人たちを",
+      "translation_text": "나 봤어\n하수도에서 뭔가\n몰래 움직이는 사람들",
+      "length_policy_summary": {
+        "fixed_slot": 2,
+        "candidate_repoint_keep_conservative": 1
+      },
+      "records": [
+        {
+          "offset": 7487822,
+          "offset_hex": "0x72414E",
+          "header_offset": 7487818,
+          "header_offset_hex": "0x72414A",
+          "char_count": 6,
+          "byte_length": 12,
+          "max_korean_chars": 6,
+          "length_policy": "fixed_slot",
+          "text": "私、見たの。",
+          "previous_translation_reference": "나 봤어.",
+          "translation": "나 봤어",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "03 ff 06 ff 00 80 06 00 07 ff 00 80",
+          "after_bytes": "04 ff 01 ff 09 00 89 ba 90 85 93 b9"
+        },
+        {
+          "offset": 7487840,
+          "offset_hex": "0x724160",
+          "header_offset": 7487836,
+          "header_offset_hex": "0x72415C",
+          "char_count": 9,
+          "byte_length": 18,
+          "max_korean_chars": 9,
+          "length_policy": "fixed_slot",
+          "text": "下水道の中で、何か",
+          "previous_translation_reference": "하수도 안에서 뭔가",
+          "translation": "하수도에서 뭔가",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "81 41 8c a9 82 bd 82 cc 81 42 04 ff",
+          "after_bytes": "04 ff 01 ff 0b 00 83 52 83 5c 83 52"
+        },
+        {
+          "offset": 7487864,
+          "offset_hex": "0x724178",
+          "header_offset": 7487860,
+          "header_offset_hex": "0x724174",
+          "char_count": 11,
+          "byte_length": 22,
+          "max_korean_chars": 11,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "コソコソしてる人たちを",
+          "previous_translation_reference": "수상하게 움직이는 사람들을",
+          "translation": "몰래 움직이는 사람들",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "92 86 82 c5 81 41 89 bd 82 a9 04 ff",
+          "after_bytes": "0d ff 07 ff 00 00 22 ff 03 ff 09 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 26
+    },
+    {
+      "unit_id": "entry8_unit:7241AC",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 3,
+      "offsets": [
+        7487916,
+        7487934,
+        7487958
+      ],
+      "offsets_hex": [
+        "0x7241AC",
+        "0x7241BE",
+        "0x7241D6"
+      ],
+      "source_text": "危ないから、\nママがあんまり外に\n出ちゃダメだって…",
+      "translation_text": "위험하니까\n엄마가 밖에 너무\n나가면 안돼...",
+      "length_policy_summary": {
+        "fixed_slot": 3
+      },
+      "records": [
+        {
+          "offset": 7487916,
+          "offset_hex": "0x7241AC",
+          "header_offset": 7487912,
+          "header_offset_hex": "0x7241A8",
+          "char_count": 6,
+          "byte_length": 12,
+          "max_korean_chars": 6,
+          "length_policy": "fixed_slot",
+          "text": "危ないから、",
+          "previous_translation_reference": "위험하니까",
+          "translation": "위험하니까",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "03 ff 06 ff 00 80 06 00 07 ff 00 80",
+          "after_bytes": "04 ff 01 ff 09 00 83 7d 83 7d 82 aa"
+        },
+        {
+          "offset": 7487934,
+          "offset_hex": "0x7241BE",
+          "header_offset": 7487930,
+          "header_offset_hex": "0x7241BA",
+          "char_count": 9,
+          "byte_length": 18,
+          "max_korean_chars": 9,
+          "length_policy": "fixed_slot",
+          "text": "ママがあんまり外に",
+          "previous_translation_reference": "엄마가 너무 밖에",
+          "translation": "엄마가 밖에 너무",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 c8 82 a2 82 a9 82 e7 81 41 04 ff",
+          "after_bytes": "04 ff 01 ff 09 00 8f 6f 82 bf 82 e1"
+        },
+        {
+          "offset": 7487958,
+          "offset_hex": "0x7241D6",
+          "header_offset": 7487954,
+          "header_offset_hex": "0x7241D2",
+          "char_count": 9,
+          "byte_length": 18,
+          "max_korean_chars": 9,
+          "length_policy": "fixed_slot",
+          "text": "出ちゃダメだって…",
+          "previous_translation_reference": "나가면 안 된대…",
+          "translation": "나가면 안돼...",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 f1 82 dc 82 e8 8a 4f 82 c9 04 ff",
+          "after_bytes": "0d ff 07 ff 00 00 22 ff 03 ff 09 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 26
+    },
+    {
+      "unit_id": "entry8_unit:724206",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 3,
+      "offsets": [
+        7488006,
+        7488032,
+        7488060
+      ],
+      "offsets_hex": [
+        "0x724206",
+        "0x724220",
+        "0x72423C"
+      ],
+      "source_text": "ホント、男の子って、\n夢ばっかり追ってるから\nガキなのよね",
+      "translation_text": "정말 남자애들은,\n꿈만 좇으니까\n어린애라니까",
+      "length_policy_summary": {
+        "fixed_slot": 3
+      },
+      "records": [
+        {
+          "offset": 7488006,
+          "offset_hex": "0x724206",
+          "header_offset": 7488002,
+          "header_offset_hex": "0x724202",
+          "char_count": 10,
+          "byte_length": 20,
+          "max_korean_chars": 10,
+          "length_policy": "fixed_slot",
+          "text": "ホント、男の子って、",
+          "previous_translation_reference": "정말 남자애들은",
+          "translation": "정말 남자애들은,",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "03 ff 06 ff 00 80 06 00 07 ff 00 80",
+          "after_bytes": "04 ff 01 ff 0b 00 96 b2 82 ce 82 c1"
+        },
+        {
+          "offset": 7488032,
+          "offset_hex": "0x724220",
+          "header_offset": 7488028,
+          "header_offset_hex": "0x72421C",
+          "char_count": 11,
+          "byte_length": 22,
+          "max_korean_chars": 11,
+          "length_policy": "fixed_slot",
+          "text": "夢ばっかり追ってるから",
+          "previous_translation_reference": "꿈만 좇으니까",
+          "translation": "꿈만 좇으니까",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 cc 8e 71 82 c1 82 c4 81 41 04 ff",
+          "after_bytes": "04 ff 01 ff 06 00 83 4b 83 4c 82 c8"
+        },
+        {
+          "offset": 7488060,
+          "offset_hex": "0x72423C",
+          "header_offset": 7488056,
+          "header_offset_hex": "0x724238",
+          "char_count": 6,
+          "byte_length": 12,
+          "max_korean_chars": 6,
+          "length_policy": "fixed_slot",
+          "text": "ガキなのよね",
+          "previous_translation_reference": "어린애라니까",
+          "translation": "어린애라니까",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 c1 82 c4 82 e9 82 a9 82 e7 04 ff",
+          "after_bytes": "0d ff 07 ff 00 00 22 ff 03 ff 09 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 26
+    },
+    {
+      "unit_id": "entry8_unit:724266",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 2,
+      "offsets": [
+        7488102,
+        7488124
+      ],
+      "offsets_hex": [
+        "0x724266",
+        "0x72427C"
+      ],
+      "source_text": "いつまで経っても\nあの子って成長しないのね",
+      "translation_text": "언제까지고\n저 애는 철이 안 드네",
+      "length_policy_summary": {
+        "fixed_slot": 2
+      },
+      "records": [
+        {
+          "offset": 7488102,
+          "offset_hex": "0x724266",
+          "header_offset": 7488098,
+          "header_offset_hex": "0x724262",
+          "char_count": 8,
+          "byte_length": 16,
+          "max_korean_chars": 8,
+          "length_policy": "fixed_slot",
+          "text": "いつまで経っても",
+          "previous_translation_reference": "언제까지 지나도",
+          "translation": "언제까지고",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "03 ff 06 ff 00 80 06 00 07 ff 00 80",
+          "after_bytes": "04 ff 01 ff 0c 00 82 a0 82 cc 8e 71"
+        },
+        {
+          "offset": 7488124,
+          "offset_hex": "0x72427C",
+          "header_offset": 7488120,
+          "header_offset_hex": "0x724278",
+          "char_count": 12,
+          "byte_length": 24,
+          "max_korean_chars": 12,
+          "length_policy": "fixed_slot",
+          "text": "あの子って成長しないのね",
+          "previous_translation_reference": "저 애는 자라질 않네",
+          "translation": "저 애는 철이 안 드네",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 c5 8c 6f 82 c1 82 c4 82 e0 04 ff",
+          "after_bytes": "0d ff 07 ff 00 00 22 ff 00 00 c8 03"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 138
+    },
+    {
+      "unit_id": "entry8_unit:724322",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 3,
+      "offsets": [
+        7488290,
+        7488344,
+        7488356
+      ],
+      "offsets_hex": [
+        "0x724322",
+        "0x724358",
+        "0x724364"
+      ],
+      "source_text": "大佐、何やってんですか？\nんっ！\n鋼の、君こそ何をしにきた",
+      "translation_text": "대령,뭐 하는 거예요?\n음!\n강철,자넨 왜 왔나",
+      "length_policy_summary": {
+        "fixed_slot": 2,
+        "candidate_repoint_keep_conservative": 1
+      },
+      "records": [
+        {
+          "offset": 7488290,
+          "offset_hex": "0x724322",
+          "header_offset": 7488286,
+          "header_offset_hex": "0x72431E",
+          "char_count": 12,
+          "byte_length": 24,
+          "max_korean_chars": 12,
+          "length_policy": "fixed_slot",
+          "text": "大佐、何やってんですか？",
+          "previous_translation_reference": "대령, 뭐 하고 있어요?",
+          "translation": "대령,뭐 하는 거예요?",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "1bff:1780",
+          "before_bytes": "00 00 06 ff 80 00 05 00 07 ff 00 80",
+          "after_bytes": "10 ff 01 00 0d ff 02 ff 2b ff 36 00"
+        },
+        {
+          "offset": 7488344,
+          "offset_hex": "0x724358",
+          "header_offset": 7488340,
+          "header_offset_hex": "0x724354",
+          "char_count": 3,
+          "byte_length": 6,
+          "max_korean_chars": 3,
+          "length_policy": "fixed_slot",
+          "text": "んっ！",
+          "previous_translation_reference": "",
+          "translation": "음!",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "2b ff 09 00 04 00 06 ff 40 00 05 00",
+          "after_bytes": "04 ff 01 ff 0c 00 8d 7c 82 cc 81 41"
+        },
+        {
+          "offset": 7488356,
+          "offset_hex": "0x724364",
+          "header_offset": 7488352,
+          "header_offset_hex": "0x724360",
+          "char_count": 12,
+          "byte_length": 24,
+          "max_korean_chars": 12,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "鋼の、君こそ何をしにきた",
+          "previous_translation_reference": "강철, 자네야말로 뭘 하러 왔나",
+          "translation": "강철,자넨 왜 왔나",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "2bff:0900",
+          "before_bytes": "01 ff 03 00 82 f1 82 c1 81 49 04 ff",
+          "after_bytes": "10 ff 81 00 0d ff 02 ff 1b ff 09 00"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 20
+    },
+    {
+      "unit_id": "entry8_unit:724394",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 3,
+      "offsets": [
+        7488404,
+        7488438,
+        7488466
+      ],
+      "offsets_hex": [
+        "0x724394",
+        "0x7243B6",
+        "0x7243D2"
+      ],
+      "source_text": "ハボック少尉の様子が変だから\n何かあったのかと思って\n探してたんだ",
+      "translation_text": "하보크 소위 상태가 이상해\n무슨 일 있나 싶어\n찾고 있었어",
+      "length_policy_summary": {
+        "fixed_slot": 3
+      },
+      "records": [
+        {
+          "offset": 7488404,
+          "offset_hex": "0x724394",
+          "header_offset": 7488400,
+          "header_offset_hex": "0x724390",
+          "char_count": 14,
+          "byte_length": 28,
+          "max_korean_chars": 14,
+          "length_policy": "fixed_slot",
+          "text": "ハボック少尉の様子が変だから",
+          "previous_translation_reference": "하복 소위 상태가 이상해서",
+          "translation": "하보크 소위 상태가 이상해",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "1bff:0900",
+          "before_bytes": "1b ff 09 00 00 00 06 ff 80 00 05 00",
+          "after_bytes": "04 ff 01 ff 0b 00 89 bd 82 a9 82 a0"
+        },
+        {
+          "offset": 7488438,
+          "offset_hex": "0x7243B6",
+          "header_offset": 7488434,
+          "header_offset_hex": "0x7243B2",
+          "char_count": 11,
+          "byte_length": 22,
+          "max_korean_chars": 11,
+          "length_policy": "fixed_slot",
+          "text": "何かあったのかと思って",
+          "previous_translation_reference": "무슨 일이 있나 싶어",
+          "translation": "무슨 일 있나 싶어",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 aa 95 cf 82 be 82 a9 82 e7 04 ff",
+          "after_bytes": "04 ff 01 ff 06 00 92 54 82 b5 82 c4"
+        },
+        {
+          "offset": 7488466,
+          "offset_hex": "0x7243D2",
+          "header_offset": 7488462,
+          "header_offset_hex": "0x7243CE",
+          "char_count": 6,
+          "byte_length": 12,
+          "max_korean_chars": 6,
+          "length_policy": "fixed_slot",
+          "text": "探してたんだ",
+          "previous_translation_reference": "찾고 있었어",
+          "translation": "찾고 있었어",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 a9 82 c6 8e 76 82 c1 82 c4 04 ff",
+          "after_bytes": "10 ff 01 00 0d ff 02 ff 1b ff 13 80"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 20
+    },
+    {
+      "unit_id": "entry8_unit:7243F6",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 2,
+      "offsets": [
+        7488502,
+        7488528
+      ],
+      "offsets_hex": [
+        "0x7243F6",
+        "0x724410"
+      ],
+      "source_text": "私は部下の仕事ぶりを\n影ながら見ているんだ",
+      "translation_text": "부하의 일솜씨를\n남몰래 보고 있다",
+      "length_policy_summary": {
+        "candidate_repoint_keep_conservative": 2
+      },
+      "records": [
+        {
+          "offset": 7488502,
+          "offset_hex": "0x7243F6",
+          "header_offset": 7488498,
+          "header_offset_hex": "0x7243F2",
+          "char_count": 10,
+          "byte_length": 20,
+          "max_korean_chars": 10,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "私は部下の仕事ぶりを",
+          "previous_translation_reference": "나는 부하의 일하는 모습을",
+          "translation": "부하의 일솜씨를",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "1bff:1380",
+          "before_bytes": "1b ff 13 80 00 00 06 ff 40 00 05 00",
+          "after_bytes": "04 ff 01 ff 0a 00 89 65 82 c8 82 aa"
+        },
+        {
+          "offset": 7488528,
+          "offset_hex": "0x724410",
+          "header_offset": 7488524,
+          "header_offset_hex": "0x72440C",
+          "char_count": 10,
+          "byte_length": 20,
+          "max_korean_chars": 10,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "影ながら見ているんだ",
+          "previous_translation_reference": "그늘에서 지켜보고 있다",
+          "translation": "남몰래 보고 있다",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "8e 64 8e 96 82 d4 82 e8 82 f0 04 ff",
+          "after_bytes": "10 ff 81 00 0d ff 02 ff 1b ff 0b 00"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 20
+    },
+    {
+      "unit_id": "entry8_unit:72443C",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 1,
+      "offsets": [
+        7488572
+      ],
+      "offsets_hex": [
+        "0x72443C"
+      ],
+      "source_text": "そうなんですか…",
+      "translation_text": "그렇습니까...",
+      "length_policy_summary": {
+        "fixed_slot": 1
+      },
+      "records": [
+        {
+          "offset": 7488572,
+          "offset_hex": "0x72443C",
+          "header_offset": 7488568,
+          "header_offset_hex": "0x724438",
+          "char_count": 8,
+          "byte_length": 16,
+          "max_korean_chars": 8,
+          "length_policy": "fixed_slot",
+          "text": "そうなんですか…",
+          "previous_translation_reference": "그렇습니까…",
+          "translation": "그렇습니까...",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "1bff:0B00",
+          "before_bytes": "1b ff 0b 00 00 00 06 ff 80 00 06 00",
+          "after_bytes": "0d ff 02 ff 1b ff 1c 80 00 00 06 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 16
+    },
+    {
+      "unit_id": "entry8_unit:724460",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 1,
+      "offsets": [
+        7488608
+      ],
+      "offsets_hex": [
+        "0x724460"
+      ],
+      "source_text": "私は大佐のお守りです",
+      "translation_text": "전 대령 보좌입니다",
+      "length_policy_summary": {
+        "candidate_repoint_keep_conservative": 1
+      },
+      "records": [
+        {
+          "offset": 7488608,
+          "offset_hex": "0x724460",
+          "header_offset": 7488604,
+          "header_offset_hex": "0x72445C",
+          "char_count": 10,
+          "byte_length": 20,
+          "max_korean_chars": 10,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "私は大佐のお守りです",
+          "previous_translation_reference": "저는 대령님을 돌보고 있습니다",
+          "translation": "전 대령 보좌입니다",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "1bff:1C80",
+          "before_bytes": "1b ff 1c 80 00 00 06 ff 40 00 05 00",
+          "after_bytes": "10 ff 81 00 0d ff 02 ff 1b ff 0b 00"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 20
+    },
+    {
+      "unit_id": "entry8_unit:72448C",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 3,
+      "offsets": [
+        7488652,
+        7488686,
+        7488712
+      ],
+      "offsets_hex": [
+        "0x72448C",
+        "0x7244AE",
+        "0x7244C8"
+      ],
+      "source_text": "お二人とも、こういうお仕事が\nあると大変ですよね。\nがんばって下さい",
+      "translation_text": "두 분도 이런 일이 있으면\n힘드시겠네요\n힘내세요",
+      "length_policy_summary": {
+        "fixed_slot": 3
+      },
+      "records": [
+        {
+          "offset": 7488652,
+          "offset_hex": "0x72448C",
+          "header_offset": 7488648,
+          "header_offset_hex": "0x724488",
+          "char_count": 14,
+          "byte_length": 28,
+          "max_korean_chars": 14,
+          "length_policy": "fixed_slot",
+          "text": "お二人とも、こういうお仕事が",
+          "previous_translation_reference": "두 분 다 이런 일도",
+          "translation": "두 분도 이런 일이 있으면",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "1bff:0B00",
+          "before_bytes": "1b ff 0b 00 00 00 06 ff 80 00 06 00",
+          "after_bytes": "04 ff 01 ff 0a 00 82 a0 82 e9 82 c6"
+        },
+        {
+          "offset": 7488686,
+          "offset_hex": "0x7244AE",
+          "header_offset": 7488682,
+          "header_offset_hex": "0x7244AA",
+          "char_count": 10,
+          "byte_length": 20,
+          "max_korean_chars": 10,
+          "length_policy": "fixed_slot",
+          "text": "あると大変ですよね。",
+          "previous_translation_reference": "있으면 힘드시겠네요.",
+          "translation": "힘드시겠네요",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 a4 82 a8 8e 64 8e 96 82 aa 04 ff",
+          "after_bytes": "04 ff 01 ff 08 00 82 aa 82 f1 82 ce"
+        },
+        {
+          "offset": 7488712,
+          "offset_hex": "0x7244C8",
+          "header_offset": 7488708,
+          "header_offset_hex": "0x7244C4",
+          "char_count": 8,
+          "byte_length": 16,
+          "max_korean_chars": 8,
+          "length_policy": "fixed_slot",
+          "text": "がんばって下さい",
+          "previous_translation_reference": "힘내세요",
+          "translation": "힘내세요",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 c5 82 b7 82 e6 82 cb 81 42 04 ff",
+          "after_bytes": "0d ff 02 ff 2b ff 36 00 04 00 1b ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 22
+    },
+    {
+      "unit_id": "entry8_unit:7244F2",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 2,
+      "offsets": [
+        7488754,
+        7488780
+      ],
+      "offsets_hex": [
+        "0x7244F2",
+        "0x72450C"
+      ],
+      "source_text": "ええ、大佐のお守りは\nとても大変よ",
+      "translation_text": "네, 대령 보좌는\n정말 힘들어",
+      "length_policy_summary": {
+        "fixed_slot": 1,
+        "candidate_repoint_keep_conservative": 1
+      },
+      "records": [
+        {
+          "offset": 7488754,
+          "offset_hex": "0x7244F2",
+          "header_offset": 7488750,
+          "header_offset_hex": "0x7244EE",
+          "char_count": 10,
+          "byte_length": 20,
+          "max_korean_chars": 10,
+          "length_policy": "fixed_slot",
+          "text": "ええ、大佐のお守りは",
+          "previous_translation_reference": "네, 대령님 돌보기는",
+          "translation": "네, 대령 보좌는",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "1bff:1D80",
+          "before_bytes": "1b ff 1d 80 00 00 06 ff 40 00 05 00",
+          "after_bytes": "04 ff 01 ff 06 00 82 c6 82 c4 82 e0"
+        },
+        {
+          "offset": 7488780,
+          "offset_hex": "0x72450C",
+          "header_offset": 7488776,
+          "header_offset_hex": "0x724508",
+          "char_count": 6,
+          "byte_length": 12,
+          "max_korean_chars": 6,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "とても大変よ",
+          "previous_translation_reference": "정말 힘들어요",
+          "translation": "정말 힘들어",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 cc 82 a8 8e e7 82 e8 82 cd 04 ff",
+          "after_bytes": "10 ff 81 00 0d ff 02 ff 2b ff 07 00"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 26
+    },
+    {
+      "unit_id": "entry8_unit:724536",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 2,
+      "offsets": [
+        7488822,
+        7488850
+      ],
+      "offsets_hex": [
+        "0x724536",
+        "0x724552"
+      ],
+      "source_text": "しーっ、ハボック少尉の\n話し声が聞こえないだろ",
+      "translation_text": "쉿, 하보크 소위의\n말소리가 안 들리잖아",
+      "length_policy_summary": {
+        "fixed_slot": 2
+      },
+      "records": [
+        {
+          "offset": 7488822,
+          "offset_hex": "0x724536",
+          "header_offset": 7488818,
+          "header_offset_hex": "0x724532",
+          "char_count": 11,
+          "byte_length": 22,
+          "max_korean_chars": 11,
+          "length_policy": "fixed_slot",
+          "text": "しーっ、ハボック少尉の",
+          "previous_translation_reference": "쉿, 하복 소위의",
+          "translation": "쉿, 하보크 소위의",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "1bff:0100",
+          "before_bytes": "1b ff 01 00 00 00 06 ff 80 00 05 00",
+          "after_bytes": "04 ff 01 ff 0b 00 98 62 82 b5 90 ba"
+        },
+        {
+          "offset": 7488850,
+          "offset_hex": "0x724552",
+          "header_offset": 7488846,
+          "header_offset_hex": "0x72454E",
+          "char_count": 11,
+          "byte_length": 22,
+          "max_korean_chars": 11,
+          "length_policy": "fixed_slot",
+          "text": "話し声が聞こえないだろ",
+          "previous_translation_reference": "말소리가 안 들리잖아",
+          "translation": "말소리가 안 들리잖아",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "83 62 83 4e 8f ad 88 d1 82 cc 04 ff",
+          "after_bytes": "10 ff 01 00 0d ff 07 ff 00 00 2b ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 62
+    },
+    {
+      "unit_id": "entry8_unit:7245AA",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 1,
+      "offsets": [
+        7488938
+      ],
+      "offsets_hex": [
+        "0x7245AA"
+      ],
+      "source_text": "女の人、泣いてるぜ…",
+      "translation_text": "여자가 울어...",
+      "length_policy_summary": {
+        "fixed_slot": 1
+      },
+      "records": [
+        {
+          "offset": 7488938,
+          "offset_hex": "0x7245AA",
+          "header_offset": 7488934,
+          "header_offset_hex": "0x7245A6",
+          "char_count": 10,
+          "byte_length": 20,
+          "max_korean_chars": 10,
+          "length_policy": "fixed_slot",
+          "text": "女の人、泣いてるぜ…",
+          "previous_translation_reference": "여자가 울고 있어…",
+          "translation": "여자가 울어...",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "1bff:7280",
+          "before_bytes": "00 00 06 ff 80 00 05 00 07 ff 00 80",
+          "after_bytes": "10 ff 01 00 0d ff 02 ff 2b ff 0d 00"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 20
+    },
+    {
+      "unit_id": "entry8_unit:7245D6",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 2,
+      "offsets": [
+        7488982,
+        7489006
+      ],
+      "offsets_hex": [
+        "0x7245D6",
+        "0x7245EE"
+      ],
+      "source_text": "そんなの身勝手だと\n思わないの？",
+      "translation_text": "그건 제멋대로라\n생각 안해?",
+      "length_policy_summary": {
+        "candidate_repoint_keep_conservative": 2
+      },
+      "records": [
+        {
+          "offset": 7488982,
+          "offset_hex": "0x7245D6",
+          "header_offset": 7488978,
+          "header_offset_hex": "0x7245D2",
+          "char_count": 9,
+          "byte_length": 18,
+          "max_korean_chars": 9,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "そんなの身勝手だと",
+          "previous_translation_reference": "그런 건 제멋대로라고",
+          "translation": "그건 제멋대로라",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "2bff:0D00",
+          "before_bytes": "2b ff 0d 00 2b 00 06 ff 00 80 06 00",
+          "after_bytes": "04 ff 01 ff 06 00 8e 76 82 ed 82 c8"
+        },
+        {
+          "offset": 7489006,
+          "offset_hex": "0x7245EE",
+          "header_offset": 7489002,
+          "header_offset_hex": "0x7245EA",
+          "char_count": 6,
+          "byte_length": 12,
+          "max_korean_chars": 6,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "思わないの？",
+          "previous_translation_reference": "생각하지 않아?",
+          "translation": "생각 안해?",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "90 67 8f 9f 8e e8 82 be 82 c6 04 ff",
+          "after_bytes": "0d ff 02 ff 2b ff 0b 00 1c 00 06 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 16
+    },
+    {
+      "unit_id": "entry8_unit:72460E",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 1,
+      "offsets": [
+        7489038
+      ],
+      "offsets_hex": [
+        "0x72460E"
+      ],
+      "source_text": "わかってる。",
+      "translation_text": "알고 있어",
+      "length_policy_summary": {
+        "fixed_slot": 1
+      },
+      "records": [
+        {
+          "offset": 7489038,
+          "offset_hex": "0x72460E",
+          "header_offset": 7489034,
+          "header_offset_hex": "0x72460A",
+          "char_count": 6,
+          "byte_length": 12,
+          "max_korean_chars": 6,
+          "length_policy": "fixed_slot",
+          "text": "わかってる。",
+          "previous_translation_reference": "알고 있어.",
+          "translation": "알고 있어",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "2bff:0B00",
+          "before_bytes": "2b ff 0b 00 1c 00 06 ff 40 80 05 00",
+          "after_bytes": "10 ff 81 00 04 ff 05 ff 1e 00 2b ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 20
+    },
+    {
+      "unit_id": "entry8_unit:724632",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 2,
+      "offsets": [
+        7489074,
+        7489108
+      ],
+      "offsets_hex": [
+        "0x724632",
+        "0x724654"
+      ],
+      "source_text": "でも、オレもルナを引きとって\n育てるのはムリなんだ",
+      "translation_text": "하지만 나도 루나를 맡아\n키우는 건 무리야",
+      "length_policy_summary": {
+        "fixed_slot": 2
+      },
+      "records": [
+        {
+          "offset": 7489074,
+          "offset_hex": "0x724632",
+          "header_offset": 7489070,
+          "header_offset_hex": "0x72462E",
+          "char_count": 14,
+          "byte_length": 28,
+          "max_korean_chars": 14,
+          "length_policy": "fixed_slot",
+          "text": "でも、オレもルナを引きとって",
+          "previous_translation_reference": "하지만 나도 루나를 맡아",
+          "translation": "하지만 나도 루나를 맡아",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "2bff:0800",
+          "before_bytes": "1e 00 2b ff 08 00 1c 00 10 ff 80 00",
+          "after_bytes": "04 ff 01 ff 0a 00 88 e7 82 c4 82 e9"
+        },
+        {
+          "offset": 7489108,
+          "offset_hex": "0x724654",
+          "header_offset": 7489104,
+          "header_offset_hex": "0x724650",
+          "char_count": 10,
+          "byte_length": 20,
+          "max_korean_chars": 10,
+          "length_policy": "fixed_slot",
+          "text": "育てるのはムリなんだ",
+          "previous_translation_reference": "키우는 건 무리야",
+          "translation": "키우는 건 무리야",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "88 f8 82 ab 82 c6 82 c1 82 c4 04 ff",
+          "after_bytes": "10 ff 81 00 0d ff 07 ff 00 00 28 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 38
+    },
+    {
+      "unit_id": "entry8_unit:724692",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 2,
+      "offsets": [
+        7489170,
+        7489202
+      ],
+      "offsets_hex": [
+        "0x724692",
+        "0x7246B2"
+      ],
+      "source_text": "ルナ…を引き取るという事は\nハボックの隠し子だろうか",
+      "translation_text": "루나...를 맡는다는 건\n하보크 숨겨둔 자식?",
+      "length_policy_summary": {
+        "fixed_slot": 2
+      },
+      "records": [
+        {
+          "offset": 7489170,
+          "offset_hex": "0x724692",
+          "header_offset": 7489166,
+          "header_offset_hex": "0x72468E",
+          "char_count": 13,
+          "byte_length": 26,
+          "max_korean_chars": 13,
+          "length_policy": "fixed_slot",
+          "text": "ルナ…を引き取るという事は",
+          "previous_translation_reference": "루나…를 맡는다는 건",
+          "translation": "루나...를 맡는다는 건",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "1bff:1200",
+          "before_bytes": "05 00 07 ff 00 80 2b ff 08 00 03 00",
+          "after_bytes": "04 ff 01 ff 0c 00 83 6e 83 7b 83 62"
+        },
+        {
+          "offset": 7489202,
+          "offset_hex": "0x7246B2",
+          "header_offset": 7489198,
+          "header_offset_hex": "0x7246AE",
+          "char_count": 12,
+          "byte_length": 24,
+          "max_korean_chars": 12,
+          "length_policy": "fixed_slot",
+          "text": "ハボックの隠し子だろうか",
+          "previous_translation_reference": "하복의 숨겨 둔 자식일까",
+          "translation": "하보크 숨겨둔 자식?",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 c6 82 a2 82 a4 8e 96 82 cd 04 ff",
+          "after_bytes": "10 ff 01 00 0d ff 02 ff 2b ff 35 00"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 26
+    },
+    {
+      "unit_id": "entry8_unit:7246E8",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 3,
+      "offsets": [
+        7489256,
+        7489278,
+        7489300
+      ],
+      "offsets_hex": [
+        "0x7246E8",
+        "0x7246FE",
+        "0x724714"
+      ],
+      "source_text": "ハボック少尉なら\nありえる話です。\nもう少し話を聞いてみましょう",
+      "translation_text": "하보크 소위라면\n그럴 법합니다\n조금 더 들어 보죠",
+      "length_policy_summary": {
+        "fixed_slot": 2,
+        "candidate_repoint_keep_conservative": 1
+      },
+      "records": [
+        {
+          "offset": 7489256,
+          "offset_hex": "0x7246E8",
+          "header_offset": 7489252,
+          "header_offset_hex": "0x7246E4",
+          "char_count": 8,
+          "byte_length": 16,
+          "max_korean_chars": 8,
+          "length_policy": "fixed_slot",
+          "text": "ハボック少尉なら",
+          "previous_translation_reference": "하복 소위라면",
+          "translation": "하보크 소위라면",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "1bff:1C80",
+          "before_bytes": "1b ff 1c 80 00 00 06 ff 40 00 05 00",
+          "after_bytes": "04 ff 01 ff 08 00 82 a0 82 e8 82 a6"
+        },
+        {
+          "offset": 7489278,
+          "offset_hex": "0x7246FE",
+          "header_offset": 7489274,
+          "header_offset_hex": "0x7246FA",
+          "char_count": 8,
+          "byte_length": 16,
+          "max_korean_chars": 8,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "ありえる話です。",
+          "previous_translation_reference": "있을 법한 이야기입니다.",
+          "translation": "그럴 법합니다",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "83 4e 8f ad 88 d1 82 c8 82 e7 04 ff",
+          "after_bytes": "04 ff 01 ff 0e 00 82 e0 82 a4 8f ad"
+        },
+        {
+          "offset": 7489300,
+          "offset_hex": "0x724714",
+          "header_offset": 7489296,
+          "header_offset_hex": "0x724710",
+          "char_count": 14,
+          "byte_length": 28,
+          "max_korean_chars": 14,
+          "length_policy": "fixed_slot",
+          "text": "もう少し話を聞いてみましょう",
+          "previous_translation_reference": "조금 더 들어 보죠",
+          "translation": "조금 더 들어 보죠",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 e9 98 62 82 c5 82 b7 81 42 04 ff",
+          "after_bytes": "10 ff 81 00 0d ff 07 ff 00 00 2b ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 38
+    },
+    {
+      "unit_id": "entry8_unit:72475A",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 2,
+      "offsets": [
+        7489370,
+        7489386
+      ],
+      "offsets_hex": [
+        "0x72475A",
+        "0x72476A"
+      ],
+      "source_text": "ハボック。\nあなたはルナが可愛くないの？",
+      "translation_text": "하보크.\n넌 루나가 귀엽지 않아?",
+      "length_policy_summary": {
+        "fixed_slot": 2
+      },
+      "records": [
+        {
+          "offset": 7489370,
+          "offset_hex": "0x72475A",
+          "header_offset": 7489366,
+          "header_offset_hex": "0x724756",
+          "char_count": 5,
+          "byte_length": 10,
+          "max_korean_chars": 5,
+          "length_policy": "fixed_slot",
+          "text": "ハボック。",
+          "previous_translation_reference": "하복.",
+          "translation": "하보크.",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "2bff:3300",
+          "before_bytes": "04 fb 06 ff 00 80 06 00 07 ff 00 80",
+          "after_bytes": "04 ff 01 ff 0e 00 82 a0 82 c8 82 bd"
+        },
+        {
+          "offset": 7489386,
+          "offset_hex": "0x72476A",
+          "header_offset": 7489382,
+          "header_offset_hex": "0x724766",
+          "char_count": 14,
+          "byte_length": 28,
+          "max_korean_chars": 14,
+          "length_policy": "fixed_slot",
+          "text": "あなたはルナが可愛くないの？",
+          "previous_translation_reference": "당신은 루나가 귀엽지 않아?",
+          "translation": "넌 루나가 귀엽지 않아?",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "83 6e 83 7b 83 62 83 4e 81 42 04 ff",
+          "after_bytes": "0d ff 02 ff 2b ff 07 00 1c 00 1b ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 22
+    },
+    {
+      "unit_id": "entry8_unit:7247A0",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 3,
+      "offsets": [
+        7489440,
+        7489458,
+        7489490
+      ],
+      "offsets_hex": [
+        "0x7247A0",
+        "0x7247B2",
+        "0x7247D2"
+      ],
+      "source_text": "カワイイさ。\n責任もってオレが育てたいと\n思っていた",
+      "translation_text": "귀엽지\n책임지고 내가 키우고\n싶었어",
+      "length_policy_summary": {
+        "fixed_slot": 2,
+        "candidate_repoint_keep_conservative": 1
+      },
+      "records": [
+        {
+          "offset": 7489440,
+          "offset_hex": "0x7247A0",
+          "header_offset": 7489436,
+          "header_offset_hex": "0x72479C",
+          "char_count": 6,
+          "byte_length": 12,
+          "max_korean_chars": 6,
+          "length_policy": "fixed_slot",
+          "text": "カワイイさ。",
+          "previous_translation_reference": "귀엽지.",
+          "translation": "귀엽지",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "1bff:7200",
+          "before_bytes": "1b ff 72 00 00 00 06 ff 80 80 05 00",
+          "after_bytes": "04 ff 01 ff 0d 00 90 d3 94 43 82 e0"
+        },
+        {
+          "offset": 7489458,
+          "offset_hex": "0x7247B2",
+          "header_offset": 7489454,
+          "header_offset_hex": "0x7247AE",
+          "char_count": 13,
+          "byte_length": 26,
+          "max_korean_chars": 13,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "責任もってオレが育てたいと",
+          "previous_translation_reference": "책임지고 내가 키우고 싶다고",
+          "translation": "책임지고 내가 키우고",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "83 8f 83 43 83 43 82 b3 81 42 04 ff",
+          "after_bytes": "04 ff 01 ff 05 00 8e 76 82 c1 82 c4"
+        },
+        {
+          "offset": 7489490,
+          "offset_hex": "0x7247D2",
+          "header_offset": 7489486,
+          "header_offset_hex": "0x7247CE",
+          "char_count": 5,
+          "byte_length": 10,
+          "max_korean_chars": 5,
+          "length_policy": "fixed_slot",
+          "text": "思っていた",
+          "previous_translation_reference": "생각했어",
+          "translation": "싶었어",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "88 e7 82 c4 82 bd 82 a2 82 c6 04 ff",
+          "after_bytes": "10 ff 01 00 0d ff 02 ff 06 ff 00 80"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 14
+    },
+    {
+      "unit_id": "entry8_unit:7247EE",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 1,
+      "offsets": [
+        7489518
+      ],
+      "offsets_hex": [
+        "0x7247EE"
+      ],
+      "source_text": "思ってたけど…",
+      "translation_text": "그랬지만...",
+      "length_policy_summary": {
+        "fixed_slot": 1
+      },
+      "records": [
+        {
+          "offset": 7489518,
+          "offset_hex": "0x7247EE",
+          "header_offset": 7489514,
+          "header_offset_hex": "0x7247EA",
+          "char_count": 7,
+          "byte_length": 14,
+          "max_korean_chars": 7,
+          "length_policy": "fixed_slot",
+          "text": "思ってたけど…",
+          "previous_translation_reference": "생각했지만…",
+          "translation": "그랬지만...",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "01 00 0d ff 02 ff 06 ff 00 80 06 00",
+          "after_bytes": "05 ff 14 00 2b ff 0b 00 2b 00 01 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 10
+    },
+    {
+      "unit_id": "entry8_unit:72480A",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 1,
+      "offsets": [
+        7489546
+      ],
+      "offsets_hex": [
+        "0x72480A"
+      ],
+      "source_text": "ムリなのね",
+      "translation_text": "무리구나",
+      "length_policy_summary": {
+        "candidate_repoint_keep_conservative": 1
+      },
+      "records": [
+        {
+          "offset": 7489546,
+          "offset_hex": "0x72480A",
+          "header_offset": 7489542,
+          "header_offset_hex": "0x724806",
+          "char_count": 5,
+          "byte_length": 10,
+          "max_korean_chars": 5,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "ムリなのね",
+          "previous_translation_reference": "무리인 거네",
+          "translation": "무리구나",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "2bff:0B00",
+          "before_bytes": "81 63 05 ff 14 00 2b ff 0b 00 2b 00",
+          "after_bytes": "0d ff 02 ff 2b ff 0b 00 1c 00 1b ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 22
+    },
+    {
+      "unit_id": "entry8_unit:72482E",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 3,
+      "offsets": [
+        7489582,
+        7489612,
+        7489644
+      ],
+      "offsets_hex": [
+        "0x72482E",
+        "0x72484C",
+        "0x72486C"
+      ],
+      "source_text": "オレは仕事で残業が多い。\nルナを留守番させておくのは\nかわいそうだ",
+      "translation_text": "난 일로 야근이 많아\n루나를 혼자 두는 건\n불쌍해",
+      "length_policy_summary": {
+        "candidate_repoint_keep_conservative": 2,
+        "fixed_slot": 1
+      },
+      "records": [
+        {
+          "offset": 7489582,
+          "offset_hex": "0x72482E",
+          "header_offset": 7489578,
+          "header_offset_hex": "0x72482A",
+          "char_count": 12,
+          "byte_length": 24,
+          "max_korean_chars": 12,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "オレは仕事で残業が多い。",
+          "previous_translation_reference": "나는 일 때문에 야근이 많아.",
+          "translation": "난 일로 야근이 많아",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "1bff:7280",
+          "before_bytes": "1b ff 72 80 00 00 06 ff 40 80 05 00",
+          "after_bytes": "04 ff 01 ff 0d 00 83 8b 83 69 82 f0"
+        },
+        {
+          "offset": 7489612,
+          "offset_hex": "0x72484C",
+          "header_offset": 7489608,
+          "header_offset_hex": "0x724848",
+          "char_count": 13,
+          "byte_length": 26,
+          "max_korean_chars": 13,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "ルナを留守番させておくのは",
+          "previous_translation_reference": "루나를 혼자 집 보게 두는 건",
+          "translation": "루나를 혼자 두는 건",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "8b c6 82 aa 91 bd 82 a2 81 42 04 ff",
+          "after_bytes": "04 ff 01 ff 06 00 82 a9 82 ed 82 a2"
+        },
+        {
+          "offset": 7489644,
+          "offset_hex": "0x72486C",
+          "header_offset": 7489640,
+          "header_offset_hex": "0x724868",
+          "char_count": 6,
+          "byte_length": 12,
+          "max_korean_chars": 6,
+          "length_policy": "fixed_slot",
+          "text": "かわいそうだ",
+          "previous_translation_reference": "불쌍해",
+          "translation": "불쌍해",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 c4 82 a8 82 ad 82 cc 82 cd 04 ff",
+          "after_bytes": "10 ff 81 00 0d ff 02 ff 2b ff 09 00"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 20
+    },
+    {
+      "unit_id": "entry8_unit:724890",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 2,
+      "offsets": [
+        7489680,
+        7489708
+      ],
+      "offsets_hex": [
+        "0x724890",
+        "0x7248AC"
+      ],
+      "source_text": "それなら、私がこのまま\n育てたほうがいいと言うのね",
+      "translation_text": "그럼 내가 이대로\n키우는 게 낫다는 거네",
+      "length_policy_summary": {
+        "fixed_slot": 2
+      },
+      "records": [
+        {
+          "offset": 7489680,
+          "offset_hex": "0x724890",
+          "header_offset": 7489676,
+          "header_offset_hex": "0x72488C",
+          "char_count": 11,
+          "byte_length": 22,
+          "max_korean_chars": 11,
+          "length_policy": "fixed_slot",
+          "text": "それなら、私がこのまま",
+          "previous_translation_reference": "그렇다면 내가 그대로",
+          "translation": "그럼 내가 이대로",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "2bff:0900",
+          "before_bytes": "2b ff 09 00 2b 00 06 ff 00 80 06 00",
+          "after_bytes": "04 ff 01 ff 0d 00 88 e7 82 c4 82 bd"
+        },
+        {
+          "offset": 7489708,
+          "offset_hex": "0x7248AC",
+          "header_offset": 7489704,
+          "header_offset_hex": "0x7248A8",
+          "char_count": 13,
+          "byte_length": 26,
+          "max_korean_chars": 13,
+          "length_policy": "fixed_slot",
+          "text": "育てたほうがいいと言うのね",
+          "previous_translation_reference": "키우는 편이 낫다는 거네",
+          "translation": "키우는 게 낫다는 거네",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 aa 82 b1 82 cc 82 dc 82 dc 04 ff",
+          "after_bytes": "0d ff 02 ff 1b ff 72 00 00 00 06 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 16
+    },
+    {
+      "unit_id": "entry8_unit:7248DA",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 1,
+      "offsets": [
+        7489754
+      ],
+      "offsets_hex": [
+        "0x7248DA"
+      ],
+      "source_text": "ああ。養育費は払う",
+      "translation_text": "그래.양육비 낼게",
+      "length_policy_summary": {
+        "candidate_repoint_keep_conservative": 1
+      },
+      "records": [
+        {
+          "offset": 7489754,
+          "offset_hex": "0x7248DA",
+          "header_offset": 7489750,
+          "header_offset_hex": "0x7248D6",
+          "char_count": 9,
+          "byte_length": 18,
+          "max_korean_chars": 9,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "ああ。養育費は払う",
+          "previous_translation_reference": "그래. 양육비는 낼게",
+          "translation": "그래.양육비 낼게",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "1bff:7200",
+          "before_bytes": "1b ff 72 00 00 00 06 ff 80 80 05 00",
+          "after_bytes": "10 ff 01 00 0d ff 07 ff 00 00 03 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 108
+    },
+    {
+      "unit_id": "entry8_unit:72495C",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 1,
+      "offsets": [
+        7489884
+      ],
+      "offsets_hex": [
+        "0x72495C"
+      ],
+      "source_text": "なんでここに？",
+      "translation_text": "왜 여기?",
+      "length_policy_summary": {
+        "fixed_slot": 1
+      },
+      "records": [
+        {
+          "offset": 7489884,
+          "offset_hex": "0x72495C",
+          "header_offset": 7489880,
+          "header_offset_hex": "0x724958",
+          "char_count": 7,
+          "byte_length": 14,
+          "max_korean_chars": 7,
+          "length_policy": "fixed_slot",
+          "text": "なんでここに？",
+          "previous_translation_reference": "왜 여기 있어?",
+          "translation": "왜 여기?",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "2bff:0900",
+          "before_bytes": "00 00 06 ff 80 00 05 00 07 ff 00 80",
+          "after_bytes": "10 ff 01 00 0d ff 07 ff 00 00 60 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 78
+    },
+    {
+      "unit_id": "entry8_unit:7249BC",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 1,
+      "offsets": [
+        7489980
+      ],
+      "offsets_hex": [
+        "0x7249BC"
+      ],
+      "source_text": "あなた方は？",
+      "translation_text": "당신들은?",
+      "length_policy_summary": {
+        "fixed_slot": 1
+      },
+      "records": [
+        {
+          "offset": 7489980,
+          "offset_hex": "0x7249BC",
+          "header_offset": 7489976,
+          "header_offset_hex": "0x7249B8",
+          "char_count": 6,
+          "byte_length": 12,
+          "max_korean_chars": 6,
+          "length_policy": "fixed_slot",
+          "text": "あなた方は？",
+          "previous_translation_reference": "당신들은?",
+          "translation": "당신들은?",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "2bff:6200",
+          "before_bytes": "2b 00 06 ff 00 80 06 00 07 ff 00 80",
+          "after_bytes": "0d ff 02 ff 2b ff 83 00 04 00 1b ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 22
+    },
+    {
+      "unit_id": "entry8_unit:7249E2",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 3,
+      "offsets": [
+        7490018,
+        7490040,
+        7490072
+      ],
+      "offsets_hex": [
+        "0x7249E2",
+        "0x7249F8",
+        "0x724A18"
+      ],
+      "source_text": "見損ないました。\n男として自分の子供に対する\n責任を果たせないのですか？",
+      "translation_text": "실망했습니다\n남자로서 제 아이에게\n책임 못 집니까?",
+      "length_policy_summary": {
+        "fixed_slot": 2,
+        "candidate_repoint_keep_conservative": 1
+      },
+      "records": [
+        {
+          "offset": 7490018,
+          "offset_hex": "0x7249E2",
+          "header_offset": 7490014,
+          "header_offset_hex": "0x7249DE",
+          "char_count": 8,
+          "byte_length": 16,
+          "max_korean_chars": 8,
+          "length_policy": "fixed_slot",
+          "text": "見損ないました。",
+          "previous_translation_reference": "실망했습니다.",
+          "translation": "실망했습니다",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "1bff:1F80",
+          "before_bytes": "1b ff 1f 80 00 00 06 ff 40 80 05 00",
+          "after_bytes": "04 ff 01 ff 0d 00 92 6a 82 c6 82 b5"
+        },
+        {
+          "offset": 7490040,
+          "offset_hex": "0x7249F8",
+          "header_offset": 7490036,
+          "header_offset_hex": "0x7249F4",
+          "char_count": 13,
+          "byte_length": 26,
+          "max_korean_chars": 13,
+          "length_policy": "fixed_slot",
+          "text": "男として自分の子供に対する",
+          "previous_translation_reference": "남자로서 자기 아이에 대한",
+          "translation": "남자로서 제 아이에게",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 a2 82 dc 82 b5 82 bd 81 42 04 ff",
+          "after_bytes": "04 ff 01 ff 0d 00 90 d3 94 43 82 f0"
+        },
+        {
+          "offset": 7490072,
+          "offset_hex": "0x724A18",
+          "header_offset": 7490068,
+          "header_offset_hex": "0x724A14",
+          "char_count": 13,
+          "byte_length": 26,
+          "max_korean_chars": 13,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "責任を果たせないのですか？",
+          "previous_translation_reference": "책임을 다하지 못하는 겁니까?",
+          "translation": "책임 못 집니까?",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "8b 9f 82 c9 91 ce 82 b7 82 e9 04 ff",
+          "after_bytes": "10 ff 81 00 0d ff 02 ff 1b ff 72 00"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 20
+    },
+    {
+      "unit_id": "entry8_unit:724A4A",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 1,
+      "offsets": [
+        7490122
+      ],
+      "offsets_hex": [
+        "0x724A4A"
+      ],
+      "source_text": "オレの子供…？",
+      "translation_text": "내아이...?",
+      "length_policy_summary": {
+        "fixed_slot": 1
+      },
+      "records": [
+        {
+          "offset": 7490122,
+          "offset_hex": "0x724A4A",
+          "header_offset": 7490118,
+          "header_offset_hex": "0x724A46",
+          "char_count": 7,
+          "byte_length": 14,
+          "max_korean_chars": 7,
+          "length_policy": "fixed_slot",
+          "text": "オレの子供…？",
+          "previous_translation_reference": "내 아이…?",
+          "translation": "내아이...?",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "1bff:7200",
+          "before_bytes": "1b ff 72 00 00 00 06 ff 80 00 05 00",
+          "after_bytes": "10 ff 01 00 0d ff 02 ff 10 ff 80 00"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 18
+    },
+    {
+      "unit_id": "entry8_unit:724A6E",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 2,
+      "offsets": [
+        7490158,
+        7490174
+      ],
+      "offsets_hex": [
+        "0x724A6E",
+        "0x724A7E"
+      ],
+      "source_text": "そうです。\nルナちゃんというのでしょ！",
+      "translation_text": "맞습니다\n루나라는 아이잖아요!",
+      "length_policy_summary": {
+        "candidate_repoint_keep_conservative": 1,
+        "fixed_slot": 1
+      },
+      "records": [
+        {
+          "offset": 7490158,
+          "offset_hex": "0x724A6E",
+          "header_offset": 7490154,
+          "header_offset_hex": "0x724A6A",
+          "char_count": 5,
+          "byte_length": 10,
+          "max_korean_chars": 5,
+          "length_policy": "candidate_repoint_keep_conservative",
+          "text": "そうです。",
+          "previous_translation_reference": "그렇습니다.",
+          "translation": "맞습니다",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "02 ff 10 ff 80 00 06 ff 40 00 05 00",
+          "after_bytes": "04 ff 01 ff 0d 00 83 8b 83 69 82 bf"
+        },
+        {
+          "offset": 7490174,
+          "offset_hex": "0x724A7E",
+          "header_offset": 7490170,
+          "header_offset_hex": "0x724A7A",
+          "char_count": 13,
+          "byte_length": 26,
+          "max_korean_chars": 13,
+          "length_policy": "fixed_slot",
+          "text": "ルナちゃんというのでしょ！",
+          "previous_translation_reference": "루나라는 아이잖아요!",
+          "translation": "루나라는 아이잖아요!",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 bb 82 a4 82 c5 82 b7 81 42 04 ff",
+          "after_bytes": "10 ff 81 00 0d ff 02 ff 2b ff 0c 00"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 30
+    },
+    {
+      "unit_id": "entry8_unit:724ABA",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 1,
+      "offsets": [
+        7490234
+      ],
+      "offsets_hex": [
+        "0x724ABA"
+      ],
+      "source_text": "あのぉ…",
+      "translation_text": "저...",
+      "length_policy_summary": {
+        "fixed_slot": 1
+      },
+      "records": [
+        {
+          "offset": 7490234,
+          "offset_hex": "0x724ABA",
+          "header_offset": 7490230,
+          "header_offset_hex": "0x724AB6",
+          "char_count": 4,
+          "byte_length": 8,
+          "max_korean_chars": 4,
+          "length_policy": "fixed_slot",
+          "text": "あのぉ…",
+          "previous_translation_reference": "저기요…",
+          "translation": "저...",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "2bff:0900",
+          "before_bytes": "2b ff 09 00 2b 00 06 ff 00 80 06 00",
+          "after_bytes": "0d ff 02 ff 2b ff 34 00 04 00 1b ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 22
+    },
+    {
+      "unit_id": "entry8_unit:724ADC",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 2,
+      "offsets": [
+        7490268,
+        7490294
+      ],
+      "offsets_hex": [
+        "0x724ADC",
+        "0x724AF6"
+      ],
+      "source_text": "あなたはもっと怒って\nいいんですよ",
+      "translation_text": "당신은 더 화내도\n괜찮아요",
+      "length_policy_summary": {
+        "fixed_slot": 2
+      },
+      "records": [
+        {
+          "offset": 7490268,
+          "offset_hex": "0x724ADC",
+          "header_offset": 7490264,
+          "header_offset_hex": "0x724AD8",
+          "char_count": 10,
+          "byte_length": 20,
+          "max_korean_chars": 10,
+          "length_policy": "fixed_slot",
+          "text": "あなたはもっと怒って",
+          "previous_translation_reference": "당신은 더 화내도",
+          "translation": "당신은 더 화내도",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "1bff:1C00",
+          "before_bytes": "1b ff 1c 00 00 00 06 ff 80 8c 05 00",
+          "after_bytes": "04 ff 01 ff 06 00 82 a2 82 a2 82 f1"
+        },
+        {
+          "offset": 7490294,
+          "offset_hex": "0x724AF6",
+          "header_offset": 7490290,
+          "header_offset_hex": "0x724AF2",
+          "char_count": 6,
+          "byte_length": 12,
+          "max_korean_chars": 6,
+          "length_policy": "fixed_slot",
+          "text": "いいんですよ",
+          "previous_translation_reference": "괜찮아요",
+          "translation": "괜찮아요",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": null,
+          "before_bytes": "82 c1 82 c6 93 7b 82 c1 82 c4 04 ff",
+          "after_bytes": "10 ff 01 00 0d ff 02 ff 2b ff 62 00"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 20
+    },
+    {
+      "unit_id": "entry8_unit:724B1A",
+      "cluster_index": 41,
+      "cluster_primary_tag": "east_city",
+      "record_count": 1,
+      "offsets": [
+        7490330
+      ],
+      "offsets_hex": [
+        "0x724B1A"
+      ],
+      "source_text": "違うんです",
+      "translation_text": "아니에요",
+      "length_policy_summary": {
+        "fixed_slot": 1
+      },
+      "records": [
+        {
+          "offset": 7490330,
+          "offset_hex": "0x724B1A",
+          "header_offset": 7490326,
+          "header_offset_hex": "0x724B16",
+          "char_count": 5,
+          "byte_length": 10,
+          "max_korean_chars": 5,
+          "length_policy": "fixed_slot",
+          "text": "違うんです",
+          "previous_translation_reference": "아니에요",
+          "translation": "아니에요",
+          "notes": "",
+          "cluster_index": 41,
+          "cluster_primary_tag": "east_city",
+          "dialogue_state_token": "2bff:6200",
+          "before_bytes": "2b ff 62 00 2b 00 06 ff 00 80 06 00",
+          "after_bytes": "0d ff 02 ff 1b ff 72 80 00 00 06 ff"
+        }
+      ],
+      "notes": "번역/검수는 source_text 단위로 자연스럽게 보고, ROM 적용은 records 배열의 각 counted record에 나눠 넣는다. fixed_slot/candidate_repoint_keep_conservative 는 max_korean_chars를 넘기지 않는다.",
+      "next_gap_after_unit": 16
+    }
+  ],
+  "split_from": "part_06.json",
+  "split_index": 4,
+  "split_count": 6
+}

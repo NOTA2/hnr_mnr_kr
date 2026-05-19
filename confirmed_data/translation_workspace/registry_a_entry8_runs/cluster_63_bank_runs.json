@@ -1,0 +1,248 @@
+[
+  {
+    "run_id": "entry8_cluster_63_run_0000",
+    "cluster_index": 63,
+    "run_index": 0,
+    "dialogue_state_token": "1bff:567F",
+    "record_count": 1,
+    "offsets": [
+      7752324
+    ],
+    "source_text": "今朝方、列車強盗にあう夢を",
+    "translation_text": "오늘 새벽, 열차 강도를 만나는 꿈을",
+    "records": [
+      {
+        "offset": 7752324,
+        "header_offset": 7752320,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 3726,
+        "text": "今朝方、列車強盗にあう夢を",
+        "translation": "오늘 새벽, 열차 강도를 만나는 꿈을"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_63_run_0001",
+    "cluster_index": 63,
+    "run_index": 1,
+    "dialogue_state_token": null,
+    "record_count": 15,
+    "offsets": [
+      7752356,
+      7752374,
+      7752430,
+      7752456,
+      7752588,
+      7752618,
+      7752678,
+      7752804,
+      7752824,
+      7752876,
+      7752900,
+      7752934,
+      7753194,
+      7753218,
+      7753242
+    ],
+    "source_text": "見たんです。\n現実になってしまいました\n怖くない。怖くない。\nお父さんがいるじゃないか\nパパの夢はよく当たるの。\nでも、良い夢は当たらないのよ\nえーん、コワイよぉ\n今は列車強盗が\nはやってるのかしら？\n列車強盗してないで\nきちんと就職したらいいのよ。\n親の顔を見てやりたいわ\nなんだぁ、お前は？\n刃向かうつもりなら\n叩きのめしてやる！",
+    "translation_text": "꿨습니다.\n그게 현실이 되고 말았습니다\n무섭지 않아. 무섭지 않아.\n아빠가 있잖아\n아빠 꿈은 잘 맞아.\n그런데 좋은 꿈은 안 맞아\n으앙, 무서워\n요즘은 열차 강도가\n유행인가 봐요?\n열차 강도 같은 짓 말고\n제대로 취직하면 좋을 텐데.\n부모 얼굴이 보고 싶네요\n뭐냐, 너는?\n덤빌 생각이라면\n박살 내 주마!",
+    "records": [
+      {
+        "offset": 7752356,
+        "header_offset": 7752352,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 2,
+        "text": "見たんです。",
+        "translation": "꿨습니다."
+      },
+      {
+        "offset": 7752374,
+        "header_offset": 7752370,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "現実になってしまいました",
+        "translation": "그게 현실이 되고 말았습니다"
+      },
+      {
+        "offset": 7752430,
+        "header_offset": 7752426,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 28,
+        "text": "怖くない。怖くない。",
+        "translation": "무섭지 않아. 무섭지 않아."
+      },
+      {
+        "offset": 7752456,
+        "header_offset": 7752452,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "お父さんがいるじゃないか",
+        "translation": "아빠가 있잖아"
+      },
+      {
+        "offset": 7752588,
+        "header_offset": 7752584,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 104,
+        "text": "パパの夢はよく当たるの。",
+        "translation": "아빠 꿈은 잘 맞아."
+      },
+      {
+        "offset": 7752618,
+        "header_offset": 7752614,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "でも、良い夢は当たらないのよ",
+        "translation": "그런데 좋은 꿈은 안 맞아"
+      },
+      {
+        "offset": 7752678,
+        "header_offset": 7752674,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 28,
+        "text": "えーん、コワイよぉ",
+        "translation": "으앙, 무서워"
+      },
+      {
+        "offset": 7752804,
+        "header_offset": 7752800,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 104,
+        "text": "今は列車強盗が",
+        "translation": "요즘은 열차 강도가"
+      },
+      {
+        "offset": 7752824,
+        "header_offset": 7752820,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "はやってるのかしら？",
+        "translation": "유행인가 봐요?"
+      },
+      {
+        "offset": 7752876,
+        "header_offset": 7752872,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 28,
+        "text": "列車強盗してないで",
+        "translation": "열차 강도 같은 짓 말고"
+      },
+      {
+        "offset": 7752900,
+        "header_offset": 7752896,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "きちんと就職したらいいのよ。",
+        "translation": "제대로 취직하면 좋을 텐데."
+      },
+      {
+        "offset": 7752934,
+        "header_offset": 7752930,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "親の顔を見てやりたいわ",
+        "translation": "부모 얼굴이 보고 싶네요"
+      },
+      {
+        "offset": 7753194,
+        "header_offset": 7753190,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 234,
+        "text": "なんだぁ、お前は？",
+        "translation": "뭐냐, 너는?"
+      },
+      {
+        "offset": 7753218,
+        "header_offset": 7753214,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "刃向かうつもりなら",
+        "translation": "덤빌 생각이라면"
+      },
+      {
+        "offset": 7753242,
+        "header_offset": 7753238,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "叩きのめしてやる！",
+        "translation": "박살 내 주마!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_63_run_0002",
+    "cluster_index": 63,
+    "run_index": 2,
+    "dialogue_state_token": "2bff:8400",
+    "record_count": 1,
+    "offsets": [
+      7753494
+    ],
+    "source_text": "オレの仕事の邪魔をするヤツは",
+    "translation_text": "내 일을 방해하는 놈은",
+    "records": [
+      {
+        "offset": 7753494,
+        "header_offset": 7753490,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 230,
+        "text": "オレの仕事の邪魔をするヤツは",
+        "translation": "내 일을 방해하는 놈은"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_63_run_0003",
+    "cluster_index": 63,
+    "run_index": 3,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7753528,
+      7753546
+    ],
+    "source_text": "叩きのめす！\n覚悟はいいな！！",
+    "translation_text": "짓뭉개 주마!\n각오는 됐겠지!!",
+    "records": [
+      {
+        "offset": 7753528,
+        "header_offset": 7753524,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 2,
+        "text": "叩きのめす！",
+        "translation": "짓뭉개 주마!"
+      },
+      {
+        "offset": 7753546,
+        "header_offset": 7753542,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "覚悟はいいな！！",
+        "translation": "각오는 됐겠지!!"
+      }
+    ],
+    "notes": ""
+  }
+]

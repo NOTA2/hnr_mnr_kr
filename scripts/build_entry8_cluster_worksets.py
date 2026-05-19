@@ -37,6 +37,8 @@ def ensure_translation_record(record: dict[str, object], cluster: dict[str, obje
     entry.setdefault("notes", "")
     entry["source_file"] = source_name
     entry["source_group"] = "registry_a_entry8_prefixed_texts"
+    entry["terminator"] = None
+    entry["append_terminator"] = False
     entry["cluster_index"] = cluster["cluster_index"]
     entry["cluster_primary_tag"] = cluster.get("primary_tag", "")
     entry["cluster_tags"] = cluster.get("tags", [])
@@ -55,7 +57,7 @@ def main() -> int:
     source_records = load_json(source_path)
     catalog = load_json(catalog_path)
     clusters = catalog["clusters"]
-    source_name = source_path.name
+    source_name = str(source_path.relative_to(REPO_ROOT))
 
     manifest_clusters: list[dict[str, object]] = []
     primary_tag_index: dict[str, list[str]] = {}
@@ -87,6 +89,47 @@ def main() -> int:
                 "first_text": cluster.get("first_text", ""),
                 "last_text": cluster.get("last_text", ""),
                 "sample_texts": cluster.get("sample_texts", []),
+                "output_file": str(output_path.relative_to(REPO_ROOT)),
+            }
+        )
+
+    assigned_offsets = {
+        int(record["offset"])
+        for cluster in manifest_clusters
+        for record in load_json(REPO_ROOT / cluster["output_file"])
+    }
+    unassigned = [
+        ensure_translation_record(
+            record,
+            {
+                "cluster_index": len(manifest_clusters),
+                "primary_tag": "unclassified",
+                "tags": ["unclassified", "catalog_gap"],
+            },
+            source_name,
+        )
+        for record in source_records
+        if int(record["offset"]) not in assigned_offsets
+    ]
+    if unassigned:
+        primary_tag = "unclassified"
+        slug = f"cluster_{len(manifest_clusters):02d}_{slugify(primary_tag)}"
+        output_path = output_dir / f"{slug}.json"
+        output_path.write_text(json.dumps(unassigned, ensure_ascii=False, indent=2), encoding="utf-8")
+        primary_tag_index.setdefault(primary_tag, []).append(output_path.name)
+        manifest_clusters.append(
+            {
+                "cluster_index": len(manifest_clusters),
+                "primary_tag": primary_tag,
+                "tags": ["unclassified", "catalog_gap"],
+                "record_count": len(unassigned),
+                "range": {
+                    "start_offset": min(int(record["offset"]) for record in unassigned),
+                    "end_offset_exclusive": max(int(record["offset"]) for record in unassigned) + 1,
+                },
+                "first_text": unassigned[0].get("text", ""),
+                "last_text": unassigned[-1].get("text", ""),
+                "sample_texts": [record.get("text", "") for record in unassigned[:5]],
                 "output_file": str(output_path.relative_to(REPO_ROOT)),
             }
         )

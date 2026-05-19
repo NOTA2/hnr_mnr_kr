@@ -1,0 +1,1360 @@
+[
+  {
+    "run_id": "entry8_cluster_05_run_0000",
+    "cluster_index": 5,
+    "run_index": 0,
+    "dialogue_state_token": null,
+    "record_count": 3,
+    "offsets": [
+      7094796,
+      7094820,
+      7094846
+    ],
+    "source_text": "お預け入れですか？\nそれともご融資とか。\n…そんなわけありませんよね",
+    "translation_text": "입금하시겠습니까?\n아니면 융자라도.\n…그럴 리는 없겠죠",
+    "records": [
+      {
+        "offset": 7094796,
+        "header_offset": 7094792,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 1828,
+        "text": "お預け入れですか？",
+        "translation": "입금하시겠습니까?"
+      },
+      {
+        "offset": 7094820,
+        "header_offset": 7094816,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "それともご融資とか。",
+        "translation": "아니면 융자라도."
+      },
+      {
+        "offset": 7094846,
+        "header_offset": 7094842,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "…そんなわけありませんよね",
+        "translation": "…그럴 리는 없겠죠"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0001",
+    "cluster_index": 5,
+    "run_index": 1,
+    "dialogue_state_token": "2bff:6700",
+    "record_count": 2,
+    "offsets": [
+      7094920,
+      7094984
+    ],
+    "source_text": "いらっしゃいませ\nあの走って銀行から",
+    "translation_text": "어서 오십시오\n그 달려서 은행에서",
+    "records": [
+      {
+        "offset": 7094920,
+        "header_offset": 7094916,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 44,
+        "text": "いらっしゃいませ",
+        "translation": "어서 오십시오"
+      },
+      {
+        "offset": 7094984,
+        "header_offset": 7094980,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 44,
+        "text": "あの走って銀行から",
+        "translation": "그 달려서 은행에서"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0002",
+    "cluster_index": 5,
+    "run_index": 2,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7095008,
+      7095028
+    ],
+    "source_text": "出ていった人は\n犯人ではなかったのね",
+    "translation_text": "나간 사람은\n범인이 아니었군요",
+    "records": [
+      {
+        "offset": 7095008,
+        "header_offset": 7095004,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "出ていった人は",
+        "translation": "나간 사람은"
+      },
+      {
+        "offset": 7095028,
+        "header_offset": 7095024,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "犯人ではなかったのね",
+        "translation": "범인이 아니었군요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0003",
+    "cluster_index": 5,
+    "run_index": 3,
+    "dialogue_state_token": "2bff:6700",
+    "record_count": 1,
+    "offsets": [
+      7095082
+    ],
+    "source_text": "私が見たのは",
+    "translation_text": "제가 본 것은",
+    "records": [
+      {
+        "offset": 7095082,
+        "header_offset": 7095078,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 30,
+        "text": "私が見たのは",
+        "translation": "제가 본 것은"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0004",
+    "cluster_index": 5,
+    "run_index": 4,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7095100,
+      7095124
+    ],
+    "source_text": "走っていく姿です。\nそれ以上の事は覚えてません",
+    "translation_text": "달려가는 모습입니다.\n그 이상은 기억나지 않습니다",
+    "records": [
+      {
+        "offset": 7095100,
+        "header_offset": 7095096,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "走っていく姿です。",
+        "translation": "달려가는 모습입니다."
+      },
+      {
+        "offset": 7095124,
+        "header_offset": 7095120,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "それ以上の事は覚えてません",
+        "translation": "그 이상은 기억나지 않습니다"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0005",
+    "cluster_index": 5,
+    "run_index": 5,
+    "dialogue_state_token": "1bff:1180",
+    "record_count": 1,
+    "offsets": [
+      7095400
+    ],
+    "source_text": "当時の状況を詳しく聞かせて",
+    "translation_text": "당시 상황을 자세히 들려",
+    "records": [
+      {
+        "offset": 7095400,
+        "header_offset": 7095396,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 246,
+        "text": "当時の状況を詳しく聞かせて",
+        "translation": "당시 상황을 자세히 들려"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0006",
+    "cluster_index": 5,
+    "run_index": 6,
+    "dialogue_state_token": null,
+    "record_count": 5,
+    "offsets": [
+      7095432,
+      7095462,
+      7095490,
+      7095520,
+      7095552
+    ],
+    "source_text": "もらえないか\n街の人に聞いても答えが\nあやふやなんです\n実は…当時の状況というのは\nわからないのです",
+    "translation_text": "줄 수 없나\n거리 사람들에게 물어봐도 대답이\n애매합니다\n사실은… 당시 상황이라는 건\n모릅니다",
+    "records": [
+      {
+        "offset": 7095432,
+        "header_offset": 7095428,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 2,
+        "text": "もらえないか",
+        "translation": "줄 수 없나"
+      },
+      {
+        "offset": 7095462,
+        "header_offset": 7095458,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 14,
+        "text": "街の人に聞いても答えが",
+        "translation": "거리 사람들에게 물어봐도 대답이"
+      },
+      {
+        "offset": 7095490,
+        "header_offset": 7095486,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "あやふやなんです",
+        "translation": "애매합니다"
+      },
+      {
+        "offset": 7095520,
+        "header_offset": 7095516,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 10,
+        "text": "実は…当時の状況というのは",
+        "translation": "사실은… 당시 상황이라는 건"
+      },
+      {
+        "offset": 7095552,
+        "header_offset": 7095548,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "わからないのです",
+        "translation": "모릅니다"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0007",
+    "cluster_index": 5,
+    "run_index": 7,
+    "dialogue_state_token": "1bff:2400",
+    "record_count": 1,
+    "offsets": [
+      7095600
+    ],
+    "source_text": "わからないというのは",
+    "translation_text": "모른다는 건",
+    "records": [
+      {
+        "offset": 7095600,
+        "header_offset": 7095596,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 28,
+        "text": "わからないというのは",
+        "translation": "모른다는 건"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0008",
+    "cluster_index": 5,
+    "run_index": 8,
+    "dialogue_state_token": null,
+    "record_count": 4,
+    "offsets": [
+      7095626,
+      7095670,
+      7095694,
+      7095726
+    ],
+    "source_text": "どういうことですかな\n朝来ると既に店内は\n荒らされてまして、そのまま\n大騒ぎになったんです",
+    "translation_text": "무슨 뜻입니까\n아침에 와 보니 이미 가게 안은\n엉망이 되어 있었고, 그대로\n큰 소동이 났습니다",
+    "records": [
+      {
+        "offset": 7095626,
+        "header_offset": 7095622,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "どういうことですかな",
+        "translation": "무슨 뜻입니까"
+      },
+      {
+        "offset": 7095670,
+        "header_offset": 7095666,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 20,
+        "text": "朝来ると既に店内は",
+        "translation": "아침에 와 보니 이미 가게 안은"
+      },
+      {
+        "offset": 7095694,
+        "header_offset": 7095690,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "荒らされてまして、そのまま",
+        "translation": "엉망이 되어 있었고, 그대로"
+      },
+      {
+        "offset": 7095726,
+        "header_offset": 7095722,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "大騒ぎになったんです",
+        "translation": "큰 소동이 났습니다"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0009",
+    "cluster_index": 5,
+    "run_index": 9,
+    "dialogue_state_token": "1bff:1C80",
+    "record_count": 1,
+    "offsets": [
+      7095766
+    ],
+    "source_text": "犯人を見ていないのですね",
+    "translation_text": "범인을 보지 못하셨군요",
+    "records": [
+      {
+        "offset": 7095766,
+        "header_offset": 7095762,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 16,
+        "text": "犯人を見ていないのですね",
+        "translation": "범인을 보지 못하셨군요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0010",
+    "cluster_index": 5,
+    "run_index": 10,
+    "dialogue_state_token": null,
+    "record_count": 3,
+    "offsets": [
+      7095808,
+      7095838,
+      7095870
+    ],
+    "source_text": "はい…。気が動転してつい\nウソを言ってしまいました…\n申し訳ありません",
+    "translation_text": "네… 너무 당황해서 그만\n거짓말을 해 버렸습니다…\n죄송합니다",
+    "records": [
+      {
+        "offset": 7095808,
+        "header_offset": 7095804,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 14,
+        "text": "はい…。気が動転してつい",
+        "translation": "네… 너무 당황해서 그만"
+      },
+      {
+        "offset": 7095838,
+        "header_offset": 7095834,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "ウソを言ってしまいました…",
+        "translation": "거짓말을 해 버렸습니다…"
+      },
+      {
+        "offset": 7095870,
+        "header_offset": 7095866,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "申し訳ありません",
+        "translation": "죄송합니다"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0011",
+    "cluster_index": 5,
+    "run_index": 11,
+    "dialogue_state_token": "1bff:2F00",
+    "record_count": 1,
+    "offsets": [
+      7095906
+    ],
+    "source_text": "なぁんだ。無駄足だったのかよ",
+    "translation_text": "뭐야. 헛걸음이었냐",
+    "records": [
+      {
+        "offset": 7095906,
+        "header_offset": 7095902,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 16,
+        "text": "なぁんだ。無駄足だったのかよ",
+        "translation": "뭐야. 헛걸음이었냐"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0012",
+    "cluster_index": 5,
+    "run_index": 12,
+    "dialogue_state_token": "1bff:0180",
+    "record_count": 1,
+    "offsets": [
+      7095958
+    ],
+    "source_text": "まだ、金庫室を調べさせて",
+    "translation_text": "아직 금고실을 조사하게",
+    "records": [
+      {
+        "offset": 7095958,
+        "header_offset": 7095954,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 20,
+        "text": "まだ、金庫室を調べさせて",
+        "translation": "아직 금고실을 조사하게"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0013",
+    "cluster_index": 5,
+    "run_index": 13,
+    "dialogue_state_token": null,
+    "record_count": 4,
+    "offsets": [
+      7095988,
+      7096020,
+      7096040,
+      7096068
+    ],
+    "source_text": "もらっていない\n金庫室ですか…\nしかし関係者でない方を\n入れるわけには…",
+    "translation_text": "해 주지 않았어\n금고실 말입니까…\n하지만 관계자가 아닌 분을\n들일 수는…",
+    "records": [
+      {
+        "offset": 7095988,
+        "header_offset": 7095984,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "もらっていない",
+        "translation": "해 주지 않았어"
+      },
+      {
+        "offset": 7096020,
+        "header_offset": 7096016,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 14,
+        "text": "金庫室ですか…",
+        "translation": "금고실 말입니까…"
+      },
+      {
+        "offset": 7096040,
+        "header_offset": 7096036,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "しかし関係者でない方を",
+        "translation": "하지만 관계자가 아닌 분을"
+      },
+      {
+        "offset": 7096068,
+        "header_offset": 7096064,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "入れるわけには…",
+        "translation": "들일 수는…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0014",
+    "cluster_index": 5,
+    "run_index": 14,
+    "dialogue_state_token": "1bff:0F00",
+    "record_count": 1,
+    "offsets": [
+      7096104
+    ],
+    "source_text": "街中調べても怪しいところは",
+    "translation_text": "온 거리를 조사해도 수상한 곳은",
+    "records": [
+      {
+        "offset": 7096104,
+        "header_offset": 7096100,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 16,
+        "text": "街中調べても怪しいところは",
+        "translation": "온 거리를 조사해도 수상한 곳은"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0015",
+    "cluster_index": 5,
+    "run_index": 15,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7096136,
+      7096158
+    ],
+    "source_text": "なかったんです。\n金庫室を調べさせてください",
+    "translation_text": "없었습니다.\n금고실을 조사하게 해 주세요",
+    "records": [
+      {
+        "offset": 7096136,
+        "header_offset": 7096132,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "なかったんです。",
+        "translation": "없었습니다."
+      },
+      {
+        "offset": 7096158,
+        "header_offset": 7096154,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "金庫室を調べさせてください",
+        "translation": "금고실을 조사하게 해 주세요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0016",
+    "cluster_index": 5,
+    "run_index": 16,
+    "dialogue_state_token": "1bff:2680",
+    "record_count": 1,
+    "offsets": [
+      7096208
+    ],
+    "source_text": "少しでも早く犯人が捕まって",
+    "translation_text": "조금이라도 빨리 범인이 붙잡혀",
+    "records": [
+      {
+        "offset": 7096208,
+        "header_offset": 7096204,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 20,
+        "text": "少しでも早く犯人が捕まって",
+        "translation": "조금이라도 빨리 범인이 붙잡혀"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0017",
+    "cluster_index": 5,
+    "run_index": 17,
+    "dialogue_state_token": null,
+    "record_count": 8,
+    "offsets": [
+      7096240,
+      7096272,
+      7096310,
+      7096338,
+      7096368,
+      7096508,
+      7096528,
+      7096556
+    ],
+    "source_text": "預金が戻ってくることの方が\n大切なんじゃねぇか？\n確かに…わかりました。\nでは金庫室へ入れるように\nいたします\n今後は、警備を\nもっと厳しくしなくちゃ\nいけませんね",
+    "translation_text": "예금이 돌아오는 쪽이\n더 중요하지 않겠어?\n확실히… 알겠습니다.\n그럼 금고실에 들어가실 수 있게\n해 드리겠습니다\n앞으로는 경비를\n더 엄하게 해야\n하겠네요",
+    "records": [
+      {
+        "offset": 7096240,
+        "header_offset": 7096236,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "預金が戻ってくることの方が",
+        "translation": "예금이 돌아오는 쪽이"
+      },
+      {
+        "offset": 7096272,
+        "header_offset": 7096268,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "大切なんじゃねぇか？",
+        "translation": "더 중요하지 않겠어?"
+      },
+      {
+        "offset": 7096310,
+        "header_offset": 7096306,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 14,
+        "text": "確かに…わかりました。",
+        "translation": "확실히… 알겠습니다."
+      },
+      {
+        "offset": 7096338,
+        "header_offset": 7096334,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "では金庫室へ入れるように",
+        "translation": "그럼 금고실에 들어가실 수 있게"
+      },
+      {
+        "offset": 7096368,
+        "header_offset": 7096364,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 2,
+        "text": "いたします",
+        "translation": "해 드리겠습니다"
+      },
+      {
+        "offset": 7096508,
+        "header_offset": 7096504,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 126,
+        "text": "今後は、警備を",
+        "translation": "앞으로는 경비를"
+      },
+      {
+        "offset": 7096528,
+        "header_offset": 7096524,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "もっと厳しくしなくちゃ",
+        "translation": "더 엄하게 해야"
+      },
+      {
+        "offset": 7096556,
+        "header_offset": 7096552,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 2,
+        "text": "いけませんね",
+        "translation": "하겠네요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0018",
+    "cluster_index": 5,
+    "run_index": 18,
+    "dialogue_state_token": "2bff:6600",
+    "record_count": 1,
+    "offsets": [
+      7096616
+    ],
+    "source_text": "一日に何度か軍が立ち寄って",
+    "translation_text": "하루에 몇 번씩 군이 들러",
+    "records": [
+      {
+        "offset": 7096616,
+        "header_offset": 7096612,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 44,
+        "text": "一日に何度か軍が立ち寄って",
+        "translation": "하루에 몇 번씩 군이 들러"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0019",
+    "cluster_index": 5,
+    "run_index": 19,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7096648
+    ],
+    "source_text": "くれることになりました",
+    "translation_text": "주기로 했습니다",
+    "records": [
+      {
+        "offset": 7096648,
+        "header_offset": 7096644,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "くれることになりました",
+        "translation": "주기로 했습니다"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0020",
+    "cluster_index": 5,
+    "run_index": 20,
+    "dialogue_state_token": "2bff:6600",
+    "record_count": 2,
+    "offsets": [
+      7096718,
+      7096766
+    ],
+    "source_text": "金庫室に穴が…\n金庫を調べさせるわけには",
+    "translation_text": "금고실에 구멍이…\n금고를 조사하게 할 수는",
+    "records": [
+      {
+        "offset": 7096718,
+        "header_offset": 7096714,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 44,
+        "text": "金庫室に穴が…",
+        "translation": "금고실에 구멍이…"
+      },
+      {
+        "offset": 7096766,
+        "header_offset": 7096762,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 30,
+        "text": "金庫を調べさせるわけには",
+        "translation": "금고를 조사하게 할 수는"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0021",
+    "cluster_index": 5,
+    "run_index": 21,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7096796,
+      7096816
+    ],
+    "source_text": "まいりません。\n絶対ダメです！",
+    "translation_text": "없습니다.\n절대 안 됩니다!",
+    "records": [
+      {
+        "offset": 7096796,
+        "header_offset": 7096792,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "まいりません。",
+        "translation": "없습니다."
+      },
+      {
+        "offset": 7096816,
+        "header_offset": 7096812,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "絶対ダメです！",
+        "translation": "절대 안 됩니다!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0022",
+    "cluster_index": 5,
+    "run_index": 22,
+    "dialogue_state_token": "2bff:6600",
+    "record_count": 1,
+    "offsets": [
+      7097010
+    ],
+    "source_text": "嘘をついて",
+    "translation_text": "거짓말을 해서",
+    "records": [
+      {
+        "offset": 7097010,
+        "header_offset": 7097006,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 176,
+        "text": "嘘をついて",
+        "translation": "거짓말을 해서"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0023",
+    "cluster_index": 5,
+    "run_index": 23,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7097026,
+      7097050
+    ],
+    "source_text": "すみませんでした。\nごめんなさい",
+    "translation_text": "죄송했습니다.\n미안합니다",
+    "records": [
+      {
+        "offset": 7097026,
+        "header_offset": 7097022,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "すみませんでした。",
+        "translation": "죄송했습니다."
+      },
+      {
+        "offset": 7097050,
+        "header_offset": 7097046,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 2,
+        "text": "ごめんなさい",
+        "translation": "미안합니다"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0024",
+    "cluster_index": 5,
+    "run_index": 24,
+    "dialogue_state_token": "1bff:0880",
+    "record_count": 1,
+    "offsets": [
+      7097234
+    ],
+    "source_text": "みなさまのおかげでこのように",
+    "translation_text": "여러분 덕분에 이렇게",
+    "records": [
+      {
+        "offset": 7097234,
+        "header_offset": 7097230,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 168,
+        "text": "みなさまのおかげでこのように",
+        "translation": "여러분 덕분에 이렇게"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0025",
+    "cluster_index": 5,
+    "run_index": 25,
+    "dialogue_state_token": null,
+    "record_count": 10,
+    "offsets": [
+      7097268,
+      7097306,
+      7097336,
+      7097366,
+      7097396,
+      7097426,
+      7097454,
+      7097482,
+      7097510,
+      7097526
+    ],
+    "source_text": "無事に営業再開できました\n犯人逮捕できなかったのが\n悔しいけどな\n今回の銀行強盗だけでなく\n最近の窃盗事件の犯人でも\nあったのですね\nそうなんだ\nこれでこの街にも平和が\n戻ります。\nありがとうございます",
+    "translation_text": "무사히 영업을 재개했습니다\n범인을 체포하지 못한 건\n분하지만 말이야\n이번 은행 강도뿐 아니라\n최근 절도 사건의 범인이기도\n했던 거군요\n그렇다\n이걸로 이 거리에도 평화가\n돌아오겠습니다.\n감사합니다",
+    "records": [
+      {
+        "offset": 7097268,
+        "header_offset": 7097264,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "無事に営業再開できました",
+        "translation": "무사히 영업을 재개했습니다"
+      },
+      {
+        "offset": 7097306,
+        "header_offset": 7097302,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 10,
+        "text": "犯人逮捕できなかったのが",
+        "translation": "범인을 체포하지 못한 건"
+      },
+      {
+        "offset": 7097336,
+        "header_offset": 7097332,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 2,
+        "text": "悔しいけどな",
+        "translation": "분하지만 말이야"
+      },
+      {
+        "offset": 7097366,
+        "header_offset": 7097362,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 14,
+        "text": "今回の銀行強盗だけでなく",
+        "translation": "이번 은행 강도뿐 아니라"
+      },
+      {
+        "offset": 7097396,
+        "header_offset": 7097392,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "最近の窃盗事件の犯人でも",
+        "translation": "최근 절도 사건의 범인이기도"
+      },
+      {
+        "offset": 7097426,
+        "header_offset": 7097422,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "あったのですね",
+        "translation": "했던 거군요"
+      },
+      {
+        "offset": 7097454,
+        "header_offset": 7097450,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 10,
+        "text": "そうなんだ",
+        "translation": "그렇다"
+      },
+      {
+        "offset": 7097482,
+        "header_offset": 7097478,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 14,
+        "text": "これでこの街にも平和が",
+        "translation": "이걸로 이 거리에도 평화가"
+      },
+      {
+        "offset": 7097510,
+        "header_offset": 7097506,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 2,
+        "text": "戻ります。",
+        "translation": "돌아오겠습니다."
+      },
+      {
+        "offset": 7097526,
+        "header_offset": 7097522,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "ありがとうございます",
+        "translation": "감사합니다"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0026",
+    "cluster_index": 5,
+    "run_index": 26,
+    "dialogue_state_token": "1bff:1D80",
+    "record_count": 1,
+    "offsets": [
+      7097628
+    ],
+    "source_text": "あの犯人を捕まえて、必ず",
+    "translation_text": "그 범인을 붙잡아서, 반드시",
+    "records": [
+      {
+        "offset": 7097628,
+        "header_offset": 7097624,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 78,
+        "text": "あの犯人を捕まえて、必ず",
+        "translation": "그 범인을 붙잡아서, 반드시"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0027",
+    "cluster_index": 5,
+    "run_index": 27,
+    "dialogue_state_token": null,
+    "record_count": 5,
+    "offsets": [
+      7097658,
+      7097688,
+      7097720,
+      7097754,
+      7097782
+    ],
+    "source_text": "正しい錬金術を使うように\n改心させるわ！\nそうして頂戴。でも、私たちの\n目的はキメラ事件解決。\n優先順位は間違えないでね",
+    "translation_text": "올바른 연금술을 쓰도록\n마음을 고쳐 놓겠어요!\n그렇게 해 줘. 하지만 우리의\n목적은 키메라 사건 해결.\n우선순위를 틀리지 마",
+    "records": [
+      {
+        "offset": 7097658,
+        "header_offset": 7097654,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "正しい錬金術を使うように",
+        "translation": "올바른 연금술을 쓰도록"
+      },
+      {
+        "offset": 7097688,
+        "header_offset": 7097684,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "改心させるわ！",
+        "translation": "마음을 고쳐 놓겠어요!"
+      },
+      {
+        "offset": 7097720,
+        "header_offset": 7097716,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 14,
+        "text": "そうして頂戴。でも、私たちの",
+        "translation": "그렇게 해 줘. 하지만 우리의"
+      },
+      {
+        "offset": 7097754,
+        "header_offset": 7097750,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "目的はキメラ事件解決。",
+        "translation": "목적은 키메라 사건 해결."
+      },
+      {
+        "offset": 7097782,
+        "header_offset": 7097778,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "優先順位は間違えないでね",
+        "translation": "우선순위를 틀리지 마"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0028",
+    "cluster_index": 5,
+    "run_index": 28,
+    "dialogue_state_token": "1bff:3100",
+    "record_count": 1,
+    "offsets": [
+      7097830
+    ],
+    "source_text": "あっはい。わかりました。",
+    "translation_text": "아, 네. 알겠습니다.",
+    "records": [
+      {
+        "offset": 7097830,
+        "header_offset": 7097826,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 20,
+        "text": "あっはい。わかりました。",
+        "translation": "아, 네. 알겠습니다."
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0029",
+    "cluster_index": 5,
+    "run_index": 29,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7097860,
+      7097884
+    ],
+    "source_text": "キメラ事件解決後に\nランディさんを逮捕しましょう",
+    "translation_text": "키메라 사건을 해결한 뒤에\n랜디 씨를 체포하죠",
+    "records": [
+      {
+        "offset": 7097860,
+        "header_offset": 7097856,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "キメラ事件解決後に",
+        "translation": "키메라 사건을 해결한 뒤에"
+      },
+      {
+        "offset": 7097884,
+        "header_offset": 7097880,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "ランディさんを逮捕しましょう",
+        "translation": "랜디 씨를 체포하죠"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0030",
+    "cluster_index": 5,
+    "run_index": 30,
+    "dialogue_state_token": "1bff:1580",
+    "record_count": 1,
+    "offsets": [
+      7097942
+    ],
+    "source_text": "そこまで付き合うのか…？",
+    "translation_text": "거기까지 함께할 거야…?",
+    "records": [
+      {
+        "offset": 7097942,
+        "header_offset": 7097938,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 26,
+        "text": "そこまで付き合うのか…？",
+        "translation": "거기까지 함께할 거야…?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0031",
+    "cluster_index": 5,
+    "run_index": 31,
+    "dialogue_state_token": "1bff:0900",
+    "record_count": 1,
+    "offsets": [
+      7097990
+    ],
+    "source_text": "ヤツのことは後で考えるとして",
+    "translation_text": "그 녀석 일은 나중에 생각하고",
+    "records": [
+      {
+        "offset": 7097990,
+        "header_offset": 7097986,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 20,
+        "text": "ヤツのことは後で考えるとして",
+        "translation": "그 녀석 일은 나중에 생각하고"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0032",
+    "cluster_index": 5,
+    "run_index": 32,
+    "dialogue_state_token": null,
+    "record_count": 4,
+    "offsets": [
+      7098024,
+      7098052,
+      7098212,
+      7098242
+    ],
+    "source_text": "イーストシティに戻って\n仕切りなおしをしよう！\nこれはこれは、いつぞやは\nありがとうございました",
+    "translation_text": "이스트 시티로 돌아가\n다시 정리하자!\n아니 이게, 그때는\n감사했습니다",
+    "records": [
+      {
+        "offset": 7098024,
+        "header_offset": 7098020,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "イーストシティに戻って",
+        "translation": "이스트 시티로 돌아가"
+      },
+      {
+        "offset": 7098052,
+        "header_offset": 7098048,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "仕切りなおしをしよう！",
+        "translation": "다시 정리하자!"
+      },
+      {
+        "offset": 7098212,
+        "header_offset": 7098208,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 134,
+        "text": "これはこれは、いつぞやは",
+        "translation": "아니 이게, 그때는"
+      },
+      {
+        "offset": 7098242,
+        "header_offset": 7098238,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "ありがとうございました",
+        "translation": "감사했습니다"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0033",
+    "cluster_index": 5,
+    "run_index": 33,
+    "dialogue_state_token": "2bff:6800",
+    "record_count": 1,
+    "offsets": [
+      7098312
+    ],
+    "source_text": "銀行強盗事件では",
+    "translation_text": "은행 강도 사건 때는",
+    "records": [
+      {
+        "offset": 7098312,
+        "header_offset": 7098308,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 44,
+        "text": "銀行強盗事件では",
+        "translation": "은행 강도 사건 때는"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0034",
+    "cluster_index": 5,
+    "run_index": 34,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7098334,
+      7098364
+    ],
+    "source_text": "大変お世話になりました。\nありがとうございます",
+    "translation_text": "큰 신세를 졌습니다.\n감사합니다",
+    "records": [
+      {
+        "offset": 7098334,
+        "header_offset": 7098330,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "大変お世話になりました。",
+        "translation": "큰 신세를 졌습니다."
+      },
+      {
+        "offset": 7098364,
+        "header_offset": 7098360,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "ありがとうございます",
+        "translation": "감사합니다"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0035",
+    "cluster_index": 5,
+    "run_index": 35,
+    "dialogue_state_token": "2bff:6800",
+    "record_count": 1,
+    "offsets": [
+      7098418
+    ],
+    "source_text": "これでこの街にも平和が",
+    "translation_text": "이걸로 이 거리에도 평화가",
+    "records": [
+      {
+        "offset": 7098418,
+        "header_offset": 7098414,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 30,
+        "text": "これでこの街にも平和が",
+        "translation": "이걸로 이 거리에도 평화가"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_05_run_0036",
+    "cluster_index": 5,
+    "run_index": 36,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7098446,
+      7098462
+    ],
+    "source_text": "戻ります。\nありがとうございます",
+    "translation_text": "돌아오겠습니다.\n감사합니다",
+    "records": [
+      {
+        "offset": 7098446,
+        "header_offset": 7098442,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 2,
+        "text": "戻ります。",
+        "translation": "돌아오겠습니다."
+      },
+      {
+        "offset": 7098462,
+        "header_offset": 7098458,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "ありがとうございます",
+        "translation": "감사합니다"
+      }
+    ],
+    "notes": ""
+  }
+]

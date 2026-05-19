@@ -1,7 +1,11 @@
 # 이미지 텍스트 inventory
 
 - 상태: `in_progress`
-- 마지막 갱신: `2026-05-18`
+- 마지막 갱신: `2026-05-19`
+
+## 한글화 대상이 아닌 이미지 후보
+
+- `0x00534874`: battle_hud_small_font_or_glyph_sheet / 한글화 대상 아님 / 전투 HUD 의 작은 이름/수치 글자와 같은 계열로 보이는 원본 소형 폰트/글리프 시트 후보이다. 화면에 구워진 UI 라벨이나 문장 이미지가 아니므로 이미지 교체 대상은 아니다. 위쪽 깨짐은 타일맵/팔레트 없이 4bpp 타일을 일렬로 펼친 덤프 특성으로 본다.
 
 ## 비-이미지 텍스트로 확인된 문맥
 
@@ -13,25 +17,27 @@
 
 ## 검토 단위
 
-- `title_logo_wordmark` (`pending_review`, `순서=1`, `우선순위=high`)
+- `title_logo_wordmark` (`runtime_case_registered`, `순서=1`, `우선순위=high`)
   - 목표: 타이틀 로고와 부제/워드마크가 텍스트 추출 밖의 이미지 자산인지 확인하고, 이후 교체 단위를 분리한다.
-  - 탐색 방식: 타이틀 화면 진입 스크린샷 확보 -> LZ77 후보 스캔 -> 4bpp 덤프 비교
+  - 탐색 방식: 타이틀 화면 런타임 케이스 등록 -> 영문판/일판 LZ77 diff 확인 -> 후보가 안 보이면 VRAM/tilemap/palette 역추적
   - 예상 텍스트 종류: 메인 로고, 부제, 게임명 워드마크
   - 작업 폴더: `confirmed_data/image_inventory/workspaces/01_title_logo_wordmark`
   - 세부 단위:
     - `main_title_logo`: 메인 타이틀 로고 / pending_review / 첫 행동: 타이틀 화면 대표 스크린샷과 대조할 메인 로고 후보를 찾는다.
     - `subtitle_or_series_mark`: 부제/시리즈 표기 / pending_review / 첫 행동: 메인 로고와 별도 자산인지, 같은 시트 안의 일부인지 먼저 구분한다.
   - 참고: 메인 타이틀/로고 계열 텍스트는 현재 기준 추출 source 로 매핑되지 않는다.
+  - 참고: 사용자 제공 런타임 스크린샷에서 일본어 노출이 확인됐으므로 한글화 필요 케이스로 관리한다.
   - 참고: 막연한 bucket 이 아니라 구체적인 검토 단위로 다룬다.
-- `title_screen_static_menu_wordmarks` (`pending_review`, `순서=2`, `우선순위=high`)
+- `title_screen_static_menu_wordmarks` (`runtime_case_registered`, `순서=2`, `우선순위=high`)
   - 목표: 타이틀 화면의 새 게임/이어하기/통신 등 고정 워드마크가 이미지인지 확인한다.
-  - 탐색 방식: 타이틀 화면 캡처 -> 후보 타일 시트 덤프 -> 라벨별 분리 가능성 확인
+  - 탐색 방식: 타이틀 화면 런타임 케이스 등록 -> 영문판/일판 LZ77 diff 확인 -> 후보가 안 보이면 VRAM/tilemap/palette 역추적
   - 예상 텍스트 종류: 타이틀 메뉴 라벨, 모드 선택 라벨
   - 작업 폴더: `confirmed_data/image_inventory/workspaces/02_title_screen_static_menu_wordmarks`
   - 세부 단위:
     - `title_primary_menu_labels`: 타이틀 기본 메뉴 라벨 / pending_review / 첫 행동: 새 게임/이어하기 계열 고정 라벨 후보를 묶는다.
     - `title_mode_wordmarks`: 통신/부가 모드 워드마크 / pending_review / 첫 행동: 기본 메뉴와 다른 시트인지 먼저 확인한다.
   - 참고: 타이틀 화면의 고정 메뉴 라벨과 모드 워드마크는 이미지 기반일 가능성이 있다.
+  - 참고: 사용자 제공 런타임 스크린샷에서 `つづきから`, `はじめから`, `通信` 노출이 확인됐다.
   - 참고: 현재 기준 추출 source 중 타이틀 화면 워드마크 아트를 직접 다루는 것은 없다.
 - `event_or_cutscene_text_cards` (`pending_review`, `순서=3`, `우선순위=high`)
   - 목표: 이벤트 카드/장면 카드/챕터 카드처럼 화면 전체에 뜨는 이미지 텍스트를 우선 분류한다.
@@ -70,10 +76,9 @@
   - 작업 폴더: `confirmed_data/image_inventory/workspaces/06_ui_panel_label_art`
   - 세부 단위:
     - `menu_tab_labels`: 메뉴 탭 라벨 / pending_review / 첫 행동: 탭이 텍스트 렌더링인지 이미지인지 먼저 판별한다.
-    - `panel_header_wordmarks`: 패널 헤더 워드마크 / pending_review / 첫 행동: 저장/옵션/상태창 헤더가 있는지 확인한다. 특히 세이브 패널의 `セーブ / プレイ時間 / 錬成手帳` 라벨이 이미지인지 우선 확인한다.
+    - `panel_header_wordmarks`: 패널 헤더 워드마크 / pending_review / 첫 행동: 저장/옵션/상태창 헤더가 있는지 확인한다.
   - 참고: 패널, 탭, 프레임형 UI 라벨 중 이미지에 글자가 구워졌을 수 있는 요소는 별도 단위로 검토한다.
   - 참고: 일반 추출 save/menu/system 문자열과는 분리해서 본다.
-  - 참고: 세이브 화면 상단 패널 라벨처럼 텍스트 검색에 잡히지 않는 UI 단어는 이 단위에서 우선 추적한다.
 - `ui_icon_badge_wordmarks` (`pending_review`, `순서=7`, `우선순위=low`)
   - 목표: 작은 아이콘/배지성 워드마크가 있다면 나중에 교체 난도가 높은 단위로 따로 뺀다.
   - 탐색 방식: 대표 UI 캡처 -> 작은 4bpp 배지 후보 덤프 -> 문자인지 아이콘인지 구분
@@ -97,13 +102,13 @@
 ## 현재 해석
 
 - 이미지 텍스트 inventory 는 이제 별도 감사 트랙으로 시작된 상태다.
+- 정적 contact sheet 에서 보이지 않는다고 이미지 한글화 대상이 없다고 판정하지 않는다.
+- 타이틀/메뉴처럼 실제 화면에서 확인된 케이스는 runtime_visual_asset_audit 에 등록하고 tilemap-aware 추적으로 처리한다.
 - 몇몇 중요한 텍스트 문맥은 이미 비-이미지 텍스트로 확인됐으므로 번역 진행을 막지 않는다.
 - 남은 일은 기준 추출을 다시 여는 것이 아니라, 구체적인 review_unit 기준으로 자산을 검토하는 것이다.
-- 현재 active 추출 대상은 **실제로 한글화가 필요한 텍스트가 구워졌을 가능성이 높은 unit**만 포함한다.
-- `dialogue_window_frame_art`, `portrait_headshot_assets` 는 시각 자산으로서 중요할 수는 있지만, 현재 단계에서는 **텍스트 이미지 교체 우선 대상이 아니므로 active 추출 목록에서 제외**한다.
 
 ## 바로 다음 행동
 
-- 우선순위 1~3 review unit 부터 후보 자산 탐색용 스크린샷/덤프를 모은다.
+- 우선순위 1~2 review unit 인 타이틀 로고/메뉴부터 영문판 diff 와 런타임 tilemap 추적을 진행한다.
 - review unit 별 workspace 아래에 candidate / dump / export / note 산출물을 모은다.
 - image extraction pipeline 문서와 함께 실제 추출 단계로 이어간다.

@@ -1,0 +1,100 @@
+[
+  {
+    "run_id": "entry8_cluster_67_run_0000",
+    "cluster_index": 67,
+    "run_index": 0,
+    "dialogue_state_token": "1bff:6A80",
+    "record_count": 1,
+    "offsets": [
+      7775492
+    ],
+    "source_text": "いいかげん、",
+    "translation_text": "이제 좀,",
+    "records": [
+      {
+        "offset": 7775492,
+        "header_offset": 7775488,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 4448,
+        "text": "いいかげん、",
+        "translation": "이제 좀,"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_67_run_0001",
+    "cluster_index": 67,
+    "run_index": 1,
+    "dialogue_state_token": null,
+    "record_count": 6,
+    "offsets": [
+      7775510,
+      7775556,
+      7775582,
+      7775618,
+      7775636,
+      7775654
+    ],
+    "source_text": "大人しくしてれば良いのになぁ\nそう何度もやられると\n思ってるのか！\n思ってるよ。\n悪いけどさ、\nまた勝たせてもらうぜ",
+    "translation_text": "얌전히 있으면 좋을 텐데\n그렇게 몇 번이고 당할 거라\n생각하나!\n생각하는데.\n미안하지만,\n이번에도 이겨 주겠어",
+    "records": [
+      {
+        "offset": 7775510,
+        "header_offset": 7775506,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "大人しくしてれば良いのになぁ",
+        "translation": "얌전히 있으면 좋을 텐데"
+      },
+      {
+        "offset": 7775556,
+        "header_offset": 7775552,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 14,
+        "text": "そう何度もやられると",
+        "translation": "그렇게 몇 번이고 당할 거라"
+      },
+      {
+        "offset": 7775582,
+        "header_offset": 7775578,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "思ってるのか！",
+        "translation": "생각하나!"
+      },
+      {
+        "offset": 7775618,
+        "header_offset": 7775614,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 18,
+        "text": "思ってるよ。",
+        "translation": "생각하는데."
+      },
+      {
+        "offset": 7775636,
+        "header_offset": 7775632,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 2,
+        "text": "悪いけどさ、",
+        "translation": "미안하지만,"
+      },
+      {
+        "offset": 7775654,
+        "header_offset": 7775650,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "また勝たせてもらうぜ",
+        "translation": "이번에도 이겨 주겠어"
+      }
+    ],
+    "notes": ""
+  }
+]

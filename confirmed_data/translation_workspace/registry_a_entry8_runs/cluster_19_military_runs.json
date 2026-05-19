@@ -1,0 +1,2532 @@
+[
+  {
+    "run_id": "entry8_cluster_19_run_0000",
+    "cluster_index": 19,
+    "run_index": 0,
+    "dialogue_state_token": "1bff:0100",
+    "record_count": 1,
+    "offsets": [
+      7254940
+    ],
+    "source_text": "ブラッドレイ大総統に",
+    "translation_text": "브래드레이 대총통을",
+    "records": [
+      {
+        "offset": 7254940,
+        "header_offset": 7254936,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2932,
+        "text": "ブラッドレイ大総統に",
+        "translation": "브래드레이 대총통을"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0001",
+    "cluster_index": 19,
+    "run_index": 1,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7254966
+    ],
+    "source_text": "会いに行かないとな",
+    "translation_text": "만나러 가야겠네",
+    "records": [
+      {
+        "offset": 7254966,
+        "header_offset": 7254962,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "会いに行かないとな",
+        "translation": "만나러 가야겠네"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0002",
+    "cluster_index": 19,
+    "run_index": 2,
+    "dialogue_state_token": "2bff:0A00",
+    "record_count": 1,
+    "offsets": [
+      7255272
+    ],
+    "source_text": "ここから先、用のない方は",
+    "translation_text": "여기서부터는 용무 없는 분은",
+    "records": [
+      {
+        "offset": 7255272,
+        "header_offset": 7255268,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 284,
+        "text": "ここから先、用のない方は",
+        "translation": "여기서부터는 용무 없는 분은"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0003",
+    "cluster_index": 19,
+    "run_index": 3,
+    "dialogue_state_token": null,
+    "record_count": 18,
+    "offsets": [
+      7255302,
+      7255336,
+      7255362,
+      7255480,
+      7255500,
+      7255534,
+      7255574,
+      7255606,
+      7255732,
+      7255760,
+      7255788,
+      7255842,
+      7255874,
+      7255900,
+      7255968,
+      7256012,
+      7256044,
+      7256070
+    ],
+    "source_text": "立入禁止…あ、国家錬金術師は\n例外です\n異常ありません！\n大総統ですか？\nふらっと姿を消されますから、\n今、おいでかどうかは…\n大総統閣下をお守りするのが\n我々の使命であります！\nこちらは大総統府です。\n大総統閣下は、ただいま\nお部屋の方におられます\nエドワード・エルリック様、\n大総統閣下がお部屋で\nお待ちになっております\n今期の研究費は支給済みです\nエドワード・エルリック様、\n研究費の申請ですね。\n少々お待ちください…",
+    "translation_text": "출입 금지… 아, 국가 연금술사는\n예외입니다\n이상 없습니다!\n대총통 말씀이십니까?\n훌쩍 모습을 감추시곤 해서,\n지금 계신지는…\n대총통 각하를 지키는 것이\n우리의 사명입니다!\n이곳은 대총통부입니다.\n대총통 각하는 지금\n방에 계십니다\n에드워드 엘릭 님,\n대총통 각하께서 방에서\n기다리고 계십니다\n이번 지급분 연구비는 이미 지급됐습니다\n에드워드 엘릭 님,\n연구비 신청이시군요.\n잠시만 기다려 주십시오…",
+    "records": [
+      {
+        "offset": 7255302,
+        "header_offset": 7255298,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "立入禁止…あ、国家錬金術師は",
+        "translation": "출입 금지… 아, 국가 연금술사는"
+      },
+      {
+        "offset": 7255336,
+        "header_offset": 7255332,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 2,
+        "text": "例外です",
+        "translation": "예외입니다"
+      },
+      {
+        "offset": 7255362,
+        "header_offset": 7255358,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 14,
+        "text": "異常ありません！",
+        "translation": "이상 없습니다!"
+      },
+      {
+        "offset": 7255480,
+        "header_offset": 7255476,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 98,
+        "text": "大総統ですか？",
+        "translation": "대총통 말씀이십니까?"
+      },
+      {
+        "offset": 7255500,
+        "header_offset": 7255496,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "ふらっと姿を消されますから、",
+        "translation": "훌쩍 모습을 감추시곤 해서,"
+      },
+      {
+        "offset": 7255534,
+        "header_offset": 7255530,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "今、おいでかどうかは…",
+        "translation": "지금 계신지는…"
+      },
+      {
+        "offset": 7255574,
+        "header_offset": 7255570,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 14,
+        "text": "大総統閣下をお守りするのが",
+        "translation": "대총통 각하를 지키는 것이"
+      },
+      {
+        "offset": 7255606,
+        "header_offset": 7255602,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "我々の使命であります！",
+        "translation": "우리의 사명입니다!"
+      },
+      {
+        "offset": 7255732,
+        "header_offset": 7255728,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 100,
+        "text": "こちらは大総統府です。",
+        "translation": "이곳은 대총통부입니다."
+      },
+      {
+        "offset": 7255760,
+        "header_offset": 7255756,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "大総統閣下は、ただいま",
+        "translation": "대총통 각하는 지금"
+      },
+      {
+        "offset": 7255788,
+        "header_offset": 7255784,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "お部屋の方におられます",
+        "translation": "방에 계십니다"
+      },
+      {
+        "offset": 7255842,
+        "header_offset": 7255838,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 28,
+        "text": "エドワード・エルリック様、",
+        "translation": "에드워드 엘릭 님,"
+      },
+      {
+        "offset": 7255874,
+        "header_offset": 7255870,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "大総統閣下がお部屋で",
+        "translation": "대총통 각하께서 방에서"
+      },
+      {
+        "offset": 7255900,
+        "header_offset": 7255896,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "お待ちになっております",
+        "translation": "기다리고 계십니다"
+      },
+      {
+        "offset": 7255968,
+        "header_offset": 7255964,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 42,
+        "text": "今期の研究費は支給済みです",
+        "translation": "이번 지급분 연구비는 이미 지급됐습니다"
+      },
+      {
+        "offset": 7256012,
+        "header_offset": 7256008,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 14,
+        "text": "エドワード・エルリック様、",
+        "translation": "에드워드 엘릭 님,"
+      },
+      {
+        "offset": 7256044,
+        "header_offset": 7256040,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "研究費の申請ですね。",
+        "translation": "연구비 신청이시군요."
+      },
+      {
+        "offset": 7256070,
+        "header_offset": 7256066,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "少々お待ちください…",
+        "translation": "잠시만 기다려 주십시오…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0004",
+    "cluster_index": 19,
+    "run_index": 4,
+    "dialogue_state_token": "2bff:0900",
+    "record_count": 1,
+    "offsets": [
+      7256134
+    ],
+    "source_text": "手続き完了です。",
+    "translation_text": "절차가 완료되었습니다.",
+    "records": [
+      {
+        "offset": 7256134,
+        "header_offset": 7256130,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 40,
+        "text": "手続き完了です。",
+        "translation": "절차가 완료되었습니다."
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0005",
+    "cluster_index": 19,
+    "run_index": 5,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7256156,
+      7256190
+    ],
+    "source_text": "支給額は１００万センズです。\nサインをお願いします…",
+    "translation_text": "지급액은 100만 센즈입니다.\n서명을 부탁드립니다…",
+    "records": [
+      {
+        "offset": 7256156,
+        "header_offset": 7256152,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "支給額は１００万センズです。",
+        "translation": "지급액은 100만 센즈입니다."
+      },
+      {
+        "offset": 7256190,
+        "header_offset": 7256186,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "サインをお願いします…",
+        "translation": "서명을 부탁드립니다…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0006",
+    "cluster_index": 19,
+    "run_index": 6,
+    "dialogue_state_token": "1bff:0100",
+    "record_count": 1,
+    "offsets": [
+      7256236
+    ],
+    "source_text": "エドワード・エルリック",
+    "translation_text": "에드워드 엘릭",
+    "records": [
+      {
+        "offset": 7256236,
+        "header_offset": 7256232,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 20,
+        "text": "エドワード・エルリック",
+        "translation": "에드워드 엘릭"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0007",
+    "cluster_index": 19,
+    "run_index": 7,
+    "dialogue_state_token": null,
+    "record_count": 8,
+    "offsets": [
+      7256288,
+      7256322,
+      7256344,
+      7256422,
+      7256468,
+      7256488,
+      7256522,
+      7256556
+    ],
+    "source_text": "研究費は定期的に支給されます\nしばらくしたら、\nまた立ち寄ってみてください\n今期の研究費は支給済みです…\n鋼の錬金術師、\nエドワード・エルリック様。\n研究費が支給されております。\n少々お待ちください…",
+    "translation_text": "연구비는 정기적으로 지급됩니다\n잠시 후에\n다시 들러 보십시오\n이번 지급분 연구비는 이미 지급됐습니다…\n강철의 연금술사,\n에드워드 엘릭 님.\n연구비가 지급되어 있습니다.\n잠시만 기다려 주십시오…",
+    "records": [
+      {
+        "offset": 7256288,
+        "header_offset": 7256284,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 26,
+        "text": "研究費は定期的に支給されます",
+        "translation": "연구비는 정기적으로 지급됩니다"
+      },
+      {
+        "offset": 7256322,
+        "header_offset": 7256318,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "しばらくしたら、",
+        "translation": "잠시 후에"
+      },
+      {
+        "offset": 7256344,
+        "header_offset": 7256340,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "また立ち寄ってみてください",
+        "translation": "다시 들러 보십시오"
+      },
+      {
+        "offset": 7256422,
+        "header_offset": 7256418,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 48,
+        "text": "今期の研究費は支給済みです…",
+        "translation": "이번 지급분 연구비는 이미 지급됐습니다…"
+      },
+      {
+        "offset": 7256468,
+        "header_offset": 7256464,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 14,
+        "text": "鋼の錬金術師、",
+        "translation": "강철의 연금술사,"
+      },
+      {
+        "offset": 7256488,
+        "header_offset": 7256484,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "エドワード・エルリック様。",
+        "translation": "에드워드 엘릭 님."
+      },
+      {
+        "offset": 7256522,
+        "header_offset": 7256518,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 4,
+        "text": "研究費が支給されております。",
+        "translation": "연구비가 지급되어 있습니다."
+      },
+      {
+        "offset": 7256556,
+        "header_offset": 7256552,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "少々お待ちください…",
+        "translation": "잠시만 기다려 주십시오…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0008",
+    "cluster_index": 19,
+    "run_index": 8,
+    "dialogue_state_token": "2bff:0900",
+    "record_count": 1,
+    "offsets": [
+      7256634
+    ],
+    "source_text": "前回の申請がなかったので",
+    "translation_text": "지난번 신청이 없었으므로",
+    "records": [
+      {
+        "offset": 7256634,
+        "header_offset": 7256630,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 54,
+        "text": "前回の申請がなかったので",
+        "translation": "지난번 신청이 없었으므로"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0009",
+    "cluster_index": 19,
+    "run_index": 9,
+    "dialogue_state_token": null,
+    "record_count": 3,
+    "offsets": [
+      7256664,
+      7256698,
+      7256732
+    ],
+    "source_text": "今回まとめて支給されます。\n支給額は２００万センズです。\nサインをお願いします…",
+    "translation_text": "이번에 한꺼번에 지급됩니다.\n지급액은 200만 센즈입니다.\n서명을 부탁드립니다…",
+    "records": [
+      {
+        "offset": 7256664,
+        "header_offset": 7256660,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "今回まとめて支給されます。",
+        "translation": "이번에 한꺼번에 지급됩니다."
+      },
+      {
+        "offset": 7256698,
+        "header_offset": 7256694,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 4,
+        "text": "支給額は２００万センズです。",
+        "translation": "지급액은 200만 센즈입니다."
+      },
+      {
+        "offset": 7256732,
+        "header_offset": 7256728,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "サインをお願いします…",
+        "translation": "서명을 부탁드립니다…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0010",
+    "cluster_index": 19,
+    "run_index": 10,
+    "dialogue_state_token": "1bff:0900",
+    "record_count": 1,
+    "offsets": [
+      7256778
+    ],
+    "source_text": "エドワード・エルリック…",
+    "translation_text": "에드워드 엘릭…",
+    "records": [
+      {
+        "offset": 7256778,
+        "header_offset": 7256774,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 20,
+        "text": "エドワード・エルリック…",
+        "translation": "에드워드 엘릭…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0011",
+    "cluster_index": 19,
+    "run_index": 11,
+    "dialogue_state_token": null,
+    "record_count": 5,
+    "offsets": [
+      7256812,
+      7256840,
+      7256868,
+      7256926,
+      7256960
+    ],
+    "source_text": "はい、これ\nはい、手続き完了です。\nありがとうございました…\n支給額は１００万センズです。\nサインをお願いします…",
+    "translation_text": "자, 여기\n네, 절차가 완료되었습니다.\n감사합니다…\n지급액은 100만 센즈입니다.\n서명을 부탁드립니다…",
+    "records": [
+      {
+        "offset": 7256812,
+        "header_offset": 7256808,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 6,
+        "text": "はい、これ",
+        "translation": "자, 여기"
+      },
+      {
+        "offset": 7256840,
+        "header_offset": 7256836,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 14,
+        "text": "はい、手続き完了です。",
+        "translation": "네, 절차가 완료되었습니다."
+      },
+      {
+        "offset": 7256868,
+        "header_offset": 7256864,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "ありがとうございました…",
+        "translation": "감사합니다…"
+      },
+      {
+        "offset": 7256926,
+        "header_offset": 7256922,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 30,
+        "text": "支給額は１００万センズです。",
+        "translation": "지급액은 100만 센즈입니다."
+      },
+      {
+        "offset": 7256960,
+        "header_offset": 7256956,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "サインをお願いします…",
+        "translation": "서명을 부탁드립니다…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0012",
+    "cluster_index": 19,
+    "run_index": 12,
+    "dialogue_state_token": "1bff:0100",
+    "record_count": 1,
+    "offsets": [
+      7257006
+    ],
+    "source_text": "エドワード・エルリックと…",
+    "translation_text": "에드워드 엘릭이라고…",
+    "records": [
+      {
+        "offset": 7257006,
+        "header_offset": 7257002,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 20,
+        "text": "エドワード・エルリックと…",
+        "translation": "에드워드 엘릭이라고…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0013",
+    "cluster_index": 19,
+    "run_index": 13,
+    "dialogue_state_token": null,
+    "record_count": 3,
+    "offsets": [
+      7257042,
+      7257076,
+      7257096
+    ],
+    "source_text": "これでいいかな？\nはい、確かに…\n手続き完了です",
+    "translation_text": "이걸로 됐나?\n네, 확인했습니다…\n절차가 완료되었습니다",
+    "records": [
+      {
+        "offset": 7257042,
+        "header_offset": 7257038,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 6,
+        "text": "これでいいかな？",
+        "translation": "이걸로 됐나?"
+      },
+      {
+        "offset": 7257076,
+        "header_offset": 7257072,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 14,
+        "text": "はい、確かに…",
+        "translation": "네, 확인했습니다…"
+      },
+      {
+        "offset": 7257096,
+        "header_offset": 7257092,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "手続き完了です",
+        "translation": "절차가 완료되었습니다"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0014",
+    "cluster_index": 19,
+    "run_index": 14,
+    "dialogue_state_token": "1bff:0900",
+    "record_count": 1,
+    "offsets": [
+      7257130
+    ],
+    "source_text": "さんきゅー♪",
+    "translation_text": "고마워♪",
+    "records": [
+      {
+        "offset": 7257130,
+        "header_offset": 7257126,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 16,
+        "text": "さんきゅー♪",
+        "translation": "고마워♪"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0015",
+    "cluster_index": 19,
+    "run_index": 15,
+    "dialogue_state_token": null,
+    "record_count": 3,
+    "offsets": [
+      7257198,
+      7257242,
+      7257268
+    ],
+    "source_text": "今期の研究費は支給済みです\n研究費の申請ですね？\n少々お待ちください…",
+    "translation_text": "이번 지급분 연구비는 이미 지급됐습니다\n연구비 신청이시죠?\n잠시만 기다려 주십시오…",
+    "records": [
+      {
+        "offset": 7257198,
+        "header_offset": 7257194,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 52,
+        "text": "今期の研究費は支給済みです",
+        "translation": "이번 지급분 연구비는 이미 지급됐습니다"
+      },
+      {
+        "offset": 7257242,
+        "header_offset": 7257238,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 14,
+        "text": "研究費の申請ですね？",
+        "translation": "연구비 신청이시죠?"
+      },
+      {
+        "offset": 7257268,
+        "header_offset": 7257264,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "少々お待ちください…",
+        "translation": "잠시만 기다려 주십시오…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0016",
+    "cluster_index": 19,
+    "run_index": 16,
+    "dialogue_state_token": "2bff:0900",
+    "record_count": 1,
+    "offsets": [
+      7257346
+    ],
+    "source_text": "前回、申請がなかったので、",
+    "translation_text": "지난번 신청이 없었으므로",
+    "records": [
+      {
+        "offset": 7257346,
+        "header_offset": 7257342,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 54,
+        "text": "前回、申請がなかったので、",
+        "translation": "지난번 신청이 없었으므로"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0017",
+    "cluster_index": 19,
+    "run_index": 17,
+    "dialogue_state_token": null,
+    "record_count": 7,
+    "offsets": [
+      7257378,
+      7257408,
+      7257432,
+      7257456,
+      7257478,
+      7257528,
+      7257562
+    ],
+    "source_text": "前期分も支給されます。\n前々期以前の分は、\n無効となりますので\nご了承ください\nサインをお願いします\n支給額は１００万センズです。\nこちらにサインをお願いします",
+    "translation_text": "이전 지급분도 지급됩니다.\n그 이전 지급분은,\n무효가 되므로\n양해해 주십시오\n서명을 부탁드립니다\n지급액은 100만 센즈입니다.\n여기에 서명해 주십시오",
+    "records": [
+      {
+        "offset": 7257378,
+        "header_offset": 7257374,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "前期分も支給されます。",
+        "translation": "이전 지급분도 지급됩니다."
+      },
+      {
+        "offset": 7257408,
+        "header_offset": 7257404,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 4,
+        "text": "前々期以前の分は、",
+        "translation": "그 이전 지급분은,"
+      },
+      {
+        "offset": 7257432,
+        "header_offset": 7257428,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "無効となりますので",
+        "translation": "무효가 되므로"
+      },
+      {
+        "offset": 7257456,
+        "header_offset": 7257452,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "ご了承ください",
+        "translation": "양해해 주십시오"
+      },
+      {
+        "offset": 7257478,
+        "header_offset": 7257474,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 4,
+        "text": "サインをお願いします",
+        "translation": "서명을 부탁드립니다"
+      },
+      {
+        "offset": 7257528,
+        "header_offset": 7257524,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 26,
+        "text": "支給額は１００万センズです。",
+        "translation": "지급액은 100만 센즈입니다."
+      },
+      {
+        "offset": 7257562,
+        "header_offset": 7257558,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "こちらにサインをお願いします",
+        "translation": "여기에 서명해 주십시오"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0018",
+    "cluster_index": 19,
+    "run_index": 18,
+    "dialogue_state_token": "1bff:0900",
+    "record_count": 1,
+    "offsets": [
+      7257618
+    ],
+    "source_text": "えどわーど・えるりっく＄",
+    "translation_text": "에도워드 엘리크＄",
+    "records": [
+      {
+        "offset": 7257618,
+        "header_offset": 7257614,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 24,
+        "text": "えどわーど・えるりっく＄",
+        "translation": "에도워드 엘리크＄"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0019",
+    "cluster_index": 19,
+    "run_index": 19,
+    "dialogue_state_token": null,
+    "record_count": 3,
+    "offsets": [
+      7257652,
+      7257686,
+      7257710
+    ],
+    "source_text": "これでいい？\nダメでございます＠\nちゃんと書いてください！",
+    "translation_text": "이걸로 돼?\n안 됩니다＠\n제대로 써 주세요!",
+    "records": [
+      {
+        "offset": 7257652,
+        "header_offset": 7257648,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 6,
+        "text": "これでいい？",
+        "translation": "이걸로 돼?"
+      },
+      {
+        "offset": 7257686,
+        "header_offset": 7257682,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 18,
+        "text": "ダメでございます＠",
+        "translation": "안 됩니다＠"
+      },
+      {
+        "offset": 7257710,
+        "header_offset": 7257706,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "ちゃんと書いてください！",
+        "translation": "제대로 써 주세요!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0020",
+    "cluster_index": 19,
+    "run_index": 20,
+    "dialogue_state_token": "1bff:0200",
+    "record_count": 1,
+    "offsets": [
+      7257762
+    ],
+    "source_text": "スンマセンシタ…",
+    "translation_text": "죄송했습니다…",
+    "records": [
+      {
+        "offset": 7257762,
+        "header_offset": 7257758,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 24,
+        "text": "スンマセンシタ…",
+        "translation": "죄송했습니다…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0021",
+    "cluster_index": 19,
+    "run_index": 21,
+    "dialogue_state_token": null,
+    "record_count": 3,
+    "offsets": [
+      7257788,
+      7257832,
+      7257910
+    ],
+    "source_text": "エドワード・エルリック\nはい、手続き完了です！\n２回は支給出来ないですよ～＠",
+    "translation_text": "에드워드 엘릭\n네, 절차 완료입니다!\n두 번은 지급 못 해요～＠",
+    "records": [
+      {
+        "offset": 7257788,
+        "header_offset": 7257784,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 6,
+        "text": "エドワード・エルリック",
+        "translation": "에드워드 엘릭"
+      },
+      {
+        "offset": 7257832,
+        "header_offset": 7257828,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 18,
+        "text": "はい、手続き完了です！",
+        "translation": "네, 절차 완료입니다!"
+      },
+      {
+        "offset": 7257910,
+        "header_offset": 7257906,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 52,
+        "text": "２回は支給出来ないですよ～＠",
+        "translation": "두 번은 지급 못 해요～＠"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0022",
+    "cluster_index": 19,
+    "run_index": 22,
+    "dialogue_state_token": "1bff:0800",
+    "record_count": 1,
+    "offsets": [
+      7257980
+    ],
+    "source_text": "は～い、研究費の申請ですね♪",
+    "translation_text": "네～ 연구비 신청이시죠♪",
+    "records": [
+      {
+        "offset": 7257980,
+        "header_offset": 7257976,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 38,
+        "text": "は～い、研究費の申請ですね♪",
+        "translation": "네～ 연구비 신청이시죠♪"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0023",
+    "cluster_index": 19,
+    "run_index": 23,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7258014
+    ],
+    "source_text": "ちょっと待っててくだ～さい＄",
+    "translation_text": "잠깐만 기다려 주세요＄",
+    "records": [
+      {
+        "offset": 7258014,
+        "header_offset": 7258010,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "ちょっと待っててくだ～さい＄",
+        "translation": "잠깐만 기다려 주세요＄"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0024",
+    "cluster_index": 19,
+    "run_index": 24,
+    "dialogue_state_token": "1bff:0800",
+    "record_count": 1,
+    "offsets": [
+      7258078
+    ],
+    "source_text": "やけにフレンドリーだな…",
+    "translation_text": "묘하게 친근하네…",
+    "records": [
+      {
+        "offset": 7258078,
+        "header_offset": 7258074,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 32,
+        "text": "やけにフレンドリーだな…",
+        "translation": "묘하게 친근하네…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0025",
+    "cluster_index": 19,
+    "run_index": 25,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7258124
+    ],
+    "source_text": "お待たせしました！",
+    "translation_text": "기다리셨습니다!",
+    "records": [
+      {
+        "offset": 7258124,
+        "header_offset": 7258120,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 18,
+        "text": "お待たせしました！",
+        "translation": "기다리셨습니다!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0026",
+    "cluster_index": 19,
+    "run_index": 26,
+    "dialogue_state_token": "2bff:0900",
+    "record_count": 1,
+    "offsets": [
+      7258200
+    ],
+    "source_text": "前期分が申請されていないので",
+    "translation_text": "이전 지급분이 신청되지 않았으니",
+    "records": [
+      {
+        "offset": 7258200,
+        "header_offset": 7258196,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 54,
+        "text": "前期分が申請されていないので",
+        "translation": "이전 지급분이 신청되지 않았으니"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0027",
+    "cluster_index": 19,
+    "run_index": 27,
+    "dialogue_state_token": null,
+    "record_count": 12,
+    "offsets": [
+      7258234,
+      7258270,
+      7258304,
+      7258328,
+      7258380,
+      7258414,
+      7258462,
+      7258480,
+      7258526,
+      7258602,
+      7258648,
+      7258674
+    ],
+    "source_text": "支給額は２００万センズでっす\nちなみに前々期分以前の支給は\n無効になってま～す\nサインお願いしま～す♪\n支給額は１００万センズです。\nサインお願いしま～す＄\n…あ、はい。\nエドワード・エルリックと\nありがとうございました～\n今期の研究費の支給は終了です\n研究費の申請ですね。\n少々お待ちを…",
+    "translation_text": "지급액은 200만 센즈입니다\n참고로 그 이전 지급분의 지급은\n무효가 됐어요～\n서명 부탁드려요♪\n지급액은 100만 센즈입니다.\n서명 부탁드려요＄\n…아, 네.\n에드워드 엘릭이라고\n감사합니다～\n이번 지급분 연구비 지급은 종료입니다\n연구비 신청이시군요.\n잠시만요…",
+    "records": [
+      {
+        "offset": 7258234,
+        "header_offset": 7258230,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "支給額は２００万センズでっす",
+        "translation": "지급액은 200만 센즈입니다"
+      },
+      {
+        "offset": 7258270,
+        "header_offset": 7258266,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 4,
+        "text": "ちなみに前々期分以前の支給は",
+        "translation": "참고로 그 이전 지급분의 지급은"
+      },
+      {
+        "offset": 7258304,
+        "header_offset": 7258300,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "無効になってま～す",
+        "translation": "무효가 됐어요～"
+      },
+      {
+        "offset": 7258328,
+        "header_offset": 7258324,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "サインお願いしま～す♪",
+        "translation": "서명 부탁드려요♪"
+      },
+      {
+        "offset": 7258380,
+        "header_offset": 7258376,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 26,
+        "text": "支給額は１００万センズです。",
+        "translation": "지급액은 100만 센즈입니다."
+      },
+      {
+        "offset": 7258414,
+        "header_offset": 7258410,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "サインお願いしま～す＄",
+        "translation": "서명 부탁드려요＄"
+      },
+      {
+        "offset": 7258462,
+        "header_offset": 7258458,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 22,
+        "text": "…あ、はい。",
+        "translation": "…아, 네."
+      },
+      {
+        "offset": 7258480,
+        "header_offset": 7258476,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "エドワード・エルリックと",
+        "translation": "에드워드 엘릭이라고"
+      },
+      {
+        "offset": 7258526,
+        "header_offset": 7258522,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 18,
+        "text": "ありがとうございました～",
+        "translation": "감사합니다～"
+      },
+      {
+        "offset": 7258602,
+        "header_offset": 7258598,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 48,
+        "text": "今期の研究費の支給は終了です",
+        "translation": "이번 지급분 연구비 지급은 종료입니다"
+      },
+      {
+        "offset": 7258648,
+        "header_offset": 7258644,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 14,
+        "text": "研究費の申請ですね。",
+        "translation": "연구비 신청이시군요."
+      },
+      {
+        "offset": 7258674,
+        "header_offset": 7258670,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "少々お待ちを…",
+        "translation": "잠시만요…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0028",
+    "cluster_index": 19,
+    "run_index": 28,
+    "dialogue_state_token": "2bff:0900",
+    "record_count": 1,
+    "offsets": [
+      7258736
+    ],
+    "source_text": "前期の申請がされていないので",
+    "translation_text": "이전 지급분 신청이 되어 있지 않아",
+    "records": [
+      {
+        "offset": 7258736,
+        "header_offset": 7258732,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 44,
+        "text": "前期の申請がされていないので",
+        "translation": "이전 지급분 신청이 되어 있지 않아"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0029",
+    "cluster_index": 19,
+    "run_index": 29,
+    "dialogue_state_token": null,
+    "record_count": 6,
+    "offsets": [
+      7258770,
+      7258804,
+      7258832,
+      7258854,
+      7258910,
+      7258944
+    ],
+    "source_text": "支給額は２００万センズです\n前々期以前の申請もれは\n無効となります。\nでは、サインをお願いします\n支給額は１００万センズです。\nこちらにサインをお願いします",
+    "translation_text": "지급액은 200만 센즈입니다\n그 이전 지급분의 신청 누락은\n무효가 됩니다.\n그럼 서명을 부탁드립니다\n지급액은 100만 센즈입니다.\n여기에 서명해 주십시오",
+    "records": [
+      {
+        "offset": 7258770,
+        "header_offset": 7258766,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "支給額は２００万センズです",
+        "translation": "지급액은 200만 센즈입니다"
+      },
+      {
+        "offset": 7258804,
+        "header_offset": 7258800,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 4,
+        "text": "前々期以前の申請もれは",
+        "translation": "그 이전 지급분의 신청 누락은"
+      },
+      {
+        "offset": 7258832,
+        "header_offset": 7258828,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "無効となります。",
+        "translation": "무효가 됩니다."
+      },
+      {
+        "offset": 7258854,
+        "header_offset": 7258850,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "では、サインをお願いします",
+        "translation": "그럼 서명을 부탁드립니다"
+      },
+      {
+        "offset": 7258910,
+        "header_offset": 7258906,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 26,
+        "text": "支給額は１００万センズです。",
+        "translation": "지급액은 100만 센즈입니다."
+      },
+      {
+        "offset": 7258944,
+        "header_offset": 7258940,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "こちらにサインをお願いします",
+        "translation": "여기에 서명해 주십시오"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0030",
+    "cluster_index": 19,
+    "run_index": 30,
+    "dialogue_state_token": "1bff:0100",
+    "record_count": 1,
+    "offsets": [
+      7259000
+    ],
+    "source_text": "エドワード・エルリックと…",
+    "translation_text": "에드워드 엘릭이라고…",
+    "records": [
+      {
+        "offset": 7259000,
+        "header_offset": 7258996,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 24,
+        "text": "エドワード・エルリックと…",
+        "translation": "에드워드 엘릭이라고…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0031",
+    "cluster_index": 19,
+    "run_index": 31,
+    "dialogue_state_token": null,
+    "record_count": 5,
+    "offsets": [
+      7259036,
+      7259070,
+      7259104,
+      7259130,
+      7259176
+    ],
+    "source_text": "これでいいかい？\nはい、ありがとうございます。\n今期の研究費の支給は\nこれにて完了です\nフラグ設定ミス",
+    "translation_text": "이걸로 됐습니까?\n네, 감사합니다.\n이번 지급분 연구비 지급은\n이것으로 완료입니다\n플래그 설정 오류",
+    "records": [
+      {
+        "offset": 7259036,
+        "header_offset": 7259032,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 6,
+        "text": "これでいいかい？",
+        "translation": "이걸로 됐습니까?"
+      },
+      {
+        "offset": 7259070,
+        "header_offset": 7259066,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 14,
+        "text": "はい、ありがとうございます。",
+        "translation": "네, 감사합니다."
+      },
+      {
+        "offset": 7259104,
+        "header_offset": 7259100,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "今期の研究費の支給は",
+        "translation": "이번 지급분 연구비 지급은"
+      },
+      {
+        "offset": 7259130,
+        "header_offset": 7259126,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "これにて完了です",
+        "translation": "이것으로 완료입니다"
+      },
+      {
+        "offset": 7259176,
+        "header_offset": 7259172,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 26,
+        "text": "フラグ設定ミス",
+        "translation": "플래그 설정 오류"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0032",
+    "cluster_index": 19,
+    "run_index": 32,
+    "dialogue_state_token": "1bff:0B80",
+    "record_count": 1,
+    "offsets": [
+      7259344
+    ],
+    "source_text": "じゃあ、兄さん、",
+    "translation_text": "그럼 형,",
+    "records": [
+      {
+        "offset": 7259344,
+        "header_offset": 7259340,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 150,
+        "text": "じゃあ、兄さん、",
+        "translation": "그럼 형,"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0033",
+    "cluster_index": 19,
+    "run_index": 33,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7259366,
+      7259408
+    ],
+    "source_text": "ボクたちはここで待ってるから\nえ、なんで？",
+    "translation_text": "우리는 여기서 기다릴게\n어, 왜?",
+    "records": [
+      {
+        "offset": 7259366,
+        "header_offset": 7259362,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "ボクたちはここで待ってるから",
+        "translation": "우리는 여기서 기다릴게"
+      },
+      {
+        "offset": 7259408,
+        "header_offset": 7259404,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 10,
+        "text": "え、なんで？",
+        "translation": "어, 왜?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0034",
+    "cluster_index": 19,
+    "run_index": 34,
+    "dialogue_state_token": "1bff:3080",
+    "record_count": 1,
+    "offsets": [
+      7259444
+    ],
+    "source_text": "だって呼ばれているのは",
+    "translation_text": "호출받은 건",
+    "records": [
+      {
+        "offset": 7259444,
+        "header_offset": 7259440,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 20,
+        "text": "だって呼ばれているのは",
+        "translation": "호출받은 건"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0035",
+    "cluster_index": 19,
+    "run_index": 35,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7259472
+    ],
+    "source_text": "エドだけでしょ？",
+    "translation_text": "에드뿐이잖아?",
+    "records": [
+      {
+        "offset": 7259472,
+        "header_offset": 7259468,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "エドだけでしょ？",
+        "translation": "에드뿐이잖아?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0036",
+    "cluster_index": 19,
+    "run_index": 36,
+    "dialogue_state_token": "1bff:0100",
+    "record_count": 1,
+    "offsets": [
+      7259512
+    ],
+    "source_text": "そりゃそうか。",
+    "translation_text": "그건 그렇네.",
+    "records": [
+      {
+        "offset": 7259512,
+        "header_offset": 7259508,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 20,
+        "text": "そりゃそうか。",
+        "translation": "그건 그렇네."
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0037",
+    "cluster_index": 19,
+    "run_index": 37,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7259532,
+      7259582
+    ],
+    "source_text": "んじゃ、ちょっと行ってくるわ\nおイタしちゃダメよ！",
+    "translation_text": "그럼 잠깐 다녀올게\n장난치면 안 돼!",
+    "records": [
+      {
+        "offset": 7259532,
+        "header_offset": 7259528,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "んじゃ、ちょっと行ってくるわ",
+        "translation": "그럼 잠깐 다녀올게"
+      },
+      {
+        "offset": 7259582,
+        "header_offset": 7259578,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 18,
+        "text": "おイタしちゃダメよ！",
+        "translation": "장난치면 안 돼!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0038",
+    "cluster_index": 19,
+    "run_index": 38,
+    "dialogue_state_token": "1bff:0400",
+    "record_count": 1,
+    "offsets": [
+      7259626
+    ],
+    "source_text": "子ども扱いすんな！",
+    "translation_text": "애 취급하지 마!",
+    "records": [
+      {
+        "offset": 7259626,
+        "header_offset": 7259622,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 20,
+        "text": "子ども扱いすんな！",
+        "translation": "애 취급하지 마!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0039",
+    "cluster_index": 19,
+    "run_index": 39,
+    "dialogue_state_token": "1bff:0D00",
+    "record_count": 1,
+    "offsets": [
+      7259808
+    ],
+    "source_text": "いったい何の話だろう？",
+    "translation_text": "대체 무슨 얘기일까?",
+    "records": [
+      {
+        "offset": 7259808,
+        "header_offset": 7259804,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 160,
+        "text": "いったい何の話だろう？",
+        "translation": "대체 무슨 얘기일까?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0040",
+    "cluster_index": 19,
+    "run_index": 40,
+    "dialogue_state_token": "1bff:3000",
+    "record_count": 1,
+    "offsets": [
+      7259928
+    ],
+    "source_text": "早く大総統閣下のお話を",
+    "translation_text": "어서 대총통 각하의 말씀을",
+    "records": [
+      {
+        "offset": 7259928,
+        "header_offset": 7259924,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 94,
+        "text": "早く大総統閣下のお話を",
+        "translation": "어서 대총통 각하의 말씀을"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0041",
+    "cluster_index": 19,
+    "run_index": 41,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7259956
+    ],
+    "source_text": "聞いてらっしゃい",
+    "translation_text": "듣고 오세요",
+    "records": [
+      {
+        "offset": 7259956,
+        "header_offset": 7259952,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "聞いてらっしゃい",
+        "translation": "듣고 오세요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0042",
+    "cluster_index": 19,
+    "run_index": 42,
+    "dialogue_state_token": "1bff:0B80",
+    "record_count": 1,
+    "offsets": [
+      7260118
+    ],
+    "source_text": "なんだったの、兄さん",
+    "translation_text": "뭐였어, 형?",
+    "records": [
+      {
+        "offset": 7260118,
+        "header_offset": 7260114,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 142,
+        "text": "なんだったの、兄さん",
+        "translation": "뭐였어, 형?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0043",
+    "cluster_index": 19,
+    "run_index": 43,
+    "dialogue_state_token": null,
+    "record_count": 8,
+    "offsets": [
+      7260190,
+      7260214,
+      7260254,
+      7260276,
+      7260308,
+      7260340,
+      7260358,
+      7260384
+    ],
+    "source_text": "というわけだけど、\n特殊部隊に参加するか？\n事件が解決すれば\n大総統お墨付きの受験資格を\n得られるんだね\n正直言うと、\nコニィの治癒錬成には\nかなり期待してるんだ",
+    "translation_text": "그런 사정인데,\n특수부대에 참가할래?\n사건이 해결되면\n대총통 보증의 응시 자격을\n얻을 수 있는 거네\n솔직히 말하면,\n코니의 치유 연성에는\n꽤 기대하고 있어",
+    "records": [
+      {
+        "offset": 7260190,
+        "header_offset": 7260186,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 48,
+        "text": "というわけだけど、",
+        "translation": "그런 사정인데,"
+      },
+      {
+        "offset": 7260214,
+        "header_offset": 7260210,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "特殊部隊に参加するか？",
+        "translation": "특수부대에 참가할래?"
+      },
+      {
+        "offset": 7260254,
+        "header_offset": 7260250,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 14,
+        "text": "事件が解決すれば",
+        "translation": "사건이 해결되면"
+      },
+      {
+        "offset": 7260276,
+        "header_offset": 7260272,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "大総統お墨付きの受験資格を",
+        "translation": "대총통 보증의 응시 자격을"
+      },
+      {
+        "offset": 7260308,
+        "header_offset": 7260304,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "得られるんだね",
+        "translation": "얻을 수 있는 거네"
+      },
+      {
+        "offset": 7260340,
+        "header_offset": 7260336,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 14,
+        "text": "正直言うと、",
+        "translation": "솔직히 말하면,"
+      },
+      {
+        "offset": 7260358,
+        "header_offset": 7260354,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "コニィの治癒錬成には",
+        "translation": "코니의 치유 연성에는"
+      },
+      {
+        "offset": 7260384,
+        "header_offset": 7260380,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "かなり期待してるんだ",
+        "translation": "꽤 기대하고 있어"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0044",
+    "cluster_index": 19,
+    "run_index": 44,
+    "dialogue_state_token": "1bff:3980",
+    "record_count": 1,
+    "offsets": [
+      7260428
+    ],
+    "source_text": "私の治癒錬成に…",
+    "translation_text": "내 치유 연성에…",
+    "records": [
+      {
+        "offset": 7260428,
+        "header_offset": 7260424,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 20,
+        "text": "私の治癒錬成に…",
+        "translation": "내 치유 연성에…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0045",
+    "cluster_index": 19,
+    "run_index": 45,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7260450
+    ],
+    "source_text": "どうしよう…",
+    "translation_text": "어떻게 하지…",
+    "records": [
+      {
+        "offset": 7260450,
+        "header_offset": 7260446,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 2,
+        "text": "どうしよう…",
+        "translation": "어떻게 하지…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0046",
+    "cluster_index": 19,
+    "run_index": 46,
+    "dialogue_state_token": "1bff:0B80",
+    "record_count": 1,
+    "offsets": [
+      7260480
+    ],
+    "source_text": "チャンスがあるなら",
+    "translation_text": "기회가 있다면",
+    "records": [
+      {
+        "offset": 7260480,
+        "header_offset": 7260476,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 14,
+        "text": "チャンスがあるなら",
+        "translation": "기회가 있다면"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0047",
+    "cluster_index": 19,
+    "run_index": 47,
+    "dialogue_state_token": null,
+    "record_count": 4,
+    "offsets": [
+      7260504,
+      7260546,
+      7260574,
+      7260602
+    ],
+    "source_text": "活かした方がいいと思うな\nあまり時間がないから、\n今、決めてもらいたい。\nどうする？",
+    "translation_text": "살리는 게 좋다고 생각해\n시간이 별로 없으니,\n지금 결정해 줬으면 해.\n어떻게 할래?",
+    "records": [
+      {
+        "offset": 7260504,
+        "header_offset": 7260500,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "活かした方がいいと思うな",
+        "translation": "살리는 게 좋다고 생각해"
+      },
+      {
+        "offset": 7260546,
+        "header_offset": 7260542,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 14,
+        "text": "あまり時間がないから、",
+        "translation": "시간이 별로 없으니,"
+      },
+      {
+        "offset": 7260574,
+        "header_offset": 7260570,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "今、決めてもらいたい。",
+        "translation": "지금 결정해 줬으면 해."
+      },
+      {
+        "offset": 7260602,
+        "header_offset": 7260598,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 2,
+        "text": "どうする？",
+        "translation": "어떻게 할래?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0048",
+    "cluster_index": 19,
+    "run_index": 48,
+    "dialogue_state_token": "1bff:3380",
+    "record_count": 1,
+    "offsets": [
+      7260636
+    ],
+    "source_text": "……やります。",
+    "translation_text": "……하겠습니다.",
+    "records": [
+      {
+        "offset": 7260636,
+        "header_offset": 7260632,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 20,
+        "text": "……やります。",
+        "translation": "……하겠습니다."
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0049",
+    "cluster_index": 19,
+    "run_index": 49,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7260656,
+      7260680
+    ],
+    "source_text": "必ず事件を解決して\n受験資格を得ます",
+    "translation_text": "반드시 사건을 해결해서\n응시 자격을 얻겠습니다",
+    "records": [
+      {
+        "offset": 7260656,
+        "header_offset": 7260652,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "必ず事件を解決して",
+        "translation": "반드시 사건을 해결해서"
+      },
+      {
+        "offset": 7260680,
+        "header_offset": 7260676,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "受験資格を得ます",
+        "translation": "응시 자격을 얻겠습니다"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0050",
+    "cluster_index": 19,
+    "run_index": 50,
+    "dialogue_state_token": "1bff:0900",
+    "record_count": 1,
+    "offsets": [
+      7260720
+    ],
+    "source_text": "決まりだ！！",
+    "translation_text": "결정이다!!",
+    "records": [
+      {
+        "offset": 7260720,
+        "header_offset": 7260716,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 20,
+        "text": "決まりだ！！",
+        "translation": "결정이다!!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0051",
+    "cluster_index": 19,
+    "run_index": 51,
+    "dialogue_state_token": "1bff:0C80",
+    "record_count": 1,
+    "offsets": [
+      7260756
+    ],
+    "source_text": "やったぁ！",
+    "translation_text": "야호!",
+    "records": [
+      {
+        "offset": 7260756,
+        "header_offset": 7260752,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 20,
+        "text": "やったぁ！",
+        "translation": "야호!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0052",
+    "cluster_index": 19,
+    "run_index": 52,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7260772
+    ],
+    "source_text": "コニィ、よろしく",
+    "translation_text": "코니, 잘 부탁해",
+    "records": [
+      {
+        "offset": 7260772,
+        "header_offset": 7260768,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "コニィ、よろしく",
+        "translation": "코니, 잘 부탁해"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0053",
+    "cluster_index": 19,
+    "run_index": 53,
+    "dialogue_state_token": "1bff:3180",
+    "record_count": 1,
+    "offsets": [
+      7260808
+    ],
+    "source_text": "私こそ、改めてよろしく。",
+    "translation_text": "저야말로, 다시 잘 부탁해요.",
+    "records": [
+      {
+        "offset": 7260808,
+        "header_offset": 7260804,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 16,
+        "text": "私こそ、改めてよろしく。",
+        "translation": "저야말로, 다시 잘 부탁해요."
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0054",
+    "cluster_index": 19,
+    "run_index": 54,
+    "dialogue_state_token": null,
+    "record_count": 4,
+    "offsets": [
+      7260838,
+      7260866,
+      7260898,
+      7260922
+    ],
+    "source_text": "チャンスを作ってくれて\nありがとう\nさてと、メンバーを\nどうするかな…",
+    "translation_text": "기회를 만들어 줘서\n고마워\n자, 멤버는\n어떻게 할까…",
+    "records": [
+      {
+        "offset": 7260838,
+        "header_offset": 7260834,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "チャンスを作ってくれて",
+        "translation": "기회를 만들어 줘서"
+      },
+      {
+        "offset": 7260866,
+        "header_offset": 7260862,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 2,
+        "text": "ありがとう",
+        "translation": "고마워"
+      },
+      {
+        "offset": 7260898,
+        "header_offset": 7260894,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 18,
+        "text": "さてと、メンバーを",
+        "translation": "자, 멤버는"
+      },
+      {
+        "offset": 7260922,
+        "header_offset": 7260918,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "どうするかな…",
+        "translation": "어떻게 할까…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0055",
+    "cluster_index": 19,
+    "run_index": 55,
+    "dialogue_state_token": "1bff:3080",
+    "record_count": 1,
+    "offsets": [
+      7260960
+    ],
+    "source_text": "先ほどの、",
+    "translation_text": "아까 그",
+    "records": [
+      {
+        "offset": 7260960,
+        "header_offset": 7260956,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 20,
+        "text": "先ほどの、",
+        "translation": "아까 그"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0056",
+    "cluster_index": 19,
+    "run_index": 56,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7260976,
+      7261004
+    ],
+    "source_text": "アームストロング少佐は\nどうかしら…？",
+    "translation_text": "암스트롱 소령은\n어떨까…?",
+    "records": [
+      {
+        "offset": 7260976,
+        "header_offset": 7260972,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "アームストロング少佐は",
+        "translation": "암스트롱 소령은"
+      },
+      {
+        "offset": 7261004,
+        "header_offset": 7261000,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "どうかしら…？",
+        "translation": "어떨까…?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0057",
+    "cluster_index": 19,
+    "run_index": 57,
+    "dialogue_state_token": "1bff:0700",
+    "record_count": 1,
+    "offsets": [
+      7261046
+    ],
+    "source_text": "げっ！！",
+    "translation_text": "으악!!",
+    "records": [
+      {
+        "offset": 7261046,
+        "header_offset": 7261042,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 24,
+        "text": "げっ！！",
+        "translation": "으악!!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0058",
+    "cluster_index": 19,
+    "run_index": 58,
+    "dialogue_state_token": "1bff:1180",
+    "record_count": 1,
+    "offsets": [
+      7261074
+    ],
+    "source_text": "大佐は…？",
+    "translation_text": "대령은…?",
+    "records": [
+      {
+        "offset": 7261074,
+        "header_offset": 7261070,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 16,
+        "text": "大佐は…？",
+        "translation": "대령은…?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0059",
+    "cluster_index": 19,
+    "run_index": 59,
+    "dialogue_state_token": "1bff:0F80",
+    "record_count": 1,
+    "offsets": [
+      7261136
+    ],
+    "source_text": "兄さん！",
+    "translation_text": "형!",
+    "records": [
+      {
+        "offset": 7261136,
+        "header_offset": 7261132,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 48,
+        "text": "兄さん！",
+        "translation": "형!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0060",
+    "cluster_index": 19,
+    "run_index": 60,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7261150,
+      7261184
+    ],
+    "source_text": "大佐もアームストロング少佐も\n強い人たちなんだよ！",
+    "translation_text": "대령도 암스트롱 소령도\n강한 사람들이야!",
+    "records": [
+      {
+        "offset": 7261150,
+        "header_offset": 7261146,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "大佐もアームストロング少佐も",
+        "translation": "대령도 암스트롱 소령도"
+      },
+      {
+        "offset": 7261184,
+        "header_offset": 7261180,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "強い人たちなんだよ！",
+        "translation": "강한 사람들이야!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0061",
+    "cluster_index": 19,
+    "run_index": 61,
+    "dialogue_state_token": "1bff:0200",
+    "record_count": 1,
+    "offsets": [
+      7261224
+    ],
+    "source_text": "わかってるけどさぁ",
+    "translation_text": "알고는 있지만 말이야",
+    "records": [
+      {
+        "offset": 7261224,
+        "header_offset": 7261220,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 16,
+        "text": "わかってるけどさぁ",
+        "translation": "알고는 있지만 말이야"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0062",
+    "cluster_index": 19,
+    "run_index": 62,
+    "dialogue_state_token": "1bff:1180",
+    "record_count": 1,
+    "offsets": [
+      7261266
+    ],
+    "source_text": "仕方ないなぁ。",
+    "translation_text": "어쩔 수 없네.",
+    "records": [
+      {
+        "offset": 7261266,
+        "header_offset": 7261262,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 20,
+        "text": "仕方ないなぁ。",
+        "translation": "어쩔 수 없네."
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0063",
+    "cluster_index": 19,
+    "run_index": 63,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7261286,
+      7261318
+    ],
+    "source_text": "親切だし楽しい人たちなのに\n兄さんは苦手みたいなんだ",
+    "translation_text": "친절하고 즐거운 분들인데\n형은 껄끄러운가 봐",
+    "records": [
+      {
+        "offset": 7261286,
+        "header_offset": 7261282,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "親切だし楽しい人たちなのに",
+        "translation": "친절하고 즐거운 분들인데"
+      },
+      {
+        "offset": 7261318,
+        "header_offset": 7261314,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "兄さんは苦手みたいなんだ",
+        "translation": "형은 껄끄러운가 봐"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0064",
+    "cluster_index": 19,
+    "run_index": 64,
+    "dialogue_state_token": "1bff:3080",
+    "record_count": 1,
+    "offsets": [
+      7261356
+    ],
+    "source_text": "う～ん、私たちだと",
+    "translation_text": "음, 우리끼리는",
+    "records": [
+      {
+        "offset": 7261356,
+        "header_offset": 7261352,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 10,
+        "text": "う～ん、私たちだと",
+        "translation": "음, 우리끼리는"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0065",
+    "cluster_index": 19,
+    "run_index": 65,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7261380,
+      7261412
+    ],
+    "source_text": "適切な判断ができないから、\n誰かに相談しましょうよ",
+    "translation_text": "적절한 판단을 못 하니까,\n누군가에게 상담하자",
+    "records": [
+      {
+        "offset": 7261380,
+        "header_offset": 7261376,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "適切な判断ができないから、",
+        "translation": "적절한 판단을 못 하니까,"
+      },
+      {
+        "offset": 7261412,
+        "header_offset": 7261408,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "誰かに相談しましょうよ",
+        "translation": "누군가에게 상담하자"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0066",
+    "cluster_index": 19,
+    "run_index": 66,
+    "dialogue_state_token": "1bff:0900",
+    "record_count": 1,
+    "offsets": [
+      7261458
+    ],
+    "source_text": "そうだな、そうするか！",
+    "translation_text": "그래, 그렇게 하자!",
+    "records": [
+      {
+        "offset": 7261458,
+        "header_offset": 7261454,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 20,
+        "text": "そうだな、そうするか！",
+        "translation": "그래, 그렇게 하자!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0067",
+    "cluster_index": 19,
+    "run_index": 67,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7261486
+    ],
+    "source_text": "それならヒューズ中佐だな",
+    "translation_text": "그렇다면 휴즈 중령이지",
+    "records": [
+      {
+        "offset": 7261486,
+        "header_offset": 7261482,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 2,
+        "text": "それならヒューズ中佐だな",
+        "translation": "그렇다면 휴즈 중령이지"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0068",
+    "cluster_index": 19,
+    "run_index": 68,
+    "dialogue_state_token": "1bff:0C80",
+    "record_count": 1,
+    "offsets": [
+      7261534
+    ],
+    "source_text": "じゃあ、ヒューズ中佐に",
+    "translation_text": "그럼 휴즈 중령을",
+    "records": [
+      {
+        "offset": 7261534,
+        "header_offset": 7261530,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 20,
+        "text": "じゃあ、ヒューズ中佐に",
+        "translation": "그럼 휴즈 중령을"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_19_run_0069",
+    "cluster_index": 19,
+    "run_index": 69,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7261562
+    ],
+    "source_text": "会いに行こう！",
+    "translation_text": "만나러 가자!",
+    "records": [
+      {
+        "offset": 7261562,
+        "header_offset": 7261558,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "会いに行こう！",
+        "translation": "만나러 가자!"
+      }
+    ],
+    "notes": ""
+  }
+]

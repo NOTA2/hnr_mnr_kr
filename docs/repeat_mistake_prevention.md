@@ -37,12 +37,19 @@
 - `01 FF <char_count>` 계열 command-stream 문자열은 payload만 바꾸면 안 된다. review/build 경로에서도 `header_offset`, `prefix`, `char_count` 메타데이터를 끝까지 전달해 **헤더 글자수까지 함께 갱신**해야 한다.
 - workbench dataset 재생성과 review ROM 빌드는 병렬로 돌리지 않는다. dataset이 먼저 갱신된 뒤 review ROM을 **순차적으로** 빌드해야 오래된 번역이 다시 들어가지 않는다.
 - review ROM의 실제 적용 우선순위는 `manual_locked translation -> translation -> agent_draft -> original` 이다. `agent_draft` 가 `translation` 보다 앞서면, 길이 검증을 통과한 최종 번역이 다시 에이전트 초안으로 되돌아가 같은 문제를 반복할 수 있다.
+- `battle_texts`/`ability_texts`/`material_texts` 의 `0x0B` 설명문에서 앞줄 이름 필드 여백을 버리지 않는다. 남는 폭이 있으면 조사/목적어/동사 조각을 앞줄에 넣어 자연스럽게 만든다. 예: `오토메일검을\x0b연성해 공격`, `벽을 연성해\x0b상대 공격`.
+- 2줄 설명창은 윗줄을 먼저 채운다. `창을\x0b연성해 공격` 처럼 아랫줄이 길어 보이면, byte 와 첫 줄 표시 폭이 허용하는 한 `창을 연성해\x0b공격` 으로 바꾼다.
+- 위 규칙은 수동 공백 패딩을 넣으라는 뜻이 아니다. 번역문에는 실제 글자만 추가하고, `0x0B` 앞 최종 padding 은 `translation_normalization.py` 와 ROM 빌드 경로가 원문 폭 기준으로 복원하게 둔다.
+- 영문 약어/버튼 표기는 반각 ASCII 로 남기지 않는다. 화면에서 `H`, `P` 같은 반각 영문 glyph 가 누락될 수 있으므로 `HP`, `AS`, `R 버튼` 대신 `ＨＰ`, `ＡＳ`, `Ｒ 버튼` 같은 **전각 영문**을 사용한다.
+- 일본어/한자 자체를 제외한 원문 특수기호와 문장부호는 가능한 한 원문 형태를 유지한다. 단, 반각/전각 정책은 source family 별로 다르다. `Registry D`, 코어 UI, 게임 용어에서 이미 쓰인 반각은 보존하고, `Entry8`, 이벤트 연출 텍스트, 오프닝/세이브/선택지 계열은 전각 우선으로 둔다. 인명/고유명사 내부의 일본식 중점 `・`는 한국어에서 띄어쓰기로 바꾸고, `・・・` 말줄임표나 숫자 사이의 `・`는 보존한다.
+- 반각 사용 가능성을 전역 규칙으로 단정하지 않는다. `Registry D` 는 packed relocation 과 반각 사용이 가능하고, 코어 UI/게임 용어는 현재 데이터의 반각 사용을 존중한다. `Entry8` 과 `inline_event_texts` 는 테스트상 반각 공백/기호가 불안정하므로 전각으로 맞춘다.
 - `01 FF <char_count>` counted command-stream 계열은 일반 종단 문자열처럼 다루지 않는다. 특히 `save_menu_texts` 는:
   - terminator 를 새로 붙이지 않는다.
   - 번역문이 짧아도 `char_count` 를 줄여 command-stream 경계를 앞으로 당기지 않는다.
   - 원래 문자 수를 유지하도록 전각 공백으로 패딩한 뒤 같은 byte span 안에 덮어쓴다.
   - 반각 ASCII 공백/기호를 넣지 않는다.
-- review ROM 전체 재빌드는 기본적으로 **검증된 source group** 만 포함한다. `entry8` / `Registry D` 같은 runtime 대사 family 는 구조가 완전히 닫히기 전까지 명시적으로 허용하지 않으면 review ROM에 넣지 않는다.
+- review ROM 전체 재빌드는 `default_review_included` 와 source family 별 삽입 지원 상태를 따른다. `Registry D` 는 packed relocation 이 적용되어 기본 review ROM에 포함할 수 있지만, `entry8` 같은 counted 대사 family 는 별도 지원이 생기기 전까지 source 규칙을 다시 확인한다.
+- `confirmed_data/localization_workbench/workbench_dataset.json` 는 **편집용 캐시**이지 번역의 source-of-truth 가 아니다. dataset 재생성 시 기존 dataset 값이 `confirmed_data/translation_worksets/*.json` 의 최신 번역을 다시 덮어쓰지 않도록 한다.
 
 ## 작업 전 최소 체크
 

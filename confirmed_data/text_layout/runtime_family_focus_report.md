@@ -4,7 +4,7 @@
 
 ## High priority
 
-- `registry_d_fc_script_texts` -> `registry_d_fc_stop_script_line` (risk=high, candidate=shared_text_object_r3_20)
+- `registry_d_fc_script_texts` -> `registry_d_fc_stop_script_line` (risk=medium, candidate=shared_text_object_r3_20)
 - `registry_a_entry8_prefixed_texts` -> `entry8_prefixed_01ff_script_line` (risk=high, candidate=shared_text_object_r3_20)
 
 ## Medium priority
@@ -24,7 +24,9 @@
 
 ## Reading
 
-- High priority items are the real remaining blockers for dialogue/page-flow stability.
-- Medium/low groups are structurally extracted and can already be translated conservatively.
+- High priority items are runtime QA focus areas, not automatically byte-slot blockers.
+- `registry_d_fc_script_texts` supports packed relocation, so translate naturally and validate line width/page-flow visually.
+- `registry_a_entry8_prefixed_texts` is still a counted script family without equivalent packed relocation, so keep it concise.
+- Medium/low groups are structurally extracted and can already be translated with source-family-specific constraints.
 - `system_messages` / `save_menu` are operationally bounded: residual uncertainty remains, but they are no longer treated as major runtime blockers.
 - This report is meant to keep runtime-family work focused instead of treating all unresolved families as equally risky.

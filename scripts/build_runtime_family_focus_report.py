@@ -35,10 +35,14 @@ def main() -> None:
 
     report = {
         "version": 1,
-        "last_updated": "2026-05-17",
+        "last_updated": "2026-05-18",
         "structural_extraction_status": audit.get("structural_extraction_status"),
         "runtime_resolution_scope": audit.get("runtime_resolution_scope"),
-        "operational_note": "system_messages/save_menu are now treated as operationally bounded rather than major blockers.",
+        "operational_note": (
+            "Registry D is no longer byte-slot blocked because packed relocation is supported; "
+            "its remaining focus is visual page-flow QA. system_messages/save_menu are now "
+            "treated as operationally bounded rather than major blockers."
+        ),
         "priority_buckets": buckets,
     }
     OUTPUT_JSON.write_text(json.dumps(report, ensure_ascii=False, indent=2) + "\n")
@@ -72,8 +76,10 @@ def main() -> None:
         "",
         "## Reading",
         "",
-        "- High priority items are the real remaining blockers for dialogue/page-flow stability.",
-        "- Medium/low groups are structurally extracted and can already be translated conservatively.",
+        "- High priority items are runtime QA focus areas, not automatically byte-slot blockers.",
+        "- `registry_d_fc_script_texts` supports packed relocation, so translate naturally and validate line width/page-flow visually.",
+        "- `registry_a_entry8_prefixed_texts` is still a counted script family without equivalent packed relocation, so keep it concise.",
+        "- Medium/low groups are structurally extracted and can already be translated with source-family-specific constraints.",
         "- `system_messages` / `save_menu` are operationally bounded: residual uncertainty remains, but they are no longer treated as major runtime blockers.",
         "- This report is meant to keep runtime-family work focused instead of treating all unresolved families as equally risky.",
         "",

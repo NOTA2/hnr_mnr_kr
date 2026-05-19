@@ -97,34 +97,34 @@ def build() -> dict:
             "focus_cluster_count": len(heavy_clusters),
             "recommended_audit_order": heavy_clusters[:12],
             "current_reading": [
-                "Entry8 page-flow work should focus first on chain-heavy clusters with many multi-record runs, because that is where external sequencing pressure is highest.",
-                "Clusters dominated by null-token multi-runs are especially strong candidates for script-driven chaining rather than self-contained one-record boxes.",
+                "Entry8 page-flow 작업은 multi-record run 이 많은 chain-heavy cluster 를 먼저 봐야 한다. 그 구간이 외부 script 연쇄 압력이 가장 높기 때문이다.",
+                "null-token multi-run 비중이 큰 cluster 는 독립 one-record 박스보다 script-driven chaining 후보일 가능성이 높다.",
             ],
         },
         "registry_d_focus": {
             "long_multiline_focus_count": len(long_runs),
             "recommended_audit_order": long_runs,
             "current_reading": [
-                "Registry D page-flow work should focus first on the very small long-multiline tier.",
-                "The rest of Registry D is already narrow enough that translation can proceed conservatively with newline preservation.",
+                "Registry D page-flow 작업은 아주 작은 장문 multiline 계층부터 먼저 보면 된다.",
+                "나머지 Registry D 는 packed relocation 으로 길이 적용은 가능하므로, 자연스러운 번역을 진행하고 개행/page-flow 는 QA 로 조정한다.",
             ],
         },
         "operational_reading": [
-            "This file is the practical next-step layer above the general family/subprofile reports.",
-            "Use it to decide which concrete entry8 clusters and Registry D runs deserve runtime/page QA first.",
+            "이 파일은 일반 family/subprofile 보고서보다 한 단계 더 실무적인 다음 작업용 레이어다.",
+            "어떤 entry8 cluster 와 Registry D run 을 먼저 runtime/page QA 해야 하는지 정할 때 쓴다.",
         ],
     }
 
 
 def render_md(data: dict) -> str:
     lines = [
-        "# Runtime Pageflow Focus",
+        "# runtime pageflow 집중 대상",
         "",
-        f"- last_updated: `{data['last_updated']}`",
+        f"- 마지막 갱신: `{data['last_updated']}`",
         "",
-        "## Entry8 Focus",
+        "## Entry8 집중 대상",
         "",
-        f"- focus_cluster_count: `{data['entry8_focus']['focus_cluster_count']}`",
+        f"- focus cluster 수: `{data['entry8_focus']['focus_cluster_count']}`",
         "",
     ]
     for item in data["entry8_focus"]["recommended_audit_order"][:10]:
@@ -132,23 +132,23 @@ def render_md(data: dict) -> str:
             f"- cluster `{item['cluster_index']}` `{item['primary_tag']}` "
             f"(`records={item['record_count']}`, `runs={item['run_count']}`, `{item['focus_reason']}`)"
         )
-    lines.extend(["", "### Entry8 Reading", ""])
+    lines.extend(["", "### Entry8 해석", ""])
     for note in data["entry8_focus"]["current_reading"]:
         lines.append(f"- {note}")
 
-    lines.extend(["", "## Registry D Focus", ""])
-    lines.append(f"- long_multiline_focus_count: `{data['registry_d_focus']['long_multiline_focus_count']}`")
+    lines.extend(["", "## Registry D 집중 대상", ""])
+    lines.append(f"- 장문 multiline focus 수: `{data['registry_d_focus']['long_multiline_focus_count']}`")
     lines.append("")
     for item in data["registry_d_focus"]["recommended_audit_order"]:
         lines.append(
             f"- run `{item['focus_index']}` token `{item['dialogue_state_token']}` "
             f"(`records={item['record_count']}`, `chars={item['max_chars']}`, `newlines={item['max_explicit_newlines']}`)"
         )
-    lines.extend(["", "### Registry D Reading", ""])
+    lines.extend(["", "### Registry D 해석", ""])
     for note in data["registry_d_focus"]["current_reading"]:
         lines.append(f"- {note}")
 
-    lines.extend(["", "## Operational Reading", ""])
+    lines.extend(["", "## 현재 해석", ""])
     for note in data["operational_reading"]:
         lines.append(f"- {note}")
     lines.append("")

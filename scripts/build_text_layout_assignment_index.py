@@ -60,11 +60,13 @@ def build_index() -> dict:
             "runtime_candidate_family": "shared_text_object_r3_20",
             "runtime_profile": "multiline_fc_delimited_dialogue",
             "runtime_resolution_priority": "high",
-            "translation_risk": "high",
+            "translation_risk": "medium",
             "notes": [
                 "FC stop-byte delimited script lines are objectively extracted.",
                 "Record boundary/control-stream handling is no longer unknown.",
+                "Insertion now supports packed Registry D entry relocation: affected entries are appended to expanded ROM space and the 0x17C7E4 pointer-length table is updated.",
                 "Runtime behavior is now narrowed to a multiline payload profile on the shared r3=20 candidate family.",
+                "Translations do not need to fit the original byte slot, but visual line width/page-turn QA is still required.",
             ],
         },
         "registry_a_entry8_prefixed_texts": {
@@ -107,7 +109,7 @@ def build_index() -> dict:
             "translation_risk": "low",
             "notes": [
                 "Plain 0x00-terminated battle term/description records are objective.",
-                "Some description rows contain inline 0x0B separators and ideographic padding that must be preserved.",
+                "Some description rows contain inline 0x0B separators; Korean insertion treats them as logical name/description splits and restores the fixed-width name-field padding from the source record.",
                 "Runtime battle box family is still unresolved.",
             ],
         },
@@ -118,7 +120,7 @@ def build_index() -> dict:
             "translation_risk": "low",
             "notes": [
                 "Plain 0x00-terminated term/description records are objective.",
-                "Many rows contain inline 0x0B separators and ideographic padding that must be preserved.",
+                "Many rows contain inline 0x0B separators; Korean insertion treats them as logical name/description splits and restores the fixed-width name-field padding from the source record.",
                 "Runtime display family is still unresolved.",
             ],
         },
@@ -140,7 +142,7 @@ def build_index() -> dict:
             "translation_risk": "low",
             "notes": [
                 "Gameplay/item-adjacent short plain records are objective.",
-                "Display family remains unresolved, so translations should stay concise.",
+                "Display family remains unresolved and this source does not yet have packed bank relocation, so use the expansion audit: keep fixed/exact records within byte limits, but use available slack for clearer terms.",
             ],
         },
         "credits_texts": {
@@ -206,6 +208,7 @@ def build_index() -> dict:
             "runtime_profile": "multiline_fc_delimited_dialogue",
             "notes": [
                 "Record boundary/control-stream handling is confirmed at the FC stop-byte level.",
+                "The build pipeline can relocate/repack Registry D entries, so translations may be longer than the original in-place payload.",
                 "Runtime behavior is narrowed to a multiline payload profile, but visual page-turn behavior still needs confirmation.",
             ],
         },
@@ -238,16 +241,17 @@ def build_index() -> dict:
 
     return {
         "version": 1,
-        "last_updated": "2026-05-17",
+        "last_updated": "2026-05-18",
         "source_assignments": source_assignments,
         "workset_assignments": workset_assignments,
         "workspace_priority_worksets": workspace_index.get("priority_worksets", []),
         "usage_note": [
             "Use source_group-specific layout families first.",
             "When a workset is mixed, do not invent a single global char limit.",
-            "Partially confirmed record-structure families still need concise translation until runtime box/page family is confirmed.",
+            "Do not apply one global 'keep it short' rule: fixed-slot/UI/counting families and packed-relocatable dialogue families have different constraints.",
             "Entry8 and Registry D are no longer one shared unresolved blob: treat them as different runtime payload profiles even though both point to the shared r3=20 candidate family.",
-            "Even when record structure is objective, unresolved runtime families should stay concise until runtime family mapping is confirmed.",
+            "Registry D can exceed original byte slots through packed relocation; keep meaning natural and use QA to tune line breaks/page flow.",
+            "Entry8, fixed slots, and unresolved UI/term banks should stay concise until equivalent packed relocation or runtime family mapping is confirmed.",
         ],
     }
 

@@ -1,0 +1,591 @@
+{
+  "source": "confirmed_data/dialogue_metadata/entry8_dialogue_state_runs.json",
+  "cluster_manifest": "confirmed_data/translation_workspace/registry_a_entry8_clusters_manifest.json",
+  "output_dir": "confirmed_data/translation_workspace/registry_a_entry8_runs",
+  "cluster_count": 72,
+  "run_count": 5610,
+  "record_count": 9823,
+  "multi_record_run_count": 1511,
+  "clusters": [
+    {
+      "cluster_index": 0,
+      "primary_tag": "liore",
+      "run_count": 122,
+      "record_count": 232,
+      "multi_record_run_count": 27,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_00_liore_runs.json"
+    },
+    {
+      "cluster_index": 1,
+      "primary_tag": "liore",
+      "run_count": 83,
+      "record_count": 122,
+      "multi_record_run_count": 19,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_01_liore_runs.json"
+    },
+    {
+      "cluster_index": 2,
+      "primary_tag": "liore",
+      "run_count": 18,
+      "record_count": 45,
+      "multi_record_run_count": 7,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_02_liore_runs.json"
+    },
+    {
+      "cluster_index": 3,
+      "primary_tag": "liore",
+      "run_count": 24,
+      "record_count": 53,
+      "multi_record_run_count": 8,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_03_liore_runs.json"
+    },
+    {
+      "cluster_index": 4,
+      "primary_tag": "bank",
+      "run_count": 37,
+      "record_count": 119,
+      "multi_record_run_count": 8,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_04_bank_runs.json"
+    },
+    {
+      "cluster_index": 5,
+      "primary_tag": "east_city",
+      "run_count": 37,
+      "record_count": 84,
+      "multi_record_run_count": 19,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_05_east_city_runs.json"
+    },
+    {
+      "cluster_index": 6,
+      "primary_tag": "bank",
+      "run_count": 49,
+      "record_count": 64,
+      "multi_record_run_count": 10,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_06_bank_runs.json"
+    },
+    {
+      "cluster_index": 7,
+      "primary_tag": "east_city",
+      "run_count": 20,
+      "record_count": 63,
+      "multi_record_run_count": 6,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_07_east_city_runs.json"
+    },
+    {
+      "cluster_index": 8,
+      "primary_tag": "cat_quest",
+      "run_count": 35,
+      "record_count": 84,
+      "multi_record_run_count": 14,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_08_cat_quest_runs.json"
+    },
+    {
+      "cluster_index": 9,
+      "primary_tag": "reward",
+      "run_count": 107,
+      "record_count": 155,
+      "multi_record_run_count": 31,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_09_reward_runs.json"
+    },
+    {
+      "cluster_index": 10,
+      "primary_tag": "east_city",
+      "run_count": 66,
+      "record_count": 135,
+      "multi_record_run_count": 19,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_10_east_city_runs.json"
+    },
+    {
+      "cluster_index": 11,
+      "primary_tag": "central",
+      "run_count": 89,
+      "record_count": 258,
+      "multi_record_run_count": 30,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_11_central_runs.json"
+    },
+    {
+      "cluster_index": 12,
+      "primary_tag": "cat_quest",
+      "run_count": 7,
+      "record_count": 15,
+      "multi_record_run_count": 3,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_12_cat_quest_runs.json"
+    },
+    {
+      "cluster_index": 13,
+      "primary_tag": "central",
+      "run_count": 75,
+      "record_count": 105,
+      "multi_record_run_count": 17,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_13_central_runs.json"
+    },
+    {
+      "cluster_index": 14,
+      "primary_tag": "central",
+      "run_count": 52,
+      "record_count": 102,
+      "multi_record_run_count": 15,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_14_central_runs.json"
+    },
+    {
+      "cluster_index": 15,
+      "primary_tag": "central",
+      "run_count": 4,
+      "record_count": 52,
+      "multi_record_run_count": 1,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_15_central_runs.json"
+    },
+    {
+      "cluster_index": 16,
+      "primary_tag": "armor_parts",
+      "run_count": 56,
+      "record_count": 155,
+      "multi_record_run_count": 17,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_16_armor_parts_runs.json"
+    },
+    {
+      "cluster_index": 17,
+      "primary_tag": "central",
+      "run_count": 38,
+      "record_count": 101,
+      "multi_record_run_count": 15,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_17_central_runs.json"
+    },
+    {
+      "cluster_index": 18,
+      "primary_tag": "east_city",
+      "run_count": 314,
+      "record_count": 523,
+      "multi_record_run_count": 91,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_18_east_city_runs.json"
+    },
+    {
+      "cluster_index": 19,
+      "primary_tag": "military",
+      "run_count": 70,
+      "record_count": 155,
+      "multi_record_run_count": 23,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_19_military_runs.json"
+    },
+    {
+      "cluster_index": 20,
+      "primary_tag": "central",
+      "run_count": 138,
+      "record_count": 325,
+      "multi_record_run_count": 44,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_20_central_runs.json"
+    },
+    {
+      "cluster_index": 21,
+      "primary_tag": "central",
+      "run_count": 25,
+      "record_count": 86,
+      "multi_record_run_count": 7,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_21_central_runs.json"
+    },
+    {
+      "cluster_index": 22,
+      "primary_tag": "east_city",
+      "run_count": 3,
+      "record_count": 20,
+      "multi_record_run_count": 2,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_22_east_city_runs.json"
+    },
+    {
+      "cluster_index": 23,
+      "primary_tag": "hospital",
+      "run_count": 6,
+      "record_count": 38,
+      "multi_record_run_count": 3,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_23_hospital_runs.json"
+    },
+    {
+      "cluster_index": 24,
+      "primary_tag": "hospital",
+      "run_count": 1,
+      "record_count": 9,
+      "multi_record_run_count": 1,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_24_hospital_runs.json"
+    },
+    {
+      "cluster_index": 25,
+      "primary_tag": "hospital",
+      "run_count": 11,
+      "record_count": 23,
+      "multi_record_run_count": 3,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_25_hospital_runs.json"
+    },
+    {
+      "cluster_index": 26,
+      "primary_tag": "central",
+      "run_count": 167,
+      "record_count": 274,
+      "multi_record_run_count": 45,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_26_central_runs.json"
+    },
+    {
+      "cluster_index": 27,
+      "primary_tag": "armor_parts",
+      "run_count": 4,
+      "record_count": 59,
+      "multi_record_run_count": 2,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_27_armor_parts_runs.json"
+    },
+    {
+      "cluster_index": 28,
+      "primary_tag": "central",
+      "run_count": 54,
+      "record_count": 148,
+      "multi_record_run_count": 21,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_28_central_runs.json"
+    },
+    {
+      "cluster_index": 29,
+      "primary_tag": "cat_quest",
+      "run_count": 6,
+      "record_count": 9,
+      "multi_record_run_count": 2,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_29_cat_quest_runs.json"
+    },
+    {
+      "cluster_index": 30,
+      "primary_tag": "central",
+      "run_count": 30,
+      "record_count": 59,
+      "multi_record_run_count": 9,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_30_central_runs.json"
+    },
+    {
+      "cluster_index": 31,
+      "primary_tag": "liore",
+      "run_count": 1,
+      "record_count": 15,
+      "multi_record_run_count": 1,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_31_liore_runs.json"
+    },
+    {
+      "cluster_index": 32,
+      "primary_tag": "central",
+      "run_count": 35,
+      "record_count": 138,
+      "multi_record_run_count": 11,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_32_central_runs.json"
+    },
+    {
+      "cluster_index": 33,
+      "primary_tag": "shop_npc",
+      "run_count": 3,
+      "record_count": 9,
+      "multi_record_run_count": 2,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_33_shop_npc_runs.json"
+    },
+    {
+      "cluster_index": 34,
+      "primary_tag": "military",
+      "run_count": 115,
+      "record_count": 166,
+      "multi_record_run_count": 33,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_34_military_runs.json"
+    },
+    {
+      "cluster_index": 35,
+      "primary_tag": "central",
+      "run_count": 95,
+      "record_count": 137,
+      "multi_record_run_count": 24,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_35_central_runs.json"
+    },
+    {
+      "cluster_index": 36,
+      "primary_tag": "east_city",
+      "run_count": 64,
+      "record_count": 109,
+      "multi_record_run_count": 17,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_36_east_city_runs.json"
+    },
+    {
+      "cluster_index": 37,
+      "primary_tag": "tutorial",
+      "run_count": 50,
+      "record_count": 66,
+      "multi_record_run_count": 13,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_37_tutorial_runs.json"
+    },
+    {
+      "cluster_index": 38,
+      "primary_tag": "central",
+      "run_count": 589,
+      "record_count": 786,
+      "multi_record_run_count": 131,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_38_central_runs.json"
+    },
+    {
+      "cluster_index": 39,
+      "primary_tag": "military",
+      "run_count": 82,
+      "record_count": 123,
+      "multi_record_run_count": 26,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_39_military_runs.json"
+    },
+    {
+      "cluster_index": 40,
+      "primary_tag": "military",
+      "run_count": 11,
+      "record_count": 57,
+      "multi_record_run_count": 2,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_40_military_runs.json"
+    },
+    {
+      "cluster_index": 41,
+      "primary_tag": "east_city",
+      "run_count": 176,
+      "record_count": 306,
+      "multi_record_run_count": 37,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_41_east_city_runs.json"
+    },
+    {
+      "cluster_index": 42,
+      "primary_tag": "central",
+      "run_count": 103,
+      "record_count": 154,
+      "multi_record_run_count": 26,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_42_central_runs.json"
+    },
+    {
+      "cluster_index": 43,
+      "primary_tag": "east_city",
+      "run_count": 127,
+      "record_count": 173,
+      "multi_record_run_count": 32,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_43_east_city_runs.json"
+    },
+    {
+      "cluster_index": 44,
+      "primary_tag": "military",
+      "run_count": 120,
+      "record_count": 150,
+      "multi_record_run_count": 25,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_44_military_runs.json"
+    },
+    {
+      "cluster_index": 45,
+      "primary_tag": "military",
+      "run_count": 92,
+      "record_count": 115,
+      "multi_record_run_count": 22,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_45_military_runs.json"
+    },
+    {
+      "cluster_index": 46,
+      "primary_tag": "military",
+      "run_count": 112,
+      "record_count": 155,
+      "multi_record_run_count": 27,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_46_military_runs.json"
+    },
+    {
+      "cluster_index": 47,
+      "primary_tag": "military",
+      "run_count": 145,
+      "record_count": 187,
+      "multi_record_run_count": 34,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_47_military_runs.json"
+    },
+    {
+      "cluster_index": 48,
+      "primary_tag": "reward",
+      "run_count": 61,
+      "record_count": 71,
+      "multi_record_run_count": 10,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_48_reward_runs.json"
+    },
+    {
+      "cluster_index": 49,
+      "primary_tag": "east_city",
+      "run_count": 29,
+      "record_count": 50,
+      "multi_record_run_count": 10,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_49_east_city_runs.json"
+    },
+    {
+      "cluster_index": 50,
+      "primary_tag": "military",
+      "run_count": 109,
+      "record_count": 178,
+      "multi_record_run_count": 21,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_50_military_runs.json"
+    },
+    {
+      "cluster_index": 51,
+      "primary_tag": "unclassified",
+      "run_count": 22,
+      "record_count": 43,
+      "multi_record_run_count": 6,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_51_unclassified_runs.json"
+    },
+    {
+      "cluster_index": 52,
+      "primary_tag": "cat_quest",
+      "run_count": 142,
+      "record_count": 232,
+      "multi_record_run_count": 38,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_52_cat_quest_runs.json"
+    },
+    {
+      "cluster_index": 53,
+      "primary_tag": "military",
+      "run_count": 142,
+      "record_count": 184,
+      "multi_record_run_count": 28,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_53_military_runs.json"
+    },
+    {
+      "cluster_index": 54,
+      "primary_tag": "reward",
+      "run_count": 35,
+      "record_count": 53,
+      "multi_record_run_count": 11,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_54_reward_runs.json"
+    },
+    {
+      "cluster_index": 55,
+      "primary_tag": "east_city",
+      "run_count": 342,
+      "record_count": 438,
+      "multi_record_run_count": 80,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_55_east_city_runs.json"
+    },
+    {
+      "cluster_index": 56,
+      "primary_tag": "military",
+      "run_count": 27,
+      "record_count": 51,
+      "multi_record_run_count": 11,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_56_military_runs.json"
+    },
+    {
+      "cluster_index": 57,
+      "primary_tag": "bank",
+      "run_count": 53,
+      "record_count": 87,
+      "multi_record_run_count": 16,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_57_bank_runs.json"
+    },
+    {
+      "cluster_index": 58,
+      "primary_tag": "military",
+      "run_count": 90,
+      "record_count": 143,
+      "multi_record_run_count": 25,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_58_military_runs.json"
+    },
+    {
+      "cluster_index": 59,
+      "primary_tag": "military",
+      "run_count": 94,
+      "record_count": 166,
+      "multi_record_run_count": 29,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_59_military_runs.json"
+    },
+    {
+      "cluster_index": 60,
+      "primary_tag": "military",
+      "run_count": 55,
+      "record_count": 82,
+      "multi_record_run_count": 19,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_60_military_runs.json"
+    },
+    {
+      "cluster_index": 61,
+      "primary_tag": "military",
+      "run_count": 274,
+      "record_count": 483,
+      "multi_record_run_count": 83,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_61_military_runs.json"
+    },
+    {
+      "cluster_index": 62,
+      "primary_tag": "central",
+      "run_count": 191,
+      "record_count": 291,
+      "multi_record_run_count": 42,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_62_central_runs.json"
+    },
+    {
+      "cluster_index": 63,
+      "primary_tag": "bank",
+      "run_count": 4,
+      "record_count": 19,
+      "multi_record_run_count": 2,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_63_bank_runs.json"
+    },
+    {
+      "cluster_index": 64,
+      "primary_tag": "bank",
+      "run_count": 4,
+      "record_count": 20,
+      "multi_record_run_count": 1,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_64_bank_runs.json"
+    },
+    {
+      "cluster_index": 65,
+      "primary_tag": "tutorial",
+      "run_count": 9,
+      "record_count": 13,
+      "multi_record_run_count": 2,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_65_tutorial_runs.json"
+    },
+    {
+      "cluster_index": 66,
+      "primary_tag": "military",
+      "run_count": 16,
+      "record_count": 27,
+      "multi_record_run_count": 4,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_66_military_runs.json"
+    },
+    {
+      "cluster_index": 67,
+      "primary_tag": "unclassified",
+      "run_count": 2,
+      "record_count": 7,
+      "multi_record_run_count": 1,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_67_unclassified_runs.json"
+    },
+    {
+      "cluster_index": 68,
+      "primary_tag": "tutorial",
+      "run_count": 14,
+      "record_count": 23,
+      "multi_record_run_count": 3,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_68_tutorial_runs.json"
+    },
+    {
+      "cluster_index": 69,
+      "primary_tag": "military",
+      "run_count": 69,
+      "record_count": 147,
+      "multi_record_run_count": 26,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_69_military_runs.json"
+    },
+    {
+      "cluster_index": 70,
+      "primary_tag": "military",
+      "run_count": 113,
+      "record_count": 257,
+      "multi_record_run_count": 46,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_70_military_runs.json"
+    },
+    {
+      "cluster_index": 71,
+      "primary_tag": "save_menu",
+      "run_count": 45,
+      "record_count": 240,
+      "multi_record_run_count": 15,
+      "output_file": "confirmed_data/translation_workspace/registry_a_entry8_runs/cluster_71_save_menu_runs.json"
+    }
+  ],
+  "notes": [
+    "Entry8 조각 레코드를 dialogue_state run 단위로 묶은 번역 QA 산출물이다.",
+    "ROM 삽입은 Registry A entry 8 packed relocation 이 담당하고, 이 파일들은 박스/체인 단위 검수에 쓴다."
+  ]
+}

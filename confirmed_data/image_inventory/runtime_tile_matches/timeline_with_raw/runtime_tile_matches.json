@@ -1,0 +1,136 @@
+[
+  {
+    "frame": "frame_000600",
+    "charblock": 2,
+    "vram_offset": 32768,
+    "tile_count": 512,
+    "nonblank_tile_count": 231,
+    "matches": [
+      {
+        "score": 417.0553,
+        "shared_tiles": 141,
+        "longest_contiguous_tile_run": 17,
+        "runtime_coverage": 0.6104,
+        "candidate_coverage": 0.3456,
+        "source": "lz77",
+        "candidate_index": 48,
+        "offset": 4518016,
+        "rom_address": 138735744,
+        "decompressed_size": 21504,
+        "compressed_size": 7492,
+        "candidate_tile_count": 672,
+        "candidate_nonblank_tile_count": 408,
+        "raw_path": "confirmed_data/image_inventory/global_tile_extraction/lz77_raw/0048_off_0044F080_size_005400.bin",
+        "preview_path": "confirmed_data/image_inventory/global_tile_extraction/lz77_pgm/0048_off_0044F080_size_005400.pgm"
+      }
+    ]
+  },
+  {
+    "frame": "frame_000600",
+    "charblock": 3,
+    "vram_offset": 49152,
+    "tile_count": 512,
+    "nonblank_tile_count": 107,
+    "matches": []
+  },
+  {
+    "frame": "frame_001200",
+    "charblock": 0,
+    "vram_offset": 0,
+    "tile_count": 512,
+    "nonblank_tile_count": 429,
+    "matches": []
+  },
+  {
+    "frame": "frame_001200",
+    "charblock": 2,
+    "vram_offset": 32768,
+    "tile_count": 512,
+    "nonblank_tile_count": 479,
+    "matches": [
+      {
+        "score": 53.8527,
+        "shared_tiles": 14,
+        "longest_contiguous_tile_run": 4,
+        "runtime_coverage": 0.0292,
+        "candidate_coverage": 0.0273,
+        "source": "raw",
+        "candidate_index": 506,
+        "offset": 8273920,
+        "rom_address": 142491648,
+        "decompressed_size": 16384,
+        "compressed_size": 0,
+        "candidate_tile_count": 512,
+        "candidate_nonblank_tile_count": 512,
+        "raw_path": "confirmed_data/image_inventory/global_tile_extraction/raw_windows/0506_off_007E4000_len_004000.bin",
+        "preview_path": "confirmed_data/image_inventory/global_tile_extraction/raw_pgm/0506_off_007E4000_len_004000.pgm"
+      }
+    ]
+  },
+  {
+    "frame": "frame_001200",
+    "charblock": 3,
+    "vram_offset": 49152,
+    "tile_count": 512,
+    "nonblank_tile_count": 199,
+    "matches": []
+  },
+  {
+    "frame": "frame_001200",
+    "charblock": 4,
+    "vram_offset": 65536,
+    "tile_count": 512,
+    "nonblank_tile_count": 60,
+    "matches": []
+  },
+  {
+    "frame": "frame_002400",
+    "charblock": 0,
+    "vram_offset": 0,
+    "tile_count": 512,
+    "nonblank_tile_count": 429,
+    "matches": []
+  },
+  {
+    "frame": "frame_002400",
+    "charblock": 2,
+    "vram_offset": 32768,
+    "tile_count": 512,
+    "nonblank_tile_count": 479,
+    "matches": [
+      {
+        "score": 53.8527,
+        "shared_tiles": 14,
+        "longest_contiguous_tile_run": 4,
+        "runtime_coverage": 0.0292,
+        "candidate_coverage": 0.0273,
+        "source": "raw",
+        "candidate_index": 506,
+        "offset": 8273920,
+        "rom_address": 142491648,
+        "decompressed_size": 16384,
+        "compressed_size": 0,
+        "candidate_tile_count": 512,
+        "candidate_nonblank_tile_count": 512,
+        "raw_path": "confirmed_data/image_inventory/global_tile_extraction/raw_windows/0506_off_007E4000_len_004000.bin",
+        "preview_path": "confirmed_data/image_inventory/global_tile_extraction/raw_pgm/0506_off_007E4000_len_004000.pgm"
+      }
+    ]
+  },
+  {
+    "frame": "frame_002400",
+    "charblock": 3,
+    "vram_offset": 49152,
+    "tile_count": 512,
+    "nonblank_tile_count": 199,
+    "matches": []
+  },
+  {
+    "frame": "frame_002400",
+    "charblock": 4,
+    "vram_offset": 65536,
+    "tile_count": 512,
+    "nonblank_tile_count": 60,
+    "matches": []
+  }
+]

@@ -106,7 +106,11 @@ def resolve_target(record: dict, by_item_id: dict[str, dict], by_offset_source: 
 def merge_record(target: dict, record: dict) -> str:
     translation = record.get("translation", "")
     if translation:
-        translation = normalize_translation_text(translation)
+        translation = normalize_translation_text(
+            translation,
+            source_group=target.get("source_group"),
+            reference_text=target.get("text"),
+        )
     comment = record.get("agent_comment") or record.get("notes") or ""
 
     if target.get("manual_locked"):

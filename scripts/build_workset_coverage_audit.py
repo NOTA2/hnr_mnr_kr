@@ -23,6 +23,7 @@ SOURCE_MAP = [
     ("system_messages", "system_messages", "translation_workset_core_ui", "full_expected"),
     ("save_menu_prefixed_texts", "save_menu_texts", "translation_workset_core_ui", "full_expected"),
     ("location_texts", "location_texts", "translation_workset_core_ui", "full_expected"),
+    ("registry_a_map_labels", "registry_a_map_labels", "translation_workset_core_ui", "full_expected"),
     ("ui_skill_texts", "ui_skill_texts", "translation_workset_core_ui", "full_expected"),
     ("item_texts", "item_texts", "translation_workset_gameplay_terms", "full_expected"),
     ("material_texts", "material_texts", "translation_workset_gameplay_terms", "full_expected"),

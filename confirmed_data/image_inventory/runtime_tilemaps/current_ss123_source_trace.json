@@ -1,0 +1,127 @@
+{
+  "summary": "Current ss1/ss2/ss3 tilemap source trace. Tilemap PNGs are analysis maps; actionable replacements require ROM source blocks or text renderer sources.",
+  "scenes": [
+    {
+      "scene": "no_entry8_latest_ss1",
+      "layer": "BG0",
+      "visible_text": "エド式… / 錬成 / つかう / すてる / もどる",
+      "raw_tilemap_rom_hits": [],
+      "graphics_matches": [
+        {
+          "source": "rle",
+          "offset_hex": "0x003AF23C",
+          "shared_tiles": 47,
+          "gui_item": "image:rle_ui_fragment:003AF23C"
+        },
+        {
+          "source": "rle",
+          "offset_hex": "0x003ABB9C",
+          "shared_tiles": 10,
+          "gui_item": "image:rle_ui_fragment:003ABB9C"
+        }
+      ],
+      "assessment": "Tied to RLE UI/popup fragments. 0x003AF23C strongly matches this screen's 錬成 / つかう / すてる / もどる popup body. 0x003ABB9C is the clearer OK? / はい / いいえ confirmation popup candidate when rendered as a readable 8-column RLE layout.",
+      "next_action": "Treat 0x003AF23C as the actionable candidate for 연성/사용/버리기/돌아가기, and 0x003ABB9C as the actionable candidate for 예/아니요."
+    },
+    {
+      "scene": "no_entry8_latest_ss2",
+      "layer": "BG1",
+      "visible_text": "錬成手帳",
+      "raw_tilemap_rom_hits": [],
+      "graphics_matches": [],
+      "assessment": "No raw tilemap or extracted LZ77/RLE/raw graphics block match. This strongly suggests runtime font/text rendering or generated tiles.",
+      "next_action": "Find the encoded source string/menu table for 錬成手帳; do not treat this as an image replacement yet."
+    },
+    {
+      "scene": "no_entry8_latest_ss3",
+      "layer": "BG0",
+      "visible_text": "card list numbers / ????? / lower description area",
+      "raw_tilemap_rom_hits": [],
+      "graphics_matches": [
+        {
+          "source": "rle",
+          "offset_hex": "0x003A3540",
+          "shared_tiles": 13,
+          "gui_item": "image:rle_ui_fragment:003A3540"
+        }
+      ],
+      "assessment": "Mostly runtime text/list rendering, with a small overlap against an RLE card-list UI fragment.",
+      "next_action": "Keep RLE fragment for UI frame investigation; list text should be handled as text/font-rendered data."
+    },
+    {
+      "scene": "no_entry8_latest_ss3",
+      "layer": "BG1",
+      "visible_text": "card list frame / BACK / NEXT / side labels",
+      "raw_tilemap_rom_hits": [
+        {
+          "rom_offset_hex": "0x003A40C5",
+          "entry_range": "0-15"
+        },
+        {
+          "rom_offset_hex": "0x003A417A",
+          "entry_range": "320-335"
+        },
+        {
+          "rom_offset_hex": "0x003A4211",
+          "entry_range": "352-367"
+        },
+        {
+          "rom_offset_hex": "0x003A424E",
+          "entry_range": "416-431"
+        },
+        {
+          "rom_offset_hex": "0x003AB70C",
+          "entry_range": "640-648"
+        }
+      ],
+      "graphics_matches": [
+        {
+          "source": "rle",
+          "offset_hex": "0x003A7C3C",
+          "shared_tiles": 165,
+          "gui_item": "image:rle_ui_fragment:003A7C3C"
+        },
+        {
+          "source": "rle",
+          "offset_hex": "0x003A8894",
+          "shared_tiles": 150,
+          "gui_item": "image:rle_ui_fragment:003A8894"
+        },
+        {
+          "source": "rle",
+          "offset_hex": "0x003AA4C0",
+          "shared_tiles": 127,
+          "gui_item": "image:rle_ui_fragment:003AA4C0"
+        },
+        {
+          "source": "rle",
+          "offset_hex": "0x003A9624",
+          "shared_tiles": 126,
+          "gui_item": "image:rle_ui_fragment:003A9624"
+        },
+        {
+          "source": "rle",
+          "offset_hex": "0x003A6E24",
+          "shared_tiles": 123,
+          "gui_item": "image:rle_ui_fragment:003A6E24"
+        }
+      ],
+      "assessment": "Best actionable image/tilemap candidate among current ss1-3. Both raw tilemap spans and RLE graphics sources are visible.",
+      "next_action": "Patch/rebuild against RLE graphics blocks and, if layout changes are needed, raw tilemap spans around 0x003A40C5/0x003AB70C."
+    },
+    {
+      "scene": "no_entry8_latest_ss2",
+      "layer": "BG0",
+      "visible_text": "party frame/background panel",
+      "raw_tilemap_rom_hits": [
+        {
+          "rom_offset_hex": "0x007CA438",
+          "entry_range": "whole screenblock"
+        }
+      ],
+      "graphics_matches": [],
+      "assessment": "Raw tilemap source exists, but this layer is mostly frame/background, not the 錬成手帳 text itself.",
+      "next_action": "Useful for UI layout patching if panel geometry changes; not a direct text replacement target."
+    }
+  ]
+}

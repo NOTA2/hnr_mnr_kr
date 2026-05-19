@@ -1,0 +1,58 @@
+[
+  {
+    "offset": 7355760,
+    "rom_address": 141573488,
+    "byte_length": 6,
+    "terminator": "0x00",
+    "append_terminator": false,
+    "unknown_tokens": 0,
+    "text": "大陸暦",
+    "translation": "대륙력",
+    "notes": "opening intro fixed slot line 1",
+    "source_file": "startup_intro_texts.json",
+    "source_group": "startup_intro_texts",
+    "source_order": 0
+  },
+  {
+    "offset": 7355774,
+    "rom_address": 141573502,
+    "byte_length": 16,
+    "terminator": "0x00",
+    "append_terminator": false,
+    "unknown_tokens": 0,
+    "text": "１９１０年　２月",
+    "translation": "１９１０년　２월",
+    "notes": "opening intro fixed slot line 2",
+    "source_file": "startup_intro_texts.json",
+    "source_group": "startup_intro_texts",
+    "source_order": 0
+  },
+  {
+    "offset": 7355796,
+    "rom_address": 141573524,
+    "byte_length": 18,
+    "terminator": "0x00",
+    "append_terminator": false,
+    "unknown_tokens": 0,
+    "text": "　　リゼンブール村",
+    "translation": "　　리젠블　마을",
+    "notes": "opening intro fixed slot line 3",
+    "source_file": "startup_intro_texts.json",
+    "source_group": "startup_intro_texts",
+    "source_order": 0
+  },
+  {
+    "offset": 7355820,
+    "rom_address": 141573548,
+    "byte_length": 22,
+    "terminator": "0x00",
+    "append_terminator": false,
+    "unknown_tokens": 0,
+    "text": "　兄１１歳　　弟１０歳",
+    "translation": "　형１１세　동생１０세",
+    "notes": "opening intro fixed slot line 4",
+    "source_file": "startup_intro_texts.json",
+    "source_group": "startup_intro_texts",
+    "source_order": 0
+  }
+]

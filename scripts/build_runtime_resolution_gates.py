@@ -46,9 +46,9 @@ def build() -> dict:
             "entry8_chain_heavy_clusters": sub["entry8"]["profile_counts"]["chain_heavy_singleline"],
             "registry_d_long_multiline_focus_count": page["registry_d_focus"]["long_multiline_focus_count"],
             "notes": [
-                "The remaining runtime scope is no longer source-wide; it is narrowed to a finite focus set.",
-                "Entry8 is narrowed to chain-heavy externally sequenced short-line clusters.",
-                "Registry D is narrowed to a small long-multiline tier plus page-turn behavior.",
+                "남은 runtime 범위는 더 이상 source 전체가 아니라, 한정된 focus 집합으로 줄었다.",
+                "Entry8 은 외부 script 로 이어질 가능성이 높은 chain-heavy 짧은 줄 cluster 로 좁혀졌다.",
+                "Registry D 는 소수의 장문 multiline 계층과 page-turn 동작으로 좁혀졌다.",
             ],
         },
         "image_inventory_scope": {
@@ -59,54 +59,54 @@ def build() -> dict:
         "human_verification_blockers": [
             {
                 "id": "live_playthrough_text_audit",
-                "reason": "Only a real playthrough-style sweep can prove there are no unseen Japanese strings left in unvisited runtime branches.",
+                "reason": "실제 플레이 흐름으로 훑어봐야만 아직 방문하지 않은 runtime 분기에서 일본어 문자열이 더 남아 있는지 확인할 수 있다.",
             },
             {
                 "id": "visual_page_turn_confirmation",
-                "reason": "Only runtime visual confirmation can fully close dialogue box/page-flow behavior for entry8 chaining and Registry D long-multiline cases.",
+                "reason": "entry8 연쇄 표시와 Registry D 장문 multiline 사례의 대사창/page-flow 동작은 실제 화면 확인이 있어야만 완전히 닫을 수 있다.",
             },
             {
                 "id": "baked_image_text_asset_review",
-                "reason": "Actual image-backed text still needs asset-by-asset review and later extraction/replacement work.",
+                "reason": "실제 이미지에 구워진 텍스트는 asset 단위 검토와 이후 추출/교체 작업이 아직 필요하다.",
             },
         ],
         "operational_reading": [
-            "Machine-closable structural extraction is effectively closed for known sources.",
-            "What remains is dominated by human-visible runtime confirmation and image-side review, not unknown text-bank discovery.",
+            "기계적으로 닫을 수 있는 구조적 추출은 현재 알려진 source 기준 사실상 마감됐다.",
+            "이제 남은 일의 대부분은 미발견 텍스트 뱅크 탐색이 아니라, 사람 눈으로 확인해야 하는 runtime 동작과 이미지 검토다.",
         ],
     }
 
 
 def render_md(data: dict) -> str:
     lines = [
-        "# Runtime Resolution Gates",
+        "# runtime 마감 관문",
         "",
-        f"- last_updated: `{data['last_updated']}`",
+        f"- 마지막 갱신: `{data['last_updated']}`",
         "",
-        "## Structural Closure",
+        "## 구조적 마감 상태",
         "",
-        f"- status: `{data['structural_closure']['status']}`",
-        f"- known_source_count: `{data['structural_closure']['known_source_count']}`",
-        f"- known_record_count: `{data['structural_closure']['known_record_count']}`",
+        f"- 상태: `{data['structural_closure']['status']}`",
+        f"- 확인된 source 수: `{data['structural_closure']['known_source_count']}`",
+        f"- 확인된 record 수: `{data['structural_closure']['known_record_count']}`",
         "",
-        "## Machine-Closable Runtime Scope",
+        "## 기계적으로 거의 닫힌 runtime 범위",
         "",
-        f"- status: `{data['machine_closable_runtime_scope']['status']}`",
-        f"- entry8_focus_cluster_count: `{data['machine_closable_runtime_scope']['entry8_focus_cluster_count']}`",
-        f"- entry8_chain_heavy_clusters: `{data['machine_closable_runtime_scope']['entry8_chain_heavy_clusters']}`",
-        f"- registry_d_long_multiline_focus_count: `{data['machine_closable_runtime_scope']['registry_d_long_multiline_focus_count']}`",
+        f"- 상태: `{data['machine_closable_runtime_scope']['status']}`",
+        f"- entry8 focus cluster 수: `{data['machine_closable_runtime_scope']['entry8_focus_cluster_count']}`",
+        f"- entry8 chain-heavy cluster 수: `{data['machine_closable_runtime_scope']['entry8_chain_heavy_clusters']}`",
+        f"- Registry D 장문 multiline focus 수: `{data['machine_closable_runtime_scope']['registry_d_long_multiline_focus_count']}`",
         "",
-        "## Image Inventory Scope",
+        "## 이미지 검토 범위",
         "",
-        f"- status: `{data['image_inventory_scope']['status']}`",
-        f"- review_unit_count: `{data['image_inventory_scope']['review_unit_count']}`",
+        f"- 상태: `{data['image_inventory_scope']['status']}`",
+        f"- 검토 단위 수: `{data['image_inventory_scope']['review_unit_count']}`",
     ]
     for unit in data["image_inventory_scope"]["highest_priority_units"]:
-        lines.append(f"- priority_unit: `{unit}`")
-    lines.extend(["", "## Human Verification Blockers", ""])
+        lines.append(f"- 우선 검토 단위: `{unit}`")
+    lines.extend(["", "## 사람 확인이 필요한 항목", ""])
     for item in data["human_verification_blockers"]:
         lines.append(f"- `{item['id']}`: {item['reason']}")
-    lines.extend(["", "## Operational Reading", ""])
+    lines.extend(["", "## 현재 해석", ""])
     for note in data["operational_reading"]:
         lines.append(f"- {note}")
     lines.append("")

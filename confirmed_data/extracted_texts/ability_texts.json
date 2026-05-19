@@ -117,6 +117,15 @@
     "translation": ""
   },
   {
+    "offset": 4011890,
+    "rom_address": 138229618,
+    "byte_length": 8,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "黄昏の壁",
+    "translation": "황혼 벽"
+  },
+  {
     "offset": 4011899,
     "rom_address": 138229627,
     "byte_length": 29,
@@ -303,7 +312,7 @@
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "敵に鉄巨人の　　\u000bパンチを降らせる",
-    "translation": ""
+    "translation": "철거인이\u000b펀치를 꽂음"
   },
   {
     "offset": 4012351,
@@ -321,7 +330,7 @@
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "敵に鉄巨人の　　\u000bパンチを降らせる",
-    "translation": ""
+    "translation": "철거인이\u000b펀치를 꽂음"
   },
   {
     "offset": 4012396,
@@ -339,7 +348,7 @@
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "敵に鉄巨人の　　\u000bキックを降らせる",
-    "translation": ""
+    "translation": "철거인이\u000b킥을 꽂는다"
   },
   {
     "offset": 4012439,
@@ -357,7 +366,7 @@
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "敵に鉄巨人の　　\u000bキックを降らせる",
-    "translation": ""
+    "translation": "철거인이\u000b킥을 꽂는다"
   },
   {
     "offset": 4012484,
@@ -375,7 +384,7 @@
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "敵に鉄巨人の　　\u000b攻撃を浴びせる",
-    "translation": ""
+    "translation": "철거인이\u000b공격을 퍼붓음"
   },
   {
     "offset": 4012529,
@@ -1006,6 +1015,15 @@
     "unknown_tokens": 0,
     "text": "鎖を錬成して　　\u000b敵を縛り上げる",
     "translation": ""
+  },
+  {
+    "offset": 4014826,
+    "rom_address": 138232554,
+    "byte_length": 8,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "紺碧の壁",
+    "translation": "감청 벽"
   },
   {
     "offset": 4014835,
@@ -1734,7 +1752,7 @@
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "ＨＰを回復する　\u000bアイテムを錬成",
-    "translation": ""
+    "translation": "ＨＰ 회복\u000b아이템 연성"
   },
   {
     "offset": 4016566,
@@ -1752,7 +1770,7 @@
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "ＨＰを回復する　\u000bアイテムを錬成",
-    "translation": ""
+    "translation": "ＨＰ 회복\u000b아이템 연성"
   },
   {
     "offset": 4016607,
@@ -1770,7 +1788,7 @@
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "ＨＰを回復する　\u000bアイテムを錬成",
-    "translation": ""
+    "translation": "ＨＰ 회복\u000b아이템 연성"
   },
   {
     "offset": 4016648,
@@ -1788,7 +1806,7 @@
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "ＨＰを回復する　\u000bアイテムを錬成",
-    "translation": ""
+    "translation": "ＨＰ 회복\u000b아이템 연성"
   },
   {
     "offset": 4016689,
@@ -1806,7 +1824,7 @@
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "ＨＰを回復する　\u000bアイテムを錬成",
-    "translation": ""
+    "translation": "ＨＰ 회복\u000b아이템 연성"
   },
   {
     "offset": 4016730,
@@ -1897,6 +1915,15 @@
     "unknown_tokens": 0,
     "text": "地震を起こして　\u000b攻撃する",
     "translation": ""
+  },
+  {
+    "offset": 4017766,
+    "rom_address": 138235494,
+    "byte_length": 10,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "快速の散弾",
+    "translation": "쾌속 산탄"
   },
   {
     "offset": 4017777,
@@ -2625,7 +2652,7 @@
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "ＨＰを回復する　\u000bアイテムを錬成",
-    "translation": ""
+    "translation": "ＨＰ 회복\u000b아이템 연성"
   },
   {
     "offset": 4019551,
@@ -2643,7 +2670,7 @@
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "ＨＰを回復する　\u000bアイテムを錬成",
-    "translation": ""
+    "translation": "ＨＰ 회복\u000b아이템 연성"
   },
   {
     "offset": 4019592,
@@ -2661,7 +2688,7 @@
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "ＨＰを回復する　\u000bアイテムを錬成",
-    "translation": ""
+    "translation": "ＨＰ 회복\u000b아이템 연성"
   },
   {
     "offset": 4019633,
@@ -2679,7 +2706,7 @@
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "ＨＰを回復する　\u000bアイテムを錬成",
-    "translation": ""
+    "translation": "ＨＰ 회복\u000b아이템 연성"
   },
   {
     "offset": 4019674,
@@ -2697,7 +2724,7 @@
     "terminator": "0x00",
     "unknown_tokens": 0,
     "text": "ＨＰを回復する　\u000bアイテムを錬成",
-    "translation": ""
+    "translation": "ＨＰ 회복\u000b아이템 연성"
   },
   {
     "offset": 4019715,
@@ -2788,6 +2815,15 @@
     "unknown_tokens": 0,
     "text": "大気を錬成し　　\u000b衝撃破で攻撃",
     "translation": ""
+  },
+  {
+    "offset": 4020774,
+    "rom_address": 138238502,
+    "byte_length": 6,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "葬塵衝",
+    "translation": "장진충"
   },
   {
     "offset": 4020781,

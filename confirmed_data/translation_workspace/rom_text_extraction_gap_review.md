@@ -1,0 +1,52 @@
+# ROM Text Extraction Gap Review
+
+- remaining priority candidates: `43`
+- zero-terminated remaining: `0`
+- non-terminated / event-control candidates: `41`
+- 0xFF-adjacent candidates: `2`
+
+## Requires Structural Extractor
+
+- `0x6B8D60` len=`10` term=`None`: おおーっ！
+- `0x6BA8A2` len=`26` term=`None`: 　水をあげる　水をあげない
+- `0x6CF240` len=`30` term=`None`: 　丸太をあげる　丸太をあげない
+- `0x6D70F6` len=`14` term=`None`: 誰がチビだっ！
+- `0x6D8E38` len=`26` term=`None`: 　泊まる　やっぱ泊まらない
+- `0x6DA488` len=`8` term=`None`: だーっ！
+- `0x6DA496` len=`22` term=`None`: なんで脱ぐ必要がある！
+- `0x6E549E` len=`40` term=`None`: 　いつでもオッケー！　ちょっと待ったー！
+- `0x6E56AC` len=`40` term=`None`: 　いつでもオッケー！　ちょっと待ったー！
+- `0x6E6F3E` len=`20` term=`None`: チ、チビッコだー！？
+- `0x6E7BB8` len=`8` term=`None`: コラー！
+- `0x6E9AAA` len=`8` term=`None`: ゲーッ！
+- `0x6F31B6` len=`10` term=`None`: センズだ！
+- `0x6F3228` len=`16` term=`None`: 　買う　買わない
+- `0x6F5248` len=`16` term=`None`: 　買う　買わない
+- `0x6F55F2` len=`16` term=`None`: 　買う　買わない
+- `0x6F7974` len=`22` term=`None`: 　もってる　もってない
+- `0x6F7A16` len=`10` term=`None`: センズか…
+- `0x6F7A38` len=`16` term=`None`: 　売る　売らない
+- `0x6FB4B4` len=`12` term=`None`: ウソつけっ！
+- `0x6FBA00` len=`26` term=`None`: くぅぉらぁぁぁぁーーー！！
+- `0x6FDD52` len=`8` term=`None`: センズ、
+- `0x6FDDC4` len=`16` term=`None`: 　買う　買わない
+- `0x6FE1E0` len=`14` term=`None`: ６で錬成可能！
+- `0x6FFA08` len=`20` term=`None`: なんでそうなるんだ！
+- `0x70003C` len=`34` term=`None`: 　花を錬成する事　黄金を錬成する事
+- `0x7034F6` len=`10` term=`None`: センズだ！
+- `0x70358E` len=`16` term=`None`: 　買う　買わない
+- `0x70ADF0` len=`10` term=`None`: センズだ。
+- `0x70AE88` len=`16` term=`None`: 　買う　買わない
+- `0x70BB9C` len=`26` term=`None`: 　泊まる　やっぱ泊まらない
+- `0x71670E` len=`7` term=`0xFF`: そうだ+
+- `0x7256CE` len=`8` term=`None`: の油か…
+- `0x7256EE` len=`26` term=`None`: 　油をあげる　油をあげない
+- `0x7312DC` len=`10` term=`None`: 脱がんで！
+- `0x741348` len=`16` term=`None`: ０センズ出せば、
+- `0x741458` len=`22` term=`None`: 　改造する　改造しない
+- `0x7428F6` len=`16` term=`None`: 　頼む　頼まない
+- `0x75720C` len=`28` term=`None`: 　扉を壊して進む　別の方法で
+- `0x7610A0` len=`16` term=`None`: 　買う　買わない
+- `0x7637F0` len=`7` term=`0xFF`: はいよ'
+- `0x7A8550` len=`28` term=`None`: 回復薬１体力を５０回復する薬
+- `0x7A85EE` len=`14` term=`None`: ０回復する薬３

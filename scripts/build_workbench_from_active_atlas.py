@@ -11,6 +11,20 @@ REPO_ROOT = Path(__file__).resolve().parents[1]
 DEFAULT_PROFILE = REPO_ROOT / "confirmed_data" / "font_assets" / "active_hangul_font_profile.json"
 HANGUL_START = 0xAC00
 HANGUL_END = 0xD7A3
+SAFE_TRAIL_BYTES = set(range(0x40, 0x7F)) | set(range(0x80, 0xFC))
+NARROW_PUNCTUATION_GLYPHS = [
+    {"code": "0x0021", "source_code": "0x8149", "label": "ascii_exclamation"},
+    {"code": "0x0022", "bitmap": "double_quote", "label": "ascii_double_quote"},
+    {"code": "0x0027", "bitmap": "apostrophe", "label": "ascii_apostrophe"},
+    {"code": "0x002C", "source_code": "0x8141", "label": "ascii_comma"},
+    {"code": "0x002D", "source_code": "0x817C", "label": "ascii_hyphen"},
+    {"code": "0x002F", "source_code": "0x815E", "label": "ascii_slash"},
+    {"code": "0x003F", "source_code": "0x8148", "label": "ascii_question"},
+]
+PUNCTUATION_BITMAP_POINTS = {
+    "apostrophe": [(6, 1), (6, 2), (5, 3)],
+    "double_quote": [(4, 1), (4, 2), (7, 1), (7, 2)],
+}
 
 
 def parse_args() -> argparse.Namespace:
@@ -74,10 +88,28 @@ def extract_hangul_chars(inputs: list[Path], field: str, limit: int | None) -> t
     return chars, sources
 
 
+def is_safe_custom_code(code: int) -> bool:
+    lead = code >> 8
+    trail = code & 0xFF
+    return 0xE0 <= lead <= 0xEF and trail in SAFE_TRAIL_BYTES
+
+
+def iter_safe_custom_codes(start_code: int):
+    code = start_code
+    while code <= 0xEFFF:
+        if is_safe_custom_code(code):
+            yield code
+        code += 1
+
+
 def write_seed_manifest(chars: list[str], output_path: Path, start_code: int) -> list[dict]:
     manifest = []
-    for index, char in enumerate(chars):
-        code = start_code + index
+    safe_codes = iter_safe_custom_codes(start_code)
+    for char in chars:
+        try:
+            code = next(safe_codes)
+        except StopIteration as exc:
+            raise SystemExit("error: not enough safe custom Shift-JIS codes for Hangul subset") from exc
         manifest.append(
             {
                 "code": f"0x{code:04X}",
@@ -87,6 +119,61 @@ def write_seed_manifest(chars: list[str], output_path: Path, start_code: int) ->
         )
     output_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
     return manifest
+
+
+def write_pgm(path: Path, pixels: bytes, width: int = 12, height: int = 12) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    path.write_bytes(f"P5\n{width} {height}\n255\n".encode("ascii") + pixels)
+
+
+def write_punctuation_bitmap(output_dir: Path, name: str) -> Path:
+    pixels = bytearray(12 * 12)
+    for x, y in PUNCTUATION_BITMAP_POINTS[name]:
+        pixels[y * 12 + x] = 17
+    pgm_path = output_dir / f"punct_{name}.pgm"
+    write_pgm(pgm_path, bytes(pixels))
+    return pgm_path
+
+
+def append_narrow_punctuation_entries(output_dir: Path) -> list[dict]:
+    """Copy visible fullwidth/Japanese punctuation glyphs onto ASCII codes.
+
+    The renderer gives single-byte ASCII punctuation a narrower advance, but the
+    original fnt lookup maps several ASCII punctuation codes to blank glyph 0.
+    These copy entries make punctuation visible without forcing fullwidth codes.
+    """
+    manifest_path = output_dir / "prepared_manifest.json"
+    manifest = load_json(manifest_path)
+    if not isinstance(manifest, list):
+        raise SystemExit(f"error: expected prepared manifest array in {manifest_path}")
+
+    existing_codes = {
+        str(item.get("code", "")).lower()
+        for item in manifest
+        if isinstance(item, dict)
+    }
+    appended: list[dict] = []
+    for item in NARROW_PUNCTUATION_GLYPHS:
+        code = item["code"].lower()
+        if code in existing_codes:
+            continue
+        bitmap = item.get("bitmap")
+        entry = {
+            "code": item["code"],
+            "overwrite_code": True,
+            "label": item["label"],
+        }
+        if bitmap:
+            entry["pgm"] = str(write_punctuation_bitmap(output_dir, str(bitmap)))
+        else:
+            entry["source_code"] = item["source_code"]
+        manifest.append(entry)
+        appended.append(entry)
+        existing_codes.add(code)
+
+    if appended:
+        manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
+    return appended
 
 
 def main() -> int:
@@ -129,6 +216,7 @@ def main() -> int:
         str(import_report_path),
     ]
     subprocess.run(command, cwd=REPO_ROOT, check=True)
+    punctuation_entries = append_narrow_punctuation_entries(output_dir)
 
     report = {
         "profile": str(profile_path),
@@ -138,17 +226,20 @@ def main() -> int:
         "start_code": f"0x{start_code:04X}",
         "input_files": [str(path) for path in input_paths],
         "hangul_count": len(chars),
+        "narrow_punctuation_count": len(punctuation_entries),
         "seed_manifest": str(seed_manifest_path),
         "prepared_manifest": str(output_dir / "prepared_manifest.json"),
         "prepared_table": str(output_dir / "prepared.tbl"),
         "sources": sources,
         "entries": seed_manifest,
+        "narrow_punctuation_entries": punctuation_entries,
     }
     report_path = Path(args.report) if args.report else output_dir / "workbench_report.json"
     report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
 
     print(f"output_dir      : {output_dir}")
     print(f"hangul_count    : {len(chars)}")
+    print(f"narrow_punct    : {len(punctuation_entries)}")
     print(f"seed_manifest   : {seed_manifest_path}")
     print(f"prepared_tbl    : {output_dir / 'prepared.tbl'}")
     print(f"prepared_manifest: {output_dir / 'prepared_manifest.json'}")

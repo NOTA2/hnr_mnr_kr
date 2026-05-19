@@ -1,0 +1,201 @@
+{
+  "scene": "timeline_with_rle",
+  "frame": "frame_000600",
+  "bg": 0,
+  "rle_offset": 3929236,
+  "rle_offset_hex": "0x003BF494",
+  "rle_raw_path": "confirmed_data/image_inventory/rle_tile_extraction/rle_raw/0876_off_003BF494_size_001B00.bin",
+  "runtime_palette_path": "confirmed_data/image_inventory/pymgba_runtime_timeline/frame_000600_palette_05000000.bin",
+  "crop_screen_tiles": {
+    "min_x": 8,
+    "min_y": 1,
+    "max_x": 20,
+    "max_y": 8
+  },
+  "crop_pixels": {
+    "x": 64,
+    "y": 8,
+    "width": 104,
+    "height": 64
+  },
+  "matched_tile_count": 12,
+  "source_match": {
+    "score": 49.5515,
+    "shared_tiles": 11,
+    "runtime_coverage": 0.0476,
+    "candidate_coverage": 0.0659,
+    "candidate_index": 876,
+    "decompressed_size": 6912,
+    "compressed_size": 4299
+  },
+  "matches": [
+    {
+      "screen_tile_x": 11,
+      "screen_tile_y": 2,
+      "map_tile_x": 11,
+      "map_tile_y": 2,
+      "runtime_tile_index": 325,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 41285,
+      "rle_tile_indexes": [
+        5
+      ]
+    },
+    {
+      "screen_tile_x": 12,
+      "screen_tile_y": 2,
+      "map_tile_x": 12,
+      "map_tile_y": 2,
+      "runtime_tile_index": 326,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 41286,
+      "rle_tile_indexes": [
+        6
+      ]
+    },
+    {
+      "screen_tile_x": 13,
+      "screen_tile_y": 2,
+      "map_tile_x": 13,
+      "map_tile_y": 2,
+      "runtime_tile_index": 327,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 41287,
+      "rle_tile_indexes": [
+        7
+      ]
+    },
+    {
+      "screen_tile_x": 15,
+      "screen_tile_y": 2,
+      "map_tile_x": 15,
+      "map_tile_y": 2,
+      "runtime_tile_index": 329,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 41289,
+      "rle_tile_indexes": [
+        9
+      ]
+    },
+    {
+      "screen_tile_x": 16,
+      "screen_tile_y": 2,
+      "map_tile_x": 16,
+      "map_tile_y": 2,
+      "runtime_tile_index": 330,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 41290,
+      "rle_tile_indexes": [
+        10
+      ]
+    },
+    {
+      "screen_tile_x": 17,
+      "screen_tile_y": 2,
+      "map_tile_x": 17,
+      "map_tile_y": 2,
+      "runtime_tile_index": 331,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 41291,
+      "rle_tile_indexes": [
+        11
+      ]
+    },
+    {
+      "screen_tile_x": 18,
+      "screen_tile_y": 2,
+      "map_tile_x": 18,
+      "map_tile_y": 2,
+      "runtime_tile_index": 332,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 41292,
+      "rle_tile_indexes": [
+        12
+      ]
+    },
+    {
+      "screen_tile_x": 9,
+      "screen_tile_y": 3,
+      "map_tile_x": 9,
+      "map_tile_y": 3,
+      "runtime_tile_index": 355,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 41315,
+      "rle_tile_indexes": [
+        60
+      ]
+    },
+    {
+      "screen_tile_x": 13,
+      "screen_tile_y": 3,
+      "map_tile_x": 13,
+      "map_tile_y": 3,
+      "runtime_tile_index": 359,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 41319,
+      "rle_tile_indexes": [
+        25
+      ]
+    },
+    {
+      "screen_tile_x": 17,
+      "screen_tile_y": 3,
+      "map_tile_x": 17,
+      "map_tile_y": 3,
+      "runtime_tile_index": 363,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 41323,
+      "rle_tile_indexes": [
+        29
+      ]
+    },
+    {
+      "screen_tile_x": 19,
+      "screen_tile_y": 5,
+      "map_tile_x": 19,
+      "map_tile_y": 5,
+      "runtime_tile_index": 429,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 41389,
+      "rle_tile_indexes": [
+        137
+      ]
+    },
+    {
+      "screen_tile_x": 18,
+      "screen_tile_y": 7,
+      "map_tile_x": 18,
+      "map_tile_y": 7,
+      "runtime_tile_index": 492,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 41452,
+      "rle_tile_indexes": [
+        137
+      ]
+    }
+  ]
+}

@@ -1,0 +1,868 @@
+[
+  {
+    "run_id": "entry8_cluster_03_run_0000",
+    "cluster_index": 3,
+    "run_index": 0,
+    "dialogue_state_token": "1bff:6380",
+    "record_count": 1,
+    "offsets": [
+      7076882
+    ],
+    "source_text": "あんたの嘘は",
+    "translation_text": "네 거짓말은",
+    "records": [
+      {
+        "offset": 7076882,
+        "header_offset": 7076878,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 2266,
+        "text": "あんたの嘘は",
+        "translation": "네 거짓말은"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_03_run_0001",
+    "cluster_index": 3,
+    "run_index": 1,
+    "dialogue_state_token": null,
+    "record_count": 10,
+    "offsets": [
+      7076900,
+      7076930,
+      7076968,
+      7076988,
+      7077016,
+      7077052,
+      7077084,
+      7077126,
+      7077160,
+      7077184
+    ],
+    "source_text": "すぐに街中に広まる。\nあきらめろよ\nなにを言うか。\n信者どもの情報操作など\nたやすいわ\nあんたのことを信じてる奴も\nかわいそうだよな\n錬金術と「奇跡の業」の区別も\nできない連中など、\n戦のためのコマにすぎぬわ！",
+    "translation_text": "곧 온 마을에 퍼질 거야.\n포기해\n무슨 소리냐.\n신자들의 정보 조작 따위는\n식은 죽 먹기다\n너를 믿고 있는 녀석들도\n불쌍하네\n연금술과 「기적의 업」의 구별도\n못 하는 놈들 따위,\n전쟁을 위한 말에 불과하다!",
+    "records": [
+      {
+        "offset": 7076900,
+        "header_offset": 7076896,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 2,
+        "text": "すぐに街中に広まる。",
+        "translation": "곧 온 마을에 퍼질 거야."
+      },
+      {
+        "offset": 7076930,
+        "header_offset": 7076926,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 6,
+        "text": "あきらめろよ",
+        "translation": "포기해"
+      },
+      {
+        "offset": 7076968,
+        "header_offset": 7076964,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 22,
+        "text": "なにを言うか。",
+        "translation": "무슨 소리냐."
+      },
+      {
+        "offset": 7076988,
+        "header_offset": 7076984,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 2,
+        "text": "信者どもの情報操作など",
+        "translation": "신자들의 정보 조작 따위는"
+      },
+      {
+        "offset": 7077016,
+        "header_offset": 7077012,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 2,
+        "text": "たやすいわ",
+        "translation": "식은 죽 먹기다"
+      },
+      {
+        "offset": 7077052,
+        "header_offset": 7077048,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 22,
+        "text": "あんたのことを信じてる奴も",
+        "translation": "너를 믿고 있는 녀석들도"
+      },
+      {
+        "offset": 7077084,
+        "header_offset": 7077080,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "かわいそうだよな",
+        "translation": "불쌍하네"
+      },
+      {
+        "offset": 7077126,
+        "header_offset": 7077122,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 22,
+        "text": "錬金術と「奇跡の業」の区別も",
+        "translation": "연금술과 「기적의 업」의 구별도"
+      },
+      {
+        "offset": 7077160,
+        "header_offset": 7077156,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "できない連中など、",
+        "translation": "못 하는 놈들 따위,"
+      },
+      {
+        "offset": 7077184,
+        "header_offset": 7077180,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "戦のためのコマにすぎぬわ！",
+        "translation": "전쟁을 위한 말에 불과하다!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_03_run_0002",
+    "cluster_index": 3,
+    "run_index": 2,
+    "dialogue_state_token": "1bff:0B00",
+    "record_count": 1,
+    "offsets": [
+      7077254
+    ],
+    "source_text": "なんのために？",
+    "translation_text": "무엇을 위해?",
+    "records": [
+      {
+        "offset": 7077254,
+        "header_offset": 7077250,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 40,
+        "text": "なんのために？",
+        "translation": "무엇을 위해?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_03_run_0003",
+    "cluster_index": 3,
+    "run_index": 3,
+    "dialogue_state_token": null,
+    "record_count": 3,
+    "offsets": [
+      7077290,
+      7077322,
+      7077348
+    ],
+    "source_text": "いずれはリオール国を建国し\n私は国王となる。\nそのための戦だ！",
+    "translation_text": "언젠가는 리올국을 세워\n내가 국왕이 된다.\n그 전쟁을 위해서다!",
+    "records": [
+      {
+        "offset": 7077290,
+        "header_offset": 7077286,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 18,
+        "text": "いずれはリオール国を建国し",
+        "translation": "언젠가는 리올국을 세워"
+      },
+      {
+        "offset": 7077322,
+        "header_offset": 7077318,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "私は国王となる。",
+        "translation": "내가 국왕이 된다."
+      },
+      {
+        "offset": 7077348,
+        "header_offset": 7077344,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 6,
+        "text": "そのための戦だ！",
+        "translation": "그 전쟁을 위해서다!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_03_run_0004",
+    "cluster_index": 3,
+    "run_index": 4,
+    "dialogue_state_token": "1bff:3A00",
+    "record_count": 1,
+    "offsets": [
+      7077392
+    ],
+    "source_text": "無理はよくねぇよ。",
+    "translation_text": "무리는 좋지 않아.",
+    "records": [
+      {
+        "offset": 7077392,
+        "header_offset": 7077388,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 24,
+        "text": "無理はよくねぇよ。",
+        "translation": "무리는 좋지 않아."
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_03_run_0005",
+    "cluster_index": 3,
+    "run_index": 5,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7077420
+    ],
+    "source_text": "あんたは国王の器じゃない！",
+    "translation_text": "넌 국왕감이 아니야!",
+    "records": [
+      {
+        "offset": 7077420,
+        "header_offset": 7077416,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 6,
+        "text": "あんたは国王の器じゃない！",
+        "translation": "넌 국왕감이 아니야!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_03_run_0006",
+    "cluster_index": 3,
+    "run_index": 6,
+    "dialogue_state_token": "1bff:6480",
+    "record_count": 1,
+    "offsets": [
+      7077474
+    ],
+    "source_text": "この「賢者の石」があれば",
+    "translation_text": "이 「현자의 돌」이 있으면",
+    "records": [
+      {
+        "offset": 7077474,
+        "header_offset": 7077470,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 24,
+        "text": "この「賢者の石」があれば",
+        "translation": "이 「현자의 돌」이 있으면"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_03_run_0007",
+    "cluster_index": 3,
+    "run_index": 7,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7077504,
+      7077526
+    ],
+    "source_text": "不可能ではない！\nさぁ、私が相手だ！",
+    "translation_text": "불가능하지 않다!\n자, 내가 상대해 주마!",
+    "records": [
+      {
+        "offset": 7077504,
+        "header_offset": 7077500,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "不可能ではない！",
+        "translation": "불가능하지 않다!"
+      },
+      {
+        "offset": 7077526,
+        "header_offset": 7077522,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 2,
+        "text": "さぁ、私が相手だ！",
+        "translation": "자, 내가 상대해 주마!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_03_run_0008",
+    "cluster_index": 3,
+    "run_index": 8,
+    "dialogue_state_token": "1bff:6480",
+    "record_count": 1,
+    "offsets": [
+      7077688
+    ],
+    "source_text": "まだまだ…",
+    "translation_text": "아직이다…",
+    "records": [
+      {
+        "offset": 7077688,
+        "header_offset": 7077684,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 140,
+        "text": "まだまだ…",
+        "translation": "아직이다…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_03_run_0009",
+    "cluster_index": 3,
+    "run_index": 9,
+    "dialogue_state_token": "1bff:6580",
+    "record_count": 1,
+    "offsets": [
+      7077760
+    ],
+    "source_text": "ぎゃぁぁぁぁぁ！",
+    "translation_text": "으아아아아아!",
+    "records": [
+      {
+        "offset": 7077760,
+        "header_offset": 7077756,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 58,
+        "text": "ぎゃぁぁぁぁぁ！",
+        "translation": "으아아아아아!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_03_run_0010",
+    "cluster_index": 3,
+    "run_index": 10,
+    "dialogue_state_token": null,
+    "record_count": 2,
+    "offsets": [
+      7077786,
+      7077802
+    ],
+    "source_text": "う、腕が…\n私の腕が…",
+    "translation_text": "파, 팔이…\n내 팔이…",
+    "records": [
+      {
+        "offset": 7077786,
+        "header_offset": 7077782,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 6,
+        "text": "う、腕が…",
+        "translation": "파, 팔이…"
+      },
+      {
+        "offset": 7077802,
+        "header_offset": 7077798,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 2,
+        "text": "私の腕が…",
+        "translation": "내 팔이…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_03_run_0011",
+    "cluster_index": 3,
+    "run_index": 11,
+    "dialogue_state_token": "1bff:1180",
+    "record_count": 1,
+    "offsets": [
+      7077840
+    ],
+    "source_text": "なんで…いったい？",
+    "translation_text": "왜… 대체?",
+    "records": [
+      {
+        "offset": 7077840,
+        "header_offset": 7077836,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 24,
+        "text": "なんで…いったい？",
+        "translation": "왜… 대체?"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_03_run_0012",
+    "cluster_index": 3,
+    "run_index": 12,
+    "dialogue_state_token": "1bff:6580",
+    "record_count": 1,
+    "offsets": [
+      7077880
+    ],
+    "source_text": "あぁぁぁ",
+    "translation_text": "아아아",
+    "records": [
+      {
+        "offset": 7077880,
+        "header_offset": 7077876,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 18,
+        "text": "あぁぁぁ",
+        "translation": "아아아"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_03_run_0013",
+    "cluster_index": 3,
+    "run_index": 13,
+    "dialogue_state_token": null,
+    "record_count": 1,
+    "offsets": [
+      7077898
+    ],
+    "source_text": "痛いぃぃぃ！",
+    "translation_text": "아파아아아!",
+    "records": [
+      {
+        "offset": 7077898,
+        "header_offset": 7077894,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 6,
+        "text": "痛いぃぃぃ！",
+        "translation": "아파아아아!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_03_run_0014",
+    "cluster_index": 3,
+    "run_index": 14,
+    "dialogue_state_token": "1bff:3C00",
+    "record_count": 1,
+    "offsets": [
+      7077938
+    ],
+    "source_text": "うっさい！",
+    "translation_text": "시끄러워!",
+    "records": [
+      {
+        "offset": 7077938,
+        "header_offset": 7077934,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 24,
+        "text": "うっさい！",
+        "translation": "시끄러워!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_03_run_0015",
+    "cluster_index": 3,
+    "run_index": 15,
+    "dialogue_state_token": null,
+    "record_count": 3,
+    "offsets": [
+      7077954,
+      7077986,
+      7078034
+    ],
+    "source_text": "ただのリバウンドだろうが！\n腕の一本や二本でさわぐな！\nひぃぃぃ",
+    "translation_text": "그냥 리바운드잖아!\n팔 한두 개로 호들갑 떨지 마!\n히이이이",
+    "records": [
+      {
+        "offset": 7077954,
+        "header_offset": 7077950,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "ただのリバウンドだろうが！",
+        "translation": "그냥 리바운드잖아!"
+      },
+      {
+        "offset": 7077986,
+        "header_offset": 7077982,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 2,
+        "text": "腕の一本や二本でさわぐな！",
+        "translation": "팔 한두 개로 호들갑 떨지 마!"
+      },
+      {
+        "offset": 7078034,
+        "header_offset": 7078030,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 18,
+        "text": "ひぃぃぃ",
+        "translation": "히이이이"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_03_run_0016",
+    "cluster_index": 3,
+    "run_index": 16,
+    "dialogue_state_token": "2bff:3400",
+    "record_count": 1,
+    "offsets": [
+      7078110
+    ],
+    "source_text": "「賢者の石」を見せてみろ！",
+    "translation_text": "「현자의 돌」을 보여 줘!",
+    "records": [
+      {
+        "offset": 7078110,
+        "header_offset": 7078106,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 64,
+        "text": "「賢者の石」を見せてみろ！",
+        "translation": "「현자의 돌」을 보여 줘!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_03_run_0017",
+    "cluster_index": 3,
+    "run_index": 17,
+    "dialogue_state_token": null,
+    "record_count": 6,
+    "offsets": [
+      7078202,
+      7078222,
+      7078244,
+      7078274,
+      7078328,
+      7078346
+    ],
+    "source_text": "壊れた…\n完全な物質である\n「賢者の石」が…\nなんで…壊れるんだ？\n知らん。\n私は何も聞いてないんだ！",
+    "translation_text": "부서졌어…\n완전한 물질인\n「현자의 돌」이…\n어째서… 부서지는 거지?\n몰라.\n나는 아무것도 못 들었다고!",
+    "records": [
+      {
+        "offset": 7078202,
+        "header_offset": 7078198,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 62,
+        "text": "壊れた…",
+        "translation": "부서졌어…"
+      },
+      {
+        "offset": 7078222,
+        "header_offset": 7078218,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 8,
+        "text": "完全な物質である",
+        "translation": "완전한 물질인"
+      },
+      {
+        "offset": 7078244,
+        "header_offset": 7078240,
+        "char_count": 8,
+        "byte_length": 16,
+        "control_gap_length": 2,
+        "text": "「賢者の石」が…",
+        "translation": "「현자의 돌」이…"
+      },
+      {
+        "offset": 7078274,
+        "header_offset": 7078270,
+        "char_count": 10,
+        "byte_length": 20,
+        "control_gap_length": 10,
+        "text": "なんで…壊れるんだ？",
+        "translation": "어째서… 부서지는 거지?"
+      },
+      {
+        "offset": 7078328,
+        "header_offset": 7078324,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 30,
+        "text": "知らん。",
+        "translation": "몰라."
+      },
+      {
+        "offset": 7078346,
+        "header_offset": 7078342,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 6,
+        "text": "私は何も聞いてないんだ！",
+        "translation": "나는 아무것도 못 들었다고!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_03_run_0018",
+    "cluster_index": 3,
+    "run_index": 18,
+    "dialogue_state_token": "1bff:3A00",
+    "record_count": 1,
+    "offsets": [
+      7078402
+    ],
+    "source_text": "ニセモノ…",
+    "translation_text": "가짜…",
+    "records": [
+      {
+        "offset": 7078402,
+        "header_offset": 7078398,
+        "char_count": 5,
+        "byte_length": 10,
+        "control_gap_length": 28,
+        "text": "ニセモノ…",
+        "translation": "가짜…"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_03_run_0019",
+    "cluster_index": 3,
+    "run_index": 19,
+    "dialogue_state_token": null,
+    "record_count": 5,
+    "offsets": [
+      7078454,
+      7078482,
+      7078536,
+      7078554,
+      7078608
+    ],
+    "source_text": "ひぃぃ…助けて下さい。\n石がないと何もできないんです\nやっと…\nやっと元に戻れると思ったのに\nたすけてぇぇぇ",
+    "translation_text": "히이이… 살려 주세요.\n돌이 없으면 아무것도 못 합니다\n겨우…\n겨우 원래대로 돌아갈 수 있다고 생각했는데\n살려 줘어어어",
+    "records": [
+      {
+        "offset": 7078454,
+        "header_offset": 7078450,
+        "char_count": 11,
+        "byte_length": 22,
+        "control_gap_length": 38,
+        "text": "ひぃぃ…助けて下さい。",
+        "translation": "히이이… 살려 주세요."
+      },
+      {
+        "offset": 7078482,
+        "header_offset": 7078478,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 2,
+        "text": "石がないと何もできないんです",
+        "translation": "돌이 없으면 아무것도 못 합니다"
+      },
+      {
+        "offset": 7078536,
+        "header_offset": 7078532,
+        "char_count": 4,
+        "byte_length": 8,
+        "control_gap_length": 22,
+        "text": "やっと…",
+        "translation": "겨우…"
+      },
+      {
+        "offset": 7078554,
+        "header_offset": 7078550,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 6,
+        "text": "やっと元に戻れると思ったのに",
+        "translation": "겨우 원래대로 돌아갈 수 있다고 생각했는데"
+      },
+      {
+        "offset": 7078608,
+        "header_offset": 7078604,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 22,
+        "text": "たすけてぇぇぇ",
+        "translation": "살려 줘어어어"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_03_run_0020",
+    "cluster_index": 3,
+    "run_index": 20,
+    "dialogue_state_token": "1bff:3C00",
+    "record_count": 1,
+    "offsets": [
+      7078650
+    ],
+    "source_text": "おい、おっさんっ！",
+    "translation_text": "어이, 아저씨!",
+    "records": [
+      {
+        "offset": 7078650,
+        "header_offset": 7078646,
+        "char_count": 9,
+        "byte_length": 18,
+        "control_gap_length": 24,
+        "text": "おい、おっさんっ！",
+        "translation": "어이, 아저씨!"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_03_run_0021",
+    "cluster_index": 3,
+    "run_index": 21,
+    "dialogue_state_token": null,
+    "record_count": 6,
+    "offsets": [
+      7078682,
+      7078720,
+      7078768,
+      7078800,
+      7078856,
+      7078892
+    ],
+    "source_text": "これだけの騒ぎ起こして…\nさんざん手間かけさせやがって\nそのあげく、「賢者の石」が\nニセモノだと？\n本当に私は知らなかったんです。\n許して下さい",
+    "translation_text": "이만한 소동을 일으켜 놓고…\n실컷 고생시키더니\n결국 「현자의 돌」이\n가짜라고?\n정말 저는 몰랐습니다.\n용서해 주세요",
+    "records": [
+      {
+        "offset": 7078682,
+        "header_offset": 7078678,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 10,
+        "text": "これだけの騒ぎ起こして…",
+        "translation": "이만한 소동을 일으켜 놓고…"
+      },
+      {
+        "offset": 7078720,
+        "header_offset": 7078716,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 10,
+        "text": "さんざん手間かけさせやがって",
+        "translation": "실컷 고생시키더니"
+      },
+      {
+        "offset": 7078768,
+        "header_offset": 7078764,
+        "char_count": 13,
+        "byte_length": 26,
+        "control_gap_length": 16,
+        "text": "そのあげく、「賢者の石」が",
+        "translation": "결국 「현자의 돌」이"
+      },
+      {
+        "offset": 7078800,
+        "header_offset": 7078796,
+        "char_count": 7,
+        "byte_length": 14,
+        "control_gap_length": 2,
+        "text": "ニセモノだと？",
+        "translation": "가짜라고?"
+      },
+      {
+        "offset": 7078856,
+        "header_offset": 7078852,
+        "char_count": 15,
+        "byte_length": 30,
+        "control_gap_length": 38,
+        "text": "本当に私は知らなかったんです。",
+        "translation": "정말 저는 몰랐습니다."
+      },
+      {
+        "offset": 7078892,
+        "header_offset": 7078888,
+        "char_count": 6,
+        "byte_length": 12,
+        "control_gap_length": 2,
+        "text": "許して下さい",
+        "translation": "용서해 주세요"
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_03_run_0022",
+    "cluster_index": 3,
+    "run_index": 22,
+    "dialogue_state_token": "1bff:1180",
+    "record_count": 1,
+    "offsets": [
+      7078932
+    ],
+    "source_text": "あきらめないで探そうよ。",
+    "translation_text": "포기하지 말고 찾아보자.",
+    "records": [
+      {
+        "offset": 7078932,
+        "header_offset": 7078928,
+        "char_count": 12,
+        "byte_length": 24,
+        "control_gap_length": 24,
+        "text": "あきらめないで探そうよ。",
+        "translation": "포기하지 말고 찾아보자."
+      }
+    ],
+    "notes": ""
+  },
+  {
+    "run_id": "entry8_cluster_03_run_0023",
+    "cluster_index": 3,
+    "run_index": 23,
+    "dialogue_state_token": "1bff:3A00",
+    "record_count": 1,
+    "offsets": [
+      7079036
+    ],
+    "source_text": "見つかったと思ったのになぁ…",
+    "translation_text": "찾은 줄 알았는데…",
+    "records": [
+      {
+        "offset": 7079036,
+        "header_offset": 7079032,
+        "char_count": 14,
+        "byte_length": 28,
+        "control_gap_length": 76,
+        "text": "見つかったと思ったのになぁ…",
+        "translation": "찾은 줄 알았는데…"
+      }
+    ],
+    "notes": ""
+  }
+]
