@@ -1,0 +1,30 @@
+[
+  {
+    "offset": 485596,
+    "rom_address": 134703324,
+    "byte_length": 16,
+    "text": "アイテムは　　　",
+    "notes": "ROM direct UI status line recovered after runtime screenshot audit; fixed payload, no terminator.",
+    "source_file": "ui_status_texts.json",
+    "source_group": "ui_status_texts",
+    "source_order": 0,
+    "append_terminator": false,
+    "terminator": null,
+    "unknown_tokens": 0,
+    "translation": "아이템은　　　　"
+  },
+  {
+    "offset": 578000,
+    "rom_address": 134795728,
+    "byte_length": 14,
+    "text": "手帳：　　　％",
+    "notes": "ROM direct UI status label for notebook completion percent; fixed payload, no terminator.",
+    "source_file": "ui_status_texts.json",
+    "source_group": "ui_status_texts",
+    "source_order": 1,
+    "append_terminator": false,
+    "terminator": null,
+    "unknown_tokens": 0,
+    "translation": "수첩：　　　％"
+  }
+]

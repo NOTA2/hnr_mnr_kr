@@ -2,8 +2,46 @@
   "version": 1,
   "rom": "/Users/user/test/Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba",
   "rom_size": 8388608,
-  "extracted_interval_count": 10818,
-  "candidate_count": 21718,
+  "extracted_interval_count": 23021,
+  "candidate_count": 21583,
+  "high_confidence_count": 0,
+  "high_confidence_candidates": [],
+  "suppressed_high_confidence_count": 2,
+  "suppressed_high_confidence_candidates": [
+    {
+      "offset": 2767676,
+      "rom_address": 136985404,
+      "byte_length": 7,
+      "terminator": "0x00",
+      "text": "033ムヨ",
+      "japanese_ratio": 0.4,
+      "score": 7,
+      "reasons": [
+        "00-terminated",
+        "jp>=2",
+        "kana>=2",
+        "len>=5"
+      ],
+      "suppressed_reason": "CP932 broad-scan false positive; no stable UI/text context."
+    },
+    {
+      "offset": 5416164,
+      "rom_address": 139633892,
+      "byte_length": 7,
+      "terminator": "0x00",
+      "text": "KずﾛBず",
+      "japanese_ratio": 0.4,
+      "score": 6,
+      "reasons": [
+        "00-terminated",
+        "jp>=2",
+        "kana>=2",
+        "len>=5",
+        "halfwidth-kana-penalty"
+      ],
+      "suppressed_reason": "CP932 broad-scan false positive/noise."
+    }
+  ],
   "candidates": [
     {
       "offset": 73,
@@ -1662,22 +1700,6 @@
       "japanese_ratio": 0.375
     },
     {
-      "offset": 574292,
-      "rom_address": 134792020,
-      "byte_length": 40,
-      "terminator": "0x00",
-      "text": "　　プロデューサー　　　　　　　　　　　",
-      "japanese_ratio": 0.35
-    },
-    {
-      "offset": 574606,
-      "rom_address": 134792334,
-      "byte_length": 34,
-      "terminator": "0x00",
-      "text": "　　　　プロデュース　　　　　　　",
-      "japanese_ratio": 0.353
-    },
-    {
       "offset": 574732,
       "rom_address": 134792460,
       "byte_length": 40,
@@ -1774,14 +1796,6 @@
       "japanese_ratio": 0.35
     },
     {
-      "offset": 575570,
-      "rom_address": 134793298,
-      "byte_length": 38,
-      "terminator": "0x00",
-      "text": "　　　　　 アニプレックス 　　　　　　",
-      "japanese_ratio": 0.35
-    },
-    {
       "offset": 575612,
       "rom_address": 134793340,
       "byte_length": 40,
@@ -1798,14 +1812,6 @@
       "japanese_ratio": 0.381
     },
     {
-      "offset": 575832,
-      "rom_address": 134793560,
-      "byte_length": 40,
-      "terminator": "0x00",
-      "text": "　　　　　　スペシャルサンクス　　　　　",
-      "japanese_ratio": 0.45
-    },
-    {
       "offset": 575876,
       "rom_address": 134793604,
       "byte_length": 40,
@@ -1820,94 +1826,6 @@
       "terminator": "0x00",
       "text": "　　　 森川　敦　　　　宇都宮　千秋 　　",
       "japanese_ratio": 0.381
-    },
-    {
-      "offset": 575978,
-      "rom_address": 134793706,
-      "byte_length": 26,
-      "terminator": "0x00",
-      "text": " レイアップ 　　　　　　　",
-      "japanese_ratio": 0.357
-    },
-    {
-      "offset": 576008,
-      "rom_address": 134793736,
-      "byte_length": 40,
-      "terminator": "0x00",
-      "text": "　　マニュアルデザイン　　　　　　　　　",
-      "japanese_ratio": 0.45
-    },
-    {
-      "offset": 576096,
-      "rom_address": 134793824,
-      "byte_length": 40,
-      "terminator": "0x00",
-      "text": "　　　原画　　　伊藤　嘉之／ボンズ　　　",
-      "japanese_ratio": 0.45
-    },
-    {
-      "offset": 576228,
-      "rom_address": 134793956,
-      "byte_length": 40,
-      "terminator": "0x00",
-      "text": "　　　　　ライトブリーズ　　　　　　　　",
-      "japanese_ratio": 0.35
-    },
-    {
-      "offset": 576316,
-      "rom_address": 134794044,
-      "byte_length": 40,
-      "terminator": "0x00",
-      "text": "　　　　　小山　英二／ウインズ　　　　　",
-      "japanese_ratio": 0.4
-    },
-    {
-      "offset": 576360,
-      "rom_address": 134794088,
-      "byte_length": 40,
-      "terminator": "0x00",
-      "text": "　　グラフィック協力　　　　　　　　　　",
-      "japanese_ratio": 0.4
-    },
-    {
-      "offset": 576404,
-      "rom_address": 134794132,
-      "byte_length": 40,
-      "terminator": "0x00",
-      "text": "　　　　　石中　史恵／ウインズ　　　　　",
-      "japanese_ratio": 0.4
-    },
-    {
-      "offset": 576492,
-      "rom_address": 134794220,
-      "byte_length": 40,
-      "terminator": "0x00",
-      "text": "　　　 藤原　文吾　／ツーファイブ 　　　",
-      "japanese_ratio": 0.476
-    },
-    {
-      "offset": 576712,
-      "rom_address": 134794440,
-      "byte_length": 40,
-      "terminator": "0x00",
-      "text": "　　　　　中山　しほ子／ボンズ　　　　　",
-      "japanese_ratio": 0.4
-    },
-    {
-      "offset": 576802,
-      "rom_address": 134794530,
-      "byte_length": 38,
-      "terminator": "0x00",
-      "text": "　　　　 小栗　寛子／ボンズ 　　　　　",
-      "japanese_ratio": 0.35
-    },
-    {
-      "offset": 576846,
-      "rom_address": 134794574,
-      "byte_length": 38,
-      "terminator": "0x00",
-      "text": "　　　　 伊藤　嘉之／ボンズ 　　　　　",
-      "japanese_ratio": 0.35
     },
     {
       "offset": 576976,
@@ -1972,30 +1890,6 @@
       "terminator": "0x00",
       "text": "　　　 大場　彰博　　　北村　智史 　　　",
       "japanese_ratio": 0.381
-    },
-    {
-      "offset": 577548,
-      "rom_address": 134795276,
-      "byte_length": 40,
-      "terminator": "0x00",
-      "text": "　　ゲームデザイン　　　　　　　　　　　",
-      "japanese_ratio": 0.35
-    },
-    {
-      "offset": 577682,
-      "rom_address": 134795410,
-      "byte_length": 38,
-      "terminator": "0x00",
-      "text": "　　　　　 トムクリエイト 　　　　　　",
-      "japanese_ratio": 0.35
-    },
-    {
-      "offset": 577856,
-      "rom_address": 134795584,
-      "byte_length": 40,
-      "terminator": "0x00",
-      "text": "　　　　 原作／キャラクター原案 　　　　",
-      "japanese_ratio": 0.476
     },
     {
       "offset": 578616,
@@ -164694,44 +164588,12 @@
       "japanese_ratio": 0.4
     },
     {
-      "offset": 7036268,
-      "rom_address": 141253996,
-      "byte_length": 14,
-      "terminator": "0x00",
-      "text": "01：リオール街",
-      "japanese_ratio": 0.625
-    },
-    {
       "offset": 7048542,
       "rom_address": 141266270,
       "byte_length": 12,
       "terminator": null,
       "text": "　おおーっ！",
       "japanese_ratio": 0.667
-    },
-    {
-      "offset": 7053521,
-      "rom_address": 141271249,
-      "byte_length": 42,
-      "terminator": null,
-      "text": "氈氈氈氈氈氈氈氈氈氈氈氈氈氈氈氈氈氈氈氈氈",
-      "japanese_ratio": 1.0
-    },
-    {
-      "offset": 7055522,
-      "rom_address": 141273250,
-      "byte_length": 26,
-      "terminator": null,
-      "text": "　水をあげる　水をあげない",
-      "japanese_ratio": 0.846
-    },
-    {
-      "offset": 7056672,
-      "rom_address": 141274400,
-      "byte_length": 8,
-      "terminator": "0x00",
-      "text": "02：教会",
-      "japanese_ratio": 0.4
     },
     {
       "offset": 7057954,
@@ -164748,14 +164610,6 @@
       "terminator": null,
       "text": "畩訊aｯ園",
       "japanese_ratio": 0.6
-    },
-    {
-      "offset": 7074780,
-      "rom_address": 141292508,
-      "byte_length": 14,
-      "terminator": "0x00",
-      "text": "04：教主の部屋",
-      "japanese_ratio": 0.625
     },
     {
       "offset": 7080071,
@@ -164782,30 +164636,6 @@
       "japanese_ratio": 0.5
     },
     {
-      "offset": 7100596,
-      "rom_address": 141318324,
-      "byte_length": 18,
-      "terminator": "0x00",
-      "text": "09：レドンド下水道",
-      "japanese_ratio": 0.7
-    },
-    {
-      "offset": 7107926,
-      "rom_address": 141325654,
-      "byte_length": 10,
-      "terminator": null,
-      "text": "……鋼の。",
-      "japanese_ratio": 0.4
-    },
-    {
-      "offset": 7109356,
-      "rom_address": 141327084,
-      "byte_length": 14,
-      "terminator": null,
-      "text": "　はい　いいえ",
-      "japanese_ratio": 0.714
-    },
-    {
       "offset": 7112460,
       "rom_address": 141330188,
       "byte_length": 10,
@@ -164820,14 +164650,6 @@
       "terminator": null,
       "text": "艢蛟ｿﾖ",
       "japanese_ratio": 0.5
-    },
-    {
-      "offset": 7124036,
-      "rom_address": 141341764,
-      "byte_length": 8,
-      "terminator": "0x00",
-      "text": "12：裏山",
-      "japanese_ratio": 0.4
     },
     {
       "offset": 7124590,
@@ -164854,76 +164676,12 @@
       "japanese_ratio": 0.5
     },
     {
-      "offset": 7138510,
-      "rom_address": 141356238,
-      "byte_length": 14,
-      "terminator": null,
-      "text": "　はい　いいえ",
-      "japanese_ratio": 0.714
-    },
-    {
-      "offset": 7139904,
-      "rom_address": 141357632,
-      "byte_length": 30,
-      "terminator": null,
-      "text": "　丸太をあげる　丸太をあげない",
-      "japanese_ratio": 0.867
-    },
-    {
       "offset": 7161031,
       "rom_address": 141378759,
       "byte_length": 6,
       "terminator": null,
       "text": "_冒_歴",
       "japanese_ratio": 0.5
-    },
-    {
-      "offset": 7172342,
-      "rom_address": 141390070,
-      "byte_length": 14,
-      "terminator": null,
-      "text": "誰がチビだっ！",
-      "japanese_ratio": 0.857
-    },
-    {
-      "offset": 7179832,
-      "rom_address": 141397560,
-      "byte_length": 26,
-      "terminator": null,
-      "text": "　泊まる　やっぱ泊まらない",
-      "japanese_ratio": 0.846
-    },
-    {
-      "offset": 7182562,
-      "rom_address": 141400290,
-      "byte_length": 20,
-      "terminator": null,
-      "text": "　　　　　宿屋　二階",
-      "japanese_ratio": 0.4
-    },
-    {
-      "offset": 7184908,
-      "rom_address": 141402636,
-      "byte_length": 20,
-      "terminator": null,
-      "text": "　　　　　宿屋　二階",
-      "japanese_ratio": 0.4
-    },
-    {
-      "offset": 7185544,
-      "rom_address": 141403272,
-      "byte_length": 8,
-      "terminator": null,
-      "text": "だーっ！",
-      "japanese_ratio": 0.75
-    },
-    {
-      "offset": 7185558,
-      "rom_address": 141403286,
-      "byte_length": 22,
-      "terminator": null,
-      "text": "なんで脱ぐ必要がある！",
-      "japanese_ratio": 0.909
     },
     {
       "offset": 7187847,
@@ -164966,14 +164724,6 @@
       "japanese_ratio": 0.4
     },
     {
-      "offset": 7222004,
-      "rom_address": 141439732,
-      "byte_length": 8,
-      "terminator": "0x00",
-      "text": "21：中庭",
-      "japanese_ratio": 0.4
-    },
-    {
       "offset": 7224964,
       "rom_address": 141442692,
       "byte_length": 7,
@@ -164982,68 +164732,12 @@
       "japanese_ratio": 0.4
     },
     {
-      "offset": 7230622,
-      "rom_address": 141448350,
-      "byte_length": 40,
-      "terminator": null,
-      "text": "　いつでもオッケー！　ちょっと待ったー！",
-      "japanese_ratio": 0.8
-    },
-    {
-      "offset": 7231148,
-      "rom_address": 141448876,
-      "byte_length": 40,
-      "terminator": null,
-      "text": "　いつでもオッケー！　ちょっと待ったー！",
-      "japanese_ratio": 0.8
-    },
-    {
-      "offset": 7237438,
-      "rom_address": 141455166,
-      "byte_length": 20,
-      "terminator": null,
-      "text": "チ、チビッコだー！？",
-      "japanese_ratio": 0.7
-    },
-    {
       "offset": 7238936,
       "rom_address": 141456664,
       "byte_length": 10,
       "terminator": null,
       "text": "だぁーっ！",
       "japanese_ratio": 0.8
-    },
-    {
-      "offset": 7240632,
-      "rom_address": 141458360,
-      "byte_length": 8,
-      "terminator": null,
-      "text": "コラー！",
-      "japanese_ratio": 0.75
-    },
-    {
-      "offset": 7242292,
-      "rom_address": 141460020,
-      "byte_length": 10,
-      "terminator": null,
-      "text": "…えっ！？",
-      "japanese_ratio": 0.4
-    },
-    {
-      "offset": 7248554,
-      "rom_address": 141466282,
-      "byte_length": 8,
-      "terminator": null,
-      "text": "ゲーッ！",
-      "japanese_ratio": 0.75
-    },
-    {
-      "offset": 7250388,
-      "rom_address": 141468116,
-      "byte_length": 10,
-      "terminator": null,
-      "text": "くっ………",
-      "japanese_ratio": 0.4
     },
     {
       "offset": 7265096,
@@ -165078,102 +164772,6 @@
       "japanese_ratio": 0.4
     },
     {
-      "offset": 7287210,
-      "rom_address": 141504938,
-      "byte_length": 22,
-      "terminator": null,
-      "text": "１２００００センズだ！",
-      "japanese_ratio": 0.364
-    },
-    {
-      "offset": 7287336,
-      "rom_address": 141505064,
-      "byte_length": 16,
-      "terminator": null,
-      "text": "　買う　買わない",
-      "japanese_ratio": 0.75
-    },
-    {
-      "offset": 7288178,
-      "rom_address": 141505906,
-      "byte_length": 9,
-      "terminator": "0x00",
-      "text": "：病院１F",
-      "japanese_ratio": 0.4
-    },
-    {
-      "offset": 7292206,
-      "rom_address": 141509934,
-      "byte_length": 9,
-      "terminator": "0x00",
-      "text": "：病院２F",
-      "japanese_ratio": 0.4
-    },
-    {
-      "offset": 7295560,
-      "rom_address": 141513288,
-      "byte_length": 16,
-      "terminator": null,
-      "text": "　買う　買わない",
-      "japanese_ratio": 0.75
-    },
-    {
-      "offset": 7296368,
-      "rom_address": 141514096,
-      "byte_length": 26,
-      "terminator": null,
-      "text": "２０００００センズだけど、",
-      "japanese_ratio": 0.462
-    },
-    {
-      "offset": 7296498,
-      "rom_address": 141514226,
-      "byte_length": 16,
-      "terminator": null,
-      "text": "　買う　買わない",
-      "japanese_ratio": 0.75
-    },
-    {
-      "offset": 7297109,
-      "rom_address": 141514837,
-      "byte_length": 9,
-      "terminator": "0x00",
-      "text": "7：病室①",
-      "japanese_ratio": 0.4
-    },
-    {
-      "offset": 7302024,
-      "rom_address": 141519752,
-      "byte_length": 8,
-      "terminator": "0x00",
-      "text": "29：屋上",
-      "japanese_ratio": 0.4
-    },
-    {
-      "offset": 7305588,
-      "rom_address": 141523316,
-      "byte_length": 22,
-      "terminator": null,
-      "text": "　もってる　もってない",
-      "japanese_ratio": 0.818
-    },
-    {
-      "offset": 7305740,
-      "rom_address": 141523468,
-      "byte_length": 20,
-      "terminator": null,
-      "text": "１００００センズか…",
-      "japanese_ratio": 0.4
-    },
-    {
-      "offset": 7305784,
-      "rom_address": 141523512,
-      "byte_length": 16,
-      "terminator": null,
-      "text": "　売る　売らない",
-      "japanese_ratio": 0.75
-    },
-    {
       "offset": 7312303,
       "rom_address": 141530031,
       "byte_length": 7,
@@ -165198,70 +164796,6 @@
       "japanese_ratio": 0.5
     },
     {
-      "offset": 7320126,
-      "rom_address": 141537854,
-      "byte_length": 10,
-      "terminator": null,
-      "text": "　　　駅前",
-      "japanese_ratio": 0.4
-    },
-    {
-      "offset": 7320756,
-      "rom_address": 141538484,
-      "byte_length": 12,
-      "terminator": null,
-      "text": "ウソつけっ！",
-      "japanese_ratio": 0.833
-    },
-    {
-      "offset": 7322112,
-      "rom_address": 141539840,
-      "byte_length": 26,
-      "terminator": null,
-      "text": "くぅぉらぁぁぁぁーーー！！",
-      "japanese_ratio": 0.846
-    },
-    {
-      "offset": 7324342,
-      "rom_address": 141542070,
-      "byte_length": 10,
-      "terminator": null,
-      "text": "サヨ………",
-      "japanese_ratio": 0.4
-    },
-    {
-      "offset": 7331146,
-      "rom_address": 141548874,
-      "byte_length": 16,
-      "terminator": null,
-      "text": "００００センズ、",
-      "japanese_ratio": 0.375
-    },
-    {
-      "offset": 7331268,
-      "rom_address": 141548996,
-      "byte_length": 16,
-      "terminator": null,
-      "text": "　買う　買わない",
-      "japanese_ratio": 0.75
-    },
-    {
-      "offset": 7332308,
-      "rom_address": 141550036,
-      "byte_length": 26,
-      "terminator": null,
-      "text": "５－５か５－６で錬成可能！",
-      "japanese_ratio": 0.462
-    },
-    {
-      "offset": 7338504,
-      "rom_address": 141556232,
-      "byte_length": 20,
-      "terminator": null,
-      "text": "なんでそうなるんだ！",
-      "japanese_ratio": 0.9
-    },
-    {
       "offset": 7339910,
       "rom_address": 141557638,
       "byte_length": 20,
@@ -165270,44 +164804,12 @@
       "japanese_ratio": 0.7
     },
     {
-      "offset": 7340092,
-      "rom_address": 141557820,
-      "byte_length": 34,
-      "terminator": null,
-      "text": "　花を錬成する事　黄金を錬成する事",
-      "japanese_ratio": 0.882
-    },
-    {
       "offset": 7340300,
       "rom_address": 141558028,
       "byte_length": 16,
       "terminator": null,
       "text": "　科学技術　魔術",
       "japanese_ratio": 0.75
-    },
-    {
-      "offset": 7353578,
-      "rom_address": 141571306,
-      "byte_length": 22,
-      "terminator": null,
-      "text": "２０００００センズだ！",
-      "japanese_ratio": 0.364
-    },
-    {
-      "offset": 7353742,
-      "rom_address": 141571470,
-      "byte_length": 16,
-      "terminator": null,
-      "text": "　買う　買わない",
-      "japanese_ratio": 0.75
-    },
-    {
-      "offset": 7356312,
-      "rom_address": 141574040,
-      "byte_length": 22,
-      "terminator": null,
-      "text": "　兄１５歳　　弟１４歳",
-      "japanese_ratio": 0.364
     },
     {
       "offset": 7358909,
@@ -165342,46 +164844,6 @@
       "japanese_ratio": 0.5
     },
     {
-      "offset": 7370644,
-      "rom_address": 141588372,
-      "byte_length": 16,
-      "terminator": "0x00",
-      "text": "38：イースト南側",
-      "japanese_ratio": 0.667
-    },
-    {
-      "offset": 7384548,
-      "rom_address": 141602276,
-      "byte_length": 22,
-      "terminator": null,
-      "text": "１５００００センズだ。",
-      "japanese_ratio": 0.364
-    },
-    {
-      "offset": 7384712,
-      "rom_address": 141602440,
-      "byte_length": 16,
-      "terminator": null,
-      "text": "　買う　買わない",
-      "japanese_ratio": 0.75
-    },
-    {
-      "offset": 7388060,
-      "rom_address": 141605788,
-      "byte_length": 26,
-      "terminator": null,
-      "text": "　泊まる　やっぱ泊まらない",
-      "japanese_ratio": 0.846
-    },
-    {
-      "offset": 7410402,
-      "rom_address": 141628130,
-      "byte_length": 7,
-      "terminator": "0xFF",
-      "text": "急げ！P",
-      "japanese_ratio": 0.5
-    },
-    {
       "offset": 7416577,
       "rom_address": 141634305,
       "byte_length": 10,
@@ -165390,60 +164852,12 @@
       "japanese_ratio": 0.429
     },
     {
-      "offset": 7425424,
-      "rom_address": 141643152,
-      "byte_length": 7,
-      "terminator": "0xFF",
-      "text": "断る！'",
-      "japanese_ratio": 0.5
-    },
-    {
-      "offset": 7431950,
-      "rom_address": 141649678,
-      "byte_length": 7,
-      "terminator": "0xFF",
-      "text": "そうだ+",
-      "japanese_ratio": 0.75
-    },
-    {
       "offset": 7464798,
       "rom_address": 141682526,
       "byte_length": 6,
       "terminator": null,
       "text": "0`署厘",
       "japanese_ratio": 0.5
-    },
-    {
-      "offset": 7493320,
-      "rom_address": 141711048,
-      "byte_length": 14,
-      "terminator": null,
-      "text": "７－７の油か…",
-      "japanese_ratio": 0.429
-    },
-    {
-      "offset": 7493358,
-      "rom_address": 141711086,
-      "byte_length": 26,
-      "terminator": null,
-      "text": "　油をあげる　油をあげない",
-      "japanese_ratio": 0.846
-    },
-    {
-      "offset": 7518222,
-      "rom_address": 141735950,
-      "byte_length": 14,
-      "terminator": null,
-      "text": "　はい　いいえ",
-      "japanese_ratio": 0.714
-    },
-    {
-      "offset": 7518994,
-      "rom_address": 141736722,
-      "byte_length": 14,
-      "terminator": null,
-      "text": "　はい　いいえ",
-      "japanese_ratio": 0.714
     },
     {
       "offset": 7521023,
@@ -165462,68 +164876,12 @@
       "japanese_ratio": 0.857
     },
     {
-      "offset": 7541468,
-      "rom_address": 141759196,
-      "byte_length": 10,
-      "terminator": null,
-      "text": "脱がんで！",
-      "japanese_ratio": 0.8
-    },
-    {
-      "offset": 7554248,
-      "rom_address": 141771976,
-      "byte_length": 12,
-      "terminator": "0x00",
-      "text": "54：下水道④",
-      "japanese_ratio": 0.429
-    },
-    {
-      "offset": 7563648,
-      "rom_address": 141781376,
-      "byte_length": 7,
-      "terminator": "0xFF",
-      "text": "中尉？+",
-      "japanese_ratio": 0.5
-    },
-    {
       "offset": 7566617,
       "rom_address": 141784345,
       "byte_length": 7,
       "terminator": null,
       "text": "!孛燿歴",
       "japanese_ratio": 0.75
-    },
-    {
-      "offset": 7569120,
-      "rom_address": 141786848,
-      "byte_length": 7,
-      "terminator": "0xFF",
-      "text": "あら！'",
-      "japanese_ratio": 0.5
-    },
-    {
-      "offset": 7571896,
-      "rom_address": 141789624,
-      "byte_length": 14,
-      "terminator": null,
-      "text": "　はい　いいえ",
-      "japanese_ratio": 0.714
-    },
-    {
-      "offset": 7575088,
-      "rom_address": 141792816,
-      "byte_length": 23,
-      "terminator": "0x00",
-      "text": "57：--ダイムラー邸③2階",
-      "japanese_ratio": 0.5
-    },
-    {
-      "offset": 7577112,
-      "rom_address": 141794840,
-      "byte_length": 22,
-      "terminator": "0x00",
-      "text": "58：ダイムラー邸④地下",
-      "japanese_ratio": 0.667
     },
     {
       "offset": 7583965,
@@ -165558,38 +164916,6 @@
       "japanese_ratio": 0.4
     },
     {
-      "offset": 7607100,
-      "rom_address": 141824828,
-      "byte_length": 28,
-      "terminator": null,
-      "text": "１００００００センズ出せば、",
-      "japanese_ratio": 0.429
-    },
-    {
-      "offset": 7607384,
-      "rom_address": 141825112,
-      "byte_length": 22,
-      "terminator": null,
-      "text": "　改造する　改造しない",
-      "japanese_ratio": 0.818
-    },
-    {
-      "offset": 7609584,
-      "rom_address": 141827312,
-      "byte_length": 10,
-      "terminator": null,
-      "text": "う～ん…、",
-      "japanese_ratio": 0.4
-    },
-    {
-      "offset": 7612662,
-      "rom_address": 141830390,
-      "byte_length": 16,
-      "terminator": null,
-      "text": "　頼む　頼まない",
-      "japanese_ratio": 0.75
-    },
-    {
       "offset": 7615680,
       "rom_address": 141833408,
       "byte_length": 6,
@@ -165612,14 +164938,6 @@
       "terminator": null,
       "text": "煤普磨縺",
       "japanese_ratio": 1.0
-    },
-    {
-      "offset": 7622968,
-      "rom_address": 141840696,
-      "byte_length": 10,
-      "terminator": null,
-      "text": "え？　え？",
-      "japanese_ratio": 0.4
     },
     {
       "offset": 7631483,
@@ -165654,68 +164972,12 @@
       "japanese_ratio": 0.5
     },
     {
-      "offset": 7661765,
-      "rom_address": 141879493,
-      "byte_length": 9,
-      "terminator": "0x00",
-      "text": "5：古城①",
-      "japanese_ratio": 0.4
-    },
-    {
       "offset": 7662676,
       "rom_address": 141880404,
       "byte_length": 6,
       "terminator": null,
       "text": "涇z靍3",
       "japanese_ratio": 0.5
-    },
-    {
-      "offset": 7674605,
-      "rom_address": 141892333,
-      "byte_length": 9,
-      "terminator": "0x00",
-      "text": "6：古城②",
-      "japanese_ratio": 0.4
-    },
-    {
-      "offset": 7685128,
-      "rom_address": 141902856,
-      "byte_length": 14,
-      "terminator": null,
-      "text": "石の７－６だ！",
-      "japanese_ratio": 0.429
-    },
-    {
-      "offset": 7685224,
-      "rom_address": 141902952,
-      "byte_length": 14,
-      "terminator": null,
-      "text": "　はい　いいえ",
-      "japanese_ratio": 0.714
-    },
-    {
-      "offset": 7686245,
-      "rom_address": 141903973,
-      "byte_length": 9,
-      "terminator": "0x00",
-      "text": "7：古城③",
-      "japanese_ratio": 0.4
-    },
-    {
-      "offset": 7696908,
-      "rom_address": 141914636,
-      "byte_length": 28,
-      "terminator": null,
-      "text": "　扉を壊して進む　別の方法で",
-      "japanese_ratio": 0.857
-    },
-    {
-      "offset": 7698125,
-      "rom_address": 141915853,
-      "byte_length": 9,
-      "terminator": "0x00",
-      "text": "8：古城④",
-      "japanese_ratio": 0.4
     },
     {
       "offset": 7701489,
@@ -165740,310 +165002,6 @@
       "terminator": null,
       "text": "ｰ頻晰ｳ",
       "japanese_ratio": 0.5
-    },
-    {
-      "offset": 7706578,
-      "rom_address": 141924306,
-      "byte_length": 10,
-      "terminator": null,
-      "text": "ぎゃ～！！",
-      "japanese_ratio": 0.4
-    },
-    {
-      "offset": 7707550,
-      "rom_address": 141925278,
-      "byte_length": 14,
-      "terminator": null,
-      "text": "　はい　いいえ",
-      "japanese_ratio": 0.714
-    },
-    {
-      "offset": 7708229,
-      "rom_address": 141925957,
-      "byte_length": 9,
-      "terminator": "0x00",
-      "text": "9：古城⑤",
-      "japanese_ratio": 0.4
-    },
-    {
-      "offset": 7728958,
-      "rom_address": 141946686,
-      "byte_length": 14,
-      "terminator": null,
-      "text": "　はい　いいえ",
-      "japanese_ratio": 0.714
-    },
-    {
-      "offset": 7737504,
-      "rom_address": 141955232,
-      "byte_length": 16,
-      "terminator": null,
-      "text": "　買う　買わない",
-      "japanese_ratio": 0.75
-    },
-    {
-      "offset": 7747568,
-      "rom_address": 141965296,
-      "byte_length": 7,
-      "terminator": "0xFF",
-      "text": "はいよ'",
-      "japanese_ratio": 0.75
-    },
-    {
-      "offset": 7749128,
-      "rom_address": 141966856,
-      "byte_length": 12,
-      "terminator": "0x00",
-      "text": "71：列車内②",
-      "japanese_ratio": 0.429
-    },
-    {
-      "offset": 7753712,
-      "rom_address": 141971440,
-      "byte_length": 12,
-      "terminator": "0x00",
-      "text": "72：列車内③",
-      "japanese_ratio": 0.429
-    },
-    {
-      "offset": 7758388,
-      "rom_address": 141976116,
-      "byte_length": 12,
-      "terminator": "0x00",
-      "text": "73：列車上①",
-      "japanese_ratio": 0.429
-    },
-    {
-      "offset": 7762534,
-      "rom_address": 141980262,
-      "byte_length": 14,
-      "terminator": null,
-      "text": "　はい　いいえ",
-      "japanese_ratio": 0.714
-    },
-    {
-      "offset": 7766536,
-      "rom_address": 141984264,
-      "byte_length": 12,
-      "terminator": "0x00",
-      "text": "75：列車上③",
-      "japanese_ratio": 0.429
-    },
-    {
-      "offset": 7771324,
-      "rom_address": 141989052,
-      "byte_length": 10,
-      "terminator": "0x00",
-      "text": "76：機関車",
-      "japanese_ratio": 0.5
-    },
-    {
-      "offset": 7776008,
-      "rom_address": 141993736,
-      "byte_length": 20,
-      "terminator": "0x00",
-      "text": "77：エルリック家地下",
-      "japanese_ratio": 0.727
-    },
-    {
-      "offset": 7780245,
-      "rom_address": 141997973,
-      "byte_length": 9,
-      "terminator": "0x00",
-      "text": "0：古城⑥",
-      "japanese_ratio": 0.4
-    },
-    {
-      "offset": 7786008,
-      "rom_address": 142003736,
-      "byte_length": 10,
-      "terminator": null,
-      "text": "……鋼の、",
-      "japanese_ratio": 0.4
-    },
-    {
-      "offset": 7786382,
-      "rom_address": 142004110,
-      "byte_length": 14,
-      "terminator": null,
-      "text": "　はい　いいえ",
-      "japanese_ratio": 0.714
-    },
-    {
-      "offset": 7810754,
-      "rom_address": 142028482,
-      "byte_length": 14,
-      "terminator": null,
-      "text": "　はい　いいえ",
-      "japanese_ratio": 0.714
-    },
-    {
-      "offset": 7810834,
-      "rom_address": 142028562,
-      "byte_length": 14,
-      "terminator": null,
-      "text": "　はい　いいえ",
-      "japanese_ratio": 0.714
-    },
-    {
-      "offset": 7810984,
-      "rom_address": 142028712,
-      "byte_length": 14,
-      "terminator": null,
-      "text": "　はい　いいえ",
-      "japanese_ratio": 0.714
-    },
-    {
-      "offset": 7811298,
-      "rom_address": 142029026,
-      "byte_length": 14,
-      "terminator": null,
-      "text": "　はい　いいえ",
-      "japanese_ratio": 0.714
-    },
-    {
-      "offset": 7811384,
-      "rom_address": 142029112,
-      "byte_length": 14,
-      "terminator": null,
-      "text": "　はい　いいえ",
-      "japanese_ratio": 0.714
-    },
-    {
-      "offset": 7811554,
-      "rom_address": 142029282,
-      "byte_length": 14,
-      "terminator": null,
-      "text": "　はい　いいえ",
-      "japanese_ratio": 0.714
-    },
-    {
-      "offset": 8029520,
-      "rom_address": 142247248,
-      "byte_length": 28,
-      "terminator": null,
-      "text": "回復薬１体力を５０回復する薬",
-      "japanese_ratio": 0.786
-    },
-    {
-      "offset": 8029660,
-      "rom_address": 142247388,
-      "byte_length": 32,
-      "terminator": null,
-      "text": "回復薬３体力を２００回復する薬３",
-      "japanese_ratio": 0.688
-    },
-    {
-      "offset": 8029884,
-      "rom_address": 142247612,
-      "byte_length": 16,
-      "terminator": null,
-      "text": "国家錬金術師の証",
-      "japanese_ratio": 1.0
-    },
-    {
-      "offset": 8030316,
-      "rom_address": 142248044,
-      "byte_length": 24,
-      "terminator": null,
-      "text": "幻の機械鎧の素材　５／５",
-      "japanese_ratio": 0.667
-    },
-    {
-      "offset": 8030396,
-      "rom_address": 142248124,
-      "byte_length": 24,
-      "terminator": null,
-      "text": "トーナメントを優勝した証",
-      "japanese_ratio": 1.0
-    },
-    {
-      "offset": 8030476,
-      "rom_address": 142248204,
-      "byte_length": 24,
-      "terminator": null,
-      "text": "幻の機械鎧を手に入れた証",
-      "japanese_ratio": 1.0
-    },
-    {
-      "offset": 8030728,
-      "rom_address": 142248456,
-      "byte_length": 32,
-      "terminator": null,
-      "text": "シェスカのクイズに全問正解した証",
-      "japanese_ratio": 1.0
-    },
-    {
-      "offset": 8030816,
-      "rom_address": 142248544,
-      "byte_length": 28,
-      "terminator": null,
-      "text": "大総統のお使いを成し遂げた証",
-      "japanese_ratio": 1.0
-    },
-    {
-      "offset": 8030988,
-      "rom_address": 142248716,
-      "byte_length": 28,
-      "terminator": null,
-      "text": "ハボックに隠し子発覚！？の証",
-      "japanese_ratio": 0.857
-    },
-    {
-      "offset": 8031160,
-      "rom_address": 142248888,
-      "byte_length": 28,
-      "terminator": null,
-      "text": "マスタング大佐　汚名返上の証",
-      "japanese_ratio": 0.929
-    },
-    {
-      "offset": 8031328,
-      "rom_address": 142249056,
-      "byte_length": 28,
-      "terminator": null,
-      "text": "バルドに爆破された鎧のパーツ",
-      "japanese_ratio": 1.0
-    },
-    {
-      "offset": 8031408,
-      "rom_address": 142249136,
-      "byte_length": 28,
-      "terminator": null,
-      "text": "バルドに爆破された鎧のパーツ",
-      "japanese_ratio": 1.0
-    },
-    {
-      "offset": 8031488,
-      "rom_address": 142249216,
-      "byte_length": 28,
-      "terminator": null,
-      "text": "バルドに爆破された鎧のパーツ",
-      "japanese_ratio": 1.0
-    },
-    {
-      "offset": 8031568,
-      "rom_address": 142249296,
-      "byte_length": 28,
-      "terminator": null,
-      "text": "バルドに爆破された鎧のパーツ",
-      "japanese_ratio": 1.0
-    },
-    {
-      "offset": 8031724,
-      "rom_address": 142249452,
-      "byte_length": 24,
-      "terminator": null,
-      "text": "東方軍司令部へ届ける書類",
-      "japanese_ratio": 1.0
-    },
-    {
-      "offset": 8031796,
-      "rom_address": 142249524,
-      "byte_length": 28,
-      "terminator": null,
-      "text": "東方軍司令部で受け取った書類",
-      "japanese_ratio": 1.0
     },
     {
       "offset": 8099808,

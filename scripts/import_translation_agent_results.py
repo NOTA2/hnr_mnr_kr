@@ -71,6 +71,11 @@ def source_label(record: dict) -> str:
     return ", ".join(parts) or "<unknown>"
 
 
+def is_invalid_agent_translation(value: str) -> bool:
+    compact = value.replace(" ", "").replace("　", "")
+    return "확인필요" in compact or "에군군의에" in value
+
+
 def build_index(items: list[dict]) -> tuple[dict[str, dict], dict[tuple[int, str], dict], dict[int, list[dict]]]:
     by_item_id: dict[str, dict] = {}
     by_offset_source: dict[tuple[int, str], dict] = {}
@@ -105,13 +110,16 @@ def resolve_target(record: dict, by_item_id: dict[str, dict], by_offset_source: 
 
 def merge_record(target: dict, record: dict) -> str:
     translation = record.get("translation", "")
+    comment = record.get("agent_comment") or record.get("notes") or ""
     if translation:
         translation = normalize_translation_text(
             translation,
             source_group=target.get("source_group"),
             reference_text=target.get("text"),
         )
-    comment = record.get("agent_comment") or record.get("notes") or ""
+        if is_invalid_agent_translation(translation):
+            translation = ""
+            comment = "무시됨: 오염된 확인 필요 초안"
 
     if target.get("manual_locked"):
         if translation:

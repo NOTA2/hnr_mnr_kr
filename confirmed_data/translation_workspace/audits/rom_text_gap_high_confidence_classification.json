@@ -1,0 +1,389 @@
+{
+  "version": 1,
+  "notes": "High-confidence ROM text gap candidates were classified after excluding intervals already known to extracted texts/workbench. Only clear fixed-slot map labels, UI status labels, and credits lines were added. CP932 false positives remain excluded.",
+  "added": {
+    "registry_a_map_labels": [
+      {
+        "offset": 7056672,
+        "rom_address": 141274400,
+        "byte_length": 8,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "02：教会",
+        "translation": "02:교회"
+      },
+      {
+        "offset": 7074780,
+        "rom_address": 141292508,
+        "byte_length": 14,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "04：教主の部屋",
+        "translation": "04:교주 방"
+      },
+      {
+        "offset": 7124036,
+        "rom_address": 141341764,
+        "byte_length": 8,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "12：裏山",
+        "translation": "12:뒷산"
+      },
+      {
+        "offset": 7222004,
+        "rom_address": 141439732,
+        "byte_length": 8,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "21：中庭",
+        "translation": "21:안뜰"
+      },
+      {
+        "offset": 7288176,
+        "rom_address": 141505904,
+        "byte_length": 11,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "25：病院１F",
+        "translation": "25:병원1F"
+      },
+      {
+        "offset": 7292204,
+        "rom_address": 141509932,
+        "byte_length": 11,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "26：病院２F",
+        "translation": "26:병원2F"
+      },
+      {
+        "offset": 7297108,
+        "rom_address": 141514836,
+        "byte_length": 10,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "27：病室①",
+        "translation": "27:병실①"
+      },
+      {
+        "offset": 7302024,
+        "rom_address": 141519752,
+        "byte_length": 8,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "29：屋上",
+        "translation": "29:옥상"
+      },
+      {
+        "offset": 7370644,
+        "rom_address": 141588372,
+        "byte_length": 16,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "38：イースト南側",
+        "translation": "38:이스트 남쪽"
+      },
+      {
+        "offset": 7554248,
+        "rom_address": 141771976,
+        "byte_length": 12,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "54：下水道④",
+        "translation": "54:하수도④"
+      },
+      {
+        "offset": 7661764,
+        "rom_address": 141879492,
+        "byte_length": 10,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "65：古城①",
+        "translation": "65:고성①"
+      },
+      {
+        "offset": 7674604,
+        "rom_address": 141892332,
+        "byte_length": 10,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "66：古城②",
+        "translation": "66:고성②"
+      },
+      {
+        "offset": 7686244,
+        "rom_address": 141903972,
+        "byte_length": 10,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "67：古城③",
+        "translation": "67:고성③"
+      },
+      {
+        "offset": 7698124,
+        "rom_address": 141915852,
+        "byte_length": 10,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "68：古城④",
+        "translation": "68:고성④"
+      },
+      {
+        "offset": 7708228,
+        "rom_address": 141925956,
+        "byte_length": 10,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "69：古城⑤",
+        "translation": "69:고성⑤"
+      },
+      {
+        "offset": 7749128,
+        "rom_address": 141966856,
+        "byte_length": 12,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "71：列車内②",
+        "translation": "71:열차 안②"
+      },
+      {
+        "offset": 7753712,
+        "rom_address": 141971440,
+        "byte_length": 12,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "72：列車内③",
+        "translation": "72:열차 안③"
+      },
+      {
+        "offset": 7758388,
+        "rom_address": 141976116,
+        "byte_length": 12,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "73：列車上①",
+        "translation": "73:열차 위①"
+      },
+      {
+        "offset": 7766536,
+        "rom_address": 141984264,
+        "byte_length": 12,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "75：列車上③",
+        "translation": "75:열차 위③"
+      },
+      {
+        "offset": 7771324,
+        "rom_address": 141989052,
+        "byte_length": 10,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "76：機関車",
+        "translation": "76:기관차"
+      },
+      {
+        "offset": 7776008,
+        "rom_address": 141993736,
+        "byte_length": 20,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "77：エルリック家地下",
+        "translation": "77:엘릭가 지하"
+      },
+      {
+        "offset": 7780244,
+        "rom_address": 141997972,
+        "byte_length": 10,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "80：古城⑥",
+        "translation": "80:고성⑥"
+      }
+    ],
+    "credits_texts": [
+      {
+        "offset": 574292,
+        "rom_address": 134792020,
+        "byte_length": 40,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "　　プロデューサー　　　　　　　　　　　",
+        "translation": "　　프로듀서　　　　　　　　　　　"
+      },
+      {
+        "offset": 574606,
+        "rom_address": 134792334,
+        "byte_length": 34,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "　　　　プロデュース　　　　　　　",
+        "translation": "　　　　프로듀스　　　　　　　"
+      },
+      {
+        "offset": 575570,
+        "rom_address": 134793298,
+        "byte_length": 38,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "　　　　　 アニプレックス 　　　　　　",
+        "translation": "　　　　　　애니플렉스　　　　　　"
+      },
+      {
+        "offset": 575832,
+        "rom_address": 134793560,
+        "byte_length": 40,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "　　　　　　スペシャルサンクス　　　　　",
+        "translation": "　　　　　　특별　감사　　　　　"
+      },
+      {
+        "offset": 575978,
+        "rom_address": 134793706,
+        "byte_length": 26,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": " レイアップ 　　　　　　　",
+        "translation": "　레이업　　　　　　　"
+      },
+      {
+        "offset": 576008,
+        "rom_address": 134793736,
+        "byte_length": 40,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "　　マニュアルデザイン　　　　　　　　　",
+        "translation": "　　매뉴얼　디자인　　　　　　　　　"
+      },
+      {
+        "offset": 576096,
+        "rom_address": 134793824,
+        "byte_length": 40,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "　　　原画　　　伊藤　嘉之／ボンズ　　　",
+        "translation": "　　　원화　　　이토요시유키/본즈　　"
+      },
+      {
+        "offset": 576228,
+        "rom_address": 134793956,
+        "byte_length": 40,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "　　　　　ライトブリーズ　　　　　　　　",
+        "translation": "　　　　　라이트브리즈　　　　　　　　"
+      },
+      {
+        "offset": 576316,
+        "rom_address": 134794044,
+        "byte_length": 40,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "　　　　　小山　英二／ウインズ　　　　　",
+        "translation": "　　　　　오야마　에이지/윈즈　　　　　"
+      },
+      {
+        "offset": 576360,
+        "rom_address": 134794088,
+        "byte_length": 40,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "　　グラフィック協力　　　　　　　　　　",
+        "translation": "　　그래픽　협력　　　　　　　　　　"
+      },
+      {
+        "offset": 576404,
+        "rom_address": 134794132,
+        "byte_length": 40,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "　　　　　石中　史恵／ウインズ　　　　　",
+        "translation": "　　　　　이시나카후미에/윈즈　　　　　"
+      },
+      {
+        "offset": 576492,
+        "rom_address": 134794220,
+        "byte_length": 40,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "　　　 藤原　文吾　／ツーファイブ 　　　",
+        "translation": "　　　　후지와라　분고/투파이브　　　　"
+      },
+      {
+        "offset": 576712,
+        "rom_address": 134794440,
+        "byte_length": 40,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "　　　　　中山　しほ子／ボンズ　　　　　",
+        "translation": "　　　　　나카야마시호코/본즈　　　　　"
+      },
+      {
+        "offset": 576802,
+        "rom_address": 134794530,
+        "byte_length": 38,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "　　　　 小栗　寛子／ボンズ 　　　　　",
+        "translation": "　　　　　오구리히로코/본즈　　　　"
+      },
+      {
+        "offset": 576846,
+        "rom_address": 134794574,
+        "byte_length": 38,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "　　　　 伊藤　嘉之／ボンズ 　　　　　",
+        "translation": "　　　　　이토요시유키/본즈　　　　"
+      },
+      {
+        "offset": 577548,
+        "rom_address": 134795276,
+        "byte_length": 40,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "　　ゲームデザイン　　　　　　　　　　　",
+        "translation": "　　게임　디자인　　　　　　　　　　　"
+      },
+      {
+        "offset": 577682,
+        "rom_address": 134795410,
+        "byte_length": 38,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "　　　　　 トムクリエイト 　　　　　　",
+        "translation": "　　　　　　톰　크리에이트　　　　　　"
+      },
+      {
+        "offset": 577856,
+        "rom_address": 134795584,
+        "byte_length": 40,
+        "terminator": "0x00",
+        "unknown_tokens": 0,
+        "text": "　　　　 原作／キャラクター原案 　　　　",
+        "translation": "　　　　　원작/캐릭터　원안　　　　　"
+      }
+    ]
+  },
+  "skipped_false_positive": [
+    {
+      "offset": 2767676,
+      "text": "033ムヨ",
+      "reason": "CP932 broad-scan false positive; no stable UI/text context."
+    },
+    {
+      "offset": 5416164,
+      "text": "KずﾛBず",
+      "reason": "CP932 broad-scan false positive/noise."
+    }
+  ],
+  "counts": {
+    "added_extracted_map_labels": 22,
+    "added_extracted_credits": 18,
+    "added_core_workset_records": 22,
+    "added_credit_workset_records": 18,
+    "added_workbench_items": 42
+  }
+}

@@ -1,10 +1,26 @@
 # ROM Text Extraction Gap Audit
 
 - ROM: `/Users/user/test/Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba`
-- extracted interval count: `10818`
-- missing-candidate count: `21718`
+- extracted interval count: `23021`
+- missing-candidate count: `21583`
+- high-confidence count: `0`
+- suppressed high-confidence false positives: `2`
 
-## Candidates
+## High Confidence Candidates
+
+These still need human review. The score only means the bytes look more like real UI/script text than code or compressed data.
+
+
+## Suppressed High Confidence False Positives
+
+These byte runs were manually classified as broad-scan noise and are suppressed so new real gaps stand out.
+
+- score=`7` `0x2A3B3C` `7` bytes term=`0x00` jp=`0.4` reasons=`00-terminated,jp>=2,kana>=2,len>=5`: 033ムヨ (CP932 broad-scan false positive; no stable UI/text context.)
+- score=`6` `0x52A4E4` `7` bytes term=`0x00` jp=`0.4` reasons=`00-terminated,jp>=2,kana>=2,len>=5,halfwidth-kana-penalty`: KずﾛBず (CP932 broad-scan false positive/noise.)
+
+## Broad Candidates
+
+This broad list is intentionally noisy and is mainly useful for scripted follow-up filters.
 
 - `0x000049` `7` bytes term=`None` jp=`0.4`: ﾊ啾X離'
 - `0x000219` `7` bytes term=`None` jp=`0.4`: ﾊ啾X離'
@@ -86,4 +102,44 @@
 - `0x02D2DB` `7` bytes term=`None` jp=`0.4`: キ犧hｹh
 - `0x02E9E5` `7` bytes term=`None` jp=`0.4`: FEF犇恐
 - `0x02EA18` `7` bytes term=`None` jp=`0.4`: ｽた皆F5
-- ... `21638` more candidates omitted from markdown preview.
+- `0x02EC22` `7` bytes term=`None` jp=`0.4`: ｾだ界F.
+- `0x02F0A6` `7` bytes term=`None` jp=`0.4`: 引(`筆8
+- `0x02F0C4` `8` bytes term=`None` jp=`0.6`: (`舟紀秋
+- `0x02F0D2` `8` bytes term=`None` jp=`0.6`: (`庚蟹稀
+- `0x02F329` `7` bytes term=`None` jp=`0.4`: FEF犇顕
+- `0x0308B4` `7` bytes term=`None` jp=`0.4`: 漲濮xh9
+- `0x032BAF` `7` bytes term=`None` jp=`0.4`: ずi9j岳
+- `0x032C25` `7` bytes term=`None` jp=`0.4`: Bﾙ炬j仡
+- `0x032C43` `7` bytes term=`None` jp=`0.4`: 炬jyl琩
+- `0x033488` `7` bytes term=`None` jp=`0.4`: 牲げoF8
+- `0x033866` `6` bytes term=`None` jp=`0.5`: 毘y炸h
+- `0x033870` `6` bytes term=`None` jp=`0.5`: 碼t炸h
+- `0x03387A` `6` bytes term=`None` jp=`0.5`: 厚o炸h
+- `0x033884` `6` bytes term=`None` jp=`0.5`: ﾛ仼炸h
+- `0x03388E` `6` bytes term=`None` jp=`0.5`: 棋e炸h
+- `0x033898` `6` bytes term=`None` jp=`0.5`: 滌`炸h
+- `0x03594C` `6` bytes term=`None` jp=`0.5`: 牲げoF
+- `0x03C3AB` `7` bytes term=`None` jp=`0.4`: ﾑｼ癨糲l
+- `0x03DCA5` `7` bytes term=`None` jp=`0.4`: j伃瑢}k
+- `0x03DD53` `7` bytes term=`None` jp=`0.4`: j伃瑢}k
+- `0x045553` `9` bytes term=`None` jp=`0.8`: 燎叨?囮劔
+- `0x046C97` `6` bytes term=`None` jp=`0.5`: ﾑｾ狒狎
+- `0x0477D6` `6` bytes term=`None` jp=`0.5`: k瀋犹h
+- `0x0492BB` `7` bytes term=`None` jp=`0.4`: ﾑS筺篋h
+- `0x049763` `6` bytes term=`None` jp=`0.5`: 蹲犧hﾂ
+- `0x04A1CF` `7` bytes term=`None` jp=`0.4`: G牲げoF
+- `0x04A860` `8` bytes term=`None` jp=`0.6`: 改ｺ犹炸h
+- `0x04AA44` `6` bytes term=`None` jp=`0.5`: 練h犹h
+- `0x04AA6D` `7` bytes term=`None` jp=`0.75`: 焄澳犹h
+- `0x04ABAC` `8` bytes term=`None` jp=`0.6`: 脣T澳犹h
+- `0x04ACC4` `6` bytes term=`None` jp=`0.5`: W丨犹h
+- `0x04ACEC` `8` bytes term=`None` jp=`0.4`: C￢澳犹h
+- `0x04AE40` `8` bytes term=`None` jp=`0.6`: 咬`濱犹h
+- `0x04AFB0` `8` bytes term=`None` jp=`0.6`: 碾^濔犹h
+- `0x04BE58` `7` bytes term=`None` jp=`0.4`: 煆,汯`8
+- `0x04C77C` `6` bytes term=`None` jp=`0.5`: ｪ罠絆I
+- `0x04FB7E` `8` bytes term=`0x00` jp=`0.6`: 蹂鴒糺:I
+- `0x04FE7A` `7` bytes term=`None` jp=`0.4`: 鴒e奓!ﾉ
+- `0x050AF7` `6` bytes term=`None` jp=`0.5`: "踟2閒
+- `0x050D56` `6` bytes term=`None` jp=`0.5`: 蔔e匇H
+- ... `21463` more candidates omitted from markdown preview.

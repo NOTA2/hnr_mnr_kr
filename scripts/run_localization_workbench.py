@@ -32,6 +32,61 @@ UPLOADS_ROOT = WORKBENCH_DIR / "uploaded_image_replacements"
 IMPORT_REPORT_DIR = WORKBENCH_DIR / "import_reports"
 AGENT_INBOX_DIR = WORKBENCH_DIR / "agent_inbox"
 IMPORTED_AGENT_RESULTS_DIR = WORKBENCH_DIR / "imported_agent_results"
+EXPANSION_OPPORTUNITIES_PATH = ROOT / "confirmed_data" / "translation_workspace" / "translation_expansion_opportunities.json"
+
+COUNTED_SCRIPT_SOURCE_GROUPS = {
+    "registry_a_entry8_prefixed_texts",
+    "inline_event_texts",
+    "startup_intro_texts",
+    "save_menu_texts",
+    "choice_yes_no_texts",
+}
+
+TEXT_SAVE_FIELDS = (
+    "translation",
+    "agent_draft",
+    "agent_comment",
+    "manual_locked",
+    "notes",
+    "progress_status",
+    "review_status",
+)
+
+
+def estimated_encoded_length(text: str) -> int:
+    total = 0
+    for ch in text:
+        try:
+            total += len(ch.encode("cp932"))
+        except UnicodeEncodeError:
+            total += 2
+    return total
+
+
+def terminator_length(item: dict[str, Any]) -> int:
+    counted = item.get("source_group") in COUNTED_SCRIPT_SOURCE_GROUPS and item.get("char_count") is not None
+    return 0 if counted or item.get("append_terminator") is False else 1
+
+
+def capacity_bytes(item: dict[str, Any]) -> int | None:
+    if item.get("byte_length") is None:
+        return None
+    return int(item["byte_length"]) + terminator_length(item)
+
+
+def length_overflow_allowed(item: dict[str, Any]) -> bool:
+    mode = item.get("expansion_mode") or item.get("length_policy") or ""
+    if item.get("source_group") == "registry_a_entry8_prefixed_texts":
+        return mode == "confirmed_repoint"
+    if mode in {"packed_repoint_available", "direct_repoint_available"}:
+        return True
+    if (
+        item.get("source_group") == "registry_d_fc_script_texts"
+        and item.get("anchor_offset") is not None
+        and item.get("raw_byte_length") is not None
+    ):
+        return True
+    return bool(item.get("repoint_allowed") or item.get("can_repoint") or item.get("length_policy") == "repoint")
 
 
 def parse_args() -> argparse.Namespace:
@@ -65,6 +120,26 @@ class WorkbenchStore:
         self.speaker_registry = load_json(SPEAKER_REGISTRY_PATH)
         self.progress = load_json(PROGRESS_PATH)
         self.image_replacements = load_json(IMAGE_REPLACEMENTS_PATH)
+        self.expansion_opportunities = self.load_expansion_opportunities()
+
+    def load_expansion_opportunities(self) -> dict[tuple[str, int], dict[str, Any]]:
+        if not EXPANSION_OPPORTUNITIES_PATH.exists():
+            return {}
+        payload = load_json(EXPANSION_OPPORTUNITIES_PATH)
+        index: dict[tuple[str, int], dict[str, Any]] = {}
+        for record in payload.get("records", []):
+            source_group = record.get("source_group")
+            offset = record.get("offset")
+            if source_group is None or offset is None:
+                continue
+            index[(str(source_group), int(offset))] = {
+                "expansion_mode": record.get("expansion_mode", ""),
+                "direct_pointer_count": record.get("direct_pointer_count", 0),
+                "slack_bytes": record.get("slack_bytes", 0),
+                "payload_length": record.get("payload_length"),
+                "original_capacity": record.get("original_capacity"),
+            }
+        return index
 
     def reload_sidecars(self) -> None:
         self.speakers = load_json(SPEAKERS_PATH)
@@ -77,6 +152,9 @@ class WorkbenchStore:
         dataset = json.loads(json.dumps(self.dataset, ensure_ascii=False))
         image_map = {item["item_id"]: item for item in self.image_replacements}
         for item in dataset["items"]:
+            expansion = self.expansion_opportunities.get((item.get("source_group", ""), int(item.get("offset") or -1)))
+            if expansion:
+                item.update(expansion)
             if item["category_id"] == "image_review_units":
                 sidecar = image_map.get(item["item_id"])
                 if sidecar:
@@ -92,49 +170,133 @@ class WorkbenchStore:
             "auto_import_summary": self.last_auto_import_summary,
         }
 
-    def save_item(self, item_id: str, updates: dict[str, Any]) -> dict[str, Any]:
+    def merged_expansion_item(self, item: dict[str, Any]) -> dict[str, Any]:
+        merged = dict(item)
+        offset = item.get("offset")
+        source_group = item.get("source_group", "")
+        if offset is not None:
+            expansion = self.expansion_opportunities.get((source_group, int(offset)))
+            if expansion:
+                merged.update(expansion)
+        return merged
+
+    def validate_translation_capacity(self, item: dict[str, Any], translation: str) -> None:
+        if item.get("category_id") == "image_review_units" or not translation:
+            return
+        merged = self.merged_expansion_item(item)
+        capacity = capacity_bytes(merged)
+        if capacity is None or length_overflow_allowed(merged):
+            return
+        normalized = normalize_translation_text(
+            translation,
+            source_group=merged.get("source_group"),
+            reference_text=merged.get("text"),
+        )
+        used = estimated_encoded_length(normalized) + terminator_length(merged)
+        if used > capacity:
+            item_id = merged.get("item_id", "<unknown>")
+            raise ValueError(
+                f"{item_id} 번역문이 고정 슬롯 용량을 초과했습니다: "
+                f"{used}/{capacity} bytes "
+                f"(종료 {terminator_length(merged)} byte 포함)."
+            )
+
+    def prepare_text_item_updates(self, item: dict[str, Any], updates: dict[str, Any]) -> dict[str, Any]:
+        previous_translation = item.get("translation", "")
+        source_group = item.get("source_group")
+        item_updates = dict(updates)
+        if "translation" in item_updates and isinstance(item_updates["translation"], str):
+            item_updates["translation"] = normalize_translation_text(
+                item_updates["translation"],
+                source_group=source_group,
+                reference_text=item.get("text"),
+            )
+        if "agent_draft" in item_updates and isinstance(item_updates["agent_draft"], str):
+            item_updates["agent_draft"] = normalize_translation_text(
+                item_updates["agent_draft"],
+                source_group=source_group,
+                reference_text=item.get("text"),
+            )
+            compact_agent_draft = item_updates["agent_draft"].replace(" ", "").replace("　", "")
+            if "확인필요" in compact_agent_draft or "에군군의에" in item_updates["agent_draft"]:
+                item_updates["agent_draft"] = item_updates.get("translation") or item.get("translation") or ""
+        if "translation" in item_updates:
+            candidate_item = dict(item)
+            candidate_item.update(item_updates)
+            self.validate_translation_capacity(candidate_item, item_updates.get("translation", ""))
+
+        prepared: dict[str, Any] = {}
+        current_agent_draft = item_updates.get("agent_draft", item.get("agent_draft", ""))
+        for field in TEXT_SAVE_FIELDS:
+            if field in item_updates:
+                prepared[field] = item_updates[field]
+        new_translation = prepared.get("translation", item.get("translation", ""))
+        if (
+            "translation" in item_updates
+            and new_translation
+            and new_translation != previous_translation
+            and new_translation != current_agent_draft
+            and not item_updates.get("manual_locked", False)
+        ):
+            prepared["manual_locked"] = True
+        return prepared
+
+    def apply_text_item_updates(self, item: dict[str, Any], prepared: dict[str, Any]) -> None:
+        for field, value in prepared.items():
+            item[field] = value
+
+    def save_item(self, item_id: str, updates: dict[str, Any], sync_sources: bool = True) -> dict[str, Any]:
         items = self.dataset["items"]
+        prepared_items: list[tuple[dict[str, Any], dict[str, Any]]] = []
         for item in items:
             if item["item_id"] == item_id:
-                previous_translation = item.get("translation", "")
-                source_group = item.get("source_group")
-                if "translation" in updates and isinstance(updates["translation"], str):
-                    updates["translation"] = normalize_translation_text(
-                        updates["translation"],
-                        source_group=source_group,
-                        reference_text=item.get("text"),
-                    )
-                if "agent_draft" in updates and isinstance(updates["agent_draft"], str):
-                    updates["agent_draft"] = normalize_translation_text(
-                        updates["agent_draft"],
-                        source_group=source_group,
-                        reference_text=item.get("text"),
-                    )
-                current_agent_draft = updates.get("agent_draft", item.get("agent_draft", ""))
-                for field in (
-                    "translation",
-                    "agent_draft",
-                    "agent_comment",
-                    "manual_locked",
-                    "notes",
-                    "progress_status",
-                    "review_status",
-                ):
-                    if field in updates:
-                        item[field] = updates[field]
-                new_translation = item.get("translation", "")
-                if (
-                    "translation" in updates
-                    and new_translation
-                    and new_translation != previous_translation
-                    and new_translation != current_agent_draft
-                    and not updates.get("manual_locked", False)
-                ):
-                    item["manual_locked"] = True
-                write_json(DATASET_PATH, self.dataset)
+                prepared_items.append((item, self.prepare_text_item_updates(item, updates)))
+        if prepared_items:
+            for item, prepared in prepared_items:
+                self.apply_text_item_updates(item, prepared)
+            write_json(DATASET_PATH, self.dataset)
+            if sync_sources:
                 self.sync_sources()
-                return item
+            return prepared_items[0][0]
         raise KeyError(item_id)
+
+    def save_items_batch(self, updates_list: list[dict[str, Any]], sync_sources: bool = True) -> list[dict[str, Any]]:
+        if not updates_list:
+            return []
+
+        before_dataset = json.loads(json.dumps(self.dataset, ensure_ascii=False))
+        working_dataset = json.loads(json.dumps(self.dataset, ensure_ascii=False))
+        saved_items: list[dict[str, Any]] = []
+
+        for updates in updates_list:
+            item_id = updates.get("item_id")
+            if not item_id:
+                raise ValueError("item_id is required")
+            matched = False
+            first_saved: dict[str, Any] | None = None
+            for item in working_dataset["items"]:
+                if item["item_id"] != item_id:
+                    continue
+                matched = True
+                prepared = self.prepare_text_item_updates(item, updates)
+                self.apply_text_item_updates(item, prepared)
+                if first_saved is None:
+                    first_saved = item
+            if not matched:
+                raise KeyError(item_id)
+            if first_saved is not None:
+                saved_items.append(first_saved)
+
+        self.dataset = working_dataset
+        write_json(DATASET_PATH, self.dataset)
+        try:
+            if sync_sources:
+                self.sync_sources()
+        except Exception:
+            self.dataset = before_dataset
+            write_json(DATASET_PATH, self.dataset)
+            raise
+        return saved_items
 
     def save_speaker(self, token: str, updates: dict[str, Any]) -> dict[str, Any]:
         for item in self.speakers:
@@ -406,8 +568,23 @@ def make_handler(store: WorkbenchStore):
             payload = json.loads(self.rfile.read(length).decode("utf-8")) if length else {}
             try:
                 if parsed.path == "/item":
-                    result = store.save_item(payload["item_id"], payload)
+                    result = store.save_item(
+                        payload["item_id"],
+                        payload,
+                        sync_sources=payload.get("_sync_sources", True) is not False,
+                    )
                     self._json(result)
+                    return
+                if parsed.path == "/items-batch":
+                    result = store.save_items_batch(
+                        payload.get("items", []),
+                        sync_sources=payload.get("_sync_sources", True) is not False,
+                    )
+                    self._json({"ok": True, "items": result})
+                    return
+                if parsed.path == "/sync-sources":
+                    store.sync_sources()
+                    self._json({"ok": True})
                     return
                 if parsed.path == "/speaker":
                     result = store.save_speaker(payload["dialogue_state_token"], payload)

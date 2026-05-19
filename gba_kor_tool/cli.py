@@ -3090,6 +3090,18 @@ def normalize_translation_for_record(record: dict, translation: str) -> str:
     return normalized
 
 
+def in_place_pad_byte_for_record(record: dict, default_pad_byte: int) -> int:
+    source_group = str(record.get("source_group", ""))
+    if source_group == "registry_a_map_labels":
+        # Map labels live inside fixed map header records. They look like
+        # 0x00-terminated strings, but the bytes after the label are still
+        # consumed as structured map data. Padding shortened labels with 0xFF
+        # corrupts map loading after area transitions; keep the original
+        # zero-filled shape instead.
+        return 0x00
+    return default_pad_byte
+
+
 def is_prefixed_counted_fixed_slot(record: dict, terminator: bytes) -> bool:
     return (
         record.get("char_count") is not None
@@ -3136,6 +3148,15 @@ def is_inline_event_fixed_slot(record: dict, terminator: bytes) -> bool:
     )
 
 
+def is_fullwidth_padded_fixed_slot(record: dict, terminator: bytes) -> bool:
+    return (
+        str(record.get("source_group", ""))
+        in {"choice_yes_no_texts", "save_menu_texts", "startup_intro_texts", "ui_status_texts"}
+        and record.get("append_terminator") is False
+        and not terminator
+    )
+
+
 def pad_inline_event_payload(
     record: dict,
     translation: str,
@@ -3159,6 +3180,32 @@ def pad_inline_event_payload(
         encoded_text = encode_text(padded, encoding=encoding, table=table)
         if len(encoded_text) > original_byte_length:
             raise ToolError("inline event 텍스트 payload 패딩이 원본 바이트를 넘었습니다.")
+    return padded, encoded_text
+
+
+def pad_fullwidth_fixed_payload(
+    record: dict,
+    translation: str,
+    encoded_text: bytes,
+    *,
+    encoding: Optional[str],
+    table: Optional[TableCodec],
+) -> Tuple[str, bytes]:
+    original_byte_length = int(record["byte_length"])
+    if len(encoded_text) > original_byte_length:
+        raise ToolError(
+            f"{record.get('source_group')} 텍스트 번역이 원본 payload 바이트를 넘었습니다: "
+            f"{len(encoded_text)} > {original_byte_length}"
+        )
+
+    padded = translation
+    while len(encoded_text) < original_byte_length:
+        remaining = original_byte_length - len(encoded_text)
+        pad_char = "\u3000" if remaining >= 2 else " "
+        padded += pad_char
+        encoded_text = encode_text(padded, encoding=encoding, table=table)
+        if len(encoded_text) > original_byte_length:
+            raise ToolError(f"{record.get('source_group')} 텍스트 payload 패딩이 원본 바이트를 넘었습니다.")
     return padded, encoded_text
 
 
@@ -3576,6 +3623,7 @@ def apply_registry_a_entry8_segment_records(
     records_by_segment: Dict[int, List[Tuple[int, int, bytes, dict, str]]] = {}
     fixed_records_by_segment: Dict[int, List[Tuple[int, int, bytes, dict, str]]] = {}
     boundary_crossing_fixed_records: List[Tuple[int, int, int, bytes, dict, str, dict]] = []
+    entry8_overlay_records: List[Tuple[int, int, bytes]] = []
     effective_segment_ends: Dict[int, int] = {}
     handled_offsets: set[int] = set()
     report: List[dict] = []
@@ -3860,6 +3908,80 @@ def apply_registry_a_entry8_segment_records(
             )
         handled_offsets.add(original_offset)
 
+    # Some fixed records, notably save/choice/intro UI strings, live inside the
+    # Entry8 blob but are tracked as their own source groups. If a surrounding
+    # Entry8 segment is relocated, copying the vanilla bytes would resurrect
+    # those Japanese strings in the rebuilt segment. Overlay any fitting fixed
+    # record into both the original Entry8 blob and the scratch copy before
+    # segment rebuild.
+    overlay_source_groups = {"choice_yes_no_texts", "save_menu_texts", "startup_intro_texts"}
+    for record in sorted(records, key=lambda item: int(item.get("offset", -1))):
+        source_group = str(record.get("source_group", ""))
+        if source_group not in overlay_source_groups or not record.get("translation"):
+            continue
+        original_offset = int(record.get("offset", -1))
+        if original_offset < entry_offset or original_offset >= entry_end:
+            continue
+        raw_start = original_offset - entry_offset
+        raw_end = raw_start + int(record["byte_length"])
+        if raw_end > entry_length:
+            continue
+        matched_segment = None
+        for segment in segment_table:
+            if int(segment["old_start"]) <= raw_start < int(segment["old_end"]):
+                matched_segment = segment
+                break
+        if matched_segment is None:
+            continue
+        translation = normalize_translation_for_record(record, str(record["translation"]))
+        encoded_text = encode_text(translation, encoding=encoding, table=table)
+        if is_fullwidth_padded_fixed_slot(record, b""):
+            translation, encoded_text = pad_fullwidth_fixed_payload(
+                record,
+                translation,
+                encoded_text,
+                encoding=encoding,
+                table=table,
+            )
+        if len(encoded_text) > int(record["byte_length"]):
+            report.append(
+                build_apply_report_entry(
+                    record,
+                    action="entry8_overlay_too_long",
+                    translation=translation,
+                    encoded_payload_length=len(encoded_text),
+                    original_capacity=int(record["byte_length"]),
+                    entry_index=REGISTRY_A_ENTRY8_INDEX,
+                    old_entry_offset=entry_offset,
+                    old_entry_length=entry_length,
+                    segment_table_local=matched_segment["table_local"],
+                    old_segment_start=matched_segment["old_start"],
+                    old_segment_end=matched_segment["old_end"],
+                )
+            )
+            handled_offsets.add(original_offset)
+            continue
+        replacement = encoded_text + bytes([fill_byte]) * (int(record["byte_length"]) - len(encoded_text))
+        data[original_offset:original_offset + int(record["byte_length"])] = replacement
+        patched_entry[raw_start:raw_end] = replacement
+        entry8_overlay_records.append((original_offset, original_offset + int(record["byte_length"]), replacement))
+        report.append(
+            build_apply_report_entry(
+                record,
+                action="entry8_overlay_in_place_length_preserved",
+                translation=translation,
+                encoded_payload_length=len(replacement),
+                original_capacity=int(record["byte_length"]),
+                entry_index=REGISTRY_A_ENTRY8_INDEX,
+                old_entry_offset=entry_offset,
+                old_entry_length=entry_length,
+                segment_table_local=matched_segment["table_local"],
+                old_segment_start=matched_segment["old_start"],
+                old_segment_end=matched_segment["old_end"],
+            )
+        )
+        handled_offsets.add(original_offset)
+
     for (
         segment_start,
         raw_start,
@@ -3894,6 +4016,11 @@ def apply_registry_a_entry8_segment_records(
 
     for segment_start, fixed_records in fixed_records_by_segment.items():
         if segment_start in records_by_segment:
+            # Even when a segment is rebuilt for variable-length Entry8 records,
+            # keep fixed-size text patched at its original slot too. Some runtime
+            # paths still appear to reference the original segment bytes.
+            for raw_start, raw_end, replacement, _record, _translation in fixed_records:
+                data[entry_offset + raw_start:entry_offset + raw_end] = replacement
             records_by_segment[segment_start].extend(fixed_records)
             for raw_start, raw_end, _replacement, _record, _translation in fixed_records:
                 effective_segment_ends[segment_start] = max(
@@ -4037,7 +4164,7 @@ def apply_registry_a_entry8_segment_records(
     # operands and scene control data, so nested payloads stay untouched unless
     # a narrow experimental patch is explicitly enabled.
 
-    if os.environ.get("ENTRY8_PATCH_OPCODE_OFFSETS", "1") != "0":
+    if os.environ.get("ENTRY8_PATCH_OPCODE_OFFSETS", "0") == "1":
         for segment in relocated_segments:
             old_start = int(segment["old_start"])
             segment_blob_start, _segment_blob_end = segment_new_ranges[old_start]
@@ -4075,6 +4202,9 @@ def apply_registry_a_entry8_segment_records(
 
     data[destination:destination + len(rebuilt_blob)] = rebuilt_blob
     next_free_search = destination + len(rebuilt_blob)
+
+    for start, end, replacement in entry8_overlay_records:
+        data[start:end] = replacement
 
     for item in report:
         item["new_entry_offset"] = entry_offset
@@ -4653,13 +4783,21 @@ def cmd_apply_translations(args: argparse.Namespace) -> int:
                 encoding=args.encoding,
                 table=table,
             )
+        elif is_fullwidth_padded_fixed_slot(record, terminator):
+            translation, encoded_text = pad_fullwidth_fixed_payload(
+                record,
+                translation,
+                encoded_text,
+                encoding=args.encoding,
+                table=table,
+            )
         payload = encoded_text + terminator
         original_capacity = original_byte_length + len(terminator)
 
         if len(payload) <= original_capacity:
             data[original_offset:original_offset + len(payload)] = payload
             if len(payload) < original_capacity:
-                pad = parse_hex_byte(args.pad_byte)
+                pad = in_place_pad_byte_for_record(record, parse_hex_byte(args.pad_byte))
                 data[original_offset + len(payload):original_offset + original_capacity] = bytes([pad]) * (
                     original_capacity - len(payload)
                 )

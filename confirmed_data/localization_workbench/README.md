@@ -17,9 +17,9 @@
 ## 카테고리
 
 - `translation_workset_opening_intro`: 오프닝/인트로 / 4개
-- `translation_workset_core_ui`: 코어 UI / 125개
+- `translation_workset_core_ui`: 코어 UI / 149개
 - `translation_workset_gameplay_terms`: 게임 용어 / 656개
-- `translation_workset_credits`: 크레딧 / 10개
+- `translation_workset_credits`: 크레딧 / 28개
 - `translation_workset_registry_d_dialogue`: 대사 Registry D / 244개
 - `registry_a_entry8_clusters_manifest`: 대사 Entry8 / 10417개
 - `translation_workset_inline_event_texts`: 이벤트 연출 텍스트 / 41개

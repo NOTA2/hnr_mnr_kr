@@ -1,5 +1,14 @@
 [
   {
+    "offset": 7056672,
+    "rom_address": 141274400,
+    "byte_length": 8,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "02：教会",
+    "translation": "02:교회"
+  },
+  {
     "offset": 7070032,
     "rom_address": 141287760,
     "byte_length": 14,
@@ -7,6 +16,15 @@
     "unknown_tokens": 0,
     "text": "03：教会内廊下",
     "translation": "03:교회 복도"
+  },
+  {
+    "offset": 7074780,
+    "rom_address": 141292508,
+    "byte_length": 14,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "04：教主の部屋",
+    "translation": "04:교주 방"
   },
   {
     "offset": 7079108,
@@ -52,6 +70,15 @@
     "unknown_tokens": 0,
     "text": "11：村長の家",
     "translation": "11:촌장 집"
+  },
+  {
+    "offset": 7124036,
+    "rom_address": 141341764,
+    "byte_length": 8,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "12：裏山",
+    "translation": "12:뒷산"
   },
   {
     "offset": 7140388,
@@ -126,6 +153,15 @@
     "translation": "20:군법회의소"
   },
   {
+    "offset": 7222004,
+    "rom_address": 141439732,
+    "byte_length": 8,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "21：中庭",
+    "translation": "21:안뜰"
+  },
+  {
     "offset": 7252092,
     "rom_address": 141469820,
     "byte_length": 12,
@@ -151,6 +187,42 @@
     "unknown_tokens": 0,
     "text": "24：セントラル東側",
     "translation": "24:센트럴 동쪽"
+  },
+  {
+    "offset": 7288176,
+    "rom_address": 141505904,
+    "byte_length": 11,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "25：病院１F",
+    "translation": "25:병원1F"
+  },
+  {
+    "offset": 7292204,
+    "rom_address": 141509932,
+    "byte_length": 11,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "26：病院２F",
+    "translation": "26:병원2F"
+  },
+  {
+    "offset": 7297108,
+    "rom_address": 141514836,
+    "byte_length": 10,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "27：病室①",
+    "translation": "27:병실①"
+  },
+  {
+    "offset": 7302024,
+    "rom_address": 141519752,
+    "byte_length": 8,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "29：屋上",
+    "translation": "29:옥상"
   },
   {
     "offset": 7306944,
@@ -205,6 +277,15 @@
     "unknown_tokens": 0,
     "text": "35：まっくろマップ",
     "translation": "35:깜깜한 맵"
+  },
+  {
+    "offset": 7370644,
+    "rom_address": 141588372,
+    "byte_length": 16,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "38：イースト南側",
+    "translation": "38:이스트 남쪽"
   },
   {
     "offset": 7385504,
@@ -324,6 +405,15 @@
     "translation": "53:하수도③"
   },
   {
+    "offset": 7554248,
+    "rom_address": 141771976,
+    "byte_length": 12,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "54：下水道④",
+    "translation": "54:하수도④"
+  },
+  {
     "offset": 7565480,
     "rom_address": 141783208,
     "byte_length": 22,
@@ -396,6 +486,51 @@
     "translation": "64:크루스 유적③"
   },
   {
+    "offset": 7661764,
+    "rom_address": 141879492,
+    "byte_length": 10,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "65：古城①",
+    "translation": "65:고성①"
+  },
+  {
+    "offset": 7674604,
+    "rom_address": 141892332,
+    "byte_length": 10,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "66：古城②",
+    "translation": "66:고성②"
+  },
+  {
+    "offset": 7686244,
+    "rom_address": 141903972,
+    "byte_length": 10,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "67：古城③",
+    "translation": "67:고성③"
+  },
+  {
+    "offset": 7698124,
+    "rom_address": 141915852,
+    "byte_length": 10,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "68：古城④",
+    "translation": "68:고성④"
+  },
+  {
+    "offset": 7708228,
+    "rom_address": 141925956,
+    "byte_length": 10,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "69：古城⑤",
+    "translation": "69:고성⑤"
+  },
+  {
     "offset": 7732652,
     "rom_address": 141950380,
     "byte_length": 12,
@@ -405,6 +540,33 @@
     "translation": "70:열차 안①"
   },
   {
+    "offset": 7749128,
+    "rom_address": 141966856,
+    "byte_length": 12,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "71：列車内②",
+    "translation": "71:열차 안②"
+  },
+  {
+    "offset": 7753712,
+    "rom_address": 141971440,
+    "byte_length": 12,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "72：列車内③",
+    "translation": "72:열차 안③"
+  },
+  {
+    "offset": 7758388,
+    "rom_address": 141976116,
+    "byte_length": 12,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "73：列車上①",
+    "translation": "73:열차 위①"
+  },
+  {
     "offset": 7763064,
     "rom_address": 141980792,
     "byte_length": 12,
@@ -412,6 +574,42 @@
     "unknown_tokens": 0,
     "text": "74：列車上②",
     "translation": "74:열차 위②"
+  },
+  {
+    "offset": 7766536,
+    "rom_address": 141984264,
+    "byte_length": 12,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "75：列車上③",
+    "translation": "75:열차 위③"
+  },
+  {
+    "offset": 7771324,
+    "rom_address": 141989052,
+    "byte_length": 10,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "76：機関車",
+    "translation": "76:기관차"
+  },
+  {
+    "offset": 7776008,
+    "rom_address": 141993736,
+    "byte_length": 20,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "77：エルリック家地下",
+    "translation": "77:엘릭가 지하"
+  },
+  {
+    "offset": 7780244,
+    "rom_address": 141997972,
+    "byte_length": 10,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "80：古城⑥",
+    "translation": "80:고성⑥"
   },
   {
     "offset": 7787036,

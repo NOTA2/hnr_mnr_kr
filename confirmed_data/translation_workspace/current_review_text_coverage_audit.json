@@ -1,22 +1,22 @@
 {
-  "last_updated": "2026-05-19T09:13:34.567758+00:00",
+  "last_updated": "2026-05-19T18:07:49.645626+00:00",
   "notes": [
     "??????/????? 형태의 잠금 또는 미확인 표시는 원본 상태로 간주해 미번역 후보에서 제외한다.",
     "`・`, `・・・`, `ー` 같은 보존 대상 일본식 기호는 일본어 잔존으로 보지 않는다. 실제 가나/한자만 후보로 잡는다.",
     "skipped_no_pointer 는 추출은 되었지만 원래 슬롯을 초과했고, 이 레코드에 대한 직접 포인터를 찾지 못해 ROM 확장 repoint 가 불가능했던 항목이다."
   ],
   "totals": {
-    "extracted_records": 11440,
-    "workbench_text_records": 11497,
-    "current_review_translations": 11418,
+    "extracted_records": 11482,
+    "workbench_text_records": 11539,
+    "current_review_translations": 11459,
     "apply_actions": {
       "entry8_segment0_in_place_length_preserved": 241,
+      "entry8_overlay_in_place_length_preserved": 32,
       "entry8_boundary_crossing_in_place_length_preserved": 21,
-      "entry8_in_place_length_preserved": 6190,
-      "entry8_segment_repointed": 3913,
+      "entry8_in_place_length_preserved": 10102,
       "packed_repointed": 244,
-      "in_place": 771,
-      "repointed": 22
+      "in_place": 798,
+      "repointed": 21
     },
     "untranslated_japanese_candidates": 0
   },
@@ -45,16 +45,16 @@
       "workbench_records": 16,
       "current_review_translations": 16,
       "applied_actions": {
-        "in_place": 16
+        "entry8_overlay_in_place_length_preserved": 16
       }
     },
     {
       "source_group": "credits_texts",
-      "extracted_records": 10,
-      "workbench_records": 10,
-      "current_review_translations": 10,
+      "extracted_records": 28,
+      "workbench_records": 28,
+      "current_review_translations": 28,
       "applied_actions": {
-        "in_place": 10
+        "in_place": 28
       }
     },
     {
@@ -116,21 +116,20 @@
       "source_group": "registry_a_entry8_prefixed_texts",
       "extracted_records": 10417,
       "workbench_records": 10417,
-      "current_review_translations": 10365,
+      "current_review_translations": 10364,
       "applied_actions": {
         "entry8_segment0_in_place_length_preserved": 241,
         "entry8_boundary_crossing_in_place_length_preserved": 21,
-        "entry8_in_place_length_preserved": 6190,
-        "entry8_segment_repointed": 3913
+        "entry8_in_place_length_preserved": 10102
       }
     },
     {
       "source_group": "registry_a_map_labels",
-      "extracted_records": 48,
-      "workbench_records": 48,
-      "current_review_translations": 48,
+      "extracted_records": 70,
+      "workbench_records": 70,
+      "current_review_translations": 70,
       "applied_actions": {
-        "in_place": 48
+        "in_place": 70
       }
     },
     {
@@ -147,14 +146,18 @@
       "extracted_records": 12,
       "workbench_records": 12,
       "current_review_translations": 12,
-      "applied_actions": {}
+      "applied_actions": {
+        "entry8_overlay_in_place_length_preserved": 12
+      }
     },
     {
       "source_group": "startup_intro_texts",
       "extracted_records": 4,
       "workbench_records": 4,
       "current_review_translations": 4,
-      "applied_actions": {}
+      "applied_actions": {
+        "entry8_overlay_in_place_length_preserved": 4
+      }
     },
     {
       "source_group": "system_messages",
@@ -162,8 +165,8 @@
       "workbench_records": 10,
       "current_review_translations": 10,
       "applied_actions": {
-        "in_place": 8,
-        "repointed": 2
+        "in_place": 9,
+        "repointed": 1
       }
     },
     {
@@ -174,6 +177,15 @@
       "applied_actions": {
         "in_place": 19,
         "repointed": 6
+      }
+    },
+    {
+      "source_group": "ui_status_texts",
+      "extracted_records": 2,
+      "workbench_records": 2,
+      "current_review_translations": 2,
+      "applied_actions": {
+        "in_place": 2
       }
     }
   ],

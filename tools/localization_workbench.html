@@ -24,7 +24,7 @@
     }
     .layout {
       display: grid;
-      grid-template-columns: 240px 320px 1fr;
+      grid-template-columns: 220px 300px minmax(420px, 1fr) 260px 300px;
       height: 100vh;
       overflow: hidden;
     }
@@ -34,7 +34,16 @@
       min-height: 0;
     }
     main.col {
+      border-right: 1px solid var(--line);
+    }
+    .status-panel {
       border-right: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+    }
+    .context-panel {
+      overflow-y: auto;
+      overflow-x: hidden;
     }
     .panel {
       padding: 18px;
@@ -55,18 +64,24 @@
       padding-right: 4px;
     }
     .scroll-list,
+    .context-list,
     .editor-scroll,
     .candidate-gallery,
     .modal-body,
+    .status-panel,
+    .context-panel,
     textarea,
     #categoryList {
       scrollbar-width: none;
       -ms-overflow-style: none;
     }
     .scroll-list::-webkit-scrollbar,
+    .context-list::-webkit-scrollbar,
     .editor-scroll::-webkit-scrollbar,
     .candidate-gallery::-webkit-scrollbar,
     .modal-body::-webkit-scrollbar,
+    .status-panel::-webkit-scrollbar,
+    .context-panel::-webkit-scrollbar,
     textarea::-webkit-scrollbar,
     #categoryList::-webkit-scrollbar {
       width: 0;
@@ -102,6 +117,53 @@
     }
     .editor-panel > .toolbar {
       flex: 0 0 auto;
+    }
+    .status-panel .section {
+      margin-bottom: 0;
+      overflow-wrap: anywhere;
+    }
+    .context-panel .section {
+      margin-bottom: 0;
+    }
+    .context-list {
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      overflow-x: hidden;
+      padding-right: 4px;
+    }
+    .context-item {
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.02);
+      padding: 8px;
+      margin-bottom: 8px;
+      cursor: pointer;
+      font-size: 12px;
+      line-height: 1.35;
+    }
+    .context-item.active {
+      border-color: var(--accent);
+      background: rgba(117,199,177,0.10);
+    }
+    .context-item.before,
+    .context-item.after {
+      opacity: 0.82;
+    }
+    .context-source,
+    .context-translation {
+      margin-top: 4px;
+      word-break: break-word;
+    }
+    .context-source {
+      color: var(--text);
+    }
+    .context-translation {
+      color: var(--muted);
+    }
+    #romInfo,
+    #importInfo,
+    #autoImportInfo {
+      word-break: break-all;
     }
     h1, h2, h3 {
       margin: 0 0 12px;
@@ -245,6 +307,66 @@
       color: var(--muted);
       font-size: 11px;
     }
+    .progress-dashboard {
+      display: grid;
+      gap: 8px;
+      margin-top: 10px;
+    }
+    .progress-row {
+      display: grid;
+      grid-template-columns: 72px 1fr 44px;
+      gap: 8px;
+      align-items: center;
+      font-size: 12px;
+      color: var(--muted);
+    }
+    .progress-bar {
+      height: 7px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.04);
+    }
+    .progress-fill {
+      display: block;
+      height: 100%;
+      width: 0;
+      background: var(--accent);
+    }
+    .progress-fill.warn {
+      background: var(--accent-2);
+    }
+    .progress-fill.error {
+      background: #d27a7a;
+    }
+    .category-stats {
+      display: grid;
+      gap: 5px;
+      margin-top: 8px;
+    }
+    .category-stats .progress-row {
+      grid-template-columns: 48px 1fr 38px;
+    }
+    .save-progress {
+      display: grid;
+      gap: 7px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      padding: 10px;
+      margin: 10px 0;
+    }
+    .save-progress.hidden {
+      display: none;
+    }
+    .save-progress-title {
+      font-size: 13px;
+      color: var(--text);
+      font-weight: 700;
+    }
+    .save-progress-detail {
+      color: var(--muted);
+      font-size: 12px;
+      word-break: break-all;
+    }
     .section {
       margin-bottom: 18px;
       border: 1px solid var(--line);
@@ -274,6 +396,32 @@
     .limit-meter.error {
       color: #ffd0d0;
       background: rgba(210,122,122,0.12);
+    }
+    .length-policy-banner {
+      display: grid;
+      gap: 4px;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      padding: 10px;
+      margin: -4px 0 10px;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    .length-policy-banner .policy-title {
+      font-weight: 700;
+      color: var(--text);
+    }
+    .length-policy-banner.fixed {
+      border-color: #d27a7a;
+      background: rgba(210,122,122,0.10);
+    }
+    .length-policy-banner.repoint {
+      border-color: var(--accent);
+      background: rgba(117,199,177,0.10);
+    }
+    .length-policy-banner.repoint-over {
+      border-color: var(--accent-2);
+      background: rgba(255, 197, 92, 0.10);
     }
     .disabled {
       opacity: 0.55;
@@ -390,6 +538,171 @@
       line-height: 1.45;
       white-space: pre-wrap;
     }
+    .audit-modal .modal-card {
+      width: min(1480px, calc(100vw - 48px));
+      height: min(900px, calc(100vh - 48px));
+      display: flex;
+      flex-direction: column;
+    }
+    .audit-tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--line);
+    }
+    .audit-tab.active {
+      border-color: var(--accent);
+      background: rgba(117,199,177,0.12);
+    }
+    .audit-controls {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: end;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--line);
+    }
+    .audit-controls label {
+      margin: 0;
+      min-width: 140px;
+    }
+    .audit-controls label:first-child {
+      flex: 1 1 260px;
+    }
+    .audit-controls input,
+    .audit-controls select {
+      margin-bottom: 0;
+    }
+    .audit-list {
+      flex: 1;
+      min-height: 0;
+      overflow-y: auto;
+      padding: 14px 16px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+    .audit-list::-webkit-scrollbar {
+      width: 0;
+      height: 0;
+      display: none;
+    }
+    .audit-row {
+      display: grid;
+      grid-template-columns: 86px 94px minmax(150px, 220px) minmax(180px, 1fr) minmax(180px, 1fr) minmax(180px, 1fr) 140px;
+      gap: 10px;
+      align-items: start;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.025);
+      padding: 10px;
+      margin-bottom: 8px;
+      font-size: 12px;
+      line-height: 1.45;
+      cursor: pointer;
+    }
+    .audit-row.apply {
+      border-color: var(--accent);
+      background: rgba(117,199,177,0.08);
+    }
+    .audit-row.skip {
+      border-color: #6f7883;
+      background: rgba(156,166,179,0.06);
+    }
+    .audit-row.done {
+      border-color: #57756f;
+      background: rgba(117,199,177,0.045);
+      opacity: 0.72;
+    }
+    .audit-row.warning {
+      border-color: #7c6041;
+    }
+    .audit-row.no-change {
+      opacity: 0.74;
+    }
+    .audit-cell-title {
+      color: var(--muted);
+      font-size: 11px;
+      margin-bottom: 3px;
+    }
+    .audit-text {
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+    .audit-suggestion-input {
+      min-height: 72px;
+      resize: vertical;
+      margin: 0;
+      padding: 8px;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+    .audit-edited-note {
+      margin-top: 4px;
+      color: var(--accent-2);
+      font-size: 11px;
+    }
+    .audit-limit-meter {
+      margin-top: 5px;
+      font-size: 11px;
+      line-height: 1.35;
+      color: var(--muted);
+    }
+    .audit-limit-meter.ok {
+      color: #bfe8c4;
+    }
+    .audit-limit-meter.warn {
+      color: #ffe0a6;
+    }
+    .audit-limit-meter.error {
+      color: #ffd0d0;
+    }
+    .audit-footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: center;
+      padding: 12px 16px;
+      border-top: 1px solid var(--line);
+    }
+    .audit-footer-actions {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .audit-page-controls {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+    .audit-page-controls button,
+    .audit-footer-actions button,
+    .audit-controls button {
+      white-space: nowrap;
+    }
+    .decision-pill {
+      display: inline-block;
+      border: 1px solid var(--line);
+      padding: 3px 7px;
+      margin-bottom: 5px;
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .decision-pill.apply {
+      border-color: var(--accent);
+      color: var(--accent);
+    }
+    .decision-pill.skip {
+      border-color: #7b8591;
+      color: #c0c8d1;
+    }
+    .decision-pill.done {
+      border-color: #57756f;
+      color: #9fd4c8;
+    }
+    .decision-pill.no-change {
+      border-color: #7c6041;
+      color: var(--accent-2);
+    }
   </style>
 </head>
 <body>
@@ -399,19 +712,6 @@
         <h1>카테고리</h1>
         <div class="meta" id="fontInfo"></div>
         <div id="categoryList"></div>
-      </div>
-      <div class="section">
-        <h2>진행 상태</h2>
-        <div class="meta" id="progressInfo"></div>
-        <label>번역 에이전트 결과 JSON 가져오기
-          <input id="translationImportFile" type="file" accept=".json">
-        </label>
-        <button id="importTranslationBtn">번역 결과 가져오기</button>
-        <div class="small" id="autoImportInfo"></div>
-        <button id="rebuildBtn">전체 적용 ROM 재빌드</button>
-        <div class="small" id="romInfo"></div>
-        <div class="small" id="importInfo"></div>
-        <div class="status" id="statusInfo">대기 중</div>
       </div>
     </aside>
     <aside class="col panel column-panel">
@@ -424,6 +724,17 @@
           </label>
           <label>묶음
             <select id="itemGroupFilter"></select>
+          </label>
+          <label>표시
+            <select id="itemStatusFilter">
+              <option value="all">전체</option>
+              <option value="untranslated">미번역</option>
+              <option value="translated">번역됨</option>
+              <option value="drafted">초안 있음</option>
+              <option value="needs_review">검수 필요</option>
+              <option value="issue">이슈</option>
+              <option value="over_limit">글자수 초과</option>
+            </select>
           </label>
           <label>정렬
             <select id="itemSortMode">
@@ -470,6 +781,7 @@
           <label>번역문
             <textarea id="translationText"></textarea>
           </label>
+          <div id="lengthPolicyBanner" class="length-policy-banner hidden"></div>
           <div id="translationLimitMeter" class="limit-meter hidden"></div>
           <label>에이전트 초안
             <textarea id="agentDraftText" placeholder="번역 에이전트가 제안한 초안"></textarea>
@@ -650,6 +962,35 @@
         </div>
       </div>
     </main>
+    <aside class="col panel column-panel context-panel">
+      <div class="section">
+        <h2>주변 항목</h2>
+        <div id="contextInfo" class="meta">항목을 선택하면 앞뒤 문맥을 보여줍니다.</div>
+      </div>
+      <div id="contextList" class="context-list"></div>
+    </aside>
+    <aside class="col panel column-panel status-panel">
+      <div class="section">
+        <h2>진행 상태</h2>
+        <div class="meta" id="progressInfo"></div>
+        <div id="progressDashboard" class="progress-dashboard"></div>
+        <div id="saveProgressPanel" class="save-progress hidden">
+          <div id="saveProgressTitle" class="save-progress-title">저장 대기 중</div>
+          <span class="progress-bar"><span id="saveProgressFill" class="progress-fill" style="width:0%"></span></span>
+          <div id="saveProgressDetail" class="save-progress-detail"></div>
+        </div>
+        <label>번역 에이전트 결과 JSON 가져오기
+          <input id="translationImportFile" type="file" accept=".json">
+        </label>
+        <button id="importTranslationBtn">번역 결과 가져오기</button>
+        <div class="small" id="autoImportInfo"></div>
+        <button id="openAuditReviewBtn">Entry8 후보 검수</button>
+        <button id="rebuildBtn">전체 적용 ROM 재빌드</button>
+        <div class="small" id="romInfo"></div>
+        <div class="small" id="importInfo"></div>
+        <div class="status" id="statusInfo">대기 중</div>
+      </div>
+    </aside>
   </div>
 
   <div id="saveReviewModal" class="modal-backdrop hidden" role="dialog" aria-modal="true">
@@ -661,7 +1002,72 @@
       <div id="saveReviewBody" class="modal-body"></div>
       <div class="modal-footer">
         <button id="saveReviewCancelBtn">취소</button>
+        <button id="saveReviewRollbackBtn">변경 전으로 복구</button>
         <button id="saveReviewApplyBtn" class="primary">확인 후 저장</button>
+      </div>
+    </div>
+  </div>
+
+  <div id="auditReviewModal" class="modal-backdrop hidden audit-modal" role="dialog" aria-modal="true">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h2>Entry8 후보 검수</h2>
+        <div id="auditReviewMeta" class="meta"></div>
+      </div>
+      <div id="auditTabs" class="audit-tabs"></div>
+      <div class="audit-controls">
+        <label>검색
+          <input id="auditSearch" type="search" placeholder="원문/현재/제안/item/offset 검색">
+        </label>
+        <label>표시
+          <select id="auditStatusFilter">
+            <option value="all">전체</option>
+            <option value="apply">적용 선택</option>
+            <option value="skip">적용 안 함 선택</option>
+            <option value="done">반영 완료</option>
+            <option value="undecided">미판정</option>
+            <option value="changed">변경 있음</option>
+          </select>
+        </label>
+        <label>표시 개수
+          <select id="auditPageSize">
+            <option value="100">100개</option>
+            <option value="200" selected>200개</option>
+            <option value="500">500개</option>
+            <option value="1000">1000개</option>
+          </select>
+        </label>
+        <label>정렬
+          <select id="auditSortMode">
+            <option value="offset">ROM offset</option>
+            <option value="item">Item</option>
+            <option value="capacity">여유 적은 순</option>
+          </select>
+        </label>
+        <label>클릭 모드
+          <select id="auditDecisionMode">
+            <option value="apply">적용할 항목으로 선택</option>
+            <option value="skip">적용하지 않을 항목으로 선택</option>
+          </select>
+        </label>
+        <button id="auditApplyVisibleBtn" type="button">현재 페이지 적용</button>
+        <button id="auditSkipVisibleBtn" type="button">현재 페이지 미적용</button>
+        <button id="auditClearVisibleBtn" type="button">현재 페이지 판정 해제</button>
+      </div>
+      <div id="auditList" class="audit-list"></div>
+      <div class="audit-footer">
+        <div>
+          <div id="auditPageInfo" class="meta"></div>
+          <div id="auditSelectionInfo" class="meta"></div>
+        </div>
+        <div class="audit-footer-actions">
+          <div class="audit-page-controls">
+            <button id="auditPrevPageBtn" type="button">이전</button>
+            <button id="auditNextPageBtn" type="button">다음</button>
+          </div>
+          <button id="auditCloseBtn" type="button">닫기</button>
+          <button id="auditApplySelectedBtn" type="button" class="primary">적용 선택만 임시 변경에 반영</button>
+        </div>
       </div>
     </div>
   </div>
@@ -675,6 +1081,7 @@
       categoryId: null,
       itemId: null,
       speakerRegistry: [],
+      speakers: [],
       speakerMap: new Map(),
       draftItems: new Map(),
       dirtyItemIds: new Set(),
@@ -682,15 +1089,29 @@
       itemPageSize: 200,
       itemSearch: "",
       itemGroupFilter: "all",
+      itemStatusFilter: "all",
       itemSortMode: "script",
+      auditCandidates: [],
+      auditDecisions: new Map(),
+      auditEdits: new Map(),
+      auditTabId: "boundary_apply",
+      auditPage: 0,
+      auditPageSize: 200,
+      auditSearch: "",
+      auditStatusFilter: "all",
+      auditSortMode: "offset",
+      auditDecisionMode: "apply",
     };
 
     const categoryList = document.getElementById("categoryList");
     const itemList = document.getElementById("itemList");
+    const contextInfo = document.getElementById("contextInfo");
+    const contextList = document.getElementById("contextList");
     const itemsTitle = document.getElementById("itemsTitle");
     const itemControls = document.getElementById("itemControls");
     const itemSearch = document.getElementById("itemSearch");
     const itemGroupFilter = document.getElementById("itemGroupFilter");
+    const itemStatusFilter = document.getElementById("itemStatusFilter");
     const itemSortMode = document.getElementById("itemSortMode");
     const itemPageSize = document.getElementById("itemPageSize");
     const itemPageInfo = document.getElementById("itemPageInfo");
@@ -698,17 +1119,42 @@
     const nextPageBtn = document.getElementById("nextPageBtn");
     const fontInfo = document.getElementById("fontInfo");
     const progressInfo = document.getElementById("progressInfo");
+    const progressDashboard = document.getElementById("progressDashboard");
     const romInfo = document.getElementById("romInfo");
     const importInfo = document.getElementById("importInfo");
     const autoImportInfo = document.getElementById("autoImportInfo");
+    const saveProgressPanel = document.getElementById("saveProgressPanel");
+    const saveProgressTitle = document.getElementById("saveProgressTitle");
+    const saveProgressFill = document.getElementById("saveProgressFill");
+    const saveProgressDetail = document.getElementById("saveProgressDetail");
     const translationImportFile = document.getElementById("translationImportFile");
     const saveReviewModal = document.getElementById("saveReviewModal");
     const saveReviewTitle = document.getElementById("saveReviewTitle");
     const saveReviewMeta = document.getElementById("saveReviewMeta");
     const saveReviewBody = document.getElementById("saveReviewBody");
     const saveReviewCancelBtn = document.getElementById("saveReviewCancelBtn");
+    const saveReviewRollbackBtn = document.getElementById("saveReviewRollbackBtn");
     const saveReviewApplyBtn = document.getElementById("saveReviewApplyBtn");
     let saveReviewModalResolve = null;
+    const openAuditReviewBtn = document.getElementById("openAuditReviewBtn");
+    const auditReviewModal = document.getElementById("auditReviewModal");
+    const auditReviewMeta = document.getElementById("auditReviewMeta");
+    const auditTabs = document.getElementById("auditTabs");
+    const auditSearch = document.getElementById("auditSearch");
+    const auditStatusFilter = document.getElementById("auditStatusFilter");
+    const auditPageSize = document.getElementById("auditPageSize");
+    const auditSortMode = document.getElementById("auditSortMode");
+    const auditDecisionMode = document.getElementById("auditDecisionMode");
+    const auditApplyVisibleBtn = document.getElementById("auditApplyVisibleBtn");
+    const auditSkipVisibleBtn = document.getElementById("auditSkipVisibleBtn");
+    const auditClearVisibleBtn = document.getElementById("auditClearVisibleBtn");
+    const auditList = document.getElementById("auditList");
+    const auditPageInfo = document.getElementById("auditPageInfo");
+    const auditSelectionInfo = document.getElementById("auditSelectionInfo");
+    const auditPrevPageBtn = document.getElementById("auditPrevPageBtn");
+    const auditNextPageBtn = document.getElementById("auditNextPageBtn");
+    const auditCloseBtn = document.getElementById("auditCloseBtn");
+    const auditApplySelectedBtn = document.getElementById("auditApplySelectedBtn");
 
     const textEditor = document.getElementById("textEditor");
     const imageEditor = document.getElementById("imageEditor");
@@ -716,6 +1162,7 @@
     const editorMeta = document.getElementById("editorMeta");
     const sourceText = document.getElementById("sourceText");
     const translationText = document.getElementById("translationText");
+    const lengthPolicyBanner = document.getElementById("lengthPolicyBanner");
     const translationLimitMeter = document.getElementById("translationLimitMeter");
     const agentDraftText = document.getElementById("agentDraftText");
     const agentCommentText = document.getElementById("agentCommentText");
@@ -778,9 +1225,66 @@
       currentItemId: "",
     };
 
+    const AUDIT_TAB_CONFIGS = [
+      {
+        id: "boundary_apply",
+        label: "특수기호 복원 후보",
+        path: "confirmed_data/translation_workspace/audits/entry8_boundary_special_chars_apply_candidates.json",
+        tone: "safe",
+        note: "원문 앞/뒤 특수기호만 복원하는 후보",
+      },
+      {
+        id: "spacing_apply",
+        label: "띄어쓰기 개선 후보",
+        path: "confirmed_data/translation_workspace/audits/entry8_spacing_only_apply_candidates.json",
+        tone: "safe",
+        note: "비공백 문자는 그대로 두고 전각 공백만 추가하는 후보",
+      },
+      {
+        id: "boundary_hold",
+        label: "특수기호 검토/기본 미적용",
+        path: "confirmed_data/translation_workspace/audits/entry8_boundary_special_chars_hold.json",
+        tone: "hold",
+        note: "자동 변경하지 않기로 보류한 목록입니다. 현재와 제안이 같으면 바꿀 내용이 없습니다.",
+      },
+      {
+        id: "spacing_excluded",
+        label: "공백 검토/기본 미적용",
+        path: "confirmed_data/translation_workspace/audits/entry8_spacing_only_excluded_after_punctuation.json",
+        tone: "excluded",
+        note: "특수기호 바로 뒤 공백이라 기본 제외한 후보입니다. 필요할 때만 직접 적용으로 바꾸세요.",
+      },
+    ];
+
     function setStatus(message, tone = "") {
       statusInfo.textContent = message;
       statusInfo.className = `status${tone ? ` ${tone}` : ""}`;
+    }
+
+    function setSaveProgress(current, total, title, detail = "", tone = "") {
+      const safeTotal = Math.max(1, Number(total) || 1);
+      const safeCurrent = Math.min(Math.max(0, Number(current) || 0), safeTotal);
+      const value = Math.round((safeCurrent / safeTotal) * 100);
+      saveProgressPanel.classList.remove("hidden");
+      saveProgressTitle.textContent = `${title} ${value}%`;
+      saveProgressFill.style.width = `${value}%`;
+      saveProgressFill.className = `progress-fill${tone ? ` ${tone}` : ""}`;
+      saveProgressDetail.textContent = `${safeCurrent}/${safeTotal}${detail ? ` · ${detail}` : ""}`;
+      setStatus(`${title} ${safeCurrent}/${safeTotal} (${value}%)${detail ? `\n${detail}` : ""}`, tone);
+    }
+
+    function setBusyActionProgress(percent, title, detail = "", tone = "") {
+      const value = Math.min(Math.max(0, Number(percent) || 0), 100);
+      saveProgressPanel.classList.remove("hidden");
+      saveProgressTitle.textContent = `${title} ${value}%`;
+      saveProgressFill.style.width = `${value}%`;
+      saveProgressFill.className = `progress-fill${tone ? ` ${tone}` : ""}`;
+      saveProgressDetail.textContent = detail;
+      setStatus(`${title} (${value}%)${detail ? `\n${detail}` : ""}`, tone);
+    }
+
+    function nextFrame() {
+      return new Promise((resolve) => requestAnimationFrame(resolve));
     }
 
     function loadLocalUiState() {
@@ -800,6 +1304,14 @@
         for (const [itemId, draft] of state.draftItems.entries()) {
           drafts[itemId] = draft;
         }
+        const auditDecisions = {};
+        for (const [key, decision] of state.auditDecisions.entries()) {
+          auditDecisions[key] = decision;
+        }
+        const auditEdits = {};
+        for (const [key, suggested] of state.auditEdits.entries()) {
+          auditEdits[key] = suggested;
+        }
         window.localStorage.setItem(
           LOCAL_UI_STATE_KEY,
           JSON.stringify({
@@ -809,7 +1321,17 @@
             itemPageSize: state.itemPageSize,
             itemSearch: state.itemSearch,
             itemGroupFilter: state.itemGroupFilter,
+            itemStatusFilter: state.itemStatusFilter,
             itemSortMode: state.itemSortMode,
+            auditDecisions,
+            auditEdits,
+            auditTabId: state.auditTabId,
+            auditPage: state.auditPage,
+            auditPageSize: state.auditPageSize,
+            auditSearch: state.auditSearch,
+            auditStatusFilter: state.auditStatusFilter,
+            auditSortMode: state.auditSortMode,
+            auditDecisionMode: state.auditDecisionMode,
             drafts,
           })
         );
@@ -837,6 +1359,7 @@
       "startup_intro_texts",
       "save_menu_texts",
       "choice_yes_no_texts",
+      "ui_status_texts",
       "registry_a_entry8_prefixed_texts",
       "inline_event_texts",
     ]);
@@ -844,6 +1367,7 @@
       "startup_intro_texts",
       "save_menu_texts",
       "choice_yes_no_texts",
+      "ui_status_texts",
       "credits_texts",
       "inline_event_texts",
       "registry_a_entry8_prefixed_texts",
@@ -897,6 +1421,7 @@
           .replace(/\./g, "。")
           .replace(/[,，、]/g, "、")
           .replace(/:/g, "：")
+          .replace(/%/g, "％")
           .replace(/-/g, "－")
           .replace(/\//g, "／")
           .replace(/~/g, "～")
@@ -945,9 +1470,92 @@
 
     function capacityBytesForItem(item) {
       if (item.byte_length == null) return null;
+      return Number(item.byte_length) + terminatorBytesForItem(item);
+    }
+
+    function terminatorBytesForItem(item) {
+      if (!item || item.byte_length == null) return 0;
       const counted = COUNTED_SCRIPT_SOURCE_GROUPS.has(item.source_group) && item.char_count != null;
-      const terminator = !counted && item.append_terminator !== false ? 1 : 0;
-      return Number(item.byte_length) + terminator;
+      return !counted && item.append_terminator !== false ? 1 : 0;
+    }
+
+    function repointCapabilityForItem(item) {
+      if (!item || item.category_id === "image_review_units") {
+        return { allowed: false, kind: "fixed", label: "고정 슬롯", detail: "" };
+      }
+      if (item.source_group === "registry_a_entry8_prefixed_texts") {
+        const mode = item.expansion_mode || item.length_policy || "";
+        if (mode === "confirmed_repoint") {
+          return {
+            allowed: true,
+            kind: "entry8_confirmed",
+            label: "길이 확장 가능",
+            detail: "검증된 확장 대상이라 원본 슬롯보다 길어져도 저장할 수 있습니다.",
+          };
+        }
+        return {
+          allowed: false,
+          kind: "entry8_conservative",
+          label: "Entry8 제한 슬롯",
+          detail: "Entry8은 일부만 확장 가능하므로, 확장 대상으로 표시되지 않은 항목은 현재 슬롯 기준으로 봅니다.",
+        };
+      }
+      if (
+        item.expansion_mode === "packed_repoint_available" ||
+        (
+          item.source_group === "registry_d_fc_script_texts" &&
+          item.anchor_offset != null &&
+          item.raw_byte_length != null
+        )
+      ) {
+        return {
+          allowed: true,
+          kind: "packed",
+          label: "길이 확장 가능",
+          detail: "원본 슬롯보다 길어져도 저장/ROM 적용이 가능합니다.",
+        };
+      }
+      if (item.expansion_mode === "direct_repoint_available") {
+        return {
+          allowed: true,
+          kind: "direct",
+          label: "길이 확장 가능",
+          detail: "원본 슬롯보다 길어져도 저장/ROM 적용이 가능합니다.",
+        };
+      }
+      if (item.repoint_allowed || item.can_repoint || item.length_policy === "repoint") {
+        return {
+          allowed: true,
+          kind: "flagged",
+          label: "길이 확장 가능",
+          detail: "원본 슬롯보다 길어져도 저장/ROM 적용이 가능합니다.",
+        };
+      }
+      if (item.expansion_mode === "in_place_slack_only") {
+        return {
+          allowed: false,
+          kind: "slack",
+          label: "슬롯 내 여유만 가능",
+          detail: `원본 슬롯 안의 남은 ${Number(item.slack_bytes || 0)} bytes까지만 사용할 수 있습니다.`,
+        };
+      }
+      if (item.expansion_mode === "fixed_capacity_exact") {
+        return {
+          allowed: false,
+          kind: "fixed",
+          label: "고정 슬롯",
+          detail: "현재 슬롯보다 길어지면 저장/ROM 적용이 안전하지 않습니다.",
+        };
+      }
+      if (item.expansion_mode === "too_long_without_pointer") {
+        return {
+          allowed: false,
+          kind: "blocked",
+          label: "초과 위험",
+          detail: "현재 번역이 슬롯을 넘지만 직접 포인터가 없어 줄이거나 구조 분석이 필요합니다.",
+        };
+      }
+      return { allowed: false, kind: "fixed", label: "고정 슬롯", detail: "" };
     }
 
     function limitInfoForItem(item, text) {
@@ -955,15 +1563,20 @@
       const capacity = capacityBytesForItem(item);
       if (!Number.isFinite(capacity)) return null;
       const normalized = normalizeForLimitPreview(text, item.source_group);
-      const used = estimatedEncodedLength(normalized);
+      const terminatorBytes = terminatorBytesForItem(item);
+      const used = estimatedEncodedLength(normalized) + terminatorBytes;
       const remainingBytes = capacity - used;
       const remainingChars = Math.floor(remainingBytes / 2);
+      const repointCapability = repointCapabilityForItem(item);
       return {
         capacity,
         used,
+        terminatorBytes,
         remainingBytes,
         remainingChars,
         normalized,
+        repointCapability,
+        overflowAllowed: repointCapability.allowed,
         changedByNormalization: normalized !== String(text || ""),
       };
     }
@@ -972,6 +1585,8 @@
       const item = state.items.find((entry) => entry.item_id === state.itemId);
       const info = limitInfoForItem(item, translationText.value);
       if (!info) {
+        lengthPolicyBanner.className = "length-policy-banner hidden";
+        lengthPolicyBanner.textContent = "";
         translationLimitMeter.className = "limit-meter hidden";
         translationLimitMeter.textContent = "";
         return;
@@ -984,11 +1599,36 @@
         ? `문자 ${info.normalized.length}/${item.char_count}, `
         : "";
       const normalizedNote = info.changedByNormalization ? " / 저장 시 전각/기호 정규화 반영" : "";
+      const terminatorNote = info.terminatorBytes ? ` / 종료 ${info.terminatorBytes} byte 포함` : "";
+      const repointNote = info.repointCapability.allowed
+        ? ` / ${info.repointCapability.label}: 초과해도 저장 가능`
+        : " / 고정 슬롯: 초과 저장 불가";
+      const isOver = info.remainingBytes < 0;
+      const policyClass = info.repointCapability.allowed
+        ? (isOver ? "repoint-over" : "repoint")
+        : "fixed";
+      const policyTitle = info.repointCapability.allowed
+        ? (isOver ? "길이 정책: repoint 가능 - 현재 초과분도 저장 가능" : "길이 정책: repoint 가능")
+        : "길이 정책: 고정 슬롯 - 초과 저장 불가";
+      const policyDetail = info.repointCapability.allowed
+        ? `${info.repointCapability.detail || "확장 삽입 대상입니다."} 현재 ${info.used}/${info.capacity} bytes${terminatorNote}${isOver ? `, ${Math.abs(info.remainingBytes)} bytes 초과` : ""}.`
+        : `이 항목은 현재 슬롯 안에 들어가야 합니다. ${info.used}/${info.capacity} bytes${terminatorNote}${isOver ? `, ${Math.abs(info.remainingBytes)} bytes 초과` : ""}.`;
+      lengthPolicyBanner.className = `length-policy-banner ${policyClass}`;
+      lengthPolicyBanner.innerHTML = `
+        <div class="policy-title">${policyTitle}</div>
+        <div class="meta">${policyDetail}</div>
+      `;
       translationLimitMeter.textContent =
-        `정규화 후 ${charText}${info.used}/${info.capacity} bytes, ${remainingText}${normalizedNote}`;
-      const tone = info.remainingBytes < 0 ? "error" : info.remainingBytes <= 4 ? "warn" : "ok";
+        `정규화 후 ${charText}${info.used}/${info.capacity} bytes, ${remainingText}${terminatorNote}${normalizedNote}${repointNote}`;
+      const tone = isOver && !info.overflowAllowed
+        ? "error"
+        : isOver || info.remainingBytes <= 4
+          ? "warn"
+          : "ok";
       translationLimitMeter.className = `limit-meter ${tone}`;
-      if (exactFixed && info.remainingBytes < 0) {
+      if (isOver && info.overflowAllowed) {
+        translationLimitMeter.textContent += " / 확장 삽입 대상으로 처리됩니다";
+      } else if (exactFixed && isOver) {
         translationLimitMeter.textContent += " / 현재 슬롯 초과 위험";
       }
     }
@@ -1001,13 +1641,24 @@
       return hasOwnValue(draft, key) ? draft[key] : (item[key] ?? fallback);
     }
 
+    function isInvalidAgentDraft(value) {
+      const text = String(value || "");
+      const compact = text.replace(/\s+/g, "");
+      return compact.includes("확인필요") || text.includes("에군군의에");
+    }
+
+    function usableAgentDraft(item) {
+      const draft = item?.agent_draft || "";
+      return isInvalidAgentDraft(draft) ? "" : draft;
+    }
+
     function normalizeTextDraftForItem(draft, item) {
       if (!draft || !item || item.category_id === "image_review_units") {
         return draft;
       }
       const normalized = {
         translation: hasOwnValue(draft, "translation") ? draft.translation : persistedTranslation(item),
-        agent_draft: draftValueOrItem(draft, item, "agent_draft", ""),
+        agent_draft: usableAgentDraft({ agent_draft: draftValueOrItem(draft, item, "agent_draft", "") }),
         agent_comment: draftValueOrItem(draft, item, "agent_comment", ""),
         manual_locked: draftValueOrItem(draft, item, "manual_locked", false),
         notes: draftValueOrItem(draft, item, "notes", ""),
@@ -1023,7 +1674,7 @@
       }
       for (const key of ["agent_draft", "agent_comment", "notes"]) {
         if ((normalized[key] ?? "") === "" && (item[key] ?? "") !== "") {
-          normalized[key] = item[key];
+          normalized[key] = key === "agent_draft" ? usableAgentDraft(item) : item[key];
         }
       }
       return normalized;
@@ -1179,14 +1830,563 @@
       return response.json();
     }
 
+    function auditCandidateKey(candidate) {
+      return [
+        candidate.tabId,
+        candidate.item_id || "",
+        candidate.hex || candidate.offset || "",
+        candidate.suggested || "",
+      ].join("::");
+    }
+
+    function normalizeAuditItems(payload, tabConfig) {
+      const rawItems = Array.isArray(payload)
+        ? payload
+        : (payload?.apply_candidates || payload?.candidates || payload?.items || payload?.hold || payload?.excluded || []);
+      return rawItems.map((item, index) => {
+        const offset = item.offset != null ? Number(item.offset) : null;
+        const suggestedUsed = item.suggestedUsed ?? item.suggestedBytes ?? item.used ?? "";
+        const normalized = {
+          ...item,
+          tabId: tabConfig.id,
+          tabLabel: tabConfig.label,
+          tabTone: tabConfig.tone,
+          tabNote: tabConfig.note,
+          auditIndex: index,
+          item_id: item.item_id || "",
+          group_id: item.group_id || "",
+          hex: item.hex || (Number.isFinite(offset) ? `0x${offset.toString(16).toUpperCase()}` : ""),
+          offset,
+          source: item.source || "",
+          current: item.current || "",
+          suggested: item.suggested || "",
+          used: item.used ?? "",
+          suggestedUsed,
+          capacity: item.capacity ?? "",
+          reason: item.reason || item.classification_reason || item.excluded_reason || (item.reasons || item.actions || []).join(", "),
+        };
+        normalized.key = auditCandidateKey(normalized);
+        normalized.hasChange = auditCandidateHasChange(normalized);
+        return normalized;
+      });
+    }
+
+    function auditDecisionFor(candidate) {
+      return state.auditDecisions.get(candidate.key) || "";
+    }
+
+    function auditSuggestedText(candidate) {
+      return state.auditEdits.has(candidate.key)
+        ? state.auditEdits.get(candidate.key)
+        : candidate.suggested;
+    }
+
+    function auditCurrentText(candidate) {
+      const item = sourceItemForAuditCandidate(candidate);
+      if (!item || item.category_id === "image_review_units") {
+        return candidate.current || "";
+      }
+      const effective = getEffectiveItem(item);
+      return effective.translation || effective.effective_translation || "";
+    }
+
+    function normalizedAuditText(candidate, text) {
+      const item = sourceItemForAuditCandidate(candidate);
+      return normalizeForLimitPreview(text, item?.source_group || "");
+    }
+
+    function auditCandidateHasChange(candidate) {
+      return normalizedAuditText(candidate, auditCurrentText(candidate)) !==
+        normalizedAuditText(candidate, auditSuggestedText(candidate));
+    }
+
+    function auditCandidateIsEdited(candidate) {
+      return state.auditEdits.has(candidate.key) && state.auditEdits.get(candidate.key) !== candidate.suggested;
+    }
+
+    function auditCandidateMatchesCurrentTranslation(candidate) {
+      const item = sourceItemForAuditCandidate(candidate);
+      if (!item || item.category_id === "image_review_units") return false;
+      const suggested = auditSuggestedText(candidate);
+      if (!suggested) return false;
+      const current = auditCurrentText(candidate);
+      if (!current) return false;
+      return normalizedAuditText(candidate, current) === normalizedAuditText(candidate, suggested);
+    }
+
+    function reconcileAuditDoneWithCurrentData(options = {}) {
+      let marked = 0;
+      let cleared = 0;
+      for (const candidate of state.auditCandidates) {
+        const decision = auditDecisionFor(candidate);
+        if (decision === "skip") continue;
+        const matchesCurrent = auditCandidateMatchesCurrentTranslation(candidate);
+        if (decision === "done" && options.pruneStaleDone && !matchesCurrent) {
+          state.auditDecisions.delete(candidate.key);
+          cleared += 1;
+          continue;
+        }
+        if (decision !== "done" && matchesCurrent) {
+          state.auditDecisions.set(candidate.key, "done");
+          marked += 1;
+        }
+      }
+      if (marked || cleared) {
+        persistLocalUiState();
+      }
+      return { marked, cleared, total: marked + cleared };
+    }
+
+    function setAuditSuggestedText(candidate, suggested) {
+      if (!candidate) return;
+      if (suggested === candidate.suggested) {
+        state.auditEdits.delete(candidate.key);
+      } else {
+        state.auditEdits.set(candidate.key, suggested);
+      }
+      candidate.hasChange = auditCandidateHasChange(candidate);
+      if (auditDecisionFor(candidate) === "apply" && !candidate.hasChange) {
+        state.auditDecisions.delete(candidate.key);
+      }
+      persistLocalUiState();
+    }
+
+    function sourceItemForAuditCandidate(candidate) {
+      if (!candidate?.item_id) return null;
+      return state.items.find((entry) => entry.item_id === candidate.item_id) || null;
+    }
+
+    function auditLimitInfo(candidate, text) {
+      const item = sourceItemForAuditCandidate(candidate);
+      if (!item) return null;
+      return limitInfoForItem(item, text);
+    }
+
+    function updateAuditLimitMeter(candidate, text, node) {
+      const info = auditLimitInfo(candidate, text);
+      if (!info) {
+        node.textContent = "길이 정보 없음";
+        node.className = "audit-limit-meter";
+        return;
+      }
+      const normalizedNote = info.changedByNormalization ? " / 저장 시 정규화" : "";
+      const remainingText = info.remainingBytes >= 0
+        ? `남은 ${info.remainingBytes} bytes / 한글 약 ${info.remainingChars}자`
+        : `초과 ${Math.abs(info.remainingBytes)} bytes`;
+      const charText = info.normalized != null ? `문자 ${info.normalized.length}, ` : "";
+      const allowedText = info.overflowAllowed ? " / 초과 허용" : "";
+      const tone = info.remainingBytes < 0 && !info.overflowAllowed
+        ? "error"
+        : info.remainingBytes < 0 || info.remainingBytes <= 4
+          ? "warn"
+          : "ok";
+      node.className = `audit-limit-meter ${tone}`;
+      node.textContent = `정규화 후 ${charText}${info.used}/${info.capacity} bytes, ${remainingText}${allowedText}${normalizedNote}`;
+    }
+
+    function auditDecisionCounts() {
+      let apply = 0;
+      let skip = 0;
+      let done = 0;
+      for (const decision of state.auditDecisions.values()) {
+        if (decision === "apply") apply += 1;
+        if (decision === "skip") skip += 1;
+        if (decision === "done") done += 1;
+      }
+      return { apply, skip, done, total: apply + skip + done };
+    }
+
+    function setAuditDecision(candidate, decision, options = {}) {
+      if (!candidate) return false;
+      if (decision === "apply" && !auditCandidateHasChange(candidate)) {
+        if (!options.silent) {
+          setStatus("이 후보는 현재와 제안이 같아서 적용할 변경이 없습니다. 필요하면 '적용하지 않음'으로 표시해 주세요.", "warn");
+        }
+        return false;
+      }
+      if (decision === "clear") {
+        state.auditDecisions.delete(candidate.key);
+      } else if (decision === "apply" || decision === "skip" || decision === "done") {
+        state.auditDecisions.set(candidate.key, decision);
+      }
+      persistLocalUiState();
+      return true;
+    }
+
+    async function loadAuditCandidates() {
+      if (state.auditCandidates.length) return;
+      setStatus("Entry8 후보 목록을 불러오는 중...");
+      const loaded = [];
+      for (const tab of AUDIT_TAB_CONFIGS) {
+        try {
+          const payload = await fetchJson(`/workspace-file?path=${encodeURIComponent(tab.path)}`);
+          loaded.push(...normalizeAuditItems(payload, tab));
+        } catch (error) {
+          console.warn(`failed to load ${tab.path}`, error);
+        }
+      }
+      state.auditCandidates = loaded;
+      setStatus(`Entry8 후보 ${loaded.length}개 불러옴`, "ok");
+    }
+
+    function auditCandidatesForCurrentTab() {
+      let items = state.auditCandidates.filter((item) => item.tabId === state.auditTabId);
+      const query = state.auditSearch.trim().toLowerCase();
+      if (query) {
+        items = items.filter((item) => [
+          item.item_id,
+          item.group_id,
+          item.hex,
+          item.source,
+          auditCurrentText(item),
+          item.current,
+          item.suggested,
+          auditSuggestedText(item),
+          item.reason,
+          item.tabLabel,
+        ].join("\n").toLowerCase().includes(query));
+      }
+      if (state.auditStatusFilter === "apply") {
+        items = items.filter((item) => auditDecisionFor(item) === "apply");
+      } else if (state.auditStatusFilter === "skip") {
+        items = items.filter((item) => auditDecisionFor(item) === "skip");
+      } else if (state.auditStatusFilter === "done") {
+        items = items.filter((item) => auditDecisionFor(item) === "done");
+      } else if (state.auditStatusFilter === "undecided") {
+        items = items.filter((item) => !auditDecisionFor(item));
+      } else if (state.auditStatusFilter === "changed") {
+        items = items.filter((item) => auditCandidateHasChange(item));
+      }
+      items.sort((a, b) => {
+        if (state.auditSortMode === "item") {
+          return `${a.item_id}:${a.hex}`.localeCompare(`${b.item_id}:${b.hex}`, "ko");
+        }
+        if (state.auditSortMode === "capacity") {
+          const left = Number(a.suggestedSpare ?? a.spare ?? 999999);
+          const right = Number(b.suggestedSpare ?? b.spare ?? 999999);
+          return left - right || Number(a.offset || 0) - Number(b.offset || 0);
+        }
+        return Number(a.offset || 0) - Number(b.offset || 0);
+      });
+      return items;
+    }
+
+    function renderAuditTabs() {
+      auditTabs.innerHTML = "";
+      for (const tab of AUDIT_TAB_CONFIGS) {
+        const count = state.auditCandidates.filter((item) => item.tabId === tab.id).length;
+        const apply = state.auditCandidates.filter((item) => item.tabId === tab.id && auditDecisionFor(item) === "apply").length;
+        const skip = state.auditCandidates.filter((item) => item.tabId === tab.id && auditDecisionFor(item) === "skip").length;
+        const done = state.auditCandidates.filter((item) => item.tabId === tab.id && auditDecisionFor(item) === "done").length;
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = `audit-tab${tab.id === state.auditTabId ? " active" : ""}`;
+        button.textContent = `${tab.label} ${count}${apply || skip || done ? ` / 적용 ${apply} / 제외 ${skip} / 완료 ${done}` : ""}`;
+        button.onclick = () => {
+          state.auditTabId = tab.id;
+          state.auditPage = 0;
+          persistLocalUiState();
+          renderAuditReview();
+        };
+        auditTabs.appendChild(button);
+      }
+    }
+
+    function renderAuditReview() {
+      renderAuditTabs();
+      auditSearch.value = state.auditSearch;
+      auditStatusFilter.value = state.auditStatusFilter;
+      auditPageSize.value = String(state.auditPageSize);
+      auditSortMode.value = state.auditSortMode;
+      auditDecisionMode.value = state.auditDecisionMode;
+
+      const tab = AUDIT_TAB_CONFIGS.find((entry) => entry.id === state.auditTabId) || AUDIT_TAB_CONFIGS[0];
+      const items = auditCandidatesForCurrentTab();
+      const pageSize = Math.max(1, Number(state.auditPageSize) || 200);
+      const maxPage = Math.max(0, Math.ceil(items.length / pageSize) - 1);
+      state.auditPage = Math.min(Math.max(0, state.auditPage), maxPage);
+      const start = state.auditPage * pageSize;
+      const visibleItems = items.slice(start, start + pageSize);
+      const end = Math.min(start + pageSize, items.length);
+      const decisionCounts = auditDecisionCounts();
+      auditReviewMeta.textContent = `${tab.label}: ${tab.note} / 현재 탭 ${items.length}개 / 전체 후보 ${state.auditCandidates.length}개`;
+      auditPageInfo.textContent = items.length
+        ? `${start + 1}-${end} / ${items.length}`
+        : "0 / 0";
+      auditSelectionInfo.textContent = `적용 ${decisionCounts.apply}개 / 적용 안 함 ${decisionCounts.skip}개 / 반영 완료 ${decisionCounts.done}개. 행을 누르면 현재 클릭 모드로 판정합니다. 적용 선택만 임시 변경에 반영됩니다.`;
+      auditPrevPageBtn.disabled = state.auditPage <= 0;
+      auditNextPageBtn.disabled = state.auditPage >= maxPage;
+
+      auditList.innerHTML = "";
+      const fragment = document.createDocumentFragment();
+      for (const item of visibleItems) {
+        const decision = auditDecisionFor(item);
+        const currentText = auditCurrentText(item);
+        const displaySuggested = auditSuggestedText(item);
+        const hasChange = auditCandidateHasChange(item);
+        const isEdited = auditCandidateIsEdited(item);
+        const row = document.createElement("div");
+        row.className = [
+          "audit-row",
+          decision || "",
+          item.tabTone === "excluded" || item.tabTone === "hold" ? "warning" : "",
+          hasChange ? "" : "no-change",
+        ].filter(Boolean).join(" ");
+        row.dataset.key = item.key;
+        row.onclick = () => {
+          setAuditDecision(item, state.auditDecisionMode);
+          renderAuditReview();
+        };
+
+        const decisionCell = document.createElement("div");
+        const decisionPill = document.createElement("span");
+        const pillClass = decision || (hasChange ? "" : "no-change");
+        decisionPill.className = `decision-pill${pillClass ? ` ${pillClass}` : ""}`;
+        decisionPill.textContent = decision === "apply"
+          ? "적용"
+          : decision === "skip"
+            ? "미적용"
+            : decision === "done"
+              ? "반영 완료"
+              : hasChange
+                ? "미판정"
+                : "변경 없음";
+        decisionCell.appendChild(decisionPill);
+        if (decision) {
+          const clearBtn = document.createElement("button");
+          clearBtn.type = "button";
+          clearBtn.textContent = "해제";
+          clearBtn.style.padding = "4px 7px";
+          clearBtn.onclick = (event) => {
+            event.stopPropagation();
+            setAuditDecision(item, "clear");
+            renderAuditReview();
+          };
+          decisionCell.appendChild(clearBtn);
+        }
+
+        const metaCell = document.createElement("div");
+        metaCell.innerHTML = `
+          <div class="audit-cell-title">Offset</div>
+          <div>${item.hex || "-"}</div>
+          <div class="meta">${item.used || "?"} -> ${item.suggestedUsed || "?"} / ${item.capacity || "?"}</div>
+        `;
+
+        const itemCell = document.createElement("div");
+        itemCell.innerHTML = `
+          <div class="audit-cell-title">Item</div>
+          <div class="audit-text">${item.item_id || "-"}</div>
+          <div class="meta">${item.tabLabel}</div>
+        `;
+
+        const sourceCell = document.createElement("div");
+        sourceCell.innerHTML = `<div class="audit-cell-title">원문</div>`;
+        const sourceTextNode = document.createElement("div");
+        sourceTextNode.className = "audit-text";
+        sourceTextNode.textContent = item.source || "";
+        sourceCell.appendChild(sourceTextNode);
+
+        const currentCell = document.createElement("div");
+        currentCell.innerHTML = `<div class="audit-cell-title">현재 실시간</div>`;
+        const currentTextNode = document.createElement("div");
+        currentTextNode.className = "audit-text";
+        currentTextNode.textContent = currentText || "";
+        currentCell.appendChild(currentTextNode);
+        if ((item.current || "") && item.current !== currentText) {
+          const snapshotNode = document.createElement("div");
+          snapshotNode.className = "meta";
+          snapshotNode.textContent = `후보 생성시: ${item.current}`;
+          currentCell.appendChild(snapshotNode);
+        }
+
+        const suggestedCell = document.createElement("div");
+        suggestedCell.innerHTML = `<div class="audit-cell-title">제안 수정 가능</div>`;
+        const suggestedInput = document.createElement("textarea");
+        suggestedInput.className = "audit-suggestion-input";
+        suggestedInput.value = displaySuggested || "";
+        suggestedInput.onclick = (event) => event.stopPropagation();
+        const limitMeter = document.createElement("div");
+        updateAuditLimitMeter(item, suggestedInput.value, limitMeter);
+        suggestedInput.oninput = (event) => {
+          event.stopPropagation();
+          setAuditSuggestedText(item, suggestedInput.value);
+          updateAuditLimitMeter(item, suggestedInput.value, limitMeter);
+          const changed = auditCandidateHasChange(item);
+          row.classList.toggle("no-change", !changed);
+          row.classList.toggle("apply", auditDecisionFor(item) === "apply");
+          decisionPill.textContent = auditDecisionFor(item) === "apply"
+            ? "적용"
+            : auditDecisionFor(item) === "skip"
+              ? "미적용"
+              : auditDecisionFor(item) === "done"
+                ? "반영 완료"
+                : changed
+                  ? "미판정"
+                  : "변경 없음";
+          editedNote.textContent = auditCandidateIsEdited(item) ? "직접 수정됨" : "";
+          renderAuditTabs();
+          const counts = auditDecisionCounts();
+          auditSelectionInfo.textContent = `적용 ${counts.apply}개 / 적용 안 함 ${counts.skip}개 / 반영 완료 ${counts.done}개. 행을 누르면 현재 클릭 모드로 판정합니다. 적용 선택만 임시 변경에 반영됩니다.`;
+        };
+        suggestedCell.appendChild(suggestedInput);
+        suggestedCell.appendChild(limitMeter);
+        const editedNote = document.createElement("div");
+        editedNote.className = "audit-edited-note";
+        editedNote.textContent = isEdited ? "직접 수정됨" : "";
+        suggestedCell.appendChild(editedNote);
+
+        const reasonCell = document.createElement("div");
+        reasonCell.innerHTML = `<div class="audit-cell-title">분류/사유</div>`;
+        const reasonTextNode = document.createElement("div");
+        reasonTextNode.className = "audit-text";
+        reasonTextNode.textContent = item.reason || "";
+        reasonCell.appendChild(reasonTextNode);
+
+        row.appendChild(decisionCell);
+        row.appendChild(metaCell);
+        row.appendChild(itemCell);
+        row.appendChild(sourceCell);
+        row.appendChild(currentCell);
+        row.appendChild(suggestedCell);
+        row.appendChild(reasonCell);
+        fragment.appendChild(row);
+      }
+      auditList.appendChild(fragment);
+    }
+
+    async function openAuditReview() {
+      await loadAuditCandidates();
+      const reconciled = reconcileAuditDoneWithCurrentData({ pruneStaleDone: true });
+      auditReviewModal.classList.remove("hidden");
+      auditReviewModal.setAttribute("aria-hidden", "false");
+      renderAuditReview();
+      if (reconciled.total) {
+        const clearedText = reconciled.cleared ? `, 더 이상 일치하지 않는 완료 ${reconciled.cleared}개 해제` : "";
+        setStatus(`이미 반영된 Entry8 후보 ${reconciled.marked}개를 반영 완료로 표시했습니다${clearedText}.`, "ok");
+      }
+    }
+
+    function closeAuditReview() {
+      auditReviewModal.classList.add("hidden");
+      auditReviewModal.setAttribute("aria-hidden", "true");
+    }
+
+    function currentVisibleAuditCandidates() {
+      const items = auditCandidatesForCurrentTab();
+      const pageSize = Math.max(1, Number(state.auditPageSize) || 200);
+      const start = state.auditPage * pageSize;
+      return items.slice(start, start + pageSize);
+    }
+
+    function setVisibleAuditDecision(decision) {
+      for (const item of currentVisibleAuditCandidates()) {
+        if (auditDecisionFor(item) === "done" && decision === "apply") {
+          continue;
+        }
+        setAuditDecision(item, decision, { silent: true });
+      }
+      persistLocalUiState();
+      renderAuditReview();
+    }
+
+    function selectedAuditCandidates(decision = "apply") {
+      const selected = [];
+      for (const item of state.auditCandidates) {
+        if (auditDecisionFor(item) === decision) selected.push(item);
+      }
+      return selected;
+    }
+
+    function auditSelectionConflicts(candidates) {
+      const byItem = new Map();
+      for (const candidate of candidates) {
+        if (!candidate.item_id) continue;
+        const list = byItem.get(candidate.item_id) || [];
+        list.push(candidate);
+        byItem.set(candidate.item_id, list);
+      }
+      const conflicts = [];
+      for (const [itemId, list] of byItem.entries()) {
+        const uniqueSuggestions = new Set(list.map((item) => auditSuggestedText(item)));
+        if (uniqueSuggestions.size > 1) {
+          conflicts.push({ itemId, list });
+        }
+      }
+      return conflicts;
+    }
+
+    function applyAuditCandidatesToDrafts() {
+      const candidates = selectedAuditCandidates("apply");
+      if (!candidates.length) {
+        alert("적용으로 선택한 후보가 없습니다.");
+        return;
+      }
+      const conflicts = auditSelectionConflicts(candidates);
+      if (conflicts.length) {
+        const lines = [
+          `같은 항목에 서로 다른 제안이 선택된 충돌 ${conflicts.length}건이 있어 반영하지 않았습니다.`,
+          "",
+          ...conflicts.slice(0, 12).map((conflict, index) =>
+            `${index + 1}. ${conflict.itemId}: ${conflict.list.map((item) => auditSuggestedText(item)).join(" / ")}`
+          ),
+        ];
+        if (conflicts.length > 12) lines.push(`...외 ${conflicts.length - 12}건`);
+        alert(lines.join("\n"));
+        setStatus(`후보 반영 차단: 충돌 ${conflicts.length}건`, "error");
+        return;
+      }
+
+      let applied = 0;
+      const missing = [];
+      const appliedKeys = [];
+      for (const candidate of candidates) {
+        const item = state.items.find((entry) => entry.item_id === candidate.item_id);
+        if (!item || item.category_id === "image_review_units") {
+          missing.push(candidate.item_id || candidate.hex || "unknown");
+          continue;
+        }
+        const currentDraft = normalizeTextDraftForItem(getDraft(item.item_id) || {}, item);
+        const draft = {
+          translation: auditSuggestedText(candidate),
+          agent_draft: usableAgentDraft(currentDraft) || usableAgentDraft(item),
+          agent_comment: currentDraft.agent_comment ?? item.agent_comment ?? "",
+          manual_locked: true,
+          notes: currentDraft.notes ?? item.notes ?? "",
+          progress_status: currentDraft.progress_status ?? item.progress_status ?? "done",
+          review_status: currentDraft.review_status ?? item.review_status ?? "unreviewed",
+        };
+        if (!shouldKeepDraft(draft, item)) continue;
+        state.draftItems.set(item.item_id, draft);
+        state.dirtyItemIds.add(item.item_id);
+        applied += 1;
+        appliedKeys.push(candidate.key);
+      }
+
+      for (const key of appliedKeys) {
+        state.auditDecisions.set(key, "done");
+      }
+
+      persistLocalUiState();
+      if (state.auditCandidates.length) {
+        reconcileAuditDoneWithCurrentData({ pruneStaleDone: true });
+      }
+      renderCategories();
+      renderProgress();
+      renderItemList(null, { keepCurrentSelection: true });
+      renderAuditReview();
+      const missingText = missing.length ? ` / 찾지 못한 항목 ${missing.length}개` : "";
+      setStatus(`후보 ${applied}개를 임시 변경에 반영하고 모달에서 반영 완료로 표시했습니다${missingText}. 저장 전 확인 모달을 거쳐야 실제 저장됩니다.`, missing.length ? "warn" : "ok");
+    }
+
     async function loadBundle() {
       setStatus("작업대 데이터를 불러오는 중...");
       state.bundle = await fetchJson("/bundle");
       state.categories = state.bundle.dataset.categories;
       state.items = state.bundle.dataset.items;
       state.speakerRegistry = state.bundle.speaker_registry || [];
+      state.speakers = state.bundle.speakers || [];
       state.speakerMap = new Map(
-        state.bundle.speakers.map((item) => [item.dialogue_state_token, item])
+        state.speakers.map((item) => [item.dialogue_state_token, item])
       );
       renderSpeakerRegistryOptions();
       fontInfo.textContent = `active font: ${state.bundle.dataset.active_font.label || "unknown"}`;
@@ -1211,6 +2411,18 @@
         state.dirtyItemIds = new Set(state.draftItems.keys());
         persistLocalUiState();
       }
+      if (localUiState?.auditDecisions) {
+        state.auditDecisions = new Map(
+          Object.entries(localUiState.auditDecisions)
+            .filter(([, decision]) => decision === "apply" || decision === "skip" || decision === "done")
+        );
+      }
+      if (localUiState?.auditEdits) {
+        state.auditEdits = new Map(
+          Object.entries(localUiState.auditEdits)
+            .filter(([, suggested]) => typeof suggested === "string")
+        );
+      }
       state.categoryId =
         localUiState?.categoryId ||
         state.bundle.progress.current_category_id ||
@@ -1223,8 +2435,17 @@
       state.itemPageSize = Number(localUiState?.itemPageSize) || 200;
       state.itemSearch = localUiState?.itemSearch || "";
       state.itemGroupFilter = localUiState?.itemGroupFilter || "all";
+      state.itemStatusFilter = localUiState?.itemStatusFilter || "all";
       state.itemSortMode = localUiState?.itemSortMode || "script";
+      state.auditTabId = localUiState?.auditTabId || state.auditTabId;
+      state.auditPage = Number.isFinite(Number(localUiState?.auditPage)) ? Number(localUiState.auditPage) : 0;
+      state.auditPageSize = Number(localUiState?.auditPageSize) || 200;
+      state.auditSearch = localUiState?.auditSearch || "";
+      state.auditStatusFilter = localUiState?.auditStatusFilter || "all";
+      state.auditSortMode = localUiState?.auditSortMode || "offset";
+      state.auditDecisionMode = localUiState?.auditDecisionMode === "skip" ? "skip" : "apply";
       itemSearch.value = state.itemSearch;
+      itemStatusFilter.value = state.itemStatusFilter;
       itemPageSize.value = String(state.itemPageSize);
       itemSortMode.value = state.itemSortMode;
       renderCategories();
@@ -1234,8 +2455,102 @@
     }
 
     function renderProgress() {
-      progressInfo.textContent = `현재 카테고리: ${state.bundle.progress.current_category_id || "-"}`;
+      const currentCategory =
+        state.categories.find((category) => category.id === state.categoryId) ||
+        state.categories.find((category) => category.id === state.bundle.progress.current_category_id);
+      const allStats = computeStatsForItems(displayableItems(state.items));
+      progressInfo.textContent =
+        `현재 카테고리: ${currentCategory?.label || state.bundle.progress.current_category_id || "-"}`;
+      renderProgressDashboard(allStats);
       romInfo.textContent = `고정 ROM: ${state.bundle.progress.last_built_rom || state.bundle.dataset.review_rom.fixed_output_path}`;
+    }
+
+    function percent(part, total) {
+      if (!total) return 0;
+      return Math.round((part / total) * 100);
+    }
+
+    function progressBarHtml(label, part, total, tone = "") {
+      const value = percent(part, total);
+      const fillClass = tone ? ` ${tone}` : "";
+      return `
+        <div class="progress-row">
+          <span>${label}</span>
+          <span class="progress-bar"><span class="progress-fill${fillClass}" style="width:${value}%"></span></span>
+          <span>${value}%</span>
+        </div>
+      `;
+    }
+
+    function textValueForProgress(item) {
+      return String(item.translation || item.effective_translation || "").trim();
+    }
+
+    function isTranslatedForProgress(item) {
+      if (item.category_id === "image_review_units") {
+        const imageStatus = item.progress_status || "todo";
+        return Boolean((item.replacement_path || "").trim()) ||
+          ["edited", "ready_to_insert"].includes(imageStatus);
+      }
+      const applied = textValueForProgress(item);
+      if (!applied) return false;
+      return applied !== String(item.text || "").trim();
+    }
+
+    function isDraftedForProgress(item) {
+      if (item.category_id === "image_review_units") {
+        return ["candidate_found", "dumped"].includes(item.progress_status || "");
+      }
+      return Boolean(usableAgentDraft(item).trim());
+    }
+
+    function isReviewedForProgress(item) {
+      if (item.category_id === "image_review_units") {
+        return ["edited", "ready_to_insert"].includes(item.progress_status || "");
+      }
+      return item.review_status === "checked" || item.progress_status === "done";
+    }
+
+    function computeStatsForItems(rawItems) {
+      const stats = {
+        total: 0,
+        translated: 0,
+        drafted: 0,
+        reviewed: 0,
+        issues: 0,
+        dirty: 0,
+        overLimit: 0,
+        repointCapable: 0,
+      };
+      for (const rawItem of rawItems) {
+        const item = getEffectiveItem(rawItem);
+        stats.total += 1;
+        if (isTranslatedForProgress(item)) stats.translated += 1;
+        if (isDraftedForProgress(item)) stats.drafted += 1;
+        if (isReviewedForProgress(item)) stats.reviewed += 1;
+        if (item.review_status === "issue" || item.progress_status === "issue") stats.issues += 1;
+        if (state.dirtyItemIds.has(item.item_id)) stats.dirty += 1;
+        if (repointCapabilityForItem(item).allowed) stats.repointCapable += 1;
+        if (item.category_id !== "image_review_units") {
+          const info = limitInfoForItem(item, textValueForProgress(item));
+          if (info?.remainingBytes < 0 && !info.overflowAllowed) {
+            stats.overLimit += 1;
+          }
+        }
+      }
+      return stats;
+    }
+
+    function renderProgressDashboard(stats) {
+      progressDashboard.innerHTML = `
+        ${progressBarHtml("번역", stats.translated, stats.total)}
+        ${progressBarHtml("검수", stats.reviewed, stats.total)}
+        ${progressBarHtml("이슈", stats.issues, stats.total, stats.issues ? "error" : "")}
+        <div class="meta">
+          전체 ${stats.total}개 / 번역 ${stats.translated}개 / 초안 ${stats.drafted}개 / 검수 ${stats.reviewed}개<br>
+          임시 변경 ${stats.dirty}개 / 글자수 초과 ${stats.overLimit}개 / 길이 확장 가능 ${stats.repointCapable}개
+        </div>
+      `;
     }
 
     function renderSpeakerRegistryOptions(selectedSpeakerId = "") {
@@ -1290,14 +2605,23 @@
     function renderCategories() {
       categoryList.innerHTML = "";
       for (const category of state.categories) {
+        const categoryItems = itemsForCategory(category.id);
+        const stats = computeStatsForItems(categoryItems);
         const div = document.createElement("div");
         div.className = "category" + (category.id === state.categoryId ? " active" : "");
         div.innerHTML = `
           <strong>${category.label}</strong><br>
           <span class="meta">${category.description}</span><br>
-          <span class="badge">${category.item_count}개</span>
+          <span class="badge">${stats.total}개</span>
           <span class="badge">${category.type}</span>
           <span class="badge">${category.build_enabled ? "ROM 가능" : "ROM 없음"}</span>
+          ${stats.dirty ? `<span class="badge">임시 ${stats.dirty}</span>` : ""}
+          ${stats.overLimit ? `<span class="badge">초과 ${stats.overLimit}</span>` : ""}
+          ${stats.repointCapable ? `<span class="badge">repoint ${stats.repointCapable}</span>` : ""}
+          <div class="category-stats">
+            ${progressBarHtml("번역", stats.translated, stats.total)}
+            ${progressBarHtml("검수", stats.reviewed, stats.total)}
+          </div>
         `;
         div.onclick = () => selectCategory(category.id);
         categoryList.appendChild(div);
@@ -1313,10 +2637,41 @@
       return true;
     }
 
+    function isNullPlaceholderItem(item) {
+      if (item.category_id === "image_review_units") return false;
+      const text = String(item.text || "").trim();
+      const translation = String(item.translation || item.effective_translation || "").trim();
+      return text === "ﾇﾙ" && (!translation || translation === "ﾇﾙ");
+    }
+
+    function duplicateDisplayKey(item) {
+      if (item.category_id === "image_review_units") {
+        return item.item_id;
+      }
+      if (item.offset != null) {
+        return `${item.category_id}:${Number(item.offset)}`;
+      }
+      return `${item.category_id}:${item.item_id}`;
+    }
+
+    function displayableItems(items) {
+      const seen = new Set();
+      const output = [];
+      for (const item of items) {
+        if (!isUserFacingImageItem(item)) continue;
+        if (isNullPlaceholderItem(item)) continue;
+        const key = duplicateDisplayKey(item);
+        if (seen.has(key)) continue;
+        seen.add(key);
+        output.push(item);
+      }
+      return output;
+    }
+
     function itemsForCategory(categoryId) {
-      return state.items
-        .filter((item) => item.category_id === categoryId)
-        .filter(isUserFacingImageItem);
+      return displayableItems(
+        state.items.filter((item) => item.category_id === categoryId)
+      );
     }
 
     function isEntry8Category(categoryId = state.categoryId) {
@@ -1341,7 +2696,7 @@
     }
 
     function setItemPageToInclude(itemId, baseItems = itemsForCategory(state.categoryId)) {
-      if (!isEntry8Category() || !itemId) return false;
+      if (!itemId) return false;
       const targetItems = filteredItemsForDisplay(baseItems);
       const index = targetItems.findIndex((item) => item.item_id === itemId);
       if (index < 0) return false;
@@ -1350,27 +2705,56 @@
       return true;
     }
 
+    function itemMatchesStatusFilter(rawItem, filter) {
+      if (filter === "all") return true;
+      const item = getEffectiveItem(rawItem);
+      if (filter === "untranslated") return !isTranslatedForProgress(item);
+      if (filter === "translated") return isTranslatedForProgress(item);
+      if (filter === "drafted") return isDraftedForProgress(item);
+      if (filter === "needs_review") {
+        return isTranslatedForProgress(item) && !isReviewedForProgress(item) && item.review_status !== "issue";
+      }
+      if (filter === "issue") {
+        return item.review_status === "issue" || item.progress_status === "issue";
+      }
+      if (filter === "over_limit") {
+        if (item.category_id === "image_review_units") return false;
+        const info = limitInfoForItem(item, textValueForProgress(item));
+        return Boolean(info && info.remainingBytes < 0 && !info.overflowAllowed);
+      }
+      return true;
+    }
+
     function filteredItemsForDisplay(baseItems) {
       let targetItems = [...baseItems];
+      const statusFilter = state.itemStatusFilter || "all";
+      if (statusFilter !== "all") {
+        targetItems = targetItems.filter((item) => itemMatchesStatusFilter(item, statusFilter));
+      }
+      const query = state.itemSearch.trim().toLowerCase();
       if (isEntry8Category()) {
-        const query = state.itemSearch.trim().toLowerCase();
         if (state.itemGroupFilter !== "all") {
           targetItems = targetItems.filter((item) => (item.group_id || "") === state.itemGroupFilter);
         }
-        if (query) {
-          targetItems = targetItems.filter((item) => {
-            const haystack = [
-              item.item_id,
-              item.group_id,
-              item.dialogue_state_token,
-              item.offset ? `0x${Number(item.offset).toString(16)}` : "",
-              item.text,
-              item.translation,
-              item.agent_draft,
-            ].join("\n").toLowerCase();
-            return haystack.includes(query);
-          });
-        }
+      }
+      if (query) {
+        targetItems = targetItems.filter((item) => {
+          const effective = getEffectiveItem(item);
+          const haystack = [
+            effective.item_id,
+            effective.group_id,
+            effective.dialogue_state_token,
+            effective.offset ? `0x${Number(effective.offset).toString(16)}` : "",
+            effective.text,
+            effective.translation,
+            effective.effective_translation,
+            usableAgentDraft(effective),
+            effective.label,
+            effective.replacement_path,
+            effective.comparison_notes,
+          ].join("\n").toLowerCase();
+          return haystack.includes(query);
+        });
       }
       const mode = state.itemSortMode || "script";
       targetItems.sort((a, b) => {
@@ -1383,12 +2767,9 @@
     }
 
     function updateEntry8Controls(baseItems) {
-      if (!isEntry8Category()) {
-        itemControls.classList.add("hidden");
-        return;
-      }
       itemControls.classList.remove("hidden");
       itemSearch.value = state.itemSearch;
+      itemStatusFilter.value = state.itemStatusFilter || "all";
       itemSortMode.value = state.itemSortMode;
       itemPageSize.value = String(state.itemPageSize);
       const groups = new Map();
@@ -1404,6 +2785,13 @@
         option.textContent = `${group} (${count})`;
         itemGroupFilter.appendChild(option);
       }
+      if (!isEntry8Category()) {
+        itemGroupFilter.value = "all";
+        itemGroupFilter.disabled = true;
+        state.itemGroupFilter = "all";
+        return;
+      }
+      itemGroupFilter.disabled = false;
       itemGroupFilter.value = groups.has(current) ? current : "all";
       state.itemGroupFilter = itemGroupFilter.value;
     }
@@ -1419,24 +2807,88 @@
       });
     }
 
+    function contextItemsForCurrentCategory() {
+      const items = itemsForCategory(state.categoryId).map((item) => getEffectiveItem(item));
+      const mode = state.itemSortMode || "script";
+      items.sort((a, b) => {
+        const left = itemSortValue(a, mode);
+        const right = itemSortValue(b, mode);
+        if (typeof left === "number" && typeof right === "number") return left - right;
+        return String(left).localeCompare(String(right), "ko");
+      });
+      return items;
+    }
+
+    function renderContextPanel() {
+      contextList.innerHTML = "";
+      if (!state.itemId || !state.categoryId) {
+        contextInfo.textContent = "항목을 선택하면 앞뒤 문맥을 보여줍니다.";
+        return;
+      }
+      const items = contextItemsForCurrentCategory();
+      const selectedIndex = items.findIndex((item) => item.item_id === state.itemId);
+      if (selectedIndex < 0) {
+        contextInfo.textContent = "현재 선택 항목이 이 카테고리 목록에 없습니다.";
+        return;
+      }
+      const start = Math.max(0, selectedIndex - 5);
+      const end = Math.min(items.length, selectedIndex + 6);
+      contextInfo.textContent = `${selectedIndex + 1} / ${items.length} · 위아래 ${Math.min(5, selectedIndex)} / ${Math.min(5, items.length - selectedIndex - 1)}개`;
+      const fragment = document.createDocumentFragment();
+      for (let index = start; index < end; index += 1) {
+        const item = items[index];
+        const relation = index < selectedIndex ? "before" : index > selectedIndex ? "after" : "active";
+        const div = document.createElement("div");
+        div.className = `context-item ${relation}`;
+        div.dataset.itemId = item.item_id;
+        const title = document.createElement("div");
+        title.className = "meta";
+        const offset = item.offset != null ? `0x${Number(item.offset).toString(16).toUpperCase()}` : item.item_id;
+        title.textContent = `${index + 1}. ${offset}`;
+        const source = document.createElement("div");
+        source.className = "context-source";
+        source.textContent = item.text || item.label || item.group_id || item.item_id;
+        const translation = document.createElement("div");
+        translation.className = "context-translation";
+        translation.textContent = item.category_id === "image_review_units"
+          ? (item.replacement_path || item.comparison_notes || "교체 없음")
+          : (item.translation || item.effective_translation || usableAgentDraft(item) || "번역 없음");
+        div.appendChild(title);
+        div.appendChild(source);
+        div.appendChild(translation);
+        div.onclick = () => {
+          selectItem(item.item_id);
+          renderItemList(null, { keepCurrentSelection: true });
+        };
+        fragment.appendChild(div);
+      }
+      contextList.appendChild(fragment);
+    }
+
     function renderItemList(filtered = null, options = {}) {
       const baseItems = filtered || itemsForCategory(state.categoryId);
       updateEntry8Controls(baseItems);
       const targetItems = filteredItemsForDisplay(baseItems);
-      const shouldPage = isEntry8Category();
-      const pageSize = shouldPage ? Math.max(1, Number(state.itemPageSize) || 200) : targetItems.length || 1;
+      const pageSize = Math.max(1, Number(state.itemPageSize) || 200);
+      let scrollToItemId = options.scrollToItemId || null;
+      if (options.keepCurrentSelection && state.itemId) {
+        const selectedIndex = targetItems.findIndex((item) => item.item_id === state.itemId);
+        if (selectedIndex >= 0) {
+          state.itemPage = Math.floor(selectedIndex / pageSize);
+          scrollToItemId = state.itemId;
+        }
+      }
       const maxPage = Math.max(0, Math.ceil(targetItems.length / pageSize) - 1);
       state.itemPage = Math.min(Math.max(0, state.itemPage), maxPage);
-      const start = shouldPage ? state.itemPage * pageSize : 0;
-      const visibleItems = shouldPage ? targetItems.slice(start, start + pageSize) : targetItems;
-      if (shouldPage) {
-        const end = Math.min(start + pageSize, targetItems.length);
-        itemPageInfo.textContent = targetItems.length
-          ? `${start + 1}-${end} / ${targetItems.length}`
-          : `0 / 0`;
-        prevPageBtn.disabled = state.itemPage <= 0;
-        nextPageBtn.disabled = state.itemPage >= maxPage;
-      }
+      const start = state.itemPage * pageSize;
+      const visibleItems = targetItems.slice(start, start + pageSize);
+      const end = Math.min(start + pageSize, targetItems.length);
+      const filterLabel = itemStatusFilter.options[itemStatusFilter.selectedIndex]?.textContent || "전체";
+      itemPageInfo.textContent = targetItems.length
+        ? `${start + 1}-${end} / ${targetItems.length} (${filterLabel})`
+        : `0 / 0 (${filterLabel})`;
+      prevPageBtn.disabled = state.itemPage <= 0;
+      nextPageBtn.disabled = state.itemPage >= maxPage;
       itemList.innerHTML = "";
       const fragment = document.createDocumentFragment();
       for (const rawItem of visibleItems) {
@@ -1448,8 +2900,13 @@
         const token = item.dialogue_state_token ? `<span class="badge">${item.dialogue_state_token}</span>` : "";
         const translationPreview = item.category_id === "image_review_units"
           ? (item.replacement_path || item.comparison_notes || "").trim()
-          : (item.translation || item.effective_translation || item.agent_draft || "").trim();
+          : (item.translation || item.effective_translation || usableAgentDraft(item) || "").trim();
         const dirtyBadge = state.dirtyItemIds.has(item.item_id) ? `<span class="badge">수정됨</span>` : "";
+        const limitInfo = item.category_id === "image_review_units" ? null : limitInfoForItem(item, translationPreview);
+        const repointBadge = limitInfo?.repointCapability.allowed ? `<span class="badge">repoint</span>` : "";
+        const overLimitBadge = limitInfo?.remainingBytes < 0 && !limitInfo.overflowAllowed
+          ? `<span class="badge">초과</span>`
+          : "";
         const translationHtml = translationPreview
           ? `<div class="item-translation">${translationPreview.slice(0, 72)}</div>`
           : `<div class="item-translation meta">번역 없음</div>`;
@@ -1459,15 +2916,18 @@
           ${token}
           <span class="badge">${item.progress_status || "todo"}</span>
           ${dirtyBadge}
+          ${repointBadge}
+          ${overLimitBadge}
           ${translationHtml}
         `;
         div.onclick = () => selectItem(item.item_id);
         fragment.appendChild(div);
       }
       itemList.appendChild(fragment);
-      if (options.scrollToItemId) {
-        scrollItemIntoListView(options.scrollToItemId);
+      if (scrollToItemId) {
+        scrollItemIntoListView(scrollToItemId);
       }
+      renderContextPanel();
     }
 
     function selectCategory(categoryId, options = {}) {
@@ -1479,11 +2939,17 @@
         state.itemGroupFilter = "all";
       }
       persistLocalUiState();
+      if (state.auditCandidates.length) {
+        reconcileAuditDoneWithCurrentData({ pruneStaleDone: true });
+      }
       renderCategories();
       const category = state.categories.find((item) => item.id === categoryId);
       rebuildBtn.disabled = false;
       const filtered = itemsForCategory(categoryId);
       itemsTitle.textContent = category ? `${category.label} 항목` : "항목";
+      itemSearch.placeholder = isEntry8Category(categoryId)
+        ? "원문/번역/offset/토큰 검색"
+        : "원문/번역/메모/경로 검색";
       const preferredItemId = options.preferredItemId;
       if (preferredItemId) {
         setItemPageToInclude(preferredItemId, filtered);
@@ -1496,6 +2962,7 @@
         state.itemId = null;
         textEditor.classList.add("hidden");
         imageEditor.classList.add("hidden");
+        renderContextPanel();
       }
     }
 
@@ -1516,13 +2983,16 @@
       } else {
         renderTextItem(item);
       }
+      renderContextPanel();
     }
 
     function renderTextItem(item) {
       imageEditor.classList.add("hidden");
       textEditor.classList.remove("hidden");
       editorTitle.textContent = item.group_id ? `${item.group_id} / ${item.item_id}` : item.item_id;
-      editorMeta.textContent = `source_group=${item.source_group} / byte_length=${item.byte_length} / rom=${item.rom_address?.toString(16)} / 적용소스=${item.translation_source || "-"}`;
+      const repointCapability = repointCapabilityForItem(item);
+      editorMeta.textContent =
+        `source_group=${item.source_group} / byte_length=${item.byte_length} / rom=${item.rom_address?.toString(16)} / 적용소스=${item.translation_source || "-"} / 길이정책=${repointCapability.label}`;
       if (!reviewInclusionWarning) {
         reviewInclusionWarning = document.createElement("div");
         reviewInclusionWarning.className = "small warning";
@@ -1532,7 +3002,7 @@
       reviewInclusionWarning.style.display = "none";
       sourceText.value = item.text || "";
       translationText.value = item.translation || item.effective_translation || "";
-      agentDraftText.value = item.agent_draft || "";
+      agentDraftText.value = usableAgentDraft(item);
       agentCommentText.value = item.agent_comment || "";
       manualLockCheckbox.checked = Boolean(item.manual_locked);
       notesText.value = item.notes || "";
@@ -1854,70 +3324,157 @@
       );
     }
 
+    function syncTextItemPeers(itemId, saved) {
+      const syncedFields = [
+        "translation",
+        "agent_draft",
+        "agent_comment",
+        "manual_locked",
+        "notes",
+        "progress_status",
+        "review_status",
+        "effective_translation",
+        "translation_source",
+      ];
+      for (const peer of state.items) {
+        if (peer.item_id !== itemId) continue;
+        for (const field of syncedFields) {
+          if (field in saved) {
+            peer[field] = saved[field];
+          }
+        }
+      }
+    }
+
     async function saveDirtyItems(dirtyIds, label) {
       if (!dirtyIds.length) {
         setStatus("저장할 변경사항이 없습니다.", "ok");
         return;
       }
-      setStatus(`${label} ${dirtyIds.length}개 저장 중...`);
-      let savedCount = 0;
+
+      const imageJobs = [];
+      const textJobs = [];
       for (const itemId of dirtyIds) {
         const item = state.items.find((entry) => entry.item_id === itemId);
         const draft = getDraft(itemId);
         if (!item || !draft) continue;
         if (item.category_id === "image_review_units") {
-          const payload = {
-            item_id: item.item_id,
-            source_preview_path: draft.source_preview_path ?? item.source_preview_path ?? "",
-            source_download_path: draft.source_download_path ?? item.source_download_path ?? "",
-            replacement_path: draft.replacement_path ?? item.replacement_path ?? "",
-            comparison_notes: draft.comparison_notes ?? item.comparison_notes ?? "",
-            notes: draft.notes ?? item.notes ?? "",
-            progress_status: draft.progress_status ?? item.progress_status ?? "todo",
-            status: item.status,
-          };
-          const saved = await fetchJson("/image-item", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload),
-          });
-          Object.assign(item, saved);
+          imageJobs.push({ item, draft });
         } else {
-          const payload = {
-            item_id: item.item_id,
-            translation: draft.translation ?? item.translation ?? "",
-            agent_draft: draft.agent_draft ?? item.agent_draft ?? "",
-            agent_comment: draft.agent_comment ?? item.agent_comment ?? "",
-            manual_locked: draft.manual_locked ?? item.manual_locked ?? false,
-            notes: draft.notes ?? item.notes ?? "",
-            progress_status: draft.progress_status ?? item.progress_status ?? "todo",
-            review_status: draft.review_status ?? item.review_status ?? "unreviewed",
-          };
-          const saved = await fetchJson("/item", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(payload),
-          });
-          Object.assign(item, saved);
+          textJobs.push({ item, draft });
         }
-        state.draftItems.delete(itemId);
-        state.dirtyItemIds.delete(itemId);
+      }
+
+      if (!imageJobs.length && !textJobs.length) {
+        setStatus("저장할 유효한 변경사항이 없습니다.", "ok");
+        return;
+      }
+
+      const totalSteps = imageJobs.length + (textJobs.length ? 2 : 0);
+      let completedSteps = 0;
+      setSaveProgress(0, totalSteps, `${label} 저장 중`, `${dirtyIds.length}개 항목 준비`);
+      await nextFrame();
+      let savedCount = 0;
+      for (const [index, job] of imageJobs.entries()) {
+        const { item, draft } = job;
+        const itemLabel = item.offset != null
+          ? `0x${Number(item.offset).toString(16).toUpperCase()}`
+          : item.item_id;
+        setSaveProgress(
+          completedSteps,
+          totalSteps,
+          `${label} 저장 중`,
+          `이미지 ${index + 1}/${imageJobs.length} ${itemLabel}`
+        );
+        await nextFrame();
+        const payload = {
+          item_id: item.item_id,
+          source_preview_path: draft.source_preview_path ?? item.source_preview_path ?? "",
+          source_download_path: draft.source_download_path ?? item.source_download_path ?? "",
+          replacement_path: draft.replacement_path ?? item.replacement_path ?? "",
+          comparison_notes: draft.comparison_notes ?? item.comparison_notes ?? "",
+          notes: draft.notes ?? item.notes ?? "",
+          progress_status: draft.progress_status ?? item.progress_status ?? "todo",
+          status: item.status,
+        };
+        const saved = await fetchJson("/image-item", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(payload),
+        });
+        Object.assign(item, saved);
+        state.draftItems.delete(item.item_id);
+        state.dirtyItemIds.delete(item.item_id);
         savedCount += 1;
+        completedSteps += 1;
+        setSaveProgress(
+          completedSteps,
+          totalSteps,
+          `${label} 저장 중`,
+          `${savedCount}/${dirtyIds.length}개 항목 저장 완료`
+        );
+        await nextFrame();
+      }
+
+      if (textJobs.length) {
+        setSaveProgress(
+          completedSteps,
+          totalSteps,
+          "텍스트 일괄 저장 중",
+          `${textJobs.length}개 항목을 서버에서 검증 후 한 번에 저장`
+        );
+        await nextFrame();
+        const payloads = textJobs.map(({ item, draft }) => ({
+          item_id: item.item_id,
+          translation: draft.translation ?? item.translation ?? "",
+          agent_draft: usableAgentDraft({ agent_draft: draft.agent_draft ?? item.agent_draft ?? "" }),
+          agent_comment: draft.agent_comment ?? item.agent_comment ?? "",
+          manual_locked: draft.manual_locked ?? item.manual_locked ?? false,
+          notes: draft.notes ?? item.notes ?? "",
+          progress_status: draft.progress_status ?? item.progress_status ?? "todo",
+          review_status: draft.review_status ?? item.review_status ?? "unreviewed",
+        }));
+        const result = await fetchJson("/items-batch", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ items: payloads, _sync_sources: true }),
+        });
+        for (const saved of result.items || []) {
+          syncTextItemPeers(saved.item_id, saved);
+        }
+        for (const { item } of textJobs) {
+          state.draftItems.delete(item.item_id);
+          state.dirtyItemIds.delete(item.item_id);
+        }
+        savedCount += textJobs.length;
+        completedSteps += 1;
+        setSaveProgress(
+          completedSteps,
+          totalSteps,
+          "텍스트 저장 완료",
+          `${textJobs.length}개 항목 저장 및 소스 동기화 완료`,
+          "ok"
+        );
+        await nextFrame();
+        completedSteps += 1;
       }
       persistLocalUiState();
       const categoryItems = itemsForCategory(state.categoryId);
+      renderCategories();
+      renderProgress();
       renderItemList(categoryItems);
       if (state.itemId) {
         selectItem(state.itemId, { skipDraftCollect: true });
       }
       const remaining = state.dirtyItemIds.size;
       const remainingText = remaining ? ` / 다른 임시 변경 ${remaining}개 남음` : "";
+      setSaveProgress(totalSteps, totalSteps, `${label} 저장 완료`, `${savedCount}개 저장${remainingText}`, "ok");
       setStatus(`${label} ${savedCount}개 저장 완료${remainingText}`, "ok");
     }
 
     const TEXT_CHANGE_FIELDS = [
       ["translation", "번역", (item) => persistedTranslation(item)],
-      ["agent_draft", "초안", (item) => item.agent_draft ?? ""],
+      ["agent_draft", "초안", (item) => usableAgentDraft(item)],
       ["agent_comment", "코멘트", (item) => item.agent_comment ?? ""],
       ["manual_locked", "잠금", (item) => Boolean(item.manual_locked)],
       ["notes", "메모", (item) => item.notes ?? ""],
@@ -1984,9 +3541,10 @@
         if (!item || !draft || item.category_id === "image_review_units") continue;
         const text = hasOwnValue(draft, "translation") ? draft.translation : persistedTranslation(item);
         const info = limitInfoForItem(item, text);
-        if (!info || info.remainingBytes >= 0) continue;
+        if (!info || info.remainingBytes >= 0 || info.overflowAllowed) continue;
         const label = (item.text || item.label || item.item_id || "").replace(/\r?\n/g, " / ").slice(0, 70);
         errors.push({
+          itemId,
           title: label,
           used: info.used,
           capacity: info.capacity,
@@ -2011,6 +3569,7 @@
         lines.push(`...외 ${errors.length - maxItems}개`);
       }
       alert(lines.join("\n"));
+      focusChangedItem({ itemId: errors[0].itemId });
       setStatus(`저장 차단: 용량 초과 항목 ${errors.length}개`, "error");
       return true;
     }
@@ -2028,12 +3587,35 @@
       selectItem(item.item_id, { skipDraftCollect: true });
     }
 
+    function rollbackDirtyChanges(dirtyIds, label = "임시 변경") {
+      let rolledBack = 0;
+      for (const itemId of dirtyIds) {
+        if (!state.dirtyItemIds.has(itemId) && !state.draftItems.has(itemId)) continue;
+        state.draftItems.delete(itemId);
+        state.dirtyItemIds.delete(itemId);
+        rolledBack += 1;
+      }
+      persistLocalUiState();
+      if (state.auditCandidates.length) {
+        reconcileAuditDoneWithCurrentData({ pruneStaleDone: true });
+      }
+      renderCategories();
+      renderProgress();
+      renderItemList(null, { keepCurrentSelection: true });
+      if (state.itemId) {
+        selectItem(state.itemId, { skipDraftCollect: true });
+      }
+      setStatus(`${label} ${rolledBack}개를 변경 전 상태로 복구했습니다. 저장된 데이터는 건드리지 않았습니다.`, "ok");
+      return rolledBack;
+    }
+
     function closeSaveReviewModal() {
       saveReviewModal.classList.add("hidden");
       saveReviewModal.setAttribute("aria-hidden", "true");
       saveReviewBody.innerHTML = "";
       saveReviewApplyBtn.onclick = null;
       saveReviewCancelBtn.onclick = null;
+      saveReviewRollbackBtn.onclick = null;
       saveReviewModalResolve = null;
     }
 
@@ -2041,7 +3623,12 @@
       const summaries = dirtySaveSummaries(dirtyIds);
       if (!summaries.length) return Promise.resolve(true);
       saveReviewTitle.textContent = `${label} 저장 전 확인`;
-      saveReviewMeta.textContent = `${summaries.length}개 항목이 변경됩니다. 항목의 '재편집'을 누르면 저장하지 않고 해당 항목으로 이동합니다.`;
+      let remainingSummaryCount = summaries.length;
+      const updateSaveReviewMeta = () => {
+        saveReviewMeta.textContent =
+          `${remainingSummaryCount}개 항목이 변경됩니다. 항목의 '재편집'을 누르면 저장하지 않고 해당 항목으로 이동합니다.`;
+      };
+      updateSaveReviewMeta();
       saveReviewBody.innerHTML = "";
       const fragment = document.createDocumentFragment();
       summaries.forEach((summary, index) => {
@@ -2070,6 +3657,23 @@
           focusChangedItem(summary);
         };
         card.appendChild(editBtn);
+
+        const itemRollbackBtn = document.createElement("button");
+        itemRollbackBtn.type = "button";
+        itemRollbackBtn.textContent = "이 항목 복구";
+        itemRollbackBtn.onclick = () => {
+          const rolledBack = rollbackDirtyChanges([summary.itemId], "현재 항목");
+          if (!rolledBack) return;
+          card.remove();
+          remainingSummaryCount = Math.max(0, remainingSummaryCount - 1);
+          updateSaveReviewMeta();
+          if (remainingSummaryCount === 0) {
+            const resolve = saveReviewModalResolve;
+            closeSaveReviewModal();
+            if (resolve) resolve(false);
+          }
+        };
+        card.appendChild(itemRollbackBtn);
         fragment.appendChild(card);
       });
       saveReviewBody.appendChild(fragment);
@@ -2086,6 +3690,12 @@
           closeSaveReviewModal();
           resolve(false);
         };
+        saveReviewRollbackBtn.onclick = () => {
+          const resolveModal = saveReviewModalResolve;
+          closeSaveReviewModal();
+          rollbackDirtyChanges(dirtyIds, label);
+          if (resolveModal) resolveModal(false);
+        };
       });
     }
 
@@ -2095,16 +3705,17 @@
         const remaining = state.dirtyItemIds.size;
         const suffix = remaining ? ` 다른 임시 변경 ${remaining}개는 '임시 변경 전체 저장'으로 저장할 수 있습니다.` : "";
         setStatus(`현재 항목에는 저장할 변경사항이 없습니다.${suffix}`, "ok");
-        return;
+        return true;
       }
       if (blockSaveIfLimitExceeded([state.itemId])) {
-        return;
+        return false;
       }
       if (!(await confirmDirtySave([state.itemId], "현재 항목"))) {
         setStatus("저장을 취소했습니다.", "ok");
-        return;
+        return false;
       }
       await saveDirtyItems([state.itemId], "현재 항목");
+      return true;
     }
 
     async function saveAllItems() {
@@ -2232,16 +3843,36 @@
     }
 
     async function rebuildRom() {
-      setStatus("전체 적용 ROM 재빌드 중...");
-      await saveCurrentItem();
-      await saveProgress();
-      const result = await fetchJson("/rebuild", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({}),
-      });
-      romInfo.textContent = `고정 ROM: ${result.rom_path}`;
-      setStatus(`재빌드 완료\n${result.rom_path}`, "ok");
+      rebuildBtn.disabled = true;
+      try {
+        setBusyActionProgress(0, "전체 적용 ROM 재빌드 준비", "현재 편집 항목과 위치 정보를 먼저 정리합니다.");
+        await nextFrame();
+        setBusyActionProgress(15, "현재 항목 저장 확인", "저장되지 않은 현재 항목이 있으면 먼저 저장합니다.");
+        const currentSaved = await saveCurrentItem();
+        if (!currentSaved) {
+          setBusyActionProgress(100, "전체 적용 ROM 재빌드 취소", "현재 항목 저장이 취소되었거나 차단되어 재빌드를 시작하지 않았습니다.", "warn");
+          return;
+        }
+        await nextFrame();
+        setBusyActionProgress(35, "현재 위치 저장", "작업대 진행 위치를 저장합니다.");
+        await saveProgress();
+        await nextFrame();
+        setBusyActionProgress(55, "ROM 빌드 중", "텍스트/이미지 적용 ROM을 생성하고 있습니다.");
+        const result = await fetchJson("/rebuild", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({}),
+        });
+        setBusyActionProgress(90, "ROM 빌드 결과 반영", "빌드 결과 경로와 이미지 적용 결과를 반영합니다.");
+        romInfo.textContent = `고정 ROM: ${result.rom_path}`;
+        await nextFrame();
+        setBusyActionProgress(100, "전체 적용 ROM 재빌드 완료", result.rom_path, "ok");
+      } catch (error) {
+        setBusyActionProgress(100, "전체 적용 ROM 재빌드 실패", error.message, "error");
+        throw error;
+      } finally {
+        rebuildBtn.disabled = false;
+      }
     }
 
     async function importTranslationResults() {
@@ -2338,6 +3969,51 @@
     document.getElementById("importTranslationBtn").onclick = () => importTranslationResults().catch((error) => setStatus(error.message, "error"));
     document.getElementById("rebuildBtn").onclick = () => rebuildRom().catch((error) => setStatus(error.message, "error"));
     document.getElementById("applyDraftBtn").onclick = () => applyDraftToTranslation();
+    openAuditReviewBtn.onclick = () => openAuditReview().catch((error) => setStatus(error.message, "error"));
+    auditCloseBtn.onclick = () => closeAuditReview();
+    auditApplySelectedBtn.onclick = () => applyAuditCandidatesToDrafts();
+    auditApplyVisibleBtn.onclick = () => setVisibleAuditDecision("apply");
+    auditSkipVisibleBtn.onclick = () => setVisibleAuditDecision("skip");
+    auditClearVisibleBtn.onclick = () => setVisibleAuditDecision("clear");
+    auditSearch.oninput = () => {
+      state.auditSearch = auditSearch.value;
+      state.auditPage = 0;
+      persistLocalUiState();
+      renderAuditReview();
+    };
+    auditStatusFilter.onchange = () => {
+      state.auditStatusFilter = auditStatusFilter.value;
+      state.auditPage = 0;
+      persistLocalUiState();
+      renderAuditReview();
+    };
+    auditPageSize.onchange = () => {
+      state.auditPageSize = Number(auditPageSize.value) || 200;
+      state.auditPage = 0;
+      persistLocalUiState();
+      renderAuditReview();
+    };
+    auditSortMode.onchange = () => {
+      state.auditSortMode = auditSortMode.value;
+      state.auditPage = 0;
+      persistLocalUiState();
+      renderAuditReview();
+    };
+    auditDecisionMode.onchange = () => {
+      state.auditDecisionMode = auditDecisionMode.value === "skip" ? "skip" : "apply";
+      persistLocalUiState();
+      renderAuditReview();
+    };
+    auditPrevPageBtn.onclick = () => {
+      state.auditPage = Math.max(0, state.auditPage - 1);
+      persistLocalUiState();
+      renderAuditReview();
+    };
+    auditNextPageBtn.onclick = () => {
+      state.auditPage += 1;
+      persistLocalUiState();
+      renderAuditReview();
+    };
     uploadImageBtn.onclick = () => uploadImageReplacement().catch((error) => setStatus(error.message, "error"));
     document.getElementById("composerRenderBtn").onclick = () => renderImageComposer();
     document.getElementById("composerDownloadBtn").onclick = () => downloadComposerPng();
@@ -2360,37 +4036,34 @@
       renderSpeakerFamilyInfo(item?.dialogue_state_token);
     };
     itemSearch.oninput = () => {
-      const previousSearch = state.itemSearch.trim();
       state.itemSearch = itemSearch.value;
-      const nextSearch = state.itemSearch.trim();
-      let scrollToItemId = null;
-      if (previousSearch && !nextSearch && state.itemId) {
-        if (setItemPageToInclude(state.itemId)) {
-          scrollToItemId = state.itemId;
-        }
-      } else {
-        state.itemPage = 0;
-      }
+      state.itemPage = 0;
       persistLocalUiState();
-      renderItemList(null, { scrollToItemId });
+      renderItemList(null, { keepCurrentSelection: true });
     };
     itemGroupFilter.onchange = () => {
       state.itemGroupFilter = itemGroupFilter.value;
       state.itemPage = 0;
       persistLocalUiState();
-      renderItemList();
+      renderItemList(null, { keepCurrentSelection: true });
+    };
+    itemStatusFilter.onchange = () => {
+      state.itemStatusFilter = itemStatusFilter.value;
+      state.itemPage = 0;
+      persistLocalUiState();
+      renderItemList(null, { keepCurrentSelection: true });
     };
     itemSortMode.onchange = () => {
       state.itemSortMode = itemSortMode.value;
       state.itemPage = 0;
       persistLocalUiState();
-      renderItemList();
+      renderItemList(null, { keepCurrentSelection: true });
     };
     itemPageSize.onchange = () => {
       state.itemPageSize = Number(itemPageSize.value) || 200;
       state.itemPage = 0;
       persistLocalUiState();
-      renderItemList();
+      renderItemList(null, { keepCurrentSelection: true });
     };
     prevPageBtn.onclick = () => {
       state.itemPage = Math.max(0, state.itemPage - 1);

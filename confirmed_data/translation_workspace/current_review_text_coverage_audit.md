@@ -1,10 +1,10 @@
 # Current Review Text Coverage Audit
 
-- Last updated: `2026-05-19T09:13:34.567758+00:00`
-- Extracted records: `11440`
-- Workbench text records: `11497`
-- Current review translations: `11418`
-- Apply actions: `{'entry8_segment0_in_place_length_preserved': 241, 'entry8_boundary_crossing_in_place_length_preserved': 21, 'entry8_in_place_length_preserved': 6190, 'entry8_segment_repointed': 3913, 'packed_repointed': 244, 'in_place': 771, 'repointed': 22}`
+- Last updated: `2026-05-19T18:07:49.645626+00:00`
+- Extracted records: `11482`
+- Workbench text records: `11539`
+- Current review translations: `11459`
+- Apply actions: `{'entry8_segment0_in_place_length_preserved': 241, 'entry8_overlay_in_place_length_preserved': 32, 'entry8_boundary_crossing_in_place_length_preserved': 21, 'entry8_in_place_length_preserved': 10102, 'packed_repointed': 244, 'in_place': 798, 'repointed': 21}`
 - Untranslated Japanese candidates, excluding locked ??????: `0`
 
 ## Reading
@@ -19,21 +19,22 @@
 |---|---:|---:|---:|---|
 | ability_texts | 413 | 413 | 413 | `{'in_place': 413}` |
 | battle_texts | 104 | 104 | 77 | `{'in_place': 77}` |
-| choice_yes_no_texts | 0 | 16 | 16 | `{'in_place': 16}` |
-| credits_texts | 10 | 10 | 10 | `{'in_place': 10}` |
+| choice_yes_no_texts | 0 | 16 | 16 | `{'entry8_overlay_in_place_length_preserved': 16}` |
+| credits_texts | 28 | 28 | 28 | `{'in_place': 28}` |
 | duplicate_text_slots | 28 | 28 | 28 | `{'in_place': 28}` |
 | inline_event_texts | 0 | 41 | 41 | `{'in_place': 41}` |
 | item_texts | 49 | 49 | 49 | `{'in_place': 35, 'repointed': 14}` |
 | location_texts | 10 | 10 | 10 | `{'in_place': 10}` |
 | material_texts | 44 | 44 | 44 | `{'in_place': 44}` |
 | registry_a_entry12_texts | 22 | 22 | 22 | `{'in_place': 22}` |
-| registry_a_entry8_prefixed_texts | 10417 | 10417 | 10365 | `{'entry8_segment0_in_place_length_preserved': 241, 'entry8_boundary_crossing_in_place_length_preserved': 21, 'entry8_in_place_length_preserved': 6190, 'entry8_segment_repointed': 3913}` |
-| registry_a_map_labels | 48 | 48 | 48 | `{'in_place': 48}` |
+| registry_a_entry8_prefixed_texts | 10417 | 10417 | 10364 | `{'entry8_segment0_in_place_length_preserved': 241, 'entry8_boundary_crossing_in_place_length_preserved': 21, 'entry8_in_place_length_preserved': 10102}` |
+| registry_a_map_labels | 70 | 70 | 70 | `{'in_place': 70}` |
 | registry_d_fc_script_texts | 244 | 244 | 244 | `{'packed_repointed': 244}` |
-| save_menu_texts | 12 | 12 | 12 | `{}` |
-| startup_intro_texts | 4 | 4 | 4 | `{}` |
-| system_messages | 10 | 10 | 10 | `{'in_place': 8, 'repointed': 2}` |
+| save_menu_texts | 12 | 12 | 12 | `{'entry8_overlay_in_place_length_preserved': 12}` |
+| startup_intro_texts | 4 | 4 | 4 | `{'entry8_overlay_in_place_length_preserved': 4}` |
+| system_messages | 10 | 10 | 10 | `{'in_place': 9, 'repointed': 1}` |
 | ui_skill_texts | 25 | 25 | 25 | `{'in_place': 19, 'repointed': 6}` |
+| ui_status_texts | 2 | 2 | 2 | `{'in_place': 2}` |
 
 ## Skipped Examples
 

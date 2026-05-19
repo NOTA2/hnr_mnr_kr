@@ -57,8 +57,15 @@ def load_json(path: Path):
 def build_entry8_repoint_env() -> dict[str, str]:
     env = os.environ.copy()
     env.setdefault("ENTRY8_ALLOW_BOUNDARY_CROSSING_IN_PLACE", "1")
-    env.setdefault("ENTRY8_ALLOW_STRUCTURAL_REPOINT", "1")
-    if "ENTRY8_VARIABLE_OFFSETS" not in env and ENTRY8_REPOINT_SETS.exists():
+    # Entry8 segment relocation can preserve more long translations, but it
+    # also changes event/script segment locations. Runtime testing found that
+    # later area transitions can load the wrong map/sprite state after segment
+    # relocation, even when early smoke tests pass. Keep review builds on the
+    # conservative length-preserved path by default; opt into relocation only
+    # with explicit environment variables during isolated experiments.
+    env.setdefault("ENTRY8_ALLOW_STRUCTURAL_REPOINT", "0")
+    env.setdefault("ENTRY8_VARIABLE_OFFSETS", "")
+    if env.get("ENTRY8_ALLOW_STRUCTURAL_REPOINT") == "1" and not env.get("ENTRY8_VARIABLE_OFFSETS") and ENTRY8_REPOINT_SETS.exists():
         repoint_sets = load_json(ENTRY8_REPOINT_SETS)
         offsets = repoint_sets.get("safe_tail_baseline", {}).get("offsets", [])
         env["ENTRY8_VARIABLE_OFFSETS"] = ",".join(f"0x{int(offset):06X}" for offset in offsets)

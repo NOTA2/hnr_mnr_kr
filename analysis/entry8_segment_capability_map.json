@@ -1,0 +1,3870 @@
+{
+  "entry_offset": 7035212,
+  "entry_offset_hex": "0x6B594C",
+  "entry_length": 776444,
+  "segment_count": 77,
+  "capability_counts": {
+    "active_repoint": 18,
+    "active_repoint_overlay": 2,
+    "candidate_structural": 53,
+    "protected": 2,
+    "unknown_or_unused": 2
+  },
+  "action_counts": {
+    "entry8_boundary_crossing_in_place_length_preserved": 21,
+    "entry8_in_place_length_preserved": 6189,
+    "entry8_overlay_in_place_length_preserved": 16,
+    "entry8_segment0_in_place_length_preserved": 241,
+    "entry8_segment_repointed": 3913
+  },
+  "next_candidate_segments": [
+    {
+      "table_local_hex": "0x90",
+      "capability": "candidate_structural",
+      "variable_candidate_count": 1,
+      "tail_safe_offset_count": 0,
+      "u16_warning_count": 1,
+      "record_count": 12,
+      "sample_offsets": [
+        "0x6F78D6",
+        "0x6F78EA",
+        "0x6F7904",
+        "0x6F7922",
+        "0x6F794E",
+        "0x6F7974"
+      ],
+      "sample_texts": [
+        "お、お兄さん！",
+        "いいところに来た！",
+        "ワインもってないですか？",
+        "ワインですよ！"
+      ]
+    },
+    {
+      "table_local_hex": "0x104",
+      "capability": "candidate_structural",
+      "variable_candidate_count": 4,
+      "tail_safe_offset_count": 0,
+      "u16_warning_count": 3,
+      "record_count": 30,
+      "sample_offsets": [
+        "0x739E18",
+        "0x73A744",
+        "0x73A76E",
+        "0x73A792",
+        "0x73A7A2",
+        "0x73A7D4"
+      ],
+      "sample_texts": [
+        "58：ダイムラー邸④地下",
+        "大佐！この部屋！？",
+        "うむ！",
+        "うひょー、"
+      ]
+    },
+    {
+      "table_local_hex": "0xFC",
+      "capability": "candidate_structural",
+      "variable_candidate_count": 1,
+      "tail_safe_offset_count": 0,
+      "u16_warning_count": 8,
+      "record_count": 14,
+      "sample_offsets": [
+        "0x738A3A",
+        "0x738A56",
+        "0x738A9E",
+        "0x738AAE",
+        "0x738BC8",
+        "0x738BE2"
+      ],
+      "sample_texts": [
+        "このカードじゃダメだ。",
+        "金属の２－４を作らないと…",
+        "必要なのは",
+        "金属の２－４のカードだね"
+      ]
+    },
+    {
+      "table_local_hex": "0x44",
+      "capability": "candidate_structural",
+      "variable_candidate_count": 18,
+      "tail_safe_offset_count": 0,
+      "u16_warning_count": 26,
+      "record_count": 53,
+      "sample_offsets": [
+        "0x6C7CB0",
+        "0x6C7D62",
+        "0x6C7D88",
+        "0x6C7F3C",
+        "0x6C7FD8",
+        "0x6C7FF6"
+      ],
+      "sample_texts": [
+        "自然の６－３のカードが必要だ",
+        "兄さん、置いてかないでね",
+        "わーってるよ！",
+        "どこか渡れるところを探そう"
+      ]
+    },
+    {
+      "table_local_hex": "0x88",
+      "capability": "candidate_structural",
+      "variable_candidate_count": 1,
+      "tail_safe_offset_count": 0,
+      "u16_warning_count": 27,
+      "record_count": 19,
+      "sample_offsets": [
+        "0x6F54DA",
+        "0x6F54F4",
+        "0x6F5512",
+        "0x6F552E",
+        "0x6F5550",
+        "0x6F5570"
+      ],
+      "sample_texts": [
+        "ケガをした時のために",
+        "薬草はいかがでしょう？",
+        "とても高価な薬草だけど",
+        "うちの病院ならお買い得よ？"
+      ]
+    },
+    {
+      "table_local_hex": "0x28",
+      "capability": "candidate_structural",
+      "variable_candidate_count": 7,
+      "tail_safe_offset_count": 0,
+      "u16_warning_count": 44,
+      "record_count": 40,
+      "sample_offsets": [
+        "0x6BDDA4",
+        "0x6BDDC2",
+        "0x6BDE1C",
+        "0x6BDE2C",
+        "0x6BDEB8",
+        "0x6BDF30"
+      ],
+      "sample_texts": [
+        "これがリオライトか？",
+        "リオライト、ゲットだぜ！",
+        "よし、",
+        "ウィンリィのところに戻るか"
+      ]
+    },
+    {
+      "table_local_hex": "0xBC",
+      "capability": "candidate_structural",
+      "variable_candidate_count": 40,
+      "tail_safe_offset_count": 0,
+      "u16_warning_count": 47,
+      "record_count": 166,
+      "sample_offsets": [
+        "0x70BB42",
+        "0x70BB56",
+        "0x70BB70",
+        "0x70BB9C",
+        "0x70BBD2",
+        "0x70BBFE"
+      ],
+      "sample_texts": [
+        "いらっしゃい。",
+        "泊まっていくかい？",
+        "一泊、２００センズだよ。",
+        "　泊まる　やっぱ泊まらない"
+      ]
+    },
+    {
+      "table_local_hex": "0xB8",
+      "capability": "candidate_structural",
+      "variable_candidate_count": 4,
+      "tail_safe_offset_count": 0,
+      "u16_warning_count": 58,
+      "record_count": 22,
+      "sample_offsets": [
+        "0x70AD94",
+        "0x70ADAA",
+        "0x70ADCA",
+        "0x70ADE4",
+        "0x70ADF0",
+        "0x70AE00"
+      ],
+      "sample_texts": [
+        "買わないかい？",
+        "暗黒の１－７、レベル５だ！",
+        "ダークマターだぞ！",
+        "１５００００センズだ。"
+      ]
+    },
+    {
+      "table_local_hex": "0x84",
+      "capability": "candidate_structural",
+      "variable_candidate_count": 4,
+      "tail_safe_offset_count": 0,
+      "u16_warning_count": 72,
+      "record_count": 42,
+      "sample_offsets": [
+        "0x6F41EC",
+        "0x6F4208",
+        "0x6F4222",
+        "0x6F4254",
+        "0x6F4268",
+        "0x6F4298"
+      ],
+      "sample_texts": [
+        "さっき上でドカーンって",
+        "大きな音がしたんだ！",
+        "なんだったんだろう？",
+        "おじいちゃんの"
+      ]
+    },
+    {
+      "table_local_hex": "0xE8",
+      "capability": "candidate_structural",
+      "variable_candidate_count": 27,
+      "tail_safe_offset_count": 0,
+      "u16_warning_count": 85,
+      "record_count": 152,
+      "sample_offsets": [
+        "0x72BA64",
+        "0x72BA86",
+        "0x72BAAC",
+        "0x72BAC0",
+        "0x72BAEC",
+        "0x72BB12"
+      ],
+      "sample_texts": [
+        "この部屋、誰かいるみたいだね",
+        "どうする、兄さん？",
+        "よし、いくか！",
+        "さっきと同じ、金属の４－６だ"
+      ]
+    },
+    {
+      "table_local_hex": "0x5C",
+      "capability": "candidate_structural",
+      "variable_candidate_count": 23,
+      "tail_safe_offset_count": 0,
+      "u16_warning_count": 86,
+      "record_count": 114,
+      "sample_offsets": [
+        "0x6D8DDE",
+        "0x6D8DF2",
+        "0x6D8E0C",
+        "0x6D8E38",
+        "0x6D8E6E",
+        "0x6D8EA2"
+      ],
+      "sample_texts": [
+        "いらっしゃい。",
+        "泊まっていくかい？",
+        "一泊、２００センズだよ。",
+        "　泊まる　やっぱ泊まらない"
+      ]
+    },
+    {
+      "table_local_hex": "0x8C",
+      "capability": "candidate_structural",
+      "variable_candidate_count": 2,
+      "tail_safe_offset_count": 0,
+      "u16_warning_count": 91,
+      "record_count": 9,
+      "sample_offsets": [
+        "0x6F5F74",
+        "0x6F5F8E",
+        "0x6F5FA4",
+        "0x6F5FCE",
+        "0x6F5FEE",
+        "0x6F60C4"
+      ],
+      "sample_texts": [
+        "早く退院したいのぉ。",
+        "孫と遊べるように",
+        "なりたいのぉ",
+        "孫が毎日来てくれるんです。"
+      ]
+    },
+    {
+      "table_local_hex": "0x40",
+      "capability": "candidate_structural",
+      "variable_candidate_count": 19,
+      "tail_safe_offset_count": 0,
+      "u16_warning_count": 97,
+      "record_count": 61,
+      "sample_offsets": [
+        "0x6C58B2",
+        "0x6C6F88",
+        "0x6C6FAA",
+        "0x6C6FE4",
+        "0x6C6FFA",
+        "0x6C702C"
+      ],
+      "sample_texts": [
+        "09：レドンド下水道",
+        "あなたが銀行強盗さんですね？",
+        "盗んだものを返してください",
+        "あ、すみません。"
+      ]
+    },
+    {
+      "table_local_hex": "0xB4",
+      "capability": "candidate_structural",
+      "variable_candidate_count": 24,
+      "tail_safe_offset_count": 0,
+      "u16_warning_count": 98,
+      "record_count": 123,
+      "sample_offsets": [
+        "0x709334",
+        "0x709352",
+        "0x709368",
+        "0x709390",
+        "0x7093AC",
+        "0x7093C8"
+      ],
+      "sample_texts": [
+        "ここがイーストシティね。",
+        "初めての街って、",
+        "ワクワクしますね",
+        "オレは大佐をどうやって"
+      ]
+    },
+    {
+      "table_local_hex": "0x3C",
+      "capability": "candidate_structural",
+      "variable_candidate_count": 9,
+      "tail_safe_offset_count": 0,
+      "u16_warning_count": 143,
+      "record_count": 26,
+      "sample_offsets": [
+        "0x6C4C6E",
+        "0x6C4C8A",
+        "0x6C4CA6",
+        "0x6C4CB6",
+        "0x6C4D1C",
+        "0x6C4D3A"
+      ],
+      "sample_texts": [
+        "そうなんだ",
+        "これでこの街にも平和が",
+        "戻ります。",
+        "ありがとうございます"
+      ]
+    },
+    {
+      "table_local_hex": "0x144",
+      "capability": "candidate_structural",
+      "variable_candidate_count": 4,
+      "tail_safe_offset_count": 0,
+      "u16_warning_count": 204,
+      "record_count": 15,
+      "sample_offsets": [
+        "0x767170",
+        "0x767190",
+        "0x7671BA",
+        "0x7671D4",
+        "0x7671F6",
+        "0x767218"
+      ],
+      "sample_texts": [
+        "きっとこの上じゃないかな？",
+        "どうする、兄さん？",
+        "錬成でハシゴを作れば",
+        "上にのぼれそうだな"
+      ]
+    },
+    {
+      "table_local_hex": "0x20",
+      "capability": "candidate_structural",
+      "variable_candidate_count": 72,
+      "tail_safe_offset_count": 0,
+      "u16_warning_count": 208,
+      "record_count": 251,
+      "sample_offsets": [
+        "0x6B5D6A",
+        "0x6B7A36",
+        "0x6B7A54",
+        "0x6B7B22",
+        "0x6B7B2E",
+        "0x6B7B44"
+      ],
+      "sample_texts": [
+        "01：リオール街",
+        "医者になりたいんだけど、",
+        "どうやったらなれるのかな？",
+        "は、"
+      ]
+    },
+    {
+      "table_local_hex": "0xA0",
+      "capability": "candidate_structural",
+      "variable_candidate_count": 4,
+      "tail_safe_offset_count": 0,
+      "u16_warning_count": 236,
+      "record_count": 24,
+      "sample_offsets": [
+        "0x700008",
+        "0x70003C",
+        "0x700080",
+        "0x700098",
+        "0x7000B4",
+        "0x7000DA"
+      ],
+      "sample_texts": [
+        "法で禁じられている錬成とは？",
+        "　花を錬成する事　黄金を錬成する事",
+        "またまた正解です！",
+        "すごいじゃないですか！"
+      ]
+    },
+    {
+      "table_local_hex": "0xA8",
+      "capability": "candidate_structural",
+      "variable_candidate_count": 4,
+      "tail_safe_offset_count": 0,
+      "u16_warning_count": 237,
+      "record_count": 24,
+      "sample_offsets": [
+        "0x70344E",
+        "0x70345C",
+        "0x703474",
+        "0x703496",
+        "0x7034AC",
+        "0x7034CC"
+      ],
+      "sample_texts": [
+        "よっ！",
+        "兄ちゃん、兄ちゃん",
+        "ウラモノのすごいのがあるぜ！",
+        "買わないかい？"
+      ]
+    },
+    {
+      "table_local_hex": "0x58",
+      "capability": "candidate_structural",
+      "variable_candidate_count": 4,
+      "tail_safe_offset_count": 0,
+      "u16_warning_count": 243,
+      "record_count": 11,
+      "sample_offsets": [
+        "0x6D80A8",
+        "0x6D80C6",
+        "0x6D80E4",
+        "0x6D81C4",
+        "0x6D826E",
+        "0x6D82E4"
+      ],
+      "sample_texts": [
+        "猫ですね♪",
+        "ああ、猫だな",
+        "旅は道連れ＄",
+        "猫だよ～♪"
+      ]
+    }
+  ],
+  "segments": [
+    {
+      "table_local": 32,
+      "table_local_hex": "0x20",
+      "old_start": 0,
+      "old_start_hex": "0x0",
+      "old_end": 20404,
+      "old_end_hex": "0x4FB4",
+      "size": 20404,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 251,
+      "source_counts": {
+        "duplicate_text_slots": 1,
+        "inline_event_texts": 2,
+        "registry_a_entry8_prefixed_texts": 248
+      },
+      "applied_record_count": 241,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 241
+      },
+      "action_counts": {
+        "entry8_segment0_in_place_length_preserved": 241
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 72,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 24,
+      "u16_warning_count": 208,
+      "sample_offsets": [
+        "0x6B5D6A",
+        "0x6B7A36",
+        "0x6B7A54",
+        "0x6B7B22",
+        "0x6B7B2E",
+        "0x6B7B44"
+      ],
+      "sample_texts": [
+        "01：リオール街",
+        "医者になりたいんだけど、",
+        "どうやったらなれるのかな？",
+        "は、"
+      ]
+    },
+    {
+      "table_local": 36,
+      "table_local_hex": "0x24",
+      "old_start": 20404,
+      "old_start_hex": "0x4FB4",
+      "old_end": 33764,
+      "old_end_hex": "0x83E4",
+      "size": 13360,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 133,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 133
+      },
+      "applied_record_count": 133,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 133
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 133
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 36,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 21,
+      "u16_warning_count": 448,
+      "sample_offsets": [
+        "0x6BA9A4",
+        "0x6BA9D2",
+        "0x6BA9EE",
+        "0x6BAA0C",
+        "0x6BAA30",
+        "0x6BAA4E"
+      ],
+      "sample_texts": [
+        "おお、ありがたい！",
+        "いや、生き返りました！",
+        "ここは砂漠の真ん中なのに",
+        "噴水がワインじゃないですか？"
+      ]
+    },
+    {
+      "table_local": 40,
+      "table_local_hex": "0x28",
+      "old_start": 33764,
+      "old_start_hex": "0x83E4",
+      "old_end": 38512,
+      "old_end_hex": "0x9670",
+      "size": 4748,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 40,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 39,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 39,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 39
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 39
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 7,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 44,
+      "sample_offsets": [
+        "0x6BDDA4",
+        "0x6BDDC2",
+        "0x6BDE1C",
+        "0x6BDE2C",
+        "0x6BDEB8",
+        "0x6BDF30"
+      ],
+      "sample_texts": [
+        "これがリオライトか？",
+        "リオライト、ゲットだぜ！",
+        "よし、",
+        "ウィンリィのところに戻るか"
+      ]
+    },
+    {
+      "table_local": 44,
+      "table_local_hex": "0x2C",
+      "old_start": 38512,
+      "old_start_hex": "0x9670",
+      "old_end": 42840,
+      "old_end_hex": "0xA758",
+      "size": 4328,
+      "protected": false,
+      "capability": "active_repoint",
+      "capability_reason": "현재 빌드에서 segment repoint가 실제 적용된 대상.",
+      "record_count": 57,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 57
+      },
+      "applied_record_count": 57,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 57
+      },
+      "action_counts": {
+        "entry8_segment_repointed": 57
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 15,
+      "tail_safe_offset_count": 1,
+      "u32_reference_count": 0,
+      "u16_warning_count": 328,
+      "sample_offsets": [
+        "0x6BEFD2",
+        "0x6BEFE0",
+        "0x6BF010",
+        "0x6BF02C",
+        "0x6BF03A",
+        "0x6BF058"
+      ],
+      "sample_texts": [
+        "当然よ。",
+        "この街はエサだったんだもの",
+        "エサ？",
+        "そう…"
+      ]
+    },
+    {
+      "table_local": 48,
+      "table_local_hex": "0x30",
+      "old_start": 42840,
+      "old_start_hex": "0xA758",
+      "old_end": 56716,
+      "old_end_hex": "0xDD8C",
+      "size": 13876,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 131,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 130,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 130,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 130
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 130
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 42,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 2,
+      "u16_warning_count": 1043,
+      "sample_offsets": [
+        "0x6C00D2",
+        "0x6C00DE",
+        "0x6C013A",
+        "0x6C014E",
+        "0x6C0164",
+        "0x6C0182"
+      ],
+      "sample_texts": [
+        "石だ！",
+        "「賢者の石」を見せてみろ！",
+        "壊れた…",
+        "完全な物質である"
+      ]
+    },
+    {
+      "table_local": 56,
+      "table_local_hex": "0x38",
+      "old_start": 56716,
+      "old_start_hex": "0xDD8C",
+      "old_end": 62236,
+      "old_end_hex": "0xF31C",
+      "size": 5520,
+      "protected": false,
+      "capability": "active_repoint",
+      "capability_reason": "현재 빌드에서 segment repoint가 실제 적용된 대상.",
+      "record_count": 78,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 77,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 77,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 77
+      },
+      "action_counts": {
+        "entry8_segment_repointed": 77
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 25,
+      "tail_safe_offset_count": 2,
+      "u32_reference_count": 1,
+      "u16_warning_count": 228,
+      "sample_offsets": [
+        "0x6C372E",
+        "0x6C374E",
+        "0x6C3770",
+        "0x6C3788",
+        "0x6C37AC",
+        "0x6C37E2"
+      ],
+      "sample_texts": [
+        "おちついて。店内の片付けが",
+        "すむまで営業を休むというのは",
+        "どうだろう",
+        "そうですね"
+      ]
+    },
+    {
+      "table_local": 60,
+      "table_local_hex": "0x3C",
+      "old_start": 62236,
+      "old_start_hex": "0xF31C",
+      "old_end": 64328,
+      "old_end_hex": "0xFB48",
+      "size": 2092,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 26,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 25,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 25,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 25
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 25
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 9,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 143,
+      "sample_offsets": [
+        "0x6C4C6E",
+        "0x6C4C8A",
+        "0x6C4CA6",
+        "0x6C4CB6",
+        "0x6C4D1C",
+        "0x6C4D3A"
+      ],
+      "sample_texts": [
+        "そうなんだ",
+        "これでこの街にも平和が",
+        "戻ります。",
+        "ありがとうございます"
+      ]
+    },
+    {
+      "table_local": 64,
+      "table_local_hex": "0x40",
+      "old_start": 64328,
+      "old_start_hex": "0xFB48",
+      "old_end": 74544,
+      "old_end_hex": "0x12330",
+      "size": 10216,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 61,
+      "source_counts": {
+        "choice_yes_no_texts": 1,
+        "duplicate_text_slots": 1,
+        "registry_a_entry8_prefixed_texts": 59
+      },
+      "applied_record_count": 59,
+      "source_apply_counts": {
+        "choice_yes_no_texts": 1,
+        "registry_a_entry8_prefixed_texts": 58
+      },
+      "action_counts": {
+        "entry8_boundary_crossing_in_place_length_preserved": 1,
+        "entry8_in_place_length_preserved": 57,
+        "entry8_overlay_in_place_length_preserved": 1
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 19,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 97,
+      "sample_offsets": [
+        "0x6C58B2",
+        "0x6C6F88",
+        "0x6C6FAA",
+        "0x6C6FE4",
+        "0x6C6FFA",
+        "0x6C702C"
+      ],
+      "sample_texts": [
+        "09：レドンド下水道",
+        "あなたが銀行強盗さんですね？",
+        "盗んだものを返してください",
+        "あ、すみません。"
+      ]
+    },
+    {
+      "table_local": 68,
+      "table_local_hex": "0x44",
+      "old_start": 74544,
+      "old_start_hex": "0x12330",
+      "old_end": 82400,
+      "old_end_hex": "0x141E0",
+      "size": 7856,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 53,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 52,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 52,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 52
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 52
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 18,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 26,
+      "sample_offsets": [
+        "0x6C7CB0",
+        "0x6C7D62",
+        "0x6C7D88",
+        "0x6C7F3C",
+        "0x6C7FD8",
+        "0x6C7FF6"
+      ],
+      "sample_texts": [
+        "自然の６－３のカードが必要だ",
+        "兄さん、置いてかないでね",
+        "わーってるよ！",
+        "どこか渡れるところを探そう"
+      ]
+    },
+    {
+      "table_local": 72,
+      "table_local_hex": "0x48",
+      "old_start": 82400,
+      "old_start_hex": "0x141E0",
+      "old_end": 87768,
+      "old_end_hex": "0x156D8",
+      "size": 5368,
+      "protected": false,
+      "capability": "active_repoint",
+      "capability_reason": "현재 빌드에서 segment repoint가 실제 적용된 대상.",
+      "record_count": 88,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 87,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 86,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 86
+      },
+      "action_counts": {
+        "entry8_segment_repointed": 86
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 16,
+      "tail_safe_offset_count": 1,
+      "u32_reference_count": 0,
+      "u16_warning_count": 231,
+      "sample_offsets": [
+        "0x6C9B4A",
+        "0x6C9B66",
+        "0x6C9B8C",
+        "0x6C9BA6",
+        "0x6C9BBC",
+        "0x6C9BE8"
+      ],
+      "sample_texts": [
+        "話は村長から聞いたよ。",
+        "疑って悪かったねぇ",
+        "錬金術で元に戻すから",
+        "大丈夫とか言って"
+      ]
+    },
+    {
+      "table_local": 76,
+      "table_local_hex": "0x4C",
+      "old_start": 87768,
+      "old_start_hex": "0x156D8",
+      "old_end": 104120,
+      "old_end_hex": "0x196B8",
+      "size": 16352,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 165,
+      "source_counts": {
+        "choice_yes_no_texts": 1,
+        "registry_a_entry8_prefixed_texts": 164
+      },
+      "applied_record_count": 164,
+      "source_apply_counts": {
+        "choice_yes_no_texts": 1,
+        "registry_a_entry8_prefixed_texts": 163
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 163,
+        "entry8_overlay_in_place_length_preserved": 1
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 31,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 1,
+      "u16_warning_count": 1076,
+      "sample_offsets": [
+        "0x6CB122",
+        "0x6CB150",
+        "0x6CB166",
+        "0x6CB186",
+        "0x6CB1B2",
+        "0x6CB1D2"
+      ],
+      "sample_texts": [
+        "こっこれは…？",
+        "これは人形です。",
+        "もともとの犯人は人形遣いの",
+        "錬金術師でした"
+      ]
+    },
+    {
+      "table_local": 80,
+      "table_local_hex": "0x50",
+      "old_start": 104120,
+      "old_start_hex": "0x196B8",
+      "old_end": 121632,
+      "old_end_hex": "0x1DB20",
+      "size": 17512,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 144,
+      "source_counts": {
+        "inline_event_texts": 1,
+        "registry_a_entry8_prefixed_texts": 142,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 142,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 142
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 142
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 25,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 1238,
+      "sample_offsets": [
+        "0x6CF064",
+        "0x6CF072",
+        "0x6CF09E",
+        "0x6CF0B0",
+        "0x6CF172",
+        "0x6CF190"
+      ],
+      "sample_texts": [
+        "兄さん、",
+        "ここから先は進めないよ",
+        "ちくしょー！",
+        "山の左側から回りこむか"
+      ]
+    },
+    {
+      "table_local": 84,
+      "table_local_hex": "0x54",
+      "old_start": 121632,
+      "old_start_hex": "0x1DB20",
+      "old_end": 141064,
+      "old_end_hex": "0x22708",
+      "size": 19432,
+      "protected": false,
+      "capability": "active_repoint",
+      "capability_reason": "현재 빌드에서 segment repoint가 실제 적용된 대상.",
+      "record_count": 304,
+      "source_counts": {
+        "inline_event_texts": 1,
+        "registry_a_entry8_prefixed_texts": 302,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 302,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 302
+      },
+      "action_counts": {
+        "entry8_segment_repointed": 302
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 61,
+      "tail_safe_offset_count": 1,
+      "u32_reference_count": 39,
+      "u16_warning_count": 1342,
+      "sample_offsets": [
+        "0x6D3496",
+        "0x6D350E",
+        "0x6D359C",
+        "0x6D364A",
+        "0x6D3666",
+        "0x6D367E"
+      ],
+      "sample_texts": [
+        "回復薬３を手に入れた",
+        "回復薬３を手に入れた",
+        "カギが閉まってて入れないな…",
+        "…今、隠れてるんだから"
+      ]
+    },
+    {
+      "table_local": 88,
+      "table_local_hex": "0x58",
+      "old_start": 141064,
+      "old_start_hex": "0x22708",
+      "old_end": 144284,
+      "old_end_hex": "0x2339C",
+      "size": 3220,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 11,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 10,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 10,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 10
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 10
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 4,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 243,
+      "sample_offsets": [
+        "0x6D80A8",
+        "0x6D80C6",
+        "0x6D80E4",
+        "0x6D81C4",
+        "0x6D826E",
+        "0x6D82E4"
+      ],
+      "sample_texts": [
+        "猫ですね♪",
+        "ああ、猫だな",
+        "旅は道連れ＄",
+        "猫だよ～♪"
+      ]
+    },
+    {
+      "table_local": 92,
+      "table_local_hex": "0x5C",
+      "old_start": 144284,
+      "old_start_hex": "0x2339C",
+      "old_end": 150980,
+      "old_end_hex": "0x24DC4",
+      "size": 6696,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 114,
+      "source_counts": {
+        "inline_event_texts": 3,
+        "registry_a_entry8_prefixed_texts": 110,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 110,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 110
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 110
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 23,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 1,
+      "u16_warning_count": 86,
+      "sample_offsets": [
+        "0x6D8DDE",
+        "0x6D8DF2",
+        "0x6D8E0C",
+        "0x6D8E38",
+        "0x6D8E6E",
+        "0x6D8EA2"
+      ],
+      "sample_texts": [
+        "いらっしゃい。",
+        "泊まっていくかい？",
+        "一泊、２００センズだよ。",
+        "　泊まる　やっぱ泊まらない"
+      ]
+    },
+    {
+      "table_local": 96,
+      "table_local_hex": "0x60",
+      "old_start": 150980,
+      "old_start_hex": "0x24DC4",
+      "old_end": 158248,
+      "old_end_hex": "0x26A28",
+      "size": 7268,
+      "protected": false,
+      "capability": "active_repoint",
+      "capability_reason": "현재 빌드에서 segment repoint가 실제 적용된 대상.",
+      "record_count": 106,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 105,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 105,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 105
+      },
+      "action_counts": {
+        "entry8_segment_repointed": 105
+      },
+      "delta_total": -4,
+      "changed_delta_count": 2,
+      "variable_candidate_count": 14,
+      "tail_safe_offset_count": 5,
+      "u32_reference_count": 0,
+      "u16_warning_count": 363,
+      "sample_offsets": [
+        "0x6DA718",
+        "0x6DA736",
+        "0x6DA78C",
+        "0x6DA79A",
+        "0x6DA7BC",
+        "0x6DA7DC"
+      ],
+      "sample_texts": [
+        "せっかく我輩が申し込みを",
+        "しておいてあげたというのに…",
+        "いや…",
+        "その…"
+      ]
+    },
+    {
+      "table_local": 100,
+      "table_local_hex": "0x64",
+      "old_start": 158248,
+      "old_start_hex": "0x26A28",
+      "old_end": 166736,
+      "old_end_hex": "0x28B50",
+      "size": 8488,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 62,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 61,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 61,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 61
+      },
+      "action_counts": {
+        "entry8_boundary_crossing_in_place_length_preserved": 1,
+        "entry8_in_place_length_preserved": 60
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 16,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 935,
+      "sample_offsets": [
+        "0x6DC384",
+        "0x6DC398",
+        "0x6DC3C0",
+        "0x6DC3D4",
+        "0x6DC3E2",
+        "0x6DC464"
+      ],
+      "sample_texts": [
+        "いいって、",
+        "困った時はおたがい様さ",
+        "それじゃ、",
+        "さっそく"
+      ]
+    },
+    {
+      "table_local": 104,
+      "table_local_hex": "0x68",
+      "old_start": 166736,
+      "old_start_hex": "0x28B50",
+      "old_end": 179448,
+      "old_end_hex": "0x2BCF8",
+      "size": 12712,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 168,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 167,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 167,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 167
+      },
+      "action_counts": {
+        "entry8_boundary_crossing_in_place_length_preserved": 1,
+        "entry8_in_place_length_preserved": 166
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 44,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 1029,
+      "sample_offsets": [
+        "0x6DE4B6",
+        "0x6DE544",
+        "0x6DE556",
+        "0x6DE574",
+        "0x6DE5AE",
+        "0x6DE5CE"
+      ],
+      "sample_texts": [
+        "ひがんでるだけだと思わない？",
+        "鎧のパーツ？",
+        "どこかで見たような気が…",
+        "中庭で訓練してた時だったかな"
+      ]
+    },
+    {
+      "table_local": 108,
+      "table_local_hex": "0x6C",
+      "old_start": 179448,
+      "old_start_hex": "0x2BCF8",
+      "old_end": 185736,
+      "old_end_hex": "0x2D588",
+      "size": 6288,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 96,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 95,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 95,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 95
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 95
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 15,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 306,
+      "sample_offsets": [
+        "0x6E16C4",
+        "0x6E16DA",
+        "0x6E1702",
+        "0x6E1724",
+        "0x6E1744",
+        "0x6E189A"
+      ],
+      "sample_texts": [
+        "しつこいですね…",
+        "ここは入れないんですよ！",
+        "ここを通ることはできません。",
+        "国家錬金術師の方と言えども"
+      ]
+    },
+    {
+      "table_local": 112,
+      "table_local_hex": "0x70",
+      "old_start": 185736,
+      "old_start_hex": "0x2D588",
+      "old_end": 215824,
+      "old_end_hex": "0x34B10",
+      "size": 30088,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 591,
+      "source_counts": {
+        "inline_event_texts": 5,
+        "registry_a_entry8_prefixed_texts": 586
+      },
+      "applied_record_count": 585,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 585
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 585
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 99,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 40,
+      "u16_warning_count": 1222,
+      "sample_offsets": [
+        "0x6E2F24",
+        "0x6E2F42",
+        "0x6E2F5A",
+        "0x6E2F92",
+        "0x6E2FAE",
+        "0x6E2FCA"
+      ],
+      "sample_texts": [
+        "ヒューズ中佐の娘さんって",
+        "カワイイですよね。",
+        "ボクもカワイイ娘がほしいな",
+        "忙しいのに中佐がまた、"
+      ]
+    },
+    {
+      "table_local": 116,
+      "table_local_hex": "0x74",
+      "old_start": 215824,
+      "old_start_hex": "0x34B10",
+      "old_end": 225376,
+      "old_end_hex": "0x37060",
+      "size": 9552,
+      "protected": false,
+      "capability": "active_repoint",
+      "capability_reason": "현재 빌드에서 segment repoint가 실제 적용된 대상.",
+      "record_count": 148,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 147,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 147,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 147
+      },
+      "action_counts": {
+        "entry8_boundary_crossing_in_place_length_preserved": 1,
+        "entry8_segment_repointed": 146
+      },
+      "delta_total": -8,
+      "changed_delta_count": 2,
+      "variable_candidate_count": 35,
+      "tail_safe_offset_count": 3,
+      "u32_reference_count": 0,
+      "u16_warning_count": 528,
+      "sample_offsets": [
+        "0x6EA488",
+        "0x6EA4A2",
+        "0x6EA4EE",
+        "0x6EA502",
+        "0x6EA51C",
+        "0x6EA52A"
+      ],
+      "sample_texts": [
+        "あったぞ、アル！",
+        "右腕、ゲットだぜ！",
+        "ありがとう、",
+        "兄さん！"
+      ]
+    },
+    {
+      "table_local": 120,
+      "table_local_hex": "0x78",
+      "old_start": 225376,
+      "old_start_hex": "0x37060",
+      "old_end": 240912,
+      "old_end_hex": "0x3AD10",
+      "size": 15536,
+      "protected": false,
+      "capability": "active_repoint",
+      "capability_reason": "현재 빌드에서 segment repoint가 실제 적용된 대상.",
+      "record_count": 376,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 375,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 367,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 367
+      },
+      "action_counts": {
+        "entry8_segment_repointed": 367
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 94,
+      "tail_safe_offset_count": 1,
+      "u32_reference_count": 0,
+      "u16_warning_count": 731,
+      "sample_offsets": [
+        "0x6EC9BA",
+        "0x6EC9DC",
+        "0x6EC9F0",
+        "0x6ECA08",
+        "0x6ECA30",
+        "0x6ECA54"
+      ],
+      "sample_texts": [
+        "どうする？",
+        "……やります。",
+        "必ず事件を解決して",
+        "受験資格を得ます"
+      ]
+    },
+    {
+      "table_local": 124,
+      "table_local_hex": "0x7C",
+      "old_start": 240912,
+      "old_start_hex": "0x3AD10",
+      "old_end": 251908,
+      "old_end_hex": "0x3D804",
+      "size": 10996,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 103,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 102,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 102,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 102
+      },
+      "action_counts": {
+        "entry8_boundary_crossing_in_place_length_preserved": 1,
+        "entry8_in_place_length_preserved": 101
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 16,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 985,
+      "sample_offsets": [
+        "0x6F066E",
+        "0x6F0680",
+        "0x6F069A",
+        "0x6F06C0",
+        "0x6F06CC",
+        "0x6F06F0"
+      ],
+      "sample_texts": [
+        "だが、墓前に",
+        "花を供える時間くらい",
+        "あるだろう",
+        "だ、"
+      ]
+    },
+    {
+      "table_local": 128,
+      "table_local_hex": "0x80",
+      "old_start": 251908,
+      "old_start_hex": "0x3D804",
+      "old_end": 255936,
+      "old_end_hex": "0x3E7C0",
+      "size": 4028,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 23,
+      "source_counts": {
+        "inline_event_texts": 2,
+        "registry_a_entry8_prefixed_texts": 21
+      },
+      "applied_record_count": 21,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 21
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 21
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 2,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 387,
+      "sample_offsets": [
+        "0x6F315A",
+        "0x6F3172",
+        "0x6F3194",
+        "0x6F31AA",
+        "0x6F31B6",
+        "0x6F31C6"
+      ],
+      "sample_texts": [
+        "ダイヤモンドだぞ！",
+        "他では手に入らないかもよ？",
+        "今ならお買い得の",
+        "１２００００センズだ！"
+      ]
+    },
+    {
+      "table_local": 132,
+      "table_local_hex": "0x84",
+      "old_start": 255936,
+      "old_start_hex": "0x3E7C0",
+      "old_end": 260840,
+      "old_end_hex": "0x3FAE8",
+      "size": 4904,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 42,
+      "source_counts": {
+        "inline_event_texts": 1,
+        "registry_a_entry8_prefixed_texts": 41
+      },
+      "applied_record_count": 41,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 41
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 41
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 4,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 72,
+      "sample_offsets": [
+        "0x6F41EC",
+        "0x6F4208",
+        "0x6F4222",
+        "0x6F4254",
+        "0x6F4268",
+        "0x6F4298"
+      ],
+      "sample_texts": [
+        "さっき上でドカーンって",
+        "大きな音がしたんだ！",
+        "なんだったんだろう？",
+        "おじいちゃんの"
+      ]
+    },
+    {
+      "table_local": 136,
+      "table_local_hex": "0x88",
+      "old_start": 260840,
+      "old_start_hex": "0x3FAE8",
+      "old_end": 263120,
+      "old_end_hex": "0x403D0",
+      "size": 2280,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 19,
+      "source_counts": {
+        "inline_event_texts": 1,
+        "registry_a_entry8_prefixed_texts": 18
+      },
+      "applied_record_count": 18,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 18
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 18
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 1,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 4,
+      "u16_warning_count": 27,
+      "sample_offsets": [
+        "0x6F54DA",
+        "0x6F54F4",
+        "0x6F5512",
+        "0x6F552E",
+        "0x6F5550",
+        "0x6F5570"
+      ],
+      "sample_texts": [
+        "ケガをした時のために",
+        "薬草はいかがでしょう？",
+        "とても高価な薬草だけど",
+        "うちの病院ならお買い得よ？"
+      ]
+    },
+    {
+      "table_local": 140,
+      "table_local_hex": "0x8C",
+      "old_start": 263120,
+      "old_start_hex": "0x403D0",
+      "old_end": 265756,
+      "old_end_hex": "0x40E1C",
+      "size": 2636,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 9,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 9
+      },
+      "applied_record_count": 9,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 9
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 9
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 2,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 91,
+      "sample_offsets": [
+        "0x6F5F74",
+        "0x6F5F8E",
+        "0x6F5FA4",
+        "0x6F5FCE",
+        "0x6F5FEE",
+        "0x6F60C4"
+      ],
+      "sample_texts": [
+        "早く退院したいのぉ。",
+        "孫と遊べるように",
+        "なりたいのぉ",
+        "孫が毎日来てくれるんです。"
+      ]
+    },
+    {
+      "table_local": 144,
+      "table_local_hex": "0x90",
+      "old_start": 265756,
+      "old_start_hex": "0x40E1C",
+      "old_end": 270676,
+      "old_end_hex": "0x42154",
+      "size": 4920,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 12,
+      "source_counts": {
+        "inline_event_texts": 3,
+        "registry_a_entry8_prefixed_texts": 9
+      },
+      "applied_record_count": 9,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 9
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 9
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 1,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 1,
+      "sample_offsets": [
+        "0x6F78D6",
+        "0x6F78EA",
+        "0x6F7904",
+        "0x6F7922",
+        "0x6F794E",
+        "0x6F7974"
+      ],
+      "sample_texts": [
+        "お、お兄さん！",
+        "いいところに来た！",
+        "ワインもってないですか？",
+        "ワインですよ！"
+      ]
+    },
+    {
+      "table_local": 148,
+      "table_local_hex": "0x94",
+      "old_start": 270676,
+      "old_start_hex": "0x42154",
+      "old_end": 290976,
+      "old_end_hex": "0x470A0",
+      "size": 20300,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 311,
+      "source_counts": {
+        "inline_event_texts": 2,
+        "registry_a_entry8_prefixed_texts": 308,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 308,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 308
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 308
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 44,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 1433,
+      "sample_offsets": [
+        "0x6F7AF8",
+        "0x6F7B10",
+        "0x6F7B32",
+        "0x6F7B48",
+        "0x6F7B82",
+        "0x6F7B9E"
+      ],
+      "sample_texts": [
+        "おお、ありがたい！",
+        "病院では飲めないですからね！",
+        "これはお代です",
+        "またお願いしますよ！"
+      ]
+    },
+    {
+      "table_local": 152,
+      "table_local_hex": "0x98",
+      "old_start": 290976,
+      "old_start_hex": "0x470A0",
+      "old_end": 296908,
+      "old_end_hex": "0x487CC",
+      "size": 5932,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 54,
+      "source_counts": {
+        "inline_event_texts": 2,
+        "registry_a_entry8_prefixed_texts": 51,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 51,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 51
+      },
+      "action_counts": {
+        "entry8_boundary_crossing_in_place_length_preserved": 1,
+        "entry8_in_place_length_preserved": 50
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 10,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 459,
+      "sample_offsets": [
+        "0x6FCA84",
+        "0x6FCAA0",
+        "0x6FCAF6",
+        "0x6FCB22",
+        "0x6FCBA6",
+        "0x6FCC36"
+      ],
+      "sample_texts": [
+        "アルをもとに戻すまでは",
+        "他の場所へなんか行けるか！",
+        "ヒューズ中佐の家に行かないと",
+        "中佐を呼びに行かないと！"
+      ]
+    },
+    {
+      "table_local": 156,
+      "table_local_hex": "0x9C",
+      "old_start": 296908,
+      "old_start_hex": "0x487CC",
+      "old_end": 304812,
+      "old_end_hex": "0x4A6AC",
+      "size": 7904,
+      "protected": false,
+      "capability": "active_repoint",
+      "capability_reason": "현재 빌드에서 segment repoint가 실제 적용된 대상.",
+      "record_count": 155,
+      "source_counts": {
+        "inline_event_texts": 2,
+        "registry_a_entry8_prefixed_texts": 152,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 152,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 152
+      },
+      "action_counts": {
+        "entry8_segment_repointed": 152
+      },
+      "delta_total": -8,
+      "changed_delta_count": 3,
+      "variable_candidate_count": 50,
+      "tail_safe_offset_count": 3,
+      "u32_reference_count": 0,
+      "u16_warning_count": 400,
+      "sample_offsets": [
+        "0x6FE122",
+        "0x6FE19A",
+        "0x6FE1B8",
+        "0x6FE1D4",
+        "0x6FE1E0",
+        "0x6FE246"
+      ],
+      "sample_texts": [
+        "価値を４以上にすれば錬成可能！",
+        "旅の友、回復薬の作り方①",
+        "石の素材カード「琥珀」",
+        "５－５か５－６で錬成可能！"
+      ]
+    },
+    {
+      "table_local": 160,
+      "table_local_hex": "0xA0",
+      "old_start": 304812,
+      "old_start_hex": "0x4A6AC",
+      "old_end": 307672,
+      "old_end_hex": "0x4B1D8",
+      "size": 2860,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 24,
+      "source_counts": {
+        "inline_event_texts": 1,
+        "registry_a_entry8_prefixed_texts": 22,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 22,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 22
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 22
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 4,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 236,
+      "sample_offsets": [
+        "0x700008",
+        "0x70003C",
+        "0x700080",
+        "0x700098",
+        "0x7000B4",
+        "0x7000DA"
+      ],
+      "sample_texts": [
+        "法で禁じられている錬成とは？",
+        "　花を錬成する事　黄金を錬成する事",
+        "またまた正解です！",
+        "すごいじゃないですか！"
+      ]
+    },
+    {
+      "table_local": 164,
+      "table_local_hex": "0xA4",
+      "old_start": 307672,
+      "old_start_hex": "0x4B1D8",
+      "old_end": 318116,
+      "old_end_hex": "0x4DAA4",
+      "size": 10444,
+      "protected": false,
+      "capability": "active_repoint",
+      "capability_reason": "현재 빌드에서 segment repoint가 실제 적용된 대상.",
+      "record_count": 60,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 59,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 59,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 59
+      },
+      "action_counts": {
+        "entry8_segment_repointed": 59
+      },
+      "delta_total": -10,
+      "changed_delta_count": 2,
+      "variable_candidate_count": 10,
+      "tail_safe_offset_count": 2,
+      "u32_reference_count": 0,
+      "u16_warning_count": 870,
+      "sample_offsets": [
+        "0x700D06",
+        "0x700D1A",
+        "0x700D42",
+        "0x700D5E",
+        "0x700D92",
+        "0x700E3A"
+      ],
+      "sample_texts": [
+        "猫だらけだ…＄",
+        "もらっていってもいいかな？",
+        "ダメに決まってるだろ！",
+        "ひとんちの猫なんだから"
+      ]
+    },
+    {
+      "table_local": 168,
+      "table_local_hex": "0xA8",
+      "old_start": 318116,
+      "old_start_hex": "0x4DAA4",
+      "old_end": 320432,
+      "old_end_hex": "0x4E3B0",
+      "size": 2316,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 24,
+      "source_counts": {
+        "inline_event_texts": 2,
+        "registry_a_entry8_prefixed_texts": 21,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 21,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 21
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 21
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 4,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 237,
+      "sample_offsets": [
+        "0x70344E",
+        "0x70345C",
+        "0x703474",
+        "0x703496",
+        "0x7034AC",
+        "0x7034CC"
+      ],
+      "sample_texts": [
+        "よっ！",
+        "兄ちゃん、兄ちゃん",
+        "ウラモノのすごいのがあるぜ！",
+        "買わないかい？"
+      ]
+    },
+    {
+      "table_local": 172,
+      "table_local_hex": "0xAC",
+      "old_start": 320432,
+      "old_start_hex": "0x4E3B0",
+      "old_end": 325896,
+      "old_end_hex": "0x4F908",
+      "size": 5464,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 24,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 20,
+        "startup_intro_texts": 4
+      },
+      "applied_record_count": 20,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 20
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 20
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 6,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 449,
+      "sample_offsets": [
+        "0x703D70",
+        "0x703D70",
+        "0x703D7E",
+        "0x703D7E",
+        "0x703D94",
+        "0x703D94"
+      ],
+      "sample_texts": [
+        "大陸暦",
+        "大陸暦",
+        "１９１０年　２月",
+        "１９１０年　２月"
+      ]
+    },
+    {
+      "table_local": 176,
+      "table_local_hex": "0xB0",
+      "old_start": 325896,
+      "old_start_hex": "0x4F908",
+      "old_end": 334376,
+      "old_end_hex": "0x51A28",
+      "size": 8480,
+      "protected": false,
+      "capability": "unknown_or_unused",
+      "capability_reason": "현재 번역 적용에서 건드리지 않은 세그먼트.",
+      "record_count": 0,
+      "source_counts": {},
+      "applied_record_count": 0,
+      "source_apply_counts": {},
+      "action_counts": {},
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 0,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 0,
+      "sample_offsets": [],
+      "sample_texts": []
+    },
+    {
+      "table_local": 180,
+      "table_local_hex": "0xB4",
+      "old_start": 334376,
+      "old_start_hex": "0x51A28",
+      "old_end": 349236,
+      "old_end_hex": "0x55434",
+      "size": 14860,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 123,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 123
+      },
+      "applied_record_count": 122,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 122
+      },
+      "action_counts": {
+        "entry8_boundary_crossing_in_place_length_preserved": 1,
+        "entry8_in_place_length_preserved": 121
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 24,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 98,
+      "sample_offsets": [
+        "0x709334",
+        "0x709352",
+        "0x709368",
+        "0x709390",
+        "0x7093AC",
+        "0x7093C8"
+      ],
+      "sample_texts": [
+        "ここがイーストシティね。",
+        "初めての街って、",
+        "ワクワクしますね",
+        "オレは大佐をどうやって"
+      ]
+    },
+    {
+      "table_local": 184,
+      "table_local_hex": "0xB8",
+      "old_start": 349236,
+      "old_start_hex": "0x55434",
+      "old_end": 352156,
+      "old_end_hex": "0x55F9C",
+      "size": 2920,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 22,
+      "source_counts": {
+        "inline_event_texts": 2,
+        "registry_a_entry8_prefixed_texts": 19,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 19,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 19
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 19
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 4,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 58,
+      "sample_offsets": [
+        "0x70AD94",
+        "0x70ADAA",
+        "0x70ADCA",
+        "0x70ADE4",
+        "0x70ADF0",
+        "0x70AE00"
+      ],
+      "sample_texts": [
+        "買わないかい？",
+        "暗黒の１－７、レベル５だ！",
+        "ダークマターだぞ！",
+        "１５００００センズだ。"
+      ]
+    },
+    {
+      "table_local": 188,
+      "table_local_hex": "0xBC",
+      "old_start": 352156,
+      "old_start_hex": "0x55F9C",
+      "old_end": 360296,
+      "old_end_hex": "0x57F68",
+      "size": 8140,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 166,
+      "source_counts": {
+        "inline_event_texts": 1,
+        "registry_a_entry8_prefixed_texts": 164,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 162,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 162
+      },
+      "action_counts": {
+        "entry8_boundary_crossing_in_place_length_preserved": 1,
+        "entry8_in_place_length_preserved": 161
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 40,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 47,
+      "sample_offsets": [
+        "0x70BB42",
+        "0x70BB56",
+        "0x70BB70",
+        "0x70BB9C",
+        "0x70BBD2",
+        "0x70BBFE"
+      ],
+      "sample_texts": [
+        "いらっしゃい。",
+        "泊まっていくかい？",
+        "一泊、２００センズだよ。",
+        "　泊まる　やっぱ泊まらない"
+      ]
+    },
+    {
+      "table_local": 192,
+      "table_local_hex": "0xC0",
+      "old_start": 360296,
+      "old_start_hex": "0x57F68",
+      "old_end": 370712,
+      "old_end_hex": "0x5A818",
+      "size": 10416,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 127,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 126,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 126,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 126
+      },
+      "action_counts": {
+        "entry8_boundary_crossing_in_place_length_preserved": 1,
+        "entry8_in_place_length_preserved": 125
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 27,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 521,
+      "sample_offsets": [
+        "0x70D8C2",
+        "0x70D950",
+        "0x70D972",
+        "0x70D9A6",
+        "0x70D9D6",
+        "0x70D9E4"
+      ],
+      "sample_texts": [
+        "かまわねぇ、かまわねぇ！",
+        "昨日の晩飯は絶品だったなぁ～",
+        "思い出しただけでもヨダレが…",
+        "もう、中佐ったら！"
+      ]
+    },
+    {
+      "table_local": 196,
+      "table_local_hex": "0xC4",
+      "old_start": 370712,
+      "old_start_hex": "0x5A818",
+      "old_end": 379600,
+      "old_end_hex": "0x5CAD0",
+      "size": 8888,
+      "protected": false,
+      "capability": "active_repoint",
+      "capability_reason": "현재 빌드에서 segment repoint가 실제 적용된 대상.",
+      "record_count": 125,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 124,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 123,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 123
+      },
+      "action_counts": {
+        "entry8_boundary_crossing_in_place_length_preserved": 1,
+        "entry8_segment_repointed": 122
+      },
+      "delta_total": -4,
+      "changed_delta_count": 1,
+      "variable_candidate_count": 30,
+      "tail_safe_offset_count": 1,
+      "u32_reference_count": 0,
+      "u16_warning_count": 555,
+      "sample_offsets": [
+        "0x710192",
+        "0x7101B0",
+        "0x7101C6",
+        "0x7101EC",
+        "0x7101FC",
+        "0x710210"
+      ],
+      "sample_texts": [
+        "鋼の、感心している場合か",
+        "問題はどうやって",
+        "中に入るか、だ",
+        "そんなもん"
+      ]
+    },
+    {
+      "table_local": 200,
+      "table_local_hex": "0xC8",
+      "old_start": 379600,
+      "old_start_hex": "0x5CAD0",
+      "old_end": 419792,
+      "old_end_hex": "0x667D0",
+      "size": 40192,
+      "protected": false,
+      "capability": "active_repoint",
+      "capability_reason": "현재 빌드에서 segment repoint가 실제 적용된 대상.",
+      "record_count": 896,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 895,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 879,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 879
+      },
+      "action_counts": {
+        "entry8_boundary_crossing_in_place_length_preserved": 1,
+        "entry8_segment_repointed": 878
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 352,
+      "tail_safe_offset_count": 8,
+      "u32_reference_count": 41,
+      "u16_warning_count": 1702,
+      "sample_offsets": [
+        "0x71242C",
+        "0x712442",
+        "0x7124CA",
+        "0x7124E6",
+        "0x712506",
+        "0x712528"
+      ],
+      "sample_texts": [
+        "また次だからな。",
+        "たまらんよ",
+        "あの…",
+        "鋼の錬金術師様ですね。"
+      ]
+    },
+    {
+      "table_local": 204,
+      "table_local_hex": "0xCC",
+      "old_start": 419792,
+      "old_start_hex": "0x667D0",
+      "old_end": 428096,
+      "old_end_hex": "0x68840",
+      "size": 8304,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 126,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 125,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 125,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 125
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 125
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 34,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 459,
+      "sample_offsets": [
+        "0x71C126",
+        "0x71C146",
+        "0x71C16C",
+        "0x71C188",
+        "0x71C1AE",
+        "0x71C1C0"
+      ],
+      "sample_texts": [
+        "エルリック兄弟のみで行く！",
+        "中尉の同行も必要ない！",
+        "役立たずでないところを",
+        "見せてやるっ！"
+      ]
+    },
+    {
+      "table_local": 208,
+      "table_local_hex": "0xD0",
+      "old_start": 428096,
+      "old_start_hex": "0x68840",
+      "old_end": 437372,
+      "old_end_hex": "0x6AC7C",
+      "size": 9276,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 62,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 61,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 61,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 61
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 61
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 18,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 1042,
+      "sample_offsets": [
+        "0x71E198",
+        "0x71E1B0",
+        "0x71E1DC",
+        "0x71E1F6",
+        "0x71E212",
+        "0x71E238"
+      ],
+      "sample_texts": [
+        "あっいや、なにも…",
+        "なんでそう思うんだ？",
+        "だってタバコの吸殻が",
+        "いつもより多いですよ。"
+      ]
+    },
+    {
+      "table_local": 212,
+      "table_local_hex": "0xD4",
+      "old_start": 437372,
+      "old_start_hex": "0x6AC7C",
+      "old_end": 457768,
+      "old_end_hex": "0x6FC28",
+      "size": 20396,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 319,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 318,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 317,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 317
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 317
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 67,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 1024,
+      "sample_offsets": [
+        "0x720680",
+        "0x720698",
+        "0x7206CE",
+        "0x7206E4",
+        "0x720710",
+        "0x720730"
+      ],
+      "sample_texts": [
+        "毎日、この練兵場で",
+        "しっかりと訓練しています",
+        "今日もしっかりと",
+        "訓練しています"
+      ]
+    },
+    {
+      "table_local": 216,
+      "table_local_hex": "0xD8",
+      "old_start": 457768,
+      "old_start_hex": "0x6FC28",
+      "old_end": 472132,
+      "old_end_hex": "0x73444",
+      "size": 14364,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 174,
+      "source_counts": {
+        "inline_event_texts": 2,
+        "registry_a_entry8_prefixed_texts": 171,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 170,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 170
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 170
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 42,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 7,
+      "u16_warning_count": 1019,
+      "sample_offsets": [
+        "0x7255D6",
+        "0x7255F0",
+        "0x725608",
+        "0x725618",
+        "0x725636",
+        "0x725654"
+      ],
+      "sample_texts": [
+        "俺の自転車がぁ～！！",
+        "誰がこんなことを…",
+        "とほほ…",
+        "油でみがけば、戻るかな？"
+      ]
+    },
+    {
+      "table_local": 220,
+      "table_local_hex": "0xDC",
+      "old_start": 472132,
+      "old_start_hex": "0x73444",
+      "old_end": 483592,
+      "old_end_hex": "0x76108",
+      "size": 11460,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 185,
+      "source_counts": {
+        "choice_yes_no_texts": 1,
+        "registry_a_entry8_prefixed_texts": 183,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 182,
+      "source_apply_counts": {
+        "choice_yes_no_texts": 1,
+        "registry_a_entry8_prefixed_texts": 181
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 181,
+        "entry8_overlay_in_place_length_preserved": 1
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 38,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 516,
+      "sample_offsets": [
+        "0x728E4E",
+        "0x728E60",
+        "0x728E82",
+        "0x728EB2",
+        "0x728F86",
+        "0x728F98"
+      ],
+      "sample_texts": [
+        "！！",
+        "猫を手に入れた",
+        "なに言ってんだ、アル…？",
+        "い、いや…なんでもない…"
+      ]
+    },
+    {
+      "table_local": 232,
+      "table_local_hex": "0xE8",
+      "old_start": 483592,
+      "old_start_hex": "0x76108",
+      "old_end": 496020,
+      "old_end_hex": "0x79194",
+      "size": 12428,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 152,
+      "source_counts": {
+        "choice_yes_no_texts": 1,
+        "registry_a_entry8_prefixed_texts": 150,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 151,
+      "source_apply_counts": {
+        "choice_yes_no_texts": 1,
+        "registry_a_entry8_prefixed_texts": 150
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 150,
+        "entry8_overlay_in_place_length_preserved": 1
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 27,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 85,
+      "sample_offsets": [
+        "0x72BA64",
+        "0x72BA86",
+        "0x72BAAC",
+        "0x72BAC0",
+        "0x72BAEC",
+        "0x72BB12"
+      ],
+      "sample_texts": [
+        "この部屋、誰かいるみたいだね",
+        "どうする、兄さん？",
+        "よし、いくか！",
+        "さっきと同じ、金属の４－６だ"
+      ]
+    },
+    {
+      "table_local": 236,
+      "table_local_hex": "0xEC",
+      "old_start": 496020,
+      "old_start_hex": "0x79194",
+      "old_end": 506428,
+      "old_end_hex": "0x7BA3C",
+      "size": 10408,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 148,
+      "source_counts": {
+        "inline_event_texts": 1,
+        "registry_a_entry8_prefixed_texts": 146,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 144,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 144
+      },
+      "action_counts": {
+        "entry8_boundary_crossing_in_place_length_preserved": 1,
+        "entry8_in_place_length_preserved": 143
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 26,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 770,
+      "sample_offsets": [
+        "0x72EB28",
+        "0x72EB3C",
+        "0x72EB5C",
+        "0x72EB76",
+        "0x72EB96",
+        "0x72EBC4"
+      ],
+      "sample_texts": [
+        "ぷ、ぷはぁっ！",
+        "な、何事だっ！",
+        "どうやら下水道の管が",
+        "老朽化していたようですね。"
+      ]
+    },
+    {
+      "table_local": 240,
+      "table_local_hex": "0xF0",
+      "old_start": 506428,
+      "old_start_hex": "0x7BA3C",
+      "old_end": 517980,
+      "old_end_hex": "0x7E75C",
+      "size": 11552,
+      "protected": false,
+      "capability": "active_repoint",
+      "capability_reason": "현재 빌드에서 segment repoint가 실제 적용된 대상.",
+      "record_count": 155,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 154,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 154,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 154
+      },
+      "action_counts": {
+        "entry8_segment_repointed": 154
+      },
+      "delta_total": -18,
+      "changed_delta_count": 5,
+      "variable_candidate_count": 56,
+      "tail_safe_offset_count": 5,
+      "u32_reference_count": 0,
+      "u16_warning_count": 928,
+      "sample_offsets": [
+        "0x731396",
+        "0x7313AA",
+        "0x7313CE",
+        "0x7313DC",
+        "0x731402",
+        "0x731420"
+      ],
+      "sample_texts": [
+        "冷たい男…",
+        "冷血漢…",
+        "はいはい",
+        "大佐、行きますよ"
+      ]
+    },
+    {
+      "table_local": 244,
+      "table_local_hex": "0xF4",
+      "old_start": 517980,
+      "old_start_hex": "0x7E75C",
+      "old_end": 529212,
+      "old_end_hex": "0x8133C",
+      "size": 11232,
+      "protected": false,
+      "capability": "active_repoint",
+      "capability_reason": "현재 빌드에서 segment repoint가 실제 적용된 대상.",
+      "record_count": 190,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 190
+      },
+      "applied_record_count": 188,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 188
+      },
+      "action_counts": {
+        "entry8_segment_repointed": 188
+      },
+      "delta_total": -8,
+      "changed_delta_count": 2,
+      "variable_candidate_count": 77,
+      "tail_safe_offset_count": 2,
+      "u32_reference_count": 9,
+      "u16_warning_count": 557,
+      "sample_offsets": [
+        "0x7340AE",
+        "0x7340DC",
+        "0x7340EC",
+        "0x734114",
+        "0x73412E",
+        "0x734146"
+      ],
+      "sample_texts": [
+        "さっきからずっとしてるけど…",
+        "違います！",
+        "兄さん…みたいなにおい",
+        "マーティンス中佐が？"
+      ]
+    },
+    {
+      "table_local": 248,
+      "table_local_hex": "0xF8",
+      "old_start": 529212,
+      "old_start_hex": "0x8133C",
+      "old_end": 536796,
+      "old_end_hex": "0x830DC",
+      "size": 7584,
+      "protected": false,
+      "capability": "active_repoint_overlay",
+      "capability_reason": "현재 세그먼트 repoint와 별도 overlay가 함께 필요했던 검증 대상.",
+      "record_count": 88,
+      "source_counts": {
+        "choice_yes_no_texts": 1,
+        "registry_a_entry8_prefixed_texts": 86,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 87,
+      "source_apply_counts": {
+        "choice_yes_no_texts": 1,
+        "registry_a_entry8_prefixed_texts": 86
+      },
+      "action_counts": {
+        "entry8_overlay_in_place_length_preserved": 1,
+        "entry8_segment_repointed": 86
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 26,
+      "tail_safe_offset_count": 2,
+      "u32_reference_count": 0,
+      "u16_warning_count": 656,
+      "sample_offsets": [
+        "0x736C9A",
+        "0x736CAE",
+        "0x736CCA",
+        "0x736CF0",
+        "0x736D0C",
+        "0x736D1E"
+      ],
+      "sample_texts": [
+        "というわけで、",
+        "バルド、あなたの身柄を",
+        "確保します",
+        "はいそうですか、なんて"
+      ]
+    },
+    {
+      "table_local": 252,
+      "table_local_hex": "0xFC",
+      "old_start": 536796,
+      "old_start_hex": "0x830DC",
+      "old_end": 538820,
+      "old_end_hex": "0x838C4",
+      "size": 2024,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 14,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 13,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 13,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 13
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 13
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 1,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 8,
+      "sample_offsets": [
+        "0x738A3A",
+        "0x738A56",
+        "0x738A9E",
+        "0x738AAE",
+        "0x738BC8",
+        "0x738BE2"
+      ],
+      "sample_texts": [
+        "このカードじゃダメだ。",
+        "金属の２－４を作らないと…",
+        "必要なのは",
+        "金属の２－４のカードだね"
+      ]
+    },
+    {
+      "table_local": 256,
+      "table_local_hex": "0x100",
+      "old_start": 538820,
+      "old_start_hex": "0x838C4",
+      "old_end": 540844,
+      "old_end_hex": "0x840AC",
+      "size": 2024,
+      "protected": false,
+      "capability": "unknown_or_unused",
+      "capability_reason": "현재 번역 적용에서 건드리지 않은 세그먼트.",
+      "record_count": 1,
+      "source_counts": {
+        "duplicate_text_slots": 1
+      },
+      "applied_record_count": 0,
+      "source_apply_counts": {},
+      "action_counts": {},
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 0,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 0,
+      "sample_offsets": [
+        "0x739630"
+      ],
+      "sample_texts": [
+        "57：--ダイムラー邸③2階"
+      ]
+    },
+    {
+      "table_local": 260,
+      "table_local_hex": "0x104",
+      "old_start": 540844,
+      "old_start_hex": "0x840AC",
+      "old_end": 545576,
+      "old_end_hex": "0x85328",
+      "size": 4732,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 30,
+      "source_counts": {
+        "duplicate_text_slots": 1,
+        "registry_a_entry8_prefixed_texts": 29
+      },
+      "applied_record_count": 29,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 29
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 29
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 4,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 3,
+      "sample_offsets": [
+        "0x739E18",
+        "0x73A744",
+        "0x73A76E",
+        "0x73A792",
+        "0x73A7A2",
+        "0x73A7D4"
+      ],
+      "sample_texts": [
+        "58：ダイムラー邸④地下",
+        "大佐！この部屋！？",
+        "うむ！",
+        "うひょー、"
+      ]
+    },
+    {
+      "table_local": 264,
+      "table_local_hex": "0x108",
+      "old_start": 545576,
+      "old_start_hex": "0x85328",
+      "old_end": 562144,
+      "old_end_hex": "0x893E0",
+      "size": 16568,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 181,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 180,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 180,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 180
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 180
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 29,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 4,
+      "u16_warning_count": 607,
+      "sample_offsets": [
+        "0x73ACA6",
+        "0x73ACC8",
+        "0x73ACF6",
+        "0x73AD2A",
+        "0x73AD42",
+        "0x73AD64"
+      ],
+      "sample_texts": [
+        "キメラで時間かせぎされたな！",
+        "あのヤローを見失っちまったぜ",
+        "探しましょうよ！",
+        "そうは言うけどよ、"
+      ]
+    },
+    {
+      "table_local": 268,
+      "table_local_hex": "0x10C",
+      "old_start": 562144,
+      "old_start_hex": "0x893E0",
+      "old_end": 566460,
+      "old_end_hex": "0x8A4BC",
+      "size": 4316,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 55,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 54,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 54,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 54
+      },
+      "action_counts": {
+        "entry8_boundary_crossing_in_place_length_preserved": 1,
+        "entry8_in_place_length_preserved": 53
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 13,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 301,
+      "sample_offsets": [
+        "0x73ED30",
+        "0x73ED3C",
+        "0x73ED54",
+        "0x73ED7A",
+        "0x73ED8C",
+        "0x73EDA6"
+      ],
+      "sample_texts": [
+        "…か。",
+        "オレはきっとアルを",
+        "元の身体に戻してやる",
+        "違うよ。"
+      ]
+    },
+    {
+      "table_local": 272,
+      "table_local_hex": "0x110",
+      "old_start": 566460,
+      "old_start_hex": "0x8A4BC",
+      "old_end": 578272,
+      "old_end_hex": "0x8D2E0",
+      "size": 11812,
+      "protected": false,
+      "capability": "active_repoint",
+      "capability_reason": "현재 빌드에서 segment repoint가 실제 적용된 대상.",
+      "record_count": 239,
+      "source_counts": {
+        "inline_event_texts": 3,
+        "registry_a_entry8_prefixed_texts": 235,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 235,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 235
+      },
+      "action_counts": {
+        "entry8_segment_repointed": 235
+      },
+      "delta_total": -10,
+      "changed_delta_count": 2,
+      "variable_candidate_count": 46,
+      "tail_safe_offset_count": 3,
+      "u32_reference_count": 0,
+      "u16_warning_count": 344,
+      "sample_offsets": [
+        "0x73FF6A",
+        "0x73FF76",
+        "0x73FF88",
+        "0x73FFB4",
+        "0x73FFEC",
+        "0x74000C"
+      ],
+      "sample_texts": [
+        "おや？",
+        "また機械鎧を",
+        "壊したんじゃないだろうね？",
+        "ワンワンッ！"
+      ]
+    },
+    {
+      "table_local": 276,
+      "table_local_hex": "0x114",
+      "old_start": 578272,
+      "old_start_hex": "0x8D2E0",
+      "old_end": 594604,
+      "old_end_hex": "0x912AC",
+      "size": 16332,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 203,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 202,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 202,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 202
+      },
+      "action_counts": {
+        "entry8_boundary_crossing_in_place_length_preserved": 1,
+        "entry8_in_place_length_preserved": 201
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 42,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 9,
+      "u16_warning_count": 1104,
+      "sample_offsets": [
+        "0x742C34",
+        "0x742C4A",
+        "0x742C6E",
+        "0x742C7C",
+        "0x742CC6",
+        "0x742CE2"
+      ],
+      "sample_texts": [
+        "この満足感、",
+        "最高だわ！！",
+        "よっ、",
+        "よかったな"
+      ]
+    },
+    {
+      "table_local": 280,
+      "table_local_hex": "0x118",
+      "old_start": 594604,
+      "old_start_hex": "0x912AC",
+      "old_end": 604488,
+      "old_end_hex": "0x93948",
+      "size": 9884,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 55,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 54,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 54,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 54
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 54
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 16,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 1,
+      "u16_warning_count": 989,
+      "sample_offsets": [
+        "0x746C14",
+        "0x746C26",
+        "0x746C52",
+        "0x746C68",
+        "0x746C84",
+        "0x746CB2"
+      ],
+      "sample_texts": [
+        "当たり前だ！",
+        "手など抜くか！",
+        "でも、その顔だと",
+        "真面目に戦ってるように"
+      ]
+    },
+    {
+      "table_local": 284,
+      "table_local_hex": "0x11C",
+      "old_start": 604488,
+      "old_start_hex": "0x93948",
+      "old_end": 625496,
+      "old_end_hex": "0x98B58",
+      "size": 21008,
+      "protected": false,
+      "capability": "active_repoint",
+      "capability_reason": "현재 빌드에서 segment repoint가 실제 적용된 대상.",
+      "record_count": 458,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 457,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 457,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 457
+      },
+      "action_counts": {
+        "entry8_segment_repointed": 457
+      },
+      "delta_total": -6,
+      "changed_delta_count": 3,
+      "variable_candidate_count": 123,
+      "tail_safe_offset_count": 7,
+      "u32_reference_count": 0,
+      "u16_warning_count": 673,
+      "sample_offsets": [
+        "0x7492F6",
+        "0x749314",
+        "0x74933E",
+        "0x749354",
+        "0x749368",
+        "0x74939E"
+      ],
+      "sample_texts": [
+        "やっぱり大佐のそのヒゲ、",
+        "緊張感に欠けるんだよなぁ",
+        "余計なお世話だ！",
+        "落とせるなら、"
+      ]
+    },
+    {
+      "table_local": 288,
+      "table_local_hex": "0x120",
+      "old_start": 625496,
+      "old_start_hex": "0x98B58",
+      "old_end": 638336,
+      "old_end_hex": "0x9BD80",
+      "size": 12840,
+      "protected": false,
+      "capability": "active_repoint",
+      "capability_reason": "현재 빌드에서 segment repoint가 실제 적용된 대상.",
+      "record_count": 143,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 143
+      },
+      "applied_record_count": 142,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 142
+      },
+      "action_counts": {
+        "entry8_segment_repointed": 142
+      },
+      "delta_total": -2,
+      "changed_delta_count": 1,
+      "variable_candidate_count": 36,
+      "tail_safe_offset_count": 1,
+      "u32_reference_count": 0,
+      "u16_warning_count": 1021,
+      "sample_offsets": [
+        "0x74E4BC",
+        "0x74E4D2",
+        "0x74E506",
+        "0x74E53C",
+        "0x74E54A",
+        "0x74E566"
+      ],
+      "sample_texts": [
+        "鋼の、これは私の",
+        "威厳を取り戻す戦いなのだ。",
+        "…やらせてくれ",
+        "…大佐。"
+      ]
+    },
+    {
+      "table_local": 292,
+      "table_local_hex": "0x124",
+      "old_start": 638336,
+      "old_start_hex": "0x9BD80",
+      "old_end": 649976,
+      "old_end_hex": "0x9EAF8",
+      "size": 11640,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 148,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 148
+      },
+      "applied_record_count": 148,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 148
+      },
+      "action_counts": {
+        "entry8_boundary_crossing_in_place_length_preserved": 1,
+        "entry8_in_place_length_preserved": 147
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 41,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 844,
+      "sample_offsets": [
+        "0x751782",
+        "0x7517A4",
+        "0x7517C6",
+        "0x751840",
+        "0x75186C",
+        "0x751880"
+      ],
+      "sample_texts": [
+        "調査と修理は終わりましたが、",
+        "まだ中はキメラでいっぱいです",
+        "気をつけてください",
+        "ダメですってば！"
+      ]
+    },
+    {
+      "table_local": 296,
+      "table_local_hex": "0x128",
+      "old_start": 649976,
+      "old_start_hex": "0x9EAF8",
+      "old_end": 661856,
+      "old_end_hex": "0xA1960",
+      "size": 11880,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 173,
+      "source_counts": {
+        "choice_yes_no_texts": 1,
+        "inline_event_texts": 1,
+        "registry_a_entry8_prefixed_texts": 171
+      },
+      "applied_record_count": 170,
+      "source_apply_counts": {
+        "choice_yes_no_texts": 1,
+        "registry_a_entry8_prefixed_texts": 169
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 169,
+        "entry8_overlay_in_place_length_preserved": 1
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 34,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 2,
+      "u16_warning_count": 298,
+      "sample_offsets": [
+        "0x754468",
+        "0x754538",
+        "0x754580",
+        "0x7545AC",
+        "0x7545F6",
+        "0x754650"
+      ],
+      "sample_texts": [
+        "　はい　いいえ",
+        "ケイト、待ってろよ～",
+        "このカードじゃダメだ",
+        "石の７－６を作ればいいんだね"
+      ]
+    },
+    {
+      "table_local": 300,
+      "table_local_hex": "0x12C",
+      "old_start": 661856,
+      "old_start_hex": "0xA1960",
+      "old_end": 671960,
+      "old_end_hex": "0xA40D8",
+      "size": 10104,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 86,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 86
+      },
+      "applied_record_count": 86,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 86
+      },
+      "action_counts": {
+        "entry8_boundary_crossing_in_place_length_preserved": 1,
+        "entry8_in_place_length_preserved": 85
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 18,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 755,
+      "sample_offsets": [
+        "0x75730E",
+        "0x757356",
+        "0x757374",
+        "0x75738C",
+        "0x7573DE",
+        "0x75743A"
+      ],
+      "sample_texts": [
+        "やっぱこれが手っ取り早いな！",
+        "このカードじゃダメだな。",
+        "ここの扉を壊すには",
+        "金属の７－４のカードが必要だ"
+      ]
+    },
+    {
+      "table_local": 304,
+      "table_local_hex": "0x130",
+      "old_start": 671960,
+      "old_start_hex": "0xA40D8",
+      "old_end": 696384,
+      "old_end_hex": "0xAA040",
+      "size": 24424,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 513,
+      "source_counts": {
+        "choice_yes_no_texts": 2,
+        "registry_a_entry8_prefixed_texts": 511
+      },
+      "applied_record_count": 513,
+      "source_apply_counts": {
+        "choice_yes_no_texts": 2,
+        "registry_a_entry8_prefixed_texts": 511
+      },
+      "action_counts": {
+        "entry8_boundary_crossing_in_place_length_preserved": 1,
+        "entry8_in_place_length_preserved": 510,
+        "entry8_overlay_in_place_length_preserved": 2
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 114,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 830,
+      "sample_offsets": [
+        "0x759A44",
+        "0x759A74",
+        "0x759AA8",
+        "0x759AD4",
+        "0x759AF2",
+        "0x759B0A"
+      ],
+      "sample_texts": [
+        "疑ったり、仲直りしたり…",
+        "つい、この間のことみたいだな",
+        "つい、この間だよ、兄さん",
+        "え、そうか？"
+      ]
+    },
+    {
+      "table_local": 308,
+      "table_local_hex": "0x134",
+      "old_start": 696384,
+      "old_start_hex": "0xAA040",
+      "old_end": 712860,
+      "old_end_hex": "0xAE09C",
+      "size": 16476,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 316,
+      "source_counts": {
+        "inline_event_texts": 1,
+        "registry_a_entry8_prefixed_texts": 314,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 313,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 313
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 313
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 64,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 783,
+      "sample_offsets": [
+        "0x75F99A",
+        "0x75F9D4",
+        "0x75F9FC",
+        "0x75FA18",
+        "0x75FA34",
+        "0x75FB10"
+      ],
+      "sample_texts": [
+        "いいんですか、ホークアイさん",
+        "もう知りません…",
+        "フン、なまぬるい！",
+        "どうせ最後なのだから、"
+      ]
+    },
+    {
+      "table_local": 312,
+      "table_local_hex": "0x138",
+      "old_start": 712860,
+      "old_start_hex": "0xAE09C",
+      "old_end": 717444,
+      "old_end_hex": "0xAF284",
+      "size": 4584,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 14,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 14
+      },
+      "applied_record_count": 14,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 14
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 14
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 8,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 399,
+      "sample_offsets": [
+        "0x763A2A",
+        "0x763A4A",
+        "0x763A76",
+        "0x763A88",
+        "0x763BAE",
+        "0x763BCA"
+      ],
+      "sample_texts": [
+        "陽気なおじいさんね。",
+        "なんだったのかしら？",
+        "用はなくても",
+        "探られたくない事があるのかな"
+      ]
+    },
+    {
+      "table_local": 316,
+      "table_local_hex": "0x13C",
+      "old_start": 717444,
+      "old_start_hex": "0xAF284",
+      "old_end": 722120,
+      "old_end_hex": "0xB04C8",
+      "size": 4676,
+      "protected": false,
+      "capability": "active_repoint",
+      "capability_reason": "현재 빌드에서 segment repoint가 실제 적용된 대상.",
+      "record_count": 20,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 20
+      },
+      "applied_record_count": 20,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 20
+      },
+      "action_counts": {
+        "entry8_segment_repointed": 20
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 7,
+      "tail_safe_offset_count": 4,
+      "u32_reference_count": 0,
+      "u16_warning_count": 394,
+      "sample_offsets": [
+        "0x764BE6",
+        "0x764C64",
+        "0x764C78",
+        "0x764CAC",
+        "0x764CC4",
+        "0x764CE6"
+      ],
+      "sample_texts": [
+        "えーん、コワイよぉ",
+        "今は列車強盗が",
+        "はやってるのかしら？",
+        "列車強盗してないで"
+      ]
+    },
+    {
+      "table_local": 320,
+      "table_local_hex": "0x140",
+      "old_start": 722120,
+      "old_start_hex": "0xB04C8",
+      "old_end": 726796,
+      "old_end_hex": "0xB170C",
+      "size": 4676,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 12,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 12
+      },
+      "applied_record_count": 12,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 12
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 12
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 5,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 605,
+      "sample_offsets": [
+        "0x765E50",
+        "0x765E68",
+        "0x765E9A",
+        "0x765EB4",
+        "0x765F30",
+        "0x765F68"
+      ],
+      "sample_texts": [
+        "パパはいつもママに",
+        "ケンカで負けるんだ",
+        "ボクもワルイやつから",
+        "みんなを守るぞ！"
+      ]
+    },
+    {
+      "table_local": 324,
+      "table_local_hex": "0x144",
+      "old_start": 726796,
+      "old_start_hex": "0xB170C",
+      "old_end": 730268,
+      "old_end_hex": "0xB249C",
+      "size": 3472,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 15,
+      "source_counts": {
+        "choice_yes_no_texts": 1,
+        "registry_a_entry8_prefixed_texts": 13,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 14,
+      "source_apply_counts": {
+        "choice_yes_no_texts": 1,
+        "registry_a_entry8_prefixed_texts": 13
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 13,
+        "entry8_overlay_in_place_length_preserved": 1
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 4,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 204,
+      "sample_offsets": [
+        "0x767170",
+        "0x767190",
+        "0x7671BA",
+        "0x7671D4",
+        "0x7671F6",
+        "0x767218"
+      ],
+      "sample_texts": [
+        "きっとこの上じゃないかな？",
+        "どうする、兄さん？",
+        "錬成でハシゴを作れば",
+        "上にのぼれそうだな"
+      ]
+    },
+    {
+      "table_local": 328,
+      "table_local_hex": "0x148",
+      "old_start": 730268,
+      "old_start_hex": "0xB249C",
+      "old_end": 735056,
+      "old_end_hex": "0xB3750",
+      "size": 4788,
+      "protected": false,
+      "capability": "active_repoint",
+      "capability_reason": "현재 빌드에서 segment repoint가 실제 적용된 대상.",
+      "record_count": 8,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 8
+      },
+      "applied_record_count": 8,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 8
+      },
+      "action_counts": {
+        "entry8_boundary_crossing_in_place_length_preserved": 1,
+        "entry8_segment_repointed": 7
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 1,
+      "tail_safe_offset_count": 1,
+      "u32_reference_count": 0,
+      "u16_warning_count": 0,
+      "sample_offsets": [
+        "0x768FD2",
+        "0x768FE2",
+        "0x769000",
+        "0x769016",
+        "0x769042",
+        "0x76904E"
+      ],
+      "sample_texts": [
+        "キサマは！",
+        "何しに来た？",
+        "決まってんだろ。",
+        "人質を助けに来たんだよ"
+      ]
+    },
+    {
+      "table_local": 332,
+      "table_local_hex": "0x14C",
+      "old_start": 735056,
+      "old_start_hex": "0xB3750",
+      "old_end": 739740,
+      "old_end_hex": "0xB499C",
+      "size": 4684,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 20,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 20
+      },
+      "applied_record_count": 20,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 20
+      },
+      "action_counts": {
+        "entry8_in_place_length_preserved": 20
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 4,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 616,
+      "sample_offsets": [
+        "0x7690B4",
+        "0x7690D6",
+        "0x7690F4",
+        "0x769112",
+        "0x76913C",
+        "0x76915C"
+      ],
+      "sample_texts": [
+        "こりてねぇな",
+        "私はあきらめの悪い男だ。",
+        "何度でも目的達成の為には",
+        "挑戦をし続ける"
+      ]
+    },
+    {
+      "table_local": 336,
+      "table_local_hex": "0x150",
+      "old_start": 739740,
+      "old_start_hex": "0xB499C",
+      "old_end": 743976,
+      "old_end_hex": "0xB5A28",
+      "size": 4236,
+      "protected": true,
+      "capability": "protected",
+      "capability_reason": "보호 세그먼트. 오프닝/민감 제어 흐름 가능성이 있어 기본 확장 금지.",
+      "record_count": 20,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 20
+      },
+      "applied_record_count": 20,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 20
+      },
+      "action_counts": {
+        "entry8_boundary_crossing_in_place_length_preserved": 1,
+        "entry8_in_place_length_preserved": 19
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 6,
+      "tail_safe_offset_count": 1,
+      "u32_reference_count": 0,
+      "u16_warning_count": 142,
+      "sample_offsets": [
+        "0x76A504",
+        "0x76A516",
+        "0x76A544",
+        "0x76A55E",
+        "0x76A582",
+        "0x76A594"
+      ],
+      "sample_texts": [
+        "いいかげん、",
+        "大人しくしてれば良いのになぁ",
+        "そう何度もやられると",
+        "思ってるのか！"
+      ]
+    },
+    {
+      "table_local": 348,
+      "table_local_hex": "0x15C",
+      "old_start": 743976,
+      "old_start_hex": "0xB5A28",
+      "old_end": 750768,
+      "old_end_hex": "0xB74B0",
+      "size": 6792,
+      "protected": true,
+      "capability": "protected",
+      "capability_reason": "보호 세그먼트. 오프닝/민감 제어 흐름 가능성이 있어 기본 확장 금지.",
+      "record_count": 148,
+      "source_counts": {
+        "registry_a_entry8_prefixed_texts": 148
+      },
+      "applied_record_count": 148,
+      "source_apply_counts": {
+        "registry_a_entry8_prefixed_texts": 148
+      },
+      "action_counts": {
+        "entry8_boundary_crossing_in_place_length_preserved": 1,
+        "entry8_in_place_length_preserved": 147
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 37,
+      "tail_safe_offset_count": 3,
+      "u32_reference_count": 0,
+      "u16_warning_count": 285,
+      "sample_offsets": [
+        "0x76B382",
+        "0x76B394",
+        "0x76B3BC",
+        "0x76B3F8",
+        "0x76B42A",
+        "0x76B498"
+      ],
+      "sample_texts": [
+        "指だせ。",
+        "オレたちの血も必要なんだ。",
+        "切るぞ",
+        "イタッ！！"
+      ]
+    },
+    {
+      "table_local": 352,
+      "table_local_hex": "0x160",
+      "old_start": 750768,
+      "old_start_hex": "0xB74B0",
+      "old_end": 763308,
+      "old_end_hex": "0xBA5AC",
+      "size": 12540,
+      "protected": false,
+      "capability": "candidate_structural",
+      "capability_reason": "구조상 variable 후보는 있으나 tail-safe 검증은 부족함.",
+      "record_count": 255,
+      "source_counts": {
+        "choice_yes_no_texts": 1,
+        "registry_a_entry8_prefixed_texts": 253,
+        "registry_a_map_labels": 1
+      },
+      "applied_record_count": 252,
+      "source_apply_counts": {
+        "choice_yes_no_texts": 1,
+        "registry_a_entry8_prefixed_texts": 251
+      },
+      "action_counts": {
+        "entry8_boundary_crossing_in_place_length_preserved": 1,
+        "entry8_in_place_length_preserved": 250,
+        "entry8_overlay_in_place_length_preserved": 1
+      },
+      "delta_total": 0,
+      "changed_delta_count": 0,
+      "variable_candidate_count": 60,
+      "tail_safe_offset_count": 0,
+      "u32_reference_count": 0,
+      "u16_warning_count": 421,
+      "sample_offsets": [
+        "0x76CE16",
+        "0x76CE28",
+        "0x76CF02",
+        "0x76CF22",
+        "0x76CF3E",
+        "0x76CF68"
+      ],
+      "sample_texts": [
+        "………鋼の、",
+        "マーティンス中佐を追うぞ！",
+        "マーティンス中佐を追うぞ！",
+        "自然の６－４のカードで"
+      ]
+    },
+    {
+      "table_local": 360,
+      "table_local_hex": "0x168",
+      "old_start": 763308,
+      "old_start_hex": "0xBA5AC",
+      "old_end": 776444,
+      "old_end_hex": "0xBD8FC",
+      "size": 13136,
+      "protected": false,
+      "capability": "active_repoint_overlay",
+      "capability_reason": "현재 세그먼트 repoint와 별도 overlay가 함께 필요했던 검증 대상.",
+      "record_count": 292,
+      "source_counts": {
+        "choice_yes_no_texts": 6,
+        "registry_a_entry8_prefixed_texts": 273,
+        "registry_a_map_labels": 1,
+        "save_menu_texts": 12
+      },
+      "applied_record_count": 279,
+      "source_apply_counts": {
+        "choice_yes_no_texts": 6,
+        "registry_a_entry8_prefixed_texts": 273
+      },
+      "action_counts": {
+        "entry8_overlay_in_place_length_preserved": 6,
+        "entry8_segment_repointed": 273
+      },
+      "delta_total": -12,
+      "changed_delta_count": 3,
+      "variable_candidate_count": 56,
+      "tail_safe_offset_count": 7,
+      "u32_reference_count": 0,
+      "u16_warning_count": 531,
+      "sample_offsets": [
+        "0x76FF10",
+        "0x76FF3E",
+        "0x76FF56",
+        "0x76FF6C",
+        "0x76FF98",
+        "0x76FFA8"
+      ],
+      "sample_texts": [
+        "様々な想いをのせて…",
+        "あの歳の子供たちに",
+        "背負わせるには、",
+        "重すぎる十字架ですね"
+      ]
+    }
+  ]
+}
