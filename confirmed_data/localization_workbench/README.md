@@ -31,6 +31,7 @@
 - 대사에는 dialogue_state_token 과 등록된 화자 선택값을 함께 본다.
 - 진행 상태를 저장하고, 현재 검토 중인 category 를 이어서 연다.
 - 이미지 교체 후보는 replacement_path 와 메모를 따로 관리한다.
+- Entry8 후보 검수에는 `entry8_no_space_slack_candidates.json` 탭이 포함된다. 이 탭은 공백이 하나도 없고 byte 여유가 남은 항목을 모아두며, 자동 제안은 현재값 그대로 두고 사용자가 직접 전각 공백을 넣는 검수용이다.
 
 ## 안전 기능
 

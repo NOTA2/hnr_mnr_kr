@@ -1258,6 +1258,13 @@
         note: "비공백 문자는 그대로 두고 전각 공백만 추가하는 후보",
       },
       {
+        id: "spacing_no_space_slack",
+        label: "공백 없음/여유 있음",
+        path: "confirmed_data/translation_workspace/audits/entry8_no_space_slack_candidates.json",
+        tone: "hold",
+        note: "현재 번역문에 공백이 없고 byte 여유가 남은 항목입니다. 제안을 직접 수정해 필요한 항목만 적용하세요.",
+      },
+      {
         id: "boundary_hold",
         label: "특수기호 검토/기본 미적용",
         path: "confirmed_data/translation_workspace/audits/entry8_boundary_special_chars_hold.json",
@@ -1993,6 +2000,14 @@
       for (const candidate of state.auditCandidates) {
         const decision = auditDecisionFor(candidate);
         if (decision === "skip") continue;
+        const requiresManualEdit = candidate.requires_manual_edit || candidate.manual_edit_required;
+        if (requiresManualEdit && !auditCandidateIsEdited(candidate)) {
+          if (decision === "done" && options.pruneStaleDone) {
+            state.auditDecisions.delete(candidate.key);
+            cleared += 1;
+          }
+          continue;
+        }
         const matchesCurrent = auditCandidateMatchesCurrentTranslation(candidate);
         if (decision === "done" && options.pruneStaleDone && !matchesCurrent) {
           state.auditDecisions.delete(candidate.key);
