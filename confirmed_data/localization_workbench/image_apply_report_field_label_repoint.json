@@ -1,0 +1,33 @@
+{
+  "rom": "patched_roms/current_review/hnr_localization_review.gba",
+  "applied_count": 1,
+  "results": [
+    {
+      "item_id": "image:field_save_label_0053293C",
+      "status": "applied",
+      "compression": "lz77",
+      "storage": "field_label_archive_repoint",
+      "offset": 5450044,
+      "offset_hex": "0x0053293C",
+      "new_offset": 8752540,
+      "new_offset_hex": "0x00858D9C",
+      "entry_header_offset": "0x00858D98",
+      "table_offsets": [
+        "0x00420174"
+      ],
+      "old_table_values": [
+        "0x0010B2B0"
+      ],
+      "new_table_value": "0x00431710",
+      "archive_data_base": "0x00427688",
+      "decompressed_size": 2048,
+      "compressed_size": 453,
+      "available_size": 434,
+      "original_consumed_size": 434,
+      "size_overage": 19,
+      "rom_size_after": 8752993,
+      "repoint_attempted": true,
+      "columns": 32
+    }
+  ]
+}

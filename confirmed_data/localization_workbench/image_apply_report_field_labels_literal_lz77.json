@@ -1,0 +1,118 @@
+{
+  "rom": "patched_roms/current_review/hnr_localization_review.gba",
+  "applied_count": 4,
+  "results": [
+    {
+      "item_id": "image:field_alchemy_label_005323AC",
+      "status": "applied",
+      "compression": "lz77",
+      "storage": "field_label_archive_repoint",
+      "offset": 5448620,
+      "offset_hex": "0x005323AC",
+      "new_offset": 8756292,
+      "new_offset_hex": "0x00859C44",
+      "entry_header_offset": "0x00859C40",
+      "table_offsets": [
+        "0x00420168"
+      ],
+      "old_table_values": [
+        "0x0010AD20"
+      ],
+      "new_table_value": "0x004325B8",
+      "archive_data_base": "0x00427688",
+      "decompressed_size": 2048,
+      "compressed_size": 2308,
+      "available_size": 459,
+      "original_consumed_size": 459,
+      "size_overage": 1849,
+      "rom_size_after": 8758600,
+      "repoint_attempted": true,
+      "columns": 32,
+      "lz77_encoder": "literal"
+    },
+    {
+      "item_id": "image:field_label_0053257C",
+      "status": "applied",
+      "compression": "lz77",
+      "storage": "field_label_archive_repoint",
+      "offset": 5449084,
+      "offset_hex": "0x0053257C",
+      "new_offset": 8758604,
+      "new_offset_hex": "0x0085A54C",
+      "entry_header_offset": "0x0085A548",
+      "table_offsets": [
+        "0x0042016C"
+      ],
+      "old_table_values": [
+        "0x0010AEF0"
+      ],
+      "new_table_value": "0x00432EC0",
+      "archive_data_base": "0x00427688",
+      "decompressed_size": 2048,
+      "compressed_size": 2308,
+      "available_size": 484,
+      "original_consumed_size": 484,
+      "size_overage": 1824,
+      "rom_size_after": 8760912,
+      "repoint_attempted": true,
+      "columns": 32,
+      "lz77_encoder": "literal"
+    },
+    {
+      "item_id": "image:field_status_label_00532764",
+      "status": "applied",
+      "compression": "lz77",
+      "storage": "field_label_archive_repoint",
+      "offset": 5449572,
+      "offset_hex": "0x00532764",
+      "new_offset": 8760916,
+      "new_offset_hex": "0x0085AE54",
+      "entry_header_offset": "0x0085AE50",
+      "table_offsets": [
+        "0x00420170"
+      ],
+      "old_table_values": [
+        "0x0010B0D8"
+      ],
+      "new_table_value": "0x004337C8",
+      "archive_data_base": "0x00427688",
+      "decompressed_size": 2048,
+      "compressed_size": 2308,
+      "available_size": 467,
+      "original_consumed_size": 467,
+      "size_overage": 1841,
+      "rom_size_after": 8763224,
+      "repoint_attempted": true,
+      "columns": 32,
+      "lz77_encoder": "literal"
+    },
+    {
+      "item_id": "image:field_save_label_0053293C",
+      "status": "applied",
+      "compression": "lz77",
+      "storage": "field_label_archive_repoint",
+      "offset": 5450044,
+      "offset_hex": "0x0053293C",
+      "new_offset": 8763228,
+      "new_offset_hex": "0x0085B75C",
+      "entry_header_offset": "0x0085B758",
+      "table_offsets": [
+        "0x00420174"
+      ],
+      "old_table_values": [
+        "0x00430DCC"
+      ],
+      "new_table_value": "0x004340D0",
+      "archive_data_base": "0x00427688",
+      "decompressed_size": 2048,
+      "compressed_size": 2308,
+      "available_size": 434,
+      "original_consumed_size": 434,
+      "size_overage": 1874,
+      "rom_size_after": 8765536,
+      "repoint_attempted": true,
+      "columns": 32,
+      "lz77_encoder": "literal"
+    }
+  ]
+}

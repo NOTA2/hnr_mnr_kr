@@ -1,0 +1,92 @@
+{
+  "target": "SUB menu right-side labels from user supplied ss4/ss5",
+  "corrected_conclusion": "Registry B ZP01-compressed graphics resources, not normal text and not existing LZ77 label images",
+  "runtime": {
+    "bg": "BG1",
+    "char_base": "0x06004000",
+    "screen_base_block": 24,
+    "palette_bank": 1,
+    "ss4_visible_label": "錬成手帳",
+    "ss5_visible_labels": ["入れ替え", "必殺技"]
+  },
+  "loader": {
+    "function": "0x068DF8",
+    "signature": "loader(dest, registry_b_entry_id)",
+    "table_rom_address": "0x08183D50",
+    "table_file_offset": "0x00183D50",
+    "zp_dispatch": "0x068E40",
+    "zp01_decoder": "0x0690C4",
+    "temporary_output_buffer": "0x02020000"
+  },
+  "call_sites": [
+    {
+      "range": "0x065396..0x0653A8",
+      "entry": "0x10",
+      "destination": "0x06004000"
+    },
+    {
+      "range": "0x065400..0x065412",
+      "entry": "0x11",
+      "destination": "0x06004000"
+    },
+    {
+      "range": "0x0658C4..0x0658DC",
+      "entry": "0x12",
+      "destination": "0x06004000"
+    },
+    {
+      "range": "0x0658F6..0x0658FC",
+      "entry": "0x13",
+      "destination": "0x06008000"
+    }
+  ],
+  "registry_b_entries": [
+    {
+      "entry": 16,
+      "table_offset": "0x00183DD0",
+      "rom_pointer": "0x087CE608",
+      "file_offset": "0x007CE608",
+      "compressed_size": "0x027F",
+      "header": "ZP01",
+      "output_size": "0x0D00",
+      "destination": "0x06004000"
+    },
+    {
+      "entry": 17,
+      "table_offset": "0x00183DD8",
+      "rom_pointer": "0x087CE888",
+      "file_offset": "0x007CE888",
+      "compressed_size": "0x0419",
+      "header": "ZP01",
+      "output_size": "0x1500",
+      "destination": "0x06004000"
+    },
+    {
+      "entry": 18,
+      "table_offset": "0x00183DE0",
+      "rom_pointer": "0x087CECA4",
+      "file_offset": "0x007CECA4",
+      "compressed_size": "0x031C",
+      "header": "ZP01",
+      "output_size": "0x19E0",
+      "destination": "0x06004000"
+    },
+    {
+      "entry": 19,
+      "table_offset": "0x00183DE8",
+      "rom_pointer": "0x087CEFC0",
+      "file_offset": "0x007CEFC0",
+      "compressed_size": "0x030A",
+      "header": "ZP01",
+      "output_size": "0x0FA0",
+      "destination": "0x06008000"
+    }
+  ],
+  "negative_evidence": [
+    "Full CP932 phrases for 錬成手帳, 入れ替え, 必殺技 were not found in ROM.",
+    "Exact runtime tile bytes were not found directly in ROM.",
+    "Runtime tile hashes did not match extracted LZ77/RLE/raw image candidates.",
+    "The investigated text/item tables at 0x08183628 and 0x081831BC are not this target."
+  ],
+  "next_step": "Add GUI/workbench support for Registry B ZP01 image resources or validate a safe repoint/repack path for entries 0x10, 0x11, 0x12, and possibly 0x13."
+}

@@ -1,0 +1,116 @@
+{
+  "scene": "no_entry8_latest_ss3",
+  "frame": "frame_009730",
+  "bg": 1,
+  "rle_offset": 3814720,
+  "rle_offset_hex": "0x003A3540",
+  "rle_raw_path": "confirmed_data/image_inventory/rle_tile_extraction/rle_raw/0835_off_003A3540_size_001000.bin",
+  "runtime_palette_path": "confirmed_data/image_inventory/runtime_user_captures/no_entry8_latest_ss3/frame_009730_palette_05000000.bin",
+  "crop_screen_tiles": {
+    "min_x": 13,
+    "min_y": 4,
+    "max_x": 16,
+    "max_y": 5
+  },
+  "crop_pixels": {
+    "x": 104,
+    "y": 32,
+    "width": 32,
+    "height": 16
+  },
+  "scroll_pixels": {
+    "x": 256,
+    "y": 256
+  },
+  "fine_scroll_pixels": {
+    "x": 0,
+    "y": 0
+  },
+  "alignment_adjustment_pixels": {
+    "x": 0,
+    "y": 0
+  },
+  "matched_tile_count": 5,
+  "source_match": {
+    "score": 670.5247,
+    "shared_tiles": 120,
+    "runtime_coverage": 0.5381,
+    "candidate_coverage": 1.0,
+    "candidate_index": 835,
+    "decompressed_size": 4096,
+    "compressed_size": 2941
+  },
+  "matches": [
+    {
+      "screen_tile_x": 13,
+      "screen_tile_y": 4,
+      "map_tile_x": 13,
+      "map_tile_y": 4,
+      "runtime_tile_index": 11,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 40971,
+      "rle_tile_indexes": [
+        11
+      ]
+    },
+    {
+      "screen_tile_x": 14,
+      "screen_tile_y": 4,
+      "map_tile_x": 14,
+      "map_tile_y": 4,
+      "runtime_tile_index": 118,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 41078,
+      "rle_tile_indexes": [
+        118
+      ]
+    },
+    {
+      "screen_tile_x": 15,
+      "screen_tile_y": 4,
+      "map_tile_x": 15,
+      "map_tile_y": 4,
+      "runtime_tile_index": 119,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 41079,
+      "rle_tile_indexes": [
+        119
+      ]
+    },
+    {
+      "screen_tile_x": 14,
+      "screen_tile_y": 5,
+      "map_tile_x": 14,
+      "map_tile_y": 5,
+      "runtime_tile_index": 94,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 41054,
+      "rle_tile_indexes": [
+        94
+      ]
+    },
+    {
+      "screen_tile_x": 15,
+      "screen_tile_y": 5,
+      "map_tile_x": 15,
+      "map_tile_y": 5,
+      "runtime_tile_index": 95,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 41055,
+      "rle_tile_indexes": [
+        95
+      ]
+    }
+  ],
+  "focus_note": "Focused card book right-side tab only: 石."
+}

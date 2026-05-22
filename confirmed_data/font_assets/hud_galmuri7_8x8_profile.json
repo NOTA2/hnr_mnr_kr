@@ -1,0 +1,27 @@
+{
+  "label": "Galmuri7 8x8 HUD Hangul candidate",
+  "status": "HUD_CANDIDATE",
+  "source_type": "bitmap_atlas_with_cell_spacing",
+  "source_png": "third_party/font_atlases/finalists/Galmuri7_9x9.png",
+  "tile_width": 8,
+  "tile_height": 8,
+  "cell_width": 9,
+  "cell_height": 9,
+  "glyph_offset_x": 0,
+  "glyph_offset_y": 0,
+  "columns": 64,
+  "rows": 175,
+  "character_order": "unicode_hangul_syllables",
+  "unicode_range": {
+    "start": "U+AC00",
+    "end": "U+D7A3",
+    "count": 11172
+  },
+  "prepared_workbench": "analysis/generated_workbenches/hud_galmuri7_8x8",
+  "preview": "confirmed_data/font_assets/hud_galmuri7_8x8_preview.png",
+  "notes": [
+    "This is not the global active 12x12 dialogue font.",
+    "Use this as a candidate for the battle HUD mini-font and enemy-name renderer.",
+    "The source atlas is 64x175 cells of 9x9 pixels; the importer crops the top-left 8x8 glyph from each cell."
+  ]
+}

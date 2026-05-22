@@ -36,6 +36,18 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--output-dir", required=True, help="output workbench dir")
     parser.add_argument("--tile-width", type=int, default=12)
     parser.add_argument("--tile-height", type=int, default=12)
+    parser.add_argument(
+        "--cell-width",
+        type=int,
+        help="atlas cell width when the source has spacing around each glyph; defaults to tile width",
+    )
+    parser.add_argument(
+        "--cell-height",
+        type=int,
+        help="atlas cell height when the source has spacing around each glyph; defaults to tile height",
+    )
+    parser.add_argument("--glyph-offset-x", type=int, default=0)
+    parser.add_argument("--glyph-offset-y", type=int, default=0)
     parser.add_argument("--expected-columns", type=int, help="expected atlas column count")
     parser.add_argument("--expected-rows", type=int, help="expected atlas row count")
     parser.add_argument("--order", choices=("unicode_hangul_syllables",), default="unicode_hangul_syllables")
@@ -95,14 +107,21 @@ def main() -> int:
         raise SystemExit("error: manifest 는 JSON 배열이어야 합니다.")
 
     atlas = Image.open(atlas_path)
-    if atlas.width % args.tile_width or atlas.height % args.tile_height:
+    cell_width = args.cell_width or args.tile_width
+    cell_height = args.cell_height or args.tile_height
+    if args.glyph_offset_x < 0 or args.glyph_offset_y < 0:
+        raise SystemExit("error: glyph offsets must be non-negative")
+    if args.glyph_offset_x + args.tile_width > cell_width or args.glyph_offset_y + args.tile_height > cell_height:
+        raise SystemExit("error: glyph crop is outside the atlas cell")
+
+    if atlas.width % cell_width or atlas.height % cell_height:
         raise SystemExit(
             f"error: atlas size {atlas.width}x{atlas.height} is not divisible by "
-            f"{args.tile_width}x{args.tile_height}"
+            f"{cell_width}x{cell_height}"
         )
 
-    columns = atlas.width // args.tile_width
-    rows = atlas.height // args.tile_height
+    columns = atlas.width // cell_width
+    rows = atlas.height // cell_height
     if args.expected_columns is not None and columns != args.expected_columns:
         raise SystemExit(f"error: expected {args.expected_columns} columns, got {columns}")
     if args.expected_rows is not None and rows != args.expected_rows:
@@ -124,8 +143,10 @@ def main() -> int:
         name = str(item.get("name") or f"glyph_{code}")
 
         tile_index = hangul_index_for_char(char)
-        tile_x = (tile_index % columns) * args.tile_width
-        tile_y = (tile_index // columns) * args.tile_height
+        cell_x = (tile_index % columns) * cell_width
+        cell_y = (tile_index // columns) * cell_height
+        tile_x = cell_x + args.glyph_offset_x
+        tile_y = cell_y + args.glyph_offset_y
         tile = atlas.crop((tile_x, tile_y, tile_x + args.tile_width, tile_y + args.tile_height))
         pixels = normalize_rgba_tile_to_game_font_levels(tile)
 
@@ -147,6 +168,8 @@ def main() -> int:
                 "char": char,
                 "name": name,
                 "tile_index": tile_index,
+                "cell_x": cell_x,
+                "cell_y": cell_y,
                 "tile_x": tile_x,
                 "tile_y": tile_y,
                 "nonzero_pixels": sum(1 for value in pixels if value),
@@ -167,6 +190,10 @@ def main() -> int:
         "table": str(table_path),
         "tile_width": args.tile_width,
         "tile_height": args.tile_height,
+        "cell_width": cell_width,
+        "cell_height": cell_height,
+        "glyph_offset_x": args.glyph_offset_x,
+        "glyph_offset_y": args.glyph_offset_y,
         "columns": columns,
         "rows": rows,
         "tile_count": tile_count,
@@ -179,6 +206,8 @@ def main() -> int:
 
     print(f"atlas          : {atlas_path}")
     print(f"grid           : {columns} x {rows}")
+    print(f"cell           : {cell_width} x {cell_height}")
+    print(f"glyph          : {args.tile_width} x {args.tile_height} @ +{args.glyph_offset_x},+{args.glyph_offset_y}")
     print(f"tile_count     : {tile_count}")
     print(f"hangul_count   : {HANGUL_COUNT}")
     print(f"unused_tiles   : {tile_count - HANGUL_COUNT}")

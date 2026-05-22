@@ -1,0 +1,40 @@
+{
+  "rom": "patched_roms/current_review/hnr_localization_review.gba",
+  "applied_count": 1,
+  "results": [
+    {
+      "item_id": "image:rle_screen_order_focus:current_review_ss6:frame_000006:bg1:003A3540:book_right_tabs",
+      "status": "applied",
+      "compression": "rle",
+      "storage": "same_offset",
+      "offset": 3814720,
+      "offset_hex": "0x003A3540",
+      "columns": null,
+      "tile_map_path": "confirmed_data/image_inventory/edit_packs/card_book_right_tabs/card_book_right_tabs_tile_map.json",
+      "decompressed_size": 4096,
+      "compressed_size": 2921,
+      "available_size": 2941,
+      "current_consumed_size": 2921,
+      "screen_order_meta": {
+        "written_tile_count": 6,
+        "tile_count_after_alias_split": 128,
+        "alias_conflicts": [],
+        "alias_splits": [],
+        "entry_rewrites": [],
+        "rle_runtime_tile_layout": {
+          "base": 0,
+          "columns": 3,
+          "stride": 3,
+          "known_pairs": 23
+        },
+        "masked_native_bbox": {
+          "x": 9,
+          "y": 9,
+          "width": 10,
+          "height": 21
+        },
+        "masked_native_pixel_changes": 0
+      }
+    }
+  ]
+}

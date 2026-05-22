@@ -1,0 +1,973 @@
+{
+  "target": "patched_roms/current_review/hnr_localization_review.gba",
+  "atlas": "third_party/font_atlases/finalists/Galmuri7_9x9_no_shadow.png",
+  "dry_run": false,
+  "timestamp": "2026-05-23T02:49:56",
+  "cause_of_previous_bad_patch": "0x00534874 is shared by field/dialogue/menu UI; this pass leaves that block untouched.",
+  "battle_font_offset": 1600564,
+  "battle_font_offset_hex": "0x00186C34",
+  "battle_font_size": 3840,
+  "battle_font_tile_count": 120,
+  "hangul_glyph_count": 98,
+  "available_slot_count": 99,
+  "hud_text_overrides": {
+    "ゴウトウ": "도적",
+    "サンゾク": "도적",
+    "シシオウ": "사왕",
+    "ゴーゴンリップ": "고르곤"
+  },
+  "name_resource": {
+    "resource_index": "0x0933",
+    "resource_offset": 4001408,
+    "resource_offset_hex": "0x003D0E80",
+    "resource_length": 3078,
+    "resource_length_hex": "0x0C06",
+    "record_count": 94,
+    "deduped_korean_string_count": 62,
+    "used_string_bytes": 301,
+    "free_resource_bytes": 333,
+    "records": [
+      {
+        "record_index": 0,
+        "source": "ヌル",
+        "hud_text": "",
+        "empty_placeholder": true,
+        "encoded_hex": "",
+        "name_rel": 2444,
+        "name_rel_hex": "0x098C"
+      },
+      {
+        "record_index": 1,
+        "source": "エド",
+        "korean_translation": "에드",
+        "hud_text": "에드",
+        "used_hud_override": false,
+        "encoded_hex": "dab2",
+        "name_rel": 2445,
+        "name_rel_hex": "0x098D"
+      },
+      {
+        "record_index": 2,
+        "source": "アル",
+        "korean_translation": "알",
+        "hud_text": "알",
+        "used_hud_override": false,
+        "encoded_hex": "d6",
+        "name_rel": 2448,
+        "name_rel_hex": "0x0990"
+      },
+      {
+        "record_index": 3,
+        "source": "マスタング",
+        "korean_translation": "머스탱",
+        "hud_text": "머스탱",
+        "used_hud_override": false,
+        "encoded_hex": "c3d1f3",
+        "name_rel": 2450,
+        "name_rel_hex": "0x0992"
+      },
+      {
+        "record_index": 4,
+        "source": "ホークアイ",
+        "korean_translation": "호크아이",
+        "hud_text": "호크아이",
+        "used_hud_override": false,
+        "encoded_hex": "cbdeefd5e3",
+        "name_rel": 2454,
+        "name_rel_hex": "0x0996"
+      },
+      {
+        "record_index": 5,
+        "source": "アームストロング",
+        "korean_translation": "암스트롱",
+        "hud_text": "암스트롱",
+        "used_hud_override": false,
+        "encoded_hex": "d7d1f7ba",
+        "name_rel": 2460,
+        "name_rel_hex": "0x099C"
+      },
+      {
+        "record_index": 6,
+        "source": "マーティンス",
+        "korean_translation": "마틴스",
+        "hud_text": "마틴스",
+        "used_hud_override": false,
+        "encoded_hex": "c1f9d1",
+        "name_rel": 2465,
+        "name_rel_hex": "0x09A1"
+      },
+      {
+        "record_index": 7,
+        "source": "コニィ",
+        "korean_translation": "코니",
+        "hud_text": "코니",
+        "used_hud_override": false,
+        "encoded_hex": "edad",
+        "name_rel": 2469,
+        "name_rel_hex": "0x09A5"
+      },
+      {
+        "record_index": 8,
+        "source": "コーネロ",
+        "korean_translation": "코넬로",
+        "hud_text": "코넬로",
+        "used_hud_override": false,
+        "encoded_hex": "edaab9",
+        "name_rel": 2472,
+        "name_rel_hex": "0x09A8"
+      },
+      {
+        "record_index": 9,
+        "source": "バルド",
+        "korean_translation": "발드",
+        "hud_text": "발드",
+        "used_hud_override": false,
+        "encoded_hex": "c7b2",
+        "name_rel": 2476,
+        "name_rel_hex": "0x09AC"
+      },
+      {
+        "record_index": 10,
+        "source": "バルド",
+        "korean_translation": "발드",
+        "hud_text": "발드",
+        "used_hud_override": false,
+        "encoded_hex": "c7b2",
+        "name_rel": 2476,
+        "name_rel_hex": "0x09AC"
+      },
+      {
+        "record_index": 11,
+        "source": "バルド",
+        "korean_translation": "발드",
+        "hud_text": "발드",
+        "used_hud_override": false,
+        "encoded_hex": "c7b2",
+        "name_rel": 2476,
+        "name_rel_hex": "0x09AC"
+      },
+      {
+        "record_index": 12,
+        "source": "バルド",
+        "korean_translation": "발드",
+        "hud_text": "발드",
+        "used_hud_override": false,
+        "encoded_hex": "c7b2",
+        "name_rel": 2476,
+        "name_rel_hex": "0x09AC"
+      },
+      {
+        "record_index": 13,
+        "source": "ランディ",
+        "korean_translation": "랜디",
+        "hud_text": "랜디",
+        "used_hud_override": false,
+        "encoded_hex": "b6b3",
+        "name_rel": 2479,
+        "name_rel_hex": "0x09AF"
+      },
+      {
+        "record_index": 14,
+        "source": "ランディ",
+        "korean_translation": "랜디",
+        "hud_text": "랜디",
+        "used_hud_override": false,
+        "encoded_hex": "b6b3",
+        "name_rel": 2479,
+        "name_rel_hex": "0x09AF"
+      },
+      {
+        "record_index": 15,
+        "source": "ランディ",
+        "korean_translation": "랜디",
+        "hud_text": "랜디",
+        "used_hud_override": false,
+        "encoded_hex": "b6b3",
+        "name_rel": 2479,
+        "name_rel_hex": "0x09AF"
+      },
+      {
+        "record_index": 16,
+        "source": "ランディ",
+        "korean_translation": "랜디",
+        "hud_text": "랜디",
+        "used_hud_override": false,
+        "encoded_hex": "b6b3",
+        "name_rel": 2479,
+        "name_rel_hex": "0x09AF"
+      },
+      {
+        "record_index": 17,
+        "source": "ケイト",
+        "korean_translation": "케이트",
+        "hud_text": "케이트",
+        "used_hud_override": false,
+        "encoded_hex": "ece3f7",
+        "name_rel": 2482,
+        "name_rel_hex": "0x09B2"
+      },
+      {
+        "record_index": 18,
+        "source": "ケイト",
+        "korean_translation": "케이트",
+        "hud_text": "케이트",
+        "used_hud_override": false,
+        "encoded_hex": "ece3f7",
+        "name_rel": 2482,
+        "name_rel_hex": "0x09B2"
+      },
+      {
+        "record_index": 19,
+        "source": "ケイト",
+        "korean_translation": "케이트",
+        "hud_text": "케이트",
+        "used_hud_override": false,
+        "encoded_hex": "ece3f7",
+        "name_rel": 2482,
+        "name_rel_hex": "0x09B2"
+      },
+      {
+        "record_index": 20,
+        "source": "ケイト",
+        "korean_translation": "케이트",
+        "hud_text": "케이트",
+        "used_hud_override": false,
+        "encoded_hex": "ece3f7",
+        "name_rel": 2482,
+        "name_rel_hex": "0x09B2"
+      },
+      {
+        "record_index": 21,
+        "source": "ブリストル",
+        "korean_translation": "브리스톨",
+        "hud_text": "브리스톨",
+        "used_hud_override": false,
+        "encoded_hex": "ccbcd1f6",
+        "name_rel": 2486,
+        "name_rel_hex": "0x09B6"
+      },
+      {
+        "record_index": 22,
+        "source": "リンカー",
+        "korean_translation": "링커",
+        "hud_text": "링커",
+        "used_hud_override": false,
+        "encoded_hex": "c0eb",
+        "name_rel": 2491,
+        "name_rel_hex": "0x09BB"
+      },
+      {
+        "record_index": 23,
+        "source": "リンカー",
+        "korean_translation": "링커",
+        "hud_text": "링커",
+        "used_hud_override": false,
+        "encoded_hex": "c0eb",
+        "name_rel": 2491,
+        "name_rel_hex": "0x09BB"
+      },
+      {
+        "record_index": 24,
+        "source": "ラストリンカー",
+        "korean_translation": "라스트 링커",
+        "hud_text": "라스트링커",
+        "used_hud_override": false,
+        "encoded_hex": "b5d1f7c0eb",
+        "name_rel": 2494,
+        "name_rel_hex": "0x09BE"
+      },
+      {
+        "record_index": 25,
+        "source": "アザーズ",
+        "korean_translation": "아더즈",
+        "hud_text": "아더즈",
+        "used_hud_override": false,
+        "encoded_hex": "d5afe8",
+        "name_rel": 2500,
+        "name_rel_hex": "0x09C4"
+      },
+      {
+        "record_index": 26,
+        "source": "ティアーズ",
+        "korean_translation": "티어즈",
+        "hud_text": "티어즈",
+        "used_hud_override": false,
+        "encoded_hex": "f8d8e8",
+        "name_rel": 2504,
+        "name_rel_hex": "0x09C8"
+      },
+      {
+        "record_index": 27,
+        "source": "キョウト",
+        "korean_translation": "신도",
+        "hud_text": "신도",
+        "used_hud_override": false,
+        "encoded_hex": "d4b1",
+        "name_rel": 2508,
+        "name_rel_hex": "0x09CC"
+      },
+      {
+        "record_index": 28,
+        "source": "トウゾク",
+        "korean_translation": "도적",
+        "hud_text": "도적",
+        "used_hud_override": false,
+        "encoded_hex": "b1e7",
+        "name_rel": 2511,
+        "name_rel_hex": "0x09CF"
+      },
+      {
+        "record_index": 29,
+        "source": "ゴウトウ",
+        "korean_translation": "강도",
+        "hud_text": "도적",
+        "used_hud_override": true,
+        "encoded_hex": "b1e7",
+        "name_rel": 2511,
+        "name_rel_hex": "0x09CF"
+      },
+      {
+        "record_index": 30,
+        "source": "ボマー",
+        "korean_translation": "봄버",
+        "hud_text": "봄버",
+        "used_hud_override": false,
+        "encoded_hex": "cbc8",
+        "name_rel": 2514,
+        "name_rel_hex": "0x09D2"
+      },
+      {
+        "record_index": 31,
+        "source": "サンゾク",
+        "korean_translation": "산적",
+        "hud_text": "도적",
+        "used_hud_override": true,
+        "encoded_hex": "b1e7",
+        "name_rel": 2511,
+        "name_rel_hex": "0x09CF"
+      },
+      {
+        "record_index": 32,
+        "source": "マッチョ1",
+        "korean_translation": "마초1",
+        "hud_text": "마초1",
+        "used_hud_override": false,
+        "encoded_hex": "c1e931",
+        "name_rel": 2517,
+        "name_rel_hex": "0x09D5"
+      },
+      {
+        "record_index": 33,
+        "source": "マッチョ2",
+        "korean_translation": "마초2",
+        "hud_text": "마초2",
+        "used_hud_override": false,
+        "encoded_hex": "c1e932",
+        "name_rel": 2521,
+        "name_rel_hex": "0x09D9"
+      },
+      {
+        "record_index": 34,
+        "source": "マッチョ3",
+        "korean_translation": "마초3",
+        "hud_text": "마초3",
+        "used_hud_override": false,
+        "encoded_hex": "c1e933",
+        "name_rel": 2525,
+        "name_rel_hex": "0x09DD"
+      },
+      {
+        "record_index": 35,
+        "source": "マッチョ4",
+        "korean_translation": "마초4",
+        "hud_text": "마초4",
+        "used_hud_override": false,
+        "encoded_hex": "c1e934",
+        "name_rel": 2529,
+        "name_rel_hex": "0x09E1"
+      },
+      {
+        "record_index": 36,
+        "source": "メインビースト",
+        "korean_translation": "메인비스트",
+        "hud_text": "메인비스트",
+        "used_hud_override": false,
+        "encoded_hex": "c4e4cfd1f7",
+        "name_rel": 2533,
+        "name_rel_hex": "0x09E5"
+      },
+      {
+        "record_index": 37,
+        "source": "ワイルドファング",
+        "korean_translation": "와일드팽",
+        "hud_text": "와일드팽",
+        "used_hud_override": false,
+        "encoded_hex": "dde5b2fb",
+        "name_rel": 2539,
+        "name_rel_hex": "0x09EB"
+      },
+      {
+        "record_index": 38,
+        "source": "ダークブリング",
+        "korean_translation": "다크브링",
+        "hud_text": "다크브링",
+        "used_hud_override": false,
+        "encoded_hex": "aeefccc0",
+        "name_rel": 2544,
+        "name_rel_hex": "0x09F0"
+      },
+      {
+        "record_index": 39,
+        "source": "シシオウ",
+        "korean_translation": "사자왕",
+        "hud_text": "사왕",
+        "used_hud_override": true,
+        "encoded_hex": "d0e0",
+        "name_rel": 2549,
+        "name_rel_hex": "0x09F5"
+      },
+      {
+        "record_index": 40,
+        "source": "エルフラッター",
+        "korean_translation": "엘플러터",
+        "hud_text": "엘플러터",
+        "used_hud_override": false,
+        "encoded_hex": "dcffb7f4",
+        "name_rel": 2552,
+        "name_rel_hex": "0x09F8"
+      },
+      {
+        "record_index": 41,
+        "source": "バーンフラッター",
+        "korean_translation": "번플러터",
+        "hud_text": "번플러터",
+        "used_hud_override": false,
+        "encoded_hex": "c9ffb7f4",
+        "name_rel": 2557,
+        "name_rel_hex": "0x09FD"
+      },
+      {
+        "record_index": 42,
+        "source": "グリフォン",
+        "korean_translation": "그리폰",
+        "hud_text": "그리폰",
+        "used_hud_override": false,
+        "encoded_hex": "a6bcfd",
+        "name_rel": 2562,
+        "name_rel_hex": "0x0A02"
+      },
+      {
+        "record_index": 43,
+        "source": "デスフラッター",
+        "korean_translation": "데스플러터",
+        "hud_text": "데스플러터",
+        "used_hud_override": false,
+        "encoded_hex": "b0d1ffb7f4",
+        "name_rel": 2566,
+        "name_rel_hex": "0x0A06"
+      },
+      {
+        "record_index": 44,
+        "source": "ホーンバイソン",
+        "korean_translation": "혼바이슨",
+        "hud_text": "혼바이슨",
+        "used_hud_override": false,
+        "encoded_hex": "ccdec6e3d2",
+        "name_rel": 2572,
+        "name_rel_hex": "0x0A0C"
+      },
+      {
+        "record_index": 45,
+        "source": "クリムゾンテラー",
+        "korean_translation": "크림슨테러",
+        "hud_text": "크림슨테러",
+        "used_hud_override": false,
+        "encoded_hex": "efbfd2f5b7",
+        "name_rel": 2578,
+        "name_rel_hex": "0x0A12"
+      },
+      {
+        "record_index": 46,
+        "source": "アンデットホーン",
+        "korean_translation": "언데드혼",
+        "hud_text": "언데드혼",
+        "used_hud_override": false,
+        "encoded_hex": "d9b0b2ccde",
+        "name_rel": 2584,
+        "name_rel_hex": "0x0A18"
+      },
+      {
+        "record_index": 47,
+        "source": "ブレイドバイソン",
+        "korean_translation": "블레이드바이슨",
+        "hud_text": "블레이드바이슨",
+        "used_hud_override": false,
+        "encoded_hex": "ceb8e3b2c6e3d2",
+        "name_rel": 2590,
+        "name_rel_hex": "0x0A1E"
+      },
+      {
+        "record_index": 48,
+        "source": "サイキョウト",
+        "korean_translation": "광신도",
+        "hud_text": "광신도",
+        "used_hud_override": false,
+        "encoded_hex": "a5d4b1",
+        "name_rel": 2598,
+        "name_rel_hex": "0x0A26"
+      },
+      {
+        "record_index": 49,
+        "source": "キメラ5",
+        "korean_translation": "키메라5",
+        "hud_text": "키메라5",
+        "used_hud_override": false,
+        "encoded_hex": "f1c4b535",
+        "name_rel": 2602,
+        "name_rel_hex": "0x0A2A"
+      },
+      {
+        "record_index": 50,
+        "source": "キメラ5",
+        "korean_translation": "키메라5",
+        "hud_text": "키메라5",
+        "used_hud_override": false,
+        "encoded_hex": "f1c4b535",
+        "name_rel": 2602,
+        "name_rel_hex": "0x0A2A"
+      },
+      {
+        "record_index": 51,
+        "source": "キメラ5",
+        "korean_translation": "키메라5",
+        "hud_text": "키메라5",
+        "used_hud_override": false,
+        "encoded_hex": "f1c4b535",
+        "name_rel": 2602,
+        "name_rel_hex": "0x0A2A"
+      },
+      {
+        "record_index": 52,
+        "source": "アーマーゲーター",
+        "korean_translation": "아머게이터",
+        "hud_text": "아머게이터",
+        "used_hud_override": false,
+        "encoded_hex": "d5c3a2e3f4",
+        "name_rel": 2607,
+        "name_rel_hex": "0x0A2F"
+      },
+      {
+        "record_index": 53,
+        "source": "スパイクカイマン",
+        "korean_translation": "스파이크카이만",
+        "hud_text": "스파이크카이만",
+        "used_hud_override": false,
+        "encoded_hex": "d1fae3efeae3c2",
+        "name_rel": 2613,
+        "name_rel_hex": "0x0A35"
+      },
+      {
+        "record_index": 54,
+        "source": "ヴェノムスピン",
+        "korean_translation": "베놈스핀",
+        "hud_text": "베놈스핀",
+        "used_hud_override": false,
+        "encoded_hex": "caacd1cedf",
+        "name_rel": 2621,
+        "name_rel_hex": "0x0A3D"
+      },
+      {
+        "record_index": 55,
+        "source": "デモンズカイマン",
+        "korean_translation": "데몬즈카이만",
+        "hud_text": "데몬즈카이만",
+        "used_hud_override": false,
+        "encoded_hex": "b0c5e8eae3c2",
+        "name_rel": 2627,
+        "name_rel_hex": "0x0A43"
+      },
+      {
+        "record_index": 56,
+        "source": "ウルフスナッフ",
+        "korean_translation": "울프스너프",
+        "hud_text": "울프스너프",
+        "used_hud_override": false,
+        "encoded_hex": "e1fed1a8fe",
+        "name_rel": 2634,
+        "name_rel_hex": "0x0A4A"
+      },
+      {
+        "record_index": 57,
+        "source": "ナックルウルフ",
+        "korean_translation": "너클울프",
+        "hud_text": "너클울프",
+        "used_hud_override": false,
+        "encoded_hex": "a8f0e1fe",
+        "name_rel": 2640,
+        "name_rel_hex": "0x0A50"
+      },
+      {
+        "record_index": 58,
+        "source": "フェンリルニー",
+        "korean_translation": "펜리르니",
+        "hud_text": "펜리르니",
+        "used_hud_override": false,
+        "encoded_hex": "fcbcbbad",
+        "name_rel": 2645,
+        "name_rel_hex": "0x0A55"
+      },
+      {
+        "record_index": 59,
+        "source": "ウルヴァリン",
+        "korean_translation": "울버린",
+        "hud_text": "울버린",
+        "used_hud_override": false,
+        "encoded_hex": "e1c8bd",
+        "name_rel": 2650,
+        "name_rel_hex": "0x0A5A"
+      },
+      {
+        "record_index": 60,
+        "source": "キメラ7",
+        "korean_translation": "키메라7",
+        "hud_text": "키메라7",
+        "used_hud_override": false,
+        "encoded_hex": "f1c4b537",
+        "name_rel": 2654,
+        "name_rel_hex": "0x0A5E"
+      },
+      {
+        "record_index": 61,
+        "source": "キメラ7",
+        "korean_translation": "키메라7",
+        "hud_text": "키메라7",
+        "used_hud_override": false,
+        "encoded_hex": "f1c4b537",
+        "name_rel": 2654,
+        "name_rel_hex": "0x0A5E"
+      },
+      {
+        "record_index": 62,
+        "source": "キメラ7",
+        "korean_translation": "키메라7",
+        "hud_text": "키메라7",
+        "used_hud_override": false,
+        "encoded_hex": "f1c4b537",
+        "name_rel": 2654,
+        "name_rel_hex": "0x0A5E"
+      },
+      {
+        "record_index": 63,
+        "source": "キメラ7",
+        "korean_translation": "키메라7",
+        "hud_text": "키메라7",
+        "used_hud_override": false,
+        "encoded_hex": "f1c4b537",
+        "name_rel": 2654,
+        "name_rel_hex": "0x0A5E"
+      },
+      {
+        "record_index": 64,
+        "source": "ドリルホース",
+        "korean_translation": "드릴호스",
+        "hud_text": "드릴호스",
+        "used_hud_override": false,
+        "encoded_hex": "b2becbded1",
+        "name_rel": 2659,
+        "name_rel_hex": "0x0A63"
+      },
+      {
+        "record_index": 65,
+        "source": "ユニコーンヘッド",
+        "korean_translation": "유니콘헤드",
+        "hud_text": "유니콘헤드",
+        "used_hud_override": false,
+        "encoded_hex": "e2adeecadeb2",
+        "name_rel": 2665,
+        "name_rel_hex": "0x0A69"
+      },
+      {
+        "record_index": 66,
+        "source": "スピードスター",
+        "korean_translation": "스피드스타",
+        "hud_text": "스피드스타",
+        "used_hud_override": false,
+        "encoded_hex": "d1b3deb2d1f2",
+        "name_rel": 2672,
+        "name_rel_hex": "0x0A70"
+      },
+      {
+        "record_index": 67,
+        "source": "スレイプニール",
+        "korean_translation": "슬레이프니르",
+        "hud_text": "슬레이프니르",
+        "used_hud_override": false,
+        "encoded_hex": "d3b8e3feadbb",
+        "name_rel": 2679,
+        "name_rel_hex": "0x0A77"
+      },
+      {
+        "record_index": 68,
+        "source": "ライノスロス",
+        "korean_translation": "라이노슬로스",
+        "hud_text": "라이노슬로스",
+        "used_hud_override": false,
+        "encoded_hex": "b5e3abd3b9d1",
+        "name_rel": 2686,
+        "name_rel_hex": "0x0A7E"
+      },
+      {
+        "record_index": 69,
+        "source": "グランディス",
+        "korean_translation": "그랜디스",
+        "hud_text": "그랜디스",
+        "used_hud_override": false,
+        "encoded_hex": "a6b6b3d1",
+        "name_rel": 2693,
+        "name_rel_hex": "0x0A85"
+      },
+      {
+        "record_index": 70,
+        "source": "ディルヴァス",
+        "korean_translation": "딜바스",
+        "hud_text": "딜바스",
+        "used_hud_override": false,
+        "encoded_hex": "b4c6d1",
+        "name_rel": 2698,
+        "name_rel_hex": "0x0A8A"
+      },
+      {
+        "record_index": 71,
+        "source": "エクスクライム",
+        "korean_translation": "엑스크라임",
+        "hud_text": "엑스크라임",
+        "used_hud_override": false,
+        "encoded_hex": "dbd1efb5e6",
+        "name_rel": 2702,
+        "name_rel_hex": "0x0A8E"
+      },
+      {
+        "record_index": 72,
+        "source": "スネークバインド",
+        "korean_translation": "스네이크바인드",
+        "hud_text": "스네이크바인드",
+        "used_hud_override": false,
+        "encoded_hex": "d1a9e3efc6e4b2",
+        "name_rel": 2708,
+        "name_rel_hex": "0x0A94"
+      },
+      {
+        "record_index": 73,
+        "source": "ヒドラ",
+        "korean_translation": "히드라",
+        "hud_text": "히드라",
+        "used_hud_override": false,
+        "encoded_hex": "cddeb2b5",
+        "name_rel": 2716,
+        "name_rel_hex": "0x0A9C"
+      },
+      {
+        "record_index": 74,
+        "source": "ゴーゴンリップ",
+        "korean_translation": "고르곤립",
+        "hud_text": "고르곤",
+        "used_hud_override": true,
+        "encoded_hex": "a3bba4",
+        "name_rel": 2721,
+        "name_rel_hex": "0x0AA1"
+      },
+      {
+        "record_index": 75,
+        "source": "ダークネスヘブン",
+        "korean_translation": "다크니스헤븐",
+        "hud_text": "다크니스헤븐",
+        "used_hud_override": false,
+        "encoded_hex": "aeefadd1cadecd",
+        "name_rel": 2725,
+        "name_rel_hex": "0x0AA5"
+      },
+      {
+        "record_index": 76,
+        "source": "スカー",
+        "korean_translation": "스카",
+        "hud_text": "스카",
+        "used_hud_override": false,
+        "encoded_hex": "d1ea",
+        "name_rel": 2733,
+        "name_rel_hex": "0x0AAD"
+      },
+      {
+        "record_index": 77,
+        "source": "ラスト",
+        "korean_translation": "러스트",
+        "hud_text": "러스트",
+        "used_hud_override": false,
+        "encoded_hex": "b7d1f7",
+        "name_rel": 2736,
+        "name_rel_hex": "0x0AB0"
+      },
+      {
+        "record_index": 78,
+        "source": "グラトニー",
+        "korean_translation": "글러트니",
+        "hud_text": "글러트니",
+        "used_hud_override": false,
+        "encoded_hex": "a7b7f7ad",
+        "name_rel": 2740,
+        "name_rel_hex": "0x0AB4"
+      },
+      {
+        "record_index": 79,
+        "source": "エド",
+        "korean_translation": "에드",
+        "hud_text": "에드",
+        "used_hud_override": false,
+        "encoded_hex": "dab2",
+        "name_rel": 2445,
+        "name_rel_hex": "0x098D"
+      },
+      {
+        "record_index": 80,
+        "source": "アル",
+        "korean_translation": "알",
+        "hud_text": "알",
+        "used_hud_override": false,
+        "encoded_hex": "d6",
+        "name_rel": 2448,
+        "name_rel_hex": "0x0990"
+      },
+      {
+        "record_index": 81,
+        "source": "マスタング",
+        "korean_translation": "머스탱",
+        "hud_text": "머스탱",
+        "used_hud_override": false,
+        "encoded_hex": "c3d1f3",
+        "name_rel": 2450,
+        "name_rel_hex": "0x0992"
+      },
+      {
+        "record_index": 82,
+        "source": "ホークアイ",
+        "korean_translation": "호크아이",
+        "hud_text": "호크아이",
+        "used_hud_override": false,
+        "encoded_hex": "cbdeefd5e3",
+        "name_rel": 2454,
+        "name_rel_hex": "0x0996"
+      },
+      {
+        "record_index": 83,
+        "source": "アームストロング",
+        "korean_translation": "암스트롱",
+        "hud_text": "암스트롱",
+        "used_hud_override": false,
+        "encoded_hex": "d7d1f7ba",
+        "name_rel": 2460,
+        "name_rel_hex": "0x099C"
+      },
+      {
+        "record_index": 84,
+        "source": "マーティンス",
+        "korean_translation": "마틴스",
+        "hud_text": "마틴스",
+        "used_hud_override": false,
+        "encoded_hex": "c1f9d1",
+        "name_rel": 2465,
+        "name_rel_hex": "0x09A1"
+      },
+      {
+        "record_index": 85,
+        "source": "エド",
+        "korean_translation": "에드",
+        "hud_text": "에드",
+        "used_hud_override": false,
+        "encoded_hex": "dab2",
+        "name_rel": 2445,
+        "name_rel_hex": "0x098D"
+      },
+      {
+        "record_index": 86,
+        "source": "アル",
+        "korean_translation": "알",
+        "hud_text": "알",
+        "used_hud_override": false,
+        "encoded_hex": "d6",
+        "name_rel": 2448,
+        "name_rel_hex": "0x0990"
+      },
+      {
+        "record_index": 87,
+        "source": "アル",
+        "korean_translation": "알",
+        "hud_text": "알",
+        "used_hud_override": false,
+        "encoded_hex": "d6",
+        "name_rel": 2448,
+        "name_rel_hex": "0x0990"
+      },
+      {
+        "record_index": 88,
+        "source": "アームストロング",
+        "korean_translation": "암스트롱",
+        "hud_text": "암스트롱",
+        "used_hud_override": false,
+        "encoded_hex": "d7d1f7ba",
+        "name_rel": 2460,
+        "name_rel_hex": "0x099C"
+      },
+      {
+        "record_index": 89,
+        "source": "スカー",
+        "korean_translation": "스카",
+        "hud_text": "스카",
+        "used_hud_override": false,
+        "encoded_hex": "d1ea",
+        "name_rel": 2733,
+        "name_rel_hex": "0x0AAD"
+      },
+      {
+        "record_index": 90,
+        "source": "マスタング",
+        "korean_translation": "머스탱",
+        "hud_text": "머스탱",
+        "used_hud_override": false,
+        "encoded_hex": "c3d1f3",
+        "name_rel": 2450,
+        "name_rel_hex": "0x0992"
+      },
+      {
+        "record_index": 91,
+        "source": "バルド",
+        "korean_translation": "발드",
+        "hud_text": "발드",
+        "used_hud_override": false,
+        "encoded_hex": "c7b2",
+        "name_rel": 2476,
+        "name_rel_hex": "0x09AC"
+      },
+      {
+        "record_index": 92,
+        "source": "バルド",
+        "korean_translation": "발드",
+        "hud_text": "발드",
+        "used_hud_override": false,
+        "encoded_hex": "c7b2",
+        "name_rel": 2476,
+        "name_rel_hex": "0x09AC"
+      },
+      {
+        "record_index": 93,
+        "source": "エド",
+        "korean_translation": "에드",
+        "hud_text": "에드",
+        "used_hud_override": false,
+        "encoded_hex": "dab2",
+        "name_rel": 2445,
+        "name_rel_hex": "0x098D"
+      }
+    ]
+  },
+  "mapping_path": "confirmed_data/font_assets/battle_hud_name_hangul_tile_map.json",
+  "preview_path": "confirmed_data/font_assets/battle_hud_name_hangul_slots_preview.png"
+}

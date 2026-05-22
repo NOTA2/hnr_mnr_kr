@@ -1,0 +1,105 @@
+{
+  "item_id": "image:rle_screen_order_focus:current_review_ss6:frame_000006:bg1:003A3540:book_right_tabs",
+  "offset": 3814720,
+  "label": "카드 책자 오른쪽 탭 金属/石/自然/無機",
+  "source_text": "金属 / 石 / 自然 / 無機",
+  "suggested_korean": "금속 / 돌 / 자연 / 무기",
+  "source_path": "confirmed_data/image_inventory/edit_packs/card_book_right_tabs/card_book_right_tabs__source.png",
+  "editable_path": "confirmed_data/image_inventory/edit_packs/card_book_right_tabs/card_book_right_tabs__edit_4x.png",
+  "tile_map_path": "confirmed_data/image_inventory/edit_packs/card_book_right_tabs/card_book_right_tabs_tile_map.json",
+  "source_screen_order_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss3/frame_009730_bg1_rle_003A3540/matched_tiles_screen_order.png",
+  "source_tile_map_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss3/frame_009730_bg1_rle_003A3540/tile_map.json",
+  "rle_offset": 3814720,
+  "rle_offset_hex": "0x003A3540",
+  "width": 32,
+  "height": 112,
+  "scale": 4,
+  "matched_tile_count": 30,
+  "upload_note": "이 PNG를 수정해 GUI에 업로드하면 0x003A3540 RLE 중 책자 오른쪽 탭 영역만 화면순 tile_map으로 적용한다.",
+  "individual_tabs": [
+    {
+      "key": "metal",
+      "item_id": "image:rle_screen_order_focus:current_review_ss6:frame_000006:bg1:003A3540:book_right_tabs:metal",
+      "label": "카드 책자 오른쪽 탭 金属",
+      "source_text": "金属",
+      "suggested_korean": "금속",
+      "source_path": "confirmed_data/image_inventory/edit_packs/card_book_right_tabs/individual_tabs/card_book_right_tabs__metal__source.png",
+      "editable_path": "confirmed_data/image_inventory/edit_packs/card_book_right_tabs/individual_tabs/card_book_right_tabs__metal__edit_4x.png",
+      "tile_map_path": "confirmed_data/image_inventory/edit_packs/card_book_right_tabs/individual_tabs/card_book_right_tabs__metal__tile_map.json",
+      "rle_offset": 3814720,
+      "rle_offset_hex": "0x003A3540",
+      "width": 32,
+      "height": 32,
+      "scale": 4,
+      "tile_rows": [
+        0,
+        3
+      ],
+      "review_order": 8489,
+      "matched_tile_count": 9
+    },
+    {
+      "key": "stone",
+      "item_id": "image:rle_screen_order_focus:current_review_ss6:frame_000006:bg1:003A3540:book_right_tabs:stone",
+      "label": "카드 책자 오른쪽 탭 石",
+      "source_text": "石",
+      "suggested_korean": "돌",
+      "source_path": "confirmed_data/image_inventory/edit_packs/card_book_right_tabs/individual_tabs/card_book_right_tabs__stone__source.png",
+      "editable_path": "confirmed_data/image_inventory/edit_packs/card_book_right_tabs/individual_tabs/card_book_right_tabs__stone__edit_4x.png",
+      "tile_map_path": "confirmed_data/image_inventory/edit_packs/card_book_right_tabs/individual_tabs/card_book_right_tabs__stone__tile_map.json",
+      "rle_offset": 3814720,
+      "rle_offset_hex": "0x003A3540",
+      "width": 32,
+      "height": 16,
+      "scale": 4,
+      "tile_rows": [
+        4,
+        5
+      ],
+      "review_order": 8490,
+      "matched_tile_count": 5
+    },
+    {
+      "key": "nature",
+      "item_id": "image:rle_screen_order_focus:current_review_ss6:frame_000006:bg1:003A3540:book_right_tabs:nature",
+      "label": "카드 책자 오른쪽 탭 自然",
+      "source_text": "自然",
+      "suggested_korean": "자연",
+      "source_path": "confirmed_data/image_inventory/edit_packs/card_book_right_tabs/individual_tabs/card_book_right_tabs__nature__source.png",
+      "editable_path": "confirmed_data/image_inventory/edit_packs/card_book_right_tabs/individual_tabs/card_book_right_tabs__nature__edit_4x.png",
+      "tile_map_path": "confirmed_data/image_inventory/edit_packs/card_book_right_tabs/individual_tabs/card_book_right_tabs__nature__tile_map.json",
+      "rle_offset": 3814720,
+      "rle_offset_hex": "0x003A3540",
+      "width": 32,
+      "height": 16,
+      "scale": 4,
+      "tile_rows": [
+        6,
+        7
+      ],
+      "review_order": 8491,
+      "matched_tile_count": 5
+    },
+    {
+      "key": "inorganic",
+      "item_id": "image:rle_screen_order_focus:current_review_ss6:frame_000006:bg1:003A3540:book_right_tabs:inorganic",
+      "label": "카드 책자 오른쪽 탭 無機",
+      "source_text": "無機",
+      "suggested_korean": "무기",
+      "source_path": "confirmed_data/image_inventory/edit_packs/card_book_right_tabs/individual_tabs/card_book_right_tabs__inorganic__source.png",
+      "editable_path": "confirmed_data/image_inventory/edit_packs/card_book_right_tabs/individual_tabs/card_book_right_tabs__inorganic__edit_4x.png",
+      "tile_map_path": "confirmed_data/image_inventory/edit_packs/card_book_right_tabs/individual_tabs/card_book_right_tabs__inorganic__tile_map.json",
+      "rle_offset": 3814720,
+      "rle_offset_hex": "0x003A3540",
+      "width": 32,
+      "height": 16,
+      "scale": 4,
+      "tile_rows": [
+        8,
+        9
+      ],
+      "review_order": 8492,
+      "matched_tile_count": 5
+    }
+  ]
+}

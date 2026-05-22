@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-05-19T07:15:26",
+  "generated_at": "2026-05-22T00:24:49",
   "rom_static_extraction": {
     "lz77_blocks": 442,
     "raw_windows": 512,
@@ -12,33 +12,33 @@
     "rle_changed": 20
   },
   "runtime_matching": {
-    "captures_with_match_json": 10,
+    "captures_with_match_json": 19,
     "matched_lz77_offsets": 28,
-    "matched_rle_offsets": 50,
-    "matched_raw_offsets": 1,
-    "matched_total_unique_offsets": 79
+    "matched_rle_offsets": 95,
+    "matched_raw_offsets": 6,
+    "matched_total_unique_offsets": 129
   },
   "workbench": {
-    "image_items": 14,
-    "directly_editable_items": 14,
-    "uploaded_replacements": 2,
+    "image_items": 30,
+    "directly_editable_items": 24,
+    "uploaded_replacements": 9,
     "items_with_apply_errors": 0,
     "progress_status_counts": {
-      "candidate_found": 12,
-      "edited": 2
+      "candidate_found": 21,
+      "edited": 9
     },
-    "actual_localization_targets": 11,
-    "focused_runtime_tilemap_targets": 4
+    "actual_localization_targets": 24,
+    "focused_runtime_tilemap_targets": 12
   },
   "preview_assets": {
     "global_lz77_pngs": 0,
     "global_lz77_pgms": 442,
     "rle_pgms": 1084,
-    "runtime_match_pngs": 149,
-    "runtime_tilemap_pngs": 56,
-    "runtime_rle_screen_order_workspaces": 30,
-    "runtime_rle_screen_order_pngs": 181,
-    "edit_pack_pngs": 5
+    "runtime_match_pngs": 463,
+    "runtime_tilemap_pngs": 166,
+    "runtime_rle_screen_order_workspaces": 117,
+    "runtime_rle_screen_order_pngs": 710,
+    "edit_pack_pngs": 23
   },
   "open_risks": [
     "Static extraction counts are discovery totals, not localization-needed totals.",

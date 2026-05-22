@@ -187,6 +187,29 @@
       font-size: 12px;
       line-height: 1.45;
     }
+    .item-group-heading {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin: 14px 0 8px;
+      padding: 7px 9px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      color: var(--text);
+      background: rgba(117,199,177,0.07);
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0;
+    }
+    .item-group-heading:first-child {
+      margin-top: 0;
+    }
+    .item-group-count {
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 500;
+    }
     .toolbar {
       display: flex;
       flex-wrap: wrap;
@@ -219,7 +242,7 @@
     }
     .preview-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
       gap: 12px;
       margin-bottom: 12px;
     }
@@ -235,6 +258,27 @@
       background: #0b0f13;
       border: 1px solid var(--line);
       margin-top: 8px;
+    }
+    .image-drop-zone {
+      border: 1px dashed var(--line);
+      background: rgba(117,199,177,0.06);
+      padding: 14px;
+      margin: 0 0 12px;
+      cursor: copy;
+      transition: border-color 120ms ease, background 120ms ease;
+    }
+    .image-drop-zone.drag-over {
+      border-color: var(--accent);
+      background: rgba(117,199,177,0.16);
+    }
+    .image-drop-zone.disabled {
+      cursor: not-allowed;
+      opacity: 0.55;
+      background: rgba(255,255,255,0.02);
+    }
+    .image-drop-zone strong {
+      display: block;
+      margin-bottom: 4px;
     }
     .candidate-gallery {
       display: grid;
@@ -262,11 +306,133 @@
     .candidate-card .small {
       word-break: break-all;
     }
-    .image-composer {
+    .scroll-list.common-hud-scroll {
+      overflow-x: auto;
+      overflow-y: auto;
+      padding-bottom: 8px;
+    }
+    .common-hud-palette {
+      display: grid;
+      grid-template-columns: repeat(16, 46px);
+      gap: 8px;
+      min-width: max-content;
+      align-items: start;
+    }
+    .common-hud-tile {
+      position: relative;
+      width: 46px;
+      height: 58px;
+      padding: 0;
+      border: 1px solid var(--line);
+      background: rgba(255,255,255,0.03);
+      overflow: hidden;
+    }
+    .common-hud-tile.active {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent) inset;
+      background: rgba(117,199,177,0.10);
+    }
+    .common-hud-tile.assigned {
+      border-color: var(--accent-2);
+    }
+    .common-hud-tile-label {
+      position: absolute;
+      top: 1px;
+      left: 3px;
+      color: #d7c85a;
+      font: 700 9px/1 ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      text-shadow: 0 1px 0 #000;
+      pointer-events: none;
+    }
+    .common-hud-tile img {
+      position: absolute;
+      left: 4px;
+      bottom: 4px;
+      width: 38px;
+      height: 38px;
+      image-rendering: pixelated;
+      object-fit: contain;
+      background: #000;
+    }
+    .common-hud-tool {
       border: 1px solid var(--line);
       background: rgba(0,0,0,0.18);
       padding: 12px;
       margin-bottom: 14px;
+    }
+    .common-hud-board-wrap {
+      overflow: auto;
+      border: 1px solid var(--line);
+      background: #05070a;
+      padding: 10px;
+      margin: 10px 0;
+    }
+    .common-hud-board {
+      display: grid;
+      grid-template-columns: repeat(20, 24px);
+      grid-auto-rows: 24px;
+      gap: 1px;
+      width: max-content;
+    }
+    .common-hud-board-cell {
+      width: 24px;
+      height: 24px;
+      padding: 0;
+      border: 1px solid #1d242b;
+      background: #000;
+    }
+    .common-hud-board-cell.active {
+      border-color: var(--accent);
+      box-shadow: 0 0 0 1px var(--accent) inset;
+    }
+    .common-hud-board-cell img {
+      width: 100%;
+      height: 100%;
+      image-rendering: pixelated;
+      object-fit: fill;
+      display: block;
+    }
+    .image-composer,
+    .image-prompt-tool {
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,0.18);
+      padding: 12px;
+      margin-bottom: 14px;
+    }
+    .image-prompt-grid {
+      display: grid;
+      grid-template-columns: minmax(260px, 1fr) minmax(260px, 360px);
+      gap: 14px;
+      align-items: start;
+    }
+    .image-prompt-canvas-wrap {
+      overflow: auto;
+      max-height: 460px;
+      border: 1px solid var(--line);
+      background: #05070a;
+      padding: 8px;
+    }
+    #imagePromptCanvas {
+      image-rendering: pixelated;
+      max-width: 100%;
+      max-height: 420px;
+      background: #000;
+      border: 1px solid var(--line);
+      cursor: crosshair;
+    }
+    .prompt-field-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
+    .prompt-field-grid input {
+      min-width: 0;
+    }
+    #imagePromptOutput {
+      min-height: 360px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      font-size: 12px;
+      line-height: 1.45;
     }
     .composer-grid {
       display: grid;
@@ -574,6 +740,37 @@
     .audit-controls select {
       margin-bottom: 0;
     }
+    .audit-mode-toggle {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      min-width: 220px;
+    }
+    .audit-mode-toggle .control-title {
+      font-size: 11px;
+      color: var(--muted);
+    }
+    .audit-mode-toggle.inverted .control-title {
+      color: var(--accent-2);
+    }
+    .audit-mode-buttons {
+      display: inline-flex;
+      border: 1px solid var(--line);
+    }
+    .audit-mode-buttons button {
+      border: 0;
+      border-right: 1px solid var(--line);
+      background: transparent;
+      color: var(--muted);
+      padding: 8px 11px;
+    }
+    .audit-mode-buttons button:last-child {
+      border-right: 0;
+    }
+    .audit-mode-buttons button.active {
+      background: rgba(117,199,177,0.16);
+      color: var(--text);
+    }
     .audit-list {
       flex: 1;
       min-height: 0;
@@ -855,14 +1052,45 @@
         <div id="imageEditor" class="section hidden">
           <h2 id="imageTitle">이미지 항목</h2>
           <div class="meta" id="imageMeta"></div>
+          <div id="commonHudTool" class="common-hud-tool hidden">
+            <h3 id="commonHudToolTitle">공유 HUD 타일 조합 보드</h3>
+            <div class="small" id="commonHudToolHelp">
+              왼쪽 타일 팔레트에서 타일을 누르면 현재 보드 칸에 배치됩니다. 업로드 PNG는 채워진 칸들의 최소 사각형 크기를 기준으로 합니다.
+            </div>
+            <div class="toolbar">
+              <button id="commonHudClearCellBtn" type="button">현재 칸 비우기</button>
+              <button id="commonHudClearBoardBtn" type="button">보드 초기화</button>
+              <button id="commonHudDownloadBoardBtn" type="button">보드 PNG 다운로드</button>
+            </div>
+            <div class="common-hud-board-wrap">
+              <div id="commonHudBoard" class="common-hud-board"></div>
+            </div>
+            <div class="small" id="commonHudBoardMeta"></div>
+            <label><span id="commonHudSheetUploadLabel">선택 영역 조합 PNG 업로드</span>
+              <input id="commonHudSheetUpload" type="file" accept=".png,.bmp,.gif,.webp,.jpg,.jpeg">
+            </label>
+            <div class="toolbar">
+              <button id="commonHudUploadSheetBtn" type="button" class="primary">PNG를 8×8 타일로 분할 적용</button>
+            </div>
+          </div>
           <div class="preview-grid">
             <div class="preview-card">
-              <strong>원본 이미지</strong>
+              <strong>편집 원본</strong>
               <div class="small" id="sourcePreviewMeta"></div>
               <img id="sourcePreviewImage" alt="원본 이미지 미리보기">
               <div class="toolbar">
                 <a id="sourcePreviewLink" class="small" href="#" target="_blank">원본 열기</a>
                 <a id="sourceDownloadLink" class="small" href="#" download>원본 다운로드</a>
+              </div>
+            </div>
+            <div class="preview-card hidden" id="referencePreviewCard">
+              <strong>참고 화면</strong>
+              <div class="small">편집/업로드용 원본이 아니라 화면 배치 확인용입니다.</div>
+              <div class="small" id="referencePreviewMeta"></div>
+              <img id="referencePreviewImage" alt="참고 화면 미리보기">
+              <div class="toolbar">
+                <a id="referencePreviewLink" class="small" href="#" target="_blank">참고 화면 열기</a>
+                <a id="referenceDownloadLink" class="small" href="#" download>참고 화면 다운로드</a>
               </div>
             </div>
             <div class="preview-card">
@@ -884,7 +1112,64 @@
           <label>수정 이미지 업로드
             <input id="replacementUpload" type="file" accept=".png,.bmp,.gif,.webp,.jpg,.jpeg">
           </label>
-          <button id="uploadImageBtn">업로드 후 교체 경로 반영</button>
+          <div id="imageDropZone" class="image-drop-zone" tabindex="0" role="button">
+            <strong>교체 이미지 드래그앤드롭</strong>
+            <div class="small">수정한 이미지를 여기에 놓으면 즉시 업로드하고 자동 적용합니다. 클릭하면 파일 선택도 열립니다.</div>
+            <input id="imageDropUpload" class="hidden" type="file" accept=".png,.bmp,.gif,.webp,.jpg,.jpeg">
+          </div>
+          <div class="toolbar">
+            <button id="uploadImageBtn">업로드 후 교체 경로 반영</button>
+            <button id="restoreImageBtn">현재 이미지 원상복구</button>
+          </div>
+          <div id="imagePromptTool" class="image-prompt-tool">
+            <h3>이미지 수정 프롬프트 생성</h3>
+            <div class="small">편집 원본 위에서 드래그하면 수정 허용 영역 좌표가 채워집니다.</div>
+            <div class="image-prompt-grid">
+              <div>
+                <div class="image-prompt-canvas-wrap">
+                  <canvas id="imagePromptCanvas" width="256" height="256"></canvas>
+                </div>
+                <div class="small" id="imagePromptMeta"></div>
+              </div>
+              <div>
+                <div class="split">
+                  <label>가로
+                    <input id="imagePromptWidth" readonly>
+                  </label>
+                  <label>세로
+                    <input id="imagePromptHeight" readonly>
+                  </label>
+                </div>
+                <label>원문 텍스트
+                  <input id="imagePromptSourceText">
+                </label>
+                <label>한글 번역
+                  <input id="imagePromptKoreanText">
+                </label>
+                <div class="prompt-field-grid">
+                  <label>X
+                    <input id="imagePromptX" type="number" min="0" step="1">
+                  </label>
+                  <label>Y
+                    <input id="imagePromptY" type="number" min="0" step="1">
+                  </label>
+                  <label>W
+                    <input id="imagePromptW" type="number" min="1" step="1">
+                  </label>
+                  <label>H
+                    <input id="imagePromptH" type="number" min="1" step="1">
+                  </label>
+                </div>
+                <div class="toolbar">
+                  <button id="imagePromptClearBtn" type="button">영역 초기화</button>
+                  <button id="imagePromptCopyBtn" type="button" class="primary">프롬프트 복사</button>
+                </div>
+              </div>
+            </div>
+            <label>생성된 프롬프트
+              <textarea id="imagePromptOutput" readonly></textarea>
+            </label>
+          </div>
           <div id="imageComposer" class="image-composer">
             <h3>간단 이미지 교체 도구</h3>
             <div class="small">
@@ -989,6 +1274,8 @@
         <button id="importTranslationBtn">번역 결과 가져오기</button>
         <div class="small" id="autoImportInfo"></div>
         <button id="openAuditReviewBtn">Entry8 후보 검수</button>
+        <button id="applyImagesBtn">이미지 교체 전체 적용</button>
+        <button id="restoreAllImagesBtn">이미지 교체 전체 원상복구</button>
         <button id="rebuildBtn">전체 적용 ROM 재빌드</button>
         <div class="small" id="romInfo"></div>
         <div class="small" id="importInfo"></div>
@@ -1048,12 +1335,13 @@
             <option value="capacity">여유 적은 순</option>
           </select>
         </label>
-        <label>클릭 모드
-          <select id="auditDecisionMode">
-            <option value="apply">적용할 항목으로 선택</option>
-            <option value="skip">적용하지 않을 항목으로 선택</option>
-          </select>
-        </label>
+        <div class="audit-mode-toggle" role="group" aria-label="클릭 모드">
+          <div class="control-title">클릭 모드</div>
+          <div class="audit-mode-buttons">
+            <button id="auditDecisionApplyBtn" type="button" data-mode="apply" aria-pressed="true">적용 선택</button>
+            <button id="auditDecisionSkipBtn" type="button" data-mode="skip" aria-pressed="false">미적용 선택</button>
+          </div>
+        </div>
         <button id="auditApplyVisibleBtn" type="button">현재 페이지 적용</button>
         <button id="auditSkipVisibleBtn" type="button">현재 페이지 미적용</button>
         <button id="auditClearVisibleBtn" type="button">현재 페이지 판정 해제</button>
@@ -1105,7 +1393,11 @@
       auditStatusFilter: "all",
       auditSortMode: "offset",
       auditDecisionMode: "apply",
+      auditDecisionInvert: false,
       activeOperation: "",
+      commonHudBoards: {},
+      commonHudBoard: Array(100).fill(""),
+      commonHudBoardCursor: 0,
     };
 
     const categoryList = document.getElementById("categoryList");
@@ -1160,7 +1452,9 @@
     const auditStatusFilter = document.getElementById("auditStatusFilter");
     const auditPageSize = document.getElementById("auditPageSize");
     const auditSortMode = document.getElementById("auditSortMode");
-    const auditDecisionMode = document.getElementById("auditDecisionMode");
+    const auditModeToggle = document.querySelector(".audit-mode-toggle");
+    const auditDecisionApplyBtn = document.getElementById("auditDecisionApplyBtn");
+    const auditDecisionSkipBtn = document.getElementById("auditDecisionSkipBtn");
     const auditApplyVisibleBtn = document.getElementById("auditApplyVisibleBtn");
     const auditSkipVisibleBtn = document.getElementById("auditSkipVisibleBtn");
     const auditClearVisibleBtn = document.getElementById("auditClearVisibleBtn");
@@ -1199,10 +1493,26 @@
 
     const imageTitle = document.getElementById("imageTitle");
     const imageMeta = document.getElementById("imageMeta");
+    const commonHudTool = document.getElementById("commonHudTool");
+    const commonHudToolTitle = document.getElementById("commonHudToolTitle");
+    const commonHudToolHelp = document.getElementById("commonHudToolHelp");
+    const commonHudBoard = document.getElementById("commonHudBoard");
+    const commonHudBoardMeta = document.getElementById("commonHudBoardMeta");
+    const commonHudClearCellBtn = document.getElementById("commonHudClearCellBtn");
+    const commonHudClearBoardBtn = document.getElementById("commonHudClearBoardBtn");
+    const commonHudDownloadBoardBtn = document.getElementById("commonHudDownloadBoardBtn");
+    const commonHudSheetUpload = document.getElementById("commonHudSheetUpload");
+    const commonHudSheetUploadLabel = document.getElementById("commonHudSheetUploadLabel");
+    const commonHudUploadSheetBtn = document.getElementById("commonHudUploadSheetBtn");
     const sourcePreviewMeta = document.getElementById("sourcePreviewMeta");
     const sourcePreviewImage = document.getElementById("sourcePreviewImage");
     const sourcePreviewLink = document.getElementById("sourcePreviewLink");
     const sourceDownloadLink = document.getElementById("sourceDownloadLink");
+    const referencePreviewCard = document.getElementById("referencePreviewCard");
+    const referencePreviewMeta = document.getElementById("referencePreviewMeta");
+    const referencePreviewImage = document.getElementById("referencePreviewImage");
+    const referencePreviewLink = document.getElementById("referencePreviewLink");
+    const referenceDownloadLink = document.getElementById("referenceDownloadLink");
     const replacementPreviewMeta = document.getElementById("replacementPreviewMeta");
     const replacementPreviewImage = document.getElementById("replacementPreviewImage");
     const replacementPreviewLink = document.getElementById("replacementPreviewLink");
@@ -1210,12 +1520,29 @@
     const sourcePreviewPath = document.getElementById("sourcePreviewPath");
     const replacementPath = document.getElementById("replacementPath");
     const replacementUpload = document.getElementById("replacementUpload");
+    const imageDropZone = document.getElementById("imageDropZone");
+    const imageDropUpload = document.getElementById("imageDropUpload");
     const uploadImageBtn = document.getElementById("uploadImageBtn");
+    const restoreImageBtn = document.getElementById("restoreImageBtn");
     const comparisonNotes = document.getElementById("comparisonNotes");
     const imageNotes = document.getElementById("imageNotes");
     const imageProgressStatus = document.getElementById("imageProgressStatus");
     const imageSubunits = document.getElementById("imageSubunits");
     const imageCandidateGallery = document.getElementById("imageCandidateGallery");
+    const imagePromptCanvas = document.getElementById("imagePromptCanvas");
+    const imagePromptCtx = imagePromptCanvas.getContext("2d", { willReadFrequently: true });
+    const imagePromptMeta = document.getElementById("imagePromptMeta");
+    const imagePromptWidth = document.getElementById("imagePromptWidth");
+    const imagePromptHeight = document.getElementById("imagePromptHeight");
+    const imagePromptSourceText = document.getElementById("imagePromptSourceText");
+    const imagePromptKoreanText = document.getElementById("imagePromptKoreanText");
+    const imagePromptX = document.getElementById("imagePromptX");
+    const imagePromptY = document.getElementById("imagePromptY");
+    const imagePromptW = document.getElementById("imagePromptW");
+    const imagePromptH = document.getElementById("imagePromptH");
+    const imagePromptOutput = document.getElementById("imagePromptOutput");
+    const imagePromptClearBtn = document.getElementById("imagePromptClearBtn");
+    const imagePromptCopyBtn = document.getElementById("imagePromptCopyBtn");
     const imageComposer = document.getElementById("imageComposer");
     const composerCanvas = document.getElementById("composerCanvas");
     const composerCtx = composerCanvas.getContext("2d", { willReadFrequently: true });
@@ -1233,6 +1560,8 @@
     const composerScaleValue = document.getElementById("composerScaleValue");
     const composerThresholdValue = document.getElementById("composerThresholdValue");
     const composerUploadBtn = document.getElementById("composerUploadBtn");
+    const applyImagesBtn = document.getElementById("applyImagesBtn");
+    const restoreAllImagesBtn = document.getElementById("restoreAllImagesBtn");
     const rebuildBtn = document.getElementById("rebuildBtn");
     const statusInfo = document.getElementById("statusInfo");
     const composerState = {
@@ -1240,6 +1569,15 @@
       overlayName: "",
       baseImage: null,
       currentItemId: "",
+    };
+    const imagePromptState = {
+      image: null,
+      itemId: "",
+      sourcePath: "",
+      dragging: false,
+      start: null,
+      rect: null,
+      rects: new Map(),
     };
 
     const AUDIT_TAB_CONFIGS = [
@@ -1263,6 +1601,13 @@
         path: "confirmed_data/translation_workspace/audits/entry8_no_space_slack_candidates.json",
         tone: "hold",
         note: "현재 번역문에 공백이 없고 byte 여유가 남은 항목입니다. 제안을 직접 수정해 필요한 항목만 적용하세요.",
+      },
+      {
+        id: "spacing_kss",
+        label: "자동 띄어쓰기 후보",
+        path: "confirmed_data/translation_workspace/audits/entry8_kss_spacing_candidates.json",
+        tone: "safe",
+        note: "KSS correct_spacing 결과를 기반으로 만든 전각 공백 제안입니다. 비공백 문자가 바뀐 결과는 제외합니다.",
       },
       {
         id: "boundary_hold",
@@ -1299,9 +1644,16 @@
         applySpeakerFamilyBtn,
         openAuditReviewBtn,
         importTranslationBtn,
+        applyImagesBtn,
+        restoreAllImagesBtn,
         rebuildBtn,
         uploadImageBtn,
+        restoreImageBtn,
         composerUploadBtn,
+        commonHudClearCellBtn,
+        commonHudClearBoardBtn,
+        commonHudDownloadBoardBtn,
+        commonHudUploadSheetBtn,
       ].filter(Boolean);
     }
 
@@ -1309,6 +1661,29 @@
       for (const button of actionButtons()) {
         button.disabled = Boolean(isBusy);
       }
+      if (!isBusy) {
+        updateContextualActionButtons();
+      }
+    }
+
+    function updateContextualActionButtons() {
+      const item = state.items.find((entry) => entry.item_id === state.itemId);
+      if (!item || !isImageItem(item) || imageEditor.classList.contains("hidden")) {
+        uploadImageBtn.disabled = true;
+        restoreImageBtn.disabled = true;
+        replacementUpload.disabled = true;
+        replacementPath.disabled = true;
+        imageDropUpload.disabled = true;
+        imageDropZone.classList.add("disabled");
+        return;
+      }
+      const isReplacementTarget = item.replacement_target !== false;
+      replacementPath.disabled = !isReplacementTarget;
+      replacementUpload.disabled = !isReplacementTarget;
+      imageDropUpload.disabled = !isReplacementTarget;
+      uploadImageBtn.disabled = !isReplacementTarget;
+      restoreImageBtn.disabled = !isReplacementTarget || !(item.replacement_path || "").trim();
+      imageDropZone.classList.toggle("disabled", !isReplacementTarget);
     }
 
     async function runExclusiveAction(label, task) {
@@ -1348,6 +1723,23 @@
       setStatus(`${title} (${value}%)${detail ? `\n${detail}` : ""}`, tone);
     }
 
+    async function withBusyActionPulse(start, max, title, detail, task) {
+      let current = Math.min(Math.max(0, Number(start) || 0), 100);
+      const limit = Math.min(Math.max(current, Number(max) || current), 99);
+      setBusyActionProgress(current, title, detail);
+      const timer = window.setInterval(() => {
+        if (current >= limit) return;
+        const remaining = limit - current;
+        current += Math.max(1, Math.min(7, Math.ceil(remaining / 4)));
+        setBusyActionProgress(current, title, detail);
+      }, 900);
+      try {
+        return await task();
+      } finally {
+        window.clearInterval(timer);
+      }
+    }
+
     function nextFrame() {
       return new Promise((resolve) => requestAnimationFrame(resolve));
     }
@@ -1377,6 +1769,10 @@
         for (const [key, suggested] of state.auditEdits.entries()) {
           auditEdits[key] = suggested;
         }
+        const commonHudBoards = { ...state.commonHudBoards };
+        if (isCommonHudCategory(state.categoryId)) {
+          commonHudBoards[state.categoryId] = state.commonHudBoard;
+        }
         window.localStorage.setItem(
           LOCAL_UI_STATE_KEY,
           JSON.stringify({
@@ -1397,6 +1793,9 @@
             auditStatusFilter: state.auditStatusFilter,
             auditSortMode: state.auditSortMode,
             auditDecisionMode: state.auditDecisionMode,
+            commonHudBoards,
+            commonHudBoard: state.commonHudBoard,
+            commonHudBoardCursor: state.commonHudBoardCursor,
             drafts,
           })
         );
@@ -1545,7 +1944,7 @@
     }
 
     function repointCapabilityForItem(item) {
-      if (!item || item.category_id === "image_review_units") {
+      if (!item || isImageItem(item)) {
         return { allowed: false, kind: "fixed", label: "고정 슬롯", detail: "" };
       }
       if (item.source_group === "registry_a_entry8_prefixed_texts") {
@@ -1624,7 +2023,7 @@
     }
 
     function limitInfoForItem(item, text) {
-      if (!item || item.category_id === "image_review_units") return null;
+      if (!item || isImageItem(item)) return null;
       const capacity = capacityBytesForItem(item);
       if (!Number.isFinite(capacity)) return null;
       const normalized = normalizeForLimitPreview(text, item.source_group);
@@ -1718,7 +2117,7 @@
     }
 
     function normalizeTextDraftForItem(draft, item) {
-      if (!draft || !item || item.category_id === "image_review_units") {
+      if (!draft || !item || isImageItem(item)) {
         return draft;
       }
       const normalized = {
@@ -1746,7 +2145,7 @@
     }
 
     function normalizeImageDraftForItem(draft, item) {
-      if (!draft || !item || item.category_id !== "image_review_units") {
+      if (!draft || !item || !isImageItem(item)) {
         return draft;
       }
       const normalized = {
@@ -1769,7 +2168,7 @@
     function getEffectiveItem(item) {
       const draft = getDraft(item.item_id);
       if (!draft) return item;
-      const normalizedDraft = item.category_id === "image_review_units"
+      const normalizedDraft = isImageItem(item)
         ? normalizeImageDraftForItem(draft, item)
         : normalizeTextDraftForItem(draft, item);
       return { ...item, ...normalizedDraft };
@@ -1801,7 +2200,7 @@
     function isStaleEmptyTextDraft(draft, item) {
       const savedTranslation = persistedTranslation(item);
       return (
-        item.category_id !== "image_review_units" &&
+        !isImageItem(item) &&
         savedTranslation.trim() &&
         !(draft.translation || "").trim() &&
         !(draft.agent_draft || "").trim() &&
@@ -1813,9 +2212,30 @@
       );
     }
 
+    function isLikelyStaleTextMetadataDraft(draft, item) {
+      if (!draft || !item || isImageItem(item)) return false;
+      const normalized = normalizeTextDraftForItem(draft, item);
+      const savedTranslation = persistedTranslation(item);
+      const draftTranslation = normalized.translation ?? "";
+      const draftAgentDraft = normalized.agent_draft ?? "";
+      const draftAgentComment = normalized.agent_comment ?? "";
+      const draftNotes = normalized.notes ?? "";
+      const textChanged =
+        draftTranslation !== savedTranslation ||
+        draftAgentDraft !== (usableAgentDraft(item) ?? "") ||
+        draftAgentComment !== (item.agent_comment ?? "") ||
+        draftNotes !== (item.notes ?? "");
+      if (textChanged) return false;
+      return (
+        (item.manual_locked && !normalized.manual_locked) ||
+        ((item.progress_status ?? "todo") !== "todo" && (normalized.progress_status ?? "todo") === "todo") ||
+        ((item.review_status ?? "unreviewed") !== "unreviewed" && (normalized.review_status ?? "unreviewed") === "unreviewed")
+      );
+    }
+
     function isStaleEmptyImageDraft(draft, item) {
       return (
-        item.category_id === "image_review_units" &&
+        isImageItem(item) &&
         (item.source_preview_path || item.source_download_path || "").trim() &&
         !(draft.source_preview_path || "").trim() &&
         !(draft.source_download_path || "").trim() &&
@@ -1826,9 +2246,38 @@
       );
     }
 
+    function isLikelyStaleImageDraft(draft, item) {
+      if (!draft || !item || !isImageItem(item)) return false;
+      const draftReplacement = draft.replacement_path ?? "";
+      const itemReplacement = item.replacement_path ?? "";
+      const draftComparison = draft.comparison_notes ?? "";
+      const itemComparison = item.comparison_notes ?? "";
+      const draftNotes = draft.notes ?? "";
+      const itemNotes = item.notes ?? "";
+      const draftProgress = draft.progress_status ?? "todo";
+      const itemProgress = item.progress_status ?? "todo";
+      const draftAddsUserContent =
+        (draftReplacement.trim() && draftReplacement !== itemReplacement) ||
+        (draftComparison.trim() && draftComparison !== itemComparison) ||
+        (draftNotes.trim() && draftNotes !== itemNotes) ||
+        (draftProgress !== "todo" && draftProgress !== itemProgress);
+      if (draftAddsUserContent) return false;
+      return (
+        (draft.source_preview_path ?? "") !== (item.source_preview_path ?? "") ||
+        (draft.source_download_path ?? "") !== (item.source_download_path ?? "") ||
+        (itemReplacement.trim() && !draftReplacement.trim()) ||
+        (itemComparison.trim() && !draftComparison.trim()) ||
+        (itemNotes.trim() && !draftNotes.trim()) ||
+        (itemProgress !== "todo" && draftProgress === "todo")
+      );
+    }
+
     function shouldKeepDraft(draft, item) {
       if (!item) return false;
-      if (item.category_id === "image_review_units") {
+      if (isImageItem(item)) {
+        if (isLikelyStaleImageDraft(draft, item)) {
+          return false;
+        }
         if (isStaleEmptyImageDraft(draft, item)) {
           return false;
         }
@@ -1838,6 +2287,9 @@
       if (isStaleEmptyTextDraft(draft, item)) {
         return false;
       }
+      if (isLikelyStaleTextMetadataDraft(draft, item)) {
+        return false;
+      }
       return !textDraftEqualsItem(draft, item);
     }
 
@@ -1845,10 +2297,16 @@
       if (!state.itemId) return;
       const item = state.items.find((entry) => entry.item_id === state.itemId);
       if (!item) return;
-      if (item.category_id === "image_review_units") {
+      if (isImageItem(item)) {
+        const draftSourcePreviewPath = isCommonHudItem(item)
+          ? (item.source_preview_path || "")
+          : sourcePreviewPath.value;
+        const draftSourceDownloadPath = isCommonHudItem(item)
+          ? (item.source_download_path || "")
+          : sourcePreviewPath.value;
         const draft = {
-          source_preview_path: sourcePreviewPath.value,
-          source_download_path: sourcePreviewPath.value,
+          source_preview_path: draftSourcePreviewPath,
+          source_download_path: draftSourceDownloadPath,
           replacement_path: replacementPath.value,
           comparison_notes: comparisonNotes.value,
           notes: imageNotes.value,
@@ -1963,7 +2421,7 @@
 
     function auditCurrentText(candidate) {
       const item = sourceItemForAuditCandidate(candidate);
-      if (!item || item.category_id === "image_review_units") {
+      if (!item || isImageItem(item)) {
         return candidate.current || "";
       }
       const effective = getEffectiveItem(item);
@@ -1984,9 +2442,34 @@
       return state.auditEdits.has(candidate.key) && state.auditEdits.get(candidate.key) !== candidate.suggested;
     }
 
+    function auditReviewIsOpen() {
+      return !auditReviewModal.classList.contains("hidden");
+    }
+
+    function effectiveAuditDecisionMode(event = null) {
+      const baseMode = state.auditDecisionMode === "skip" ? "skip" : "apply";
+      const inverted = (event?.shiftKey || state.auditDecisionInvert) && auditReviewIsOpen();
+      if (!inverted) return baseMode;
+      return baseMode === "skip" ? "apply" : "skip";
+    }
+
+    function updateAuditDecisionModeButtons() {
+      const mode = effectiveAuditDecisionMode();
+      auditModeToggle.classList.toggle("inverted", state.auditDecisionInvert && auditReviewIsOpen());
+      for (const button of [auditDecisionApplyBtn, auditDecisionSkipBtn]) {
+        const active = button.dataset.mode === mode;
+        button.classList.toggle("active", active);
+        button.setAttribute("aria-pressed", active ? "true" : "false");
+      }
+    }
+
+    function auditRowInteractiveTarget(event) {
+      return Boolean(event.target?.closest?.("button, input, select, a"));
+    }
+
     function auditCandidateMatchesCurrentTranslation(candidate) {
       const item = sourceItemForAuditCandidate(candidate);
-      if (!item || item.category_id === "image_review_units") return false;
+      if (!item || isImageItem(item)) return false;
       const suggested = auditSuggestedText(candidate);
       if (!suggested) return false;
       const current = auditCurrentText(candidate);
@@ -2186,7 +2669,7 @@
       auditStatusFilter.value = state.auditStatusFilter;
       auditPageSize.value = String(state.auditPageSize);
       auditSortMode.value = state.auditSortMode;
-      auditDecisionMode.value = state.auditDecisionMode;
+      updateAuditDecisionModeButtons();
 
       const tab = AUDIT_TAB_CONFIGS.find((entry) => entry.id === state.auditTabId) || AUDIT_TAB_CONFIGS[0];
       const items = auditCandidatesForCurrentTab();
@@ -2201,7 +2684,7 @@
       auditPageInfo.textContent = items.length
         ? `${start + 1}-${end} / ${items.length}`
         : "0 / 0";
-      auditSelectionInfo.textContent = `적용 ${decisionCounts.apply}개 / 적용 안 함 ${decisionCounts.skip}개 / 반영 완료 ${decisionCounts.done}개. 행을 누르면 현재 클릭 모드로 판정합니다. 적용 선택만 임시 변경에 반영됩니다.`;
+      auditSelectionInfo.textContent = `적용 ${decisionCounts.apply}개 / 적용 안 함 ${decisionCounts.skip}개 / 반영 완료 ${decisionCounts.done}개. 행을 누르면 현재 클릭 모드로 판정합니다. Shift를 누르는 동안 반대 모드로 판정합니다. 적용 선택만 임시 변경에 반영됩니다.`;
       auditPrevPageBtn.disabled = state.auditPage <= 0;
       auditNextPageBtn.disabled = state.auditPage >= maxPage;
 
@@ -2221,9 +2704,35 @@
           hasChange ? "" : "no-change",
         ].filter(Boolean).join(" ");
         row.dataset.key = item.key;
-        row.onclick = () => {
-          setAuditDecision(item, state.auditDecisionMode);
+        const chooseRowWithCurrentMode = (event) => {
+          setAuditDecision(item, effectiveAuditDecisionMode(event));
           renderAuditReview();
+        };
+        row.onmousedown = (event) => {
+          if (auditRowInteractiveTarget(event)) return;
+          if (!event.shiftKey && !state.auditDecisionInvert) return;
+          event.preventDefault();
+          event.stopPropagation();
+          row.dataset.suppressNextClick = "1";
+          chooseRowWithCurrentMode(event);
+        };
+        row.onclick = (event) => {
+          if (row.dataset.suppressNextClick === "1") {
+            delete row.dataset.suppressNextClick;
+            event.preventDefault();
+            event.stopPropagation();
+            return;
+          }
+          if (auditRowInteractiveTarget(event)) return;
+          chooseRowWithCurrentMode(event);
+        };
+        row.oncontextmenu = (event) => {
+          if (auditRowInteractiveTarget(event)) return;
+          if (!event.shiftKey && !state.auditDecisionInvert) return;
+          event.preventDefault();
+          event.stopPropagation();
+          row.dataset.suppressNextClick = "1";
+          chooseRowWithCurrentMode(event);
         };
 
         const decisionCell = document.createElement("div");
@@ -2314,7 +2823,7 @@
           editedNote.textContent = auditCandidateIsEdited(item) ? "직접 수정됨" : "";
           renderAuditTabs();
           const counts = auditDecisionCounts();
-          auditSelectionInfo.textContent = `적용 ${counts.apply}개 / 적용 안 함 ${counts.skip}개 / 반영 완료 ${counts.done}개. 행을 누르면 현재 클릭 모드로 판정합니다. 적용 선택만 임시 변경에 반영됩니다.`;
+          auditSelectionInfo.textContent = `적용 ${counts.apply}개 / 적용 안 함 ${counts.skip}개 / 반영 완료 ${counts.done}개. 행을 누르면 현재 클릭 모드로 판정합니다. Shift를 누르는 동안 반대 모드로 판정합니다. 적용 선택만 임시 변경에 반영됩니다.`;
         };
         suggestedCell.appendChild(suggestedInput);
         suggestedCell.appendChild(limitMeter);
@@ -2355,6 +2864,8 @@
     }
 
     function closeAuditReview() {
+      state.auditDecisionInvert = false;
+      updateAuditDecisionModeButtons();
       auditReviewModal.classList.add("hidden");
       auditReviewModal.setAttribute("aria-hidden", "true");
     }
@@ -2429,7 +2940,7 @@
       const appliedKeys = [];
       for (const candidate of candidates) {
         const item = state.items.find((entry) => entry.item_id === candidate.item_id);
-        if (!item || item.category_id === "image_review_units") {
+        if (!item || isImageItem(item)) {
           missing.push(candidate.item_id || candidate.hex || "unknown");
           continue;
         }
@@ -2489,7 +3000,7 @@
         state.draftItems = new Map();
         for (const [itemId, draft] of Object.entries(localUiState.drafts)) {
           const item = state.items.find((entry) => entry.item_id === itemId);
-          const normalizedDraft = item?.category_id === "image_review_units"
+          const normalizedDraft = isImageItem(item)
             ? normalizeImageDraftForItem(draft, item)
             : normalizeTextDraftForItem(draft, item);
           if (shouldKeepDraft(normalizedDraft, item)) {
@@ -2515,10 +3026,16 @@
         localUiState?.categoryId ||
         state.bundle.progress.current_category_id ||
         state.categories[0]?.id;
+      if (!state.categories.some((category) => category.id === state.categoryId)) {
+        state.categoryId = state.categories[0]?.id || null;
+      }
       state.itemId =
         localUiState?.itemId ||
         state.bundle.progress.current_item_id ||
         null;
+      if (state.itemId && !state.items.some((item) => item.item_id === state.itemId)) {
+        state.itemId = null;
+      }
       state.itemPage = Number.isFinite(Number(localUiState?.itemPage)) ? Number(localUiState.itemPage) : 0;
       state.itemPageSize = Number(localUiState?.itemPageSize) || 200;
       state.itemSearch = localUiState?.itemSearch || "";
@@ -2532,6 +3049,33 @@
       state.auditStatusFilter = localUiState?.auditStatusFilter || "all";
       state.auditSortMode = localUiState?.auditSortMode || "offset";
       state.auditDecisionMode = localUiState?.auditDecisionMode === "skip" ? "skip" : "apply";
+      if (Array.isArray(localUiState?.commonHudBoard)) {
+        state.commonHudBoard = Array.from({ length: 100 }, (_, index) => {
+          const itemId = localUiState.commonHudBoard[index];
+          return typeof itemId === "string" ? itemId : "";
+        });
+      }
+      if (localUiState?.commonHudBoards && typeof localUiState.commonHudBoards === "object") {
+        state.commonHudBoards = Object.fromEntries(
+          Object.entries(localUiState.commonHudBoards).map(([categoryId, board]) => [
+            categoryId,
+            Array.from({ length: 100 }, (_, index) => {
+              const itemId = Array.isArray(board) ? board[index] : "";
+              return typeof itemId === "string" ? itemId : "";
+            }),
+          ])
+        );
+      }
+      if (!Array.isArray(state.commonHudBoards.common_hud_tiles)) {
+        state.commonHudBoards.common_hud_tiles = Array.from(
+          { length: 100 },
+          (_, index) => state.commonHudBoard[index] || ""
+        );
+      }
+      state.commonHudBoardCursor = Math.min(
+        99,
+        Math.max(0, Number.isFinite(Number(localUiState?.commonHudBoardCursor)) ? Number(localUiState.commonHudBoardCursor) : 0)
+      );
       itemSearch.value = state.itemSearch;
       itemStatusFilter.value = state.itemStatusFilter;
       itemPageSize.value = String(state.itemPageSize);
@@ -2575,7 +3119,7 @@
     }
 
     function isTranslatedForProgress(item) {
-      if (item.category_id === "image_review_units") {
+      if (isImageItem(item)) {
         const imageStatus = item.progress_status || "todo";
         return Boolean((item.replacement_path || "").trim()) ||
           ["edited", "ready_to_insert"].includes(imageStatus);
@@ -2586,14 +3130,14 @@
     }
 
     function isDraftedForProgress(item) {
-      if (item.category_id === "image_review_units") {
+      if (isImageItem(item)) {
         return ["candidate_found", "dumped"].includes(item.progress_status || "");
       }
       return Boolean(usableAgentDraft(item).trim());
     }
 
     function isReviewedForProgress(item) {
-      if (item.category_id === "image_review_units") {
+      if (isImageItem(item)) {
         return ["edited", "ready_to_insert"].includes(item.progress_status || "");
       }
       return item.review_status === "checked" || item.progress_status === "done";
@@ -2619,7 +3163,7 @@
         if (item.review_status === "issue" || item.progress_status === "issue") stats.issues += 1;
         if (state.dirtyItemIds.has(item.item_id)) stats.dirty += 1;
         if (repointCapabilityForItem(item).allowed) stats.repointCapable += 1;
-        if (item.category_id !== "image_review_units") {
+        if (!isImageItem(item)) {
           const info = limitInfoForItem(item, textValueForProgress(item));
           if (info?.remainingBytes < 0 && !info.overflowAllowed) {
             stats.overLimit += 1;
@@ -2717,7 +3261,7 @@
     }
 
     function isUserFacingImageItem(item) {
-      if (item.category_id !== "image_review_units") return true;
+      if (!isImageItem(item)) return true;
       if (item.replacement_target === false) return false;
       if (String(item.label || "").startsWith("분석용:")) return false;
       if (String(item.item_id || "").startsWith("image:runtime_tilemap:")) return false;
@@ -2726,14 +3270,14 @@
     }
 
     function isNullPlaceholderItem(item) {
-      if (item.category_id === "image_review_units") return false;
+      if (isImageItem(item)) return false;
       const text = String(item.text || "").trim();
       const translation = String(item.translation || item.effective_translation || "").trim();
       return text === "ﾇﾙ" && (!translation || translation === "ﾇﾙ");
     }
 
     function duplicateDisplayKey(item) {
-      if (item.category_id === "image_review_units") {
+      if (isImageItem(item)) {
         return item.item_id;
       }
       if (item.offset != null) {
@@ -2766,16 +3310,60 @@
       return categoryId === "registry_a_entry8_clusters_manifest";
     }
 
+    function categoryById(categoryId) {
+      return state.categories.find((category) => category.id === categoryId);
+    }
+
+    function isImageCategory(categoryId = state.categoryId) {
+      const category = categoryById(categoryId);
+      return category?.type === "image" || categoryId === "image_review_units" || categoryId === "common_hud_tiles" || categoryId === "alchemy_tiles";
+    }
+
+    function isImageItem(item) {
+      return Boolean(item && isImageCategory(item.category_id));
+    }
+
+    function isCommonHudCategory(categoryId = state.categoryId) {
+      return categoryId === "common_hud_tiles" || categoryId === "alchemy_tiles";
+    }
+
+    function isCommonHudItem(item) {
+      return Boolean(item && (item.category_id === "common_hud_tiles" || item.category_id === "alchemy_tiles"));
+    }
+
+    function itemGroupFilterValue(item) {
+      if (isImageItem(item)) {
+        return item.image_group_id || item.expected_text_kind || "ungrouped";
+      }
+      return item.group_id || "ungrouped";
+    }
+
+    function itemGroupFilterLabel(item) {
+      if (isImageItem(item)) {
+        return item.image_group_label || item.image_group_id || "기타 이미지 후보";
+      }
+      return item.group_id || "ungrouped";
+    }
+
     function itemScriptOrder(item) {
+      if (isImageItem(item) && item.review_order != null) {
+        return Number(item.review_order);
+      }
       return Number(item.offset ?? item.source_order ?? item.order_in_category ?? 0);
     }
 
     function itemSortValue(item, mode) {
       if (mode === "cluster") {
+        if (isImageItem(item)) {
+          return `${String(item.image_group_order || 0).padStart(5, "0")}:${String(item.review_order || 0).padStart(10, "0")}`;
+        }
         return `${item.group_id || ""}:${String(item.offset || 0).padStart(10, "0")}`;
       }
       if (mode === "status") {
-        return `${item.progress_status || "todo"}:${item.review_status || "unreviewed"}:${String(item.offset || 0).padStart(10, "0")}`;
+        const order = isImageItem(item)
+          ? String(item.review_order || 0).padStart(10, "0")
+          : String(item.offset || 0).padStart(10, "0");
+        return `${item.progress_status || "todo"}:${item.review_status || "unreviewed"}:${String(item.image_group_order || 0).padStart(5, "0")}:${order}`;
       }
       if (mode === "offset") {
         return Number(item.offset || 0);
@@ -2806,7 +3394,7 @@
         return item.review_status === "issue" || item.progress_status === "issue";
       }
       if (filter === "over_limit") {
-        if (item.category_id === "image_review_units") return false;
+        if (isImageItem(item)) return false;
         const info = limitInfoForItem(item, textValueForProgress(item));
         return Boolean(info && info.remainingBytes < 0 && !info.overflowAllowed);
       }
@@ -2820,9 +3408,9 @@
         targetItems = targetItems.filter((item) => itemMatchesStatusFilter(item, statusFilter));
       }
       const query = state.itemSearch.trim().toLowerCase();
-      if (isEntry8Category()) {
+      if (isEntry8Category() || isImageCategory()) {
         if (state.itemGroupFilter !== "all") {
-          targetItems = targetItems.filter((item) => (item.group_id || "") === state.itemGroupFilter);
+          targetItems = targetItems.filter((item) => itemGroupFilterValue(item) === state.itemGroupFilter);
         }
       }
       if (query) {
@@ -2838,6 +3426,7 @@
             effective.effective_translation,
             usableAgentDraft(effective),
             effective.label,
+            effective.image_group_label,
             effective.replacement_path,
             effective.comparison_notes,
           ].join("\n").toLowerCase();
@@ -2861,19 +3450,32 @@
       itemSortMode.value = state.itemSortMode;
       itemPageSize.value = String(state.itemPageSize);
       const groups = new Map();
+      const groupable = isEntry8Category() || isImageCategory();
       for (const item of baseItems) {
-        const group = item.group_id || "ungrouped";
-        groups.set(group, (groups.get(group) || 0) + 1);
+        if (!groupable) continue;
+        const group = itemGroupFilterValue(item);
+        const label = itemGroupFilterLabel(item);
+        const order = Number(item.image_group_order || item.review_order || 0);
+        const current = groups.get(group) || { count: 0, label, order };
+        current.count += 1;
+        current.order = Math.min(current.order, order);
+        groups.set(group, current);
       }
       const current = state.itemGroupFilter;
       itemGroupFilter.innerHTML = `<option value="all">전체 (${baseItems.length})</option>`;
-      for (const [group, count] of [...groups.entries()].sort((a, b) => a[0].localeCompare(b[0], "ko"))) {
+      const sortedGroups = [...groups.entries()].sort((a, b) => {
+        if (isImageCategory()) {
+          return a[1].order - b[1].order || a[1].label.localeCompare(b[1].label, "ko");
+        }
+        return a[0].localeCompare(b[0], "ko");
+      });
+      for (const [group, info] of sortedGroups) {
         const option = document.createElement("option");
         option.value = group;
-        option.textContent = `${group} (${count})`;
+        option.textContent = `${info.label} (${info.count})`;
         itemGroupFilter.appendChild(option);
       }
-      if (!isEntry8Category()) {
+      if (!groupable) {
         itemGroupFilter.value = "all";
         itemGroupFilter.disabled = true;
         state.itemGroupFilter = "all";
@@ -2887,7 +3489,7 @@
     function scrollItemIntoListView(itemId) {
       if (!itemId) return;
       requestAnimationFrame(() => {
-        const node = Array.from(itemList.querySelectorAll(".item"))
+        const node = Array.from(itemList.querySelectorAll(".item, .common-hud-tile"))
           .find((entry) => entry.dataset.itemId === itemId);
         if (node) {
           node.scrollIntoView({ block: "center", inline: "nearest" });
@@ -2938,7 +3540,7 @@
         source.textContent = item.text || item.label || item.group_id || item.item_id;
         const translation = document.createElement("div");
         translation.className = "context-translation";
-        translation.textContent = item.category_id === "image_review_units"
+        translation.textContent = isImageItem(item)
           ? (item.replacement_path || item.comparison_notes || "교체 없음")
           : (item.translation || item.effective_translation || usableAgentDraft(item) || "번역 없음");
         div.appendChild(title);
@@ -2957,6 +3559,12 @@
       const baseItems = filtered || itemsForCategory(state.categoryId);
       updateEntry8Controls(baseItems);
       const targetItems = filteredItemsForDisplay(baseItems);
+      itemList.classList.toggle("common-hud-scroll", isCommonHudCategory());
+      if (isCommonHudCategory()) {
+        renderCommonHudTilePalette(targetItems, options);
+        renderContextPanel();
+        return;
+      }
       const pageSize = Math.max(1, Number(state.itemPageSize) || 200);
       let scrollToItemId = options.scrollToItemId || null;
       if (options.keepCurrentSelection && state.itemId) {
@@ -2979,18 +3587,46 @@
       nextPageBtn.disabled = state.itemPage >= maxPage;
       itemList.innerHTML = "";
       const fragment = document.createDocumentFragment();
+      const imageGroupCounts = new Map();
+      if (isImageCategory()) {
+        for (const rawItem of targetItems) {
+          const item = getEffectiveItem(rawItem);
+          const group = itemGroupFilterValue(item);
+          imageGroupCounts.set(group, (imageGroupCounts.get(group) || 0) + 1);
+        }
+      }
+      let lastImageGroup = "";
       for (const rawItem of visibleItems) {
         const item = getEffectiveItem(rawItem);
+        if (isImageCategory()) {
+          const group = itemGroupFilterValue(item);
+          if (group !== lastImageGroup) {
+            const heading = document.createElement("div");
+            heading.className = "item-group-heading";
+            const title = document.createElement("span");
+            title.textContent = itemGroupFilterLabel(item);
+            const count = document.createElement("span");
+            count.className = "item-group-count";
+            count.textContent = `${imageGroupCounts.get(group) || 0}개`;
+            heading.appendChild(title);
+            heading.appendChild(count);
+            fragment.appendChild(heading);
+            lastImageGroup = group;
+          }
+        }
         const div = document.createElement("div");
         div.className = "item" + (item.item_id === state.itemId ? " active" : "");
         div.dataset.itemId = item.item_id;
         const label = item.text || item.label || item.group_id || item.item_id;
+        const metaLabel = isImageItem(item)
+          ? [item.image_group_label, item.expected_text_kind].filter(Boolean).join(" / ")
+          : (item.source_group || item.expected_text_kind || "");
         const token = item.dialogue_state_token ? `<span class="badge">${item.dialogue_state_token}</span>` : "";
-        const translationPreview = item.category_id === "image_review_units"
+        const translationPreview = isImageItem(item)
           ? (item.replacement_path || item.comparison_notes || "").trim()
           : (item.translation || item.effective_translation || usableAgentDraft(item) || "").trim();
         const dirtyBadge = state.dirtyItemIds.has(item.item_id) ? `<span class="badge">수정됨</span>` : "";
-        const limitInfo = item.category_id === "image_review_units" ? null : limitInfoForItem(item, translationPreview);
+        const limitInfo = isImageItem(item) ? null : limitInfoForItem(item, translationPreview);
         const repointBadge = limitInfo?.repointCapability.allowed ? `<span class="badge">repoint</span>` : "";
         const overLimitBadge = limitInfo?.remainingBytes < 0 && !limitInfo.overflowAllowed
           ? `<span class="badge">초과</span>`
@@ -3000,7 +3636,7 @@
           : `<div class="item-translation meta">번역 없음</div>`;
         div.innerHTML = `
           <strong>${label.slice(0, 36)}</strong><br>
-          <span class="meta">${item.source_group || item.expected_text_kind || ""}</span><br>
+          <span class="meta">${metaLabel}</span><br>
           ${token}
           <span class="badge">${item.progress_status || "todo"}</span>
           ${dirtyBadge}
@@ -3018,10 +3654,141 @@
       renderContextPanel();
     }
 
+    function commonHudTileHex(item) {
+      if (item?.tile_index_hex) {
+        return String(item.tile_index_hex).replace(/^0x/i, "").toUpperCase().padStart(3, "0");
+      }
+      if (item?.tile_index != null) {
+        return Number(item.tile_index).toString(16).toUpperCase().padStart(3, "0");
+      }
+      const match = String(item?.item_id || "").match(/tile_([0-9A-Fa-f]{3})/);
+      return match ? match[1].toUpperCase() : "???";
+    }
+
+    function commonHudTileDisplayLabel(item) {
+      if (item?.category_id === "alchemy_tiles" && item?.tile_index != null) {
+        return String(Number(item.tile_index));
+      }
+      return commonHudTileHex(item);
+    }
+
+    function commonHudTileDisplayTitle(item) {
+      const hex = commonHudTileHex(item);
+      if (item?.category_id === "alchemy_tiles" && item?.tile_index != null) {
+        return `${Number(item.tile_index)} / 0x${hex}`;
+      }
+      return `0x${hex}`;
+    }
+
+    function commonHudTileSortValue(item) {
+      const value = Number(item?.tile_index);
+      if (Number.isFinite(value)) return value;
+      const hex = commonHudTileHex(item);
+      return /^[0-9A-F]{3}$/.test(hex) ? parseInt(hex, 16) : 9999;
+    }
+
+    function hudTileCategoryLabel(categoryId = state.categoryId) {
+      return categoryId === "alchemy_tiles" ? "연금술" : "공유 HUD";
+    }
+
+    function ensureCommonHudBoardForCategory(categoryId = state.categoryId) {
+      if (!isCommonHudCategory(categoryId)) return;
+      if (!Array.isArray(state.commonHudBoards[categoryId])) {
+        state.commonHudBoards[categoryId] =
+          categoryId === "common_hud_tiles" && Array.isArray(state.commonHudBoard)
+            ? Array.from({ length: 100 }, (_, index) => state.commonHudBoard[index] || "")
+            : Array(100).fill("");
+      }
+      state.commonHudBoard = state.commonHudBoards[categoryId];
+    }
+
+    function commonHudItemMap() {
+      ensureCommonHudBoardForCategory();
+      return new Map(
+        state.items
+          .filter((item) => isCommonHudItem(item) && item.category_id === state.categoryId)
+          .map((item) => [item.item_id, getEffectiveItem(item)])
+      );
+    }
+
+    function commonHudPreviewPath(item) {
+      return item?.replacement_path || item?.source_preview_path || item?.source_download_path || "";
+    }
+
+    function commonHudSourcePath(item) {
+      return item?.replacement_path || item?.source_download_path || item?.source_preview_path || "";
+    }
+
+    function editSourcePathForItem(item) {
+      if (isCommonHudItem(item)) {
+        return item.source_download_path || item.source_preview_path || "";
+      }
+      return item.source_preview_path || item.source_download_path || "";
+    }
+
+    function sanitizeCommonHudBoard() {
+      ensureCommonHudBoardForCategory();
+      const validIds = new Set(
+        state.items
+          .filter((item) => isCommonHudItem(item) && item.category_id === state.categoryId)
+          .map((item) => item.item_id)
+      );
+      state.commonHudBoard = Array.from({ length: 100 }, (_, index) => {
+        const itemId = state.commonHudBoard[index];
+        return validIds.has(itemId) ? itemId : "";
+      });
+      if (isCommonHudCategory()) {
+        state.commonHudBoards[state.categoryId] = state.commonHudBoard;
+      }
+      state.commonHudBoardCursor = Math.min(99, Math.max(0, Number(state.commonHudBoardCursor) || 0));
+    }
+
+    function renderCommonHudTilePalette(targetItems, options = {}) {
+      const items = [...targetItems].sort((a, b) => commonHudTileSortValue(a) - commonHudTileSortValue(b));
+      itemPageInfo.textContent = `타일 ${items.length}개 / 보드 ${state.commonHudBoard.filter(Boolean).length}/100칸`;
+      prevPageBtn.disabled = true;
+      nextPageBtn.disabled = true;
+      itemList.innerHTML = "";
+      const palette = document.createElement("div");
+      palette.className = "common-hud-palette";
+      const assignedIds = new Set(state.commonHudBoard.filter(Boolean));
+      for (const rawItem of items) {
+        const item = getEffectiveItem(rawItem);
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = [
+          "common-hud-tile",
+          item.item_id === state.itemId ? "active" : "",
+          assignedIds.has(item.item_id) ? "assigned" : "",
+        ].filter(Boolean).join(" ");
+        button.dataset.itemId = item.item_id;
+        button.title = `${item.label || item.item_id}\n팔레트 클릭: 현재 보드 칸에 배치`;
+        const label = document.createElement("span");
+        label.className = "common-hud-tile-label";
+        label.textContent = commonHudTileDisplayLabel(item);
+        const image = document.createElement("img");
+        const path = commonHudPreviewPath(item);
+        if (path) image.src = workspaceUrl(path);
+        image.alt = item.label || item.item_id;
+        button.appendChild(label);
+        button.appendChild(image);
+        button.onclick = () => selectCommonHudTile(item.item_id);
+        palette.appendChild(button);
+      }
+      itemList.appendChild(palette);
+      if (options.scrollToItemId) {
+        scrollItemIntoListView(options.scrollToItemId);
+      }
+    }
+
     function selectCategory(categoryId, options = {}) {
       collectCurrentItemIntoDraft();
       const previousCategoryId = state.categoryId;
+      if (isCommonHudCategory(previousCategoryId)) {
+        state.commonHudBoards[previousCategoryId] = state.commonHudBoard;
+      }
       state.categoryId = categoryId;
+      ensureCommonHudBoardForCategory(categoryId);
       if (categoryId !== previousCategoryId) {
         state.itemPage = 0;
         state.itemGroupFilter = "all";
@@ -3062,11 +3829,11 @@
       persistLocalUiState();
       const rawItem = state.items.find((entry) => entry.item_id === itemId);
       const item = rawItem ? getEffectiveItem(rawItem) : null;
-      document.querySelectorAll(".item").forEach((node) => {
+      document.querySelectorAll(".item, .common-hud-tile").forEach((node) => {
         node.classList.toggle("active", node.dataset.itemId === itemId);
       });
       if (!item) return;
-      if (item.category_id === "image_review_units") {
+      if (isImageItem(item)) {
         renderImageItem(item);
       } else {
         renderTextItem(item);
@@ -3125,22 +3892,39 @@
         ? "교체 가능 후보"
         : `분석용 레이어 - ${item.replacement_target_reason || "직접 교체 대상이 아닙니다."}`;
       imageMeta.textContent = `${item.expected_text_kind || ""} / ${replacementNotice} / 탐색 방식: ${item.recommended_probe_method || ""}`;
-      sourcePreviewPath.value = item.source_preview_path || "";
+      const editSourcePath = editSourcePathForItem(item);
+      sourcePreviewPath.value = editSourcePath;
+      sourcePreviewPath.disabled = isCommonHudItem(item);
       replacementPath.value = item.replacement_path || "";
       comparisonNotes.value = item.comparison_notes || "";
       imageNotes.value = item.notes || "";
       imageProgressStatus.value = item.progress_status || "todo";
       replacementUpload.value = "";
+      imageDropUpload.value = "";
+      imageDropZone.classList.toggle("disabled", !isReplacementTarget);
+      imageDropZone.classList.remove("drag-over");
       replacementPath.disabled = !isReplacementTarget;
       replacementUpload.disabled = !isReplacementTarget;
+      imageDropUpload.disabled = !isReplacementTarget;
       uploadImageBtn.disabled = !isReplacementTarget;
+      restoreImageBtn.disabled = !isReplacementTarget || !(item.replacement_path || "").trim();
+      renderCommonHudTool(item);
       renderPreview(
-        item.source_preview_path || item.source_download_path || "",
+        editSourcePath,
         sourcePreviewImage,
         sourcePreviewMeta,
         sourcePreviewLink,
         sourceDownloadLink,
-        "원본 이미지가 아직 연결되지 않았습니다."
+        "편집 원본 이미지가 아직 연결되지 않았습니다."
+      );
+      referencePreviewCard.classList.toggle("hidden", !(item.reference_preview_path || "").trim());
+      renderPreview(
+        item.reference_preview_path || "",
+        referencePreviewImage,
+        referencePreviewMeta,
+        referencePreviewLink,
+        referenceDownloadLink,
+        "참고 화면이 없는 항목입니다."
       );
       renderPreview(
         item.replacement_path || "",
@@ -3154,6 +3938,10 @@
         .map((sub) => `<div><span class="badge">${sub.id}</span>${sub.label} / ${sub.first_action}</div>`)
         .join("");
       renderCandidateGallery(item.candidate_gallery || []);
+      setupImagePromptTool(item).catch((error) => {
+        imagePromptMeta.textContent = error.message;
+        updateImagePromptOutput();
+      });
       setupImageComposer(item).catch((error) => {
         composerMeta.textContent = error.message;
       });
@@ -3178,6 +3966,324 @@
       }).join("");
     }
 
+    function renderCommonHudTool(item) {
+      commonHudTool.classList.toggle("hidden", !isCommonHudItem(item));
+      if (!isCommonHudItem(item)) return;
+      const label = hudTileCategoryLabel(item.category_id);
+      commonHudToolTitle.textContent = `${label} 타일 조합 보드`;
+      commonHudToolHelp.textContent =
+        `왼쪽 ${label} 타일 팔레트에서 타일을 누르면 현재 보드 칸에 배치됩니다. 업로드 PNG는 채워진 칸들의 최소 사각형 크기를 기준으로 합니다.`;
+      commonHudSheetUploadLabel.textContent = "선택 영역 조합 PNG 업로드";
+      sanitizeCommonHudBoard();
+      renderCommonHudBoard();
+    }
+
+    function renderCommonHudBoard() {
+      const itemMap = commonHudItemMap();
+      commonHudBoard.innerHTML = "";
+      for (let index = 0; index < 100; index += 1) {
+        const itemId = state.commonHudBoard[index] || "";
+        const item = itemMap.get(itemId);
+        const button = document.createElement("button");
+        button.type = "button";
+        button.className = `common-hud-board-cell${index === state.commonHudBoardCursor ? " active" : ""}`;
+        button.dataset.slotIndex = String(index);
+        button.title = item
+          ? `${index + 1}번 칸 / tile ${commonHudTileDisplayTitle(item)}`
+          : `${index + 1}번 칸 / 비어 있음`;
+        if (item) {
+          const image = document.createElement("img");
+          const path = commonHudPreviewPath(item);
+          if (path) image.src = workspaceUrl(path);
+          image.alt = item.label || item.item_id;
+          button.appendChild(image);
+        }
+        button.onclick = () => {
+          state.commonHudBoardCursor = index;
+          persistLocalUiState();
+          if (item) {
+            selectItem(item.item_id);
+            renderItemList(null, { keepCurrentSelection: true });
+          } else {
+            renderCommonHudBoard();
+          }
+        };
+        commonHudBoard.appendChild(button);
+      }
+      const filled = state.commonHudBoard.filter(Boolean).length;
+      const currentItemId = state.commonHudBoard[state.commonHudBoardCursor] || "";
+      const current = currentItemId ? itemMap.get(currentItemId) : null;
+      const plan = commonHudBoardUploadPlan();
+      const uploadSizeText = plan
+        ? ` · 업로드 PNG ${plan.expectedWidth}×${plan.expectedHeight} (${plan.columns}×${plan.rows}칸)`
+        : " · 업로드 PNG 크기: 배치한 칸 기준";
+      commonHudBoardMeta.textContent =
+        `보드 ${filled}/100칸 · 현재 칸 ${state.commonHudBoardCursor + 1}/100`
+        + (current ? ` · tile ${commonHudTileDisplayTitle(current)}` : " · 비어 있음")
+        + uploadSizeText;
+    }
+
+    function selectCommonHudTile(itemId) {
+      sanitizeCommonHudBoard();
+      const cursor = Math.min(99, Math.max(0, Number(state.commonHudBoardCursor) || 0));
+      state.commonHudBoard[cursor] = itemId;
+      state.commonHudBoards[state.categoryId] = state.commonHudBoard;
+      state.commonHudBoardCursor = Math.min(99, cursor + 1);
+      persistLocalUiState();
+      selectItem(itemId);
+      renderItemList(null, { keepCurrentSelection: true, scrollToItemId: itemId });
+      renderCommonHudBoard();
+    }
+
+    function clearCommonHudBoardCell() {
+      sanitizeCommonHudBoard();
+      state.commonHudBoard[state.commonHudBoardCursor] = "";
+      state.commonHudBoards[state.categoryId] = state.commonHudBoard;
+      persistLocalUiState();
+      renderCommonHudBoard();
+      renderItemList(null, { keepCurrentSelection: true });
+    }
+
+    function clearCommonHudBoard() {
+      state.commonHudBoard = Array(100).fill("");
+      state.commonHudBoards[state.categoryId] = state.commonHudBoard;
+      state.commonHudBoardCursor = 0;
+      persistLocalUiState();
+      renderCommonHudBoard();
+      renderItemList(null, { keepCurrentSelection: true });
+      setStatus(`${hudTileCategoryLabel()} 조합 보드를 비웠습니다.`, "ok");
+    }
+
+    function commonHudBoardUploadPlan() {
+      sanitizeCommonHudBoard();
+      const entries = state.commonHudBoard
+        .map((itemId, index) => ({
+          itemId,
+          index,
+          col: index % 20,
+          row: Math.floor(index / 20)
+        }))
+        .filter((entry) => entry.itemId);
+      if (!entries.length) return null;
+      const minCol = Math.min(...entries.map((entry) => entry.col));
+      const maxCol = Math.max(...entries.map((entry) => entry.col));
+      const minRow = Math.min(...entries.map((entry) => entry.row));
+      const maxRow = Math.max(...entries.map((entry) => entry.row));
+      const columns = maxCol - minCol + 1;
+      const rows = maxRow - minRow + 1;
+      const tileIds = Array(columns * rows).fill("");
+      for (const entry of entries) {
+        const localIndex = (entry.row - minRow) * columns + (entry.col - minCol);
+        tileIds[localIndex] = entry.itemId;
+      }
+      return {
+        entries,
+        minCol,
+        minRow,
+        maxCol,
+        maxRow,
+        columns,
+        rows,
+        tileIds,
+        expectedWidth: columns * 8,
+        expectedHeight: rows * 8
+      };
+    }
+
+    async function drawCommonHudBoardToCanvas(plan = commonHudBoardUploadPlan()) {
+      if (!plan) throw new Error("보드에 배치된 타일이 없습니다.");
+      const canvas = document.createElement("canvas");
+      canvas.width = plan.expectedWidth;
+      canvas.height = plan.expectedHeight;
+      const ctx = canvas.getContext("2d", { willReadFrequently: true });
+      ctx.imageSmoothingEnabled = false;
+      ctx.fillStyle = "#000";
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      const itemMap = commonHudItemMap();
+      for (let index = 0; index < plan.tileIds.length; index += 1) {
+        const item = itemMap.get(plan.tileIds[index]);
+        if (!item) continue;
+        const path = commonHudSourcePath(item);
+        if (!path) continue;
+        const image = await loadImageFromUrl(workspaceUrl(path));
+        const x = (index % plan.columns) * 8;
+        const y = Math.floor(index / plan.columns) * 8;
+        ctx.drawImage(image, 0, 0, image.naturalWidth, image.naturalHeight, x, y, 8, 8);
+      }
+      return canvas;
+    }
+
+    async function downloadCommonHudBoardPng() {
+      const plan = commonHudBoardUploadPlan();
+      if (!plan) {
+        setStatus("먼저 왼쪽 타일 팔레트에서 보드에 타일을 배치해 주세요.", "warn");
+        return;
+      }
+      const canvas = await drawCommonHudBoardToCanvas(plan);
+      const link = document.createElement("a");
+      link.href = canvas.toDataURL("image/png");
+      link.download = `${state.categoryId || "hud"}_board_${plan.columns}x${plan.rows}_${plan.expectedWidth}x${plan.expectedHeight}.png`;
+      link.click();
+      setStatus(`${hudTileCategoryLabel()} 조합 보드 PNG를 만들었습니다. ${plan.columns}×${plan.rows}칸 / ${plan.expectedWidth}×${plan.expectedHeight}px`, "ok");
+    }
+
+    function fileToBase64(file) {
+      return new Promise((resolve, reject) => {
+        const reader = new FileReader();
+        reader.onload = () => {
+          const text = String(reader.result || "");
+          resolve(text.split(",", 2)[1] || "");
+        };
+        reader.onerror = () => reject(new Error("파일을 읽지 못했습니다."));
+        reader.readAsDataURL(file);
+      });
+    }
+
+    function canvasToBase64(canvas) {
+      return canvas.toDataURL("image/png").split(",", 2)[1] || "";
+    }
+
+    function assertCommonHudSheetSize(image, plan) {
+      const expectedWidth = plan.expectedWidth;
+      const expectedHeight = plan.expectedHeight;
+      if (image.naturalWidth === expectedWidth && image.naturalHeight === expectedHeight) {
+        return { scale: 1, resized: false, expectedWidth, expectedHeight };
+      }
+      const scaleX = image.naturalWidth / expectedWidth;
+      const scaleY = image.naturalHeight / expectedHeight;
+      if (
+        Number.isInteger(scaleX) &&
+        Number.isInteger(scaleY) &&
+        scaleX === scaleY &&
+        scaleX > 1
+      ) {
+        return { scale: scaleX, resized: true, expectedWidth, expectedHeight };
+      }
+      throw new Error(`조합 PNG 크기가 맞지 않습니다. 필요한 크기: ${expectedWidth}×${expectedHeight} PNG, 현재: ${image.naturalWidth}×${image.naturalHeight}`);
+    }
+
+    async function fallbackUploadCommonHudSheetTiles(file, sourceImage, plan) {
+      const tileIds = [...plan.tileIds];
+      const activeSlots = tileIds
+        .map((itemId, index) => ({ itemId, index }))
+        .filter((entry) => entry.itemId);
+      const scale = sourceImage.naturalWidth / plan.expectedWidth;
+      const sourceCell = 8 * scale;
+      const temp = document.createElement("canvas");
+      temp.width = 8;
+      temp.height = 8;
+      const tempCtx = temp.getContext("2d", { willReadFrequently: true });
+      const savedItems = [];
+      for (const [jobIndex, entry] of activeSlots.entries()) {
+        const item = state.items.find((candidate) => candidate.item_id === entry.itemId);
+        setBusyActionProgress(
+          Math.round((jobIndex / Math.max(1, activeSlots.length)) * 100),
+          `${hudTileCategoryLabel()} 타일 분할 업로드`,
+          `${jobIndex + 1}/${activeSlots.length} tile ${commonHudTileDisplayTitle(item)}`
+        );
+        tempCtx.imageSmoothingEnabled = false;
+        tempCtx.clearRect(0, 0, 8, 8);
+        const sx = (entry.index % plan.columns) * sourceCell;
+        const sy = Math.floor(entry.index / plan.columns) * sourceCell;
+        tempCtx.drawImage(sourceImage, sx, sy, sourceCell, sourceCell, 0, 0, 8, 8);
+        const tileHex = commonHudTileHex(item);
+        const saved = await fetchJson("/image-upload", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            item_id: entry.itemId,
+            filename: `${(file.name || `${state.categoryId || "hud"}_board.png`).replace(/\.[^.]+$/, "")}_slot_${String(entry.index).padStart(3, "0")}_tile_${tileHex}.png`,
+            content_base64: canvasToBase64(temp),
+          }),
+        });
+        savedItems.push(saved);
+        const stateItem = state.items.find((candidate) => candidate.item_id === saved.item_id);
+        if (stateItem) Object.assign(stateItem, saved);
+      }
+      return {
+        ok: true,
+        updated_count: savedItems.length,
+        items: savedItems,
+        image_apply: savedItems.at(-1)?.last_apply_summary
+          ? { summary: savedItems.at(-1).last_apply_summary, report_path: savedItems.at(-1).last_apply_report || "" }
+          : {},
+        fallback: true,
+      };
+    }
+
+    async function uploadCommonHudSheetFile(file) {
+      if (!file) {
+        alert("업로드할 조합 PNG를 먼저 선택해 주세요.");
+        return;
+      }
+      if (!isSupportedImageFile(file)) {
+        setStatus("PNG/BMP/GIF/WebP/JPG 이미지 파일만 업로드할 수 있습니다.", "error");
+        return;
+      }
+      sanitizeCommonHudBoard();
+      const activeCount = state.commonHudBoard.filter(Boolean).length;
+      if (!activeCount) {
+        setStatus("먼저 왼쪽 타일 팔레트에서 보드에 타일을 배치해 주세요.", "warn");
+        return;
+      }
+      const plan = commonHudBoardUploadPlan();
+      if (!plan) {
+        setStatus("먼저 왼쪽 타일 팔레트에서 보드에 타일을 배치해 주세요.", "warn");
+        return;
+      }
+      const image = await loadImageFromFile(file);
+      const sizeInfo = assertCommonHudSheetSize(image, plan);
+      setBusyActionProgress(12, `${hudTileCategoryLabel()} PNG 확인`, `${file.name || "업로드 이미지"} · ${image.naturalWidth}×${image.naturalHeight}px`);
+      const contentBase64 = await fileToBase64(file);
+      setBusyActionProgress(25, `${hudTileCategoryLabel()} 타일 분할 준비`, `${activeCount}개 보드 칸 / 선택 영역 ${plan.columns}×${plan.rows}칸을 8×8 타일로 나눕니다.`);
+      let result;
+      try {
+        result = await withBusyActionPulse(
+          35,
+          92,
+          `${hudTileCategoryLabel()} ROM 적용 중`,
+          `서버에서 ${activeCount}개 타일을 ROM에 반영 중입니다.`,
+          () => fetchJson("/common-hud-tile-sheet-upload", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+              filename: file.name || `${state.categoryId || "hud"}_board_${plan.columns}x${plan.rows}.png`,
+              content_base64: contentBase64,
+              tile_ids: plan.tileIds,
+              columns: plan.columns,
+              rows: plan.rows,
+              origin_col: plan.minCol,
+              origin_row: plan.minRow,
+            }),
+          })
+        );
+      } catch (error) {
+        if (error.status !== 404) {
+          throw error;
+        }
+        result = await fallbackUploadCommonHudSheetTiles(file, image, plan);
+      }
+      for (const saved of result.items || []) {
+        const item = state.items.find((entry) => entry.item_id === saved.item_id);
+        if (item) Object.assign(item, saved);
+      }
+      renderItemList(null, { keepCurrentSelection: true });
+      if (state.itemId) {
+        const current = state.items.find((entry) => entry.item_id === state.itemId);
+        if (current) renderImageItem(getEffectiveItem(current));
+      }
+      const summary = result.image_apply?.summary || {};
+      const failures = (summary.results || []).filter((entry) => entry.status === "error");
+      const resizeText = sizeInfo.resized ? ` / ${sizeInfo.scale}배 이미지는 최근접으로 ${sizeInfo.expectedWidth}×${sizeInfo.expectedHeight} 처리` : "";
+      const fallbackText = result.fallback ? " / 호환 업로드 경로 사용" : "";
+      setBusyActionProgress(
+        100,
+        `${hudTileCategoryLabel()} 타일 분할 적용 완료`,
+        `타일 ${result.updated_count || 0}개 저장 · 선택 영역 ${plan.columns}×${plan.rows}칸/${sizeInfo.expectedWidth}×${sizeInfo.expectedHeight}px · 이미지 적용 ${summary.applied_count ?? "-"}개${failures.length ? ` · 실패 ${failures.length}개` : ""}${resizeText}${fallbackText}`,
+        failures.length ? "warn" : "ok"
+      );
+    }
+
     function renderPreview(path, imageNode, metaNode, previewLinkNode, downloadLinkNode, emptyMessage) {
       if (!path) {
         imageNode.removeAttribute("src");
@@ -3197,6 +4303,228 @@
 
     function workspaceUrl(path) {
       return `/workspace-file?path=${encodeURIComponent(path)}`;
+    }
+
+    function inferImagePromptSourceText(item) {
+      return item.prompt_source_text || "";
+    }
+
+    function inferImagePromptKoreanText(item) {
+      return item.prompt_korean_text || "";
+    }
+
+    function imagePromptRectFromInputs() {
+      const x = Number(imagePromptX.value);
+      const y = Number(imagePromptY.value);
+      const width = Number(imagePromptW.value);
+      const height = Number(imagePromptH.value);
+      if (![x, y, width, height].every(Number.isFinite) || width <= 0 || height <= 0) {
+        return null;
+      }
+      return {
+        x: Math.max(0, Math.round(x)),
+        y: Math.max(0, Math.round(y)),
+        width: Math.max(1, Math.round(width)),
+        height: Math.max(1, Math.round(height)),
+      };
+    }
+
+    function clampImagePromptRect(rect) {
+      if (!imagePromptState.image || !rect) return rect;
+      const image = imagePromptState.image;
+      const x = Math.min(Math.max(0, Math.round(rect.x)), Math.max(0, image.naturalWidth - 1));
+      const y = Math.min(Math.max(0, Math.round(rect.y)), Math.max(0, image.naturalHeight - 1));
+      const width = Math.min(Math.max(1, Math.round(rect.width)), image.naturalWidth - x);
+      const height = Math.min(Math.max(1, Math.round(rect.height)), image.naturalHeight - y);
+      return { x, y, width, height };
+    }
+
+    function setImagePromptRect(rect, { persist = true } = {}) {
+      imagePromptState.rect = clampImagePromptRect(rect);
+      if (persist && imagePromptState.itemId && imagePromptState.rect) {
+        imagePromptState.rects.set(imagePromptState.itemId, imagePromptState.rect);
+      } else if (persist && imagePromptState.itemId && !imagePromptState.rect) {
+        imagePromptState.rects.delete(imagePromptState.itemId);
+      }
+      const current = imagePromptState.rect;
+      imagePromptX.value = current ? current.x : "";
+      imagePromptY.value = current ? current.y : "";
+      imagePromptW.value = current ? current.width : "";
+      imagePromptH.value = current ? current.height : "";
+      renderImagePromptCanvas();
+      updateImagePromptOutput();
+    }
+
+    function imagePromptCanvasPoint(event) {
+      const box = imagePromptCanvas.getBoundingClientRect();
+      const x = (event.clientX - box.left) * (imagePromptCanvas.width / Math.max(1, box.width));
+      const y = (event.clientY - box.top) * (imagePromptCanvas.height / Math.max(1, box.height));
+      return {
+        x: Math.min(Math.max(0, Math.floor(x)), Math.max(0, imagePromptCanvas.width - 1)),
+        y: Math.min(Math.max(0, Math.floor(y)), Math.max(0, imagePromptCanvas.height - 1)),
+      };
+    }
+
+    function rectFromPoints(a, b) {
+      const x0 = Math.min(a.x, b.x);
+      const y0 = Math.min(a.y, b.y);
+      const x1 = Math.max(a.x, b.x);
+      const y1 = Math.max(a.y, b.y);
+      return {
+        x: x0,
+        y: y0,
+        width: Math.max(1, x1 - x0 + 1),
+        height: Math.max(1, y1 - y0 + 1),
+      };
+    }
+
+    function renderImagePromptCanvas() {
+      const image = imagePromptState.image;
+      imagePromptCtx.imageSmoothingEnabled = false;
+      imagePromptCtx.clearRect(0, 0, imagePromptCanvas.width, imagePromptCanvas.height);
+      imagePromptCtx.fillStyle = "#000";
+      imagePromptCtx.fillRect(0, 0, imagePromptCanvas.width, imagePromptCanvas.height);
+      if (!image) {
+        imagePromptMeta.textContent = "편집 원본 이미지를 불러오지 못했습니다.";
+        return;
+      }
+      imagePromptCtx.drawImage(image, 0, 0, imagePromptCanvas.width, imagePromptCanvas.height);
+      const rect = imagePromptState.rect;
+      if (rect) {
+        imagePromptCtx.save();
+        imagePromptCtx.fillStyle = "rgba(117, 199, 177, 0.18)";
+        imagePromptCtx.strokeStyle = "#75c7b1";
+        imagePromptCtx.lineWidth = 2;
+        imagePromptCtx.fillRect(rect.x, rect.y, rect.width, rect.height);
+        imagePromptCtx.strokeRect(rect.x + 0.5, rect.y + 0.5, Math.max(0, rect.width - 1), Math.max(0, rect.height - 1));
+        imagePromptCtx.restore();
+      }
+      const rectText = rect
+        ? `선택 영역 x=${rect.x}, y=${rect.y}, width=${rect.width}, height=${rect.height}`
+        : "이미지 위에서 수정할 글자 영역을 드래그하세요.";
+      imagePromptMeta.textContent = `원본 ${image.naturalWidth}x${image.naturalHeight} / ${rectText}`;
+    }
+
+    function updateImagePromptOutput() {
+      const width = imagePromptWidth.value || "{가로}";
+      const height = imagePromptHeight.value || "{세로}";
+      const sourceTextForPrompt = imagePromptSourceText.value || "{원문}";
+      const koreanTextForPrompt = imagePromptKoreanText.value || "{한글 번역}";
+      const x = imagePromptX.value || "{X}";
+      const y = imagePromptY.value || "{Y}";
+      const rectWidth = imagePromptW.value || "{W}";
+      const rectHeight = imagePromptH.value || "{H}";
+      imagePromptOutput.value = `이 이미지는 GBA 게임용 원본 픽셀아트 그래픽입니다.
+이미지 수정 시 픽셀 단위 보존이 최우선입니다.
+
+[원본 정보]
+- 원본 이미지 크기: ${width}px × ${height}px
+- 결과 이미지도 반드시 ${width}px × ${height}px 크기의 PNG여야 합니다.
+- 캔버스 크기, 비율, 해상도, 픽셀 크기를 절대 변경하지 마세요.
+
+[수정할 내용]
+- 원문 텍스트: "${sourceTextForPrompt}"
+- 교체할 한글 텍스트: "${koreanTextForPrompt}"
+
+[수정 허용 영역]
+- 수정 가능한 영역은 아래 좌표 안으로만 제한합니다.
+- x=${x}, y=${y}, width=${rectWidth}, height=${rectHeight}
+- 이 영역 밖의 픽셀은 단 1픽셀도 수정하지 마세요.
+
+[작업 방식]
+수정 허용 영역 안에 있는 기존 문자만 제거하고, 같은 위치에 한글 텍스트를 넣으세요.
+한글은 GBA 게임 그래픽에 어울리는 저해상도 픽셀 폰트 스타일로 또렷하게 표현하세요.
+글자 가장자리는 부드럽게 만들지 말고, 계단식 픽셀 형태를 유지하세요.
+글자 크기와 자간은 수정 허용 영역 안에 자연스럽게 들어가도록 조정하세요.
+한글 문구가 공간을 넘을 경우, 글자 폭과 자간만 조정하고 배경이나 UI는 절대 늘리거나 변형하지 마세요.
+
+[원본 폰트/느낌 보존 규칙]
+한글 텍스트는 단순히 읽히게 넣는 것이 아니라, 원본 텍스트와 최대한 비슷한 유형의 픽셀 폰트처럼 보이도록 수정하세요.
+원본 텍스트의 획 두께, 각진 정도, 픽셀 밀도, 글자 높이, 자간, 배치 균형, 외곽선 처리, 그림자 방향, 전체적인 시각적 무게감을 분석해서 한글 텍스트에도 동일하게 반영하세요.
+한글 텍스트는 “새로 얹은 글자”처럼 보이면 안 되고, 원래 게임에 존재하던 같은 스타일의 한글 폰트처럼 자연스럽게 보여야 합니다.
+현대적인 고딕체, 명조체, 손글씨체, 부드러운 디지털 폰트, 고해상도 폰트처럼 보이면 잘못된 결과입니다.
+
+[색상 규칙]
+- 원본 텍스트에 사용된 색상, 외곽선 색상, 그림자 색상을 그대로 샘플링해서 사용하세요.
+- 원본 팔레트에 없는 새로운 색상을 추가하지 마세요.
+- 안티앨리어싱용 중간색이나 부드러운 보정 색상을 새로 만들지 마세요.
+- 문자 색상은 기존 텍스트와 같은 계열이 아니라, 반드시 원본 텍스트에서 직접 샘플링한 색상만 사용하세요.
+
+[절대 금지 사항]
+- 원본 이미지 크기 변경 금지
+- 확대 금지
+- 축소 금지
+- 크롭 금지
+- 회전 금지
+- 리샘플링 금지
+- 자동 보정 금지
+- 선명화 필터 금지
+- 블러 금지
+- 안티앨리어싱 금지
+- 부드러운 글꼴 렌더링 금지
+- 배경 재생성 금지
+- 주변 픽셀 보정 금지
+- 그라데이션 수정 금지
+- 테두리 수정 금지
+- UI 장식 수정 금지
+- 그림자 효과 새로 추가 금지
+- 문자 주변 색상 번짐 금지
+- 원본에 없는 색상 추가 금지
+
+[보존 규칙]
+문자를 제외한 모든 요소는 원본과 완전히 동일해야 합니다.
+특히 글자 주변의 배경색, 그라데이션, 패턴, 테두리, 장식, 그림자는 절대 수정하지 마세요.
+기존 문자를 지운 뒤 배경을 새로 그리거나 자동으로 복원하지 마세요.
+한글을 넣기 위해 배경, UI, 장식, 테두리, 색상 경계를 정리하거나 보정하지 마세요.
+글자 바로 옆의 배경 픽셀도 원본 그대로 보존해야 하며, 한글을 넣기 위해 주변 그라데이션이나 색상 경계를 다시 그리거나 정리하지 마세요.
+
+[최종 검수 기준]
+결과 이미지를 원본 이미지와 비교했을 때,
+수정 허용 영역 밖의 모든 픽셀은 원본과 완전히 동일해야 합니다.
+수정 허용 영역 안에서도 문자 픽셀 외의 배경 픽셀은 가능한 한 원본 그대로 유지해야 합니다.
+수정 결과가 원본보다 흐려지거나, 부드러워지거나, 고해상도처럼 보이면 잘못된 결과입니다.
+결과물은 원본과 동일한 크기의 PNG 이미지로 출력하세요.`;
+    }
+
+    async function setupImagePromptTool(item) {
+      imagePromptState.itemId = item.item_id;
+      imagePromptState.sourcePath = editSourcePathForItem(item);
+      imagePromptSourceText.value = inferImagePromptSourceText(item);
+      imagePromptKoreanText.value = inferImagePromptKoreanText(item);
+      imagePromptWidth.value = "";
+      imagePromptHeight.value = "";
+      imagePromptCanvas.width = 256;
+      imagePromptCanvas.height = 256;
+      imagePromptState.image = null;
+      imagePromptState.rect = imagePromptState.rects.get(item.item_id) || null;
+      try {
+        imagePromptState.image = imagePromptState.sourcePath
+          ? await loadImageFromUrl(workspaceUrl(imagePromptState.sourcePath))
+          : null;
+      } catch (error) {
+        imagePromptState.image = null;
+      }
+      if (imagePromptState.image) {
+        imagePromptCanvas.width = imagePromptState.image.naturalWidth;
+        imagePromptCanvas.height = imagePromptState.image.naturalHeight;
+        imagePromptWidth.value = imagePromptState.image.naturalWidth;
+        imagePromptHeight.value = imagePromptState.image.naturalHeight;
+      }
+      setImagePromptRect(imagePromptState.rect, { persist: false });
+      updateImagePromptOutput();
+    }
+
+    async function copyImagePrompt() {
+      updateImagePromptOutput();
+      try {
+        await navigator.clipboard.writeText(imagePromptOutput.value);
+        setStatus("이미지 수정 프롬프트를 클립보드에 복사했습니다.", "ok");
+      } catch (error) {
+        imagePromptOutput.focus();
+        imagePromptOutput.select();
+        document.execCommand("copy");
+        setStatus("이미지 수정 프롬프트를 선택/복사했습니다.", "ok");
+      }
     }
 
     function loadImageFromUrl(url) {
@@ -3297,7 +4625,7 @@
         node.disabled = !isReplacementTarget;
       }
 
-      const path = item.source_preview_path || item.source_download_path || "";
+      const path = editSourcePathForItem(item);
       try {
         composerState.baseImage = path ? await loadImageFromUrl(workspaceUrl(path)) : null;
       } catch (error) {
@@ -3363,10 +4691,59 @@
       const failures = results
         .filter((entry) => entry.status === "error")
         .map((entry) => `${entry.item_id}: ${entry.reason || "unknown error"}`);
+      const repoints = results
+        .filter((entry) => entry.status === "applied" && entry.storage === "repoint")
+        .map((entry) => {
+          const overage = Number(entry.size_overage || 0);
+          const sizeText = entry.compressed_size
+            ? `${entry.compressed_size} bytes${overage > 0 ? ` / 초과분 ${overage} bytes` : ""}`
+            : "압축 크기 기록 없음";
+          return `${entry.item_id}: ${entry.offset_hex || ""} → ${entry.new_offset_hex || ""} (${sizeText})`;
+        });
+      let lz77Stability = applySummary.stability_checks?.lz77_distance_one || null;
+      if (!lz77Stability) {
+        const checks = results.map((entry) => entry.lz77_stability).filter(Boolean);
+        const warnings = checks.filter((entry) => entry.status === "warning");
+        if (checks.length) {
+          lz77Stability = {
+            status: warnings.length ? "warning" : "ok",
+            checked_count: checks.length,
+            warning_count: warnings.length,
+            warnings
+          };
+        }
+      }
+      const lz77Warnings = lz77Stability?.warnings || [];
+      const stabilityText = lz77Stability
+        ? `\nLZ77 distance=1 안정성: ${lz77Stability.status || "-"} / 검사 ${lz77Stability.checked_count ?? 0}개 / 경고 ${lz77Stability.warning_count ?? 0}개`
+        : "";
+      const stabilityWarningText = lz77Warnings.length
+        ? `\nLZ77 안정성 경고:\n${lz77Warnings.map((entry) => `${entry.item_id}: ${entry.warning || "warning"}`).join("\n")}`
+        : "";
       const applyReport = saved.last_apply_report || "";
+      const repointText = repoints.length ? `\nRepoint 적용:\n${repoints.join("\n")}` : "";
       const failureText = failures.length ? `\n자동 적용 실패:\n${failures.join("\n")}` : "";
       const reportText = applyReport ? `\n리포트: ${applyReport}` : "";
-      return `${prefix}\n${saved.replacement_path}\n적용된 이미지 패치: ${appliedCount}${failureText}${reportText}`;
+      const replacementText = saved.replacement_path ? `\n${saved.replacement_path}` : "";
+      return `${prefix}${replacementText}\n적용된 이미지 패치: ${appliedCount}${stabilityText}${stabilityWarningText}${repointText}${failureText}${reportText}`;
+    }
+
+    function formatImageRestoreStatus(result, prefix) {
+      const imageApply = result.image_apply || {};
+      const summary = imageApply.summary || {};
+      const failures = (summary.results || [])
+        .filter((entry) => entry.status === "error")
+        .map((entry) => `${entry.item_id}: ${entry.reason || "unknown error"}`);
+      const restoredPaths = (result.restored || [])
+        .map((entry) => `${entry.item_id}: ${entry.previous_replacement_path}`)
+        .slice(0, 8);
+      const restoredText = restoredPaths.length ? `\n해제된 교체:\n${restoredPaths.join("\n")}` : "";
+      const extraText = (result.restored || []).length > restoredPaths.length
+        ? `\n...외 ${(result.restored || []).length - restoredPaths.length}개`
+        : "";
+      const failureText = failures.length ? `\n남은 이미지 재적용 실패:\n${failures.join("\n")}` : "";
+      const reportText = result.report_path ? `\n리포트: ${result.report_path}` : "";
+      return `${prefix}\n복구 ${result.restored_count ?? 0}개 / 남은 교체 재적용 ${summary.applied_count ?? 0}개${restoredText}${extraText}${failureText}${reportText}`;
     }
 
     function downloadComposerPng() {
@@ -3446,7 +4823,7 @@
         const item = state.items.find((entry) => entry.item_id === itemId);
         const draft = getDraft(itemId);
         if (!item || !draft) continue;
-        if (item.category_id === "image_review_units") {
+        if (isImageItem(item)) {
           imageJobs.push({ item, draft });
         } else {
           textJobs.push({ item, draft });
@@ -3590,7 +4967,7 @@
     }
 
     function changedFieldSummaries(item, draft) {
-      const fields = item.category_id === "image_review_units" ? IMAGE_CHANGE_FIELDS : TEXT_CHANGE_FIELDS;
+      const fields = isImageItem(item) ? IMAGE_CHANGE_FIELDS : TEXT_CHANGE_FIELDS;
       const changes = [];
       for (const [key, label, originalValue] of fields) {
         const before = originalValue(item);
@@ -3626,7 +5003,7 @@
       for (const itemId of dirtyIds) {
         const item = state.items.find((entry) => entry.item_id === itemId);
         const draft = getDraft(itemId);
-        if (!item || !draft || item.category_id === "image_review_units") continue;
+        if (!item || !draft || isImageItem(item)) continue;
         const text = hasOwnValue(draft, "translation") ? draft.translation : persistedTranslation(item);
         const info = limitInfoForItem(item, text);
         if (!info || info.remainingBytes >= 0 || info.overflowAllowed) continue;
@@ -3682,7 +5059,7 @@
       }
       const textCount = dirtyIds.filter((itemId) => {
         const item = state.items.find((entry) => entry.item_id === itemId);
-        return item && item.category_id !== "image_review_units";
+        return item && !isImageItem(item);
       }).length;
       const imageCount = dirtyIds.length - textCount;
       setStatus(`검증 통과: 변경 ${summaries.length}개 / 텍스트 ${textCount}개 / 이미지 ${imageCount}개`, "ok");
@@ -4068,6 +5445,99 @@
       }
     }
 
+    async function applyImagesNow() {
+      applyImagesBtn.disabled = true;
+      try {
+        setBusyActionProgress(0, "이미지 교체 적용 준비", "저장되지 않은 이미지 경로 변경을 먼저 확인합니다.");
+        collectCurrentItemIntoDraft();
+        if (state.dirtyItemIds.size) {
+          setBusyActionProgress(20, "임시 변경 저장 확인", `이미지 적용 전 임시 변경 ${state.dirtyItemIds.size}개를 먼저 저장합니다.`);
+          if (!(await saveAllItems())) {
+            setBusyActionProgress(100, "이미지 교체 적용 취소", "임시 변경 저장이 취소되었거나 차단되어 적용하지 않았습니다.", "warn");
+            return;
+          }
+        }
+        setBusyActionProgress(55, "이미지 패치 적용 중", "업로드된 교체 이미지를 현재 리뷰 ROM에 반영합니다.");
+        const result = await fetchJson("/apply-images", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({}),
+        });
+        const summary = result.summary || {};
+        const failures = (summary.results || []).filter((entry) => entry.status === "error");
+        const detail = `적용 ${summary.applied_count ?? 0}개${failures.length ? ` / 실패 ${failures.length}개` : ""}`;
+        setBusyActionProgress(100, "이미지 교체 적용 완료", detail, failures.length ? "warn" : "ok");
+        setStatus(formatImageApplyStatus({ last_apply_summary: summary, last_apply_report: result.report_path }, "이미지 교체 전체 적용 완료"), failures.length ? "error" : "ok");
+      } catch (error) {
+        setBusyActionProgress(100, "이미지 교체 적용 실패", error.message, "error");
+        throw error;
+      } finally {
+        applyImagesBtn.disabled = false;
+      }
+    }
+
+    async function restoreImagesNow(itemId = null) {
+      const isSingleItem = Boolean(itemId);
+      const button = isSingleItem ? restoreImageBtn : restoreAllImagesBtn;
+      const label = isSingleItem ? "현재 이미지 원상복구" : "이미지 교체 전체 원상복구";
+      button.disabled = true;
+      try {
+        setBusyActionProgress(0, `${label} 준비`, "저장되지 않은 변경사항을 먼저 확인합니다.");
+        collectCurrentItemIntoDraft();
+        const confirmText = isSingleItem
+          ? "현재 항목의 교체 이미지를 비활성화하고 리뷰 ROM을 다시 만들어 원본 이미지로 되돌릴까요?"
+          : "모든 교체 이미지를 비활성화하고 리뷰 ROM을 다시 만들어 원본 이미지로 되돌릴까요?";
+        if (!window.confirm(confirmText)) {
+          setBusyActionProgress(100, `${label} 취소`, "사용자가 복구를 취소했습니다.", "warn");
+          return;
+        }
+        if (state.dirtyItemIds.size) {
+          setBusyActionProgress(15, "임시 변경 저장 확인", `복구 전 임시 변경 ${state.dirtyItemIds.size}개를 먼저 저장합니다.`);
+          if (!(await saveAllItems())) {
+            setBusyActionProgress(100, `${label} 취소`, "임시 변경 저장이 취소되었거나 차단되어 복구하지 않았습니다.", "warn");
+            return;
+          }
+        }
+        setBusyActionProgress(45, "교체 경로 비활성화", isSingleItem ? itemId : "모든 활성 교체 이미지");
+        const body = isSingleItem ? { item_id: itemId } : {};
+        const result = await fetchJson("/restore-images", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(body),
+        });
+        const imageApply = result.image_apply || {};
+        const summary = imageApply.summary || {};
+        const failures = (summary.results || []).filter((entry) => entry.status === "error");
+        setBusyActionProgress(80, "작업대 데이터 새로고침", "복구된 교체 상태를 다시 불러옵니다.");
+        await loadBundle();
+        const detail = `복구 ${result.restored_count ?? 0}개 / 남은 교체 재적용 ${summary.applied_count ?? 0}개${failures.length ? ` / 실패 ${failures.length}개` : ""}`;
+        setBusyActionProgress(100, `${label} 완료`, detail, failures.length ? "warn" : "ok");
+        setStatus(formatImageRestoreStatus(result, `${label} 완료`), failures.length ? "error" : "ok");
+      } catch (error) {
+        setBusyActionProgress(100, `${label} 실패`, error.message, "error");
+        throw error;
+      } finally {
+        button.disabled = false;
+      }
+    }
+
+    async function restoreCurrentImageReplacement() {
+      const item = state.items.find((entry) => entry.item_id === state.itemId);
+      if (!item) {
+        setStatus("복구할 이미지 항목이 선택되어 있지 않습니다.", "error");
+        return;
+      }
+      if (item.replacement_target === false) {
+        setStatus("이 항목은 분석용 레이어라 교체 복구 대상이 아닙니다.", "error");
+        return;
+      }
+      if (!(item.replacement_path || "").trim()) {
+        setStatus("현재 항목에는 활성화된 교체 이미지가 없습니다.", "ok");
+        return;
+      }
+      await restoreImagesNow(item.item_id);
+    }
+
     async function importTranslationResults() {
       setStatus("번역 결과 가져오는 중...");
       const file = translationImportFile.files?.[0];
@@ -4107,16 +5577,33 @@
       updateTranslationLimitMeter();
     }
 
-    async function uploadImageReplacement() {
-      setStatus("교체 이미지 업로드 중...");
+    function isSupportedImageFile(file) {
+      if (!file) return false;
+      if ((file.type || "").startsWith("image/")) return true;
+      return /\.(png|bmp|gif|webp|jpe?g)$/i.test(file.name || "");
+    }
+
+    function currentImageReplacementItem() {
       const item = state.items.find((entry) => entry.item_id === state.itemId);
-      const file = replacementUpload.files?.[0];
+      if (!item || !isImageItem(item) || imageEditor.classList.contains("hidden")) {
+        return null;
+      }
+      return item;
+    }
+
+    async function uploadImageReplacementFile(file, sourceLabel = "업로드") {
+      setStatus(`교체 이미지 ${sourceLabel} 중...`);
+      const item = state.items.find((entry) => entry.item_id === state.itemId);
       if (item?.replacement_target === false) {
         setStatus("이 항목은 분석용 tilemap 레이어라 직접 교체 이미지를 업로드할 수 없습니다.", "error");
         return;
       }
       if (!item || !file) {
         alert("업로드할 파일을 먼저 선택해 주세요.");
+        return;
+      }
+      if (!isSupportedImageFile(file)) {
+        setStatus("PNG/BMP/GIF/WebP/JPG 이미지 파일만 업로드할 수 있습니다.", "error");
         return;
       }
       const buffer = await file.arrayBuffer();
@@ -4148,9 +5635,30 @@
       );
       const applySummary = saved.last_apply_summary || {};
       setStatus(
-        formatImageApplyStatus(saved, "업로드 완료 및 자동 적용 시도"),
+        formatImageApplyStatus(saved, `${sourceLabel} 완료 및 자동 적용 시도`),
         (applySummary.results || []).some((entry) => entry.status === "error") ? "error" : "ok"
       );
+    }
+
+    async function uploadImageReplacement() {
+      await uploadImageReplacementFile(replacementUpload.files?.[0], "업로드");
+    }
+
+    function dragEventHasFiles(event) {
+      return Array.from(event.dataTransfer?.types || []).includes("Files");
+    }
+
+    function isNativeFileDropTarget(event) {
+      return Boolean(event.target?.closest?.("#imageDropZone, input[type='file']"));
+    }
+
+    function imageDropIsAllowed() {
+      const item = currentImageReplacementItem();
+      return Boolean(item && item.replacement_target !== false);
+    }
+
+    function firstSupportedDroppedImage(dataTransfer) {
+      return Array.from(dataTransfer?.files || []).find((file) => isSupportedImageFile(file)) || null;
     }
 
     saveItemBtn.onclick = () => runExclusiveAction("현재 항목 저장", saveCurrentItem).catch((error) => setStatus(error.message, "error"));
@@ -4170,6 +5678,8 @@
     saveSpeakerRegistryBtn.onclick = () => runExclusiveAction("화자 목록 저장", saveSpeakerRegistry).catch((error) => setStatus(error.message, "error"));
     saveProgressBtn.onclick = () => runExclusiveAction("현재 위치 저장", saveProgress).catch((error) => setStatus(error.message, "error"));
     importTranslationBtn.onclick = () => runExclusiveAction("번역 결과 가져오기", importTranslationResults).catch((error) => setStatus(error.message, "error"));
+    applyImagesBtn.onclick = () => runExclusiveAction("이미지 교체 전체 적용", applyImagesNow).catch((error) => setStatus(error.message, "error"));
+    restoreAllImagesBtn.onclick = () => runExclusiveAction("이미지 교체 전체 원상복구", () => restoreImagesNow()).catch((error) => setStatus(error.message, "error"));
     rebuildBtn.onclick = () => runExclusiveAction("전체 적용 ROM 재빌드", rebuildRom).catch((error) => setStatus(error.message, "error"));
     applyDraftBtn.onclick = () => applyDraftToTranslation();
     openAuditReviewBtn.onclick = () => runExclusiveAction("Entry8 후보 검수 열기", openAuditReview).catch((error) => setStatus(error.message, "error"));
@@ -4202,11 +5712,29 @@
       persistLocalUiState();
       renderAuditReview();
     };
-    auditDecisionMode.onchange = () => {
-      state.auditDecisionMode = auditDecisionMode.value === "skip" ? "skip" : "apply";
+    function setAuditDecisionMode(mode) {
+      state.auditDecisionMode = mode === "skip" ? "skip" : "apply";
+      state.auditDecisionInvert = false;
       persistLocalUiState();
       renderAuditReview();
-    };
+    }
+    auditDecisionApplyBtn.onclick = () => setAuditDecisionMode("apply");
+    auditDecisionSkipBtn.onclick = () => setAuditDecisionMode("skip");
+    window.addEventListener("keydown", (event) => {
+      if (event.key !== "Shift" || !auditReviewIsOpen() || state.auditDecisionInvert) return;
+      state.auditDecisionInvert = true;
+      updateAuditDecisionModeButtons();
+    });
+    window.addEventListener("keyup", (event) => {
+      if (event.key !== "Shift" || !state.auditDecisionInvert) return;
+      state.auditDecisionInvert = false;
+      updateAuditDecisionModeButtons();
+    });
+    window.addEventListener("blur", () => {
+      if (!state.auditDecisionInvert) return;
+      state.auditDecisionInvert = false;
+      updateAuditDecisionModeButtons();
+    });
     auditPrevPageBtn.onclick = () => {
       state.auditPage = Math.max(0, state.auditPage - 1);
       persistLocalUiState();
@@ -4218,6 +5746,128 @@
       renderAuditReview();
     };
     uploadImageBtn.onclick = () => runExclusiveAction("교체 이미지 업로드", uploadImageReplacement).catch((error) => setStatus(error.message, "error"));
+    commonHudClearCellBtn.onclick = () => clearCommonHudBoardCell();
+    commonHudClearBoardBtn.onclick = () => clearCommonHudBoard();
+    commonHudDownloadBoardBtn.onclick = () => runExclusiveAction(`${hudTileCategoryLabel()} 보드 PNG 다운로드`, downloadCommonHudBoardPng).catch((error) => setStatus(error.message, "error"));
+    commonHudUploadSheetBtn.onclick = () => runExclusiveAction(`${hudTileCategoryLabel()} 조합 PNG 분할 적용`, () => uploadCommonHudSheetFile(commonHudSheetUpload.files?.[0])).catch((error) => setStatus(error.message, "error"));
+    commonHudSheetUpload.onchange = () => {
+      const file = commonHudSheetUpload.files?.[0];
+      if (!file) return;
+      runExclusiveAction(`${hudTileCategoryLabel()} 조합 PNG 분할 적용`, () => uploadCommonHudSheetFile(file))
+        .catch((error) => setStatus(error.message, "error"))
+        .finally(() => {
+          commonHudSheetUpload.value = "";
+        });
+    };
+    imageDropZone.onclick = () => {
+      if (!imageDropIsAllowed()) {
+        setStatus("이 항목은 교체 이미지 업로드 대상이 아닙니다.", "warn");
+        return;
+      }
+      imageDropUpload.click();
+    };
+    imageDropZone.onkeydown = (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      imageDropZone.click();
+    };
+    imageDropUpload.onchange = () => {
+      const file = imageDropUpload.files?.[0];
+      if (!file) return;
+      runExclusiveAction("교체 이미지 드롭존 파일 선택", () => uploadImageReplacementFile(file, "드롭존 파일 선택"))
+        .catch((error) => setStatus(error.message, "error"))
+        .finally(() => {
+          imageDropUpload.value = "";
+        });
+    };
+    imageDropZone.addEventListener("dragenter", (event) => {
+      if (!dragEventHasFiles(event)) return;
+      event.preventDefault();
+      const allowed = imageDropIsAllowed();
+      imageDropZone.classList.toggle("drag-over", allowed);
+      if (event.dataTransfer) {
+        event.dataTransfer.dropEffect = allowed ? "copy" : "none";
+      }
+    });
+    imageDropZone.addEventListener("dragover", (event) => {
+      if (!dragEventHasFiles(event)) return;
+      event.preventDefault();
+      const allowed = imageDropIsAllowed();
+      imageDropZone.classList.toggle("drag-over", allowed);
+      if (event.dataTransfer) {
+        event.dataTransfer.dropEffect = allowed ? "copy" : "none";
+      }
+    });
+    imageDropZone.addEventListener("dragleave", () => {
+      imageDropZone.classList.remove("drag-over");
+    });
+    imageDropZone.addEventListener("drop", (event) => {
+      if (!dragEventHasFiles(event)) return;
+      event.preventDefault();
+      event.stopPropagation();
+      imageDropZone.classList.remove("drag-over");
+      if (!imageDropIsAllowed()) {
+        setStatus("이 항목은 교체 이미지 업로드 대상이 아닙니다.", "warn");
+        return;
+      }
+      const file = firstSupportedDroppedImage(event.dataTransfer);
+      if (!file) {
+        setStatus("드롭한 파일 중 업로드 가능한 이미지가 없습니다. PNG/BMP/GIF/WebP/JPG를 사용해 주세요.", "error");
+        return;
+      }
+      runExclusiveAction("교체 이미지 드래그앤드롭", () => uploadImageReplacementFile(file, "드래그앤드롭 업로드"))
+        .catch((error) => setStatus(error.message, "error"));
+    });
+    window.addEventListener("dragover", (event) => {
+      if (dragEventHasFiles(event) && !isNativeFileDropTarget(event)) {
+        event.preventDefault();
+      }
+    });
+    window.addEventListener("drop", (event) => {
+      if (dragEventHasFiles(event) && !isNativeFileDropTarget(event)) {
+        event.preventDefault();
+      }
+    });
+    restoreImageBtn.onclick = () => runExclusiveAction("현재 이미지 원상복구", restoreCurrentImageReplacement).catch((error) => setStatus(error.message, "error"));
+    imagePromptCanvas.onpointerdown = (event) => {
+      if (!imagePromptState.image) return;
+      imagePromptCanvas.setPointerCapture(event.pointerId);
+      imagePromptState.dragging = true;
+      imagePromptState.start = imagePromptCanvasPoint(event);
+      setImagePromptRect({ ...imagePromptState.start, width: 1, height: 1 }, { persist: false });
+    };
+    imagePromptCanvas.onpointermove = (event) => {
+      if (!imagePromptState.dragging || !imagePromptState.start) return;
+      setImagePromptRect(rectFromPoints(imagePromptState.start, imagePromptCanvasPoint(event)), { persist: false });
+    };
+    imagePromptCanvas.onpointerup = (event) => {
+      if (!imagePromptState.dragging || !imagePromptState.start) return;
+      imagePromptState.dragging = false;
+      setImagePromptRect(rectFromPoints(imagePromptState.start, imagePromptCanvasPoint(event)), { persist: true });
+      imagePromptState.start = null;
+    };
+    imagePromptCanvas.onpointerleave = (event) => {
+      if (!imagePromptState.dragging || !imagePromptState.start) return;
+      imagePromptState.dragging = false;
+      setImagePromptRect(imagePromptState.rect, { persist: true });
+      imagePromptState.start = null;
+    };
+    [imagePromptSourceText, imagePromptKoreanText, imagePromptX, imagePromptY, imagePromptW, imagePromptH].forEach((node) => {
+      node.addEventListener("input", () => {
+        if ([imagePromptX, imagePromptY, imagePromptW, imagePromptH].includes(node)) {
+          const rect = imagePromptRectFromInputs();
+          if (rect) {
+            setImagePromptRect(rect, { persist: true });
+          } else {
+            updateImagePromptOutput();
+          }
+        } else {
+          updateImagePromptOutput();
+        }
+      });
+    });
+    imagePromptClearBtn.onclick = () => setImagePromptRect(null, { persist: true });
+    imagePromptCopyBtn.onclick = () => copyImagePrompt().catch((error) => setStatus(error.message, "error"));
     document.getElementById("composerRenderBtn").onclick = () => renderImageComposer();
     document.getElementById("composerDownloadBtn").onclick = () => downloadComposerPng();
     composerUploadBtn.onclick = () => runExclusiveAction("합성 이미지 업로드", uploadComposerPng).catch((error) => setStatus(error.message, "error"));

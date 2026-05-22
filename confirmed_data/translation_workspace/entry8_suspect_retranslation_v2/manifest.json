@@ -1,0 +1,51 @@
+[
+  {
+    "set": "set_a_cluster_18",
+    "clusters": [
+      "cluster_18_east_city"
+    ],
+    "records": 576,
+    "locked_excluded": 5,
+    "path": "confirmed_data/translation_workspace/entry8_suspect_retranslation_v2/targets/set_a_cluster_18.json"
+  },
+  {
+    "set": "set_b_cluster_38",
+    "clusters": [
+      "cluster_38_central"
+    ],
+    "records": 811,
+    "locked_excluded": 15,
+    "path": "confirmed_data/translation_workspace/entry8_suspect_retranslation_v2/targets/set_b_cluster_38.json"
+  },
+  {
+    "set": "set_c_military_46_47_50",
+    "clusters": [
+      "cluster_46_military",
+      "cluster_47_military",
+      "cluster_50_military"
+    ],
+    "records": 521,
+    "locked_excluded": 20,
+    "path": "confirmed_data/translation_workspace/entry8_suspect_retranslation_v2/targets/set_c_military_46_47_50.json"
+  },
+  {
+    "set": "set_d_quest_52_53_55",
+    "clusters": [
+      "cluster_52_cat_quest",
+      "cluster_53_military",
+      "cluster_55_east_city"
+    ],
+    "records": 823,
+    "locked_excluded": 65,
+    "path": "confirmed_data/translation_workspace/entry8_suspect_retranslation_v2/targets/set_d_quest_52_53_55.json"
+  },
+  {
+    "set": "set_e_cluster_61",
+    "clusters": [
+      "cluster_61_military"
+    ],
+    "records": 497,
+    "locked_excluded": 16,
+    "path": "confirmed_data/translation_workspace/entry8_suspect_retranslation_v2/targets/set_e_cluster_61.json"
+  }
+]

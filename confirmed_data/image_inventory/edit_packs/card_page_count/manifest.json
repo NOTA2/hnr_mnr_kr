@@ -1,0 +1,71 @@
+{
+  "item_id": "image:rle_screen_order_focus:current_review_ss6:frame_000006:bg1:003A206C:card_page_count",
+  "offset": 3809388,
+  "label": "카드 상세 페이지 표기 1枚目",
+  "source_text": "1枚目",
+  "suggested_korean": "1장째",
+  "source_path": "confirmed_data/image_inventory/edit_packs/card_page_count/card_page_count__source.png",
+  "editable_path": "confirmed_data/image_inventory/edit_packs/card_page_count/card_page_count__edit_4x.png",
+  "tile_map_path": "confirmed_data/image_inventory/edit_packs/card_page_count/card_page_count_tile_map.json",
+  "source_screen_order_path": "confirmed_data/image_inventory/runtime_rle_screen_order/current_review_ss6/frame_000006_bg1_rle_003A206C/matched_tiles_screen_order.png",
+  "source_tile_map_path": "confirmed_data/image_inventory/runtime_rle_screen_order/current_review_ss6/frame_000006_bg1_rle_003A206C/tile_map.json",
+  "rle_offset": 3809388,
+  "rle_offset_hex": "0x003A206C",
+  "width": 64,
+  "height": 32,
+  "scale": 4,
+  "matched_tile_count": 21,
+  "upload_note": "이 PNG를 수정해 GUI에 업로드하면 0x003A206C RLE 중 카드 상세 1枚目 영역만 화면순 tile_map으로 적용한다.",
+  "replacement_path": "generated-images/debug_tiles_003A206C/compose_jangjjae_galmuri9_with_tile013_040_clean_1x.png",
+  "replacement_payload_base": "source_raw",
+  "replacement_direct_rle_tiles": [
+    {
+      "tile_index": 13,
+      "source_x": 8,
+      "source_y": 16,
+      "palette_bank": 12
+    },
+    {
+      "tile_index": 40,
+      "source_x": 0,
+      "source_y": 16,
+      "palette_bank": 12
+    },
+    {
+      "tile_index": 118,
+      "source_x": 24,
+      "source_y": 0,
+      "palette_bank": 12
+    },
+    {
+      "tile_index": 119,
+      "source_x": 32,
+      "source_y": 0,
+      "palette_bank": 12
+    },
+    {
+      "tile_index": 120,
+      "source_x": 40,
+      "source_y": 0,
+      "palette_bank": 12
+    },
+    {
+      "tile_index": 129,
+      "source_x": 24,
+      "source_y": 8,
+      "palette_bank": 12
+    },
+    {
+      "tile_index": 130,
+      "source_x": 32,
+      "source_y": 8,
+      "palette_bank": 12
+    },
+    {
+      "tile_index": 131,
+      "source_x": 40,
+      "source_y": 8,
+      "palette_bank": 12
+    }
+  ]
+}

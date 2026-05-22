@@ -1,0 +1,19 @@
+{
+  "rom": "/private/tmp/hnr_ss2_ok_popup_noop_test.gba",
+  "applied_count": 1,
+  "results": [
+    {
+      "item_id": "image:rle_screen_order:current_review_ss2:frame_000002:bg0:003ABB9C",
+      "status": "applied",
+      "compression": "rle",
+      "offset": 3849116,
+      "offset_hex": "0x003ABB9C",
+      "columns": null,
+      "tile_map_path": "confirmed_data/image_inventory/runtime_rle_screen_order/current_review_ss2/frame_000002_bg0_rle_003ABB9C/tile_map.json",
+      "decompressed_size": 1280,
+      "compressed_size": 855,
+      "available_size": 855,
+      "current_consumed_size": 855
+    }
+  ]
+}

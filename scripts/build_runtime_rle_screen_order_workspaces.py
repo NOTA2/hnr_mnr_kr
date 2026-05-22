@@ -18,14 +18,17 @@ from build_runtime_rle_patch_previews import (
     ROOT,
     build_match_only_view,
     bounds,
+    crop_pixels_for_matches,
     crop_rgb,
     draw_border_rgb,
     find_rle_block,
     frame_prefix,
+    alignment_adjustment,
     read_bg_control,
     rle_tile_index,
     runtime_matches,
     scale_rgb,
+    tile_screen_origin,
 )
 from render_runtime_tilemaps import (
     SCREEN_H,
@@ -46,14 +49,21 @@ OUT_ROOT = IMAGE_INVENTORY / "runtime_rle_screen_order"
 
 
 KNOWN_LABELS = {
-    0x003A206C: "전투 메뉴 워드마크 ALCHEMY/SKILL/ITEM/CARD/NETWORK",
+    0x003A206C: "전투 카드 2枚 UI",
+    0x003A3540: "카드 리스트 いいえ UI",
+    0x003A5E50: "카드 리스트 いいえ UI 변형",
+    0x003A6E24: "카드 리스트 いいえ UI 변형",
+    0x003A7C3C: "카드 리스트 いいえ UI 변형",
+    0x003A8894: "카드 리스트 いいえ UI 변형",
+    0x003A9624: "카드 리스트 いいえ UI 변형",
+    0x003AA4C0: "카드 리스트 いいえ UI 변형",
     0x00186AE8: "전투 HUD 소형 숫자/상태 표시",
     0x003ABB9C: "OK? 예/아니요 팝업",
     0x003AF23C: "연성/사용/버리기/돌아가기 팝업",
     0x005323AC: "필드/카드 라벨 錬成",
-    0x0053257C: "필드/카드 라벨 アセやし",
-    0x007E0000: "타이틀 로고/저작권",
-    0x007E9158: "타이틀 PUSH START",
+    0x0053257C: "필드/카드 라벨 アイテム",
+    0x007E0000: "타이틀 로고/부제",
+    0x007E9158: "타이틀 PUSH START (영어 참고)",
     0x007E9404: "타이틀 처음부터",
     0x007E95E0: "타이틀 이어하기",
     0x007E97A4: "타이틀 통신",
@@ -61,6 +71,7 @@ KNOWN_LABELS = {
 
 HIGH_VALUE_OFFSETS = {
     0x003A206C,
+    0x003A3540,
     0x003ABB9C,
     0x003AF23C,
     0x007E0000,
@@ -68,6 +79,20 @@ HIGH_VALUE_OFFSETS = {
     0x007E9404,
     0x007E95E0,
     0x007E97A4,
+}
+
+DIRECT_REPLACEMENT_KEYS = {
+    ("current_review_ss2", "frame_000002", 0, 0x003ABB9C),
+    ("no_entry8_latest_ss1", "frame_007084", 0, 0x003AF23C),
+    ("no_entry8_latest_ss1", "frame_007084", 1, 0x003A206C),
+    ("no_entry8_latest_ss3", "frame_009730", 1, 0x003A3540),
+    ("no_entry8_latest_ss3", "frame_009730", 1, 0x003A5E50),
+    ("no_entry8_latest_ss3", "frame_009730", 1, 0x003A6E24),
+    ("no_entry8_latest_ss3", "frame_009730", 1, 0x003A7C3C),
+    ("no_entry8_latest_ss3", "frame_009730", 1, 0x003A8894),
+    ("no_entry8_latest_ss3", "frame_009730", 1, 0x003A9624),
+    ("no_entry8_latest_ss3", "frame_009730", 1, 0x003AA4C0),
+    ("timeline_with_rle", "frame_001200", 0, 0x007E0000),
 }
 
 
@@ -152,26 +177,27 @@ def crop_and_write(
 ) -> dict:
     crop_box = bounds(matches, padding_tiles)
     min_x, min_y, max_x, max_y = crop_box
-    crop_px = (min_x * 8, min_y * 8, (max_x - min_x + 1) * 8, (max_y - min_y + 1) * 8)
+    crop_px = crop_pixels_for_matches(matches, control, crop_box)
 
     map_w, map_h, bg_pixels = render_bg_map(vram, palette, control["bgcnt"])
     viewport = crop_viewport(bg_pixels, map_w, map_h, control["scroll_x"], control["scroll_y"])
     context_plain = crop_rgb(viewport, SCREEN_W, *crop_px)
     context_grid = bytearray(context_plain)
     for item in matches:
+        origin_x, origin_y = tile_screen_origin(item, control)
         draw_border_rgb(
             context_grid,
             crop_px[2],
             crop_px[3],
-            (item["screen_tile_x"] - min_x) * 8,
-            (item["screen_tile_y"] - min_y) * 8,
+            origin_x - crop_px[0],
+            origin_y - crop_px[1],
             8,
             8,
             (255, 64, 64),
         )
 
-    matched_plain = build_match_only_view(vram, palette, control, matches, crop_box)
-    matched_grid = build_match_only_view(vram, palette, control, matches, crop_box, draw_grid=True)
+    matched_plain = build_match_only_view(vram, palette, control, matches, crop_box, crop_px)
+    matched_grid = build_match_only_view(vram, palette, control, matches, crop_box, crop_px, draw_grid=True)
 
     out_dir.mkdir(parents=True, exist_ok=True)
     write_png_rgb(out_dir / "context_crop.png", crop_px[2], crop_px[3], context_plain)
@@ -191,6 +217,15 @@ def crop_and_write(
         "runtime_palette_path": str(palette_path.relative_to(ROOT)),
         "crop_screen_tiles": {"min_x": min_x, "min_y": min_y, "max_x": max_x, "max_y": max_y},
         "crop_pixels": {"x": crop_px[0], "y": crop_px[1], "width": crop_px[2], "height": crop_px[3]},
+        "scroll_pixels": {"x": int(control["scroll_x"]), "y": int(control["scroll_y"])},
+        "fine_scroll_pixels": {
+            "x": int(control["scroll_x"]) % 8,
+            "y": int(control["scroll_y"]) % 8,
+        },
+        "alignment_adjustment_pixels": {
+            "x": alignment_adjustment(control)[0],
+            "y": alignment_adjustment(control)[1],
+        },
         "matched_tile_count": len(matches),
         "source_match": {
             "score": source_match.get("score"),
@@ -222,7 +257,14 @@ def crop_and_write(
         "shared_tiles": source_match.get("shared_tiles"),
         "candidate_coverage": source_match.get("candidate_coverage"),
         "runtime_coverage": source_match.get("runtime_coverage"),
-        "replacement_target": True,
+        "asset_source_type": "runtime_rle_screen_order_rebuild",
+        "reference_preview_path": str((out_dir / "context_crop_4x.png").relative_to(ROOT)),
+        "replacement_target": (scene, frame, bg, rle_offset) in DIRECT_REPLACEMENT_KEYS,
+        "replacement_target_reason": (
+            "tile_map-aware same-offset RLE replacement candidate"
+            if (scene, frame, bg, rle_offset) in DIRECT_REPLACEMENT_KEYS
+            else "runtime/savestate reconstruction only; keep as reference, not a direct localization source"
+        ),
     }
 
 
@@ -288,18 +330,20 @@ def write_index(out_root: Path, manifest: list[dict]) -> None:
         "",
         "런타임 BG tilemap을 적용해 RLE 타일을 실제 화면 배치에 가깝게 재조립한 편집 후보입니다.",
         "",
-        "| label | scene | bg | offset | tiles | preview |",
-        "| --- | --- | ---: | --- | ---: | --- |",
+        "| usable | label | scene | bg | offset | tiles | edit source | reference |",
+        "| --- | --- | --- | ---: | --- | ---: | --- | --- |",
     ]
     for item in manifest:
         lines.append(
-            "| {label} | `{scene}` | `{bg}` | `{offset}` | `{tiles}` | `{preview}` |".format(
+            "| {usable} | {label} | `{scene}` | `{bg}` | `{offset}` | `{tiles}` | `{edit}` | `{ref}` |".format(
+                usable="yes" if item.get("replacement_target") else "reference",
                 label=item["label"],
                 scene=item["scene"],
                 bg=item["bg"],
                 offset=item["offset_hex"],
                 tiles=item["matched_tile_count"],
-                preview=item["context_preview_path"],
+                edit=item["editable_preview_path"] if item.get("replacement_target") else "",
+                ref=item["reference_preview_path"],
             )
         )
     (out_root / "README.md").write_text("\n".join(lines) + "\n", encoding="utf-8")

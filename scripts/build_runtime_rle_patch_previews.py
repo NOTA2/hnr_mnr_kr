@@ -19,6 +19,7 @@ from render_runtime_tilemaps import (
     SCREEN_W,
     TILE_BYTES_4BPP,
     bgr555_to_rgb,
+    bg_size_pixels,
     crop_viewport,
     read_palette,
     render_bg_map,
@@ -94,10 +95,15 @@ def rle_tile_index(raw: bytes) -> dict[bytes, list[int]]:
 
 def runtime_matches(vram: bytes, control: dict, index: dict[bytes, list[int]]) -> list[dict]:
     matches: list[dict] = []
-    for screen_y in range(SCREEN_H // 8):
-        map_y = ((control["scroll_y"] // 8) + screen_y) % 32
-        for screen_x in range(SCREEN_W // 8):
-            map_x = ((control["scroll_x"] // 8) + screen_x) % 32
+    map_w, map_h = bg_size_pixels(control["size"])
+    map_tiles_w = map_w // 8
+    map_tiles_h = map_h // 8
+    visible_tiles_w = (SCREEN_W + (control["scroll_x"] % 8) + 7) // 8
+    visible_tiles_h = (SCREEN_H + (control["scroll_y"] % 8) + 7) // 8
+    for screen_y in range(visible_tiles_h):
+        map_y = ((control["scroll_y"] // 8) + screen_y) % map_tiles_h
+        for screen_x in range(visible_tiles_w):
+            map_x = ((control["scroll_x"] // 8) + screen_x) % map_tiles_w
             entry_addr = screen_entry_offset(control["screen_base"], map_x, map_y, control["size"])
             entry = struct.unpack_from("<H", vram, entry_addr)[0]
             tile_index = entry & 0x3FF
@@ -130,9 +136,39 @@ def runtime_matches(vram: bytes, control: dict, index: dict[bytes, list[int]]) -
 def bounds(matches: list[dict], padding: int) -> tuple[int, int, int, int]:
     min_x = max(0, min(item["screen_tile_x"] for item in matches) - padding)
     min_y = max(0, min(item["screen_tile_y"] for item in matches) - padding)
-    max_x = min((SCREEN_W // 8) - 1, max(item["screen_tile_x"] for item in matches) + padding)
-    max_y = min((SCREEN_H // 8) - 1, max(item["screen_tile_y"] for item in matches) + padding)
+    max_x = max(item["screen_tile_x"] for item in matches) + padding
+    max_y = max(item["screen_tile_y"] for item in matches) + padding
     return min_x, min_y, max_x, max_y
+
+
+def alignment_adjustment(control: dict) -> tuple[int, int]:
+    adjustment = control.get("alignment_adjustment_pixels") or {}
+    return int(adjustment.get("x", 0)), int(adjustment.get("y", 0))
+
+
+def tile_screen_origin(match: dict, control: dict) -> tuple[int, int]:
+    shift_x, shift_y = alignment_adjustment(control)
+    return (
+        int(match["screen_tile_x"]) * 8 - (int(control.get("scroll_x", 0)) % 8) + shift_x,
+        int(match["screen_tile_y"]) * 8 - (int(control.get("scroll_y", 0)) % 8) + shift_y,
+    )
+
+
+def crop_pixels_for_matches(
+    matches: list[dict],
+    control: dict,
+    crop_box: tuple[int, int, int, int],
+) -> tuple[int, int, int, int]:
+    min_x, min_y, max_x, max_y = crop_box
+    fine_x = int(control.get("scroll_x", 0)) % 8
+    fine_y = int(control.get("scroll_y", 0)) % 8
+    left = max(0, min_x * 8 - fine_x)
+    top = max(0, min_y * 8 - fine_y)
+    right = min(SCREEN_W, (max_x + 1) * 8 - fine_x)
+    bottom = min(SCREEN_H, (max_y + 1) * 8 - fine_y)
+    if right <= left or bottom <= top:
+        raise ValueError("matched tile crop is outside the visible screen")
+    return left, top, right - left, bottom - top
 
 
 def draw_border_rgb(pixels: bytearray, width: int, height: int, x: int, y: int, w: int, h: int, color: tuple[int, int, int]) -> None:
@@ -178,12 +214,14 @@ def build_match_only_view(
     control: dict,
     matches: list[dict],
     crop_box: tuple[int, int, int, int],
+    crop_px: tuple[int, int, int, int] | None = None,
     *,
     draw_grid: bool = False,
 ) -> bytes:
     min_x, min_y, max_x, max_y = crop_box
-    out_w = (max_x - min_x + 1) * 8
-    out_h = (max_y - min_y + 1) * 8
+    if crop_px is None:
+        crop_px = crop_pixels_for_matches(matches, control, crop_box)
+    crop_x, crop_y, out_w, out_h = crop_px
     pixels = bytearray([35, 35, 40] * out_w * out_h)
     by_pos = {(item["screen_tile_x"], item["screen_tile_y"]): item for item in matches}
     for screen_y in range(min_y, max_y + 1):
@@ -197,17 +235,24 @@ def build_match_only_view(
                 palette,
                 match["palette_bank"],
             )
-            dst_x = (screen_x - min_x) * 8
-            dst_y = (screen_y - min_y) * 8
+            origin_x, origin_y = tile_screen_origin(match, control)
+            dst_x = origin_x - crop_x
+            dst_y = origin_y - crop_y
             for py in range(8):
+                out_y = dst_y + py
+                if not (0 <= out_y < out_h):
+                    continue
                 for px in range(8):
+                    out_x = dst_x + px
+                    if not (0 <= out_x < out_w):
+                        continue
                     sx = 7 - px if match.get("hflip") else px
                     sy = 7 - py if match.get("vflip") else py
                     color_index = tile[sy * 8 + sx]
                     if not color_index:
                         continue
                     rgb = palette[color_index % len(palette)]
-                    pos = ((dst_y + py) * out_w + dst_x + px) * 3
+                    pos = (out_y * out_w + out_x) * 3
                     pixels[pos : pos + 3] = bytes(rgb)
             if draw_grid:
                 draw_border_rgb(pixels, out_w, out_h, dst_x, dst_y, 8, 8, (68, 160, 255))
@@ -258,7 +303,7 @@ def main() -> int:
 
     crop_box = bounds(matches, args.padding_tiles)
     min_x, min_y, max_x, max_y = crop_box
-    crop_px = (min_x * 8, min_y * 8, (max_x - min_x + 1) * 8, (max_y - min_y + 1) * 8)
+    crop_px = crop_pixels_for_matches(matches, control, crop_box)
 
     map_w, map_h, bg_pixels = render_bg_map(vram, palette, control["bgcnt"])
     viewport = crop_viewport(bg_pixels, map_w, map_h, control["scroll_x"], control["scroll_y"])
@@ -266,12 +311,13 @@ def main() -> int:
     context = bytearray(context_plain)
     for item in matches:
         if min_x <= item["screen_tile_x"] <= max_x and min_y <= item["screen_tile_y"] <= max_y:
+            origin_x, origin_y = tile_screen_origin(item, control)
             draw_border_rgb(
                 context,
                 crop_px[2],
                 crop_px[3],
-                (item["screen_tile_x"] - min_x) * 8,
-                (item["screen_tile_y"] - min_y) * 8,
+                origin_x - crop_px[0],
+                origin_y - crop_px[1],
                 8,
                 8,
                 (255, 64, 64),
@@ -282,8 +328,8 @@ def main() -> int:
     write_png_rgb(out_dir / "context_crop.png", crop_px[2], crop_px[3], context_plain)
     write_png_rgb(out_dir / "context_crop_grid.png", crop_px[2], crop_px[3], bytes(context))
     write_png_rgb(out_dir / "context_crop_4x.png", *scale_rgb(context_plain, crop_px[2], crop_px[3], 4))
-    matched_plain = build_match_only_view(vram, palette, control, matches, crop_box)
-    matched_grid = build_match_only_view(vram, palette, control, matches, crop_box, draw_grid=True)
+    matched_plain = build_match_only_view(vram, palette, control, matches, crop_box, crop_px)
+    matched_grid = build_match_only_view(vram, palette, control, matches, crop_box, crop_px, draw_grid=True)
     write_png_rgb(out_dir / "matched_tiles_screen_order.png", crop_px[2], crop_px[3], matched_plain)
     write_png_rgb(out_dir / "matched_tiles_screen_order_grid.png", crop_px[2], crop_px[3], matched_grid)
     write_png_rgb(out_dir / "matched_tiles_screen_order_4x.png", *scale_rgb(matched_plain, crop_px[2], crop_px[3], 4))
@@ -306,6 +352,18 @@ def main() -> int:
             "y": crop_px[1],
             "width": crop_px[2],
             "height": crop_px[3],
+        },
+        "scroll_pixels": {
+            "x": int(control["scroll_x"]),
+            "y": int(control["scroll_y"]),
+        },
+        "fine_scroll_pixels": {
+            "x": int(control["scroll_x"]) % 8,
+            "y": int(control["scroll_y"]) % 8,
+        },
+        "alignment_adjustment_pixels": {
+            "x": alignment_adjustment(control)[0],
+            "y": alignment_adjustment(control)[1],
         },
         "matched_tile_count": len(matches),
         "matches": matches,

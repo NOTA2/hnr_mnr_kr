@@ -1,11 +1,41 @@
 {
   "rom": "patched_roms/current_review/hnr_localization_review.gba",
-  "applied_count": 0,
+  "applied_count": 1,
+  "stability_checks": {
+    "lz77_distance_one": {
+      "checked_count": 0,
+      "warning_count": 0,
+      "status": "ok",
+      "warnings": []
+    }
+  },
   "results": [
     {
-      "item_id": "image:rle:007E95E0",
-      "status": "error",
-      "reason": "/Users/user/test/confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_007E95E0/00ef6e99-06dd-4b1d-be4e-28178dcc2dd4.png size (2169, 725) is not compatible with expected 64x64"
+      "item_id": "image:registry_b_zp01:007CD6EC:entry_0D",
+      "status": "applied",
+      "compression": "registry_b_raw4bpp",
+      "storage": "same_offset",
+      "variant": "raw",
+      "offset": 8181484,
+      "offset_hex": "0x007CD6EC",
+      "original_offset": 8181484,
+      "original_offset_hex": "0x007CD6EC",
+      "new_offset": 8181484,
+      "new_offset_hex": "0x007CD6EC",
+      "registry_b_table_offset": 1588664,
+      "registry_b_table_offset_hex": "0x00183DB8",
+      "old_pointer_value": "0x087CD6EC",
+      "new_pointer_value": "0x087CD6EC",
+      "columns": 12,
+      "tile_count": 87,
+      "edit_tile_count": 87,
+      "edited_tile_indices": [],
+      "decompressed_size": 2784,
+      "compressed_size": 2784,
+      "available_size": 2784,
+      "current_consumed_size": 2784,
+      "rom_size_after": 8771011,
+      "repoint_attempted": false
     }
   ]
 }

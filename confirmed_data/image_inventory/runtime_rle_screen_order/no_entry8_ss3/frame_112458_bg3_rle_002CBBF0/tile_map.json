@@ -9,14 +9,26 @@
   "crop_screen_tiles": {
     "min_x": 0,
     "min_y": 0,
-    "max_x": 29,
-    "max_y": 19
+    "max_x": 30,
+    "max_y": 20
   },
   "crop_pixels": {
     "x": 0,
     "y": 0,
     "width": 240,
     "height": 160
+  },
+  "scroll_pixels": {
+    "x": 256,
+    "y": 256
+  },
+  "fine_scroll_pixels": {
+    "x": 0,
+    "y": 0
+  },
+  "alignment_adjustment_pixels": {
+    "x": 0,
+    "y": 0
   },
   "matched_tile_count": 600,
   "source_match": {

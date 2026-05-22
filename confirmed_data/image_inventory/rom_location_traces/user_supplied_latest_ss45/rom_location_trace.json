@@ -1,0 +1,251 @@
+{
+  "source_savestates": [
+    "patched_roms/current_review/hnr_localization_review.ss4",
+    "patched_roms/current_review/hnr_localization_review.ss5"
+  ],
+  "savestate_wrapper": "PNG thumbnail with zlib-compressed gbAs mGBA state chunk",
+  "fresh_extraction_root": "confirmed_data/image_inventory/runtime_user_captures/user_supplied_latest_ss45",
+  "fresh_tilemap_root": "confirmed_data/image_inventory/runtime_tilemaps_user_supplied_latest_ss45",
+  "fresh_match_root": "confirmed_data/image_inventory/runtime_tile_matches_user_supplied_latest_ss45",
+  "runtime_bg1": {
+    "bgcnt": "0x1804",
+    "char_base_vram_offset": "0x4000",
+    "screen_base_block": 24,
+    "scroll_x": 400,
+    "scroll_y": 500,
+    "palette_bank": 1
+  },
+  "targets": [
+    {
+      "id": "ss4_sub_alchemy_notebook",
+      "visible_text": "錬成手帳",
+      "runtime_layer": "BG1",
+      "viewport_tile_rect": [
+        14,
+        2,
+        7,
+        4
+      ],
+      "screen_entries_by_row": [
+        [
+          "0x1001",
+          "0x1002",
+          "0x1003",
+          "0x1004",
+          "0x1005",
+          "0x1006",
+          "0x1007"
+        ],
+        [
+          "0x1021",
+          "0x1022",
+          "0x1023",
+          "0x1024",
+          "0x1025",
+          "0x1026",
+          "0x1027"
+        ],
+        [
+          "0x1041",
+          "0x1042",
+          "0x1043",
+          "0x1044",
+          "0x1045",
+          "0x1046",
+          "0x1047"
+        ],
+        [
+          "0x1061",
+          "0x1062",
+          "0x1063",
+          "0x1064",
+          "0x1065",
+          "0x1066",
+          "0x1067"
+        ]
+      ],
+      "vram_tile_runs_state_offsets": [
+        "0x5020",
+        "0x5420",
+        "0x5820",
+        "0x5C20"
+      ],
+      "ewram_mirror_state_offsets": [
+        "0x41020",
+        "0x41420",
+        "0x41820",
+        "0x41C20"
+      ],
+      "crop_4x": "confirmed_data/image_inventory/rom_location_traces/user_supplied_latest_ss45/assets/ss4_alchemy_notebook_bg1_4x.png"
+    },
+    {
+      "id": "ss5_sub_switch_special",
+      "visible_text": "入れ替え / 必殺技",
+      "runtime_layer": "BG1",
+      "viewport_tile_rect": [
+        14,
+        2,
+        7,
+        6
+      ],
+      "screen_entries_by_row": [
+        [
+          "0x1001",
+          "0x1002",
+          "0x1003",
+          "0x1004",
+          "0x1005",
+          "0x1006",
+          "0x1007"
+        ],
+        [
+          "0x1021",
+          "0x1022",
+          "0x1023",
+          "0x1024",
+          "0x1025",
+          "0x1026",
+          "0x1027"
+        ],
+        [
+          "0x1041",
+          "0x1042",
+          "0x1043",
+          "0x1044",
+          "0x1045",
+          "0x1046",
+          "0x1047"
+        ],
+        [
+          "0x1061",
+          "0x1062",
+          "0x1063",
+          "0x1064",
+          "0x1065",
+          "0x1066",
+          "0x1067"
+        ],
+        [
+          "0x1081",
+          "0x1082",
+          "0x1083",
+          "0x1084",
+          "0x1085",
+          "0x1086",
+          "0x1087"
+        ],
+        [
+          "0x10A1",
+          "0x10A2",
+          "0x10A3",
+          "0x10A4",
+          "0x10A5",
+          "0x10A6",
+          "0x10A7"
+        ]
+      ],
+      "vram_tile_runs_state_offsets": [
+        "0x5020",
+        "0x5420",
+        "0x5820",
+        "0x5C20",
+        "0x6020",
+        "0x6420"
+      ],
+      "ewram_mirror_state_offsets": [
+        "0x41020",
+        "0x41420",
+        "0x41820",
+        "0x41C20",
+        "0x42020",
+        "0x42420"
+      ],
+      "crop_4x": "confirmed_data/image_inventory/rom_location_traces/user_supplied_latest_ss45/assets/ss5_switch_special_bg1_4x.png"
+    }
+  ],
+  "negative_evidence": {
+    "exact_cp932_phrase_search": {
+      "錬成手帳": [],
+      "入れ替え": [],
+      "必殺技": []
+    },
+    "exact_runtime_tile_bytes_in_rom": "0 hits for all target label tiles/runs",
+    "exact_runtime_tile_hashes_in_extracted_lz77_rle_raw_candidates": "0 blocks with even one matching target tile hash",
+    "runtime_tile_matches": "fresh ss4/ss5 BG/OBJ charblocks produced no ROM image-block matches at min_shared_tiles=4"
+  },
+  "confirmed_font_renderer_path": {
+    "common_fnt_resource_rom_offset": "0x003E0000",
+    "resource_length": "0x0003DDE8",
+    "registry_slot_1_entry_0_table_offset": "0x0017C2F4",
+    "mirror_table_offset": "0x001823A0",
+    "magic": "fnt\\0",
+    "glyph_stride": "0x48 bytes / glyph, 12x12 4bpp family",
+    "renderer_setup": "0x014A98",
+    "renderer_loop": "0x014ED0",
+    "glyph_lookup": "0x0152A2..0x0152C4",
+    "glyph_writers": [
+      "0x01570C",
+      "0x01578C",
+      "0x01580C",
+      "0x01588C"
+    ],
+    "target_character_glyphs": {
+      "錬": {
+        "sjis": "0x9842",
+        "glyph_index": "0x0673",
+        "glyph_offset": "0x0041D068"
+      },
+      "成": {
+        "sjis": "0x90AC",
+        "glyph_index": "0x03F4",
+        "glyph_offset": "0x00411CB0"
+      },
+      "手": {
+        "sjis": "0x8EE8",
+        "glyph_index": "0x0358",
+        "glyph_offset": "0x0040F0D0"
+      },
+      "帳": {
+        "sjis": "0x92A0",
+        "glyph_index": "0x04AD",
+        "glyph_offset": "0x004150B8"
+      },
+      "入": {
+        "sjis": "0x93FC",
+        "glyph_index": "0x051E",
+        "glyph_offset": "0x00417080"
+      },
+      "れ": {
+        "sjis": "0x82EA",
+        "glyph_index": "0x00B1",
+        "glyph_offset": "0x004031D8"
+      },
+      "替": {
+        "sjis": "0x91D6",
+        "glyph_index": "0x046E",
+        "glyph_offset": "0x00413F00"
+      },
+      "え": {
+        "sjis": "0x82A6",
+        "glyph_index": "0x006D",
+        "glyph_offset": "0x00401EB8"
+      },
+      "必": {
+        "sjis": "0x954B",
+        "glyph_index": "0x0570",
+        "glyph_offset": "0x00418790"
+      },
+      "殺": {
+        "sjis": "0x8E45",
+        "glyph_index": "0x0303",
+        "glyph_offset": "0x0040D8E8"
+      },
+      "技": {
+        "sjis": "0x8B5A",
+        "glyph_index": "0x01FD",
+        "glyph_offset": "0x00408F38"
+      }
+    }
+  },
+  "conclusion": "The complete visible label images are runtime-generated BG1 tiles, not standalone ROM image blocks. The stable ROM-side asset identified is the common fnt glyph resource; the per-menu source string/table for these exact labels was not found as contiguous CP932 or glyph-index bytes in this pass."
+}

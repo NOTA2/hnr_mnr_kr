@@ -1,10 +1,10 @@
 # Entry8 No-Space Slack Candidates
 
-- generated_at: `2026-05-20T03:28:15+00:00`
-- total: `3258`
-- contains_hangul: `3208`
-- short_items_len_3_or_less: `707`
-- total_spare_bytes: `13509`
+- generated_at: `2026-05-20T17:52:33+00:00`
+- total: `2563`
+- contains_hangul: `2522`
+- short_items_len_3_or_less: `684`
+- total_spare_bytes: `9904`
 
 이 목록은 현재 Entry8 번역문에 반각/전각 공백이 하나도 없고, 슬롯 byte 여유가 남은 항목입니다.
 제안값은 일부러 현재값과 같게 두었습니다. 후보 검수 모달에서 필요한 항목만 직접 전각 공백을 넣어 적용하세요.
@@ -26,7 +26,6 @@
 | 0x6B8404 | `cluster_00_liore:006B8404` | 12/16 | 4 | 신기하거나、 |
 | 0x6B85C4 | `cluster_00_liore:006B85C4` | 10/14 | 4 | 불쌍해서。 |
 | 0x6B879C | `cluster_00_liore:006B879C` | 8/12 | 4 | 그런데、 |
-| 0x6B8836 | `cluster_00_liore:006B8836` | 12/16 | 4 | 몇년전와서、 |
 | 0x6B89F8 | `cluster_00_liore:006B89F8` | 8/12 | 4 | 교주님을 |
 | 0x6B8A58 | `cluster_00_liore:006B8A58` | 8/12 | 4 | 교주님？ |
 | 0x6B8AAA | `cluster_00_liore:006B8AAA` | 16/20 | 4 | 오、오랜만이네！ |
@@ -35,8 +34,6 @@
 | 0x6B8E18 | `cluster_00_liore:006B8E18` | 10/12 | 2 | 연금술이지 |
 | 0x6B8E8E | `cluster_00_liore:006B8E8E` | 8/10 | 2 | 어때요！ |
 | 0x6B8F46 | `cluster_00_liore:006B8F46` | 18/22 | 4 | 자자、진정하세요… |
-| 0x6B8F88 | `cluster_00_liore:006B8F88` | 10/18 | 8 | 법칙무시야 |
-| 0x6B9064 | `cluster_00_liore:006B9064` | 16/18 | 2 | 일으킬수있나요？ |
 | 0x6B908E | `cluster_00_liore:006B908E` | 4/8 | 4 | 형、 |
 | 0x6B90A2 | `cluster_00_liore:006B90A2` | 8/16 | 8 | 혹시…… |
 | 0x6B9122 | `cluster_00_liore:006B9122` | 6/8 | 2 | 그러자 |
@@ -45,12 +42,10 @@
 | 0x6B94EA | `cluster_00_liore:006B94EA` | 6/8 | 2 | 나아가 |
 | 0x6B951E | `cluster_00_liore:006B951E` | 6/14 | 8 | 있잖아 |
 | 0x6B9560 | `cluster_00_liore:006B9560` | 12/16 | 4 | 로제、형은… |
-| 0x6B959E | `cluster_00_liore:006B959E` | 4/6 | 2 | 쓸데 |
 | 0x6B9758 | `cluster_00_liore:006B9758` | 10/14 | 4 | 풀렸습니다 |
 | 0x6B9B76 | `cluster_00_liore:006B9B76` | 10/16 | 6 | …모르겠지 |
 | 0x6B9BD0 | `cluster_00_liore:006B9BD0` | 6/12 | 6 | 곤란해 |
 | 0x6B9C5E | `cluster_00_liore:006B9C5E` | 10/12 | 2 | 코넬로님… |
-| 0x6B9DDA | `cluster_00_liore:006B9DDA` | 16/18 | 2 | 마을이풍요로운건 |
 | 0x6BA4F4 | `cluster_00_liore:006BA4F4` | 8/12 | 4 | 아、형！ |
 | 0x6BA50A | `cluster_00_liore:006BA50A` | 12/14 | 2 | 봐、고양이！ |
 | 0x6BA522 | `cluster_00_liore:006BA522` | 12/16 | 4 | 귀엽다아～♪ |
@@ -62,7 +57,6 @@
 | 0x6BA83E | `cluster_00_liore:006BA83E` | 14/16 | 2 | 으、으으으으… |
 | 0x6BA9A4 | `cluster_00_liore:006BA9A4` | 14/18 | 4 | 오오、고맙네！ |
 | 0x6BA9D2 | `cluster_00_liore:006BA9D2` | 18/22 | 4 | 아니、살았습니다！ |
-| 0x6BAA6A | `cluster_00_liore:006BAA6A` | 18/20 | 2 | 이건작은보답이에요 |
 | 0x6BC78A | `cluster_01_liore:006BC78A` | 4/8 | 4 | 형、 |
 | 0x6BC7D0 | `cluster_01_liore:006BC7D0` | 4/8 | 4 | 형、 |
 | 0x6BC89C | `cluster_01_liore:006BC89C` | 10/12 | 2 | 당신들은？ |
@@ -70,7 +64,6 @@
 | 0x6BCA18 | `cluster_01_liore:006BCA18` | 10/12 | 2 | 자、오시죠 |
 | 0x6BCA42 | `cluster_01_liore:006BCA42` | 12/22 | 10 | 감사합니다。 |
 | 0x6BCE9A | `cluster_01_liore:006BCE9A` | 8/10 | 2 | 뭐라고… |
-| 0x6BCFDA | `cluster_01_liore:006BCFDA` | 24/26 | 2 | 로제에겐말해도소용없다！ |
 | 0x6BD010 | `cluster_01_liore:006BD010` | 4/6 | 2 | 자、 |
 | 0x6BD16E | `cluster_01_liore:006BD16E` | 4/6 | 2 | 큭！ |
 | 0x6BD18C | `cluster_01_liore:006BD18C` | 16/18 | 2 | 후하하、어떠냐… |
@@ -88,21 +81,14 @@
 | 0x6BDA22 | `cluster_01_liore:006BDA22` | 10/14 | 4 | 나가야지。 |
 | 0x6BDCA4 | `cluster_01_liore:006BDCA4` | 12/14 | 2 | 코넬로님은… |
 | 0x6BDDC2 | `cluster_01_liore:006BDDC2` | 20/24 | 4 | 리오라이트、얻었다！ |
-| 0x6BEC70 | `cluster_02_liore:006BEC70` | 16/18 | 2 | 이앞에있습니다。 |
 | 0x6BECA2 | `cluster_02_liore:006BECA2` | 8/10 | 2 | 없습니다 |
-| 0x6BECEC | `cluster_02_liore:006BECEC` | 16/18 | 2 | 약한놈과싸우는건 |
 | 0x6BEE84 | `cluster_02_liore:006BEE84` | 6/10 | 4 | 젠장… |
-| 0x6BF058 | `cluster_02_liore:006BF058` | 24/26 | 2 | 소문을듣고여기모여들어… |
 | 0x6BF0F2 | `cluster_02_liore:006BF0F2` | 10/14 | 4 | 수고했어。 |
 | 0x6BF212 | `cluster_02_liore:006BF212` | 8/10 | 2 | 으아아아 |
 | 0x6BF30C | `cluster_02_liore:006BF30C` | 4/8 | 4 | 형、 |
 | 0x6BFC42 | `cluster_03_liore:006BFC42` | 6/12 | 6 | 포기해 |
 | 0x6BFC98 | `cluster_03_liore:006BFC98` | 4/10 | 6 | 쉽다 |
 | 0x6BFCDC | `cluster_03_liore:006BFCDC` | 8/16 | 8 | 불쌍하네 |
-| 0x6BFD28 | `cluster_03_liore:006BFD28` | 16/18 | 2 | 못하는놈들따위、 |
-| 0x6BFDCA | `cluster_03_liore:006BFDCA` | 14/16 | 2 | 내가왕이된다。 |
-| 0x6BFE10 | `cluster_03_liore:006BFE10` | 16/18 | 2 | 무리는좋지않아。 |
-| 0x6BFE96 | `cluster_03_liore:006BFE96` | 16/18 | 2 | 자、내가상대다！ |
 | 0x6BFF80 | `cluster_03_liore:006BFF80` | 14/16 | 2 | 으아아아아아！ |
 | 0x6BFFF8 | `cluster_03_liore:006BFFF8` | 6/8 | 2 | 아아아 |
 | 0x6C00D2 | `cluster_03_liore:006C00D2` | 4/6 | 2 | 돌！ |
@@ -110,106 +96,120 @@
 | 0x6C0202 | `cluster_03_liore:006C0202` | 6/10 | 4 | 가짜… |
 | 0x6C0218 | `cluster_03_liore:006C0218` | 2/4 | 2 | 냐 |
 | 0x6C0236 | `cluster_03_liore:006C0236` | 20/22 | 2 | 히이이…살려주세요。 |
-| 0x6C0252 | `cluster_03_liore:006C0252` | 22/28 | 6 | 돌없인아무것도못합니다 |
 | 0x6C0288 | `cluster_03_liore:006C0288` | 6/8 | 2 | 겨우… |
 | 0x6C02FA | `cluster_03_liore:006C02FA` | 14/18 | 4 | 어이、아저씨！ |
 | 0x6C0390 | `cluster_03_liore:006C0390` | 10/14 | 4 | 가짜라고？ |
 | 0x6C0432 | `cluster_03_liore:006C0432` | 4/6 | 2 | 응、 |
 | 0x6C0440 | `cluster_03_liore:006C0440` | 2/6 | 4 | 형 |
-| 0x6C2076 | `cluster_04_bank:006C2076` | 22/26 | 4 | 이도시에키메라연성범이 |
-| 0x6C2096 | `cluster_04_bank:006C2096` | 22/24 | 2 | 있을지도모른다는거지。 |
-| 0x6C2148 | `cluster_04_bank:006C2148` | 18/20 | 2 | 거리사람들의불안을 |
 | 0x6C2200 | `cluster_04_bank:006C2200` | 14/18 | 4 | 어이、너희들。 |
-| 0x6C2218 | `cluster_04_bank:006C2218` | 20/22 | 2 | 여전히바빠보이는구나 |
 | 0x6C2258 | `cluster_04_bank:006C2258` | 18/24 | 6 | 어머、너희들이니？ |
-| 0x6C228A | `cluster_04_bank:006C228A` | 12/14 | 2 | 지켜냈다는게 |
 | 0x6C2332 | `cluster_04_bank:006C2332` | 8/12 | 4 | …무섭네 |
 | 0x6C2392 | `cluster_04_bank:006C2392` | 6/12 | 6 | 조심해 |
 | 0x6C2404 | `cluster_04_bank:006C2404` | 8/10 | 2 | 어떤가、 |
-| 0x6C2414 | `cluster_04_bank:006C2414` | 18/20 | 2 | 나를동료로삼겠나？ |
-| 0x6C2494 | `cluster_04_bank:006C2494` | 14/18 | 4 | 될수있었을텐데 |
 | 0x6C259C | `cluster_04_bank:006C259C` | 6/10 | 4 | 많다네 |
-| 0x6C266E | `cluster_04_bank:006C266E` | 14/16 | 2 | 은행강도따위、 |
-| 0x6C2694 | `cluster_04_bank:006C2694` | 20/24 | 4 | 쉽게잡았을텐데아쉽군 |
 | 0x6C2716 | `cluster_04_bank:006C2716` | 14/18 | 4 | 잘됐어、잘됐어 |
 | 0x6C27DC | `cluster_04_bank:006C27DC` | 10/14 | 4 | 당했어요。 |
-| 0x6C28B4 | `cluster_04_bank:006C28B4` | 24/26 | 2 | 옆에입만산남자가있지만、 |
-| 0x6C297A | `cluster_04_bank:006C297A` | 20/22 | 2 | 이번엔은행강도라니？ |
-| 0x6C2996 | `cluster_04_bank:006C2996` | 18/22 | 4 | 참싫은세상이됐네요 |
 | 0x6C29CC | `cluster_04_bank:006C29CC` | 12/14 | 2 | 강도、도둑。 |
 | 0x6C29F6 | `cluster_04_bank:006C29F6` | 6/12 | 6 | 됐어요 |
 | 0x6C2A68 | `cluster_04_bank:006C2A68` | 12/14 | 2 | 연금술사는、 |
 | 0x6C2AF2 | `cluster_04_bank:006C2AF2` | 8/12 | 4 | 굉장하네 |
-| 0x6C2D32 | `cluster_04_bank:006C2D32` | 16/18 | 2 | 이제은행강도같은 |
-| 0x6C2D90 | `cluster_04_bank:006C2D90` | 22/24 | 2 | 은행강도에게뺏긴예금은 |
 | 0x6C2F08 | `cluster_04_bank:006C2F08` | 12/16 | 4 | 아아、어쩌지 |
 | 0x6C3000 | `cluster_04_bank:006C3000` | 12/16 | 4 | 아아、어쩌지 |
-| 0x6C32C0 | `cluster_04_bank:006C32C0` | 22/28 | 6 | 끝날때까지영업을쉬는건 |
 | 0x6C32E2 | `cluster_04_bank:006C32E2` | 8/10 | 2 | 어떻겠소 |
 | 0x6C32FA | `cluster_04_bank:006C32FA` | 8/10 | 2 | 그렇군요 |
-| 0x6C3328 | `cluster_04_bank:006C3328` | 24/28 | 4 | 저기、무슨일이있었나요？ |
-| 0x6C335E | `cluster_04_bank:006C335E` | 24/28 | 4 | 은행강도피해를당해서요。 |
 | 0x6C342E | `cluster_04_bank:006C342E` | 6/14 | 8 | 있겠군 |
-| 0x6C3474 | `cluster_04_bank:006C3474` | 26/28 | 2 | 이런짓을한사람은용서못해！ |
 | 0x6C34A8 | `cluster_04_bank:006C34A8` | 8/12 | 4 | 그렇지。 |
-| 0x6C374E | `cluster_04_bank:006C374E` | 22/28 | 6 | 끝날때까지영업을쉬는건 |
 | 0x6C3770 | `cluster_04_bank:006C3770` | 8/10 | 2 | 어떻겠소 |
 | 0x6C3788 | `cluster_04_bank:006C3788` | 8/10 | 2 | 그렇군요 |
-| 0x6C37AC | `cluster_04_bank:006C37AC` | 24/28 | 4 | 저기、무슨일이있었나요？ |
-| 0x6C37E2 | `cluster_04_bank:006C37E2` | 24/28 | 4 | 은행강도피해를당해서요。 |
 | 0x6C38CE | `cluster_04_bank:006C38CE` | 6/14 | 8 | 있겠군 |
-| 0x6C391A | `cluster_04_bank:006C391A` | 26/28 | 2 | 이런짓을한사람은용서못해！ |
 | 0x6C394E | `cluster_04_bank:006C394E` | 8/12 | 4 | 그렇지。 |
-| 0x6C42C8 | `cluster_05_east_city:006C42C8` | 16/18 | 2 | 그달려서은행에서 |
 | 0x6C44C2 | `cluster_05_east_city:006C44C2` | 10/16 | 6 | 애매합니다 |
 | 0x6C4500 | `cluster_05_east_city:006C4500` | 8/16 | 8 | 모릅니다 |
-| 0x6C4576 | `cluster_05_east_city:006C4576` | 16/18 | 2 | 아침에오니가게는 |
 | 0x6C458E | `cluster_05_east_city:006C458E` | 18/26 | 8 | 엉망이었고、그대로 |
-| 0x6C4600 | `cluster_05_east_city:006C4600` | 20/24 | 4 | 네…너무당황해서그만 |
 | 0x6C463E | `cluster_05_east_city:006C463E` | 10/16 | 6 | 죄송합니다 |
-| 0x6C46B4 | `cluster_05_east_city:006C46B4` | 12/14 | 2 | 해주지않았어 |
-| 0x6C46E8 | `cluster_05_east_city:006C46E8` | 20/22 | 2 | 하지만관계자아닌분을 |
 | 0x6C4748 | `cluster_05_east_city:006C4748` | 12/16 | 4 | 없었습니다。 |
-| 0x6C475E | `cluster_05_east_city:006C475E` | 24/26 | 2 | 금고실을조사하게해주세요 |
-| 0x6C4790 | `cluster_05_east_city:006C4790` | 24/26 | 2 | 조금이라도빨리범인이잡혀 |
-| 0x6C47D0 | `cluster_05_east_city:006C47D0` | 18/20 | 2 | 더중요하지않겠어？ |
-| 0x6C4812 | `cluster_05_east_city:006C4812` | 22/24 | 2 | 그럼금고실에들어가도록 |
 | 0x6C48EC | `cluster_05_east_city:006C48EC` | 8/12 | 4 | 하겠네요 |
 | 0x6C49DC | `cluster_05_east_city:006C49DC` | 10/14 | 4 | 없습니다。 |
 | 0x6C4AC2 | `cluster_05_east_city:006C4AC2` | 14/18 | 4 | 죄송했습니다。 |
 | 0x6C4ADA | `cluster_05_east_city:006C4ADA` | 10/12 | 2 | 미안합니다 |
 | 0x6C4C6E | `cluster_05_east_city:006C4C6E` | 6/10 | 4 | 그렇다 |
-| 0x6C4C8A | `cluster_05_east_city:006C4C8A` | 20/22 | 2 | 이제이거리에도평화가 |
 | 0x6C4CB6 | `cluster_05_east_city:006C4CB6` | 10/20 | 10 | 감사합니다 |
-| 0x6C4D1C | `cluster_05_east_city:006C4D1C` | 22/24 | 2 | 그범인을붙잡아、반드시 |
-| 0x6C4D78 | `cluster_05_east_city:006C4D78` | 24/28 | 4 | 그렇게해줘。하지만우리의 |
-| 0x6C4E04 | `cluster_05_east_city:006C4E04` | 16/18 | 2 | 키메라사건해결뒤 |
-| 0x6C4E56 | `cluster_05_east_city:006C4E56` | 22/24 | 2 | 거기까지함께할거야…？ |
 | 0x6C4F82 | `cluster_05_east_city:006C4F82` | 12/22 | 10 | 감사했습니다 |
 | 0x6C4FFC | `cluster_05_east_city:006C4FFC` | 10/20 | 10 | 감사합니다 |
-| 0x6C5032 | `cluster_05_east_city:006C5032` | 20/22 | 2 | 이제이거리에도평화가 |
 | 0x6C505E | `cluster_05_east_city:006C505E` | 10/20 | 10 | 감사합니다 |
-| 0x6C702C | `cluster_06_bank:006C702C` | 20/22 | 2 | 그럼돌려줄줄알았냐？ |
 | 0x6C71AE | `cluster_06_bank:006C71AE` | 6/8 | 2 | 그래。 |
-| 0x6C71DE | `cluster_06_bank:006C71DE` | 24/26 | 2 | 아니、딱히항복은안했지만 |
-| 0x6C722A | `cluster_06_bank:006C722A` | 24/28 | 4 | 요즘이거리의흉흉한사건은 |
-| 0x6C7272 | `cluster_06_bank:006C7272` | 20/28 | 8 | 맞아。돈될만한건잔뜩 |
 | 0x6C7444 | `cluster_06_bank:006C7444` | 6/8 | 2 | 각오해 |
-| 0x6C74C8 | `cluster_06_bank:006C74C8` | 20/24 | 4 | 그런고로、안녕이다！ |
 | 0x6C74E6 | `cluster_06_bank:006C74E6` | 10/14 | 4 | 으하하하！ |
-| 0x6C7566 | `cluster_06_bank:006C7566` | 14/16 | 2 | 왜붙잡지않나… |
 | 0x6C75A2 | `cluster_06_bank:006C75A2` | 6/8 | 2 | 앗！！ |
 | 0x6C7856 | `cluster_06_bank:006C7856` | 4/8 | 4 | 형、 |
-| 0x6C7864 | `cluster_06_bank:006C7864` | 24/28 | 4 | 여기수로는못뛰어넘겠네… |
 | 0x6C788E | `cluster_06_bank:006C788E` | 8/10 | 2 | 그렇네… |
-| 0x6C78C2 | `cluster_06_bank:006C78C2` | 14/16 | 2 | 저다릴건너면、 |
-| 0x6C7970 | `cluster_06_bank:006C7970` | 24/26 | 2 | 이근처에다리라도연성하면 |
-| 0x6C7990 | `cluster_06_bank:006C7990` | 20/22 | 2 | 알을데리러갈수있겠어 |
-| 0x6C7A80 | `cluster_06_bank:006C7A80` | 18/20 | 2 | 여기에다리를놓자。 |
 | 0x6C7AC6 | `cluster_06_bank:006C7AC6` | 10/14 | 4 | 준비됐어？ |
 | 0x6C7B62 | `cluster_06_bank:006C7B62` | 6/8 | 2 | 간다！ |
 | 0x6C7FF6 | `cluster_06_bank:006C7FF6` | 16/24 | 8 | 레도늄、얻었다！ |
-| 0x6C94A2 | `cluster_07_east_city:006C94A2` | 14/18 | 4 | 이마을에온거야 |
-| 0x6C9574 | `cluster_07_east_city:006C9574` | 24/26 | 2 | 너희가마을사람에게얼마나 |
+| 0x6C9758 | `cluster_07_east_city:006C9758` | 6/10 | 4 | 가짜？ |
+| 0x6C97C0 | `cluster_07_east_city:006C97C0` | 8/10 | 2 | 으음！？ |
+| 0x6C9852 | `cluster_07_east_city:006C9852` | 8/12 | 4 | 주십시오 |
+| 0x6C9BA6 | `cluster_07_east_city:006C9BA6` | 10/16 | 6 | 괜찮다면서 |
+| 0x6C9E9A | `cluster_07_east_city:006C9E9A` | 12/14 | 2 | 아니、너희！ |
+| 0x6CA802 | `cluster_08_cat_quest:006CA802` | 6/8 | 2 | 아냐！ |
+| 0x6CA86C | `cluster_08_cat_quest:006CA86C` | 6/12 | 6 | 에드、 |
+| 0x6CA8AE | `cluster_08_cat_quest:006CA8AE` | 18/22 | 4 | 죄송합니다、촌장님 |
+| 0x6CAA76 | `cluster_08_cat_quest:006CAA76` | 8/18 | 10 | 알겠네。 |
+| 0x6CAA8E | `cluster_08_cat_quest:006CAA8E` | 6/14 | 8 | 믿겠네 |
+| 0x6CAD7A | `cluster_08_cat_quest:006CAD7A` | 12/18 | 6 | 좋아、결백을 |
+| 0x6CADBA | `cluster_08_cat_quest:006CADBA` | 8/14 | 6 | 응、형。 |
+| 0x6CADCE | `cluster_08_cat_quest:006CADCE` | 8/12 | 4 | 힘내자！ |
+| 0x6CAEC2 | `cluster_08_cat_quest:006CAEC2` | 8/16 | 8 | 부탁하네 |
+| 0x6CAF68 | `cluster_08_cat_quest:006CAF68` | 8/10 | 2 | 촌장님、 |
+| 0x6CAFA2 | `cluster_08_cat_quest:006CAFA2` | 14/20 | 6 | 뭐、상관없네。 |
+| 0x6CAFFE | `cluster_08_cat_quest:006CAFFE` | 8/10 | 2 | 해냈다～ |
+| 0x6CB122 | `cluster_08_cat_quest:006CB122` | 12/14 | 2 | 이、이건…？ |
+| 0x6CB1EE | `cluster_08_cat_quest:006CB1EE` | 10/14 | 4 | 그나저나… |
+| 0x6CB31A | `cluster_08_cat_quest:006CB31A` | 10/14 | 4 | 지당합니다 |
+| 0x6CD21E | `cluster_09_reward:006CD21E` | 4/8 | 4 | 형、 |
+| 0x6CD2CC | `cluster_09_reward:006CD2CC` | 10/12 | 2 | 그런가…？ |
+| 0x6CD3C2 | `cluster_09_reward:006CD3C2` | 6/8 | 2 | 쫓자！ |
+| 0x6CD434 | `cluster_09_reward:006CD434` | 4/8 | 4 | 형、 |
+| 0x6CD46E | `cluster_09_reward:006CD46E` | 6/12 | 6 | 젠장！ |
+| 0x6CD52E | `cluster_09_reward:006CD52E` | 4/8 | 4 | 형、 |
+| 0x6CD756 | `cluster_09_reward:006CD756` | 10/12 | 2 | 뭐라고！？ |
+| 0x6CD822 | `cluster_09_reward:006CD822` | 10/14 | 4 | 알겠어！！ |
+| 0x6CD854 | `cluster_09_reward:006CD854` | 8/10 | 2 | 반대야！ |
+| 0x6CD87C | `cluster_09_reward:006CD87C` | 6/8 | 2 | 으엑。 |
+| 0x6CD912 | `cluster_09_reward:006CD912` | 4/6 | 2 | 나는 |
+| 0x6CDA40 | `cluster_09_reward:006CDA40` | 4/6 | 2 | 뭐！ |
+| 0x6CDB7A | `cluster_09_reward:006CDB7A` | 14/24 | 10 | 잠깐、너희들。 |
+| 0x6CDCBA | `cluster_09_reward:006CDCBA` | 4/8 | 4 | 넌？ |
+| 0x6CDCF4 | `cluster_09_reward:006CDCF4` | 6/10 | 4 | 너는？ |
+| 0x6CDD0E | `cluster_09_reward:006CDD0E` | 4/6 | 2 | 나는 |
+| 0x6CDD46 | `cluster_09_reward:006CDD46` | 8/12 | 4 | 싫다아。 |
+| 0x6CDE08 | `cluster_09_reward:006CDE08` | 6/8 | 2 | 우와！ |
+| 0x6CDED8 | `cluster_09_reward:006CDED8` | 10/12 | 2 | 상투머리！ |
+| 0x6CDF2A | `cluster_09_reward:006CDF2A` | 6/14 | 8 | 반응… |
+| 0x6CDFFC | `cluster_09_reward:006CDFFC` | 6/10 | 4 | 아가씨 |
+| 0x6CE0D4 | `cluster_09_reward:006CE0D4` | 12/14 | 2 | 시끄러워어！ |
+| 0x6CE13C | `cluster_09_reward:006CE13C` | 8/14 | 6 | 하세요！ |
+| 0x6CE1B4 | `cluster_09_reward:006CE1B4` | 4/8 | 4 | 너… |
+| 0x6CE212 | `cluster_09_reward:006CE212` | 8/10 | 2 | 없습니다 |
+| 0x6CE234 | `cluster_09_reward:006CE234` | 10/16 | 6 | 이상하네？ |
+| 0x6CE2CA | `cluster_09_reward:006CE2CA` | 6/10 | 4 | 왜에～ |
+| 0x6CE48A | `cluster_09_reward:006CE48A` | 6/8 | 2 | 헤헷！ |
+| 0x6CE4C4 | `cluster_09_reward:006CE4C4` | 10/16 | 6 | 장난치고는 |
+| 0x6CE502 | `cluster_09_reward:006CE502` | 6/8 | 2 | 맞아。 |
+| 0x6CE52E | `cluster_09_reward:006CE52E` | 8/12 | 4 | 만들다니 |
+| 0x6CE56C | `cluster_09_reward:006CE56C` | 8/16 | 8 | 아팠지？ |
+| 0x6CE59A | `cluster_09_reward:006CE59A` | 12/16 | 4 | 네、괜찮아요 |
+| 0x6CE600 | `cluster_09_reward:006CE600` | 14/18 | 4 | 그럼、바이바이 |
+| 0x6CE656 | `cluster_09_reward:006CE656` | 12/16 | 4 | 야、기다려！ |
+| 0x6CE66C | `cluster_09_reward:006CE66C` | 10/12 | 2 | …도망쳤다 |
+| 0x6CE6E2 | `cluster_09_reward:006CE6E2` | 10/12 | 2 | 그렇네요… |
+| 0x6CECA8 | `cluster_09_reward:006CECA8` | 10/14 | 4 | 준비됐어？ |
+| 0x6CED44 | `cluster_09_reward:006CED44` | 6/8 | 2 | 간다！ |
+| 0x6CEF92 | `cluster_09_reward:006CEF92` | 6/8 | 2 | 쫓자！ |
+| 0x6CF064 | `cluster_09_reward:006CF064` | 4/8 | 4 | 형、 |
+| 0x6CF09E | `cluster_09_reward:006CF09E` | 6/12 | 6 | 젠장！ |
+| 0x6CF2C4 | `cluster_09_reward:006CF2C4` | 14/16 | 2 | 오오、고맙네！ |
+| 0x6D103E | `cluster_10_east_city:006D103E` | 6/8 | 2 | 있어？ |
+| 0x6D11D2 | `cluster_10_east_city:006D11D2` | 14/16 | 2 | 누가、도와줘요 |
 
-... first 200 shown of 3258 rows. Full list: `confirmed_data/translation_workspace/audits/entry8_no_space_slack_candidates.json`
+... first 200 shown of 2563 rows. Full list: `confirmed_data/translation_workspace/audits/entry8_no_space_slack_candidates.json`

@@ -1,0 +1,110 @@
+{
+  "rom": "/private/tmp/hnr_image_noop_variant_test.gba",
+  "applied_count": 7,
+  "results": [
+    {
+      "item_id": "image:rle_screen_order:no_entry8_latest_ss3:frame_009730:bg1:003A3540",
+      "status": "applied",
+      "compression": "rle",
+      "storage": "repoint",
+      "offset": 3814720,
+      "offset_hex": "0x003A3540",
+      "new_offset": 8761828,
+      "new_offset_hex": "0x0085B1E4",
+      "pointer_offsets": [
+        "0x0017BC74"
+      ],
+      "old_pointer_values": [
+        "0x083A3540"
+      ],
+      "new_pointer_value": "0x0885B1E4",
+      "decompressed_size": 4096,
+      "compressed_size": 2943,
+      "available_size": 2941,
+      "original_consumed_size": 2941,
+      "size_overage": 2,
+      "rom_size_after": 8764771,
+      "repoint_attempted": true,
+      "columns": null,
+      "tile_map_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss3/frame_009730_bg1_rle_003A3540/tile_map.json"
+    },
+    {
+      "item_id": "image:rle_screen_order:no_entry8_latest_ss3:frame_009730:bg1:003A5E50",
+      "status": "applied",
+      "compression": "rle",
+      "offset": 3825232,
+      "offset_hex": "0x003A5E50",
+      "columns": null,
+      "tile_map_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss3/frame_009730_bg1_rle_003A5E50/tile_map.json",
+      "decompressed_size": 9600,
+      "compressed_size": 4052,
+      "available_size": 4052,
+      "current_consumed_size": 4052
+    },
+    {
+      "item_id": "image:rle_screen_order:no_entry8_latest_ss3:frame_009730:bg1:003A6E24",
+      "status": "applied",
+      "compression": "rle",
+      "offset": 3829284,
+      "offset_hex": "0x003A6E24",
+      "columns": null,
+      "tile_map_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss3/frame_009730_bg1_rle_003A6E24/tile_map.json",
+      "decompressed_size": 9600,
+      "compressed_size": 3606,
+      "available_size": 3606,
+      "current_consumed_size": 3606
+    },
+    {
+      "item_id": "image:rle_screen_order:no_entry8_latest_ss3:frame_009730:bg1:003A7C3C",
+      "status": "applied",
+      "compression": "rle",
+      "offset": 3832892,
+      "offset_hex": "0x003A7C3C",
+      "columns": null,
+      "tile_map_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss3/frame_009730_bg1_rle_003A7C3C/tile_map.json",
+      "decompressed_size": 9600,
+      "compressed_size": 3158,
+      "available_size": 3158,
+      "current_consumed_size": 3158
+    },
+    {
+      "item_id": "image:rle_screen_order:no_entry8_latest_ss3:frame_009730:bg1:003A8894",
+      "status": "applied",
+      "compression": "rle",
+      "offset": 3836052,
+      "offset_hex": "0x003A8894",
+      "columns": null,
+      "tile_map_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss3/frame_009730_bg1_rle_003A8894/tile_map.json",
+      "decompressed_size": 9600,
+      "compressed_size": 3472,
+      "available_size": 3472,
+      "current_consumed_size": 3472
+    },
+    {
+      "item_id": "image:rle_screen_order:no_entry8_latest_ss3:frame_009730:bg1:003A9624",
+      "status": "applied",
+      "compression": "rle",
+      "offset": 3839524,
+      "offset_hex": "0x003A9624",
+      "columns": null,
+      "tile_map_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss3/frame_009730_bg1_rle_003A9624/tile_map.json",
+      "decompressed_size": 9600,
+      "compressed_size": 3738,
+      "available_size": 3740,
+      "current_consumed_size": 3740
+    },
+    {
+      "item_id": "image:rle_screen_order:no_entry8_latest_ss3:frame_009730:bg1:003AA4C0",
+      "status": "applied",
+      "compression": "rle",
+      "offset": 3843264,
+      "offset_hex": "0x003AA4C0",
+      "columns": null,
+      "tile_map_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss3/frame_009730_bg1_rle_003AA4C0/tile_map.json",
+      "decompressed_size": 9600,
+      "compressed_size": 3441,
+      "available_size": 3441,
+      "current_consumed_size": 3441
+    }
+  ]
+}

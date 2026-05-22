@@ -46,8 +46,8 @@
 - source_group: `registry_a_map_labels`
 - 기대 workset: `translation_workset_core_ui`
 - 기대 상태: `full_expected`
-- 추출 수: `48`
-- 편입 수: `48`
+- 추출 수: `70`
+- 편입 수: `70`
 - 누락 수: `0`
 
 ### `ui_skill_texts`
@@ -91,8 +91,8 @@
 - source_group: `ability_texts`
 - 기대 workset: `translation_workset_gameplay_terms`
 - 기대 상태: `full_expected`
-- 추출 수: `412`
-- 편입 수: `412`
+- 추출 수: `413`
+- 편입 수: `413`
 - 누락 수: `0`
 
 ### `registry_a_entry12_texts`
@@ -109,8 +109,8 @@
 - source_group: `registry_d_fc_script_texts`
 - 기대 workset: `translation_workset_registry_d_dialogue`
 - 기대 상태: `full_expected`
-- 추출 수: `244`
-- 편입 수: `244`
+- 추출 수: `245`
+- 편입 수: `245`
 - 누락 수: `0`
 
 ### `credits_texts`
@@ -118,7 +118,7 @@
 - source_group: `credits_texts`
 - 기대 workset: `translation_workset_credits`
 - 기대 상태: `full_expected`
-- 추출 수: `10`
-- 편입 수: `10`
+- 추출 수: `28`
+- 편입 수: `28`
 - 누락 수: `0`
 

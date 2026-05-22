@@ -1,0 +1,169 @@
+{
+  "pack_id": "user_supplied_ss4_ss5_only",
+  "basis": "ONLY the two user-supplied PNG files at patched_roms/current_review/hnr_localization_review.ss4 and .ss5 were used.",
+  "no_existing_runtime_or_gui_data_used": true,
+  "source_files": {
+    "ss4": "/Users/user/test/patched_roms/current_review/hnr_localization_review.ss4",
+    "ss5": "/Users/user/test/patched_roms/current_review/hnr_localization_review.ss5"
+  },
+  "contact_sheet": "confirmed_data/image_inventory/edit_packs/user_supplied_ss4_ss5_only/contact_sheet_user_supplied_only.png",
+  "annotated_sources": {
+    "ss4": "confirmed_data/image_inventory/edit_packs/user_supplied_ss4_ss5_only/ss4_annotated_user_supplied_only.png",
+    "ss5": "confirmed_data/image_inventory/edit_packs/user_supplied_ss4_ss5_only/ss5_annotated_user_supplied_only.png"
+  },
+  "items": [
+    {
+      "id": "ss4_party_full_left_panel",
+      "scene": "ss4",
+      "label": "왼쪽 PARTY 패널 전체",
+      "source_text": "エドワード・エルリック / アルフォンス・エルリック / ウィンリィ・ロックベル",
+      "suggested_korean": "에드워드 엘릭 / 알폰스 엘릭 / 윈리 록벨",
+      "rect": [
+        0,
+        0,
+        110,
+        160
+      ],
+      "source_file": "/Users/user/test/patched_roms/current_review/hnr_localization_review.ss4",
+      "crop_path": "confirmed_data/image_inventory/edit_packs/user_supplied_ss4_ss5_only/01_ss4_party_full_left_panel.png",
+      "crop_4x_path": "confirmed_data/image_inventory/edit_packs/user_supplied_ss4_ss5_only/01_ss4_party_full_left_panel_4x.png",
+      "basis": "user_supplied_png_only"
+    },
+    {
+      "id": "ss4_party_ed_line",
+      "scene": "ss4",
+      "label": "에드 이름 영역",
+      "source_text": "エドワード・エルリック",
+      "suggested_korean": "에드워드 엘릭",
+      "rect": [
+        36,
+        10,
+        70,
+        18
+      ],
+      "source_file": "/Users/user/test/patched_roms/current_review/hnr_localization_review.ss4",
+      "crop_path": "confirmed_data/image_inventory/edit_packs/user_supplied_ss4_ss5_only/02_ss4_party_ed_line.png",
+      "crop_4x_path": "confirmed_data/image_inventory/edit_packs/user_supplied_ss4_ss5_only/02_ss4_party_ed_line_4x.png",
+      "basis": "user_supplied_png_only"
+    },
+    {
+      "id": "ss4_party_al_line",
+      "scene": "ss4",
+      "label": "알 이름 영역",
+      "source_text": "アルフォンス・エルリック",
+      "suggested_korean": "알폰스 엘릭",
+      "rect": [
+        36,
+        60,
+        70,
+        18
+      ],
+      "source_file": "/Users/user/test/patched_roms/current_review/hnr_localization_review.ss4",
+      "crop_path": "confirmed_data/image_inventory/edit_packs/user_supplied_ss4_ss5_only/03_ss4_party_al_line.png",
+      "crop_4x_path": "confirmed_data/image_inventory/edit_packs/user_supplied_ss4_ss5_only/03_ss4_party_al_line_4x.png",
+      "basis": "user_supplied_png_only"
+    },
+    {
+      "id": "ss4_party_winry_line",
+      "scene": "ss4",
+      "label": "윈리 이름 영역",
+      "source_text": "ウィンリィ・ロックベル",
+      "suggested_korean": "윈리 록벨",
+      "rect": [
+        36,
+        110,
+        70,
+        18
+      ],
+      "source_file": "/Users/user/test/patched_roms/current_review/hnr_localization_review.ss4",
+      "crop_path": "confirmed_data/image_inventory/edit_packs/user_supplied_ss4_ss5_only/04_ss4_party_winry_line.png",
+      "crop_4x_path": "confirmed_data/image_inventory/edit_packs/user_supplied_ss4_ss5_only/04_ss4_party_winry_line_4x.png",
+      "basis": "user_supplied_png_only"
+    },
+    {
+      "id": "ss4_sub_button_full",
+      "scene": "ss4",
+      "label": "오른쪽 SUB 버튼 전체",
+      "source_text": "錬成手帳",
+      "suggested_korean": "연성수첩",
+      "rect": [
+        108,
+        7,
+        60,
+        37
+      ],
+      "source_file": "/Users/user/test/patched_roms/current_review/hnr_localization_review.ss4",
+      "crop_path": "confirmed_data/image_inventory/edit_packs/user_supplied_ss4_ss5_only/05_ss4_sub_button_full.png",
+      "crop_4x_path": "confirmed_data/image_inventory/edit_packs/user_supplied_ss4_ss5_only/05_ss4_sub_button_full_4x.png",
+      "basis": "user_supplied_png_only"
+    },
+    {
+      "id": "ss4_sub_button_text_only",
+      "scene": "ss4",
+      "label": "오른쪽 SUB 텍스트",
+      "source_text": "錬成手帳",
+      "suggested_korean": "연성수첩",
+      "rect": [
+        115,
+        16,
+        43,
+        14
+      ],
+      "source_file": "/Users/user/test/patched_roms/current_review/hnr_localization_review.ss4",
+      "crop_path": "confirmed_data/image_inventory/edit_packs/user_supplied_ss4_ss5_only/06_ss4_sub_button_text_only.png",
+      "crop_4x_path": "confirmed_data/image_inventory/edit_packs/user_supplied_ss4_ss5_only/06_ss4_sub_button_text_only_4x.png",
+      "basis": "user_supplied_png_only"
+    },
+    {
+      "id": "ss5_sub_buttons_full",
+      "scene": "ss5",
+      "label": "오른쪽 SUB 버튼 전체",
+      "source_text": "入れ替え / 必殺技",
+      "suggested_korean": "교체 / 필살기",
+      "rect": [
+        108,
+        7,
+        60,
+        52
+      ],
+      "source_file": "/Users/user/test/patched_roms/current_review/hnr_localization_review.ss5",
+      "crop_path": "confirmed_data/image_inventory/edit_packs/user_supplied_ss4_ss5_only/07_ss5_sub_buttons_full.png",
+      "crop_4x_path": "confirmed_data/image_inventory/edit_packs/user_supplied_ss4_ss5_only/07_ss5_sub_buttons_full_4x.png",
+      "basis": "user_supplied_png_only"
+    },
+    {
+      "id": "ss5_sub_switch_text_only",
+      "scene": "ss5",
+      "label": "오른쪽 SUB 첫 줄 텍스트",
+      "source_text": "入れ替え",
+      "suggested_korean": "교체",
+      "rect": [
+        115,
+        15,
+        43,
+        13
+      ],
+      "source_file": "/Users/user/test/patched_roms/current_review/hnr_localization_review.ss5",
+      "crop_path": "confirmed_data/image_inventory/edit_packs/user_supplied_ss4_ss5_only/08_ss5_sub_switch_text_only.png",
+      "crop_4x_path": "confirmed_data/image_inventory/edit_packs/user_supplied_ss4_ss5_only/08_ss5_sub_switch_text_only_4x.png",
+      "basis": "user_supplied_png_only"
+    },
+    {
+      "id": "ss5_sub_special_text_only",
+      "scene": "ss5",
+      "label": "오른쪽 SUB 둘째 줄 텍스트",
+      "source_text": "必殺技",
+      "suggested_korean": "필살기",
+      "rect": [
+        115,
+        31,
+        43,
+        13
+      ],
+      "source_file": "/Users/user/test/patched_roms/current_review/hnr_localization_review.ss5",
+      "crop_path": "confirmed_data/image_inventory/edit_packs/user_supplied_ss4_ss5_only/09_ss5_sub_special_text_only.png",
+      "crop_4x_path": "confirmed_data/image_inventory/edit_packs/user_supplied_ss4_ss5_only/09_ss5_sub_special_text_only_4x.png",
+      "basis": "user_supplied_png_only"
+    }
+  ]
+}

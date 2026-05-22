@@ -1,0 +1,142 @@
+[
+  {
+    "frame": "frame_000006",
+    "charblock": 0,
+    "vram_offset": 0,
+    "tile_count": 512,
+    "nonblank_tile_count": 400,
+    "matches": [
+      {
+        "score": 1585.9,
+        "shared_tiles": 289,
+        "longest_contiguous_tile_run": 159,
+        "runtime_coverage": 0.7225,
+        "candidate_coverage": 1.0,
+        "source": "rle",
+        "candidate_index": 850,
+        "offset": 3854872,
+        "rom_address": 138072600,
+        "decompressed_size": 10240,
+        "compressed_size": 8225,
+        "candidate_tile_count": 320,
+        "candidate_nonblank_tile_count": 289,
+        "raw_path": "confirmed_data/image_inventory/rle_tile_extraction/rle_raw/0850_off_003AD218_size_002800.bin",
+        "preview_path": "confirmed_data/image_inventory/rle_tile_extraction/rle_pgm/0850_off_003AD218_size_002800.pgm",
+        "preview_png_path": "confirmed_data/image_inventory/runtime_tile_matches/current_review_ss6/matched_previews/rle_0850_off_003AD218.png"
+      },
+      {
+        "score": 888.1,
+        "shared_tiles": 111,
+        "longest_contiguous_tile_run": 105,
+        "runtime_coverage": 0.2775,
+        "candidate_coverage": 1.0,
+        "source": "rle",
+        "candidate_index": 849,
+        "offset": 3852476,
+        "rom_address": 138070204,
+        "decompressed_size": 4096,
+        "compressed_size": 2394,
+        "candidate_tile_count": 128,
+        "candidate_nonblank_tile_count": 111,
+        "raw_path": "confirmed_data/image_inventory/rle_tile_extraction/rle_raw/0849_off_003AC8BC_size_001000.bin",
+        "preview_path": "confirmed_data/image_inventory/rle_tile_extraction/rle_pgm/0849_off_003AC8BC_size_001000.pgm",
+        "preview_png_path": "confirmed_data/image_inventory/runtime_tile_matches/current_review_ss6/matched_previews/rle_0849_off_003AC8BC.png"
+      }
+    ]
+  },
+  {
+    "frame": "frame_000006",
+    "charblock": 1,
+    "vram_offset": 16384,
+    "tile_count": 512,
+    "nonblank_tile_count": 266,
+    "matches": [
+      {
+        "score": 762.4586,
+        "shared_tiles": 156,
+        "longest_contiguous_tile_run": 67,
+        "runtime_coverage": 0.5865,
+        "candidate_coverage": 1.0,
+        "source": "rle",
+        "candidate_index": 831,
+        "offset": 3809388,
+        "rom_address": 138027116,
+        "decompressed_size": 6144,
+        "compressed_size": 3761,
+        "candidate_tile_count": 192,
+        "candidate_nonblank_tile_count": 156,
+        "raw_path": "confirmed_data/image_inventory/rle_tile_extraction/rle_raw/0831_off_003A206C_size_001800.bin",
+        "preview_path": "confirmed_data/image_inventory/rle_tile_extraction/rle_pgm/0831_off_003A206C_size_001800.pgm",
+        "preview_png_path": "confirmed_data/image_inventory/runtime_tile_matches/current_review_ss6/matched_previews/rle_0831_off_003A206C.png"
+      },
+      {
+        "score": 351.015,
+        "shared_tiles": 40,
+        "longest_contiguous_tile_run": 40,
+        "runtime_coverage": 0.1504,
+        "candidate_coverage": 1.0,
+        "source": "rle",
+        "candidate_index": 852,
+        "offset": 3864132,
+        "rom_address": 138081860,
+        "decompressed_size": 1280,
+        "compressed_size": 1244,
+        "candidate_tile_count": 40,
+        "candidate_nonblank_tile_count": 40,
+        "raw_path": "confirmed_data/image_inventory/rle_tile_extraction/rle_raw/0852_off_003AF644_size_000500.bin",
+        "preview_path": "confirmed_data/image_inventory/rle_tile_extraction/rle_pgm/0852_off_003AF644_size_000500.pgm",
+        "preview_png_path": "confirmed_data/image_inventory/runtime_tile_matches/current_review_ss6/matched_previews/rle_0852_off_003AF644.png"
+      },
+      {
+        "score": 351.015,
+        "shared_tiles": 40,
+        "longest_contiguous_tile_run": 40,
+        "runtime_coverage": 0.1504,
+        "candidate_coverage": 1.0,
+        "source": "rle",
+        "candidate_index": 853,
+        "offset": 3865376,
+        "rom_address": 138083104,
+        "decompressed_size": 1280,
+        "compressed_size": 1294,
+        "candidate_tile_count": 40,
+        "candidate_nonblank_tile_count": 40,
+        "raw_path": "confirmed_data/image_inventory/rle_tile_extraction/rle_raw/0853_off_003AFB20_size_000500.bin",
+        "preview_path": "confirmed_data/image_inventory/rle_tile_extraction/rle_pgm/0853_off_003AFB20_size_000500.pgm",
+        "preview_png_path": "confirmed_data/image_inventory/runtime_tile_matches/current_review_ss6/matched_previews/rle_0853_off_003AFB20.png"
+      }
+    ]
+  },
+  {
+    "frame": "frame_000006",
+    "charblock": 2,
+    "vram_offset": 32768,
+    "tile_count": 512,
+    "nonblank_tile_count": 46,
+    "matches": []
+  },
+  {
+    "frame": "frame_000006",
+    "charblock": 3,
+    "vram_offset": 49152,
+    "tile_count": 512,
+    "nonblank_tile_count": 28,
+    "matches": []
+  },
+  {
+    "frame": "frame_000006",
+    "charblock": 4,
+    "vram_offset": 65536,
+    "tile_count": 512,
+    "nonblank_tile_count": 48,
+    "matches": []
+  },
+  {
+    "frame": "frame_000006",
+    "charblock": 5,
+    "vram_offset": 81920,
+    "tile_count": 512,
+    "nonblank_tile_count": 28,
+    "matches": []
+  }
+]

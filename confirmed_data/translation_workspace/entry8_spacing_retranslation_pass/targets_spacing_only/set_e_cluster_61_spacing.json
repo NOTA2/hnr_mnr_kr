@@ -1,0 +1,164 @@
+{
+  "task": "Entry8 spacing-only correction pass; manual_locked and over-capacity items excluded",
+  "instruction_docs": [
+    "docs/translation_team/fma_translation_team_common_final_v4_1.md",
+    "docs/translation_team/fma_translation_agent_final_v4_1.md",
+    "docs/translation_team/fma_review_agent_final_v4_1.md",
+    "docs/repeat_mistake_prevention.md"
+  ],
+  "hard_rules": [
+    "DO NOT shorten or summarize the sentence.",
+    "DO NOT remove words that are present in current_translation.",
+    "Primary allowed operation: insert fullwidth spaces U+3000 into current_translation.",
+    "You may only change obvious typo/glossary errors when the corrected string remains within capacity and preserves meaning.",
+    "Do not use halfwidth spaces or halfwidth punctuation in Entry8.",
+    "Do not add a space immediately after punctuation such as 、 。 … ！ ？ 「 」.",
+    "Do not split proper nouns internally: 코넬로, 레돈드, 솔링, 다이무라, 마틴스, 호크아이, 브래드레이, 윈리, 코니슈, 리젠블, 현자의 돌 etc.",
+    "If no safe improvement is possible, omit the record from output.",
+    "Output only changed records."
+  ],
+  "records": [
+    {
+      "item_id": "cluster_61_military:0075D92A",
+      "group_id": "cluster_61_military",
+      "offset": 7723306,
+      "hex": "0x75D92A",
+      "source": "戦わせるのは、",
+      "current_translation": "싸우게",
+      "capacity_bytes": 14,
+      "current_used_bytes": 9,
+      "spare_bytes": 5,
+      "context_before": [
+        {
+          "item_id": "cluster_61_military:0075D8C4",
+          "source": "さっきの状態では、とても",
+          "translation": "아까　그　상태로는"
+        },
+        {
+          "item_id": "cluster_61_military:0075D8E2",
+          "source": "戦力にはならんだろうな",
+          "translation": "전력이　못　됐겠지"
+        },
+        {
+          "item_id": "cluster_61_military:0075D910",
+          "source": "あのような婦女子に、",
+          "translation": "저런　부녀자를"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_61_military:0075D93E",
+          "source": "我輩も忍びありませんな",
+          "translation": "할　수는　없지요"
+        },
+        {
+          "item_id": "cluster_61_military:0075D976",
+          "source": "なら、オレたちだけで",
+          "translation": "그럼　우리끼리"
+        },
+        {
+          "item_id": "cluster_61_military:0075D990",
+          "source": "カタをつけちまえば",
+          "translation": "결판내면"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_61_military:0075D990",
+      "group_id": "cluster_61_military",
+      "offset": 7723408,
+      "hex": "0x75D990",
+      "source": "カタをつけちまえば",
+      "current_translation": "결판내면",
+      "capacity_bytes": 18,
+      "current_used_bytes": 12,
+      "spare_bytes": 6,
+      "context_before": [
+        {
+          "item_id": "cluster_61_military:0075D92A",
+          "source": "戦わせるのは、",
+          "translation": "싸우게"
+        },
+        {
+          "item_id": "cluster_61_military:0075D93E",
+          "source": "我輩も忍びありませんな",
+          "translation": "할　수는　없지요"
+        },
+        {
+          "item_id": "cluster_61_military:0075D976",
+          "source": "なら、オレたちだけで",
+          "translation": "그럼　우리끼리"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_61_military:0075D9A8",
+          "source": "いいんだろ、大佐！",
+          "translation": "되는　거죠、대령！"
+        },
+        {
+          "item_id": "cluster_61_military:0075DA26",
+          "source": "ぐはっ…",
+          "translation": "크헉…"
+        },
+        {
+          "item_id": "cluster_61_military:0075DA40",
+          "source": "止まった…？",
+          "translation": "멈췄어…？"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_61_military:0075E3FC",
+      "group_id": "cluster_61_military",
+      "offset": 7726076,
+      "hex": "0x75E3FC",
+      "source": "言ってんだろうがよっ！",
+      "current_translation": "말했잖아！",
+      "capacity_bytes": 22,
+      "current_used_bytes": 15,
+      "spare_bytes": 7,
+      "context_before": [
+        {
+          "item_id": "cluster_61_military:0075E3A6",
+          "source": "…違うっ！",
+          "translation": "…아냐！"
+        },
+        {
+          "item_id": "cluster_61_military:0075E3C8",
+          "source": "違わぬ！",
+          "translation": "같다！"
+        },
+        {
+          "item_id": "cluster_61_military:0075E3EA",
+          "source": "違うって",
+          "translation": "다르다고"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_61_military:0075E4EC",
+          "source": "…おのれ。",
+          "translation": "…이놈。"
+        },
+        {
+          "item_id": "cluster_61_military:0075E500",
+          "source": "どうやら私のすべての力を",
+          "translation": "내　모든　힘을"
+        },
+        {
+          "item_id": "cluster_61_military:0075E51E",
+          "source": "出さねばならんようだな",
+          "translation": "내야　할　듯하군"
+        }
+      ]
+    }
+  ],
+  "excluded_counts": {
+    "manual_locked": 16,
+    "overflow_current": 433,
+    "no_spare_for_fullwidth_space": 56,
+    "already_has_space": 2,
+    "no_hangul": 3
+  }
+}

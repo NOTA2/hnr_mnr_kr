@@ -1,0 +1,128 @@
+# Entry8 Suspect Retranslation V2 Apply Report
+
+- Mode: `apply`
+- Proposal files: 5
+- Total proposals: 3228
+- Accepted: 913
+- Rejected: 2315
+
+## Reject Reasons
+- `japanese_remaining`: 5
+- `missing_term_space:국가연금술사`: 1
+- `missing_term_space:현자의돌`: 2
+- `unchanged`: 2307
+
+## Applied By Group
+- `cluster_18_east_city`: 64
+- `cluster_38_central`: 300
+- `cluster_46_military`: 108
+- `cluster_47_military`: 140
+- `cluster_50_military`: 72
+- `cluster_52_cat_quest`: 55
+- `cluster_53_military`: 19
+- `cluster_55_east_city`: 52
+- `cluster_61_military`: 103
+
+## Accepted Samples
+- `cluster_18_east_city:006E48F6`: `국가　연금술사　시험을　시작` -> `국가　연금술사　자격　시험` (13/14 chars)
+- `cluster_18_east_city:006E4A24`: `아쉽지만　불합격` -> `아쉽지만　불합격이다` (10/10 chars)
+- `cluster_18_east_city:006E4A50`: `아직　젊다` -> `아직　어려` (5/5 chars)
+- `cluster_18_east_city:006E4A60`: `이걸로　포기하지　마라` -> `이대로　포기하면　안되네` (12/13 chars)
+- `cluster_18_east_city:006E4F92`: `특별　참가를　허락했네` -> `특별히　참가　허락` (9/11 chars)
+- `cluster_18_east_city:006E50AC`: `사면을` -> `사면이` (3/3 chars)
+- `cluster_18_east_city:006E511E`: `…아、정말` -> `…아아、정말` (6/8 chars)
+- `cluster_18_east_city:006E51C0`: `하지만　강요는　안　하겠네` -> `하지만　강요하진　않겠네。` (13/13 chars)
+- `cluster_18_east_city:006E5286`: `개회　선언　시작이야` -> `개회　선언이　시작돼` (10/10 chars)
+- `cluster_18_east_city:006E538A`: `…` -> `………` (3/3 chars)
+- `cluster_18_east_city:006E53D4`: `듣지도　않는　녀석도…` -> `안　듣는　녀석들도…` (10/13 chars)
+- `cluster_18_east_city:006E54F8`: `그럼　시작하자！` -> `그럼、시작하지！` (8/13 chars)
+- `cluster_18_east_city:006E5706`: `그럼　시작하자！` -> `그럼、시작하지！` (8/13 chars)
+- `cluster_18_east_city:006E58F2`: `대령과　붙긴　싫은데` -> `대령과　붙기는　피하고　싶군` (14/14 chars)
+- `cluster_18_east_city:006E5C80`: `강철의　연금술사` -> `강철　연금술사！` (8/8 chars)
+- `cluster_18_east_city:006E5CF8`: `강철　연금술사` -> `강철연금술사！` (7/7 chars)
+- `cluster_18_east_city:006E5EA6`: `암스트롱　소령　아닐까` -> `암스트롱　소령이` (8/12 chars)
+- `cluster_18_east_city:006E5EC4`: `싶은데？` -> `아닐까？` (4/6 chars)
+- `cluster_18_east_city:006E608A`: `사건　담당을　맡았어` -> `담당을　맡았어。` (8/10 chars)
+- `cluster_18_east_city:006E618E`: `재시험　자격을　얻어` -> `재응시　자격을　얻어요` (11/13 chars)
+- `cluster_18_east_city:006E61D0`: `기꺼이　협력하지！` -> `기꺼이　협력하겠네！` (10/14 chars)
+- `cluster_18_east_city:006E62EA`: `자네들　힘을　확인하고　싶네` -> `자네들　힘을　확인하겠네。` (13/14 chars)
+- `cluster_18_east_city:006E649A`: `상상　이상이었다` -> `상상　이상이었네` (8/8 chars)
+- `cluster_18_east_city:006E66F8`: `흐응` -> `흐～응` (3/4 chars)
+- `cluster_18_east_city:006E6D1C`: `저　녀석이　왜　여기！` -> `쟤가　왜　여기！？` (9/11 chars)
+- `cluster_18_east_city:006E6DE2`: `처벌　없음이란　거지` -> `처벌　없다는　거지` (9/11 chars)
+- `cluster_18_east_city:006E6E14`: `…군도　대충이네` -> `…군도　대충이군` (8/9 chars)
+- `cluster_18_east_city:006E7020`: `…` -> `………` (3/3 chars)
+- `cluster_18_east_city:006E7042`: `자、기다려。` -> `자、잠깐잠깐。` (7/8 chars)
+- `cluster_18_east_city:006E70B0`: `…어？` -> `……어？` (4/4 chars)
+- `cluster_18_east_city:006E71D2`: `말이　심하네！` -> `듣기　거북하네！` (8/9 chars)
+- `cluster_18_east_city:006E73E4`: `알！　` -> `알！` (2/4 chars)
+- `cluster_18_east_city:006E7D6A`: `………？` -> `…………？` (5/5 chars)
+- `cluster_18_east_city:006E7DBC`: `어디　가！？` -> `어디　가는거야！？` (9/9 chars)
+- `cluster_18_east_city:006E7E5E`: `기다려！` -> `기다려라！` (5/6 chars)
+- `cluster_18_east_city:006E7F0A`: `보게　되었네` -> `똑똑히　보았네` (7/9 chars)
+- `cluster_18_east_city:006E807A`: `국가　연금술사로　인정` -> `정식　국가　연금술사　인정` (13/13 chars)
+- `cluster_18_east_city:006E81EC`: `조율의　연금술사라` -> `「조율의　연금술사」를` (11/12 chars)
+- `cluster_18_east_city:006E820A`: `칭하게！` -> `그리　칭하라！` (7/7 chars)
+- `cluster_18_east_city:006E82FA`: `고인　오빠의　이명` -> `오빠의　이명을　이어、` (11/11 chars)
+- `cluster_18_east_city:006E831A`: `이어　국가　대중을` -> `국가、대중을　위해` (9/9 chars)
+- `cluster_18_east_city:006E855E`: `…` -> `………` (3/3 chars)
+- `cluster_18_east_city:006E8578`: `…` -> `………` (3/3 chars)
+- `cluster_18_east_city:006E8BF4`: `기쁘게　사면이지` -> `드디어　사면이란　거지` (11/11 chars)
+- `cluster_18_east_city:006E8E66`: `언제` -> `언제　몰래` (5/5 chars)
+- `cluster_18_east_city:006E8EBA`: `소령이…` -> `소령이～` (4/6 chars)
+- `cluster_18_east_city:006E8FFA`: `이긴　건　드문데` -> `제대로　이기긴　드문데` (11/12 chars)
+- `cluster_18_east_city:006E90F8`: `그　목소린` -> `그　소리…` (5/5 chars)
+- `cluster_18_east_city:006E922A`: `분명　그　인형보다` -> `절대로、저　인형보다` (10/12 chars)
+- `cluster_18_east_city:006E9324`: `반드시　뭉개！` -> `반드시、뭉개！` (7/9 chars)
+
+## Rejected Samples
+- `cluster_18_east_city:006E48CA` `unchanged`: `지금부터、`
+- `cluster_18_east_city:006E48DA` `unchanged`: `코니슈　로이스의`
+- `cluster_18_east_city:006E4922` `unchanged`: `시작！！`
+- `cluster_18_east_city:006E49CC` `unchanged`: `코니…`
+- `cluster_18_east_city:006E49E2` `unchanged`: `안　됐나…`
+- `cluster_18_east_city:006E4A08` `unchanged`: `코니슈　로이스、`
+- `cluster_18_east_city:006E4AA8` `unchanged`: `……감사합니다`
+- `cluster_18_east_city:006E4CAA` `unchanged`: `저…`
+- `cluster_18_east_city:006E4CBC` `unchanged`: `소령？`
+- `cluster_18_east_city:006E4CE4` `unchanged`: `오오、`
+- `cluster_18_east_city:006E4CF2` `unchanged`: `왔나！`
+- `cluster_18_east_city:006E4D04` `unchanged`: `에드워드　엘릭이여！`
+- `cluster_18_east_city:006E4D28` `unchanged`: `개회만　기다리면　된다`
+- `cluster_18_east_city:006E4D5E` `unchanged`: `아니、`
+- `cluster_18_east_city:006E4D6C` `unchanged`: `또　나오다니…`
+- `cluster_18_east_city:006E4DC4` `unchanged`: `뭐라고　했나？`
+- `cluster_18_east_city:006E4DEE` `unchanged`: `아、`
+- `cluster_18_east_city:006E4DFA` `unchanged`: `아뇨…`
+- `cluster_18_east_city:006E4E0E` `unchanged`: `아무것도　아녜요…`
+- `cluster_18_east_city:006E4E3E` `unchanged`: `그럼　됐네`
+- `cluster_18_east_city:006E4E94` `unchanged`: `그런데　소령。`
+- `cluster_18_east_city:006E4EC0` `unchanged`: `음、`
+- `cluster_18_east_city:006E4ECE` `unchanged`: `뭔가　묻겠나？`
+- `cluster_18_east_city:006E4EF6` `unchanged`: `왜、발드　같은`
+- `cluster_18_east_city:006E4F14` `unchanged`: `붙잡혔던　사람들이`
+- `cluster_18_east_city:006E4F30` `unchanged`: `있는　거죠？`
+- `cluster_18_east_city:006E4F5A` `unchanged`: `브래드레이　대총통이`
+- `cluster_18_east_city:006E4F76` `unchanged`: `대회를　띄우기　위해`
+- `cluster_18_east_city:006E4FB8` `unchanged`: `듣자　하니　이기면、`
+- `cluster_18_east_city:006E4FD2` `unchanged`: `사면을　준다는군`
+- `cluster_18_east_city:006E5004` `unchanged`: `그　아저씨…`
+- `cluster_18_east_city:006E501E` `unchanged`: `무슨　짓을…`
+- `cluster_18_east_city:006E5048` `unchanged`: `형、`
+- `cluster_18_east_city:006E505A` `unchanged`: `브래드레이　대총통이`
+- `cluster_18_east_city:006E5074` `unchanged`: `들으면　어쩌려고！？`
+- `cluster_18_east_city:006E509E` `unchanged`: `근데、`
+- `cluster_18_east_city:006E50B8` `unchanged`: `받는다는`
+- `cluster_18_east_city:006E50CE` `unchanged`: `거라면…`
+- `cluster_18_east_city:006E50F0` `unchanged`: `필사적으로　덤비겠군。`
+- `cluster_18_east_city:006E5134` `unchanged`: `성가신　토너먼트야`
+- `cluster_18_east_city:006E5166` `unchanged`: `확실히　험한`
+- `cluster_18_east_city:006E517A` `unchanged`: `토너먼트지만、`
+- `cluster_18_east_city:006E5196` `unchanged`: `참가할　가치는　있겠지`
+- `cluster_18_east_city:006E51E4` `unchanged`: `마지막은　스스로`
+- `cluster_18_east_city:006E51FC` `unchanged`: `정하는　거다`
+- `cluster_18_east_city:006E5224` `unchanged`: `（충분히　강요하는　것`
+- `cluster_18_east_city:006E5246` `unchanged`: `같은데…）`
+- `cluster_18_east_city:006E526C` `unchanged`: `브래드레이　대총통의`
+- `cluster_18_east_city:006E52A4` `unchanged`: `형`
+- `cluster_18_east_city:006E52EE` `unchanged`: `그래、`

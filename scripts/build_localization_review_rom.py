@@ -40,6 +40,48 @@ COUNTED_SCRIPT_SOURCE_GROUPS = {
     "save_menu_texts",
     "registry_a_entry8_prefixed_texts",
 }
+IMAGE_CATEGORY_IDS = {
+    "image_review_units",
+    "image_group_field_menu_labels",
+    "image_group_battle_command_buttons",
+    "image_group_battle_popups_panels",
+    "image_group_card_book_ui",
+    "image_group_title_screen",
+    "image_group_reference_candidates",
+    "image_group_other",
+    "common_hud_tiles",
+    "alchemy_tiles",
+    "registry_b_zp01_resources",
+}
+IMAGE_ITEM_COMPRESSIONS = {
+    "lz77_tile",
+    "rle_tile",
+    "raw4bpp",
+    "registry_b_zp00",
+    "registry_b_zp01",
+    "registry_b_raw4bpp",
+}
+IMAGE_ITEM_SOURCES = {
+    "lz77_tile",
+    "lz77_tile_4bpp",
+    "rle_tile",
+    "rle_tile_4bpp",
+    "raw4bpp",
+    "raw_4bpp",
+    "raw_tile_4bpp",
+    "registry_b_raw4bpp",
+    "registry_b_zp01",
+    "registry_b_zp01_4bpp",
+}
+
+
+def is_image_item(item: dict) -> bool:
+    return (
+        item.get("category_id") in IMAGE_CATEGORY_IDS
+        or str(item.get("item_id", "")).startswith("image:")
+        or item.get("compression") in IMAGE_ITEM_COMPRESSIONS
+        or item.get("source") in IMAGE_ITEM_SOURCES
+    )
 
 
 def parse_args() -> argparse.Namespace:
@@ -47,6 +89,19 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--category-id", help="디버그용 선택 카테고리. 기본값은 전체 텍스트 항목 적용")
     parser.add_argument("--exclude-risky-dialogue", action="store_true", help="디버그용: runtime family 가 아직 완전히 닫히지 않은 대사 계열을 제외")
     parser.add_argument("--exclude-entry8", action="store_true", help="디버그용: Entry8 counted script 조각 레코드를 review ROM 에서 제외")
+    parser.add_argument(
+        "--apply-english-hud-font",
+        action="store_true",
+        help="디버그용: 영어판 0x00534874 HUD 블록을 통째로 적용합니다. 기본 재빌드는 일본판 블록을 유지합니다.",
+    )
+    parser.add_argument(
+        "--apply-common-hud-name-slots",
+        action="store_true",
+        help=(
+            "위험 실험용: 공유 0x00534874 HUD 타일셋의 AA-BE/CA-DD 슬롯을 직접 한글로 덮습니다. "
+            "기본 재빌드에서는 상태창/숫자 UI 공유 타일 깨짐을 막기 위해 적용하지 않습니다."
+        ),
+    )
     return parser.parse_args()
 
 
@@ -173,7 +228,7 @@ def build_translation_json(
         hydrate_reinsertion_metadata(item, metadata_index)
         if item.get("offset") is None:
             continue
-        if item["category_id"] == "image_review_units":
+        if is_image_item(item):
             continue
         if category_id and item["category_id"] != category_id:
             continue
@@ -302,7 +357,7 @@ def main() -> int:
     built_rom = OUT_DIR / f"{slug}_translated.gba"
     shutil.copy2(built_rom, FIXED_ROM)
     english_hud_font_source = ROOT / "local_roms" / "english_patched" / "Fullmetal Alchemist Stray Rondo (English Patched v0.02).gba"
-    if english_hud_font_source.exists():
+    if args.apply_english_hud_font and english_hud_font_source.exists():
         subprocess.run(
             [
                 "python3",
@@ -315,8 +370,35 @@ def main() -> int:
             cwd=ROOT,
             check=True,
         )
-    else:
+    elif args.apply_english_hud_font:
         print(f"skipped english battle HUD font patch: missing {english_hud_font_source}")
+    else:
+        print("skipped english battle HUD font patch: keeping Japanese 0x00534874 base")
+    if args.apply_common_hud_name_slots:
+        subprocess.run(
+            [
+                "python3",
+                "scripts/apply_common_hud_korean_slot_patch.py",
+                "--target",
+                str(FIXED_ROM),
+                "--no-backup",
+            ],
+            cwd=ROOT,
+            check=True,
+        )
+    else:
+        print("skipped common HUD name-slot patch: 0x00534874 is shared by status/number UI")
+    subprocess.run(
+        [
+            "python3",
+            "scripts/apply_battle_hud_name_font.py",
+            "--target",
+            str(FIXED_ROM),
+            "--no-backup",
+        ],
+        cwd=ROOT,
+        check=True,
+    )
     print(f"built fixed review rom: {FIXED_ROM}")
     return 0
 

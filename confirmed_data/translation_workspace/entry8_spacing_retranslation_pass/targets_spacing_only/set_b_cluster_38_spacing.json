@@ -1,0 +1,1414 @@
+{
+  "task": "Entry8 spacing-only correction pass; manual_locked and over-capacity items excluded",
+  "instruction_docs": [
+    "docs/translation_team/fma_translation_team_common_final_v4_1.md",
+    "docs/translation_team/fma_translation_agent_final_v4_1.md",
+    "docs/translation_team/fma_review_agent_final_v4_1.md",
+    "docs/repeat_mistake_prevention.md"
+  ],
+  "hard_rules": [
+    "DO NOT shorten or summarize the sentence.",
+    "DO NOT remove words that are present in current_translation.",
+    "Primary allowed operation: insert fullwidth spaces U+3000 into current_translation.",
+    "You may only change obvious typo/glossary errors when the corrected string remains within capacity and preserves meaning.",
+    "Do not use halfwidth spaces or halfwidth punctuation in Entry8.",
+    "Do not add a space immediately after punctuation such as 、 。 … ！ ？ 「 」.",
+    "Do not split proper nouns internally: 코넬로, 레돈드, 솔링, 다이무라, 마틴스, 호크아이, 브래드레이, 윈리, 코니슈, 리젠블, 현자의 돌 etc.",
+    "If no safe improvement is possible, omit the record from output.",
+    "Output only changed records."
+  ],
+  "records": [
+    {
+      "item_id": "cluster_38_central:007141E6",
+      "group_id": "cluster_38_central",
+      "offset": 7422438,
+      "hex": "0x7141E6",
+      "source": "行ってみるか",
+      "current_translation": "가볼까",
+      "capacity_bytes": 12,
+      "current_used_bytes": 9,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_38_central:00714156",
+          "source": "怪しいんですか？",
+          "translation": "수상한가요？"
+        },
+        {
+          "item_id": "cluster_38_central:00714182",
+          "source": "生体錬成が得意なようですよ",
+          "translation": "생체연성이특기라네요"
+        },
+        {
+          "item_id": "cluster_38_central:007141CE",
+          "source": "今度こそ怪しいな。",
+          "translation": "이번엔수상하군。"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_38_central:00714210",
+          "source": "その錬金術師の名前は",
+          "translation": "그연금술사이름은"
+        },
+        {
+          "item_id": "cluster_38_central:0071422A",
+          "source": "わかってんだろう？",
+          "translation": "알고있겠지？"
+        },
+        {
+          "item_id": "cluster_38_central:0071425A",
+          "source": "わかってますよ。",
+          "translation": "알고있어요。"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_38_central:0071433C",
+      "group_id": "cluster_38_central",
+      "offset": 7422780,
+      "hex": "0x71433C",
+      "source": "さっ、行きましょう",
+      "current_translation": "자、가시죠",
+      "capacity_bytes": 18,
+      "current_used_bytes": 15,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_38_central:007142B8",
+          "source": "場所は？",
+          "translation": "장소는？"
+        },
+        {
+          "item_id": "cluster_38_central:007142DE",
+          "source": "山間にある大きな屋敷だ",
+          "translation": "산속에있는큰저택이다"
+        },
+        {
+          "item_id": "cluster_38_central:0071431C",
+          "source": "山間の大きなお屋敷ですね。",
+          "translation": "산속의큰저택이군요。"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_38_central:00714456",
+          "source": "なんだこの書類の山は？",
+          "translation": "뭐야、이서류더미는？"
+        },
+        {
+          "item_id": "cluster_38_central:00714488",
+          "source": "この書類は一体なんだね",
+          "translation": "이서류는대체뭔가"
+        },
+        {
+          "item_id": "cluster_38_central:007144B0",
+          "source": "今回の事件の報告書ですよ。",
+          "translation": "이번사건보고서예요。"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_38_central:007144D0",
+      "group_id": "cluster_38_central",
+      "offset": 7423184,
+      "hex": "0x7144D0",
+      "source": "きちんと目を通してくれないと",
+      "current_translation": "제대로읽어주셔야",
+      "capacity_bytes": 28,
+      "current_used_bytes": 24,
+      "spare_bytes": 4,
+      "context_before": [
+        {
+          "item_id": "cluster_38_central:00714456",
+          "source": "なんだこの書類の山は？",
+          "translation": "뭐야、이서류더미는？"
+        },
+        {
+          "item_id": "cluster_38_central:00714488",
+          "source": "この書類は一体なんだね",
+          "translation": "이서류는대체뭔가"
+        },
+        {
+          "item_id": "cluster_38_central:007144B0",
+          "source": "今回の事件の報告書ですよ。",
+          "translation": "이번사건보고서예요。"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_38_central:007144F2",
+          "source": "困りますよぉ",
+          "translation": "곤란해요"
+        },
+        {
+          "item_id": "cluster_38_central:0071451A",
+          "source": "……",
+          "translation": "……"
+        },
+        {
+          "item_id": "cluster_38_central:00714524",
+          "source": "これを全て確認しろと",
+          "translation": "이걸전부확인하란"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_38_central:007145E8",
+      "group_id": "cluster_38_central",
+      "offset": 7423464,
+      "hex": "0x7145E8",
+      "source": "早く終わらせてくれよ。",
+      "current_translation": "빨리끝내줘。",
+      "capacity_bytes": 22,
+      "current_used_bytes": 18,
+      "spare_bytes": 4,
+      "context_before": [
+        {
+          "item_id": "cluster_38_central:00714594",
+          "source": "ハッハッハッ！",
+          "translation": "하하하！"
+        },
+        {
+          "item_id": "cluster_38_central:007145A8",
+          "source": "タイヘンだなぁ。",
+          "translation": "고생이많군。"
+        },
+        {
+          "item_id": "cluster_38_central:007145BE",
+          "source": "マスタング大佐よぉ",
+          "translation": "머스탱　대령"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_38_central:00714604",
+          "source": "キメラ錬成の犯人探しが",
+          "translation": "키메라연성범인찾기가"
+        },
+        {
+          "item_id": "cluster_38_central:00714620",
+          "source": "あるんだからさ",
+          "translation": "있으니까"
+        },
+        {
+          "item_id": "cluster_38_central:00714646",
+          "source": "がんばって下さい、大佐。",
+          "translation": "힘내세요、대령。"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_38_central:00714922",
+      "group_id": "cluster_38_central",
+      "offset": 7424290,
+      "hex": "0x714922",
+      "source": "集めておいて",
+      "current_translation": "모아둬",
+      "capacity_bytes": 12,
+      "current_used_bytes": 9,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_38_central:007148B8",
+          "source": "調べに行こうぜ",
+          "translation": "조사하러가자"
+        },
+        {
+          "item_id": "cluster_38_central:007148E4",
+          "source": "留守中よろしく。それと、",
+          "translation": "자리비면부탁해。그리고、"
+        },
+        {
+          "item_id": "cluster_38_central:00714902",
+          "source": "何か関係がありそうな情報を",
+          "translation": "뭔가관련있을정보를"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_38_central:0071494C",
+          "source": "ちぇ、残業かよ",
+          "translation": "쳇、잔업인가"
+        },
+        {
+          "item_id": "cluster_38_central:00714A90",
+          "source": "鋼の、久しぶりだな。",
+          "translation": "강철、오랜만이군。"
+        },
+        {
+          "item_id": "cluster_38_central:00714AAA",
+          "source": "しかもずいぶんと大所帯で",
+          "translation": "게다가꽤대식구로"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_38_central:00714E98",
+      "group_id": "cluster_38_central",
+      "offset": 7425688,
+      "hex": "0x714E98",
+      "source": "そうでしたね",
+      "current_translation": "그랬죠",
+      "capacity_bytes": 12,
+      "current_used_bytes": 9,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_38_central:00714E34",
+          "source": "忘れたか？",
+          "translation": "잊었나？"
+        },
+        {
+          "item_id": "cluster_38_central:00714E44",
+          "source": "これからイーストシティ東側の",
+          "translation": "이제　이스트　시티　동쪽"
+        },
+        {
+          "item_id": "cluster_38_central:00714E66",
+          "source": "広場へ視察に行く予定だろう",
+          "translation": "광장시찰갈예정이잖나"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_38_central:00714EEC",
+          "source": "鋼の、悪いな。",
+          "translation": "강철、미안。"
+        },
+        {
+          "item_id": "cluster_38_central:00714F00",
+          "source": "私のことはあきらめてくれ",
+          "translation": "나는포기해다오"
+        },
+        {
+          "item_id": "cluster_38_central:00714F74",
+          "source": "広場に行くって言ってたよな。",
+          "translation": "광장간다고했었지。"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_38_central:00714F00",
+      "group_id": "cluster_38_central",
+      "offset": 7425792,
+      "hex": "0x714F00",
+      "source": "私のことはあきらめてくれ",
+      "current_translation": "나는포기해다오",
+      "capacity_bytes": 24,
+      "current_used_bytes": 21,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_38_central:00714E66",
+          "source": "広場へ視察に行く予定だろう",
+          "translation": "광장시찰갈예정이잖나"
+        },
+        {
+          "item_id": "cluster_38_central:00714E98",
+          "source": "そうでしたね",
+          "translation": "그랬죠"
+        },
+        {
+          "item_id": "cluster_38_central:00714EEC",
+          "source": "鋼の、悪いな。",
+          "translation": "강철、미안。"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_38_central:00714F74",
+          "source": "広場に行くって言ってたよな。",
+          "translation": "광장간다고했었지。"
+        },
+        {
+          "item_id": "cluster_38_central:00714F96",
+          "source": "探し出すぞ。",
+          "translation": "찾아내자。"
+        },
+        {
+          "item_id": "cluster_38_central:00714FA8",
+          "source": "ぜったい、仲間にしてやる！！",
+          "translation": "꼭동료로만들겠어！！"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_38_central:00715300",
+      "group_id": "cluster_38_central",
+      "offset": 7426816,
+      "hex": "0x715300",
+      "source": "行きましょう。",
+      "current_translation": "가요。",
+      "capacity_bytes": 14,
+      "current_used_bytes": 9,
+      "spare_bytes": 5,
+      "context_before": [
+        {
+          "item_id": "cluster_38_central:0071528C",
+          "source": "久しぶりの里帰りだな",
+          "translation": "오랜만의고향방문이군"
+        },
+        {
+          "item_id": "cluster_38_central:007152BC",
+          "source": "ああ",
+          "translation": "그래"
+        },
+        {
+          "item_id": "cluster_38_central:007152DE",
+          "source": "私もエド達の故郷を見たいわ。",
+          "translation": "나도에드들고향을보고싶어。"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_38_central:00715314",
+          "source": "リゼンブールへ",
+          "translation": "리젠블에"
+        },
+        {
+          "item_id": "cluster_38_central:00715438",
+          "source": "ダイムラーの死体の処理は",
+          "translation": "다이무라시체처리는"
+        },
+        {
+          "item_id": "cluster_38_central:00715456",
+          "source": "しましたけどね…",
+          "translation": "했습니다만…"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_38_central:00715604",
+      "group_id": "cluster_38_central",
+      "offset": 7427588,
+      "hex": "0x715604",
+      "source": "軍もやるときゃやるじゃん",
+      "current_translation": "군도할땐하잖아",
+      "capacity_bytes": 24,
+      "current_used_bytes": 21,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_38_central:00715598",
+          "source": "軍の情報網を総動員して、",
+          "translation": "군정보망을총동원해、"
+        },
+        {
+          "item_id": "cluster_38_central:007155B6",
+          "source": "ようやく居場所を…",
+          "translation": "겨우거처를…"
+        },
+        {
+          "item_id": "cluster_38_central:007155E6",
+          "source": "居場所って、リンカーの？",
+          "translation": "거처라니、링커의？"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_38_central:00715638",
+          "source": "あのなー、俺たちも",
+          "translation": "있잖아、우리도"
+        },
+        {
+          "item_id": "cluster_38_central:00715650",
+          "source": "ちゃんと仕事してんの",
+          "translation": "제대로일한다고"
+        },
+        {
+          "item_id": "cluster_38_central:0071567C",
+          "source": "いいから、もったいぶらず話せ",
+          "translation": "됐으니뜸들이지말고말해"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_38_central:0071575E",
+      "group_id": "cluster_38_central",
+      "offset": 7427934,
+      "hex": "0x71575E",
+      "source": "見慣れない連中を見かけたって",
+      "current_translation": "낯선일당을봤다는",
+      "capacity_bytes": 28,
+      "current_used_bytes": 24,
+      "spare_bytes": 4,
+      "context_before": [
+        {
+          "item_id": "cluster_38_central:00715700",
+          "source": "ここ？",
+          "translation": "여기？"
+        },
+        {
+          "item_id": "cluster_38_central:0071571C",
+          "source": "イーストシティの下水道ですよ",
+          "translation": "이스트　시티　하수도예요"
+        },
+        {
+          "item_id": "cluster_38_central:00715748",
+          "source": "下水道業者から、",
+          "translation": "하수도업자에게、"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_38_central:00715780",
+          "source": "情報が入りましてね",
+          "translation": "정보가들어와서요"
+        },
+        {
+          "item_id": "cluster_38_central:007157AA",
+          "source": "よもやお膝元とはな",
+          "translation": "설마코앞이라니"
+        },
+        {
+          "item_id": "cluster_38_central:007157C2",
+          "source": "灯台下暗しってわけか？",
+          "translation": "등잔밑이어둡단건가？"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_38_central:00715882",
+      "group_id": "cluster_38_central",
+      "offset": 7428226,
+      "hex": "0x715882",
+      "source": "まかれてしまいまして…",
+      "current_translation": "따돌려져서…",
+      "capacity_bytes": 22,
+      "current_used_bytes": 18,
+      "spare_bytes": 4,
+      "context_before": [
+        {
+          "item_id": "cluster_38_central:00715814",
+          "source": "広大なエリアですよ",
+          "translation": "넓은구역이에요"
+        },
+        {
+          "item_id": "cluster_38_central:00715832",
+          "source": "いったいどこを探せば？",
+          "translation": "대체어딜찾죠？"
+        },
+        {
+          "item_id": "cluster_38_central:00715860",
+          "source": "警備兵が追ったんですけどね、",
+          "translation": "경비병이쫓았지만、"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_38_central:007158B0",
+          "source": "それでいい。",
+          "translation": "그걸로됐다。"
+        },
+        {
+          "item_id": "cluster_38_central:007158C2",
+          "source": "深追いしても",
+          "translation": "깊이쫓아도"
+        },
+        {
+          "item_id": "cluster_38_central:007158D4",
+          "source": "ケガ人が増えるだけだ",
+          "translation": "부상자만늘뿐이다"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_38_central:007159DC",
+      "group_id": "cluster_38_central",
+      "offset": 7428572,
+      "hex": "0x7159DC",
+      "source": "んじゃ、さっそく行きますか！",
+      "current_translation": "그럼바로가볼까！",
+      "capacity_bytes": 28,
+      "current_used_bytes": 24,
+      "spare_bytes": 4,
+      "context_before": [
+        {
+          "item_id": "cluster_38_central:0071596E",
+          "source": "下水道の出入口は",
+          "translation": "하수도출입구는"
+        },
+        {
+          "item_id": "cluster_38_central:00715984",
+          "source": "西側区画にあります",
+          "translation": "서쪽구역에있습니다"
+        },
+        {
+          "item_id": "cluster_38_central:007159B4",
+          "source": "うむ",
+          "translation": "음"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_38_central:00715A64",
+          "source": "いいのか？",
+          "translation": "괜찮나？"
+        },
+        {
+          "item_id": "cluster_38_central:00715A74",
+          "source": "ロイス大佐とは",
+          "translation": "로이스　대령"
+        },
+        {
+          "item_id": "cluster_38_central:00715A88",
+          "source": "共に戦った間柄なんだろう？",
+          "translation": "함께싸운사이였잖아？"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_38_central:007164C8",
+      "group_id": "cluster_38_central",
+      "offset": 7431368,
+      "hex": "0x7164C8",
+      "source": "言い切ったんじゃないの？",
+      "current_translation": "단언한거아냐？",
+      "capacity_bytes": 24,
+      "current_used_bytes": 21,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_38_central:00716466",
+          "source": "アイツは、",
+          "translation": "그자는、"
+        },
+        {
+          "item_id": "cluster_38_central:00716476",
+          "source": "ロイス大佐じゃないんだよ",
+          "translation": "로이스　대령이　아니야"
+        },
+        {
+          "item_id": "cluster_38_central:007164AA",
+          "source": "だからこそ「死んだ」って",
+          "translation": "그러니까「죽었다」고"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_38_central:007164F8",
+          "source": "……",
+          "translation": "……"
+        },
+        {
+          "item_id": "cluster_38_central:00716516",
+          "source": "兄さん…コニィが",
+          "translation": "형…코니가"
+        },
+        {
+          "item_id": "cluster_38_central:00716546",
+          "source": "ロイス…大佐って何？",
+          "translation": "로이스…대령이뭐야？"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_38_central:00716564",
+      "group_id": "cluster_38_central",
+      "offset": 7431524,
+      "hex": "0x716564",
+      "source": "リンカーじゃなかったの？",
+      "current_translation": "링커아니었어？",
+      "capacity_bytes": 24,
+      "current_used_bytes": 21,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_38_central:007164F8",
+          "source": "……",
+          "translation": "……"
+        },
+        {
+          "item_id": "cluster_38_central:00716516",
+          "source": "兄さん…コニィが",
+          "translation": "형…코니가"
+        },
+        {
+          "item_id": "cluster_38_central:00716546",
+          "source": "ロイス…大佐って何？",
+          "translation": "로이스…대령이뭐야？"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_38_central:00716586",
+          "source": "どういう…こと？",
+          "translation": "무슨…말이야？"
+        },
+        {
+          "item_id": "cluster_38_central:007165B8",
+          "source": "待て！",
+          "translation": "멈춰！"
+        },
+        {
+          "item_id": "cluster_38_central:007165C4",
+          "source": "まだリンカーが、ロイス大佐が",
+          "translation": "아직링커가、로이스　대령이"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_38_central:00716E28",
+      "group_id": "cluster_38_central",
+      "offset": 7433768,
+      "hex": "0x716E28",
+      "source": "言っていたわ",
+      "current_translation": "말했어",
+      "capacity_bytes": 12,
+      "current_used_bytes": 9,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_38_central:00716DC0",
+          "source": "こんなことをする人なのか？",
+          "translation": "이런짓을할사람이냐？"
+        },
+        {
+          "item_id": "cluster_38_central:00716E02",
+          "source": "違う！",
+          "translation": "아냐！"
+        },
+        {
+          "item_id": "cluster_38_central:00716E0E",
+          "source": "兄さんは口癖のように",
+          "translation": "오빠는입버릇처럼"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_38_central:00716E44",
+          "source": "錬金術師よ、大衆のためにあれ",
+          "translation": "연금술사여、대중위해존재하라"
+        },
+        {
+          "item_id": "cluster_38_central:00716E6C",
+          "source": "そう、毎日のように…",
+          "translation": "그래、매일같이…"
+        },
+        {
+          "item_id": "cluster_38_central:00716E96",
+          "source": "なら、その言葉、信じてやれよ",
+          "translation": "그럼그말을믿어줘"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_38_central:00716E96",
+      "group_id": "cluster_38_central",
+      "offset": 7433878,
+      "hex": "0x716E96",
+      "source": "なら、その言葉、信じてやれよ",
+      "current_translation": "그럼그말을믿어줘",
+      "capacity_bytes": 28,
+      "current_used_bytes": 24,
+      "spare_bytes": 4,
+      "context_before": [
+        {
+          "item_id": "cluster_38_central:00716E28",
+          "source": "言っていたわ",
+          "translation": "말했어"
+        },
+        {
+          "item_id": "cluster_38_central:00716E44",
+          "source": "錬金術師よ、大衆のためにあれ",
+          "translation": "연금술사여、대중위해존재하라"
+        },
+        {
+          "item_id": "cluster_38_central:00716E6C",
+          "source": "そう、毎日のように…",
+          "translation": "그래、매일같이…"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_38_central:00716EB8",
+          "source": "妹が、家族が信じてやらなくて",
+          "translation": "여동생、가족이안믿으면"
+        },
+        {
+          "item_id": "cluster_38_central:00716EDA",
+          "source": "どうするんだよ",
+          "translation": "어쩌자는거야"
+        },
+        {
+          "item_id": "cluster_38_central:00716EFA",
+          "source": "……",
+          "translation": "……"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_38_central:007170EC",
+      "group_id": "cluster_38_central",
+      "offset": 7434476,
+      "hex": "0x7170EC",
+      "source": "うらぎりものー！！",
+      "current_translation": "배신자！！",
+      "capacity_bytes": 18,
+      "current_used_bytes": 15,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_38_central:00717084",
+          "source": "兄さん！",
+          "translation": "형！"
+        },
+        {
+          "item_id": "cluster_38_central:00717092",
+          "source": "先に行ってるよ！",
+          "translation": "먼저갈게！"
+        },
+        {
+          "item_id": "cluster_38_central:007170CA",
+          "source": "ま、まて、アル！",
+          "translation": "자、잠깐、알！"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_38_central:007171F8",
+          "source": "これはなんだ…？",
+          "translation": "이건뭐지…？"
+        },
+        {
+          "item_id": "cluster_38_central:0071721A",
+          "source": "見ればわかるだろ、書類だ",
+          "translation": "보면알잖아、서류다"
+        },
+        {
+          "item_id": "cluster_38_central:0071724A",
+          "source": "だからなんで私のところに",
+          "translation": "근데왜내쪽으로"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_38_central:0071724A",
+      "group_id": "cluster_38_central",
+      "offset": 7434826,
+      "hex": "0x71724A",
+      "source": "だからなんで私のところに",
+      "current_translation": "근데왜내쪽으로",
+      "capacity_bytes": 24,
+      "current_used_bytes": 21,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_38_central:007170EC",
+          "source": "うらぎりものー！！",
+          "translation": "배신자！！"
+        },
+        {
+          "item_id": "cluster_38_central:007171F8",
+          "source": "これはなんだ…？",
+          "translation": "이건뭐지…？"
+        },
+        {
+          "item_id": "cluster_38_central:0071721A",
+          "source": "見ればわかるだろ、書類だ",
+          "translation": "보면알잖아、서류다"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_38_central:00717268",
+          "source": "回ってくるんだ？",
+          "translation": "넘어오는거지？"
+        },
+        {
+          "item_id": "cluster_38_central:00717296",
+          "source": "破損した建物補修費など諸々、",
+          "translation": "파손건물보수비등여러건、"
+        },
+        {
+          "item_id": "cluster_38_central:007172B8",
+          "source": "大佐のサインを頂かないと",
+          "translation": "대령서명을받지않으면"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_38_central:0071733C",
+      "group_id": "cluster_38_central",
+      "offset": 7435068,
+      "hex": "0x71733C",
+      "source": "すべて目を通してください",
+      "current_translation": "전부읽어주세요",
+      "capacity_bytes": 24,
+      "current_used_bytes": 21,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_38_central:007172D6",
+          "source": "事務処理が滞ります",
+          "translation": "사무처리가막힙니다"
+        },
+        {
+          "item_id": "cluster_38_central:00717306",
+          "source": "これ、全部か？",
+          "translation": "이게전부？"
+        },
+        {
+          "item_id": "cluster_38_central:0071732C",
+          "source": "当然です。",
+          "translation": "당연하죠。"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_38_central:00717372",
+          "source": "じゃ、俺は復旧作業の",
+          "translation": "그럼난복구작업의"
+        },
+        {
+          "item_id": "cluster_38_central:00717396",
+          "source": "現場指揮があるんでな！",
+          "translation": "현장지휘가있어서！"
+        },
+        {
+          "item_id": "cluster_38_central:007173D0",
+          "source": "あのさー、大佐",
+          "translation": "저기말야、대령"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_38_central:00717510",
+      "group_id": "cluster_38_central",
+      "offset": 7435536,
+      "hex": "0x717510",
+      "source": "リンカーの手の者が",
+      "current_translation": "링커수하가",
+      "capacity_bytes": 18,
+      "current_used_bytes": 15,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_38_central:007174BC",
+          "source": "ただし…",
+          "translation": "다만…"
+        },
+        {
+          "item_id": "cluster_38_central:007174DC",
+          "source": "ただし？",
+          "translation": "다만？"
+        },
+        {
+          "item_id": "cluster_38_central:007174FA",
+          "source": "単独行動は厳禁だ",
+          "translation": "단독행동엄금이다"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_38_central:00717528",
+          "source": "どこにいるかわからんからな",
+          "translation": "어디있을지모르니까"
+        },
+        {
+          "item_id": "cluster_38_central:0071755A",
+          "source": "大丈夫だよ",
+          "translation": "괜찮아"
+        },
+        {
+          "item_id": "cluster_38_central:0071756A",
+          "source": "オレとアルと一緒だし",
+          "translation": "나랑알과함께잖아"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_38_central:00717678",
+      "group_id": "cluster_38_central",
+      "offset": 7435896,
+      "hex": "0x717678",
+      "source": "ありませんよ",
+      "current_translation": "없어요",
+      "capacity_bytes": 12,
+      "current_used_bytes": 9,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_38_central:007175F2",
+          "source": "鋼の、君にじゃない。",
+          "translation": "강철、자네말고。"
+        },
+        {
+          "item_id": "cluster_38_central:0071760C",
+          "source": "コーニッシュにだ",
+          "translation": "코니슈에게다"
+        },
+        {
+          "item_id": "cluster_38_central:00717658",
+          "source": "キ、キメラと戦う自信なんて",
+          "translation": "키、키메라와싸울자신은"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_38_central:007176A8",
+          "source": "私は大佐が逃げ出さないように",
+          "translation": "나는대령이도망못치게"
+        },
+        {
+          "item_id": "cluster_38_central:007176CA",
+          "source": "お守りをしなければ",
+          "translation": "돌봐야해서"
+        },
+        {
+          "item_id": "cluster_38_central:007176FA",
+          "source": "アームストロング…",
+          "translation": "암스트롱…"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_38_central:007176CA",
+      "group_id": "cluster_38_central",
+      "offset": 7435978,
+      "hex": "0x7176CA",
+      "source": "お守りをしなければ",
+      "current_translation": "돌봐야해서",
+      "capacity_bytes": 18,
+      "current_used_bytes": 15,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_38_central:00717658",
+          "source": "キ、キメラと戦う自信なんて",
+          "translation": "키、키메라와싸울자신은"
+        },
+        {
+          "item_id": "cluster_38_central:00717678",
+          "source": "ありませんよ",
+          "translation": "없어요"
+        },
+        {
+          "item_id": "cluster_38_central:007176A8",
+          "source": "私は大佐が逃げ出さないように",
+          "translation": "나는대령이도망못치게"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_38_central:007176FA",
+          "source": "アームストロング…",
+          "translation": "암스트롱…"
+        },
+        {
+          "item_id": "cluster_38_central:0071773C",
+          "source": "げっ！",
+          "translation": "헉！"
+        },
+        {
+          "item_id": "cluster_38_central:00717760",
+          "source": "残念。我輩はリンカーの",
+          "translation": "유감。나는링커의"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_38_central:007176FA",
+      "group_id": "cluster_38_central",
+      "offset": 7436026,
+      "hex": "0x7176FA",
+      "source": "アームストロング…",
+      "current_translation": "암스트롱…",
+      "capacity_bytes": 18,
+      "current_used_bytes": 15,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_38_central:00717678",
+          "source": "ありませんよ",
+          "translation": "없어요"
+        },
+        {
+          "item_id": "cluster_38_central:007176A8",
+          "source": "私は大佐が逃げ出さないように",
+          "translation": "나는대령이도망못치게"
+        },
+        {
+          "item_id": "cluster_38_central:007176CA",
+          "source": "お守りをしなければ",
+          "translation": "돌봐야해서"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_38_central:0071773C",
+          "source": "げっ！",
+          "translation": "헉！"
+        },
+        {
+          "item_id": "cluster_38_central:00717760",
+          "source": "残念。我輩はリンカーの",
+          "translation": "유감。나는링커의"
+        },
+        {
+          "item_id": "cluster_38_central:0071777C",
+          "source": "情報を集めねばなりません",
+          "translation": "정보를모아야합니다"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_38_central:00717A74",
+      "group_id": "cluster_38_central",
+      "offset": 7436916,
+      "hex": "0x717A74",
+      "source": "オレたちを子供扱いするなって",
+      "current_translation": "우릴애취급마라고",
+      "capacity_bytes": 28,
+      "current_used_bytes": 24,
+      "spare_bytes": 4,
+      "context_before": [
+        {
+          "item_id": "cluster_38_central:00717A18",
+          "source": "誰がケシ粒だっ！",
+          "translation": "누가좁쌀이야！"
+        },
+        {
+          "item_id": "cluster_38_central:00717A2E",
+          "source": "誰が微生物だっ！",
+          "translation": "누가미생물이야！"
+        },
+        {
+          "item_id": "cluster_38_central:00717A5C",
+          "source": "アルも言ってやれ！",
+          "translation": "알도말해줘！"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_38_central:00717AAE",
+          "source": "子供か…いい響きだね",
+          "translation": "아이라…좋은울림이네"
+        },
+        {
+          "item_id": "cluster_38_central:00717AE0",
+          "source": "だぁーっ！",
+          "translation": "으아악！"
+        },
+        {
+          "item_id": "cluster_38_central:00717AF0",
+          "source": "なにうっとりしてんだー！",
+          "translation": "뭘황홀해하는거야！"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_38_central:00718544",
+      "group_id": "cluster_38_central",
+      "offset": 7439684,
+      "hex": "0x718544",
+      "source": "とうの昔に打ち捨てられた",
+      "current_translation": "오래전에버려진",
+      "capacity_bytes": 24,
+      "current_used_bytes": 21,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_38_central:007183B6",
+          "source": "………",
+          "translation": "………"
+        },
+        {
+          "item_id": "cluster_38_central:007183D6",
+          "source": "鋼の、何をしている！",
+          "translation": "강철、뭐하고있나！"
+        },
+        {
+          "item_id": "cluster_38_central:007183F0",
+          "source": "早く行くぞ！",
+          "translation": "빨리가자！"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_38_central:00718562",
+          "source": "古い城が、この地点にある",
+          "translation": "낡은성이이지점에있다"
+        },
+        {
+          "item_id": "cluster_38_central:0071858A",
+          "source": "だが、どうしたことか",
+          "translation": "헌데어찌된일인지"
+        },
+        {
+          "item_id": "cluster_38_central:007185A4",
+          "source": "夜になると灯りがともり、",
+          "translation": "밤이되면불이켜지고、"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_38_central:007186D6",
+      "group_id": "cluster_38_central",
+      "offset": 7440086,
+      "hex": "0x7186D6",
+      "source": "オレたちの手にっ！",
+      "current_translation": "우리손에！",
+      "capacity_bytes": 18,
+      "current_used_bytes": 15,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_38_central:0071867E",
+          "source": "今度こそこの前の借り、",
+          "translation": "이번엔지난번빚을"
+        },
+        {
+          "item_id": "cluster_38_central:0071869A",
+          "source": "きっちり返してやるぜ",
+          "translation": "확실히갚아주겠어"
+        },
+        {
+          "item_id": "cluster_38_central:007186BE",
+          "source": "ついでに賢者の石も",
+          "translation": "덤으로현자의돌도"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_38_central:00718700",
+          "source": "賢者の石？",
+          "translation": "현자의돌？"
+        },
+        {
+          "item_id": "cluster_38_central:00718728",
+          "source": "あ、いや、",
+          "translation": "아、아니、"
+        },
+        {
+          "item_id": "cluster_38_central:00718738",
+          "source": "こっちの話、こっちの話",
+          "translation": "우리얘기야、우리얘기"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_38_central:00718B26",
+      "group_id": "cluster_38_central",
+      "offset": 7441190,
+      "hex": "0x718B26",
+      "source": "こういうのは一応は礼儀として",
+      "current_translation": "이런건일단예의상",
+      "capacity_bytes": 28,
+      "current_used_bytes": 24,
+      "spare_bytes": 4,
+      "context_before": [
+        {
+          "item_id": "cluster_38_central:00718ACE",
+          "source": "鋼の、君は",
+          "translation": "강철、자넨"
+        },
+        {
+          "item_id": "cluster_38_central:00718ADE",
+          "source": "確認する必要がないな",
+          "translation": "확인할필요없겠군"
+        },
+        {
+          "item_id": "cluster_38_central:00718B14",
+          "source": "って、おい！",
+          "translation": "야、어이！"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_38_central:00718B48",
+          "source": "確認するもんだろう？",
+          "translation": "확인하는거잖아？"
+        },
+        {
+          "item_id": "cluster_38_central:00718B74",
+          "source": "そうか…",
+          "translation": "그런가…"
+        },
+        {
+          "item_id": "cluster_38_central:00718B82",
+          "source": "で、どうする？",
+          "translation": "그래서어쩔래？"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_38_central:00719060",
+      "group_id": "cluster_38_central",
+      "offset": 7442528,
+      "hex": "0x719060",
+      "source": "ひとりで帰ってきたんですよ！",
+      "current_translation": "혼자돌아왔어요！",
+      "capacity_bytes": 28,
+      "current_used_bytes": 24,
+      "spare_bytes": 4,
+      "context_before": [
+        {
+          "item_id": "cluster_38_central:00718F94",
+          "source": "…………",
+          "translation": "…………"
+        },
+        {
+          "item_id": "cluster_38_central:0071903C",
+          "source": "中尉！",
+          "translation": "중위！"
+        },
+        {
+          "item_id": "cluster_38_central:00719048",
+          "source": "ブラックハヤテ号が",
+          "translation": "블랙　하야테　호가"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_38_central:007190BC",
+          "source": "さっき外に出てみたら、",
+          "translation": "아까밖에나가보니、"
+        },
+        {
+          "item_id": "cluster_38_central:007190D8",
+          "source": "ドアの前にちょこんって",
+          "translation": "문앞에얌전히있더라"
+        },
+        {
+          "item_id": "cluster_38_central:00719100",
+          "source": "そう。",
+          "translation": "그래。"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_38_central:00719DCC",
+      "group_id": "cluster_38_central",
+      "offset": 7445964,
+      "hex": "0x719DCC",
+      "source": "入ってきなよ",
+      "current_translation": "들어와",
+      "capacity_bytes": 12,
+      "current_used_bytes": 9,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_38_central:00719D5A",
+          "source": "…お、お久しぶりです",
+          "translation": "…오、오랜만이에요"
+        },
+        {
+          "item_id": "cluster_38_central:00719DA2",
+          "source": "コニィ、",
+          "translation": "코니、"
+        },
+        {
+          "item_id": "cluster_38_central:00719DB0",
+          "source": "そんなとこにいないで、",
+          "translation": "그런　데　있지　말고、"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_38_central:00719E0E",
+          "source": "よう、元気でやってるか？",
+          "translation": "어이、잘　지냈어？"
+        },
+        {
+          "item_id": "cluster_38_central:00719E44",
+          "source": "エドも…",
+          "translation": "에드도…"
+        },
+        {
+          "item_id": "cluster_38_central:00719E66",
+          "source": "身長は伸びてないわね",
+          "translation": "키는　안　컸네"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_38_central:0071C116",
+      "group_id": "cluster_38_central",
+      "offset": 7454998,
+      "hex": "0x71C116",
+      "source": "今回は私と",
+      "current_translation": "나와",
+      "capacity_bytes": 10,
+      "current_used_bytes": 6,
+      "spare_bytes": 4,
+      "context_before": [
+        {
+          "item_id": "cluster_38_central:0071C0B4",
+          "source": "では、私も…",
+          "translation": "그럼　저도…"
+        },
+        {
+          "item_id": "cluster_38_central:0071C0DE",
+          "source": "いや、司令部を留守には",
+          "translation": "아니、사령부를　비울"
+        },
+        {
+          "item_id": "cluster_38_central:0071C0FA",
+          "source": "できんだろう",
+          "translation": "수는　없겠지"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_38_central:0071C126",
+          "source": "エルリック兄弟のみで行く！",
+          "translation": "엘릭　형제만　간다！"
+        },
+        {
+          "item_id": "cluster_38_central:0071C146",
+          "source": "中尉の同行も必要ない！",
+          "translation": "중위　동행도　불필요！"
+        },
+        {
+          "item_id": "cluster_38_central:0071C16C",
+          "source": "役立たずでないところを",
+          "translation": "무능하지　않다는　걸"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_38_central:0071C4F4",
+      "group_id": "cluster_38_central",
+      "offset": 7455988,
+      "hex": "0x71C4F4",
+      "source": "見つかりましたか？",
+      "current_translation": "찾았나요？",
+      "capacity_bytes": 18,
+      "current_used_bytes": 15,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_38_central:0071C422",
+          "source": "報告書を書いてくださいね",
+          "translation": "보고서를　써　주세요"
+        },
+        {
+          "item_id": "cluster_38_central:0071C460",
+          "source": "あら、エドワード君。",
+          "translation": "어머、에드워드　군。"
+        },
+        {
+          "item_id": "cluster_38_central:0071C4DC",
+          "source": "ブラックハヤテ号は",
+          "translation": "블랙　하야테　호는"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_38_central:0071C50C",
+          "source": "どこに行ったんでしょうね",
+          "translation": "어디　간　걸까요"
+        }
+      ]
+    }
+  ],
+  "excluded_counts": {
+    "manual_locked": 15,
+    "overflow_current": 648,
+    "no_spare_for_fullwidth_space": 128,
+    "already_has_space": 4,
+    "no_hangul": 0
+  }
+}

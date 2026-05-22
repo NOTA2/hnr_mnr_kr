@@ -1,0 +1,299 @@
+{
+  "source_rom": "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba",
+  "hud_font_resource_table_candidate": "0x0017785C",
+  "raw_hud_font_block": {
+    "rom_offset": "0x00186C34",
+    "length": "0x0F00",
+    "tile_count": 120,
+    "zero_tile_indexes": [
+      60,
+      62,
+      63,
+      64,
+      65,
+      66,
+      67,
+      68,
+      69,
+      75,
+      76,
+      77,
+      78,
+      79,
+      95,
+      96,
+      97,
+      98,
+      99,
+      105,
+      106,
+      107,
+      108,
+      109,
+      110,
+      111,
+      112,
+      113,
+      114,
+      115,
+      116,
+      117,
+      118,
+      119
+    ]
+  },
+  "enemy_name_current_review_ss2": {
+    "text_seen": "メインビースト",
+    "hud_source_text": "ﾒｲﾝﾋﾞｰｽﾄ",
+    "hud_source_rom_offset": "0x003D18D8",
+    "runtime_tile_indexes": [
+      238,
+      239,
+      240,
+      241,
+      242,
+      243,
+      244
+    ],
+    "source_glyph_tiles": [
+      {
+        "rom_offset": "0x00187234",
+        "font_tile_index": 48
+      },
+      {
+        "rom_offset": "0x00186E34",
+        "font_tile_index": 16
+      },
+      {
+        "rom_offset": "0x00187394",
+        "font_tile_index": 59
+      },
+      {
+        "rom_offset": "0x001878D4",
+        "font_tile_index": 101
+      },
+      {
+        "rom_offset": "0x00186DF4",
+        "font_tile_index": 14
+      },
+      {
+        "rom_offset": "0x00186F94",
+        "font_tile_index": 27
+      },
+      {
+        "rom_offset": "0x00187074",
+        "font_tile_index": 34
+      }
+    ],
+    "note": "Earlier notes misread the middle ン. The visible name is メインビースト; the source is a HUD mini-font halfwidth/custom byte string in resource 0x0933."
+  },
+  "nearby_resource_table_entries": [
+    {
+      "table_offset": 1538140,
+      "table_offset_hex": "0x17785C",
+      "rom_offset": 1597440,
+      "rom_offset_hex": "0x00186000",
+      "length": 32,
+      "length_hex": "0x20"
+    },
+    {
+      "table_offset": 1538148,
+      "table_offset_hex": "0x177864",
+      "rom_offset": 1597472,
+      "rom_offset_hex": "0x00186020",
+      "length": 8,
+      "length_hex": "0x8"
+    },
+    {
+      "table_offset": 1538156,
+      "table_offset_hex": "0x17786C",
+      "rom_offset": 1597480,
+      "rom_offset_hex": "0x00186028",
+      "length": 32,
+      "length_hex": "0x20"
+    },
+    {
+      "table_offset": 1538164,
+      "table_offset_hex": "0x177874",
+      "rom_offset": 1597512,
+      "rom_offset_hex": "0x00186048",
+      "length": 8,
+      "length_hex": "0x8"
+    },
+    {
+      "table_offset": 1538172,
+      "table_offset_hex": "0x17787C",
+      "rom_offset": 1597520,
+      "rom_offset_hex": "0x00186050",
+      "length": 28,
+      "length_hex": "0x1C"
+    },
+    {
+      "table_offset": 1538180,
+      "table_offset_hex": "0x177884",
+      "rom_offset": 1597548,
+      "rom_offset_hex": "0x0018606C",
+      "length": 16,
+      "length_hex": "0x10"
+    },
+    {
+      "table_offset": 1538188,
+      "table_offset_hex": "0x17788C",
+      "rom_offset": 1597564,
+      "rom_offset_hex": "0x0018607C",
+      "length": 2668,
+      "length_hex": "0xA6C"
+    },
+    {
+      "table_offset": 1538196,
+      "table_offset_hex": "0x177894",
+      "rom_offset": 1600232,
+      "rom_offset_hex": "0x00186AE8",
+      "length": 332,
+      "length_hex": "0x14C"
+    },
+    {
+      "table_offset": 1538204,
+      "table_offset_hex": "0x17789C",
+      "rom_offset": 1600564,
+      "rom_offset_hex": "0x00186C34",
+      "length": 3840,
+      "length_hex": "0xF00"
+    },
+    {
+      "table_offset": 1538212,
+      "table_offset_hex": "0x1778A4",
+      "rom_offset": 1604404,
+      "rom_offset_hex": "0x00187B34",
+      "length": 32,
+      "length_hex": "0x20"
+    },
+    {
+      "table_offset": 1538220,
+      "table_offset_hex": "0x1778AC",
+      "rom_offset": 1604436,
+      "rom_offset_hex": "0x00187B54",
+      "length": 32,
+      "length_hex": "0x20"
+    },
+    {
+      "table_offset": 1538228,
+      "table_offset_hex": "0x1778B4",
+      "rom_offset": 1604468,
+      "rom_offset_hex": "0x00187B74",
+      "length": 32,
+      "length_hex": "0x20"
+    },
+    {
+      "table_offset": 1538236,
+      "table_offset_hex": "0x1778BC",
+      "rom_offset": 1604500,
+      "rom_offset_hex": "0x00187B94",
+      "length": 32,
+      "length_hex": "0x20"
+    },
+    {
+      "table_offset": 1538244,
+      "table_offset_hex": "0x1778C4",
+      "rom_offset": 1604532,
+      "rom_offset_hex": "0x00187BB4",
+      "length": 32,
+      "length_hex": "0x20"
+    },
+    {
+      "table_offset": 1538252,
+      "table_offset_hex": "0x1778CC",
+      "rom_offset": 1604564,
+      "rom_offset_hex": "0x00187BD4",
+      "length": 32,
+      "length_hex": "0x20"
+    },
+    {
+      "table_offset": 1538260,
+      "table_offset_hex": "0x1778D4",
+      "rom_offset": 1604596,
+      "rom_offset_hex": "0x00187BF4",
+      "length": 32,
+      "length_hex": "0x20"
+    },
+    {
+      "table_offset": 1538268,
+      "table_offset_hex": "0x1778DC",
+      "rom_offset": 1604628,
+      "rom_offset_hex": "0x00187C14",
+      "length": 552,
+      "length_hex": "0x228"
+    },
+    {
+      "table_offset": 1538276,
+      "table_offset_hex": "0x1778E4",
+      "rom_offset": 1605180,
+      "rom_offset_hex": "0x00187E3C",
+      "length": 524,
+      "length_hex": "0x20C"
+    },
+    {
+      "table_offset": 1538284,
+      "table_offset_hex": "0x1778EC",
+      "rom_offset": 1605704,
+      "rom_offset_hex": "0x00188048",
+      "length": 520,
+      "length_hex": "0x208"
+    },
+    {
+      "table_offset": 1538292,
+      "table_offset_hex": "0x1778F4",
+      "rom_offset": 1606224,
+      "rom_offset_hex": "0x00188250",
+      "length": 548,
+      "length_hex": "0x224"
+    },
+    {
+      "table_offset": 1538300,
+      "table_offset_hex": "0x1778FC",
+      "rom_offset": 1606772,
+      "rom_offset_hex": "0x00188474",
+      "length": 520,
+      "length_hex": "0x208"
+    },
+    {
+      "table_offset": 1538308,
+      "table_offset_hex": "0x177904",
+      "rom_offset": 1607292,
+      "rom_offset_hex": "0x0018867C",
+      "length": 520,
+      "length_hex": "0x208"
+    },
+    {
+      "table_offset": 1538316,
+      "table_offset_hex": "0x17790C",
+      "rom_offset": 1607812,
+      "rom_offset_hex": "0x00188884",
+      "length": 584,
+      "length_hex": "0x248"
+    },
+    {
+      "table_offset": 1538324,
+      "table_offset_hex": "0x177914",
+      "rom_offset": 1608396,
+      "rom_offset_hex": "0x00188ACC",
+      "length": 912,
+      "length_hex": "0x390"
+    },
+    {
+      "table_offset": 1538332,
+      "table_offset_hex": "0x17791C",
+      "rom_offset": 1609308,
+      "rom_offset_hex": "0x00188E5C",
+      "length": 1072,
+      "length_hex": "0x430"
+    }
+  ],
+  "galmuri7_candidate": {
+    "source_png": "third_party/font_atlases/finalists/Galmuri7_9x9.png",
+    "cell": "9x9",
+    "glyph": "8x8",
+    "prepared_workbench": "analysis/generated_workbenches/hud_galmuri7_8x8",
+    "preview": "confirmed_data/font_assets/hud_galmuri7_8x8_preview.png"
+  }
+}

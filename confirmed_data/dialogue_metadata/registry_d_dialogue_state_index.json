@@ -160,6 +160,15 @@
       ]
     },
     {
+      "dialogue_state_token": "pre98:35",
+      "count": 3,
+      "sample_texts": [
+        "はい！",
+        "…負けるもんですかっ！\nエドにできて、\n私にできないわけないからっ！",
+        "そうですね\nエドが何人もいたら\nうるさくて仕方ないです"
+      ]
+    },
+    {
       "dialogue_state_token": "pre98:0F",
       "count": 3,
       "sample_texts": [
@@ -325,14 +334,6 @@
       "sample_texts": [
         "錬金術師よ、\n大衆のためにあれ！",
         "こ、こんなはずでは\nこうなったら"
-      ]
-    },
-    {
-      "dialogue_state_token": "pre98:35",
-      "count": 2,
-      "sample_texts": [
-        "…負けるもんですかっ！\nエドにできて、\n私にできないわけないからっ！",
-        "そうですね\nエドが何人もいたら\nうるさくて仕方ないです"
       ]
     },
     {
@@ -841,6 +842,14 @@
       "raw_byte_length": 46,
       "before_bytes": "01 02 fc 11 fc 05 00 07 00 08 00 98",
       "dialogue_state_token": "pre98:07"
+    },
+    {
+      "offset": 8339424,
+      "text": "はい！",
+      "byte_length": 6,
+      "raw_byte_length": 9,
+      "before_bytes": "02 64 fc 11 fc 05 00 35 00 08 00 98",
+      "dialogue_state_token": "pre98:35"
     },
     {
       "offset": 8339451,

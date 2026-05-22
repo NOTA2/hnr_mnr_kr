@@ -1,6 +1,6 @@
 # Graphics Extraction Progress
 
-Generated: `2026-05-19T07:15:26`
+Generated: `2026-05-22T00:24:49`
 
 ## Static ROM Extraction
 
@@ -15,27 +15,27 @@ Generated: `2026-05-19T07:15:26`
 
 ## Runtime Matching
 
-- Runtime match sets: `10`
-- Unique matched LZ77/RLE/raw offsets: `28` / `50` / `1`
-- Total unique runtime-matched offsets: `79`
+- Runtime match sets: `19`
+- Unique matched LZ77/RLE/raw offsets: `28` / `95` / `6`
+- Total unique runtime-matched offsets: `129`
 
 ## Workbench
 
-- GUI image items: `14`
-- Directly editable items: `14`
-- Uploaded replacements: `2`
+- GUI image items: `30`
+- Directly editable items: `24`
+- Uploaded replacements: `9`
 - Items with apply errors: `0`
-- Progress states: `{'candidate_found': 12, 'edited': 2}`
-- Actual localization targets curated: `11`
-- Focused runtime tilemap targets: `4`
+- Progress states: `{'candidate_found': 21, 'edited': 9}`
+- Actual localization targets curated: `24`
+- Focused runtime tilemap targets: `12`
 
 ## Preview Assets
 
-- Runtime match PNGs: `149`
-- Runtime tilemap PNGs: `56`
-- Runtime RLE screen-order workspaces: `30`
-- Runtime RLE screen-order PNGs: `181`
-- Edit-pack PNGs: `5`
+- Runtime match PNGs: `463`
+- Runtime tilemap PNGs: `166`
+- Runtime RLE screen-order workspaces: `117`
+- Runtime RLE screen-order PNGs: `710`
+- Edit-pack PNGs: `23`
 
 ## Open Risks
 

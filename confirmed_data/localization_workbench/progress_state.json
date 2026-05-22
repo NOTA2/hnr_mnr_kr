@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "last_updated": "2026-05-20",
-  "current_category_id": "registry_a_entry8_clusters_manifest",
-  "current_item_id": "cluster_01_liore:006BCC50",
+  "last_updated": "2026-05-23",
+  "current_category_id": "translation_workset_registry_d_dialogue",
+  "current_item_id": "translation_workset_registry_d_dialogue:007F95C6",
   "current_review_scope": "translation_workset_core_ui",
   "last_built_rom": "patched_roms/current_review/hnr_localization_review.gba",
   "category_progress": {
@@ -24,7 +24,7 @@
     },
     "translation_workset_registry_d_dialogue": {
       "done": 0,
-      "total": 244
+      "total": 245
     },
     "registry_a_entry8_clusters_manifest": {
       "done": 9805,
@@ -34,9 +34,45 @@
       "done": 0,
       "total": 41
     },
-    "image_review_units": {
+    "image_group_field_menu_labels": {
       "done": 0,
-      "total": 14
+      "total": 4
+    },
+    "image_group_battle_command_buttons": {
+      "done": 0,
+      "total": 5
+    },
+    "image_group_battle_popups_panels": {
+      "done": 0,
+      "total": 3
+    },
+    "image_group_card_book_ui": {
+      "done": 0,
+      "total": 13
+    },
+    "image_group_title_screen": {
+      "done": 0,
+      "total": 6
+    },
+    "image_group_reference_candidates": {
+      "done": 0,
+      "total": 4
+    },
+    "image_group_other": {
+      "done": 0,
+      "total": 0
+    },
+    "common_hud_tiles": {
+      "done": 0,
+      "total": 256
+    },
+    "alchemy_tiles": {
+      "done": 0,
+      "total": 192
+    },
+    "registry_b_zp01_resources": {
+      "done": 0,
+      "total": 13
     }
   }
 }

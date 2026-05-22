@@ -13,10 +13,22 @@
     "max_y": 14
   },
   "crop_pixels": {
-    "x": 40,
-    "y": 8,
+    "x": 38,
+    "y": 6,
     "width": 160,
     "height": 112
+  },
+  "scroll_pixels": {
+    "x": 2,
+    "y": 2
+  },
+  "fine_scroll_pixels": {
+    "x": 2,
+    "y": 2
+  },
+  "alignment_adjustment_pixels": {
+    "x": 0,
+    "y": 0
   },
   "matched_tile_count": 173,
   "source_match": {

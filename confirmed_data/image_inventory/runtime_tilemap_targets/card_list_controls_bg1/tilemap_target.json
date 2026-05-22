@@ -12,7 +12,7 @@
   ],
   "text_seen": "ID / BACK / NEXT / いいえ",
   "korean_goal": "ID / 뒤로 / 다음 / 아니요",
-  "notes": "카드 리스트 UI 레이어. same-slot RLE 교체는 아직 압축 크기 초과라 tilemap/확장 전략 후보로 둔다.",
+  "notes": "카드 리스트 UI 레이어. RLE 0x003A3540 화면순 항목은 GUI 교체 대상으로 승격했고, 압축 초과 시 repoint로 적용한다.",
   "bg_control": {
     "bg": 1,
     "bgcnt": 3333,

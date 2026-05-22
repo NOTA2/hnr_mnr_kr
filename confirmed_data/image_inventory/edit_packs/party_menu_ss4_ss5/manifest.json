@@ -1,0 +1,187 @@
+{
+  "pack_id": "party_menu_ss4_ss5_screenshot_targets",
+  "description": "User-supplied ss4/ss5 PNG screenshots에서 보이는 한글화 후보 crop 모음.",
+  "source_files": {
+    "ss4": "/Users/user/test/patched_roms/current_review/hnr_localization_review.ss4",
+    "ss5": "/Users/user/test/patched_roms/current_review/hnr_localization_review.ss5"
+  },
+  "contact_sheet": "confirmed_data/image_inventory/edit_packs/party_menu_ss4_ss5/party_menu_ss4_ss5_contact_sheet.png",
+  "annotated_sources": {
+    "ss4": "confirmed_data/image_inventory/edit_packs/party_menu_ss4_ss5/ss4_annotated_targets.png",
+    "ss5": "confirmed_data/image_inventory/edit_packs/party_menu_ss4_ss5/ss5_annotated_targets.png"
+  },
+  "items": [
+    {
+      "id": "ss4_party_panel_full",
+      "scene": "ss4",
+      "label": "파티 목록 전체 패널",
+      "source_text": "エドワード・エルリック / アルフォンス・エルリック / ウィンリィ・ロックベル",
+      "suggested_korean": "에드워드 엘릭 / 알폰스 엘릭 / 윈리 록벨",
+      "rect": [
+        0,
+        0,
+        110,
+        160
+      ],
+      "kind": "reference_full_panel",
+      "notes": "왼쪽 PARTY 목록 전체. 문자만 교체하려면 아래 캐릭터별 텍스트 블록을 우선 사용.",
+      "source_path": "/Users/user/test/patched_roms/current_review/hnr_localization_review.ss4",
+      "crop_path": "confirmed_data/image_inventory/edit_packs/party_menu_ss4_ss5/01_ss4_party_panel_full.png",
+      "crop_4x_path": "confirmed_data/image_inventory/edit_packs/party_menu_ss4_ss5/01_ss4_party_panel_full_4x.png",
+      "rom_apply_status": "screenshot_reference_only",
+      "warning": "입력 파일이 PNG 캡처라 이 crop 자체는 ROM offset/tile_map과 직접 연결되지 않음."
+    },
+    {
+      "id": "ss4_party_ed_text_block",
+      "scene": "ss4",
+      "label": "파티 1번 에드 텍스트 블록",
+      "source_text": "エドワード・エルリック / Edward Elric / 290/290",
+      "suggested_korean": "에드워드 엘릭 / Edward Elric / 290/290",
+      "rect": [
+        34,
+        12,
+        73,
+        38
+      ],
+      "kind": "editable_text_block",
+      "source_path": "/Users/user/test/patched_roms/current_review/hnr_localization_review.ss4",
+      "crop_path": "confirmed_data/image_inventory/edit_packs/party_menu_ss4_ss5/02_ss4_party_ed_text_block.png",
+      "crop_4x_path": "confirmed_data/image_inventory/edit_packs/party_menu_ss4_ss5/02_ss4_party_ed_text_block_4x.png",
+      "rom_apply_status": "screenshot_reference_only",
+      "warning": "입력 파일이 PNG 캡처라 이 crop 자체는 ROM offset/tile_map과 직접 연결되지 않음."
+    },
+    {
+      "id": "ss4_party_al_text_block",
+      "scene": "ss4",
+      "label": "파티 2번 알 텍스트 블록",
+      "source_text": "アルフォンス・エルリック / Alphonse Elric / 320/320",
+      "suggested_korean": "알폰스 엘릭 / Alphonse Elric / 320/320",
+      "rect": [
+        34,
+        62,
+        73,
+        38
+      ],
+      "kind": "editable_text_block",
+      "source_path": "/Users/user/test/patched_roms/current_review/hnr_localization_review.ss4",
+      "crop_path": "confirmed_data/image_inventory/edit_packs/party_menu_ss4_ss5/03_ss4_party_al_text_block.png",
+      "crop_4x_path": "confirmed_data/image_inventory/edit_packs/party_menu_ss4_ss5/03_ss4_party_al_text_block_4x.png",
+      "rom_apply_status": "screenshot_reference_only",
+      "warning": "입력 파일이 PNG 캡처라 이 crop 자체는 ROM offset/tile_map과 직접 연결되지 않음."
+    },
+    {
+      "id": "ss4_party_winry_text_block",
+      "scene": "ss4",
+      "label": "파티 3번 윈리 텍스트 블록",
+      "source_text": "ウィンリィ・ロックベル / Winry Rockbell / 165/165",
+      "suggested_korean": "윈리 록벨 / Winry Rockbell / 165/165",
+      "rect": [
+        34,
+        112,
+        73,
+        38
+      ],
+      "kind": "editable_text_block",
+      "source_path": "/Users/user/test/patched_roms/current_review/hnr_localization_review.ss4",
+      "crop_path": "confirmed_data/image_inventory/edit_packs/party_menu_ss4_ss5/04_ss4_party_winry_text_block.png",
+      "crop_4x_path": "confirmed_data/image_inventory/edit_packs/party_menu_ss4_ss5/04_ss4_party_winry_text_block_4x.png",
+      "rom_apply_status": "screenshot_reference_only",
+      "warning": "입력 파일이 PNG 캡처라 이 crop 자체는 ROM offset/tile_map과 직접 연결되지 않음."
+    },
+    {
+      "id": "ss4_sub_alchemy_notebook_button",
+      "scene": "ss4",
+      "label": "SUB 버튼 錬成手帳",
+      "source_text": "錬成手帳",
+      "suggested_korean": "연성수첩",
+      "rect": [
+        108,
+        7,
+        60,
+        37
+      ],
+      "kind": "editable_button_with_frame",
+      "source_path": "/Users/user/test/patched_roms/current_review/hnr_localization_review.ss4",
+      "crop_path": "confirmed_data/image_inventory/edit_packs/party_menu_ss4_ss5/05_ss4_sub_alchemy_notebook_button.png",
+      "crop_4x_path": "confirmed_data/image_inventory/edit_packs/party_menu_ss4_ss5/05_ss4_sub_alchemy_notebook_button_4x.png",
+      "rom_apply_status": "screenshot_reference_only",
+      "warning": "입력 파일이 PNG 캡처라 이 crop 자체는 ROM offset/tile_map과 직접 연결되지 않음."
+    },
+    {
+      "id": "ss4_sub_alchemy_notebook_text",
+      "scene": "ss4",
+      "label": "SUB 텍스트 錬成手帳",
+      "source_text": "錬成手帳",
+      "suggested_korean": "연성수첩",
+      "rect": [
+        115,
+        16,
+        43,
+        14
+      ],
+      "kind": "editable_text_only",
+      "source_path": "/Users/user/test/patched_roms/current_review/hnr_localization_review.ss4",
+      "crop_path": "confirmed_data/image_inventory/edit_packs/party_menu_ss4_ss5/06_ss4_sub_alchemy_notebook_text.png",
+      "crop_4x_path": "confirmed_data/image_inventory/edit_packs/party_menu_ss4_ss5/06_ss4_sub_alchemy_notebook_text_4x.png",
+      "rom_apply_status": "screenshot_reference_only",
+      "warning": "입력 파일이 PNG 캡처라 이 crop 자체는 ROM offset/tile_map과 직접 연결되지 않음."
+    },
+    {
+      "id": "ss5_sub_buttons_full",
+      "scene": "ss5",
+      "label": "SUB 버튼 入れ替え/必殺技",
+      "source_text": "入れ替え / 必殺技",
+      "suggested_korean": "교체 / 필살기",
+      "rect": [
+        108,
+        7,
+        60,
+        52
+      ],
+      "kind": "editable_button_with_frame",
+      "source_path": "/Users/user/test/patched_roms/current_review/hnr_localization_review.ss5",
+      "crop_path": "confirmed_data/image_inventory/edit_packs/party_menu_ss4_ss5/07_ss5_sub_buttons_full.png",
+      "crop_4x_path": "confirmed_data/image_inventory/edit_packs/party_menu_ss4_ss5/07_ss5_sub_buttons_full_4x.png",
+      "rom_apply_status": "screenshot_reference_only",
+      "warning": "입력 파일이 PNG 캡처라 이 crop 자체는 ROM offset/tile_map과 직접 연결되지 않음."
+    },
+    {
+      "id": "ss5_sub_switch_text",
+      "scene": "ss5",
+      "label": "SUB 텍스트 入れ替え",
+      "source_text": "入れ替え",
+      "suggested_korean": "교체",
+      "rect": [
+        115,
+        15,
+        43,
+        13
+      ],
+      "kind": "editable_text_only",
+      "source_path": "/Users/user/test/patched_roms/current_review/hnr_localization_review.ss5",
+      "crop_path": "confirmed_data/image_inventory/edit_packs/party_menu_ss4_ss5/08_ss5_sub_switch_text.png",
+      "crop_4x_path": "confirmed_data/image_inventory/edit_packs/party_menu_ss4_ss5/08_ss5_sub_switch_text_4x.png",
+      "rom_apply_status": "screenshot_reference_only",
+      "warning": "입력 파일이 PNG 캡처라 이 crop 자체는 ROM offset/tile_map과 직접 연결되지 않음."
+    },
+    {
+      "id": "ss5_sub_special_text",
+      "scene": "ss5",
+      "label": "SUB 텍스트 必殺技",
+      "source_text": "必殺技",
+      "suggested_korean": "필살기",
+      "rect": [
+        115,
+        31,
+        43,
+        13
+      ],
+      "kind": "editable_text_only",
+      "source_path": "/Users/user/test/patched_roms/current_review/hnr_localization_review.ss5",
+      "crop_path": "confirmed_data/image_inventory/edit_packs/party_menu_ss4_ss5/09_ss5_sub_special_text.png",
+      "crop_4x_path": "confirmed_data/image_inventory/edit_packs/party_menu_ss4_ss5/09_ss5_sub_special_text_4x.png",
+      "rom_apply_status": "screenshot_reference_only",
+      "warning": "입력 파일이 PNG 캡처라 이 crop 자체는 ROM offset/tile_map과 직접 연결되지 않음."
+    }
+  ]
+}

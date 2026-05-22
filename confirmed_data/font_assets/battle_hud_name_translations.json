@@ -1,0 +1,582 @@
+{
+  "version": 1,
+  "source_table": "confirmed_data/font_assets/battle_hud_name_table.json",
+  "items": [
+    {
+      "decoded_name": "ヌル",
+      "korean_translation": "널",
+      "translation_basis": "placeholder",
+      "translation_needs_review": false,
+      "translation_note": "Placeholder/null-style entry; likely not meant to be visible.",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "エド",
+      "korean_translation": "에드",
+      "translation_basis": "common_glossary",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "アル",
+      "korean_translation": "알",
+      "translation_basis": "common_glossary",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "マスタング",
+      "korean_translation": "머스탱",
+      "translation_basis": "common_glossary",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "ホークアイ",
+      "korean_translation": "호크아이",
+      "translation_basis": "common_glossary",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "アームストロング",
+      "korean_translation": "암스트롱",
+      "translation_basis": "common_glossary",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "マーティンス",
+      "korean_translation": "마틴스",
+      "translation_basis": "common_glossary",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "コニィ",
+      "korean_translation": "코니",
+      "translation_basis": "common_glossary",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "コーネロ",
+      "korean_translation": "코넬로",
+      "translation_basis": "common_glossary",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "バルド",
+      "korean_translation": "발드",
+      "translation_basis": "common_glossary",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "ランディ",
+      "korean_translation": "랜디",
+      "translation_basis": "common_glossary",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "ケイト",
+      "korean_translation": "케이트",
+      "translation_basis": "common_glossary",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "ブリストル",
+      "korean_translation": "브리스톨",
+      "translation_basis": "common_glossary",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "リンカー",
+      "korean_translation": "링커",
+      "translation_basis": "common_glossary",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "ラストリンカー",
+      "korean_translation": "라스트 링커",
+      "translation_basis": "common_glossary",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "アザーズ",
+      "korean_translation": "아더즈",
+      "translation_basis": "localized_transliteration",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "ティアーズ",
+      "korean_translation": "티어즈",
+      "translation_basis": "localized_transliteration",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "キョウト",
+      "korean_translation": "신도",
+      "translation_basis": "gui_override",
+      "translation_needs_review": false,
+      "translation_note": "Phonetic draft from the confirmed HUD source ｷｮｳﾄ.",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "トウゾク",
+      "korean_translation": "도적",
+      "translation_basis": "semantic_enemy_type",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "ゴウトウ",
+      "korean_translation": "강도",
+      "translation_basis": "semantic_enemy_type",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "ボマー",
+      "korean_translation": "봄버",
+      "translation_basis": "localized_transliteration",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "サンゾク",
+      "korean_translation": "산적",
+      "translation_basis": "semantic_enemy_type",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "マッチョ1",
+      "korean_translation": "마초1",
+      "translation_basis": "localized_transliteration",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "マッチョ2",
+      "korean_translation": "마초2",
+      "translation_basis": "localized_transliteration",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "マッチョ3",
+      "korean_translation": "마초3",
+      "translation_basis": "localized_transliteration",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "マッチョ4",
+      "korean_translation": "마초4",
+      "translation_basis": "localized_transliteration",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "メインビースト",
+      "korean_translation": "메인비스트",
+      "translation_basis": "confirmed_runtime_target",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "ワイルドファング",
+      "korean_translation": "와일드팽",
+      "translation_basis": "localized_transliteration",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "ダークブリング",
+      "korean_translation": "다크브링",
+      "translation_basis": "localized_transliteration",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "シシオウ",
+      "korean_translation": "사자왕",
+      "translation_basis": "semantic_enemy_name",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "エルフラッター",
+      "korean_translation": "엘플러터",
+      "translation_basis": "localized_transliteration",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "バーンフラッター",
+      "korean_translation": "번플러터",
+      "translation_basis": "localized_transliteration",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "グリフォン",
+      "korean_translation": "그리폰",
+      "translation_basis": "localized_transliteration",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "デスフラッター",
+      "korean_translation": "데스플러터",
+      "translation_basis": "localized_transliteration",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "ホーンバイソン",
+      "korean_translation": "혼바이슨",
+      "translation_basis": "localized_transliteration",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "クリムゾンテラー",
+      "korean_translation": "크림슨테러",
+      "translation_basis": "localized_transliteration",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "アンデットホーン",
+      "korean_translation": "언데드혼",
+      "translation_basis": "localized_transliteration",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "ブレイドバイソン",
+      "korean_translation": "블레이드바이슨",
+      "translation_basis": "localized_transliteration",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "サイキョウト",
+      "korean_translation": "광신도",
+      "translation_basis": "gui_override",
+      "translation_needs_review": false,
+      "translation_note": "Phonetic draft from the confirmed HUD source ｻｲｷｮｳﾄ.",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "キメラ5",
+      "korean_translation": "키메라5",
+      "translation_basis": "common_glossary",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "アーマーゲーター",
+      "korean_translation": "아머게이터",
+      "translation_basis": "localized_transliteration",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "スパイクカイマン",
+      "korean_translation": "스파이크카이만",
+      "translation_basis": "localized_transliteration",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "ヴェノムスピン",
+      "korean_translation": "베놈스핀",
+      "translation_basis": "localized_transliteration",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "デモンズカイマン",
+      "korean_translation": "데몬즈카이만",
+      "translation_basis": "localized_transliteration",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "ウルフスナッフ",
+      "korean_translation": "울프스너프",
+      "translation_basis": "localized_transliteration",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "ナックルウルフ",
+      "korean_translation": "너클울프",
+      "translation_basis": "localized_transliteration",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "フェンリルニー",
+      "korean_translation": "펜리르니",
+      "translation_basis": "localized_transliteration",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "ウルヴァリン",
+      "korean_translation": "울버린",
+      "translation_basis": "localized_transliteration",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "キメラ7",
+      "korean_translation": "키메라7",
+      "translation_basis": "common_glossary",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "ドリルホース",
+      "korean_translation": "드릴호스",
+      "translation_basis": "localized_transliteration",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "ユニコーンヘッド",
+      "korean_translation": "유니콘헤드",
+      "translation_basis": "localized_transliteration",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "スピードスター",
+      "korean_translation": "스피드스타",
+      "translation_basis": "localized_transliteration",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "スレイプニール",
+      "korean_translation": "슬레이프니르",
+      "translation_basis": "localized_transliteration",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "ライノスロス",
+      "korean_translation": "라이노슬로스",
+      "translation_basis": "common_glossary",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "グランディス",
+      "korean_translation": "그랜디스",
+      "translation_basis": "localized_transliteration",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "ディルヴァス",
+      "korean_translation": "딜바스",
+      "translation_basis": "localized_transliteration",
+      "translation_needs_review": true,
+      "translation_note": "Game/original monster name not found in the shared glossary.",
+      "progress_status": "done",
+      "review_status": "issue"
+    },
+    {
+      "decoded_name": "エクスクライム",
+      "korean_translation": "엑스크라임",
+      "translation_basis": "localized_transliteration",
+      "translation_needs_review": true,
+      "translation_note": "Game/original monster name not found in the shared glossary.",
+      "progress_status": "done",
+      "review_status": "issue"
+    },
+    {
+      "decoded_name": "スネークバインド",
+      "korean_translation": "스네이크바인드",
+      "translation_basis": "localized_transliteration",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "ヒドラ",
+      "korean_translation": "히드라",
+      "translation_basis": "common_glossary",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "ゴーゴンリップ",
+      "korean_translation": "고르곤립",
+      "translation_basis": "localized_transliteration",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "ダークネスヘブン",
+      "korean_translation": "다크니스헤븐",
+      "translation_basis": "localized_transliteration",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "スカー",
+      "korean_translation": "스카",
+      "translation_basis": "common_glossary",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "ラスト",
+      "korean_translation": "러스트",
+      "translation_basis": "common_glossary",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    },
+    {
+      "decoded_name": "グラトニー",
+      "korean_translation": "글러트니",
+      "translation_basis": "common_glossary",
+      "translation_needs_review": false,
+      "translation_note": "",
+      "progress_status": "done",
+      "review_status": "checked"
+    }
+  ]
+}

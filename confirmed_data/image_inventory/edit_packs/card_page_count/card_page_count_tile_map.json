@@ -1,0 +1,371 @@
+{
+  "scene": "current_review_ss6",
+  "frame": "frame_000006",
+  "bg": 1,
+  "rle_offset": 3809388,
+  "rle_offset_hex": "0x003A206C",
+  "rle_raw_path": "confirmed_data/image_inventory/rle_tile_extraction/rle_raw/0831_off_003A206C_size_001800.bin",
+  "runtime_palette_path": "confirmed_data/image_inventory/runtime_user_captures/current_review_ss6/frame_000006_palette_05000000.bin",
+  "crop_screen_tiles": {
+    "min_x": 2,
+    "min_y": 7,
+    "max_x": 9,
+    "max_y": 10
+  },
+  "crop_pixels": {
+    "x": 16,
+    "y": 56,
+    "width": 64,
+    "height": 32
+  },
+  "scroll_pixels": {
+    "x": 0,
+    "y": 0
+  },
+  "fine_scroll_pixels": {
+    "x": 0,
+    "y": 0
+  },
+  "alignment_adjustment_pixels": {
+    "x": 0,
+    "y": 0
+  },
+  "matched_tile_count": 21,
+  "source_match": {
+    "score": 762.4586,
+    "shared_tiles": 156,
+    "runtime_coverage": 0.5865,
+    "candidate_coverage": 1.0,
+    "candidate_index": 831,
+    "decompressed_size": 6144,
+    "compressed_size": 3761
+  },
+  "matches": [
+    {
+      "screen_tile_x": 3,
+      "screen_tile_y": 7,
+      "map_tile_x": 3,
+      "map_tile_y": 7,
+      "runtime_tile_index": 115,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 12,
+      "screen_entry": 49267,
+      "rle_tile_indexes": [
+        115
+      ]
+    },
+    {
+      "screen_tile_x": 4,
+      "screen_tile_y": 7,
+      "map_tile_x": 4,
+      "map_tile_y": 7,
+      "runtime_tile_index": 116,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 12,
+      "screen_entry": 49268,
+      "rle_tile_indexes": [
+        116
+      ]
+    },
+    {
+      "screen_tile_x": 5,
+      "screen_tile_y": 7,
+      "map_tile_x": 5,
+      "map_tile_y": 7,
+      "runtime_tile_index": 117,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 12,
+      "screen_entry": 49269,
+      "rle_tile_indexes": [
+        117
+      ]
+    },
+    {
+      "screen_tile_x": 6,
+      "screen_tile_y": 7,
+      "map_tile_x": 6,
+      "map_tile_y": 7,
+      "runtime_tile_index": 118,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 12,
+      "screen_entry": 49270,
+      "rle_tile_indexes": [
+        118
+      ]
+    },
+    {
+      "screen_tile_x": 7,
+      "screen_tile_y": 7,
+      "map_tile_x": 7,
+      "map_tile_y": 7,
+      "runtime_tile_index": 119,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 12,
+      "screen_entry": 49271,
+      "rle_tile_indexes": [
+        119
+      ]
+    },
+    {
+      "screen_tile_x": 8,
+      "screen_tile_y": 7,
+      "map_tile_x": 8,
+      "map_tile_y": 7,
+      "runtime_tile_index": 120,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 12,
+      "screen_entry": 49272,
+      "rle_tile_indexes": [
+        120
+      ]
+    },
+    {
+      "screen_tile_x": 9,
+      "screen_tile_y": 7,
+      "map_tile_x": 9,
+      "map_tile_y": 7,
+      "runtime_tile_index": 143,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 12,
+      "screen_entry": 49295,
+      "rle_tile_indexes": [
+        143
+      ]
+    },
+    {
+      "screen_tile_x": 3,
+      "screen_tile_y": 8,
+      "map_tile_x": 3,
+      "map_tile_y": 8,
+      "runtime_tile_index": 29,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 12,
+      "screen_entry": 49181,
+      "rle_tile_indexes": [
+        29
+      ]
+    },
+    {
+      "screen_tile_x": 4,
+      "screen_tile_y": 8,
+      "map_tile_x": 4,
+      "map_tile_y": 8,
+      "runtime_tile_index": 127,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 12,
+      "screen_entry": 49279,
+      "rle_tile_indexes": [
+        127
+      ]
+    },
+    {
+      "screen_tile_x": 5,
+      "screen_tile_y": 8,
+      "map_tile_x": 5,
+      "map_tile_y": 8,
+      "runtime_tile_index": 128,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 12,
+      "screen_entry": 49280,
+      "rle_tile_indexes": [
+        128
+      ]
+    },
+    {
+      "screen_tile_x": 6,
+      "screen_tile_y": 8,
+      "map_tile_x": 6,
+      "map_tile_y": 8,
+      "runtime_tile_index": 129,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 12,
+      "screen_entry": 49281,
+      "rle_tile_indexes": [
+        129
+      ]
+    },
+    {
+      "screen_tile_x": 7,
+      "screen_tile_y": 8,
+      "map_tile_x": 7,
+      "map_tile_y": 8,
+      "runtime_tile_index": 130,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 12,
+      "screen_entry": 49282,
+      "rle_tile_indexes": [
+        130
+      ]
+    },
+    {
+      "screen_tile_x": 8,
+      "screen_tile_y": 8,
+      "map_tile_x": 8,
+      "map_tile_y": 8,
+      "runtime_tile_index": 131,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 12,
+      "screen_entry": 49283,
+      "rle_tile_indexes": [
+        131
+      ]
+    },
+    {
+      "screen_tile_x": 9,
+      "screen_tile_y": 8,
+      "map_tile_x": 9,
+      "map_tile_y": 8,
+      "runtime_tile_index": 30,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 12,
+      "screen_entry": 49182,
+      "rle_tile_indexes": [
+        30
+      ]
+    },
+    {
+      "screen_tile_x": 3,
+      "screen_tile_y": 9,
+      "map_tile_x": 3,
+      "map_tile_y": 9,
+      "runtime_tile_index": 151,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 12,
+      "screen_entry": 49303,
+      "rle_tile_indexes": [
+        151
+      ]
+    },
+    {
+      "screen_tile_x": 4,
+      "screen_tile_y": 9,
+      "map_tile_x": 4,
+      "map_tile_y": 9,
+      "runtime_tile_index": 140,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 12,
+      "screen_entry": 49292,
+      "rle_tile_indexes": [
+        140
+      ]
+    },
+    {
+      "screen_tile_x": 5,
+      "screen_tile_y": 9,
+      "map_tile_x": 5,
+      "map_tile_y": 9,
+      "runtime_tile_index": 141,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 12,
+      "screen_entry": 49293,
+      "rle_tile_indexes": [
+        141
+      ]
+    },
+    {
+      "screen_tile_x": 6,
+      "screen_tile_y": 9,
+      "map_tile_x": 6,
+      "map_tile_y": 9,
+      "runtime_tile_index": 141,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 12,
+      "screen_entry": 49293,
+      "rle_tile_indexes": [
+        141
+      ]
+    },
+    {
+      "screen_tile_x": 7,
+      "screen_tile_y": 9,
+      "map_tile_x": 7,
+      "map_tile_y": 9,
+      "runtime_tile_index": 141,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 12,
+      "screen_entry": 49293,
+      "rle_tile_indexes": [
+        141
+      ]
+    },
+    {
+      "screen_tile_x": 8,
+      "screen_tile_y": 9,
+      "map_tile_x": 8,
+      "map_tile_y": 9,
+      "runtime_tile_index": 142,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 12,
+      "screen_entry": 49294,
+      "rle_tile_indexes": [
+        142
+      ]
+    },
+    {
+      "screen_tile_x": 9,
+      "screen_tile_y": 9,
+      "map_tile_x": 9,
+      "map_tile_y": 9,
+      "runtime_tile_index": 152,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 12,
+      "screen_entry": 49304,
+      "rle_tile_indexes": [
+        152
+      ]
+    }
+  ],
+  "focus_note": "Focused card detail page count label: 1枚目.",
+  "focus_tile_alias_cleanup": {
+    "reason": "Focused card_page_count patch must follow the actual runtime tile index; duplicate identical RLE aliases break alias-split layout inference.",
+    "changes": [
+      {
+        "screen": [
+          3,
+          7
+        ],
+        "old": [
+          37,
+          115
+        ],
+        "new": [
+          115
+        ]
+      },
+      {
+        "screen": [
+          5,
+          8
+        ],
+        "old": [
+          63,
+          128
+        ],
+        "new": [
+          128
+        ]
+      }
+    ]
+  }
+}

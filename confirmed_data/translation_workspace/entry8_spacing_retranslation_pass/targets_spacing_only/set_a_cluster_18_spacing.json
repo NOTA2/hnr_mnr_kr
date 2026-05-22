@@ -1,0 +1,659 @@
+{
+  "task": "Entry8 spacing-only correction pass; manual_locked and over-capacity items excluded",
+  "instruction_docs": [
+    "docs/translation_team/fma_translation_team_common_final_v4_1.md",
+    "docs/translation_team/fma_translation_agent_final_v4_1.md",
+    "docs/translation_team/fma_review_agent_final_v4_1.md",
+    "docs/repeat_mistake_prevention.md"
+  ],
+  "hard_rules": [
+    "DO NOT shorten or summarize the sentence.",
+    "DO NOT remove words that are present in current_translation.",
+    "Primary allowed operation: insert fullwidth spaces U+3000 into current_translation.",
+    "You may only change obvious typo/glossary errors when the corrected string remains within capacity and preserves meaning.",
+    "Do not use halfwidth spaces or halfwidth punctuation in Entry8.",
+    "Do not add a space immediately after punctuation such as 、 。 … ！ ？ 「 」.",
+    "Do not split proper nouns internally: 코넬로, 레돈드, 솔링, 다이무라, 마틴스, 호크아이, 브래드레이, 윈리, 코니슈, 리젠블, 현자의 돌 etc.",
+    "If no safe improvement is possible, omit the record from output.",
+    "Output only changed records."
+  ],
+  "records": [
+    {
+      "item_id": "cluster_18_east_city:006E4AA8",
+      "group_id": "cluster_18_east_city",
+      "offset": 7228072,
+      "hex": "0x6E4AA8",
+      "source": "……ありがとうございました",
+      "current_translation": "……감사합니다",
+      "capacity_bytes": 26,
+      "current_used_bytes": 21,
+      "spare_bytes": 5,
+      "context_before": [
+        {
+          "item_id": "cluster_18_east_city:006E4A24",
+          "source": "残念だが不合格とする",
+          "translation": "아쉽지만　불합격"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E4A50",
+          "source": "まだ若い。",
+          "translation": "아직　젊다"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E4A60",
+          "source": "これであきらめてはいけない",
+          "translation": "이걸로　포기하지　마라"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_18_east_city:006E4CAA",
+          "source": "あの…",
+          "translation": "저…"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E4CBC",
+          "source": "少佐？",
+          "translation": "소령？"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E4CE4",
+          "source": "おお、",
+          "translation": "오오、"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_18_east_city:006E5246",
+      "group_id": "cluster_18_east_city",
+      "offset": 7230022,
+      "hex": "0x6E5246",
+      "source": "気がするんだが…）",
+      "current_translation": "같은데…）",
+      "capacity_bytes": 18,
+      "current_used_bytes": 15,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_18_east_city:006E51E4",
+          "source": "最後の判断は自身で",
+          "translation": "마지막은　스스로"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E51FC",
+          "source": "決めることだ",
+          "translation": "정하는　거다"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E5224",
+          "source": "（じゅうぶん強制してるような",
+          "translation": "（충분히　강요하는　것"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_18_east_city:006E526C",
+          "source": "ブラッドレイ大総統の",
+          "translation": "브래드레이　대총통의"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E5286",
+          "source": "開会宣言が始まるよ、",
+          "translation": "개회　선언　시작이야"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E52A4",
+          "source": "兄さん",
+          "translation": "형"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_18_east_city:006E52A4",
+      "group_id": "cluster_18_east_city",
+      "offset": 7230116,
+      "hex": "0x6E52A4",
+      "source": "兄さん",
+      "current_translation": "형",
+      "capacity_bytes": 6,
+      "current_used_bytes": 3,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_18_east_city:006E5246",
+          "source": "気がするんだが…）",
+          "translation": "같은데…）"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E526C",
+          "source": "ブラッドレイ大総統の",
+          "translation": "브래드레이　대총통의"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E5286",
+          "source": "開会宣言が始まるよ、",
+          "translation": "개회　선언　시작이야"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_18_east_city:006E52EE",
+          "source": "ああ、",
+          "translation": "그래、"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E5300",
+          "source": "そういうことで、",
+          "translation": "그런　뜻으로、"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E5316",
+          "source": "日々の鍛錬の成果を",
+          "translation": "평소　단련　성과를"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_18_east_city:006E5F3E",
+      "group_id": "cluster_18_east_city",
+      "offset": 7233342,
+      "hex": "0x6E5F3E",
+      "source": "ありがとうございました！",
+      "current_translation": "감사합니다！",
+      "capacity_bytes": 24,
+      "current_used_bytes": 18,
+      "spare_bytes": 6,
+      "context_before": [
+        {
+          "item_id": "cluster_18_east_city:006E5EE2",
+          "source": "目立つよね",
+          "translation": "눈에　띄네"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E5F00",
+          "source": "では、本日の訓練は",
+          "translation": "오늘　훈련은"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E5F18",
+          "source": "これにて終了とする！",
+          "translation": "이걸로　종료한다！"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_18_east_city:006E5FC2",
+          "source": "アームストロング少佐、",
+          "translation": "암스트롱　소령、"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E5FDE",
+          "source": "こんにちは",
+          "translation": "안녕하세요"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E6000",
+          "source": "エルリック兄弟ではないか！",
+          "translation": "엘릭　형제　아닌가！"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_18_east_city:006E6112",
+      "group_id": "cluster_18_east_city",
+      "offset": 7233810,
+      "hex": "0x6E6112",
+      "source": "そうなんだ。",
+      "current_translation": "맞아。",
+      "capacity_bytes": 12,
+      "current_used_bytes": 9,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_18_east_city:006E60A4",
+          "source": "特殊部隊を編成するんだけど…",
+          "translation": "특수부대를　꾸리는데…"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E60D6",
+          "source": "そのメンバーに",
+          "translation": "그　멤버로"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E60EA",
+          "source": "私をという事かな？",
+          "translation": "나를　말인가？"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_18_east_city:006E6124",
+          "source": "どうしても解決したい！",
+          "translation": "꼭　해결하고　싶어！"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E614C",
+          "source": "コニィもメンバーなんだけど",
+          "translation": "코니도　멤버인데"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E616C",
+          "source": "活躍次第では大総統お墨付きの",
+          "translation": "활약하면　대총통　보증으로"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_18_east_city:006E6570",
+      "group_id": "cluster_18_east_city",
+      "offset": 7234928,
+      "hex": "0x6E6570",
+      "source": "ありがとうございます！",
+      "current_translation": "감사합니다！",
+      "capacity_bytes": 22,
+      "current_used_bytes": 18,
+      "spare_bytes": 4,
+      "context_before": [
+        {
+          "item_id": "cluster_18_east_city:006E651C",
+          "source": "もちろんだ。",
+          "translation": "물론일세。"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E652E",
+          "source": "コーニッシュ嬢のためにも",
+          "translation": "코니슈　양을　위해서도"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E654C",
+          "source": "力になろう！",
+          "translation": "힘이　되지！"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_18_east_city:006E659C",
+          "source": "コーニッシュ嬢、",
+          "translation": "코니슈　양、"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E65B2",
+          "source": "この特殊部隊にいる間、",
+          "translation": "특수부대에　있는　동안"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E65CE",
+          "source": "たくさんのことを学びなさい",
+          "translation": "많은　것을　배우도록　하게"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_18_east_city:006E768C",
+      "group_id": "cluster_18_east_city",
+      "offset": 7239308,
+      "hex": "0x6E768C",
+      "source": "同じだとしたら…",
+      "current_translation": "같다면…",
+      "capacity_bytes": 16,
+      "current_used_bytes": 12,
+      "spare_bytes": 4,
+      "context_before": [
+        {
+          "item_id": "cluster_18_east_city:006E763A",
+          "source": "失礼ねー",
+          "translation": "실례네"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E7654",
+          "source": "でも、大丈夫かな。",
+          "translation": "근데　괜찮을까。"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E7670",
+          "source": "もし、兄さんと実力まで",
+          "translation": "형과　실력까지"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_18_east_city:006E76C2",
+          "source": "ダ、",
+          "translation": "괘、"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E76CE",
+          "source": "ダイジョブです…",
+          "translation": "괜찮아요…"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E76E8",
+          "source": "…たぶん",
+          "translation": "…아마"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_18_east_city:006E77BC",
+      "group_id": "cluster_18_east_city",
+      "offset": 7239612,
+      "hex": "0x6E77BC",
+      "source": "かわいくなったろ。",
+      "current_translation": "예뻐졌지。",
+      "capacity_bytes": 18,
+      "current_used_bytes": 15,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_18_east_city:006E776A",
+          "source": "約束したんだからな",
+          "translation": "간다　약속했거든"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E7794",
+          "source": "ほら、エド。",
+          "translation": "봐라　에드。"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E77AA",
+          "source": "ウチの娘、",
+          "translation": "우리　딸、"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_18_east_city:006E77DC",
+          "source": "…だが、",
+          "translation": "그래도、"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E77EC",
+          "source": "嫁にはやらんぞ",
+          "translation": "시집　안　보내"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E7812",
+          "source": "わーった、",
+          "translation": "알았어、"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_18_east_city:006E80BC",
+      "group_id": "cluster_18_east_city",
+      "offset": 7241916,
+      "hex": "0x6E80BC",
+      "source": "ありがとうございますっ！",
+      "current_translation": "감사합니다！",
+      "capacity_bytes": 24,
+      "current_used_bytes": 18,
+      "spare_bytes": 6,
+      "context_before": [
+        {
+          "item_id": "cluster_18_east_city:006E8066",
+          "source": "君を本日付で、",
+          "translation": "그댈　오늘부로"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E807A",
+          "source": "正式に国家錬金術師と認める",
+          "translation": "국가　연금술사로　인정"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E80B0",
+          "source": "あ、",
+          "translation": "아、"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_18_east_city:006E80EE",
+          "source": "ところで、",
+          "translation": "그런데、"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E8100",
+          "source": "国家錬金術師には、",
+          "translation": "국가　연금술사는"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E8118",
+          "source": "二つ名を与えるもの",
+          "translation": "이명을　받는　법"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_18_east_city:006E84E2",
+      "group_id": "cluster_18_east_city",
+      "offset": 7242978,
+      "hex": "0x6E84E2",
+      "source": "兄さん",
+      "current_translation": "형",
+      "capacity_bytes": 6,
+      "current_used_bytes": 3,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_18_east_city:006E8498",
+          "source": "なに言ってるのさ！",
+          "translation": "무슨　소리야！"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E84B4",
+          "source": "コニィががんばったからだよ！",
+          "translation": "코니가　노력한　덕분이지！"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E84D6",
+          "source": "ね、",
+          "translation": "그치"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_18_east_city:006E84FA",
+          "source": "そうだな",
+          "translation": "그렇지"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E851E",
+          "source": "そうよね！",
+          "translation": "그렇지！"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E8530",
+          "source": "私の実力よね！",
+          "translation": "내　실력이지！"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_18_east_city:006E8CA8",
+      "group_id": "cluster_18_east_city",
+      "offset": 7244968,
+      "hex": "0x6E8CA8",
+      "source": "いかないな！",
+      "current_translation": "없지！",
+      "capacity_bytes": 12,
+      "current_used_bytes": 9,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_18_east_city:006E8C50",
+          "source": "ろくなことないんだけどな",
+          "translation": "좋을　게　없거든"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E8C80",
+          "source": "つーわけで、",
+          "translation": "그러니까、"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E8C92",
+          "source": "優勝させるわけに",
+          "translation": "우승하게　둘　순"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_18_east_city:006E8D36",
+          "source": "格の違いってヤツが",
+          "translation": "격이　다르다는　걸"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E8D4E",
+          "source": "まだわかんないかな？",
+          "translation": "아직도　모르겠냐？"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E8D68",
+          "source": "さて、お次の相手は誰だ？",
+          "translation": "자、다음　상대는？"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_18_east_city:006E8E66",
+      "group_id": "cluster_18_east_city",
+      "offset": 7245414,
+      "hex": "0x6E8E66",
+      "source": "いつの間に",
+      "current_translation": "언제",
+      "capacity_bytes": 10,
+      "current_used_bytes": 6,
+      "spare_bytes": 4,
+      "context_before": [
+        {
+          "item_id": "cluster_18_east_city:006E8E0A",
+          "source": "何してんだ？",
+          "translation": "뭐　해？"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E8E2E",
+          "source": "次の相手はボクだよ",
+          "translation": "다음　상대는　나야"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E8E52",
+          "source": "な、なんだと！",
+          "translation": "뭐、뭐라고！"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_18_east_city:006E8E76",
+          "source": "出場申し込みをしてたんだよ",
+          "translation": "출전　신청을　했냐"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E8EA8",
+          "source": "いや、",
+          "translation": "아니、"
+        },
+        {
+          "item_id": "cluster_18_east_city:006E8EBA",
+          "source": "少佐がさぁ～",
+          "translation": "소령이…"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_18_east_city:006EA14E",
+      "group_id": "cluster_18_east_city",
+      "offset": 7250254,
+      "hex": "0x6EA14E",
+      "source": "大総統閣下！",
+      "current_translation": "각하！",
+      "capacity_bytes": 12,
+      "current_used_bytes": 9,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_18_east_city:006EA09E",
+          "source": "戦ってやっていたというのに",
+          "translation": "싸워　줬다는　건데"
+        },
+        {
+          "item_id": "cluster_18_east_city:006EA0C8",
+          "source": "覚悟を決めたまえ！",
+          "translation": "각오하게나！"
+        },
+        {
+          "item_id": "cluster_18_east_city:006EA0F2",
+          "source": "そこまで！",
+          "translation": "거기까지！"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_18_east_city:006EA160",
+          "source": "私はまだ…",
+          "translation": "저는　아직"
+        },
+        {
+          "item_id": "cluster_18_east_city:006EA17C",
+          "source": "最初の発火布が破れた時点で、",
+          "translation": "첫　발화천이　찢긴　시점에、"
+        },
+        {
+          "item_id": "cluster_18_east_city:006EA19E",
+          "source": "一本だよ、マスタング大佐",
+          "translation": "한판이네、머스탱　대령"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_18_east_city:006EA1D4",
+      "group_id": "cluster_18_east_city",
+      "offset": 7250388,
+      "hex": "0x6EA1D4",
+      "source": "くっ………",
+      "current_translation": "큭…",
+      "capacity_bytes": 10,
+      "current_used_bytes": 6,
+      "spare_bytes": 4,
+      "context_before": [
+        {
+          "item_id": "cluster_18_east_city:006EA160",
+          "source": "私はまだ…",
+          "translation": "저는　아직"
+        },
+        {
+          "item_id": "cluster_18_east_city:006EA17C",
+          "source": "最初の発火布が破れた時点で、",
+          "translation": "첫　발화천이　찢긴　시점에、"
+        },
+        {
+          "item_id": "cluster_18_east_city:006EA19E",
+          "source": "一本だよ、マスタング大佐",
+          "translation": "한판이네、머스탱　대령"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_18_east_city:006EA1F0",
+          "source": "鋼の錬金術師君、いずれにしろ",
+          "translation": "강철　연금술사　군、어쨌든"
+        },
+        {
+          "item_id": "cluster_18_east_city:006EA212",
+          "source": "両名とも見事な戦いだった",
+          "translation": "두　사람　다　훌륭했다"
+        },
+        {
+          "item_id": "cluster_18_east_city:006EA242",
+          "source": "…な、なんだか照れるな",
+          "translation": "…뭔가　쑥스럽네"
+        }
+      ]
+    }
+  ],
+  "excluded_counts": {
+    "manual_locked": 5,
+    "overflow_current": 464,
+    "no_spare_for_fullwidth_space": 93,
+    "already_has_space": 1,
+    "no_hangul": 4
+  }
+}

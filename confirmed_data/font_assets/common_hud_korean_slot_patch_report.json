@@ -1,0 +1,135 @@
+{
+  "target": "patched_roms/current_review/hnr_localization_review.gba",
+  "atlas": "third_party/font_atlases/finalists/Galmuri7_9x9.png",
+  "offset": 5458036,
+  "offset_hex": "0x00534874",
+  "dry_run": false,
+  "timestamp": "2026-05-22T03:12:09",
+  "status_name_slot_groups": [
+    {
+      "source": "Ed",
+      "text": "에드",
+      "start_slot": "0xAA",
+      "slot_count": 5,
+      "used_slots": [
+        "0xAA",
+        "0xAB"
+      ],
+      "cleared_slots": [
+        "0xAC",
+        "0xAD",
+        "0xAE"
+      ]
+    },
+    {
+      "source": "Al",
+      "text": "알",
+      "start_slot": "0xAF",
+      "slot_count": 6,
+      "used_slots": [
+        "0xAF"
+      ],
+      "cleared_slots": [
+        "0xB0",
+        "0xB1",
+        "0xB2",
+        "0xB3",
+        "0xB4"
+      ]
+    },
+    {
+      "source": "Mustang",
+      "text": "머스탱",
+      "start_slot": "0xB5",
+      "slot_count": 5,
+      "used_slots": [
+        "0xB5",
+        "0xB6",
+        "0xB7"
+      ],
+      "cleared_slots": [
+        "0xB8",
+        "0xB9"
+      ]
+    },
+    {
+      "source": "Hawkeye",
+      "text": "호크아이",
+      "start_slot": "0xBA",
+      "slot_count": 5,
+      "used_slots": [
+        "0xBA",
+        "0xBB",
+        "0xBC",
+        "0xBD"
+      ],
+      "cleared_slots": [
+        "0xBE"
+      ]
+    },
+    {
+      "source": "ARMSTRONG",
+      "text": "암스트롱",
+      "start_slot": "0xCA",
+      "slot_count": 8,
+      "used_slots": [
+        "0xCA",
+        "0xCB",
+        "0xCC",
+        "0xCD"
+      ],
+      "cleared_slots": [
+        "0xCE",
+        "0xCF",
+        "0xD0",
+        "0xD1"
+      ]
+    },
+    {
+      "source": "Martins",
+      "text": "마틴스",
+      "start_slot": "0xD2",
+      "slot_count": 6,
+      "used_slots": [
+        "0xD2",
+        "0xD3",
+        "0xD4"
+      ],
+      "cleared_slots": [
+        "0xD5",
+        "0xD6",
+        "0xD7"
+      ]
+    },
+    {
+      "source": "Cony",
+      "text": "코니",
+      "start_slot": "0xD8",
+      "slot_count": 6,
+      "used_slots": [
+        "0xD8",
+        "0xD9"
+      ],
+      "cleared_slots": [
+        "0xDA",
+        "0xDB",
+        "0xDC",
+        "0xDD"
+      ]
+    }
+  ],
+  "allowed_slot_ranges": [
+    "0xAA-0xBE",
+    "0xCA-0xDD"
+  ],
+  "palette_nibbles": {
+    "background": "0xD",
+    "shadow": "0x1",
+    "ink": "0xF"
+  },
+  "existing_compressed_size": 3031,
+  "new_compressed_size": 2829,
+  "fits_in_place": true,
+  "backup": null,
+  "preview_path": "confirmed_data/font_assets/common_hud_korean_slot_patch_preview.png"
+}

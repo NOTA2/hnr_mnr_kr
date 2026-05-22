@@ -1,0 +1,81 @@
+[
+  {
+    "set": "set_a_cluster_18_spacing",
+    "clusters": [
+      "cluster_18_east_city"
+    ],
+    "records": 14,
+    "excluded_counts": {
+      "manual_locked": 5,
+      "overflow_current": 464,
+      "no_spare_for_fullwidth_space": 93,
+      "already_has_space": 1,
+      "no_hangul": 4
+    },
+    "path": "confirmed_data/translation_workspace/entry8_spacing_retranslation_pass/targets_spacing_only/set_a_cluster_18_spacing.json"
+  },
+  {
+    "set": "set_b_cluster_38_spacing",
+    "clusters": [
+      "cluster_38_central"
+    ],
+    "records": 31,
+    "excluded_counts": {
+      "manual_locked": 15,
+      "overflow_current": 648,
+      "no_spare_for_fullwidth_space": 128,
+      "already_has_space": 4,
+      "no_hangul": 0
+    },
+    "path": "confirmed_data/translation_workspace/entry8_spacing_retranslation_pass/targets_spacing_only/set_b_cluster_38_spacing.json"
+  },
+  {
+    "set": "set_c_military_46_47_50_spacing",
+    "clusters": [
+      "cluster_46_military",
+      "cluster_47_military",
+      "cluster_50_military"
+    ],
+    "records": 43,
+    "excluded_counts": {
+      "manual_locked": 20,
+      "overflow_current": 351,
+      "no_spare_for_fullwidth_space": 122,
+      "already_has_space": 3,
+      "no_hangul": 2
+    },
+    "path": "confirmed_data/translation_workspace/entry8_spacing_retranslation_pass/targets_spacing_only/set_c_military_46_47_50_spacing.json"
+  },
+  {
+    "set": "set_d_quest_52_53_55_spacing",
+    "clusters": [
+      "cluster_52_cat_quest",
+      "cluster_53_military",
+      "cluster_55_east_city"
+    ],
+    "records": 16,
+    "excluded_counts": {
+      "manual_locked": 65,
+      "overflow_current": 720,
+      "no_spare_for_fullwidth_space": 80,
+      "already_has_space": 5,
+      "no_hangul": 2
+    },
+    "path": "confirmed_data/translation_workspace/entry8_spacing_retranslation_pass/targets_spacing_only/set_d_quest_52_53_55_spacing.json"
+  },
+  {
+    "set": "set_e_cluster_61_spacing",
+    "clusters": [
+      "cluster_61_military"
+    ],
+    "records": 3,
+    "excluded_counts": {
+      "manual_locked": 16,
+      "overflow_current": 433,
+      "no_spare_for_fullwidth_space": 56,
+      "already_has_space": 2,
+      "no_hangul": 3
+    },
+    "path": "confirmed_data/translation_workspace/entry8_spacing_retranslation_pass/targets_spacing_only/set_e_cluster_61_spacing.json"
+  }
+]

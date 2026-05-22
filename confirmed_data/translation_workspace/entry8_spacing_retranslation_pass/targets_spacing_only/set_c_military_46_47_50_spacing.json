@@ -1,0 +1,1933 @@
+{
+  "task": "Entry8 spacing-only correction pass; manual_locked and over-capacity items excluded",
+  "instruction_docs": [
+    "docs/translation_team/fma_translation_team_common_final_v4_1.md",
+    "docs/translation_team/fma_translation_agent_final_v4_1.md",
+    "docs/translation_team/fma_review_agent_final_v4_1.md",
+    "docs/repeat_mistake_prevention.md"
+  ],
+  "hard_rules": [
+    "DO NOT shorten or summarize the sentence.",
+    "DO NOT remove words that are present in current_translation.",
+    "Primary allowed operation: insert fullwidth spaces U+3000 into current_translation.",
+    "You may only change obvious typo/glossary errors when the corrected string remains within capacity and preserves meaning.",
+    "Do not use halfwidth spaces or halfwidth punctuation in Entry8.",
+    "Do not add a space immediately after punctuation such as 、 。 … ！ ？ 「 」.",
+    "Do not split proper nouns internally: 코넬로, 레돈드, 솔링, 다이무라, 마틴스, 호크아이, 브래드레이, 윈리, 코니슈, 리젠블, 현자의 돌 etc.",
+    "If no safe improvement is possible, omit the record from output.",
+    "Output only changed records."
+  ],
+  "records": [
+    {
+      "item_id": "cluster_46_military:00732C6E",
+      "group_id": "cluster_46_military",
+      "offset": 7548014,
+      "hex": "0x732C6E",
+      "source": "どうやら少しは骨のある相手が",
+      "current_translation": "좀뼈있는상대가",
+      "capacity_bytes": 28,
+      "current_used_bytes": 21,
+      "spare_bytes": 7,
+      "context_before": [
+        {
+          "item_id": "cluster_46_military:00732C38",
+          "source": "大佐、どうしたんですか？",
+          "translation": "대령님、왜그래요？"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_46_military:00732C90",
+          "source": "お出迎えのようですな",
+          "translation": "맞이한듯하군"
+        },
+        {
+          "item_id": "cluster_46_military:00732CB6",
+          "source": "なーんだ、",
+          "translation": "뭐야、"
+        },
+        {
+          "item_id": "cluster_46_military:00732CC6",
+          "source": "もう気づかれちゃってんの。",
+          "translation": "벌써들켰잖아。"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_46_military:00732CC6",
+      "group_id": "cluster_46_military",
+      "offset": 7548102,
+      "hex": "0x732CC6",
+      "source": "もう気づかれちゃってんの。",
+      "current_translation": "벌써들켰잖아。",
+      "capacity_bytes": 26,
+      "current_used_bytes": 21,
+      "spare_bytes": 5,
+      "context_before": [
+        {
+          "item_id": "cluster_46_military:00732C6E",
+          "source": "どうやら少しは骨のある相手が",
+          "translation": "좀뼈있는상대가"
+        },
+        {
+          "item_id": "cluster_46_military:00732C90",
+          "source": "お出迎えのようですな",
+          "translation": "맞이한듯하군"
+        },
+        {
+          "item_id": "cluster_46_military:00732CB6",
+          "source": "なーんだ、",
+          "translation": "뭐야、"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_46_military:00732CE6",
+          "source": "つまんないなー",
+          "translation": "시시하네"
+        },
+        {
+          "item_id": "cluster_46_military:00732CFC",
+          "source": "やっぱさ、ランディくんってば",
+          "translation": "역시랜디군은"
+        },
+        {
+          "item_id": "cluster_46_military:00732D1E",
+          "source": "気配隠す練習しろってカンジ？",
+          "translation": "기척숨기는연습좀？"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_46_military:00732CFC",
+      "group_id": "cluster_46_military",
+      "offset": 7548156,
+      "hex": "0x732CFC",
+      "source": "やっぱさ、ランディくんってば",
+      "current_translation": "역시랜디군은",
+      "capacity_bytes": 28,
+      "current_used_bytes": 18,
+      "spare_bytes": 10,
+      "context_before": [
+        {
+          "item_id": "cluster_46_military:00732CB6",
+          "source": "なーんだ、",
+          "translation": "뭐야、"
+        },
+        {
+          "item_id": "cluster_46_military:00732CC6",
+          "source": "もう気づかれちゃってんの。",
+          "translation": "벌써들켰잖아。"
+        },
+        {
+          "item_id": "cluster_46_military:00732CE6",
+          "source": "つまんないなー",
+          "translation": "시시하네"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_46_military:00732D1E",
+          "source": "気配隠す練習しろってカンジ？",
+          "translation": "기척숨기는연습좀？"
+        },
+        {
+          "item_id": "cluster_46_military:00732D48",
+          "source": "うっせー！",
+          "translation": "시끄러！"
+        },
+        {
+          "item_id": "cluster_46_military:00732D58",
+          "source": "なんでチビッコに",
+          "translation": "왜꼬맹이한테"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_46_military:00732DF0",
+      "group_id": "cluster_46_military",
+      "offset": 7548400,
+      "hex": "0x732DF0",
+      "source": "兄さんのことじゃないって",
+      "current_translation": "형말이아니야",
+      "capacity_bytes": 24,
+      "current_used_bytes": 18,
+      "spare_bytes": 6,
+      "context_before": [
+        {
+          "item_id": "cluster_46_military:00732D98",
+          "source": "ああん！？",
+          "translation": "뭐라고！？"
+        },
+        {
+          "item_id": "cluster_46_military:00732DA8",
+          "source": "誰がチビッコだぁ！？",
+          "translation": "누가꼬맹이냐！？"
+        },
+        {
+          "item_id": "cluster_46_military:00732DC2",
+          "source": "姿、あらわせっ！",
+          "translation": "모습드러내！"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_46_military:00732E90",
+          "source": "鋼の錬金術師よ！",
+          "translation": "강철연금술사여！"
+        },
+        {
+          "item_id": "cluster_46_military:00732EA6",
+          "source": "また会ったなっ！",
+          "translation": "또만났구나！"
+        },
+        {
+          "item_id": "cluster_46_military:00732EC6",
+          "source": "…またかよ",
+          "translation": "…또야"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_46_military:00732EF4",
+      "group_id": "cluster_46_military",
+      "offset": 7548660,
+      "hex": "0x732EF4",
+      "source": "何の用かって言われてもな…",
+      "current_translation": "용건이라해도…",
+      "capacity_bytes": 26,
+      "current_used_bytes": 21,
+      "spare_bytes": 5,
+      "context_before": [
+        {
+          "item_id": "cluster_46_military:00732EA6",
+          "source": "また会ったなっ！",
+          "translation": "또만났구나！"
+        },
+        {
+          "item_id": "cluster_46_military:00732EC6",
+          "source": "…またかよ",
+          "translation": "…또야"
+        },
+        {
+          "item_id": "cluster_46_military:00732ED6",
+          "source": "で、何の用だ？",
+          "translation": "그래、용건은？"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_46_military:00732F1E",
+          "source": "用がないんなら、邪魔。",
+          "translation": "용건없으면비켜。"
+        },
+        {
+          "item_id": "cluster_46_military:00732F3A",
+          "source": "狭いんだから、",
+          "translation": "좁잖아、"
+        },
+        {
+          "item_id": "cluster_46_military:00732F4E",
+          "source": "端を歩くのがマナーだろ",
+          "translation": "가장자리로걸어"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_46_military:00732FF6",
+      "group_id": "cluster_46_military",
+      "offset": 7548918,
+      "hex": "0x732FF6",
+      "source": "…やっぱ、お兄ちゃんが",
+      "current_translation": "…역시오빠가",
+      "capacity_bytes": 22,
+      "current_used_bytes": 18,
+      "spare_bytes": 4,
+      "context_before": [
+        {
+          "item_id": "cluster_46_military:00732F96",
+          "source": "………",
+          "translation": "…"
+        },
+        {
+          "item_id": "cluster_46_military:00732FB2",
+          "source": "…じゃねーだろうが！",
+          "translation": "…그게　아니잖아！"
+        },
+        {
+          "item_id": "cluster_46_military:00732FCC",
+          "source": "なんで俺が謝ってんだよ",
+          "translation": "왜내가사과해？"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_46_military:00733012",
+          "source": "ついてけって言った理由が",
+          "translation": "따라가라한이유를"
+        },
+        {
+          "item_id": "cluster_46_military:00733030",
+          "source": "よーくわかった",
+          "translation": "잘알겠어"
+        },
+        {
+          "item_id": "cluster_46_military:0073304E",
+          "source": "結局、あたしがいないと",
+          "translation": "결국내가없으면"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_46_military:0073306A",
+      "group_id": "cluster_46_military",
+      "offset": 7549034,
+      "hex": "0x73306A",
+      "source": "なーんもできないんじゃん",
+      "current_translation": "아무것도못하네",
+      "capacity_bytes": 24,
+      "current_used_bytes": 21,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_46_military:00733012",
+          "source": "ついてけって言った理由が",
+          "translation": "따라가라한이유를"
+        },
+        {
+          "item_id": "cluster_46_military:00733030",
+          "source": "よーくわかった",
+          "translation": "잘알겠어"
+        },
+        {
+          "item_id": "cluster_46_military:0073304E",
+          "source": "結局、あたしがいないと",
+          "translation": "결국내가없으면"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_46_military:00733092",
+          "source": "うっせー、うっせー！",
+          "translation": "시끄러、시끄러！"
+        },
+        {
+          "item_id": "cluster_46_military:00733100",
+          "source": "で、結局、何の用なんだ？",
+          "translation": "그래서용건이뭐야？"
+        },
+        {
+          "item_id": "cluster_46_military:0073311E",
+          "source": "二人で漫才でも",
+          "translation": "둘이만담"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_46_military:00733256",
+      "group_id": "cluster_46_military",
+      "offset": 7549526,
+      "hex": "0x733256",
+      "source": "…って、そんなの",
+      "current_translation": "…그런건",
+      "capacity_bytes": 16,
+      "current_used_bytes": 12,
+      "spare_bytes": 4,
+      "context_before": [
+        {
+          "item_id": "cluster_46_military:007331E8",
+          "source": "焔の錬金術師とその一行",
+          "translation": "불꽃의　연금술사　일행"
+        },
+        {
+          "item_id": "cluster_46_military:00733204",
+          "source": "というべきだな",
+          "translation": "이라해야지"
+        },
+        {
+          "item_id": "cluster_46_military:00733230",
+          "source": "あ、スイマセン",
+          "translation": "아、죄송합니다"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_46_military:0073326C",
+          "source": "どっちでもいいんだよ！",
+          "translation": "어느쪽도　상관없어！"
+        },
+        {
+          "item_id": "cluster_46_military:007332AC",
+          "source": "あーっ、もう！",
+          "translation": "아、정말！"
+        },
+        {
+          "item_id": "cluster_46_military:007332C0",
+          "source": "話が進まないから、",
+          "translation": "이야기가안되니"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_46_military:007332D8",
+      "group_id": "cluster_46_military",
+      "offset": 7549656,
+      "hex": "0x7332D8",
+      "source": "あたしが説明するわよっ！",
+      "current_translation": "내가설명할게！",
+      "capacity_bytes": 24,
+      "current_used_bytes": 21,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_46_military:0073326C",
+          "source": "どっちでもいいんだよ！",
+          "translation": "어느쪽도　상관없어！"
+        },
+        {
+          "item_id": "cluster_46_military:007332AC",
+          "source": "あーっ、もう！",
+          "translation": "아、정말！"
+        },
+        {
+          "item_id": "cluster_46_military:007332C0",
+          "source": "話が進まないから、",
+          "translation": "이야기가안되니"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_46_military:00733308",
+          "source": "お兄ちゃんがね、",
+          "translation": "오빠가말야、"
+        },
+        {
+          "item_id": "cluster_46_military:0073331E",
+          "source": "あんたたちと、ちょーっと",
+          "translation": "너희랑조금만"
+        },
+        {
+          "item_id": "cluster_46_military:0073333C",
+          "source": "遊んできていいって",
+          "translation": "놀고와도된대"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_46_military:0073331E",
+      "group_id": "cluster_46_military",
+      "offset": 7549726,
+      "hex": "0x73331E",
+      "source": "あんたたちと、ちょーっと",
+      "current_translation": "너희랑조금만",
+      "capacity_bytes": 24,
+      "current_used_bytes": 18,
+      "spare_bytes": 6,
+      "context_before": [
+        {
+          "item_id": "cluster_46_military:007332C0",
+          "source": "話が進まないから、",
+          "translation": "이야기가안되니"
+        },
+        {
+          "item_id": "cluster_46_military:007332D8",
+          "source": "あたしが説明するわよっ！",
+          "translation": "내가설명할게！"
+        },
+        {
+          "item_id": "cluster_46_military:00733308",
+          "source": "お兄ちゃんがね、",
+          "translation": "오빠가말야、"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_46_military:0073333C",
+          "source": "遊んできていいって",
+          "translation": "놀고와도된대"
+        },
+        {
+          "item_id": "cluster_46_military:00733372",
+          "source": "あー、オホン。",
+          "translation": "아、흠흠。"
+        },
+        {
+          "item_id": "cluster_46_military:00733386",
+          "source": "残念ながら、",
+          "translation": "유감이지만、"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_46_military:007333DE",
+      "group_id": "cluster_46_military",
+      "offset": 7549918,
+      "hex": "0x7333DE",
+      "source": "決めているのでな…",
+      "current_translation": "정했으니…",
+      "capacity_bytes": 18,
+      "current_used_bytes": 15,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_46_military:00733386",
+          "source": "残念ながら、",
+          "translation": "유감이지만、"
+        },
+        {
+          "item_id": "cluster_46_military:00733398",
+          "source": "私は子供を相手にする気はない",
+          "translation": "난아이상대할생각없다"
+        },
+        {
+          "item_id": "cluster_46_military:007333C6",
+          "source": "相手は妙齢の女性と",
+          "translation": "상대는묘령여성"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_46_military:007333F6",
+          "source": "遊び相手なら別をあたるんだな",
+          "translation": "놀상대는다른데찾게"
+        },
+        {
+          "item_id": "cluster_46_military:0073342A",
+          "source": "ふーん、",
+          "translation": "흐응、"
+        },
+        {
+          "item_id": "cluster_46_military:0073343A",
+          "source": "あっそ",
+          "translation": "그래"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_46_military:00733538",
+      "group_id": "cluster_46_military",
+      "offset": 7550264,
+      "hex": "0x733538",
+      "source": "あったりー！",
+      "current_translation": "정답！",
+      "capacity_bytes": 12,
+      "current_used_bytes": 9,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_46_military:007334D2",
+          "source": "ったく、長々と時間を",
+          "translation": "젠장、시간을"
+        },
+        {
+          "item_id": "cluster_46_military:007334EC",
+          "source": "取ったけど、要するに",
+          "translation": "질질끌었지만"
+        },
+        {
+          "item_id": "cluster_46_military:00733506",
+          "source": "先には行かせないってことだろ",
+          "translation": "결국못가게막겠단거지"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_46_military:00733562",
+          "source": "まてまてまてーーっ！",
+          "translation": "잠깐잠깐잠깐！"
+        },
+        {
+          "item_id": "cluster_46_military:0073357C",
+          "source": "勝手に話を進めんな！",
+          "translation": "맘대로진행하지마！"
+        },
+        {
+          "item_id": "cluster_46_military:007335AE",
+          "source": "だって、ランディくんに",
+          "translation": "랜디군한테"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_46_military:007335AE",
+      "group_id": "cluster_46_military",
+      "offset": 7550382,
+      "hex": "0x7335AE",
+      "source": "だって、ランディくんに",
+      "current_translation": "랜디군한테",
+      "capacity_bytes": 22,
+      "current_used_bytes": 15,
+      "spare_bytes": 7,
+      "context_before": [
+        {
+          "item_id": "cluster_46_military:00733538",
+          "source": "あったりー！",
+          "translation": "정답！"
+        },
+        {
+          "item_id": "cluster_46_military:00733562",
+          "source": "まてまてまてーーっ！",
+          "translation": "잠깐잠깐잠깐！"
+        },
+        {
+          "item_id": "cluster_46_military:0073357C",
+          "source": "勝手に話を進めんな！",
+          "translation": "맘대로진행하지마！"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_46_military:007335CA",
+          "source": "任せてたら日がくれちゃうよ",
+          "translation": "맡기면해가저물어"
+        },
+        {
+          "item_id": "cluster_46_military:00733600",
+          "source": "うっせー、うっせー！",
+          "translation": "시끄러、시끄러！"
+        },
+        {
+          "item_id": "cluster_46_military:0073361A",
+          "source": "大将に任されたのは俺だろが！",
+          "translation": "대장이맡긴건나라고！"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_46_military:007338CC",
+      "group_id": "cluster_46_military",
+      "offset": 7551180,
+      "hex": "0x7338CC",
+      "source": "なに勝手なことを…",
+      "current_translation": "멋대로뭘…",
+      "capacity_bytes": 18,
+      "current_used_bytes": 15,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_46_military:00733858",
+          "source": "おい、鋼の錬金術師！",
+          "translation": "어이、강철연금술사！"
+        },
+        {
+          "item_id": "cluster_46_military:00733876",
+          "source": "お前にも借りがあるからな！",
+          "translation": "너한테도빚이있다！"
+        },
+        {
+          "item_id": "cluster_46_military:0073389A",
+          "source": "一緒に相手してやるぜ！",
+          "translation": "같이상대해주지！"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_46_military:007338FA",
+          "source": "うっせー！",
+          "translation": "시끄러！"
+        },
+        {
+          "item_id": "cluster_46_military:0073390E",
+          "source": "いくぞっ！",
+          "translation": "간다！"
+        },
+        {
+          "item_id": "cluster_46_military:007339B2",
+          "source": "おい、お前ら！",
+          "translation": "어이、너희！"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_46_military:007339EE",
+      "group_id": "cluster_46_military",
+      "offset": 7551470,
+      "hex": "0x7339EE",
+      "source": "に…にゃはははは。",
+      "current_translation": "냐하하하。",
+      "capacity_bytes": 18,
+      "current_used_bytes": 15,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_46_military:0073390E",
+          "source": "いくぞっ！",
+          "translation": "간다！"
+        },
+        {
+          "item_id": "cluster_46_military:007339B2",
+          "source": "おい、お前ら！",
+          "translation": "어이、너희！"
+        },
+        {
+          "item_id": "cluster_46_military:007339CA",
+          "source": "まだやるつもりか？",
+          "translation": "아직할셈이냐？"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_46_military:00733A0A",
+          "source": "…いち、ぬーけた！",
+          "translation": "…난빠질래！"
+        },
+        {
+          "item_id": "cluster_46_military:00733A4A",
+          "source": "あ、ケイト！",
+          "translation": "아、케이트！"
+        },
+        {
+          "item_id": "cluster_46_military:00733A5C",
+          "source": "勝手に帰るな！",
+          "translation": "맘대로가지마！"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_46_military:00733B2E",
+      "group_id": "cluster_46_military",
+      "offset": 7551790,
+      "hex": "0x733B2E",
+      "source": "へっへーん！",
+      "current_translation": "헤헷！",
+      "capacity_bytes": 12,
+      "current_used_bytes": 9,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_46_military:00733AB6",
+          "source": "アツかったぜ！",
+          "translation": "뜨거웠어！"
+        },
+        {
+          "item_id": "cluster_46_military:00733AFC",
+          "source": "フ、",
+          "translation": "흠、"
+        },
+        {
+          "item_id": "cluster_46_military:00733B08",
+          "source": "憎いことを言いおるわ",
+          "translation": "얄미운말을하는군"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_46_military:00733B40",
+          "source": "悔しかったら、",
+          "translation": "분하면、"
+        },
+        {
+          "item_id": "cluster_46_military:00733B54",
+          "source": "捕まえてみればー！",
+          "translation": "잡아보시지！"
+        },
+        {
+          "item_id": "cluster_46_military:00733B7A",
+          "source": "ムカッ！",
+          "translation": "발끈！"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_46_military:00733FD6",
+      "group_id": "cluster_46_military",
+      "offset": 7552982,
+      "hex": "0x733FD6",
+      "source": "マーティンス中佐のことを",
+      "current_translation": "마틴스중령을",
+      "capacity_bytes": 24,
+      "current_used_bytes": 18,
+      "spare_bytes": 6,
+      "context_before": [
+        {
+          "item_id": "cluster_46_military:00733F7C",
+          "source": "そんな力いっぱい",
+          "translation": "그렇게힘껏"
+        },
+        {
+          "item_id": "cluster_46_military:00733F92",
+          "source": "言わなくても…",
+          "translation": "말안해도…"
+        },
+        {
+          "item_id": "cluster_46_military:00733FB8",
+          "source": "エド、先を急ぎましょう！",
+          "translation": "에드、서두르죠！"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_46_military:00733FF4",
+          "source": "探さなくちゃ！",
+          "translation": "찾아야해요！"
+        },
+        {
+          "item_id": "cluster_46_military:00734014",
+          "source": "そんなに急がなくっても",
+          "translation": "그렇게서두르지않아도"
+        },
+        {
+          "item_id": "cluster_46_military:00734030",
+          "source": "大丈夫だって。",
+          "translation": "괜찮다니까。"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_46_military:007340EC",
+      "group_id": "cluster_46_military",
+      "offset": 7553260,
+      "hex": "0x7340EC",
+      "source": "兄さん…みたいなにおい",
+      "current_translation": "형…같은냄새",
+      "capacity_bytes": 22,
+      "current_used_bytes": 18,
+      "spare_bytes": 4,
+      "context_before": [
+        {
+          "item_id": "cluster_46_military:00734096",
+          "source": "下水道のにおいなら",
+          "translation": "하수도냄새라면"
+        },
+        {
+          "item_id": "cluster_46_military:007340AE",
+          "source": "さっきからずっとしてるけど…",
+          "translation": "아까부터계속나는데…"
+        },
+        {
+          "item_id": "cluster_46_military:007340DC",
+          "source": "違います！",
+          "translation": "아니에요！"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_46_military:00734114",
+          "source": "マーティンス中佐が？",
+          "translation": "마틴스중령이？"
+        },
+        {
+          "item_id": "cluster_46_military:0073412E",
+          "source": "コニィの兄貴って、",
+          "translation": "코니오빠가、"
+        },
+        {
+          "item_id": "cluster_46_military:00734146",
+          "source": "あんなお調子ものなわけ？",
+          "translation": "저런허풍쟁이라고？"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_47_military:00735054",
+      "group_id": "cluster_47_military",
+      "offset": 7557204,
+      "hex": "0x735054",
+      "source": "お前ら、遅かったじゃねーか！",
+      "current_translation": "너희늦었잖아！",
+      "capacity_bytes": 28,
+      "current_used_bytes": 21,
+      "spare_bytes": 7,
+      "context_before": [
+        {
+          "item_id": "cluster_47_military:00734FA6",
+          "source": "あ、マーティンス中佐！",
+          "translation": "아、마틴스중령！"
+        },
+        {
+          "item_id": "cluster_47_military:00735048",
+          "source": "よっ！",
+          "translation": "여！"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_47_military:00735076",
+          "source": "タイクツで死にそうだったぜ",
+          "translation": "지루해죽는줄알았어"
+        },
+        {
+          "item_id": "cluster_47_military:007350AE",
+          "source": "マーティンス中佐っ！",
+          "translation": "마틴스중령！"
+        },
+        {
+          "item_id": "cluster_47_military:007350C8",
+          "source": "心配したんですよ",
+          "translation": "걱정했어요"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_47_military:00735116",
+      "group_id": "cluster_47_military",
+      "offset": 7557398,
+      "hex": "0x735116",
+      "source": "…また冷たい人って",
+      "current_translation": "…또차갑다",
+      "capacity_bytes": 18,
+      "current_used_bytes": 15,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_47_military:007350AE",
+          "source": "マーティンス中佐っ！",
+          "translation": "마틴스중령！"
+        },
+        {
+          "item_id": "cluster_47_military:007350C8",
+          "source": "心配したんですよ",
+          "translation": "걱정했어요"
+        },
+        {
+          "item_id": "cluster_47_military:007350DE",
+          "source": "他の人たちは冷たかったけど",
+          "translation": "다른사람들은차가웠지만"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_47_military:0073512E",
+          "source": "言われた",
+          "translation": "들었다"
+        },
+        {
+          "item_id": "cluster_47_military:0073514E",
+          "source": "心配かけたみてぇだな。",
+          "translation": "걱정시킨모양이네。"
+        },
+        {
+          "item_id": "cluster_47_military:0073516A",
+          "source": "だが、ご覧のとおり",
+          "translation": "하지만보시다시피"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_47_military:00735182",
+      "group_id": "cluster_47_military",
+      "offset": 7557506,
+      "hex": "0x735182",
+      "source": "ピンピンしてるから安心しな",
+      "current_translation": "멀쩡하니안심해",
+      "capacity_bytes": 26,
+      "current_used_bytes": 21,
+      "spare_bytes": 5,
+      "context_before": [
+        {
+          "item_id": "cluster_47_military:0073512E",
+          "source": "言われた",
+          "translation": "들었다"
+        },
+        {
+          "item_id": "cluster_47_military:0073514E",
+          "source": "心配かけたみてぇだな。",
+          "translation": "걱정시킨모양이네。"
+        },
+        {
+          "item_id": "cluster_47_military:0073516A",
+          "source": "だが、ご覧のとおり",
+          "translation": "하지만보시다시피"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_47_military:007351B4",
+          "source": "ずいぶん騒々しかったけどよ、",
+          "translation": "꽤소란스러웠는데、"
+        },
+        {
+          "item_id": "cluster_47_military:007351D6",
+          "source": "何かあったのか？",
+          "translation": "무슨일있었어？"
+        },
+        {
+          "item_id": "cluster_47_military:00735204",
+          "source": "まー、いろいろあってね",
+          "translation": "뭐、여러가지있어서"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_47_military:00735264",
+      "group_id": "cluster_47_military",
+      "offset": 7557732,
+      "hex": "0x735264",
+      "source": "さっさと出るとしようぜ",
+      "current_translation": "빨리나가자고",
+      "capacity_bytes": 22,
+      "current_used_bytes": 18,
+      "spare_bytes": 4,
+      "context_before": [
+        {
+          "item_id": "cluster_47_military:00735204",
+          "source": "まー、いろいろあってね",
+          "translation": "뭐、여러가지있어서"
+        },
+        {
+          "item_id": "cluster_47_military:00735230",
+          "source": "いろいろ…ねぇ",
+          "translation": "여러가지라"
+        },
+        {
+          "item_id": "cluster_47_military:0073524A",
+          "source": "んじゃ、こんなところ",
+          "translation": "그럼이런곳은"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_47_military:00735298",
+          "source": "待て",
+          "translation": "잠깐"
+        },
+        {
+          "item_id": "cluster_47_military:007352A2",
+          "source": "リンカーはどうするんだ？",
+          "translation": "링커는어쩔거야？"
+        },
+        {
+          "item_id": "cluster_47_military:007352D2",
+          "source": "ああ。リンカーなら、",
+          "translation": "아아。링커라면、"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_47_military:007352EC",
+      "group_id": "cluster_47_military",
+      "offset": 7557868,
+      "hex": "0x7352EC",
+      "source": "ここにはいねぇな",
+      "current_translation": "여긴없어",
+      "capacity_bytes": 16,
+      "current_used_bytes": 12,
+      "spare_bytes": 4,
+      "context_before": [
+        {
+          "item_id": "cluster_47_military:00735298",
+          "source": "待て",
+          "translation": "잠깐"
+        },
+        {
+          "item_id": "cluster_47_military:007352A2",
+          "source": "リンカーはどうするんだ？",
+          "translation": "링커는어쩔거야？"
+        },
+        {
+          "item_id": "cluster_47_military:007352D2",
+          "source": "ああ。リンカーなら、",
+          "translation": "아아。링커라면、"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_47_military:00735314",
+          "source": "いない？",
+          "translation": "없다고？"
+        },
+        {
+          "item_id": "cluster_47_military:00735322",
+          "source": "しかし、軍の情報では…",
+          "translation": "하지만군정보론…"
+        },
+        {
+          "item_id": "cluster_47_military:00735350",
+          "source": "そりゃ前は",
+          "translation": "전에는"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_47_military:007353AA",
+      "group_id": "cluster_47_military",
+      "offset": 7558058,
+      "hex": "0x7353AA",
+      "source": "今はもういねぇな",
+      "current_translation": "이젠없어",
+      "capacity_bytes": 16,
+      "current_used_bytes": 12,
+      "spare_bytes": 4,
+      "context_before": [
+        {
+          "item_id": "cluster_47_military:00735350",
+          "source": "そりゃ前は",
+          "translation": "전에는"
+        },
+        {
+          "item_id": "cluster_47_military:00735360",
+          "source": "いたのかもしれねぇけどさ",
+          "translation": "있었을지모르지만"
+        },
+        {
+          "item_id": "cluster_47_military:0073538E",
+          "source": "オレ様が探した感じでは",
+          "translation": "내가찾아본바론"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_47_military:007353D8",
+          "source": "鋼の、どう思う？",
+          "translation": "강철、어찌생각해"
+        },
+        {
+          "item_id": "cluster_47_military:00735406",
+          "source": "どう思うったって、",
+          "translation": "어찌생각하냐니、"
+        },
+        {
+          "item_id": "cluster_47_military:0073541E",
+          "source": "マーティンス中佐が",
+          "translation": "마틴스중령이"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_47_military:00735682",
+      "group_id": "cluster_47_military",
+      "offset": 7558786,
+      "hex": "0x735682",
+      "source": "だからこそ、",
+      "current_translation": "그래서",
+      "capacity_bytes": 12,
+      "current_used_bytes": 9,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_47_military:00735626",
+          "source": "葛藤はあるさ。",
+          "translation": "갈등은있겠지。"
+        },
+        {
+          "item_id": "cluster_47_military:0073563A",
+          "source": "誰だって平気で知り合いと",
+          "translation": "누구도지인을태연히"
+        },
+        {
+          "item_id": "cluster_47_military:00735658",
+          "source": "戦えるわけないって",
+          "translation": "상대하진못해"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_47_military:00735694",
+          "source": "中佐はロイス大佐をあの内乱で",
+          "translation": "중령은로이스대령을그내란서"
+        },
+        {
+          "item_id": "cluster_47_military:007356B6",
+          "source": "「死んだ」と表現したんだよ",
+          "translation": "죽었다고표현한거야"
+        },
+        {
+          "item_id": "cluster_47_military:007356E8",
+          "source": "かつての戦友は「死んだ」か…",
+          "translation": "옛전우는　죽었다…인가…"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_47_military:007357EE",
+      "group_id": "cluster_47_military",
+      "offset": 7559150,
+      "hex": "0x7357EE",
+      "source": "聞かれてもわからないな",
+      "current_translation": "물어봐도몰라",
+      "capacity_bytes": 22,
+      "current_used_bytes": 18,
+      "spare_bytes": 4,
+      "context_before": [
+        {
+          "item_id": "cluster_47_military:007357A2",
+          "source": "そう簡単に",
+          "translation": "그리쉽게"
+        },
+        {
+          "item_id": "cluster_47_military:007357B2",
+          "source": "割り切れるものなのか？",
+          "translation": "딱잘라나눌수있나？"
+        },
+        {
+          "item_id": "cluster_47_military:007357E0",
+          "source": "さあね？",
+          "translation": "글쎄？"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_47_military:0073580A",
+          "source": "オレだって、神様じゃないから",
+          "translation": "나도신은아니니까"
+        },
+        {
+          "item_id": "cluster_47_military:0073584A",
+          "source": "今は信じる…しかないか",
+          "translation": "지금은믿을수밖에"
+        },
+        {
+          "item_id": "cluster_47_military:00735878",
+          "source": "よし、下水道から脱出だ",
+          "translation": "좋아、하수도탈출이다"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_47_military:0073580A",
+      "group_id": "cluster_47_military",
+      "offset": 7559178,
+      "hex": "0x73580A",
+      "source": "オレだって、神様じゃないから",
+      "current_translation": "나도신은아니니까",
+      "capacity_bytes": 28,
+      "current_used_bytes": 24,
+      "spare_bytes": 4,
+      "context_before": [
+        {
+          "item_id": "cluster_47_military:007357B2",
+          "source": "割り切れるものなのか？",
+          "translation": "딱잘라나눌수있나？"
+        },
+        {
+          "item_id": "cluster_47_military:007357E0",
+          "source": "さあね？",
+          "translation": "글쎄？"
+        },
+        {
+          "item_id": "cluster_47_military:007357EE",
+          "source": "聞かれてもわからないな",
+          "translation": "물어봐도몰라"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_47_military:0073584A",
+          "source": "今は信じる…しかないか",
+          "translation": "지금은믿을수밖에"
+        },
+        {
+          "item_id": "cluster_47_military:00735878",
+          "source": "よし、下水道から脱出だ",
+          "translation": "좋아、하수도탈출이다"
+        },
+        {
+          "item_id": "cluster_47_military:007359AA",
+          "source": "あ、あいつは！？",
+          "translation": "아、저녀석은！？"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_47_military:00735AD8",
+      "group_id": "cluster_47_military",
+      "offset": 7559896,
+      "hex": "0x735AD8",
+      "source": "…今日は佳き日だ",
+      "current_translation": "…좋은날",
+      "capacity_bytes": 16,
+      "current_used_bytes": 12,
+      "spare_bytes": 4,
+      "context_before": [
+        {
+          "item_id": "cluster_47_military:00735A8C",
+          "source": "出会えるとは…",
+          "translation": "만나다니…"
+        },
+        {
+          "item_id": "cluster_47_military:00735AAA",
+          "source": "しかも他にも",
+          "translation": "게다가다른"
+        },
+        {
+          "item_id": "cluster_47_military:00735ABC",
+          "source": "国家錬金術師がそろって",
+          "translation": "국가연금술사도모여"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_47_military:00735B06",
+          "source": "…やばい",
+          "translation": "…위험"
+        },
+        {
+          "item_id": "cluster_47_military:00735B14",
+          "source": "やばすぎる…",
+          "translation": "너무위험。。"
+        },
+        {
+          "item_id": "cluster_47_military:00735B30",
+          "source": "だけど…",
+          "translation": "하지만…"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_47_military:00735EE8",
+      "group_id": "cluster_47_military",
+      "offset": 7560936,
+      "hex": "0x735EE8",
+      "source": "打って変わって、静かだな",
+      "current_translation": "달리조용하군",
+      "capacity_bytes": 24,
+      "current_used_bytes": 18,
+      "spare_bytes": 6,
+      "context_before": [
+        {
+          "item_id": "cluster_47_military:00735D64",
+          "source": "皆、やられぬようにするだけで",
+          "translation": "모두당하지않는것만으로"
+        },
+        {
+          "item_id": "cluster_47_military:00735D86",
+          "source": "精一杯であったか…",
+          "translation": "벅찼던건가…"
+        },
+        {
+          "item_id": "cluster_47_military:00735ECE",
+          "source": "さっきの騒々しさとは",
+          "translation": "아까소란과는"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_47_military:00735F18",
+          "source": "でも、下水道の中だもの。",
+          "translation": "그래도하수도안이잖아。"
+        },
+        {
+          "item_id": "cluster_47_military:00735F36",
+          "source": "これが本当だと思うけど",
+          "translation": "이게원래같은데"
+        },
+        {
+          "item_id": "cluster_47_military:00735F6A",
+          "source": "ま、さっきの連中が",
+          "translation": "뭐、아까녀석들이"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_47_military:00736122",
+      "group_id": "cluster_47_military",
+      "offset": 7561506,
+      "hex": "0x736122",
+      "source": "もうとっくに先に行きましたよ",
+      "current_translation": "벌써먼저가셨어요",
+      "capacity_bytes": 28,
+      "current_used_bytes": 24,
+      "spare_bytes": 4,
+      "context_before": [
+        {
+          "item_id": "cluster_47_military:007360CA",
+          "source": "大佐、なにを小さく",
+          "translation": "대령님、왜작게"
+        },
+        {
+          "item_id": "cluster_47_military:007360E2",
+          "source": "ガッツポーズしてるんですか",
+          "translation": "승리포즈하십니까"
+        },
+        {
+          "item_id": "cluster_47_military:0073610C",
+          "source": "コーニッシュなら",
+          "translation": "코니슈라면"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_47_military:0073615A",
+          "source": "！！",
+          "translation": "！！"
+        },
+        {
+          "item_id": "cluster_47_military:00736298",
+          "source": "…誰かいるぞ。",
+          "translation": "…누가있다。"
+        },
+        {
+          "item_id": "cluster_47_military:007362B2",
+          "source": "おい、そこの！",
+          "translation": "어이、거기！"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_47_military:007364F4",
+      "group_id": "cluster_47_military",
+      "offset": 7562484,
+      "hex": "0x7364F4",
+      "source": "ブラックなんとかってのは",
+      "current_translation": "그블랙뭐시기는",
+      "capacity_bytes": 24,
+      "current_used_bytes": 21,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_47_military:00736492",
+          "source": "まずはブラックハヤテ号の",
+          "translation": "먼저블랙하야테호의"
+        },
+        {
+          "item_id": "cluster_47_military:007364B0",
+          "source": "居場所を聞き出さなきゃ",
+          "translation": "위치를물어야지"
+        },
+        {
+          "item_id": "cluster_47_military:007364E2",
+          "source": "だから、その",
+          "translation": "그러니까、"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_47_military:00736512",
+          "source": "なんなんだよ！",
+          "translation": "대체뭐냐！"
+        },
+        {
+          "item_id": "cluster_47_military:0073653E",
+          "source": "犬だよ、犬",
+          "translation": "개야、개"
+        },
+        {
+          "item_id": "cluster_47_military:00736564",
+          "source": "狗はお前らだろうが！",
+          "translation": "개는너희겠지！"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_47_military:007365D2",
+      "group_id": "cluster_47_military",
+      "offset": 7562706,
+      "hex": "0x7365D2",
+      "source": "なんで、俺様が",
+      "current_translation": "왜내가",
+      "capacity_bytes": 14,
+      "current_used_bytes": 9,
+      "spare_bytes": 5,
+      "context_before": [
+        {
+          "item_id": "cluster_47_military:00736564",
+          "source": "狗はお前らだろうが！",
+          "translation": "개는너희겠지！"
+        },
+        {
+          "item_id": "cluster_47_military:00736590",
+          "source": "その狗じゃなくて、",
+          "translation": "그개가아니라、"
+        },
+        {
+          "item_id": "cluster_47_military:007365A8",
+          "source": "本物の犬だよ！",
+          "translation": "진짜개야！"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_47_military:007365E6",
+          "source": "犬の居場所なんぞ",
+          "translation": "개위치따위를"
+        },
+        {
+          "item_id": "cluster_47_military:007365FC",
+          "source": "知ってるっていうんだ！？",
+          "translation": "알고있겠냐！？"
+        },
+        {
+          "item_id": "cluster_47_military:0073662C",
+          "source": "ネタはあがってるのよ。",
+          "translation": "증거는다나왔어。"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_47_military:007365FC",
+      "group_id": "cluster_47_military",
+      "offset": 7562748,
+      "hex": "0x7365FC",
+      "source": "知ってるっていうんだ！？",
+      "current_translation": "알고있겠냐！？",
+      "capacity_bytes": 24,
+      "current_used_bytes": 21,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_47_military:007365A8",
+          "source": "本物の犬だよ！",
+          "translation": "진짜개야！"
+        },
+        {
+          "item_id": "cluster_47_military:007365D2",
+          "source": "なんで、俺様が",
+          "translation": "왜내가"
+        },
+        {
+          "item_id": "cluster_47_military:007365E6",
+          "source": "犬の居場所なんぞ",
+          "translation": "개위치따위를"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_47_military:0073662C",
+          "source": "ネタはあがってるのよ。",
+          "translation": "증거는다나왔어。"
+        },
+        {
+          "item_id": "cluster_47_military:00736662",
+          "source": "…仕方ない。実力で",
+          "translation": "…어쩔수없네"
+        },
+        {
+          "item_id": "cluster_47_military:0073667A",
+          "source": "吐かせるしかないようね",
+          "translation": "힘으로불게해야겠네"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_47_military:00736A4E",
+      "group_id": "cluster_47_military",
+      "offset": 7563854,
+      "hex": "0x736A4E",
+      "source": "…な、なんで",
+      "current_translation": "…왜、",
+      "capacity_bytes": 12,
+      "current_used_bytes": 9,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_47_military:007369DE",
+          "source": "誤報だったようね。",
+          "translation": "오보였나보네。"
+        },
+        {
+          "item_id": "cluster_47_military:007369F6",
+          "source": "ならば、いったん司令部に",
+          "translation": "그럼일단사령부로"
+        },
+        {
+          "item_id": "cluster_47_military:00736A14",
+          "source": "戻ってみましょう",
+          "translation": "돌아가보죠"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_47_military:00736A66",
+          "source": "そんなに冷静なんですか？",
+          "translation": "그렇게침착하세요？"
+        },
+        {
+          "item_id": "cluster_47_military:00736B70",
+          "source": "な、なんだ貴様らはっ！",
+          "translation": "너、너희뭐냐！"
+        },
+        {
+          "item_id": "cluster_47_military:00736B9E",
+          "source": "勝手に国家の資産を",
+          "translation": "멋대로국가자산을"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_47_military:00736D66",
+      "group_id": "cluster_47_military",
+      "offset": 7564646,
+      "hex": "0x736D66",
+      "source": "いつもそういう",
+      "current_translation": "늘그런",
+      "capacity_bytes": 14,
+      "current_used_bytes": 9,
+      "spare_bytes": 5,
+      "context_before": [
+        {
+          "item_id": "cluster_47_military:00736D0C",
+          "source": "捕まるとでも",
+          "translation": "잡힐거라"
+        },
+        {
+          "item_id": "cluster_47_military:00736D1E",
+          "source": "思っているのか！？",
+          "translation": "생각했나！？"
+        },
+        {
+          "item_id": "cluster_47_military:00736D4E",
+          "source": "だいたい悪人って、",
+          "translation": "대개악인이란"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_47_military:00736D7A",
+          "source": "セリフなんだよね",
+          "translation": "대사를하지"
+        },
+        {
+          "item_id": "cluster_47_military:00736DA4",
+          "source": "でも、結局最後は",
+          "translation": "하지만결국끝엔"
+        },
+        {
+          "item_id": "cluster_47_military:00736DBA",
+          "source": "やられちまうんだよな",
+          "translation": "당해버리거든"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_47_military:00736E16",
+      "group_id": "cluster_47_military",
+      "offset": 7564822,
+      "hex": "0x736E16",
+      "source": "だいたいなんで",
+      "current_translation": "대체왜",
+      "capacity_bytes": 14,
+      "current_used_bytes": 9,
+      "spare_bytes": 5,
+      "context_before": [
+        {
+          "item_id": "cluster_47_military:00736DA4",
+          "source": "でも、結局最後は",
+          "translation": "하지만결국끝엔"
+        },
+        {
+          "item_id": "cluster_47_military:00736DBA",
+          "source": "やられちまうんだよな",
+          "translation": "당해버리거든"
+        },
+        {
+          "item_id": "cluster_47_military:00736DEA",
+          "source": "な、なんだと！",
+          "translation": "뭐、뭐라고！"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_47_military:00736E2A",
+          "source": "コイツら、",
+          "translation": "이녀석들、"
+        },
+        {
+          "item_id": "cluster_47_military:00736E3A",
+          "source": "いっつも下水道なんだ？",
+          "translation": "늘하수도인거야？"
+        },
+        {
+          "item_id": "cluster_47_military:00736E68",
+          "source": "きっと暗くて狭いところが",
+          "translation": "분명어둡고좁은곳을"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_47_military:00737014",
+      "group_id": "cluster_47_military",
+      "offset": 7565332,
+      "hex": "0x737014",
+      "source": "私は役立たず…役立たず",
+      "current_translation": "난쓸모없다…",
+      "capacity_bytes": 22,
+      "current_used_bytes": 18,
+      "spare_bytes": 4,
+      "context_before": [
+        {
+          "item_id": "cluster_47_military:00736F86",
+          "source": "あっけなかったわね。",
+          "translation": "싱겁게끝났네。"
+        },
+        {
+          "item_id": "cluster_47_military:00736FAC",
+          "source": "さっ、帰りましょう",
+          "translation": "자、돌아가죠"
+        },
+        {
+          "item_id": "cluster_47_military:00736FDC",
+          "source": "あれ？大佐は？",
+          "translation": "저것？대령는？"
+        }
+      ],
+      "context_after": []
+    },
+    {
+      "item_id": "cluster_50_military:0073CF6A",
+      "group_id": "cluster_50_military",
+      "offset": 7589738,
+      "hex": "0x73CF6A",
+      "source": "ウィンリィ！",
+      "current_translation": "윈리！",
+      "capacity_bytes": 12,
+      "current_used_bytes": 9,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_50_military:0073CE94",
+          "source": "兄さん！",
+          "translation": "형！"
+        },
+        {
+          "item_id": "cluster_50_military:0073CEA2",
+          "source": "ばっちゃんとウィンリィに",
+          "translation": "할멈이랑　윈리를"
+        },
+        {
+          "item_id": "cluster_50_military:0073CEC0",
+          "source": "会いに行こうよ",
+          "translation": "만나러　가자"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_50_military:0073CF7C",
+          "source": "上客が来たよ！",
+          "translation": "귀한손님이왔어"
+        },
+        {
+          "item_id": "cluster_50_military:0073D03A",
+          "source": "こらぁ。いつも言ってるでしょ",
+          "translation": "이놈아。　항상　말하잖아"
+        },
+        {
+          "item_id": "cluster_50_military:0073D05C",
+          "source": "メンテに来るときは事前に",
+          "translation": "정비하러　올　때는　미리"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_50_military:0073D432",
+      "group_id": "cluster_50_military",
+      "offset": 7590962,
+      "hex": "0x73D432",
+      "source": "カワイイじゃねーか！",
+      "current_translation": "귀엽잖아！",
+      "capacity_bytes": 20,
+      "current_used_bytes": 15,
+      "spare_bytes": 5,
+      "context_before": [
+        {
+          "item_id": "cluster_50_military:0073D3D4",
+          "source": "そっちはマーティンス中佐。",
+          "translation": "그쪽은　마틴스　중령。"
+        },
+        {
+          "item_id": "cluster_50_military:0073D40C",
+          "source": "おい、エド！",
+          "translation": "야、에드！"
+        },
+        {
+          "item_id": "cluster_50_military:0073D41E",
+          "source": "お前の彼女か？",
+          "translation": "네여자친구냐？"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_50_military:0073D464",
+          "source": "そんなんじゃねーよ！",
+          "translation": "그런　거　아니야！"
+        },
+        {
+          "item_id": "cluster_50_military:0073D4A0",
+          "source": "そんなんじゃないわよ！",
+          "translation": "그런　거　아니거든！"
+        },
+        {
+          "item_id": "cluster_50_military:0073D4D4",
+          "source": "そ、そんなにムキになんなよ…",
+          "translation": "그、그렇게정색하지마…"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_50_military:0073D884",
+      "group_id": "cluster_50_military",
+      "offset": 7592068,
+      "hex": "0x73D884",
+      "source": "成長してるんですもの。",
+      "current_translation": "성장했는걸。",
+      "capacity_bytes": 22,
+      "current_used_bytes": 18,
+      "spare_bytes": 4,
+      "context_before": [
+        {
+          "item_id": "cluster_50_military:0073D81E",
+          "source": "でも、きっとお母様は喜んで",
+          "translation": "근데분명어머님은기뻐하고"
+        },
+        {
+          "item_id": "cluster_50_military:0073D83E",
+          "source": "いらっしゃるわ",
+          "translation": "계실　거야"
+        },
+        {
+          "item_id": "cluster_50_military:0073D862",
+          "source": "だってこんな立派な錬金術師に",
+          "translation": "이렇게　훌륭한　연금술사로"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_50_military:0073D8A6",
+          "source": "そうでしょ？",
+          "translation": "그렇지？"
+        },
+        {
+          "item_id": "cluster_50_military:0073D8D0",
+          "source": "だといいけどな。",
+          "translation": "그랬으면좋겠지만"
+        },
+        {
+          "item_id": "cluster_50_military:0073D904",
+          "source": "…って、なにしてんだ！？",
+          "translation": "…근데뭐하는거야！？"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_50_military:0073DA86",
+      "group_id": "cluster_50_military",
+      "offset": 7592582,
+      "hex": "0x73DA86",
+      "source": "ウィンリィ！",
+      "current_translation": "윈리！",
+      "capacity_bytes": 12,
+      "current_used_bytes": 9,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_50_military:0073D978",
+          "source": "いい子、いい子",
+          "translation": "착하다、착해"
+        },
+        {
+          "item_id": "cluster_50_military:0073D9A4",
+          "source": "ヤメーっ！",
+          "translation": "그만둬！"
+        },
+        {
+          "item_id": "cluster_50_military:0073D9B4",
+          "source": "ひとを子ども扱いすんなって",
+          "translation": "사람을어린애취급하지말라고"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_50_military:0073DA98",
+          "source": "上客が来たよ！",
+          "translation": "귀한손님이왔어"
+        },
+        {
+          "item_id": "cluster_50_military:0073DB5C",
+          "source": "こらぁ。いつも言ってるでしょ",
+          "translation": "이놈아。　항상　말하잖아"
+        },
+        {
+          "item_id": "cluster_50_military:0073DB7E",
+          "source": "メンテに来るときは事前に",
+          "translation": "정비하러　올　때는　미리"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_50_military:0073DF54",
+      "group_id": "cluster_50_military",
+      "offset": 7593812,
+      "hex": "0x73DF54",
+      "source": "カワイイじゃねーか！",
+      "current_translation": "귀엽잖아！",
+      "capacity_bytes": 20,
+      "current_used_bytes": 15,
+      "spare_bytes": 5,
+      "context_before": [
+        {
+          "item_id": "cluster_50_military:0073DEF6",
+          "source": "そっちはマーティンス中佐。",
+          "translation": "그쪽은　마틴스　중령。"
+        },
+        {
+          "item_id": "cluster_50_military:0073DF2E",
+          "source": "おい、エド！",
+          "translation": "야、에드！"
+        },
+        {
+          "item_id": "cluster_50_military:0073DF40",
+          "source": "お前の彼女か？",
+          "translation": "네여자친구냐？"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_50_military:0073DF86",
+          "source": "そんなんじゃねーよ！",
+          "translation": "그런　거　아니야！"
+        },
+        {
+          "item_id": "cluster_50_military:0073DFC2",
+          "source": "そんなんじゃないわよ！",
+          "translation": "그런　거　아니거든！"
+        },
+        {
+          "item_id": "cluster_50_military:0073DFF6",
+          "source": "そ、そんなにムキになんなよ…",
+          "translation": "그、그렇게정색하지마…"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_50_military:0073E966",
+      "group_id": "cluster_50_military",
+      "offset": 7596390,
+      "hex": "0x73E966",
+      "source": "ウィンリィ、ありがとな",
+      "current_translation": "윈리、고마워",
+      "capacity_bytes": 22,
+      "current_used_bytes": 18,
+      "spare_bytes": 4,
+      "context_before": [
+        {
+          "item_id": "cluster_50_military:0073E75A",
+          "source": "やってんのかい？",
+          "translation": "하고　있니？"
+        },
+        {
+          "item_id": "cluster_50_military:0073E788",
+          "source": "故郷に帰ってくる気があるなら",
+          "translation": "고향에돌아올생각이있으면"
+        },
+        {
+          "item_id": "cluster_50_military:0073E7AA",
+          "source": "働き口紹介するぜ",
+          "translation": "일자리소개해줄게"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_50_military:0073E98E",
+          "source": "仕事よ、仕事",
+          "translation": "일이야、일"
+        },
+        {
+          "item_id": "cluster_50_military:0073E9B2",
+          "source": "遠慮せずにいつでもおいで",
+          "translation": "사양　말고　언제든　와"
+        },
+        {
+          "item_id": "cluster_50_military:0073E9E8",
+          "source": "次はいつになるか、",
+          "translation": "다음이언제가될지는"
+        }
+      ]
+    }
+  ],
+  "excluded_counts": {
+    "manual_locked": 20,
+    "overflow_current": 351,
+    "no_spare_for_fullwidth_space": 122,
+    "already_has_space": 3,
+    "no_hangul": 2
+  }
+}

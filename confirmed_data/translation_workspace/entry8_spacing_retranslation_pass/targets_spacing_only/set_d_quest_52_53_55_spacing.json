@@ -1,0 +1,749 @@
+{
+  "task": "Entry8 spacing-only correction pass; manual_locked and over-capacity items excluded",
+  "instruction_docs": [
+    "docs/translation_team/fma_translation_team_common_final_v4_1.md",
+    "docs/translation_team/fma_translation_agent_final_v4_1.md",
+    "docs/translation_team/fma_review_agent_final_v4_1.md",
+    "docs/repeat_mistake_prevention.md"
+  ],
+  "hard_rules": [
+    "DO NOT shorten or summarize the sentence.",
+    "DO NOT remove words that are present in current_translation.",
+    "Primary allowed operation: insert fullwidth spaces U+3000 into current_translation.",
+    "You may only change obvious typo/glossary errors when the corrected string remains within capacity and preserves meaning.",
+    "Do not use halfwidth spaces or halfwidth punctuation in Entry8.",
+    "Do not add a space immediately after punctuation such as 、 。 … ！ ？ 「 」.",
+    "Do not split proper nouns internally: 코넬로, 레돈드, 솔링, 다이무라, 마틴스, 호크아이, 브래드레이, 윈리, 코니슈, 리젠블, 현자의 돌 etc.",
+    "If no safe improvement is possible, omit the record from output.",
+    "Output only changed records."
+  ],
+  "records": [
+    {
+      "item_id": "cluster_52_cat_quest:00741CF0",
+      "group_id": "cluster_52_cat_quest",
+      "offset": 7609584,
+      "hex": "0x741CF0",
+      "source": "う～ん…、",
+      "current_translation": "음…",
+      "capacity_bytes": 10,
+      "current_used_bytes": 6,
+      "spare_bytes": 4,
+      "context_before": [
+        {
+          "item_id": "cluster_52_cat_quest:00741C8C",
+          "source": "いったいどんな旅してんのよ？",
+          "translation": "대체어떤여행을하는거야？"
+        },
+        {
+          "item_id": "cluster_52_cat_quest:00741CC0",
+          "source": "ま、",
+          "translation": "뭐、"
+        },
+        {
+          "item_id": "cluster_52_cat_quest:00741CCC",
+          "source": "まぁいろいろと…",
+          "translation": "뭐、여러가지。。"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_52_cat_quest:00741D04",
+          "source": "あの情報にいつわりが",
+          "translation": "그　정보가　거짓이"
+        },
+        {
+          "item_id": "cluster_52_cat_quest:00741D1E",
+          "source": "なければできるかな…",
+          "translation": "아니라면가능할지도。"
+        },
+        {
+          "item_id": "cluster_52_cat_quest:00741D4A",
+          "source": "情報？",
+          "translation": "정보？"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_52_cat_quest:00742230",
+      "group_id": "cluster_52_cat_quest",
+      "offset": 7610928,
+      "hex": "0x742230",
+      "source": "手に入ったわよ！",
+      "current_translation": "얻었어！",
+      "capacity_bytes": 16,
+      "current_used_bytes": 12,
+      "spare_bytes": 4,
+      "context_before": [
+        {
+          "item_id": "cluster_52_cat_quest:007421E0",
+          "source": "よく見つかったわね～",
+          "translation": "잘도　찾았네～"
+        },
+        {
+          "item_id": "cluster_52_cat_quest:00742204",
+          "source": "あ、そうだ！",
+          "translation": "아、맞다！"
+        },
+        {
+          "item_id": "cluster_52_cat_quest:00742216",
+          "source": "こっちも新しい情報が",
+          "translation": "이쪽도　새　정보를"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_52_cat_quest:00742252",
+          "source": "技師仲間から聞いた話では、",
+          "translation": "기술자동료에게들은얘긴데"
+        },
+        {
+          "item_id": "cluster_52_cat_quest:00742272",
+          "source": "ヴィリジウムという素材が",
+          "translation": "비리지움이라는　소재가"
+        },
+        {
+          "item_id": "cluster_52_cat_quest:00742290",
+          "source": "あるそうなの",
+          "translation": "있대"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_52_cat_quest:00742290",
+      "group_id": "cluster_52_cat_quest",
+      "offset": 7611024,
+      "hex": "0x742290",
+      "source": "あるそうなの",
+      "current_translation": "있대",
+      "capacity_bytes": 12,
+      "current_used_bytes": 6,
+      "spare_bytes": 6,
+      "context_before": [
+        {
+          "item_id": "cluster_52_cat_quest:00742230",
+          "source": "手に入ったわよ！",
+          "translation": "얻었어！"
+        },
+        {
+          "item_id": "cluster_52_cat_quest:00742252",
+          "source": "技師仲間から聞いた話では、",
+          "translation": "기술자동료에게들은얘긴데"
+        },
+        {
+          "item_id": "cluster_52_cat_quest:00742272",
+          "source": "ヴィリジウムという素材が",
+          "translation": "비리지움이라는　소재가"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_52_cat_quest:007422AC",
+          "source": "迷路のような街のどこかに",
+          "translation": "미로같은마을어딘가에"
+        },
+        {
+          "item_id": "cluster_52_cat_quest:007422CA",
+          "source": "隠れて落ちているそうよ",
+          "translation": "숨겨져떨어져있다더라"
+        },
+        {
+          "item_id": "cluster_52_cat_quest:0074232E",
+          "source": "レドニウムって素材のありかよ",
+          "translation": "레드늄이라는　소재의　위치야"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_52_cat_quest:00742548",
+      "group_id": "cluster_52_cat_quest",
+      "offset": 7611720,
+      "hex": "0x742548",
+      "source": "教えてもらったよ",
+      "current_translation": "들었어",
+      "capacity_bytes": 16,
+      "current_used_bytes": 9,
+      "spare_bytes": 7,
+      "context_before": [
+        {
+          "item_id": "cluster_52_cat_quest:007424E0",
+          "source": "山道に落ちてるらしいわ",
+          "translation": "산길에떨어져있다더라"
+        },
+        {
+          "item_id": "cluster_52_cat_quest:0074250C",
+          "source": "ピナコばっちゃんから",
+          "translation": "피나코　할멈한테"
+        },
+        {
+          "item_id": "cluster_52_cat_quest:00742526",
+          "source": "ソリタリウムって素材のことを",
+          "translation": "솔리타리움이라는소재이야기를"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_52_cat_quest:00742568",
+          "source": "どこかの村の裏山、",
+          "translation": "어느　마을　뒷산、"
+        },
+        {
+          "item_id": "cluster_52_cat_quest:00742580",
+          "source": "山道に落ちてるんだって",
+          "translation": "산길에　떨어져　있대"
+        },
+        {
+          "item_id": "cluster_52_cat_quest:007425E4",
+          "source": "クルジウムって素材は",
+          "translation": "크루지움이라는소재는"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_52_cat_quest:0074278E",
+      "group_id": "cluster_52_cat_quest",
+      "offset": 7612302,
+      "hex": "0x74278E",
+      "source": "すばらしいわ♪",
+      "current_translation": "멋져♪",
+      "capacity_bytes": 14,
+      "current_used_bytes": 9,
+      "spare_bytes": 5,
+      "context_before": [
+        {
+          "item_id": "cluster_52_cat_quest:007426CA",
+          "source": "どこかに落ちているんだって",
+          "translation": "어딘가에　떨어져　있대"
+        },
+        {
+          "item_id": "cluster_52_cat_quest:00742758",
+          "source": "エド、とうとう素材を全部",
+          "translation": "에드、드디어소재를전부"
+        },
+        {
+          "item_id": "cluster_52_cat_quest:00742776",
+          "source": "集めてくれたのね！",
+          "translation": "모아　와　줬구나！"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_52_cat_quest:007427AC",
+          "source": "さっそく作るわ！",
+          "translation": "바로　만들게！"
+        },
+        {
+          "item_id": "cluster_52_cat_quest:007427C2",
+          "source": "工費は大まけにまけて",
+          "translation": "공임은크게깎아서"
+        },
+        {
+          "item_id": "cluster_52_cat_quest:007427DC",
+          "source": "５０００００センズでいいわ＄",
+          "translation": "５０００００　센즈면　돼"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_53_military:00744FE6",
+      "group_id": "cluster_53_military",
+      "offset": 7622630,
+      "hex": "0x744FE6",
+      "source": "思ってないんだから",
+      "current_translation": "없으니까",
+      "capacity_bytes": 18,
+      "current_used_bytes": 12,
+      "spare_bytes": 6,
+      "context_before": [
+        {
+          "item_id": "cluster_53_military:00744F84",
+          "source": "気にする必要ないって",
+          "translation": "신경　쓸　필요　없어"
+        },
+        {
+          "item_id": "cluster_53_military:00744FB0",
+          "source": "そうそう。ボクも兄さんも",
+          "translation": "맞아。　나도　형도"
+        },
+        {
+          "item_id": "cluster_53_military:00744FCE",
+          "source": "恩を着せようなんて",
+          "translation": "생색낼　생각은"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_53_military:00745010",
+          "source": "うん！",
+          "translation": "응！"
+        },
+        {
+          "item_id": "cluster_53_military:0074502E",
+          "source": "うおおおお！",
+          "translation": "우오오오오！"
+        },
+        {
+          "item_id": "cluster_53_military:00745040",
+          "source": "なんと心優しき兄弟",
+          "translation": "마음고운형제군"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_53_military:0074548C",
+      "group_id": "cluster_53_military",
+      "offset": 7623820,
+      "hex": "0x74548C",
+      "source": "……ププッ",
+      "current_translation": "…풋",
+      "capacity_bytes": 10,
+      "current_used_bytes": 6,
+      "spare_bytes": 4,
+      "context_before": [
+        {
+          "item_id": "cluster_53_military:007453A0",
+          "source": "ぐぁぁぁぁぁ…",
+          "translation": "끄아아아아。。"
+        },
+        {
+          "item_id": "cluster_53_military:00745448",
+          "source": "威厳を取り戻すまで",
+          "translation": "위엄을되찾기전엔"
+        },
+        {
+          "item_id": "cluster_53_military:00745460",
+          "source": "戻ることは出来んのだ、鋼の",
+          "translation": "돌아갈　수　없다、강철"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_53_military:007454B2",
+          "source": "…………",
+          "translation": "…。"
+        },
+        {
+          "item_id": "cluster_53_military:00745594",
+          "source": "まさかまたキメラを",
+          "translation": "설마　또　키메라를"
+        },
+        {
+          "item_id": "cluster_53_military:007455AC",
+          "source": "錬成してるヤツがいる、",
+          "translation": "연성하는녀석이있다、"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_53_military:007459F8",
+      "group_id": "cluster_53_military",
+      "offset": 7625208,
+      "hex": "0x7459F8",
+      "source": "コーニッシュは、",
+      "current_translation": "코니시는",
+      "capacity_bytes": 16,
+      "current_used_bytes": 12,
+      "spare_bytes": 4,
+      "context_before": [
+        {
+          "item_id": "cluster_53_military:0074597E",
+          "source": "この事件を解決さえすれば",
+          "translation": "이　사건만　해결하면"
+        },
+        {
+          "item_id": "cluster_53_military:0074599C",
+          "source": "オレ様も自由なんだよな？",
+          "translation": "이　몸도　자유인　거지？"
+        },
+        {
+          "item_id": "cluster_53_military:007459D2",
+          "source": "さあな？",
+          "translation": "글쎄？"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_53_military:00745A0E",
+          "source": "何か約束してんだろ？",
+          "translation": "뭔가　약속했잖아？"
+        },
+        {
+          "item_id": "cluster_53_military:00745A28",
+          "source": "ブラッドレイと",
+          "translation": "브래드레이와"
+        },
+        {
+          "item_id": "cluster_53_military:00745A4E",
+          "source": "大総統を呼び捨てにするな",
+          "translation": "대총통을함부로부르지마라"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_53_military:00745EBC",
+      "group_id": "cluster_53_military",
+      "offset": 7626428,
+      "hex": "0x745EBC",
+      "source": "おもしろいじゃないかよ。",
+      "current_translation": "재밌잖아。",
+      "capacity_bytes": 24,
+      "current_used_bytes": 15,
+      "spare_bytes": 9,
+      "context_before": [
+        {
+          "item_id": "cluster_53_military:00745E4E",
+          "source": "ほう、この私を",
+          "translation": "호오、이나를"
+        },
+        {
+          "item_id": "cluster_53_military:00745E62",
+          "source": "焔の錬金術師と知らんようだ",
+          "translation": "불꽃연금술사인줄모르나"
+        },
+        {
+          "item_id": "cluster_53_military:00745E82",
+          "source": "無知とは恐ろしいな",
+          "translation": "무지란　무섭군"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_53_military:00745EDA",
+          "source": "オレ様の刀の斬れ味を",
+          "translation": "이　몸의　칼날　맛을"
+        },
+        {
+          "item_id": "cluster_53_military:00745EF4",
+          "source": "その身体で試してみるか？",
+          "translation": "그몸으로시험해볼래？"
+        },
+        {
+          "item_id": "cluster_53_military:00745F2A",
+          "source": "…我輩をザコ扱いとは",
+          "translation": "…나를잡졸취급하다니"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_55_east_city:0074B738",
+      "group_id": "cluster_55_east_city",
+      "offset": 7649080,
+      "hex": "0x74B738",
+      "source": "兄さん、落ち着いてっ！",
+      "current_translation": "형、진정해！",
+      "capacity_bytes": 22,
+      "current_used_bytes": 18,
+      "spare_bytes": 4,
+      "context_before": [
+        {
+          "item_id": "cluster_55_east_city:0074B6EA",
+          "source": "うぉぉぉぉぉ！",
+          "translation": "우오오오오！"
+        },
+        {
+          "item_id": "cluster_55_east_city:0074B6FE",
+          "source": "ぶっとばーす！",
+          "translation": "날려버리겠어！"
+        },
+        {
+          "item_id": "cluster_55_east_city:0074B72A",
+          "source": "兄さん！",
+          "translation": "형！"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_55_east_city:0074B75A",
+          "source": "ほら、あの子…",
+          "translation": "봐、저애…"
+        },
+        {
+          "item_id": "cluster_55_east_city:0074B786",
+          "source": "あーっ！！",
+          "translation": "아앗！！"
+        },
+        {
+          "item_id": "cluster_55_east_city:0074B796",
+          "source": "ソリンの裏山でっ！",
+          "translation": "솔링　뒷산에서！"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_55_east_city:0074B9DC",
+      "group_id": "cluster_55_east_city",
+      "offset": 7649756,
+      "hex": "0x74B9DC",
+      "source": "お兄ちゃんの",
+      "current_translation": "오빠의",
+      "capacity_bytes": 12,
+      "current_used_bytes": 9,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_55_east_city:0074B96A",
+          "source": "出てきたと思ってんのよ？",
+          "translation": "나왔다고　생각하는데？"
+        },
+        {
+          "item_id": "cluster_55_east_city:0074B99A",
+          "source": "誰も頼んでねーだろうが",
+          "translation": "아무도부탁안했잖아"
+        },
+        {
+          "item_id": "cluster_55_east_city:0074B9C8",
+          "source": "仕方ないでしょ",
+          "translation": "어쩔수없잖아"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_55_east_city:0074B9EE",
+          "source": "言いつけなんだもん",
+          "translation": "분부였는걸"
+        },
+        {
+          "item_id": "cluster_55_east_city:0074BA18",
+          "source": "そういうことだ",
+          "translation": "그런　것이다"
+        },
+        {
+          "item_id": "cluster_55_east_city:0074BABA",
+          "source": "あまりにランディの帰りが",
+          "translation": "랜디가　너무　오래"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_55_east_city:0074B9EE",
+      "group_id": "cluster_55_east_city",
+      "offset": 7649774,
+      "hex": "0x74B9EE",
+      "source": "言いつけなんだもん",
+      "current_translation": "분부였는걸",
+      "capacity_bytes": 18,
+      "current_used_bytes": 15,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_55_east_city:0074B99A",
+          "source": "誰も頼んでねーだろうが",
+          "translation": "아무도부탁안했잖아"
+        },
+        {
+          "item_id": "cluster_55_east_city:0074B9C8",
+          "source": "仕方ないでしょ",
+          "translation": "어쩔수없잖아"
+        },
+        {
+          "item_id": "cluster_55_east_city:0074B9DC",
+          "source": "お兄ちゃんの",
+          "translation": "오빠의"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_55_east_city:0074BA18",
+          "source": "そういうことだ",
+          "translation": "그런　것이다"
+        },
+        {
+          "item_id": "cluster_55_east_city:0074BABA",
+          "source": "あまりにランディの帰りが",
+          "translation": "랜디가　너무　오래"
+        },
+        {
+          "item_id": "cluster_55_east_city:0074BAD8",
+          "source": "遅いのでな",
+          "translation": "늦어서"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_55_east_city:0074C396",
+      "group_id": "cluster_55_east_city",
+      "offset": 7652246,
+      "hex": "0x74C396",
+      "source": "ちょっと、アンタ、",
+      "current_translation": "잠깐、너、",
+      "capacity_bytes": 18,
+      "current_used_bytes": 15,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_55_east_city:0074C2FA",
+          "source": "コーニッシュ…コニィ？",
+          "translation": "코니슈…　코니？"
+        },
+        {
+          "item_id": "cluster_55_east_city:0074C32E",
+          "source": "う、うう…コニィ？",
+          "translation": "으、으으…코니？"
+        },
+        {
+          "item_id": "cluster_55_east_city:0074C364",
+          "source": "だ、大丈夫、お兄ちゃん！？",
+          "translation": "괘、괜찮아、오빠！？"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_55_east_city:0074C3AE",
+          "source": "お兄ちゃんになにしたのよ！",
+          "translation": "오빠에게무슨짓을한거야！"
+        },
+        {
+          "item_id": "cluster_55_east_city:0074C3E0",
+          "source": "な、なにをしたって…",
+          "translation": "무、무슨짓이라니。。"
+        },
+        {
+          "item_id": "cluster_55_east_city:0074C3FA",
+          "source": "知らないわよ！",
+          "translation": "모른다구！"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_55_east_city:0074D826",
+      "group_id": "cluster_55_east_city",
+      "offset": 7657510,
+      "hex": "0x74D826",
+      "source": "まあ、待て",
+      "current_translation": "잠깐",
+      "capacity_bytes": 10,
+      "current_used_bytes": 6,
+      "spare_bytes": 4,
+      "context_before": [
+        {
+          "item_id": "cluster_55_east_city:0074D77A",
+          "source": "いったんイーストシティに戻る",
+          "translation": "일단이스트시티로돌아간다"
+        },
+        {
+          "item_id": "cluster_55_east_city:0074D7CC",
+          "source": "リンカーは追わなくていいの？",
+          "translation": "링커는　쫓지　않아도　돼？"
+        },
+        {
+          "item_id": "cluster_55_east_city:0074D7EE",
+          "source": "このまま逃がしちゃう気かよ",
+          "translation": "이대로　놓칠　셈이야？"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_55_east_city:0074D836",
+          "source": "追うにしても態勢の立て直しだ",
+          "translation": "쫓더라도태세를다시갖춰야한다"
+        },
+        {
+          "item_id": "cluster_55_east_city:0074D858",
+          "source": "情報の分析も必要だしな",
+          "translation": "정보분석도필요해"
+        },
+        {
+          "item_id": "cluster_55_east_city:0074D964",
+          "source": "ホント、逃げ足だけは",
+          "translation": "정말도망만큼은"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_55_east_city:0074DE54",
+      "group_id": "cluster_55_east_city",
+      "offset": 7659092,
+      "hex": "0x74DE54",
+      "source": "というわけか",
+      "current_translation": "말인가",
+      "capacity_bytes": 12,
+      "current_used_bytes": 9,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_55_east_city:0074DDF4",
+          "source": "逃げ出すときに",
+          "translation": "도망칠　때"
+        },
+        {
+          "item_id": "cluster_55_east_city:0074DE08",
+          "source": "カバンを持っていたんだよ",
+          "translation": "가방을　들고　있었어"
+        },
+        {
+          "item_id": "cluster_55_east_city:0074DE38",
+          "source": "…それがなくなっている",
+          "translation": "…그게　사라졌다는"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_55_east_city:0074DE7E",
+          "source": "大佐、もしやそのカバンが",
+          "translation": "대령、혹시　그　가방이"
+        },
+        {
+          "item_id": "cluster_55_east_city:0074DE9C",
+          "source": "一連の事件のカギを",
+          "translation": "일련의사건의열쇠를"
+        },
+        {
+          "item_id": "cluster_55_east_city:0074DEB4",
+          "source": "握っているのでは？",
+          "translation": "쥐고있는건아닐까요"
+        }
+      ]
+    },
+    {
+      "item_id": "cluster_55_east_city:0074E428",
+      "group_id": "cluster_55_east_city",
+      "offset": 7660584,
+      "hex": "0x74E428",
+      "source": "もしかして、",
+      "current_translation": "혹시、",
+      "capacity_bytes": 12,
+      "current_used_bytes": 9,
+      "spare_bytes": 3,
+      "context_before": [
+        {
+          "item_id": "cluster_55_east_city:0074E3C6",
+          "source": "言ってるんだよ。",
+          "translation": "하는　거야。"
+        },
+        {
+          "item_id": "cluster_55_east_city:0074E3EE",
+          "source": "あれ？…ヒゲは？",
+          "translation": "어라？…수염은？"
+        },
+        {
+          "item_id": "cluster_55_east_city:0074E41C",
+          "source": "…あ。",
+          "translation": "…아。"
+        }
+      ],
+      "context_after": [
+        {
+          "item_id": "cluster_55_east_city:0074E43A",
+          "source": "汗で消えたんじゃないかな",
+          "translation": "땀으로　지워진거　아닐까"
+        },
+        {
+          "item_id": "cluster_55_east_city:0074E466",
+          "source": "だけど、ひとりで",
+          "translation": "하지만　혼자서"
+        },
+        {
+          "item_id": "cluster_55_east_city:0074E47C",
+          "source": "ヤツと戦おうなんて",
+          "translation": "녀석과　싸우겠다니"
+        }
+      ]
+    }
+  ],
+  "excluded_counts": {
+    "manual_locked": 65,
+    "overflow_current": 720,
+    "no_spare_for_fullwidth_space": 80,
+    "already_has_space": 5,
+    "no_hangul": 2
+  }
+}
