@@ -25,3 +25,15 @@ third_party/pymgba-mcp/
 node_modules/
 analysis/generated_workbenches/*/hangul_*.pgm
 confirmed_data/runtime_debug/
+analysis/
+generated-images/
+confirmed_data/localization_workbench/uploaded_image_replacements/
+confirmed_data/localization_workbench/import_reports/
+confirmed_data/localization_workbench/agent_inbox/
+confirmed_data/localization_workbench/imported_agent_results/
+confirmed_data/localization_workbench/*_test_report.json
+confirmed_data/font_assets/*_state_extract/
+confirmed_data/font_assets/*_tilemaps/
+confirmed_data/font_assets/*_preview*.png
+confirmed_data/font_assets/*_compare*.png
+confirmed_data/font_assets/*_diff*.png

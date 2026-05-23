@@ -1,1 +1,0 @@
-Native ROM-apply assets for field/menu label LZ77 blocks. All files must remain exactly 256x16 PNG. Do not use 1024x64 edit/preview files for these blocks unless the patcher explicitly downsamples before encoding.
