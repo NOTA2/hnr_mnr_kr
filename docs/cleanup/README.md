@@ -38,6 +38,8 @@ reviewing any further cleanup batch.
 - `current_state.md`: repo size, tracked-file distribution, ignored local files,
   and high-volume areas.
 - `safety_gate.md`: mandatory checks before deletion or large structure changes.
+- `retention_policy.md`: criteria for keep, retrospective keep, untrack, and
+  delete decisions.
 - `execution_plan.md`: staged cleanup, retrospective, and starter-kit plan.
 - `active_reference_trace.md`: references extracted from active GUI JSON files.
 - `external_path_audit.md`: active vs historical absolute-path findings.

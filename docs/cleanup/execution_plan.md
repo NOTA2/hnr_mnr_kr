@@ -18,6 +18,7 @@ Status: started
   retrospective evidence.
 - Before any deletion, untracking batch, or large structure change, run
   `safety_gate.md`.
+- Classify every candidate with `retention_policy.md` before changing it.
 
 ## Phase 1: Active Dependency Map
 
