@@ -16,6 +16,8 @@ Status: started
 - Do not rewrite active scripts before dependency tracing.
 - Keep Codex session logs outside the repo; use them only as read-only
   retrospective evidence.
+- Before any deletion, untracking batch, or large structure change, run
+  `safety_gate.md`.
 
 ## Phase 1: Active Dependency Map
 
@@ -96,7 +98,7 @@ Exit condition:
 
 ## Phase 5: Conservative Cleanup Batches
 
-Status: pending
+Status: started
 
 Batch order should be smallest-risk first.
 
@@ -113,6 +115,13 @@ Current image-inventory note:
 - Do not prune `confirmed_data/image_inventory/` yet. See
   `image_inventory_audit.md`; active GUI references are not the only dependency
   because image scripts still use broad extraction reports.
+
+Completed so far:
+
+- Untracked `3,847` generated PGM files from historical/test workbenches under
+  `analysis/generated_workbenches/`, with all local files verified present after
+  the index cleanup.
+- No files under `confirmed_data/image_inventory/` were removed or untracked.
 
 Exit condition:
 

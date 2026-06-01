@@ -24,12 +24,20 @@ localization pipeline by accident.
 
 ## Current Status
 
-This is an inventory-only pass. No tracked project files have been removed.
+The inventory pass is complete and conservative cleanup has started.
+
+No active ROM, savestate, patch, workbench JSON, source script, or image
+replacement payload has been removed. One Git index cleanup has been executed:
+`3,847` generated historical/test PGM files under
+`analysis/generated_workbenches/` were untracked with local files preserved on
+disk. See `generated_workbenches_audit.md` and `safety_gate.md` before making or
+reviewing any further cleanup batch.
 
 ## Inventory Documents
 
 - `current_state.md`: repo size, tracked-file distribution, ignored local files,
   and high-volume areas.
+- `safety_gate.md`: mandatory checks before deletion or large structure changes.
 - `execution_plan.md`: staged cleanup, retrospective, and starter-kit plan.
 - `active_reference_trace.md`: references extracted from active GUI JSON files.
 - `external_path_audit.md`: active vs historical absolute-path findings.
