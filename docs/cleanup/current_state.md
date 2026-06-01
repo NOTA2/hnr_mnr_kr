@@ -13,19 +13,19 @@ Date: 2026-06-02 KST
 
 ## Current After Cleanup Checkpoints
 
-- Cleanup checkpoint before this safety update: `2372d10`
-  (`이미지 인벤토리 정리 위험도 문서화`)
-- Tracked files after current pending safety docs: `27,294`
-- Tracked `analysis/generated_workbenches` files after batch 1: `9,778`
+- Cleanup checkpoint before generated workbench batch 2: `ae4c4b6`
+  (`정리 보존 기준 추가`)
+- Tracked files after current generated workbench batch 2: `27,280`
+- Tracked `analysis/generated_workbenches` files after batch 2: `9,763`
 - Local `.DS_Store` files: `0`
 - Local `__pycache__` directories: `0`
 
 Current tracked top-level distribution:
 
 - `confirmed_data`: `16,619`
-- `analysis`: `10,487`
+- `analysis`: `10,472`
 - `scripts`: `120`
-- `docs`: `38`
+- `docs`: `39`
 - `third_party`: `18`
 - `gba_kor_tool`: `4`
 - `tools`: `2`
@@ -36,11 +36,11 @@ Current top tracked extensions:
 - `pgm`: `13,183`
 - `png`: `9,624`
 - `bin`: `3,142`
-- `json`: `941`
-- `md`: `222`
+- `json`: `929`
+- `md`: `223`
 - `py`: `107`
 - `txt`: `32`
-- `tbl`: `27`
+- `tbl`: `24`
 
 ## Initial Tracked File Distribution
 
@@ -102,9 +102,9 @@ Do not touch these until the workbench and build flow are traced:
 - `confirmed_data/image_inventory/global_tile_extraction`: `1,924` tracked files
 - `confirmed_data/image_inventory/runtime_*`: `2,668` tracked files
 - `analysis/generated_workbenches/current_review`: `9,529` tracked files
-- `analysis/generated_workbenches/inline_event_text_test`: `5` tracked files
-- `analysis/generated_workbenches/current_review_entry8_retranslated`: `5` tracked files
-- `analysis/generated_workbenches/current_review_entry8_two_only`: `5` tracked files
+- `analysis/generated_workbenches/inline_event_text_test`: `0` tracked files
+- `analysis/generated_workbenches/current_review_entry8_retranslated`: `0` tracked files
+- `analysis/generated_workbenches/current_review_entry8_two_only`: `0` tracked files
 
 ## External Path References
 

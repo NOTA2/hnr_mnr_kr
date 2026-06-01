@@ -79,8 +79,9 @@ Expected result for normal cleanup: no ROM, savestate, or patch files.
 
 ## Current Baseline Note
 
-The cleanup baseline before this work was commit `4256e71`. The current pushed
-cleanup checkpoint after image inventory risk documentation is `2372d10`.
+The cleanup baseline before this work was commit `4256e71`. Safety-check notes
+below are retained as historical checkpoints; newer batch-specific counts live
+in the matching audit documents.
 
 As of the safety check after `2372d10`:
 

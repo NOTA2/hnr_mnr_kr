@@ -27,10 +27,14 @@ localization pipeline by accident.
 The inventory pass is complete and conservative cleanup has started.
 
 No active ROM, savestate, patch, workbench JSON, source script, or image
-replacement payload has been removed. One Git index cleanup has been executed:
-`3,847` generated historical/test PGM files under
-`analysis/generated_workbenches/` were untracked with local files preserved on
-disk. See `generated_workbenches_audit.md` and `safety_gate.md` before making or
+replacement payload has been removed. Two Git index cleanup batches have been
+executed under `analysis/generated_workbenches/` with local files preserved on
+disk:
+
+- `3,847` generated historical/test PGM files;
+- `15` generated historical/test metadata files.
+
+See `generated_workbenches_audit.md` and `safety_gate.md` before making or
 reviewing any further cleanup batch.
 
 ## Inventory Documents

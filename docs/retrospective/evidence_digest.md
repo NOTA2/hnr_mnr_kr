@@ -103,3 +103,23 @@ repo-relative paths or explicit user-provided inputs.
 - The final repo should explain what is active, what is archived, and what is
   deliberately ignored.
 
+### Generated Workbenches Are Build Products
+
+The historical/test workbenches under `analysis/generated_workbenches/` preserved
+useful facts, but the full generated glyph tables were not the source of truth.
+
+Representative facts preserved before untracking:
+
+- `inline_event_text_test`: `991` Hangul seed entries, `998` prepared entries,
+  input path `/private/tmp/inline_event_text_test_translations.json`.
+- `current_review_entry8_retranslated`: `988` Hangul seed entries, `995`
+  prepared entries, input path
+  `patched_roms/current_review/current_review_entry8_retranslated_translations.json`.
+- `current_review_entry8_two_only`: `633` Hangul seed entries, `640` prepared
+  entries, input path
+  `patched_roms/current_review/current_review_translations_entry8_two_only.json`.
+
+The reusable starter-kit rule is: generated workbench outputs may be kept locally
+for recovery, but the repo should keep the active input, generator script, and a
+compact audit summary instead of thousands of generated glyph files and repeated
+manifests.
