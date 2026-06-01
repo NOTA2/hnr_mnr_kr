@@ -2,11 +2,21 @@
 
 Date: 2026-06-02 KST
 
-This is a non-destructive preview of ignored local files. No files were removed.
+This started as a non-destructive preview of ignored local files. The first
+low-risk cleanup batch has now been executed.
+
+## Executed Batch 1
+
+Deleted local cache files only:
+
+- `.DS_Store`: `32 -> 0`
+- `__pycache__/`: `6 -> 0`
+
+Git-tracked deleted files after the cleanup: `0`
 
 ## Ignored File Count
 
-Current ignored-but-present paths: `3,605`
+Ignored-but-present paths before batch 1: `3,605`
 
 Top-level distribution:
 
@@ -62,4 +72,3 @@ These need evidence review before deletion:
 ## Rule
 
 Clean ignored files by targeted path, never with a blanket repo-wide clean.
-
