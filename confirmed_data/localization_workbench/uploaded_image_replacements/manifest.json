@@ -1,0 +1,2574 @@
+{
+  "generated_at": "2026-06-01T18:57:02.650220+00:00",
+  "root": "confirmed_data/localization_workbench/uploaded_image_replacements",
+  "sources": [
+    "confirmed_data/localization_workbench/workbench_dataset.json",
+    "confirmed_data/localization_workbench/image_replacements.json"
+  ],
+  "summary": {
+    "file_count": 365,
+    "active_reference_count": 340,
+    "missing_active_reference_count": 0,
+    "active_files_on_disk": 328,
+    "unreferenced_files_on_disk": 37,
+    "tracked_before_upload_audit_count": 255
+  },
+  "missing_active_references": [],
+  "files": [
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/README.md",
+      "active_reference": false,
+      "tracked_before_upload_audit": false,
+      "suffix": ".md",
+      "size_bytes": 1115
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_field_alchemy_label_005323AC/bc0eebbc-631f-4adf-9167-449d9c490dee.png",
+      "active_reference": false,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 248969
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_field_alchemy_label_005323AC/image_field_alchemy_label_005323AC_edited.png",
+      "active_reference": false,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 550
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_field_alchemy_label_005323AC/연성.png",
+      "active_reference": false,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 1020
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_field_label_0053257C/아이템.png",
+      "active_reference": false,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 327
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_field_save_label_0053293C/저장.png",
+      "active_reference": false,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 335
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_field_status_label_00532764/상태.png",
+      "active_reference": false,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 309
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_000/에.png",
+      "active_reference": false,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 165
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_015/New_Piskel_20260522_171241_slot_000_tile_015.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 135
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_015/New_Piskel_20260522_171718_slot_000_tile_015.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 135
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_015/New_Piskel__2_20260522_172811_slot_000_tile_015.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 135
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_015/New_Piskel__4_20260522_172929_slot_000_tile_015.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 135
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_016/New_Piskel_20260522_171241_slot_001_tile_016.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 139
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_016/New_Piskel_20260522_171718_slot_001_tile_016.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 139
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_016/New_Piskel__2_20260522_172811_slot_001_tile_016.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 136
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_016/New_Piskel__4_20260522_172929_slot_001_tile_016.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 136
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_017/New_Piskel_20260522_171241_slot_002_tile_017.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 130
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_017/New_Piskel_20260522_171718_slot_002_tile_017.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 130
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_017/New_Piskel__2_20260522_172811_slot_002_tile_017.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 132
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_017/New_Piskel__4_20260522_172929_slot_002_tile_017.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 136
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_018/New_Piskel_20260522_171241_slot_003_tile_018.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 121
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_018/New_Piskel_20260522_171718_slot_003_tile_018.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 121
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_018/New_Piskel__2_20260522_172811_slot_003_tile_018.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 121
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_018/New_Piskel__4_20260522_172929_slot_003_tile_018.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 121
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_019/New_Piskel_20260522_171241_slot_004_tile_019.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 144
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_019/New_Piskel_20260522_171718_slot_004_tile_019.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 144
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_019/New_Piskel__2_20260522_172811_slot_004_tile_019.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 144
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_019/New_Piskel__4_20260522_172929_slot_004_tile_019.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 143
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_01A/New_Piskel_20260522_171241_slot_005_tile_01A.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 141
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_01A/New_Piskel_20260522_171718_slot_005_tile_01A.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 141
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_01A/New_Piskel__2_20260522_172811_slot_005_tile_01A.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 141
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_01A/New_Piskel__4_20260522_172929_slot_005_tile_01A.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 141
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_021/New_Piskel_20260522_171241_slot_006_tile_021.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 147
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_021/New_Piskel_20260522_171718_slot_006_tile_021.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 147
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_021/New_Piskel__2_20260522_172811_slot_006_tile_021.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 147
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_021/New_Piskel__4_20260522_172929_slot_006_tile_021.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 147
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_022/New_Piskel_20260522_171241_slot_007_tile_022.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 131
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_022/New_Piskel_20260522_171718_slot_007_tile_022.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 131
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_022/New_Piskel__2_20260522_172811_slot_007_tile_022.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 134
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_022/New_Piskel__4_20260522_172929_slot_007_tile_022.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 123
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_023/New_Piskel_20260522_171241_slot_008_tile_023.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 102
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_023/New_Piskel_20260522_171718_slot_008_tile_023.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 102
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_023/New_Piskel__2_20260522_172811_slot_008_tile_023.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 109
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_023/New_Piskel__4_20260522_172929_slot_008_tile_023.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 120
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_024/New_Piskel_20260522_171241_slot_009_tile_024.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 130
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_024/New_Piskel_20260522_171718_slot_009_tile_024.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 130
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_024/New_Piskel__2_20260522_172811_slot_009_tile_024.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 130
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_024/New_Piskel__4_20260522_172929_slot_009_tile_024.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 133
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_025/New_Piskel_20260522_171241_slot_010_tile_025.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 132
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_025/New_Piskel_20260522_171718_slot_010_tile_025.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 132
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_025/New_Piskel__2_20260522_172811_slot_010_tile_025.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 132
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_025/New_Piskel__4_20260522_172929_slot_010_tile_025.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 136
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_026/New_Piskel_20260522_171241_slot_011_tile_026.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 142
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_026/New_Piskel_20260522_171718_slot_011_tile_026.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 142
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_026/New_Piskel__2_20260522_172811_slot_011_tile_026.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 142
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_026/New_Piskel__4_20260522_172929_slot_011_tile_026.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 142
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_02D/New_Piskel_20260522_171241_slot_012_tile_02D.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 141
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_02D/New_Piskel_20260522_171718_slot_012_tile_02D.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 141
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_02D/New_Piskel__2_20260522_172811_slot_012_tile_02D.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 141
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_02D/New_Piskel__4_20260522_172929_slot_012_tile_02D.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 141
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_02E/New_Piskel_20260522_171241_slot_013_tile_02E.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 127
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_02E/New_Piskel_20260522_171718_slot_013_tile_02E.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 127
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_02E/New_Piskel__2_20260522_172811_slot_013_tile_02E.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 128
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_02E/New_Piskel__4_20260522_172929_slot_013_tile_02E.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 133
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_02F/New_Piskel_20260522_171241_slot_014_tile_02F.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 139
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_02F/New_Piskel_20260522_171718_slot_014_tile_02F.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 139
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_02F/New_Piskel__2_20260522_172811_slot_014_tile_02F.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 138
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_02F/New_Piskel__4_20260522_172929_slot_014_tile_02F.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 140
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_030/New_Piskel_20260522_171241_slot_015_tile_030.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 141
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_030/New_Piskel_20260522_171718_slot_015_tile_030.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 141
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_030/New_Piskel__2_20260522_172811_slot_015_tile_030.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 141
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_030/New_Piskel__4_20260522_172929_slot_015_tile_030.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 141
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_031/New_Piskel_20260522_171241_slot_016_tile_031.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 140
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_031/New_Piskel_20260522_171718_slot_016_tile_031.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 140
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_031/New_Piskel__2_20260522_172811_slot_016_tile_031.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 140
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_031/New_Piskel__4_20260522_172929_slot_016_tile_031.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 140
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_032/New_Piskel_20260522_171241_slot_017_tile_032.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 132
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_032/New_Piskel_20260522_171718_slot_017_tile_032.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 132
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_032/New_Piskel__2_20260522_172811_slot_017_tile_032.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 132
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_032/New_Piskel__4_20260522_172929_slot_017_tile_032.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 132
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_035/common_hud_tiles_board_6x2_48x16__1_20260523_015659_slot_000_tile_035.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 140
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_035/common_hud_tiles_board_6x2_48x16__2_20260523_020234_slot_000_tile_035.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 123
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_035/common_hud_tiles_board_6x4_48x32__1_20260522_174256_slot_000_tile_035.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 84
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_035/common_hud_tiles_board_6x4_48x32__2_20260522_175504_slot_000_tile_035.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 127
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_035/common_hud_tiles_board_6x4_48x32__3_20260522_175641_slot_000_tile_035.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 127
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_036/common_hud_tiles_board_6x2_48x16__1_20260523_015659_slot_001_tile_036.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 131
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_036/common_hud_tiles_board_6x2_48x16__2_20260523_020234_slot_001_tile_036.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 131
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_036/common_hud_tiles_board_6x4_48x32__1_20260522_174256_slot_001_tile_036.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 133
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_036/common_hud_tiles_board_6x4_48x32__2_20260522_175504_slot_001_tile_036.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 137
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_036/common_hud_tiles_board_6x4_48x32__3_20260522_175641_slot_001_tile_036.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 137
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_037/common_hud_tiles_board_6x2_48x16__1_20260523_015659_slot_002_tile_037.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 128
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_037/common_hud_tiles_board_6x2_48x16__2_20260523_020234_slot_002_tile_037.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 124
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_037/common_hud_tiles_board_6x4_48x32__1_20260522_174256_slot_002_tile_037.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 138
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_037/common_hud_tiles_board_6x4_48x32__2_20260522_175504_slot_002_tile_037.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 123
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_037/common_hud_tiles_board_6x4_48x32__3_20260522_175641_slot_002_tile_037.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 123
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_038/common_hud_tiles_board_6x2_48x16__1_20260523_015659_slot_003_tile_038.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 102
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_038/common_hud_tiles_board_6x2_48x16__2_20260523_020234_slot_003_tile_038.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 118
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_038/common_hud_tiles_board_6x4_48x32__1_20260522_174256_slot_003_tile_038.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 127
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_038/common_hud_tiles_board_6x4_48x32__2_20260522_175504_slot_003_tile_038.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 105
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_038/common_hud_tiles_board_6x4_48x32__3_20260522_175641_slot_003_tile_038.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 105
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_039/common_hud_tiles_board_6x2_48x16__1_20260523_015659_slot_004_tile_039.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 116
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_039/common_hud_tiles_board_6x2_48x16__2_20260523_020234_slot_004_tile_039.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 114
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_039/common_hud_tiles_board_6x4_48x32__1_20260522_174256_slot_004_tile_039.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 107
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_039/common_hud_tiles_board_6x4_48x32__2_20260522_175504_slot_004_tile_039.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 127
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_039/common_hud_tiles_board_6x4_48x32__3_20260522_175641_slot_004_tile_039.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 127
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_03A/common_hud_tiles_board_6x2_48x16__1_20260523_015659_slot_005_tile_03A.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 129
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_03A/common_hud_tiles_board_6x2_48x16__2_20260523_020234_slot_005_tile_03A.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 130
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_03A/common_hud_tiles_board_6x4_48x32__1_20260522_174256_slot_005_tile_03A.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 139
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_03A/common_hud_tiles_board_6x4_48x32__2_20260522_175504_slot_005_tile_03A.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 116
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_03A/common_hud_tiles_board_6x4_48x32__3_20260522_175641_slot_005_tile_03A.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 116
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_03E/common_hud_tiles_board_6x2_48x16__1_20260523_015659_slot_006_tile_03E.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 124
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_03E/common_hud_tiles_board_6x2_48x16__2_20260523_020234_slot_006_tile_03E.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 115
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_03E/common_hud_tiles_board_6x4_48x32__1_20260522_174256_slot_006_tile_03E.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 115
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_03E/common_hud_tiles_board_6x4_48x32__2_20260522_175504_slot_006_tile_03E.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 115
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_03E/common_hud_tiles_board_6x4_48x32__3_20260522_175641_slot_006_tile_03E.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 115
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_03F/common_hud_tiles_board_6x2_48x16__1_20260523_015659_slot_007_tile_03F.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 146
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_03F/common_hud_tiles_board_6x2_48x16__2_20260523_020234_slot_007_tile_03F.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 132
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_03F/common_hud_tiles_board_6x4_48x32__1_20260522_174256_slot_007_tile_03F.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 128
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_03F/common_hud_tiles_board_6x4_48x32__2_20260522_175504_slot_007_tile_03F.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 123
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_03F/common_hud_tiles_board_6x4_48x32__3_20260522_175641_slot_007_tile_03F.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 123
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_040/common_hud_tiles_board_6x2_48x16__1_20260523_015659_slot_008_tile_040.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 132
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_040/common_hud_tiles_board_6x2_48x16__2_20260523_020234_slot_008_tile_040.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 135
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_040/common_hud_tiles_board_6x4_48x32__1_20260522_174256_slot_008_tile_040.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 140
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_040/common_hud_tiles_board_6x4_48x32__2_20260522_175504_slot_008_tile_040.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 139
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_040/common_hud_tiles_board_6x4_48x32__3_20260522_175641_slot_008_tile_040.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 139
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_041/common_hud_tiles_board_6x2_48x16__1_20260523_015659_slot_009_tile_041.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 139
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_041/common_hud_tiles_board_6x2_48x16__2_20260523_020234_slot_009_tile_041.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 134
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_041/common_hud_tiles_board_6x4_48x32__1_20260522_174256_slot_009_tile_041.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 138
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_041/common_hud_tiles_board_6x4_48x32__2_20260522_175504_slot_009_tile_041.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 128
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_041/common_hud_tiles_board_6x4_48x32__3_20260522_175641_slot_009_tile_041.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 128
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_042/common_hud_tiles_board_6x2_48x16__1_20260523_015659_slot_010_tile_042.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 119
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_042/common_hud_tiles_board_6x2_48x16__2_20260523_020234_slot_010_tile_042.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 131
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_042/common_hud_tiles_board_6x4_48x32__1_20260522_174256_slot_010_tile_042.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 131
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_042/common_hud_tiles_board_6x4_48x32__2_20260522_175504_slot_010_tile_042.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 124
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_042/common_hud_tiles_board_6x4_48x32__3_20260522_175641_slot_010_tile_042.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 124
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_043/common_hud_tiles_board_6x2_48x16__1_20260523_015659_slot_011_tile_043.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 124
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_043/common_hud_tiles_board_6x2_48x16__2_20260523_020234_slot_011_tile_043.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 132
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_043/common_hud_tiles_board_6x4_48x32__1_20260522_174256_slot_011_tile_043.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 130
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_043/common_hud_tiles_board_6x4_48x32__2_20260522_175504_slot_011_tile_043.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 119
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_043/common_hud_tiles_board_6x4_48x32__3_20260522_175641_slot_011_tile_043.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 119
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_046/common_hud_tiles_board_6x4_48x32__1_20260522_174256_slot_012_tile_046.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 140
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_046/common_hud_tiles_board_6x4_48x32__2_20260522_175504_slot_012_tile_046.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 140
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_046/common_hud_tiles_board_6x4_48x32__3_20260522_175641_slot_012_tile_046.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 140
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_047/common_hud_tiles_board_6x4_48x32__1_20260522_174256_slot_013_tile_047.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 117
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_047/common_hud_tiles_board_6x4_48x32__2_20260522_175504_slot_013_tile_047.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 117
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_047/common_hud_tiles_board_6x4_48x32__3_20260522_175641_slot_013_tile_047.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 117
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_048/common_hud_tiles_board_6x4_48x32__1_20260522_174256_slot_014_tile_048.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 134
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_048/common_hud_tiles_board_6x4_48x32__2_20260522_175504_slot_014_tile_048.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 134
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_048/common_hud_tiles_board_6x4_48x32__3_20260522_175641_slot_014_tile_048.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 134
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_049/common_hud_tiles_board_6x4_48x32__1_20260522_174256_slot_015_tile_049.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 119
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_049/common_hud_tiles_board_6x4_48x32__2_20260522_175504_slot_015_tile_049.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 119
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_049/common_hud_tiles_board_6x4_48x32__3_20260522_175641_slot_015_tile_049.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 119
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_04A/common_hud_tiles_board_6x4_48x32__1_20260522_174256_slot_016_tile_04A.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 131
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_04A/common_hud_tiles_board_6x4_48x32__2_20260522_175504_slot_016_tile_04A.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 131
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_04A/common_hud_tiles_board_6x4_48x32__3_20260522_175641_slot_016_tile_04A.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 131
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_04B/common_hud_tiles_board_6x4_48x32__1_20260522_174256_slot_017_tile_04B.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 138
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_04B/common_hud_tiles_board_6x4_48x32__2_20260522_175504_slot_017_tile_04B.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 138
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_04B/common_hud_tiles_board_6x4_48x32__3_20260522_175641_slot_017_tile_04B.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 138
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_04E/common_hud_tiles_board_6x4_48x32__1_20260522_174256_slot_018_tile_04E.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 121
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_04E/common_hud_tiles_board_6x4_48x32__2_20260522_175504_slot_018_tile_04E.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 121
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_04E/common_hud_tiles_board_6x4_48x32__3_20260522_175641_slot_018_tile_04E.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 121
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_04F/common_hud_tiles_board_6x4_48x32__1_20260522_174256_slot_019_tile_04F.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 145
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_04F/common_hud_tiles_board_6x4_48x32__2_20260522_175504_slot_019_tile_04F.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 145
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_04F/common_hud_tiles_board_6x4_48x32__3_20260522_175641_slot_019_tile_04F.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 145
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_050/common_hud_tiles_board_6x4_48x32__1_20260522_174256_slot_020_tile_050.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 129
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_050/common_hud_tiles_board_6x4_48x32__2_20260522_175504_slot_020_tile_050.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 129
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_050/common_hud_tiles_board_6x4_48x32__3_20260522_175641_slot_020_tile_050.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 129
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_051/common_hud_tiles_board_6x4_48x32__1_20260522_174256_slot_021_tile_051.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 108
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_051/common_hud_tiles_board_6x4_48x32__2_20260522_175504_slot_021_tile_051.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 108
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_051/common_hud_tiles_board_6x4_48x32__3_20260522_175641_slot_021_tile_051.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 108
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_052/common_hud_tiles_board_6x4_48x32__1_20260522_174256_slot_022_tile_052.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 112
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_052/common_hud_tiles_board_6x4_48x32__2_20260522_175504_slot_022_tile_052.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 112
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_052/common_hud_tiles_board_6x4_48x32__3_20260522_175641_slot_022_tile_052.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 112
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_053/common_hud_tiles_board_6x4_48x32__1_20260522_174256_slot_023_tile_053.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 137
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_053/common_hud_tiles_board_6x4_48x32__2_20260522_175504_slot_023_tile_053.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 137
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_053/common_hud_tiles_board_6x4_48x32__3_20260522_175641_slot_023_tile_053.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 137
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0AA/bg.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 108
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0AA/workspace-file (2).png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 165
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0AA/에.png",
+      "active_reference": false,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 165
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0AB/드.png",
+      "active_reference": false,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 165
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0AC/bg.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 108
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0AC/워.png",
+      "active_reference": false,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 171
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0AD/bg.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 108
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0AD/드.png",
+      "active_reference": false,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 165
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0AE/bg.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 108
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0AF/workspace-file (1).png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 174
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0B0/Galmuri7_8x8 (1).png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 159
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0B0/workspace-file (3).png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 168
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0B1/workspace-file (4).png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 165
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0B2/bg.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 108
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0B3/bg.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 108
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0B4/bg.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 108
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0B5/workspace-file (5).png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 162
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0B6/workspace-file (4).png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 165
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0B7/workspace-file (6).png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 171
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0B8/bg.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 108
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0B9/bg.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 108
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0BA/workspace-file (7).png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 171
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0BB/workspace-file (8).png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 162
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0BC/workspace-file (9).png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 171
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0BD/workspace-file (10).png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 162
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0BE/bg.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 108
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0CA/workspace-file (11).png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 174
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0CB/workspace-file (12).png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 165
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0CC/workspace-file (13).png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 162
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0CD/workspace-file (14).png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 174
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0CE/bg.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 108
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0CF/bg.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 108
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0D0/bg.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 108
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0D1/bg.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 108
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0D2/workspace-file (15).png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 162
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0D3/workspace-file (1).png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 171
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0D4/workspace-file (2).png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 165
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0D5/bg.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 108
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0D6/bg.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 108
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0D7/bg.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 108
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0D8/workspace-file (3).png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 165
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0D9/workspace-file (4).png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 144
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0DA/bg.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 108
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0DB/bg.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 108
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0DC/bg.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 108
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_lz77_tile_00534874_tile_0DD/bg.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 108
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_raw4bpp_003ABF5C/01_battle_attack__003ABF5C__공격_galmuri11_bold_outline_filled.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 480
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_raw4bpp_003AC0DC/02_battle_notebook__003AC0DC__수첩_galmuri11_bold_outline_filled.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 465
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_raw4bpp_003AC25C/03_battle_alchemy__003AC25C__연성_galmuri11_bold_outline_filled.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 480
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_raw4bpp_003AC3DC/04_battle_item__003AC3DC__아이템_galmuri11_bold_outline_filled.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 463
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_raw4bpp_003AC55C/05_battle_special__003AC55C__필살기_galmuri11_bold_12x12_outline_filled.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 537
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_registry_b_zp01_007CAC38_entry_03/registry_b_03_12cols.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 2160
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_registry_b_zp01_007CB164_entry_04/registry_b_04_12cols.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 1755
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_registry_b_zp01_007CB534_entry_05/registry_b_05_12cols.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 2067
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_registry_b_zp01_007CB9D4_entry_06/registry_b_06_12cols.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 1860
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_registry_b_zp01_007CBD8C_entry_07/registry_b_07_12cols.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 2241
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_registry_b_zp01_007CC2E4_entry_08/registry_b_08_12cols.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 2298
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_registry_b_zp01_007CC800_entry_09/registry_b_09_12cols (1).png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 1692
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_registry_b_zp01_007CC800_entry_09/registry_b_0A_12cols.png",
+      "active_reference": false,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 2061
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_registry_b_zp01_007CCBDC_entry_0A/registry_b_0A_12cols.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 2061
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_registry_b_zp01_007CD6EC_entry_0D/registry_b_0D_12cols.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 2406
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_registry_b_zp01_007CD6EC_entry_0D/workspace-file (2) (2).png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 2328
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_registry_b_zp01_007CD6EC_entry_0D/workspace-file (2) (3).png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 2307
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_registry_b_zp01_007CD6EC_entry_0D/workspace-file (2) (4).png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 2307
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_registry_b_zp01_007CE608_entry_10/registry_b_10_7cols (1).png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 651
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_registry_b_zp01_007CE608_entry_10/registry_b_10_7cols.png",
+      "active_reference": false,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 687
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_registry_b_zp01_007CE888_entry_11/registry_b_11_7cols.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 831
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_007E9404/처음부터.png",
+      "active_reference": false,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 1199
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_007E95E0/00ef6e99-06dd-4b1d-be4e-28178dcc2dd4.png",
+      "active_reference": false,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 632869
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_007E95E0/00ef6e99_continue_applied_verify_4x.png",
+      "active_reference": false,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 4109
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_007E95E0/00ef6e99_continue_applied_verify_4x_real.png",
+      "active_reference": false,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 646
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_007E95E0/00ef6e99_continue_normalized_4x.png",
+      "active_reference": false,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 1411
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_007E95E0/이어하기.png",
+      "active_reference": false,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 1171
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_007E97A4/workspace-file-6_통신.png",
+      "active_reference": false,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 990
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_screen_order_current_review_ss2_frame_000002_bg0_003ABB9C/ok_hangul_galmuri_screen_order_crop_4x.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 1655
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_screen_order_current_review_ss2_frame_000002_bg0_003ABB9C/workspace-file.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 1655
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_screen_order_focus_current_review_ss6_frame_000006_bg1_003A3540_book_right_tabs/card_book_right_tabs__금속_user_bitmap_12x24_full.png",
+      "active_reference": false,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 2407
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_screen_order_focus_current_review_ss6_frame_000006_bg1_003A3540_book_right_tabs_inorganic/New Piskel (3).png",
+      "active_reference": false,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 513
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_screen_order_focus_current_review_ss6_frame_000006_bg1_003A3540_book_right_tabs_metal/New Piskel.png",
+      "active_reference": false,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 540
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_screen_order_focus_current_review_ss6_frame_000006_bg1_003A3540_book_right_tabs_nature/New Piskel (2).png",
+      "active_reference": false,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 567
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_screen_order_focus_current_review_ss6_frame_000006_bg1_003A3540_book_right_tabs_stone/New Piskel (1).png",
+      "active_reference": false,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 489
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_screen_order_focus_current_review_ss6_frame_000006_bg1_003A3540_book_right_tabs_stone/New Piskel (4).png",
+      "active_reference": false,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 489
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_screen_order_focus_no_entry8_latest_ss3_frame_009730_bg1_003A3540_card_list_id_power/workspace-file (3) (1).png",
+      "active_reference": false,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 684
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_screen_order_no_entry8_latest_ss1_frame_007084_bg0_003AF23C/workspace-file (1) (2).png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 5883
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_screen_order_no_entry8_latest_ss1_frame_007084_bg0_003AF23C/workspace-file_hangul_galmuri_screen_order_crop_4x.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 2652
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_screen_order_no_entry8_latest_ss3_frame_009730_bg1_003A5E50/1 (1).png",
+      "active_reference": false,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 2313
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_screen_order_no_entry8_latest_ss3_frame_009730_bg1_003A5E50/1 (1)__power_crop_60_82_46x28.png",
+      "active_reference": false,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 409
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_screen_order_no_entry8_latest_ss3_frame_009730_bg1_003A5E50/variant_1_power_from_user_1.png",
+      "active_reference": false,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 409
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_screen_order_no_entry8_latest_ss3_frame_009730_bg1_003A6E24/2 (1).png",
+      "active_reference": false,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 2586
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_screen_order_no_entry8_latest_ss3_frame_009730_bg1_003A6E24/2 (1)__power_crop_60_82_46x28.png",
+      "active_reference": false,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 454
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_screen_order_no_entry8_latest_ss3_frame_009730_bg1_003A6E24/variant_2_power_from_user_2.png",
+      "active_reference": false,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 454
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_screen_order_no_entry8_latest_ss3_frame_009730_bg1_003A7C3C/variant_3_power_from_user_3.png",
+      "active_reference": false,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 449
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_screen_order_no_entry8_latest_ss3_frame_009730_bg1_003A9624/variant_5_power_from_user_5.png",
+      "active_reference": false,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 468
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_screen_order_no_entry8_latest_ss3_frame_009730_bg1_003AA4C0/variant_6_power_from_user_6.png",
+      "active_reference": false,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 454
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_screen_order_timeline_with_rle_frame_001200_bg0_007E0000/title_960x640_transparent.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": true,
+      "suffix": ".png",
+      "size_bytes": 715288
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A3540_tile_00E/page_turn_rle_11_tiles_board_5x2_40x16__7_20260529_121742_slot_000_tile_00E.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 135
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A3540_tile_012/page_turn_rle_11_tiles_board_5x2_40x16__7_20260529_121742_slot_004_tile_012.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 129
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A3540_tile_013/page_turn_rle_11_tiles_board_5x2_40x16__7_20260529_121742_slot_001_tile_013.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 115
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A3540_tile_014/page_turn_rle_11_tiles_board_5x2_40x16__7_20260529_121742_slot_002_tile_014.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 130
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A3540_tile_015/page_turn_rle_11_tiles_board_5x2_40x16__7_20260529_121742_slot_003_tile_015.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 139
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A3540_tile_016/page_turn_rle_11_tiles_board_5x2_40x16__7_20260529_121742_slot_005_tile_016.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 141
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A3540_tile_01A/page_turn_rle_11_tiles_board_5x2_40x16__7_20260529_121742_slot_009_tile_01A.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 128
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A3540_tile_01B/page_turn_rle_11_tiles_board_5x2_40x16__7_20260529_121742_slot_006_tile_01B.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 131
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A3540_tile_01C/page_turn_rle_11_tiles_board_5x2_40x16__7_20260529_121742_slot_007_tile_01C.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 126
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A3540_tile_01D/page_turn_rle_11_tiles_board_5x2_40x16__7_20260529_121742_slot_008_tile_01D.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 143
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A3540_tile_054/page_turn_rle_05_tiles_board_8x3_64x24__1_20260529_122539_slot_000_tile_054.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 110
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A3540_tile_055/page_turn_rle_05_tiles_board_8x3_64x24__1_20260529_122539_slot_001_tile_055.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 124
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A3540_tile_056/page_turn_rle_05_tiles_board_8x3_64x24__1_20260529_122539_slot_002_tile_056.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 87
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A3540_tile_057/page_turn_rle_05_tiles_board_8x3_64x24__1_20260529_122539_slot_003_tile_057.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 109
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A3540_tile_058/page_turn_rle_05_tiles_board_8x3_64x24__1_20260529_122539_slot_004_tile_058.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 132
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A3540_tile_059/page_turn_rle_05_tiles_board_8x3_64x24__1_20260529_122539_slot_005_tile_059.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 124
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A3540_tile_05A/page_turn_rle_05_tiles_board_8x3_64x24__1_20260529_122539_slot_006_tile_05A.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 140
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A3540_tile_05B/page_turn_rle_05_tiles_board_8x3_64x24__1_20260529_122539_slot_007_tile_05B.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 134
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A3540_tile_05C/page_turn_rle_05_tiles_board_8x3_64x24__1_20260529_122539_slot_016_tile_05C.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 114
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A3540_tile_05D/page_turn_rle_05_tiles_board_8x3_64x24__1_20260529_122539_slot_017_tile_05D.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 127
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A3540_tile_05E/page_turn_rle_05_tiles_board_8x3_64x24__1_20260529_122539_slot_018_tile_05E.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 98
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A3540_tile_05F/page_turn_rle_05_tiles_board_8x3_64x24__1_20260529_122539_slot_019_tile_05F.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 115
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A3540_tile_074/page_turn_rle_05_tiles_board_8x3_64x24__1_20260529_122539_slot_008_tile_074.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 138
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A3540_tile_075/page_turn_rle_05_tiles_board_8x3_64x24__1_20260529_122539_slot_009_tile_075.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 120
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A3540_tile_076/page_turn_rle_05_tiles_board_8x3_64x24__1_20260529_122539_slot_010_tile_076.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 128
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A3540_tile_077/page_turn_rle_05_tiles_board_8x3_64x24__1_20260529_122539_slot_011_tile_077.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 126
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A3540_tile_078/page_turn_rle_05_tiles_board_8x3_64x24__1_20260529_122539_slot_012_tile_078.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 140
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A3540_tile_079/page_turn_rle_05_tiles_board_8x3_64x24__1_20260529_122539_slot_013_tile_079.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 119
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A3540_tile_07A/page_turn_rle_05_tiles_board_8x3_64x24__1_20260529_122539_slot_014_tile_07A.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 132
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A3540_tile_07B/page_turn_rle_05_tiles_board_8x3_64x24__1_20260529_122539_slot_015_tile_07B.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 126
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A3540_tile_07C/page_turn_rle_05_tiles_board_8x3_64x24__1_20260529_122539_slot_020_tile_07C.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 135
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A3540_tile_07D/page_turn_rle_05_tiles_board_8x3_64x24__1_20260529_122539_slot_021_tile_07D.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 136
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A3540_tile_07E/page_turn_rle_05_tiles_board_8x3_64x24__1_20260529_122539_slot_022_tile_07E.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 112
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A3540_tile_07F/page_turn_rle_05_tiles_board_8x3_64x24__1_20260529_122539_slot_023_tile_07F.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 136
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A5E50_tile_0AD/page_turn_rle_11_tiles_board_5x2_40x16__1_20260529_120715_slot_000_tile_0AD.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 144
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A5E50_tile_0AE/page_turn_rle_11_tiles_board_5x2_40x16__1_20260529_120715_slot_001_tile_0AE.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 115
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A5E50_tile_0AF/page_turn_rle_11_tiles_board_5x2_40x16__1_20260529_120715_slot_002_tile_0AF.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 130
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A5E50_tile_0B0/page_turn_rle_11_tiles_board_5x2_40x16__1_20260529_120715_slot_003_tile_0B0.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 139
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A5E50_tile_0B1/page_turn_rle_11_tiles_board_5x2_40x16__1_20260529_120715_slot_004_tile_0B1.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 129
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A5E50_tile_0BC/page_turn_rle_11_tiles_board_5x2_40x16__1_20260529_120715_slot_005_tile_0BC.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 145
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A5E50_tile_0BD/page_turn_rle_11_tiles_board_5x2_40x16__1_20260529_120715_slot_006_tile_0BD.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 131
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A5E50_tile_0BE/page_turn_rle_11_tiles_board_5x2_40x16__1_20260529_120715_slot_007_tile_0BE.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 126
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A5E50_tile_0BF/page_turn_rle_11_tiles_board_5x2_40x16__1_20260529_120715_slot_008_tile_0BF.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 143
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A5E50_tile_0C0/page_turn_rle_11_tiles_board_5x2_40x16__1_20260529_120715_slot_009_tile_0C0.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 128
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A6E24_tile_0AD/page_turn_rle_11_tiles_board_5x2_40x16__3_20260529_121049_slot_000_tile_0AD.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 135
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A6E24_tile_0AE/page_turn_rle_11_tiles_board_5x2_40x16__3_20260529_121049_slot_001_tile_0AE.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 115
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A6E24_tile_0AF/page_turn_rle_11_tiles_board_5x2_40x16__3_20260529_121049_slot_002_tile_0AF.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 130
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A6E24_tile_0B0/page_turn_rle_11_tiles_board_5x2_40x16__3_20260529_121049_slot_003_tile_0B0.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 139
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A6E24_tile_0B1/page_turn_rle_11_tiles_board_5x2_40x16__3_20260529_121049_slot_004_tile_0B1.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 129
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A6E24_tile_0BC/page_turn_rle_11_tiles_board_5x2_40x16__3_20260529_121049_slot_005_tile_0BC.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 141
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A6E24_tile_0BD/page_turn_rle_11_tiles_board_5x2_40x16__3_20260529_121049_slot_006_tile_0BD.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 131
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A6E24_tile_0BE/page_turn_rle_11_tiles_board_5x2_40x16__3_20260529_121049_slot_007_tile_0BE.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 126
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A6E24_tile_0BF/page_turn_rle_11_tiles_board_5x2_40x16__3_20260529_121049_slot_008_tile_0BF.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 143
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A6E24_tile_0C0/page_turn_rle_11_tiles_board_5x2_40x16__3_20260529_121049_slot_009_tile_0C0.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 128
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A7C3C_tile_0AD/page_turn_rle_11_tiles_board_5x2_40x16__5_20260529_121235_slot_000_tile_0AD.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 135
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A7C3C_tile_0AE/page_turn_rle_11_tiles_board_5x2_40x16__5_20260529_121235_slot_001_tile_0AE.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 115
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A7C3C_tile_0AF/page_turn_rle_11_tiles_board_5x2_40x16__5_20260529_121235_slot_002_tile_0AF.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 130
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A7C3C_tile_0B0/page_turn_rle_11_tiles_board_5x2_40x16__5_20260529_121235_slot_003_tile_0B0.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 139
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A7C3C_tile_0B1/page_turn_rle_11_tiles_board_5x2_40x16__5_20260529_121235_slot_004_tile_0B1.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 129
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A7C3C_tile_0BC/page_turn_rle_11_tiles_board_5x2_40x16__5_20260529_121235_slot_005_tile_0BC.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 141
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A7C3C_tile_0BD/page_turn_rle_11_tiles_board_5x2_40x16__5_20260529_121235_slot_006_tile_0BD.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 131
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A7C3C_tile_0BE/page_turn_rle_11_tiles_board_5x2_40x16__5_20260529_121235_slot_007_tile_0BE.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 126
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A7C3C_tile_0BF/page_turn_rle_11_tiles_board_5x2_40x16__5_20260529_121235_slot_008_tile_0BF.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 143
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A7C3C_tile_0C0/page_turn_rle_11_tiles_board_5x2_40x16__5_20260529_121235_slot_009_tile_0C0.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 128
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A8894_tile_0AD/page_turn_rle_11_tiles_board_5x2_40x16__6_20260529_121601_slot_000_tile_0AD.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 135
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A8894_tile_0AE/page_turn_rle_11_tiles_board_5x2_40x16__6_20260529_121601_slot_001_tile_0AE.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 123
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A8894_tile_0AF/page_turn_rle_11_tiles_board_5x2_40x16__6_20260529_121601_slot_002_tile_0AF.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 145
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A8894_tile_0B0/page_turn_rle_11_tiles_board_5x2_40x16__6_20260529_121601_slot_003_tile_0B0.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 99
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A8894_tile_0B1/page_turn_rle_11_tiles_board_5x2_40x16__6_20260529_121601_slot_004_tile_0B1.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 138
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A8894_tile_0BC/page_turn_rle_11_tiles_board_5x2_40x16__6_20260529_121601_slot_005_tile_0BC.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 167
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A8894_tile_0BD/page_turn_rle_11_tiles_board_5x2_40x16__6_20260529_121601_slot_006_tile_0BD.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 143
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A8894_tile_0BE/page_turn_rle_11_tiles_board_5x2_40x16__6_20260529_121601_slot_007_tile_0BE.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 78
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A8894_tile_0BF/page_turn_rle_11_tiles_board_5x2_40x16__6_20260529_121601_slot_008_tile_0BF.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 100
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A8894_tile_0C0/page_turn_rle_11_tiles_board_5x2_40x16__6_20260529_121601_slot_009_tile_0C0.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 140
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A9624_tile_0AD/page_turn_rle_11_tiles_board_5x2_40x16__2_20260529_120923_slot_000_tile_0AD.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 154
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A9624_tile_0AE/page_turn_rle_11_tiles_board_5x2_40x16__2_20260529_120923_slot_001_tile_0AE.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 115
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A9624_tile_0AF/page_turn_rle_11_tiles_board_5x2_40x16__2_20260529_120923_slot_002_tile_0AF.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 130
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A9624_tile_0B0/page_turn_rle_11_tiles_board_5x2_40x16__2_20260529_120923_slot_003_tile_0B0.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 139
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A9624_tile_0B1/page_turn_rle_11_tiles_board_5x2_40x16__2_20260529_120923_slot_004_tile_0B1.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 129
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A9624_tile_0BC/page_turn_rle_11_tiles_board_5x2_40x16__2_20260529_120923_slot_005_tile_0BC.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 149
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A9624_tile_0BD/page_turn_rle_11_tiles_board_5x2_40x16__2_20260529_120923_slot_006_tile_0BD.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 131
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A9624_tile_0BE/page_turn_rle_11_tiles_board_5x2_40x16__2_20260529_120923_slot_007_tile_0BE.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 126
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A9624_tile_0BF/page_turn_rle_11_tiles_board_5x2_40x16__2_20260529_120923_slot_008_tile_0BF.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 143
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003A9624_tile_0C0/page_turn_rle_11_tiles_board_5x2_40x16__2_20260529_120923_slot_009_tile_0C0.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 128
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003AA4C0_tile_0AD/page_turn_rle_11_tiles_board_5x2_40x16__4_20260529_121151_slot_000_tile_0AD.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 135
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003AA4C0_tile_0AE/page_turn_rle_11_tiles_board_5x2_40x16__4_20260529_121151_slot_001_tile_0AE.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 115
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003AA4C0_tile_0AF/page_turn_rle_11_tiles_board_5x2_40x16__4_20260529_121151_slot_002_tile_0AF.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 130
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003AA4C0_tile_0B0/page_turn_rle_11_tiles_board_5x2_40x16__4_20260529_121151_slot_003_tile_0B0.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 139
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003AA4C0_tile_0B1/page_turn_rle_11_tiles_board_5x2_40x16__4_20260529_121151_slot_004_tile_0B1.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 129
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003AA4C0_tile_0BC/page_turn_rle_11_tiles_board_5x2_40x16__4_20260529_121151_slot_005_tile_0BC.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 141
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003AA4C0_tile_0BD/page_turn_rle_11_tiles_board_5x2_40x16__4_20260529_121151_slot_006_tile_0BD.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 131
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003AA4C0_tile_0BE/page_turn_rle_11_tiles_board_5x2_40x16__4_20260529_121151_slot_007_tile_0BE.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 126
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003AA4C0_tile_0BF/page_turn_rle_11_tiles_board_5x2_40x16__4_20260529_121151_slot_008_tile_0BF.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 143
+    },
+    {
+      "path": "confirmed_data/localization_workbench/uploaded_image_replacements/image_rle_tile_003AA4C0_tile_0C0/page_turn_rle_11_tiles_board_5x2_40x16__4_20260529_121151_slot_009_tile_0C0.png",
+      "active_reference": true,
+      "tracked_before_upload_audit": false,
+      "suffix": ".png",
+      "size_bytes": 128
+    }
+  ]
+}

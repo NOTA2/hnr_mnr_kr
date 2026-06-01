@@ -61,6 +61,12 @@
 6. 이미지/타일 후보 추가 분류 및 예외 자산 추적
 7. 자동 재삽입 + 수동 glyph 수정 루프
 
+## 병행 정리 트랙
+
+- 프로젝트 정리/구조 개편은 [docs/cleanup/README.md](/Users/user/test/docs/cleanup/README.md) 와 [docs/structure/README.md](/Users/user/test/docs/structure/README.md) 를 입구로 삼는다.
+- 막바지 QA 중이므로 대량 삭제/이동보다 active reference trace, 경로 의존성 제거, 구조 이행 지도 작성, 작은 batch 정리를 우선한다.
+- 범용 GBA 한글화 스타트킷으로 옮길 교훈은 [docs/retrospective/evidence_digest.md](/Users/user/test/docs/retrospective/evidence_digest.md) 에 먼저 요약한 뒤 반영한다.
+
 ## 바로 쓰는 파일
 
 - 전체 추출 기준본: [all_extracted_texts_master.json](/Users/user/test/confirmed_data/translation_workspace/all_extracted_texts_master.json)

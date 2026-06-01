@@ -1,6 +1,9 @@
 #!/bin/zsh
 set -euo pipefail
 
+ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+cd "$ROOT"
+
 if [[ $# -lt 2 || $# -gt 4 ]]; then
   echo "usage: $0 <atlas-png> <output-slug> [expected-columns] [translation-json]" >&2
   exit 1
@@ -64,11 +67,11 @@ python3 -m gba_kor_tool append-fnt-glyph-set \
   --report "$OUTPUT_DIR/font_append_report.json"
 
 python3 -m gba_kor_tool apply-translations \
-  "/Users/user/test/$OUTPUT_DIR/hnr_font_${OUTPUT_SLUG}.gba" \
-  "/Users/user/test/$TRANSLATION_JSON" \
-  "/Users/user/test/$OUTPUT_DIR/hnr_startup_intro_${OUTPUT_SLUG}.gba" \
-  --table "/Users/user/test/$WORKBENCH_DIR/prepared.tbl" \
+  "$ROOT/$OUTPUT_DIR/hnr_font_${OUTPUT_SLUG}.gba" \
+  "$ROOT/$TRANSLATION_JSON" \
+  "$ROOT/$OUTPUT_DIR/hnr_startup_intro_${OUTPUT_SLUG}.gba" \
+  --table "$ROOT/$WORKBENCH_DIR/prepared.tbl" \
   --encoding cp932 \
-  --report "/Users/user/test/$OUTPUT_DIR/startup_intro_apply_report.json"
+  --report "$ROOT/$OUTPUT_DIR/startup_intro_apply_report.json"
 
-echo "built: /Users/user/test/$OUTPUT_DIR/hnr_startup_intro_${OUTPUT_SLUG}.gba"
+echo "built: $ROOT/$OUTPUT_DIR/hnr_startup_intro_${OUTPUT_SLUG}.gba"

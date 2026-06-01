@@ -7,6 +7,15 @@
 - 세션 시작: [session_start.md](/Users/user/test/docs/session_start.md)
 - 현재 작업 카드: [active_task.md](/Users/user/test/docs/active_task.md)
 
+## Cleanup / Structure
+
+- 정리 작업 입구: [README.md](/Users/user/test/docs/cleanup/README.md)
+- 정리 실행 계획: [execution_plan.md](/Users/user/test/docs/cleanup/execution_plan.md)
+- 현재/목표 구조: [README.md](/Users/user/test/docs/structure/README.md)
+- 구조 이행 지도: [migration_map.md](/Users/user/test/docs/structure/migration_map.md)
+- 스크립트 전환 색인: [README.md](/Users/user/test/scripts/README.md)
+- 회고 근거 요약: [evidence_digest.md](/Users/user/test/docs/retrospective/evidence_digest.md)
+
 ## Active Summaries
 
 - 장기 대시보드: [project_control_tower.md](/Users/user/test/docs/project_control_tower.md)

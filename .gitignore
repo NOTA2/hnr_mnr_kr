@@ -27,7 +27,8 @@ analysis/generated_workbenches/*/hangul_*.pgm
 confirmed_data/runtime_debug/
 analysis/
 generated-images/
-confirmed_data/localization_workbench/uploaded_image_replacements/
+# Uploaded image replacements are part of the active localization state when
+# referenced by confirmed_data/localization_workbench/image_replacements.json.
 confirmed_data/localization_workbench/import_reports/
 confirmed_data/localization_workbench/agent_inbox/
 confirmed_data/localization_workbench/imported_agent_results/

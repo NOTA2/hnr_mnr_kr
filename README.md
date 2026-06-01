@@ -2,6 +2,21 @@
 
 이 폴더에는 GBA ROM을 한글화하기 전에 필요한 조사 작업을 빠르게 진행할 수 있는 Python CLI를 넣었습니다.
 
+## 현재 프로젝트 입구
+
+이 repo는 이제 단순 CLI 실험 폴더가 아니라, 막바지 QA 중인 GBA 한글화 프로젝트와
+그 과정에서 만든 도구/데이터를 함께 담고 있다.
+
+- 세션 시작점: [docs/session_start.md](/Users/user/test/docs/session_start.md)
+- 현재 작업 카드: [docs/active_task.md](/Users/user/test/docs/active_task.md)
+- 전체 참고 지도: [docs/reference_map.md](/Users/user/test/docs/reference_map.md)
+- 구조 개편 기준: [docs/structure/README.md](/Users/user/test/docs/structure/README.md)
+- 정리 작업 기준: [docs/cleanup/README.md](/Users/user/test/docs/cleanup/README.md)
+- 회고 근거 요약: [docs/retrospective/evidence_digest.md](/Users/user/test/docs/retrospective/evidence_digest.md)
+
+현재 구조 개편은 active workflow를 깨지 않기 위해 문서화와 경로 의존성 제거부터
+진행한다. 대량 파일 이동이나 삭제는 별도 trace 이후 작은 batch로만 진행한다.
+
 현재 들어 있는 ROM:
 
 - `Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba`
