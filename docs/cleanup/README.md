@@ -35,4 +35,5 @@ This is an inventory-only pass. No tracked project files have been removed.
 - `external_path_audit.md`: active vs historical absolute-path findings.
 - `uploaded_replacements_audit.md`: active uploaded image replacement tracking.
 - `local_ignored_cleanup.md`: non-destructive ignored-file cleanup preview.
+- `generated_workbenches_audit.md`: generated workbench bulk cleanup plan.
 - `preliminary_classification.md`: conservative first-pass file categories.
