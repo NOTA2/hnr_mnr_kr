@@ -108,6 +108,12 @@ Batch order should be smallest-risk first.
 4. Prune unreferenced broad extraction outputs under `confirmed_data/image_inventory/`.
 5. Review oversized active JSON files for generated fields that can be rebuilt.
 
+Current image-inventory note:
+
+- Do not prune `confirmed_data/image_inventory/` yet. See
+  `image_inventory_audit.md`; active GUI references are not the only dependency
+  because image scripts still use broad extraction reports.
+
 Exit condition:
 
 - After each batch, active reference tracing has zero missing paths.
