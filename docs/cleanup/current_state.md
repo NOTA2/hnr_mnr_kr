@@ -11,6 +11,35 @@ Date: 2026-06-02 KST
 - Tracked files: `31,006`
 - Ignored-but-present files: `3,714`
 
+## Current After Cleanup Checkpoints
+
+- Latest cleanup checkpoint: `32a4900` (`과거 생성 워크벤치 PGM 추적 해제`)
+- Tracked files after generated workbench untracking: `27,292`
+- Tracked `analysis/generated_workbenches` files after batch 1: `9,778`
+- Local `.DS_Store` files: `0`
+- Local `__pycache__` directories: `0`
+
+Current tracked top-level distribution:
+
+- `confirmed_data`: `16,619`
+- `analysis`: `10,487`
+- `scripts`: `120`
+- `docs`: `36`
+- `third_party`: `18`
+- `gba_kor_tool`: `4`
+- `tools`: `2`
+
+Current top tracked extensions:
+
+- `pgm`: `13,183`
+- `png`: `9,624`
+- `bin`: `3,142`
+- `json`: `941`
+- `md`: `220`
+- `py`: `107`
+- `txt`: `32`
+- `tbl`: `27`
+
 ## Tracked File Distribution
 
 - `confirmed_data`: `16,508` tracked files
@@ -86,4 +115,3 @@ Text search found `545` hits for absolute or temporary paths such as:
 Many are documentation links or provenance fields in JSON manifests. Before final
 release, active scripts and manifests should use repo-relative paths where possible.
 Historical docs can keep absolute paths only when clearly marked as historical notes.
-
