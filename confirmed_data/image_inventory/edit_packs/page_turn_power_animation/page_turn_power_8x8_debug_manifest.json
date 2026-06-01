@@ -1,0 +1,67 @@
+{
+  "items": [
+    {
+      "scene": "fresh_page_power_ss3",
+      "frame": "frame_000003",
+      "bg": 1,
+      "source_bg1_path": "confirmed_data/image_inventory/runtime_tilemaps/fresh_page_power_ss3/fresh_page_power_ss3/frame_000003/bg1_viewport.png",
+      "tile_aligned_crop_pixels": {
+        "x": 56,
+        "y": 80,
+        "width": 56,
+        "height": 32
+      },
+      "tile_aligned_crop_tiles": {
+        "min_x": 7,
+        "min_y": 10,
+        "max_x": 13,
+        "max_y": 13
+      },
+      "source_path": "confirmed_data/image_inventory/edit_packs/page_turn_power_animation/page_turn_power_ss3_tile_aligned_source.png",
+      "grid_crop_4x_path": "confirmed_data/image_inventory/edit_packs/page_turn_power_animation/page_turn_power_ss3_tile_aligned_grid_4x.png",
+      "grid_bg1_4x_path": "confirmed_data/image_inventory/edit_packs/page_turn_power_animation/page_turn_power_ss3_bg1_grid_4x.png"
+    },
+    {
+      "scene": "fresh_page_power_ss4",
+      "frame": "frame_000004",
+      "bg": 1,
+      "source_bg1_path": "confirmed_data/image_inventory/runtime_tilemaps/fresh_page_power_ss4/fresh_page_power_ss4/frame_000004/bg1_viewport.png",
+      "tile_aligned_crop_pixels": {
+        "x": 56,
+        "y": 80,
+        "width": 56,
+        "height": 32
+      },
+      "tile_aligned_crop_tiles": {
+        "min_x": 7,
+        "min_y": 10,
+        "max_x": 13,
+        "max_y": 13
+      },
+      "source_path": "confirmed_data/image_inventory/edit_packs/page_turn_power_animation/page_turn_power_ss4_tile_aligned_source.png",
+      "grid_crop_4x_path": "confirmed_data/image_inventory/edit_packs/page_turn_power_animation/page_turn_power_ss4_tile_aligned_grid_4x.png",
+      "grid_bg1_4x_path": "confirmed_data/image_inventory/edit_packs/page_turn_power_animation/page_turn_power_ss4_bg1_grid_4x.png"
+    },
+    {
+      "scene": "fresh_page_power_ss5",
+      "frame": "frame_000005",
+      "bg": 1,
+      "source_bg1_path": "confirmed_data/image_inventory/runtime_tilemaps/fresh_page_power_ss5/fresh_page_power_ss5/frame_000005/bg1_viewport.png",
+      "tile_aligned_crop_pixels": {
+        "x": 56,
+        "y": 80,
+        "width": 56,
+        "height": 32
+      },
+      "tile_aligned_crop_tiles": {
+        "min_x": 7,
+        "min_y": 10,
+        "max_x": 13,
+        "max_y": 13
+      },
+      "source_path": "confirmed_data/image_inventory/edit_packs/page_turn_power_animation/page_turn_power_ss5_tile_aligned_source.png",
+      "grid_crop_4x_path": "confirmed_data/image_inventory/edit_packs/page_turn_power_animation/page_turn_power_ss5_tile_aligned_grid_4x.png",
+      "grid_bg1_4x_path": "confirmed_data/image_inventory/edit_packs/page_turn_power_animation/page_turn_power_ss5_bg1_grid_4x.png"
+    }
+  ]
+}

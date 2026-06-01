@@ -25,14 +25,18 @@
 - `translation_workset_inline_event_texts`: 이벤트 연출 텍스트 / 41개
 - `image_group_field_menu_labels`: 필드/메뉴 라벨 / 4개
 - `image_group_battle_command_buttons`: 전투 하단 버튼 / 5개
-- `image_group_battle_popups_panels`: 전투 팝업/패널 / 3개
-- `image_group_card_book_ui`: 카드/책자 UI / 13개
+- `image_group_battle_popups_panels`: 전투 팝업/패널 / 2개
 - `image_group_title_screen`: 타이틀 화면 / 6개
-- `image_group_reference_candidates`: 참고/비대상/확장 후보 / 4개
-- `image_group_other`: 기타 이미지 후보 / 0개
 - `common_hud_tiles`: 공유 HUD 타일셋 / 256개
 - `alchemy_tiles`: 연금술 타일셋 / 192개
 - `registry_b_zp01_resources`: Registry B ZP01 / 13개
+- `page_turn_rle_05_tiles`: 페이지 넘김 RLE 05 타일셋 / 128개
+- `page_turn_rle_06_tiles`: 페이지 넘김 RLE 06 타일셋 / 300개
+- `page_turn_rle_07_tiles`: 페이지 넘김 RLE 07 타일셋 / 300개
+- `page_turn_rle_08_tiles`: 페이지 넘김 RLE 08 타일셋 / 300개
+- `page_turn_rle_09_tiles`: 페이지 넘김 RLE 09 타일셋 / 300개
+- `page_turn_rle_10_tiles`: 페이지 넘김 RLE 10 타일셋 / 300개
+- `page_turn_rle_11_tiles`: 페이지 넘김 RLE 11 타일셋 / 300개
 
 ## 사용 용도
 

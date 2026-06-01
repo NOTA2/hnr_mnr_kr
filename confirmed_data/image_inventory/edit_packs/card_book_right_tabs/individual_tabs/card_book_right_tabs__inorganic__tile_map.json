@@ -1,6 +1,6 @@
 {
-  "scene": "no_entry8_latest_ss3",
-  "frame": "frame_009730",
+  "scene": "current_review_ss9",
+  "frame": "frame_000009",
   "bg": 1,
   "rle_offset": 3814720,
   "rle_offset_hex": "0x003A3540",
@@ -8,19 +8,19 @@
   "runtime_palette_path": "confirmed_data/image_inventory/runtime_user_captures/no_entry8_latest_ss3/frame_009730_palette_05000000.bin",
   "crop_screen_tiles": {
     "min_x": 13,
-    "min_y": 8,
+    "min_y": 7,
     "max_x": 16,
-    "max_y": 9
+    "max_y": 10
   },
   "crop_pixels": {
     "x": 104,
-    "y": 64,
+    "y": 56,
     "width": 32,
-    "height": 16
+    "height": 32
   },
   "scroll_pixels": {
-    "x": 256,
-    "y": 256
+    "x": 0,
+    "y": 0
   },
   "fine_scroll_pixels": {
     "x": 0,
@@ -30,7 +30,7 @@
     "x": 0,
     "y": 0
   },
-  "matched_tile_count": 5,
+  "matched_tile_count": 9,
   "source_match": {
     "score": 670.5247,
     "shared_tiles": 120,
@@ -41,6 +41,34 @@
     "compressed_size": 2941
   },
   "matches": [
+    {
+      "screen_tile_x": 14,
+      "screen_tile_y": 7,
+      "map_tile_x": 14,
+      "map_tile_y": 7,
+      "runtime_tile_index": 90,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 41050,
+      "rle_tile_indexes": [
+        90
+      ]
+    },
+    {
+      "screen_tile_x": 15,
+      "screen_tile_y": 7,
+      "map_tile_x": 15,
+      "map_tile_y": 7,
+      "runtime_tile_index": 91,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 41051,
+      "rle_tile_indexes": [
+        91
+      ]
+    },
     {
       "screen_tile_x": 13,
       "screen_tile_y": 8,
@@ -110,7 +138,35 @@
       "rle_tile_indexes": [
         127
       ]
+    },
+    {
+      "screen_tile_x": 13,
+      "screen_tile_y": 10,
+      "map_tile_x": 13,
+      "map_tile_y": 10,
+      "runtime_tile_index": 11,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 40971,
+      "rle_tile_indexes": [
+        11
+      ]
+    },
+    {
+      "screen_tile_x": 14,
+      "screen_tile_y": 10,
+      "map_tile_x": 14,
+      "map_tile_y": 10,
+      "runtime_tile_index": 13,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 40973,
+      "rle_tile_indexes": [
+        13
+      ]
     }
   ],
-  "focus_note": "Focused card book right-side tab only: 無機."
+  "focus_note": "Focused card book right-side front tab only: 無機. This crop is taken from a savestate where that bookmark is in front, so the label is not occluded by another tab."
 }

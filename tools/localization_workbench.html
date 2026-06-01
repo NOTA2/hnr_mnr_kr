@@ -177,6 +177,22 @@
       margin-bottom: 8px;
       cursor: pointer;
     }
+    .category-filter {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 6px;
+      margin: 10px 0 12px;
+    }
+    .category-filter button {
+      padding: 7px 6px;
+      font-size: 12px;
+      white-space: nowrap;
+    }
+    .category-filter button.active {
+      border-color: var(--accent);
+      background: rgba(117,199,177,0.12);
+      color: var(--text);
+    }
     .category.active, .item.active, .speaker.active {
       border-color: var(--accent);
       box-shadow: 0 0 0 1px var(--accent) inset;
@@ -908,6 +924,11 @@
       <div class="category-panel">
         <h1>카테고리</h1>
         <div class="meta" id="fontInfo"></div>
+        <div class="category-filter" id="categoryKindFilter" aria-label="카테고리 표시">
+          <button type="button" data-kind="all">전체</button>
+          <button type="button" data-kind="text">텍스트</button>
+          <button type="button" data-kind="image">이미지</button>
+        </div>
         <div id="categoryList"></div>
       </div>
     </aside>
@@ -1371,6 +1392,7 @@
       categories: [],
       items: [],
       categoryId: null,
+      categoryKindFilter: "all",
       itemId: null,
       speakerRegistry: [],
       speakers: [],
@@ -1401,6 +1423,7 @@
     };
 
     const categoryList = document.getElementById("categoryList");
+    const categoryKindFilter = document.getElementById("categoryKindFilter");
     const itemList = document.getElementById("itemList");
     const contextInfo = document.getElementById("contextInfo");
     const contextList = document.getElementById("contextList");
@@ -1784,6 +1807,7 @@
             itemGroupFilter: state.itemGroupFilter,
             itemStatusFilter: state.itemStatusFilter,
             itemSortMode: state.itemSortMode,
+            categoryKindFilter: state.categoryKindFilter,
             auditDecisions,
             auditEdits,
             auditTabId: state.auditTabId,
@@ -3042,6 +3066,9 @@
       state.itemGroupFilter = localUiState?.itemGroupFilter || "all";
       state.itemStatusFilter = localUiState?.itemStatusFilter || "all";
       state.itemSortMode = localUiState?.itemSortMode || "script";
+      state.categoryKindFilter = ["all", "text", "image"].includes(localUiState?.categoryKindFilter)
+        ? localUiState.categoryKindFilter
+        : "all";
       state.auditTabId = localUiState?.auditTabId || state.auditTabId;
       state.auditPage = Number.isFinite(Number(localUiState?.auditPage)) ? Number(localUiState.auditPage) : 0;
       state.auditPageSize = Number(localUiState?.auditPageSize) || 200;
@@ -3080,6 +3107,10 @@
       itemStatusFilter.value = state.itemStatusFilter;
       itemPageSize.value = String(state.itemPageSize);
       itemSortMode.value = state.itemSortMode;
+      const filteredCategories = visibleCategories();
+      if (filteredCategories.length && !filteredCategories.some((category) => category.id === state.categoryId)) {
+        state.categoryId = filteredCategories[0].id;
+      }
       renderCategories();
       renderProgress();
       selectCategory(state.categoryId, { preferredItemId: state.itemId });
@@ -3236,7 +3267,8 @@
 
     function renderCategories() {
       categoryList.innerHTML = "";
-      for (const category of state.categories) {
+      renderCategoryKindFilter();
+      for (const category of visibleCategories()) {
         const categoryItems = itemsForCategory(category.id);
         const stats = computeStatsForItems(categoryItems);
         const div = document.createElement("div");
@@ -3258,6 +3290,49 @@
         div.onclick = () => selectCategory(category.id);
         categoryList.appendChild(div);
       }
+    }
+
+    function categoryKind(category) {
+      return isImageCategory(category?.id) ? "image" : "text";
+    }
+
+    function categoryMatchesKindFilter(category, kind = state.categoryKindFilter) {
+      return kind === "all" || categoryKind(category) === kind;
+    }
+
+    function visibleCategories() {
+      return state.categories.filter((category) => categoryMatchesKindFilter(category));
+    }
+
+    function renderCategoryKindFilter() {
+      const counts = { all: state.categories.length, text: 0, image: 0 };
+      for (const category of state.categories) {
+        counts[categoryKind(category)] += 1;
+      }
+      const labels = {
+        all: `전체 ${counts.all}`,
+        text: `텍스트 ${counts.text}`,
+        image: `이미지 ${counts.image}`,
+      };
+      categoryKindFilter.querySelectorAll("button[data-kind]").forEach((button) => {
+        const kind = button.dataset.kind || "all";
+        button.textContent = labels[kind] || kind;
+        button.classList.toggle("active", kind === state.categoryKindFilter);
+      });
+    }
+
+    function setCategoryKindFilter(kind) {
+      if (!["all", "text", "image"].includes(kind)) return;
+      collectCurrentItemIntoDraft();
+      state.categoryKindFilter = kind;
+      const visible = visibleCategories();
+      const currentVisible = visible.some((category) => category.id === state.categoryId);
+      if (!currentVisible && visible.length) {
+        selectCategory(visible[0].id);
+        return;
+      }
+      persistLocalUiState();
+      renderCategories();
     }
 
     function isUserFacingImageItem(item) {
@@ -3323,12 +3398,18 @@
       return Boolean(item && isImageCategory(item.category_id));
     }
 
+    function isTileBoardCategory(categoryId = state.categoryId) {
+      return categoryId === "common_hud_tiles"
+        || categoryId === "alchemy_tiles"
+        || /^page_turn_rle_\d{2}_tiles$/.test(String(categoryId || ""));
+    }
+
     function isCommonHudCategory(categoryId = state.categoryId) {
-      return categoryId === "common_hud_tiles" || categoryId === "alchemy_tiles";
+      return isTileBoardCategory(categoryId);
     }
 
     function isCommonHudItem(item) {
-      return Boolean(item && (item.category_id === "common_hud_tiles" || item.category_id === "alchemy_tiles"));
+      return Boolean(item && isTileBoardCategory(item.category_id));
     }
 
     function itemGroupFilterValue(item) {
@@ -3688,7 +3769,10 @@
     }
 
     function hudTileCategoryLabel(categoryId = state.categoryId) {
-      return categoryId === "alchemy_tiles" ? "연금술" : "공유 HUD";
+      if (categoryId === "alchemy_tiles") return "연금술";
+      if (categoryId === "common_hud_tiles") return "공유 HUD";
+      const category = categoryById(categoryId);
+      return category?.label || "타일셋";
     }
 
     function ensureCommonHudBoardForCategory(categoryId = state.categoryId) {
@@ -3788,6 +3872,10 @@
         state.commonHudBoards[previousCategoryId] = state.commonHudBoard;
       }
       state.categoryId = categoryId;
+      const selectedCategory = categoryById(categoryId);
+      if (selectedCategory && !categoryMatchesKindFilter(selectedCategory)) {
+        state.categoryKindFilter = categoryKind(selectedCategory);
+      }
       ensureCommonHudBoardForCategory(categoryId);
       if (categoryId !== previousCategoryId) {
         state.itemPage = 0;
@@ -3798,7 +3886,7 @@
         reconcileAuditDoneWithCurrentData({ pruneStaleDone: true });
       }
       renderCategories();
-      const category = state.categories.find((item) => item.id === categoryId);
+      const category = selectedCategory || state.categories.find((item) => item.id === categoryId);
       rebuildBtn.disabled = false;
       const filtered = itemsForCategory(categoryId);
       itemsTitle.textContent = category ? `${category.label} 항목` : "항목";
@@ -5900,6 +5988,9 @@
       persistLocalUiState();
       renderItemList(null, { keepCurrentSelection: true });
     };
+    categoryKindFilter.querySelectorAll("button[data-kind]").forEach((button) => {
+      button.onclick = () => setCategoryKindFilter(button.dataset.kind || "all");
+    });
     itemGroupFilter.onchange = () => {
       state.itemGroupFilter = itemGroupFilter.value;
       state.itemPage = 0;

@@ -1,0 +1,326 @@
+{
+  "scene": "no_entry8_latest_ss3",
+  "frame": "frame_009730",
+  "bg": 1,
+  "rle_offset": 3814720,
+  "rle_offset_hex": "0x003A3540",
+  "rle_raw_path": "confirmed_data/image_inventory/rle_tile_extraction/rle_raw/0835_off_003A3540_size_001000.bin",
+  "runtime_palette_path": "confirmed_data/image_inventory/runtime_user_captures/no_entry8_latest_ss3/frame_009730_palette_05000000.bin",
+  "crop_screen_tiles": {
+    "min_x": 2,
+    "min_y": 11,
+    "max_x": 12,
+    "max_y": 12
+  },
+  "crop_pixels": {
+    "x": 16,
+    "y": 88,
+    "width": 88,
+    "height": 16
+  },
+  "scroll_pixels": {
+    "x": 256,
+    "y": 256
+  },
+  "fine_scroll_pixels": {
+    "x": 0,
+    "y": 0
+  },
+  "alignment_adjustment_pixels": {
+    "x": 0,
+    "y": 0
+  },
+  "matched_tile_count": 20,
+  "source_match": {
+    "score": 670.5247,
+    "shared_tiles": 120,
+    "runtime_coverage": 0.5381,
+    "candidate_coverage": 1.0,
+    "candidate_index": 835,
+    "decompressed_size": 4096,
+    "compressed_size": 2941
+  },
+  "matches": [
+    {
+      "screen_tile_x": 2,
+      "screen_tile_y": 11,
+      "map_tile_x": 2,
+      "map_tile_y": 11,
+      "runtime_tile_index": 14,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 40974,
+      "rle_tile_indexes": [
+        14
+      ]
+    },
+    {
+      "screen_tile_x": 3,
+      "screen_tile_y": 11,
+      "map_tile_x": 3,
+      "map_tile_y": 11,
+      "runtime_tile_index": 15,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 40975,
+      "rle_tile_indexes": [
+        15
+      ]
+    },
+    {
+      "screen_tile_x": 4,
+      "screen_tile_y": 11,
+      "map_tile_x": 4,
+      "map_tile_y": 11,
+      "runtime_tile_index": 16,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 40976,
+      "rle_tile_indexes": [
+        16
+      ]
+    },
+    {
+      "screen_tile_x": 5,
+      "screen_tile_y": 11,
+      "map_tile_x": 5,
+      "map_tile_y": 11,
+      "runtime_tile_index": 17,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 40977,
+      "rle_tile_indexes": [
+        17
+      ]
+    },
+    {
+      "screen_tile_x": 6,
+      "screen_tile_y": 11,
+      "map_tile_x": 6,
+      "map_tile_y": 11,
+      "runtime_tile_index": 18,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 40978,
+      "rle_tile_indexes": [
+        18
+      ]
+    },
+    {
+      "screen_tile_x": 8,
+      "screen_tile_y": 11,
+      "map_tile_x": 8,
+      "map_tile_y": 11,
+      "runtime_tile_index": 14,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 40974,
+      "rle_tile_indexes": [
+        14
+      ]
+    },
+    {
+      "screen_tile_x": 9,
+      "screen_tile_y": 11,
+      "map_tile_x": 9,
+      "map_tile_y": 11,
+      "runtime_tile_index": 19,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 40979,
+      "rle_tile_indexes": [
+        19
+      ]
+    },
+    {
+      "screen_tile_x": 10,
+      "screen_tile_y": 11,
+      "map_tile_x": 10,
+      "map_tile_y": 11,
+      "runtime_tile_index": 20,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 40980,
+      "rle_tile_indexes": [
+        20
+      ]
+    },
+    {
+      "screen_tile_x": 11,
+      "screen_tile_y": 11,
+      "map_tile_x": 11,
+      "map_tile_y": 11,
+      "runtime_tile_index": 21,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 40981,
+      "rle_tile_indexes": [
+        21
+      ]
+    },
+    {
+      "screen_tile_x": 12,
+      "screen_tile_y": 11,
+      "map_tile_x": 12,
+      "map_tile_y": 11,
+      "runtime_tile_index": 18,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 40978,
+      "rle_tile_indexes": [
+        18
+      ]
+    },
+    {
+      "screen_tile_x": 2,
+      "screen_tile_y": 12,
+      "map_tile_x": 2,
+      "map_tile_y": 12,
+      "runtime_tile_index": 22,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 40982,
+      "rle_tile_indexes": [
+        22
+      ]
+    },
+    {
+      "screen_tile_x": 3,
+      "screen_tile_y": 12,
+      "map_tile_x": 3,
+      "map_tile_y": 12,
+      "runtime_tile_index": 23,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 40983,
+      "rle_tile_indexes": [
+        23
+      ]
+    },
+    {
+      "screen_tile_x": 4,
+      "screen_tile_y": 12,
+      "map_tile_x": 4,
+      "map_tile_y": 12,
+      "runtime_tile_index": 24,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 40984,
+      "rle_tile_indexes": [
+        24
+      ]
+    },
+    {
+      "screen_tile_x": 5,
+      "screen_tile_y": 12,
+      "map_tile_x": 5,
+      "map_tile_y": 12,
+      "runtime_tile_index": 25,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 40985,
+      "rle_tile_indexes": [
+        25
+      ]
+    },
+    {
+      "screen_tile_x": 6,
+      "screen_tile_y": 12,
+      "map_tile_x": 6,
+      "map_tile_y": 12,
+      "runtime_tile_index": 26,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 40986,
+      "rle_tile_indexes": [
+        26
+      ]
+    },
+    {
+      "screen_tile_x": 8,
+      "screen_tile_y": 12,
+      "map_tile_x": 8,
+      "map_tile_y": 12,
+      "runtime_tile_index": 22,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 40982,
+      "rle_tile_indexes": [
+        22
+      ]
+    },
+    {
+      "screen_tile_x": 9,
+      "screen_tile_y": 12,
+      "map_tile_x": 9,
+      "map_tile_y": 12,
+      "runtime_tile_index": 27,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 40987,
+      "rle_tile_indexes": [
+        27
+      ]
+    },
+    {
+      "screen_tile_x": 10,
+      "screen_tile_y": 12,
+      "map_tile_x": 10,
+      "map_tile_y": 12,
+      "runtime_tile_index": 28,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 40988,
+      "rle_tile_indexes": [
+        28
+      ]
+    },
+    {
+      "screen_tile_x": 11,
+      "screen_tile_y": 12,
+      "map_tile_x": 11,
+      "map_tile_y": 12,
+      "runtime_tile_index": 29,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 40989,
+      "rle_tile_indexes": [
+        29
+      ]
+    },
+    {
+      "screen_tile_x": 12,
+      "screen_tile_y": 12,
+      "map_tile_x": 12,
+      "map_tile_y": 12,
+      "runtime_tile_index": 26,
+      "hflip": false,
+      "vflip": false,
+      "palette_bank": 10,
+      "screen_entry": 40986,
+      "rle_tile_indexes": [
+        26
+      ]
+    }
+  ],
+  "focus_note": "Focused card list middle labels only: ID / POWER."
+}

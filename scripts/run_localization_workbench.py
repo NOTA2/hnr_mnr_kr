@@ -43,6 +43,7 @@ BATTLE_HUD_NAME_TABLE_PATH = ROOT / "confirmed_data" / "font_assets" / "battle_h
 BATTLE_HUD_NAME_TRANSLATIONS_PATH = ROOT / "confirmed_data" / "font_assets" / "battle_hud_name_translations.json"
 BATTLE_HUD_NAME_CATEGORY_ID = "battle_hud_name_table"
 BATTLE_HUD_NAME_ITEM_PREFIX = "battle_hud_name:"
+PAGE_TURN_RLE_TILE_CATEGORY_IDS = {f"page_turn_rle_{order:02d}_tiles" for order in range(5, 13)}
 IMAGE_CATEGORY_IDS = {
     "image_review_units",
     "image_group_field_menu_labels",
@@ -55,10 +56,11 @@ IMAGE_CATEGORY_IDS = {
     "common_hud_tiles",
     "alchemy_tiles",
     "registry_b_zp01_resources",
+    *PAGE_TURN_RLE_TILE_CATEGORY_IDS,
 }
 COMMON_HUD_TILE_CATEGORY_ID = "common_hud_tiles"
 ALCHEMY_TILE_CATEGORY_ID = "alchemy_tiles"
-HUD_TILE_CATEGORY_IDS = {COMMON_HUD_TILE_CATEGORY_ID, ALCHEMY_TILE_CATEGORY_ID}
+HUD_TILE_CATEGORY_IDS = {COMMON_HUD_TILE_CATEGORY_ID, ALCHEMY_TILE_CATEGORY_ID, *PAGE_TURN_RLE_TILE_CATEGORY_IDS}
 COMMON_HUD_TILE_SIZE = 8
 COMMON_HUD_RESERVED_ITEM_IDS = {"image:lz77_tile:00534874:tile_000"}
 COMMON_HUD_TILE_MANIFEST_PATH = (
@@ -107,7 +109,7 @@ def common_hud_tile_asset_defaults() -> dict[str, dict[str, Any]]:
         source_1x = tile.get("source_1x", "")
         preview_8x = tile.get("preview_8x", "")
         defaults[item_id] = {
-            "source_preview_path": preview_8x,
+            "source_preview_path": source_1x,
             "source_download_path": source_1x,
             "candidate_gallery": [
                 {

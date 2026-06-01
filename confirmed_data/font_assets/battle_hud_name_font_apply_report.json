@@ -2,7 +2,7 @@
   "target": "patched_roms/current_review/hnr_localization_review.gba",
   "atlas": "third_party/font_atlases/finalists/Galmuri7_9x9_no_shadow.png",
   "dry_run": false,
-  "timestamp": "2026-05-23T02:49:56",
+  "timestamp": "2026-05-29T13:06:23",
   "cause_of_previous_bad_patch": "0x00534874 is shared by field/dialogue/menu UI; this pass leaves that block untouched.",
   "battle_font_offset": 1600564,
   "battle_font_offset_hex": "0x00186C34",

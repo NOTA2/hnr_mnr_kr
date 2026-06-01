@@ -47,6 +47,7 @@ TAB_DEFS = [
         "key": "metal",
         "label_jp": "金属",
         "label_ko": "금속",
+        "source_dir": SOURCE_DIR,
         "tile_min_y": 0,
         "tile_max_y": 3,
     },
@@ -54,22 +55,46 @@ TAB_DEFS = [
         "key": "stone",
         "label_jp": "石",
         "label_ko": "돌",
-        "tile_min_y": 4,
-        "tile_max_y": 5,
+        "source_dir": (
+            ROOT
+            / "confirmed_data"
+            / "image_inventory"
+            / "runtime_rle_screen_order"
+            / "current_review_ss6"
+            / "frame_000006_bg1_rle_003A3540"
+        ),
+        "tile_min_y": 3,
+        "tile_max_y": 6,
     },
     {
         "key": "nature",
         "label_jp": "自然",
         "label_ko": "자연",
-        "tile_min_y": 6,
-        "tile_max_y": 7,
+        "source_dir": (
+            ROOT
+            / "confirmed_data"
+            / "image_inventory"
+            / "runtime_rle_screen_order"
+            / "current_review_ss7"
+            / "frame_000007_bg1_rle_003A3540"
+        ),
+        "tile_min_y": 5,
+        "tile_max_y": 8,
     },
     {
         "key": "inorganic",
         "label_jp": "無機",
         "label_ko": "무기",
-        "tile_min_y": 8,
-        "tile_max_y": 9,
+        "source_dir": (
+            ROOT
+            / "confirmed_data"
+            / "image_inventory"
+            / "runtime_rle_screen_order"
+            / "current_review_ss9"
+            / "frame_000009_bg1_rle_003A3540"
+        ),
+        "tile_min_y": 7,
+        "tile_max_y": 10,
     },
 ]
 
@@ -153,11 +178,19 @@ def main() -> int:
     individual_dir.mkdir(parents=True, exist_ok=True)
     individual_tabs = []
     for index, tab in enumerate(TAB_DEFS):
+        tab_source_dir = Path(tab["source_dir"])
+        tab_source_image = tab_source_dir / "matched_tiles_screen_order.png"
+        tab_source_tile_map_path = tab_source_dir / "tile_map.json"
+        if not tab_source_image.exists() or not tab_source_tile_map_path.exists():
+            raise FileNotFoundError(f"missing active tab source: {tab_source_dir}")
+        tab_image = Image.open(tab_source_image).convert("RGBA")
+        tab_source_tile_map = json.loads(tab_source_tile_map_path.read_text(encoding="utf-8"))
+        stable_palette_path = json.loads(SOURCE_TILE_MAP.read_text(encoding="utf-8")).get("runtime_palette_path", "")
         tab_min_y = int(tab["tile_min_y"])
         tab_max_y = int(tab["tile_max_y"])
         tab_y = tab_min_y * 8
         tab_h = (tab_max_y - tab_min_y + 1) * 8
-        tab_crop = image.crop((CROP_X, tab_y, CROP_X + CROP_W, tab_y + tab_h))
+        tab_crop = tab_image.crop((CROP_X, tab_y, CROP_X + CROP_W, tab_y + tab_h))
         source_name = f"card_book_right_tabs__{tab['key']}__source.png"
         edit_name = f"card_book_right_tabs__{tab['key']}__edit_4x.png"
         tab_source_path = individual_dir / source_name
@@ -167,12 +200,13 @@ def main() -> int:
 
         tab_matches = [
             match
-            for match in tile_map["matches"]
+            for match in tab_source_tile_map["matches"]
             if CROP_TILE_MIN_X <= int(match["screen_tile_x"]) <= CROP_TILE_MAX_X
             and tab_min_y <= int(match["screen_tile_y"]) <= tab_max_y
         ]
         tab_tile_map = {
-            **tile_map,
+            **tab_source_tile_map,
+            "runtime_palette_path": stable_palette_path or tab_source_tile_map.get("runtime_palette_path", ""),
             "crop_screen_tiles": {
                 "min_x": CROP_TILE_MIN_X,
                 "min_y": tab_min_y,
@@ -187,7 +221,11 @@ def main() -> int:
             },
             "matched_tile_count": len(tab_matches),
             "matches": tab_matches,
-            "focus_note": f"Focused card book right-side tab only: {tab['label_jp']}.",
+            "focus_note": (
+                f"Focused card book right-side front tab only: {tab['label_jp']}. "
+                "This crop is taken from a savestate where that bookmark is in front, "
+                "so the label is not occluded by another tab."
+            ),
         }
         tab_tile_map_path = individual_dir / f"card_book_right_tabs__{tab['key']}__tile_map.json"
         tab_tile_map_path.write_text(
@@ -204,12 +242,16 @@ def main() -> int:
                 "source_path": str(tab_source_path.relative_to(ROOT)),
                 "editable_path": str(tab_edit_path.relative_to(ROOT)),
                 "tile_map_path": str(tab_tile_map_path.relative_to(ROOT)),
+                "source_screen_order_path": str(tab_source_image.relative_to(ROOT)),
+                "source_tile_map_path": str(tab_source_tile_map_path.relative_to(ROOT)),
                 "rle_offset": OFFSET,
                 "rle_offset_hex": f"0x{OFFSET:08X}",
                 "width": CROP_W,
                 "height": tab_h,
                 "scale": SCALE,
                 "tile_rows": [tab_min_y, tab_max_y],
+                "replacement_payload_base": "current",
+                "replacement_verify_source_noop": False,
                 "review_order": 8489 + index,
                 "matched_tile_count": len(tab_matches),
             }

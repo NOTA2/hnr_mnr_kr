@@ -1,8 +1,8 @@
 {
   "version": 1,
-  "last_updated": "2026-05-23",
-  "current_category_id": "translation_workset_registry_d_dialogue",
-  "current_item_id": "translation_workset_registry_d_dialogue:007F95C6",
+  "last_updated": "2026-05-29",
+  "current_category_id": "registry_a_entry8_clusters_manifest",
+  "current_item_id": "cluster_38_central:00714F00",
   "current_review_scope": "translation_workset_core_ui",
   "last_built_rom": "patched_roms/current_review/hnr_localization_review.gba",
   "category_progress": {
@@ -44,23 +44,11 @@
     },
     "image_group_battle_popups_panels": {
       "done": 0,
-      "total": 3
-    },
-    "image_group_card_book_ui": {
-      "done": 0,
-      "total": 13
+      "total": 2
     },
     "image_group_title_screen": {
       "done": 0,
       "total": 6
-    },
-    "image_group_reference_candidates": {
-      "done": 0,
-      "total": 4
-    },
-    "image_group_other": {
-      "done": 0,
-      "total": 0
     },
     "common_hud_tiles": {
       "done": 0,
@@ -73,6 +61,34 @@
     "registry_b_zp01_resources": {
       "done": 0,
       "total": 13
+    },
+    "page_turn_rle_05_tiles": {
+      "done": 0,
+      "total": 128
+    },
+    "page_turn_rle_06_tiles": {
+      "done": 0,
+      "total": 300
+    },
+    "page_turn_rle_07_tiles": {
+      "done": 0,
+      "total": 300
+    },
+    "page_turn_rle_08_tiles": {
+      "done": 0,
+      "total": 300
+    },
+    "page_turn_rle_09_tiles": {
+      "done": 0,
+      "total": 300
+    },
+    "page_turn_rle_10_tiles": {
+      "done": 0,
+      "total": 300
+    },
+    "page_turn_rle_11_tiles": {
+      "done": 0,
+      "total": 300
     }
   }
 }

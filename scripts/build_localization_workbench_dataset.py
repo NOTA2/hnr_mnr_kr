@@ -37,11 +37,26 @@ OUT_SPEAKER_REGISTRY = WORKSPACE_ROOT / "speaker_registry.json"
 OUT_PROGRESS = WORKSPACE_ROOT / "progress_state.json"
 OUT_IMAGE = WORKSPACE_ROOT / "image_replacements.json"
 OUT_README = WORKSPACE_ROOT / "README.md"
+UPLOADED_IMAGE_REPLACEMENTS = WORKSPACE_ROOT / "uploaded_image_replacements"
 
 REGISTRY_B_ZP_CATEGORY_ID = "registry_b_zp01_resources"
+PAGE_TURN_RLE_TILE_CATEGORY_IDS = {f"page_turn_rle_{order:02d}_tiles" for order in range(5, 13)}
+HIDDEN_IMAGE_GROUP_IDS = {"card_book_ui", "reference_candidates", "other"}
+HIDDEN_IMAGE_CATEGORY_IDS = {"page_turn_rle_12_tiles"}
 IMAGE_GROUP_CATEGORY_PREFIX = "image_group_"
-SPECIAL_IMAGE_GROUP_CATEGORY_IDS = {"common_hud_tiles", "alchemy_tiles", REGISTRY_B_ZP_CATEGORY_ID}
-IMAGE_CATEGORY_IDS = {"image_review_units", "common_hud_tiles", "alchemy_tiles", REGISTRY_B_ZP_CATEGORY_ID}
+SPECIAL_IMAGE_GROUP_CATEGORY_IDS = {
+    "common_hud_tiles",
+    "alchemy_tiles",
+    REGISTRY_B_ZP_CATEGORY_ID,
+    *PAGE_TURN_RLE_TILE_CATEGORY_IDS,
+}
+IMAGE_CATEGORY_IDS = {
+    "image_review_units",
+    "common_hud_tiles",
+    "alchemy_tiles",
+    REGISTRY_B_ZP_CATEGORY_ID,
+    *PAGE_TURN_RLE_TILE_CATEGORY_IDS,
+}
 
 
 def is_image_item(item: dict) -> bool:
@@ -219,6 +234,136 @@ def load_json_if_exists(path: Path, fallback):
     return fallback
 
 
+def existing_relative_path(path: str) -> str:
+    return path if path and (ROOT / path).is_file() else ""
+
+
+def native_image_source_path(path: str) -> str:
+    if not path:
+        return ""
+    path_obj = Path(path)
+    name = path_obj.name
+    candidates: list[str] = []
+    if name == "matched_tiles_screen_order_4x.png":
+        candidates.append(str(path_obj.with_name("matched_tiles_screen_order.png")))
+    if name.endswith("__advanced_edit_4x.png"):
+        candidates.append(str(path_obj.with_name(name.replace("__advanced_edit_4x.png", "__source.png"))))
+    if name.endswith("__edit_4x.png"):
+        candidates.append(str(path_obj.with_name(name.replace("__edit_4x.png", "__source.png"))))
+    if name.endswith("_4x.png"):
+        candidates.append(str(path_obj.with_name(name.replace("_4x.png", ".png"))))
+        candidates.append(path.replace("_4x.png", ".png.1x.png"))
+    for candidate in candidates:
+        if candidate != path and existing_relative_path(candidate):
+            return candidate
+    return path
+
+
+def build_image_native_source_path_map() -> dict[str, str]:
+    source_by_item: dict[str, str] = {}
+
+    def record(item_id: str | None, source_path: str | None) -> None:
+        if not item_id or not source_path:
+            return
+        native_path = native_image_source_path(source_path)
+        if existing_relative_path(native_path):
+            source_by_item[item_id] = native_path
+
+    for manifest_path in (
+        IMAGE_INVENTORY / "edit_packs" / "field_menu_labels" / "manifest.json",
+        IMAGE_INVENTORY / "edit_packs" / "title_screen" / "manifest.json",
+    ):
+        payload = load_json_if_exists(manifest_path, [])
+        if isinstance(payload, list):
+            for entry in payload:
+                record(entry.get("item_id"), entry.get("source_path"))
+
+    battle_manifest = load_json_if_exists(
+        IMAGE_INVENTORY / "edit_packs" / "battle_command_buttons" / "manifest.json",
+        {},
+    )
+    for entry in battle_manifest.get("items", []):
+        record(entry.get("item_id"), entry.get("source_path"))
+
+    card_tabs_manifest = load_json_if_exists(
+        IMAGE_INVENTORY / "edit_packs" / "card_book_right_tabs" / "manifest.json",
+        {},
+    )
+    record(card_tabs_manifest.get("item_id"), card_tabs_manifest.get("source_path"))
+    for entry in card_tabs_manifest.get("individual_tabs", []):
+        record(entry.get("item_id"), entry.get("source_path"))
+
+    card_list_labels_manifest = load_json_if_exists(
+        IMAGE_INVENTORY / "edit_packs" / "card_list_labels" / "manifest.json",
+        {},
+    )
+    record(card_list_labels_manifest.get("item_id"), card_list_labels_manifest.get("source_path"))
+    card_list_power_manifest = load_json_if_exists(
+        IMAGE_INVENTORY / "edit_packs" / "card_list_power_labels" / "manifest.json",
+        {},
+    )
+    for entry in card_list_power_manifest.get("items", []):
+        record(entry.get("item_id"), entry.get("source_path"))
+
+    card_page_manifest = load_json_if_exists(
+        IMAGE_INVENTORY / "edit_packs" / "card_page_count" / "manifest.json",
+        {},
+    )
+    record(card_page_manifest.get("item_id"), card_page_manifest.get("source_path"))
+
+    common_hud_manifest = load_json_if_exists(
+        IMAGE_INVENTORY / "edit_packs" / "common_hud_tiles_00534874" / "manifest.json",
+        {},
+    )
+    for tile in common_hud_manifest.get("tiles", []):
+        try:
+            tile_index = int(tile["tile_index"])
+        except (KeyError, TypeError, ValueError):
+            continue
+        record(f"image:lz77_tile:00534874:tile_{tile_index:03X}", tile.get("source_1x"))
+
+    alchemy_manifest = load_json_if_exists(
+        IMAGE_INVENTORY / "edit_packs" / "alchemy_tiles_003A206C" / "manifest.json",
+        {},
+    )
+    for tile in alchemy_manifest.get("tiles", []):
+        try:
+            tile_index = int(tile["tile_index"])
+        except (KeyError, TypeError, ValueError):
+            continue
+        record(f"image:rle_tile:003A206C:tile_{tile_index:03X}", tile.get("source_1x"))
+
+    registry_b_manifest = load_json_if_exists(
+        IMAGE_INVENTORY / "edit_packs" / "registry_b_zp01_resources" / "manifest.json",
+        {},
+    )
+    for resource in registry_b_manifest.get("resources", []):
+        try:
+            offset = int(resource["file_offset"])
+            entry = int(resource["entry"])
+        except (KeyError, TypeError, ValueError):
+            continue
+        record(f"image:registry_b_zp01:{offset:08X}:entry_{entry:02X}", resource.get("source_1x"))
+
+    return source_by_item
+
+
+def normalize_image_source_paths(items: list[dict]) -> None:
+    source_by_item = build_image_native_source_path_map()
+    for item in items:
+        if not is_image_item(item):
+            continue
+        preferred_source = source_by_item.get(item.get("item_id"))
+        if not preferred_source:
+            preferred_source = native_image_source_path(item.get("source_download_path", ""))
+        if not preferred_source or not existing_relative_path(preferred_source):
+            preferred_source = native_image_source_path(item.get("source_preview_path", ""))
+        if not preferred_source or not existing_relative_path(preferred_source):
+            continue
+        item["source_preview_path"] = preferred_source
+        item["source_download_path"] = preferred_source
+
+
 def build_translation_normalization_profile() -> None:
     texts: list[str] = []
     for path in sorted(EXTRACTED_TEXTS.glob("*.json")):
@@ -265,10 +410,7 @@ def build_image_group_categories() -> list[dict]:
         "field_menu_labels",
         "battle_command_buttons",
         "battle_popups_panels",
-        "card_book_ui",
         "title_screen",
-        "reference_candidates",
-        "other",
     ]
     categories: list[dict] = []
     for index, group_id in enumerate(category_ids):
@@ -380,6 +522,7 @@ def build_categories() -> list[dict]:
             "description": "Registry B ZP01 압축 리소스를 디코드해 4bpp 타일 시트로 검토/교체",
             "build_enabled": False,
         },
+        *build_page_turn_rle_tile_categories(),
     ]
 
 
@@ -534,15 +677,17 @@ def build_image_items() -> list[dict]:
     items.extend(build_english_patch_image_items())
     items.extend(build_curated_runtime_image_items())
     items.extend(build_runtime_rle_screen_order_items())
+    items.extend(build_card_list_label_items())
+    items.extend(build_card_list_power_label_items())
     items.extend(build_card_book_right_tab_items())
-    items.extend(build_card_page_count_items())
     items.extend(build_runtime_rle_image_items())
     items.extend(build_expanded_nearby_gallery_items())
     items.extend(build_common_hud_tile_items())
     items.extend(build_alchemy_tile_items())
+    items.extend(build_page_turn_rle_tile_items())
     items.extend(build_registry_b_zp_items())
     assign_image_item_groups(items)
-    return items
+    return [item for item in items if image_item_is_visible(item)]
 
 
 IMAGE_GROUPS = {
@@ -553,6 +698,7 @@ IMAGE_GROUPS = {
     "title_screen": ("타이틀 화면", 5000),
     "common_hud_tiles": ("공유 HUD 타일셋", 6000),
     "alchemy_tiles": ("연금술 타일셋", 7000),
+    "page_turn_rle_tiles": ("페이지 넘김 RLE 타일셋", 7500),
     "registry_b_zp01_resources": ("Registry B ZP01", 8000),
     "reference_candidates": ("참고/비대상/확장 후보", 9000),
     "other": ("기타 이미지 후보", 9500),
@@ -564,6 +710,7 @@ IMAGE_GROUP_DESCRIPTIONS = {
     "battle_popups_panels": "전투 중 팝업, 카드, ALCHEMY 패널 이미지",
     "card_book_ui": "카드 책자 오른쪽 탭과 카드 리스트/BACK/NEXT 계열 UI",
     "title_screen": "타이틀 로고와 시작 메뉴 이미지",
+    "page_turn_rle_tiles": "카드 책자 페이지 넘김 애니메이션 RLE 후보를 8x8 타일 단위로 쪼갠 항목",
     "reference_candidates": "영문판 참고/비대상/확장 조사 후보",
     "other": "아직 분류가 확정되지 않은 이미지 후보",
 }
@@ -598,6 +745,8 @@ def classify_image_item_group(item: dict) -> str:
         return "common_hud_tiles"
     if item_id.startswith("image:rle_tile:003A206C:"):
         return "alchemy_tiles"
+    if item.get("category_id") in PAGE_TURN_RLE_TILE_CATEGORY_IDS:
+        return "page_turn_rle_tiles"
     if item_id.startswith("image:registry_b_zp01:"):
         return "registry_b_zp01_resources"
     if item_id.startswith("image:expanded_nearby:"):
@@ -654,11 +803,27 @@ def assign_image_item_groups(items: list[dict]) -> None:
     items.sort(key=lambda item: (int(item.get("review_order") or 0), original_order.get(item["item_id"], 0)))
 
 
+def image_item_is_visible(item: dict) -> bool:
+    if item.get("category_id") in HIDDEN_IMAGE_CATEGORY_IDS:
+        return False
+    if item.get("image_group_id") in HIDDEN_IMAGE_GROUP_IDS:
+        return False
+    return True
+
+
 COMMON_HUD_TILE_OFFSET = 0x00534874
 COMMON_HUD_TILE_COUNT = 0x100
 COMMON_HUD_TILE_OUT = IMAGE_INVENTORY / "edit_packs" / "common_hud_tiles_00534874"
 ALCHEMY_TILE_OFFSET = 0x003A206C
 ALCHEMY_TILE_OUT = IMAGE_INVENTORY / "edit_packs" / "alchemy_tiles_003A206C"
+PAGE_TURN_RLE_TILE_MANIFEST = (
+    IMAGE_INVENTORY
+    / "edit_packs"
+    / "page_turn_power_animation"
+    / "numbered_rle_tiles_large"
+    / "manifest.json"
+)
+PAGE_TURN_RLE_TILE_OUT_ROOT = IMAGE_INVENTORY / "edit_packs" / "page_turn_power_animation" / "tile_categories"
 REGISTRY_B_TABLE_OFFSET = 0x00183D50
 REGISTRY_B_ZP_OUT = IMAGE_INVENTORY / "edit_packs" / "registry_b_zp01_resources"
 REGISTRY_B_ZP_TARGETS = [
@@ -1278,9 +1443,18 @@ def build_alchemy_tile_items() -> list[dict]:
     paths = ensure_alchemy_tile_edit_pack()
     if not paths:
         return []
+    manifest = load_json_if_exists(ALCHEMY_TILE_OUT / "manifest.json", {})
+    direct_patch_tile_indexes: set[int] = set()
+    for patch in manifest.get("active_direct_patches", []):
+        for tile_index in patch.get("written_tile_indexes", []):
+            try:
+                direct_patch_tile_indexes.add(int(tile_index))
+            except (TypeError, ValueError):
+                continue
     items: list[dict] = []
     for tile_index, asset_paths in sorted(paths.items()):
         tile_hex = f"{tile_index:03X}"
+        direct_patch_applied = tile_index in direct_patch_tile_indexes
         items.append(
             {
                 "item_id": f"image:rle_tile:003A206C:tile_{tile_hex}",
@@ -1310,10 +1484,15 @@ def build_alchemy_tile_items() -> list[dict]:
                 ],
                 "source_preview_path": asset_paths["preview_8x"],
                 "source_download_path": asset_paths["source_1x"],
-                "replacement_path": "",
+                "replacement_path": asset_paths["source_1x"] if direct_patch_applied else "",
                 "replacement_target": True,
                 "replacement_target_reason": "",
-                "comparison_notes": "",
+                "comparison_notes": (
+                    "active_direct_patches에서 승격된 타일 교체입니다. 숨긴 화면 편집 항목에 의존하지 않고 "
+                    "연금술 타일셋 자체 교체로 재적용됩니다."
+                    if direct_patch_applied
+                    else ""
+                ),
                 "candidate_gallery": [
                     {
                         "index": "tile_1x",
@@ -1342,8 +1521,234 @@ def build_alchemy_tile_items() -> list[dict]:
                 "tile_index": tile_index,
                 "tile_index_hex": f"0x{tile_hex}",
                 "raw_byte_length": 32,
+                "replacement_source": "active_direct_patch" if direct_patch_applied else "",
             }
         )
+    return items
+
+
+def page_turn_rle_tile_category_id(order: int) -> str:
+    return f"page_turn_rle_{order:02d}_tiles"
+
+
+def page_turn_rle_tile_entries() -> list[dict]:
+    manifest = load_json_if_exists(PAGE_TURN_RLE_TILE_MANIFEST, {"items": []})
+    entries = []
+    for entry in manifest.get("items", []):
+        try:
+            order = int(entry.get("order"))
+        except (TypeError, ValueError):
+            continue
+        if 5 <= order <= 12:
+            entries.append(entry)
+    return sorted(entries, key=lambda entry: int(entry["order"]))
+
+
+def build_page_turn_rle_tile_categories() -> list[dict]:
+    categories = []
+    for entry in page_turn_rle_tile_entries():
+        order = int(entry["order"])
+        category_id = page_turn_rle_tile_category_id(order)
+        if category_id in HIDDEN_IMAGE_CATEGORY_IDS:
+            continue
+        offset = int(entry.get("offset", 0))
+        categories.append(
+            {
+                "id": category_id,
+                "label": f"페이지 넘김 RLE {order:02d} 타일셋",
+                "type": "image",
+                "sort_order": 22 + order,
+                "path": (
+                    "confirmed_data/image_inventory/edit_packs/page_turn_power_animation/"
+                    f"tile_categories/{category_id}_{offset:08X}/manifest.json"
+                ),
+                "description": f"카드 책자 페이지 넘김 애니메이션 RLE {order:02d} / 0x{offset:08X}를 8x8 타일 단위로 검토/교체",
+                "build_enabled": False,
+            }
+        )
+    return categories
+
+
+def ensure_page_turn_rle_tile_edit_packs() -> dict[str, dict[int, dict[str, str]]]:
+    from PIL import Image, ImageDraw, ImageFont
+
+    if not SOURCE_ROM.exists():
+        return {}
+    rom = SOURCE_ROM.read_bytes()
+    entries = page_turn_rle_tile_entries()
+    if not entries:
+        return {}
+
+    try:
+        label_font = ImageFont.truetype("/System/Library/Fonts/Monaco.ttf", 8)
+    except Exception:
+        label_font = None
+
+    all_paths: dict[str, dict[int, dict[str, str]]] = {}
+    for entry in entries:
+        order = int(entry["order"])
+        offset = int(entry["offset"])
+        category_id = page_turn_rle_tile_category_id(order)
+        out_dir = PAGE_TURN_RLE_TILE_OUT_ROOT / f"{category_id}_{offset:08X}"
+        source_dir = out_dir / "source_1x"
+        preview_dir = out_dir / "preview_8x"
+        source_dir.mkdir(parents=True, exist_ok=True)
+        preview_dir.mkdir(parents=True, exist_ok=True)
+
+        payload, consumed = decompress_gba_rle(rom, offset, max_output_size=0x400000)
+        if len(payload) % 32:
+            continue
+        tile_count = len(payload) // 32
+        tile_columns = int(entry.get("tile_columns") or 32)
+        tile_columns = max(1, min(tile_columns, max(1, tile_count)))
+        paths: dict[int, dict[str, str]] = {}
+
+        contact_cols = 16
+        cell = 44
+        contact_rows = (tile_count + contact_cols - 1) // contact_cols
+        contact = Image.new("RGB", (contact_cols * cell, contact_rows * cell), (18, 20, 23))
+        draw = ImageDraw.Draw(contact)
+
+        for tile_index in range(tile_count):
+            tile = payload[tile_index * 32 : tile_index * 32 + 32]
+            image = tile_to_grayscale_image(tile)
+            source_path = source_dir / f"tile_{tile_index:03X}.png"
+            preview_path = preview_dir / f"tile_{tile_index:03X}_8x.png"
+            image.save(source_path)
+            image.resize((64, 64), Image.Resampling.NEAREST).save(preview_path)
+
+            sheet_tile = image.resize((32, 32), Image.Resampling.NEAREST).convert("RGB")
+            x = (tile_index % contact_cols) * cell
+            y = (tile_index // contact_cols) * cell
+            contact.paste(sheet_tile, (x + 6, y + 10))
+            draw.text((x + 4, y + 1), f"{tile_index:03X}", fill=(245, 225, 90), font=label_font)
+
+            paths[tile_index] = {
+                "source_1x": str(source_path.relative_to(ROOT)),
+                "preview_8x": str(preview_path.relative_to(ROOT)),
+            }
+
+        contact_path = out_dir / f"{category_id}_{offset:08X}_contact_sheet.png"
+        contact.save(contact_path)
+        manifest = {
+            "order": order,
+            "rle_index": entry.get("rle_index"),
+            "offset": offset,
+            "offset_hex": f"0x{offset:08X}",
+            "decompressed_size": len(payload),
+            "compressed_size": consumed,
+            "tile_count": tile_count,
+            "tile_columns": tile_columns,
+            "source_rom": str(SOURCE_ROM.relative_to(ROOT)),
+            "source_preview_path": entry.get("source_path", ""),
+            "numbered_path": entry.get("numbered_path", ""),
+            "contact_sheet": str(contact_path.relative_to(ROOT)),
+            "notes": (
+                "카드 책자 페이지 넘김 애니메이션 후보 RLE를 원본 ROM payload 기준으로 8x8 타일 단위 추출. "
+                "이 카테고리의 타일 단위 적용은 앞선 full-image/repoint 변경을 누적 기준으로 삼지 않습니다."
+            ),
+            "tiles": [
+                {
+                    "tile_index": tile_index,
+                    "tile_index_hex": f"0x{tile_index:03X}",
+                    **paths[tile_index],
+                }
+                for tile_index in range(tile_count)
+            ],
+        }
+        (out_dir / "manifest.json").write_text(
+            json.dumps(manifest, ensure_ascii=False, indent=2) + "\n",
+            encoding="utf-8",
+        )
+        all_paths[category_id] = paths
+    return all_paths
+
+
+def build_page_turn_rle_tile_items() -> list[dict]:
+    paths_by_category = ensure_page_turn_rle_tile_edit_packs()
+    if not paths_by_category:
+        return []
+
+    entry_by_category = {
+        page_turn_rle_tile_category_id(int(entry["order"])): entry
+        for entry in page_turn_rle_tile_entries()
+    }
+    items: list[dict] = []
+    for category_id, paths in sorted(paths_by_category.items()):
+        entry = entry_by_category.get(category_id)
+        if not entry:
+            continue
+        order = int(entry["order"])
+        offset = int(entry["offset"])
+        offset_hex = f"{offset:08X}"
+        group_id = f"{category_id}_{offset_hex}"
+        for tile_index, asset_paths in sorted(paths.items()):
+            tile_hex = f"{tile_index:03X}"
+            items.append(
+                {
+                    "item_id": f"image:rle_tile:{offset_hex}:tile_{tile_hex}",
+                    "category_id": category_id,
+                    "group_id": group_id,
+                    "label": f"페이지 넘김 RLE {order:02d} 타일 {tile_index} (0x{tile_hex})",
+                    "status": "candidate_found",
+                    "priority": "debug",
+                    "offset": offset,
+                    "review_order": 7600 + order * 1000 + tile_index,
+                    "review_goal": f"페이지 넘김 애니메이션 RLE {order:02d} / 0x{offset_hex}를 8x8 타일 1개 단위로 교체",
+                    "recommended_probe_method": "필요한 타일만 조합 보드에 배치하고, 선택 영역 PNG를 업로드해 해당 타일만 교체",
+                    "future_workspace": str((PAGE_TURN_RLE_TILE_OUT_ROOT / group_id).relative_to(ROOT)),
+                    "expected_text_kind": "page_turn_rle_4bpp_tile",
+                    "source": "rle_tile_4bpp",
+                    "compression": "rle_tile",
+                    "replacement_payload_base": "source_rom",
+                    "restore_repoint_to_original": True,
+                    "notes": (
+                        "이 항목은 원본 ROM의 RLE payload를 기준으로 타일을 다시 구성합니다. "
+                        "앞서 같은 RLE 블록을 full-image로 repoint해 둔 변경은 타일 단위 적용 시 기준으로 삼지 않습니다."
+                    ),
+                    "subunits": [
+                        {
+                            "id": f"rle_{offset_hex}_tile_{tile_hex}",
+                            "label": f"ROM offset 0x{offset_hex} / tile 0x{tile_hex}",
+                            "first_action": "8x8 PNG 또는 선택 영역 조합 PNG를 업로드하면 이 타일만 적용",
+                        }
+                    ],
+                    "source_preview_path": asset_paths["preview_8x"],
+                    "source_download_path": asset_paths["source_1x"],
+                    "replacement_path": "",
+                    "replacement_target": True,
+                    "replacement_target_reason": "",
+                    "comparison_notes": "",
+                    "candidate_gallery": [
+                        {
+                            "index": "tile_1x",
+                            "offset": offset,
+                            "source": "rle_tile_4bpp_source_1x",
+                            "png_path": asset_paths["source_1x"],
+                            "preview_path": asset_paths["source_1x"],
+                            "tile_index": tile_index,
+                            "tile_index_hex": f"0x{tile_hex}",
+                            "decompressed_size": 32,
+                        },
+                        {
+                            "index": "tile_8x",
+                            "offset": offset,
+                            "source": "rle_tile_4bpp_preview_8x",
+                            "png_path": asset_paths["preview_8x"],
+                            "preview_path": asset_paths["preview_8x"],
+                            "tile_index": tile_index,
+                            "tile_index_hex": f"0x{tile_hex}",
+                            "decompressed_size": 32,
+                        },
+                    ],
+                    "progress_status": "candidate_found",
+                    "default_review_included": False,
+                    "tile_columns": 1,
+                    "tile_index": tile_index,
+                    "tile_index_hex": f"0x{tile_hex}",
+                    "raw_byte_length": 32,
+                }
+            )
     return items
 
 
@@ -1625,6 +2030,155 @@ def parse_offset_from_preview_name(name: str) -> int:
     return int(match.group(1), 16) if match else 0
 
 
+def build_card_list_label_items() -> list[dict]:
+    manifest_path = IMAGE_INVENTORY / "edit_packs" / "card_list_labels" / "manifest.json"
+    if not manifest_path.exists():
+        return []
+    manifest = load_json(manifest_path)
+    source_path = manifest.get("source_path", "")
+    tile_map_path = manifest.get("tile_map_path", "")
+    if not source_path or not tile_map_path:
+        return []
+    if not (ROOT / source_path).exists() or not (ROOT / tile_map_path).exists():
+        return []
+    offset = int(manifest["offset"])
+    return [
+        {
+            "item_id": manifest["item_id"],
+            "category_id": "image_review_units",
+            "group_id": f"card_list_labels_{offset:08X}",
+            "label": manifest["label"],
+            "status": "candidate_found",
+            "priority": "high",
+            "review_order": 8487,
+            "review_goal": "카드 리스트 중단 ID/POWER 라벨만 한글화",
+            "recommended_probe_method": "no_entry8_latest_ss3 BG1 RLE 0x003A3540 focused screen-order tile_map label crop",
+            "future_workspace": str((IMAGE_INVENTORY / "edit_packs" / "card_list_labels").relative_to(ROOT)),
+            "expected_text_kind": "card_list_id_power_labels",
+            "source": "rle_screen_order_focus",
+            "notes": (
+                "카드 리스트 화면순 RLE 0x003A3540에서 ID/POWER 라벨 배너만 분리한 안전 편집 항목이다. "
+                "같은 RLE 블록의 오른쪽 책갈피 편집과 함께 누적 적용되도록 현재 ROM payload를 기준으로 이 영역의 타일만 바꾼다."
+            ),
+            "subunits": [
+                {
+                    "id": f"rle_screen_order_focus_{offset:08X}_card_list_id_power",
+                    "label": f"ROM offset 0x{offset:08X} / ID POWER",
+                    "first_action": "ID/POWER 라벨을 필요한 한국어/영문 표기로 교체",
+                }
+            ],
+            "source_preview_path": source_path,
+            "source_download_path": source_path,
+            "tile_map_path": tile_map_path,
+            "replacement_path": manifest.get("replacement_path", ""),
+            "replacement_target": True,
+            "replacement_target_reason": "",
+            "replacement_payload_base": manifest.get("replacement_payload_base", "current") or "current",
+            "replacement_source_color_map": True,
+            "replacement_verify_source_noop": bool(manifest.get("replacement_verify_source_noop", False)),
+            "comparison_notes": "",
+            "candidate_gallery": [
+                {
+                    "index": "source_1x",
+                    "offset": offset,
+                    "source": "focused_screen_order_card_list_labels_1x",
+                    "png_path": source_path,
+                    "preview_path": source_path,
+                    "decompressed_size": manifest.get("matched_tile_count", ""),
+                },
+                {
+                    "index": "editable_4x",
+                    "offset": offset,
+                    "source": "focused_screen_order_card_list_labels_4x",
+                    "png_path": manifest.get("editable_path", ""),
+                    "preview_path": manifest.get("editable_path", ""),
+                    "decompressed_size": manifest.get("matched_tile_count", ""),
+                },
+            ],
+            "source_text": manifest.get("source_text", "ID / POWER"),
+            "suggested_korean": manifest.get("suggested_korean", "ID / 파워"),
+            "progress_status": "candidate_found",
+            "default_review_included": False,
+        }
+    ]
+
+
+def build_card_list_power_label_items() -> list[dict]:
+    manifest_path = IMAGE_INVENTORY / "edit_packs" / "card_list_power_labels" / "manifest.json"
+    if not manifest_path.exists():
+        return []
+    manifest = load_json(manifest_path)
+    items: list[dict] = []
+    for entry in manifest.get("items", []):
+        source_path = entry.get("source_path", "")
+        tile_map_path = entry.get("tile_map_path", "")
+        if not source_path or not tile_map_path:
+            continue
+        if not (ROOT / source_path).exists() or not (ROOT / tile_map_path).exists():
+            continue
+        offset = int(entry["offset"])
+        items.append(
+            {
+                "item_id": entry["item_id"],
+                "category_id": "image_review_units",
+                "group_id": f"card_list_power_{offset:08X}",
+                "label": entry["label"],
+                "status": "candidate_found",
+                "priority": "high",
+                "review_order": int(entry.get("review_order", 4080)),
+                "review_goal": "카드 리스트 POWER 라벨 주변 작은 영역만 한글화",
+                "recommended_probe_method": "no_entry8_latest_ss3 BG1 card-list RLE focused POWER bbox",
+                "future_workspace": str((IMAGE_INVENTORY / "edit_packs" / "card_list_power_labels").relative_to(ROOT)),
+                "expected_text_kind": "card_list_power_label_focus",
+                "source": "rle_screen_order_focus",
+                "notes": (
+                    "기존 전체 카드 리스트 RLE 변형 항목 대신 POWER 라벨 주변 46x28px 박스만 분리한 항목이다. "
+                    "업로드/적용 속도를 줄이기 위해 이 작은 crop의 tile_map만 사용한다."
+                ),
+                "subunits": [
+                    {
+                        "id": f"rle_screen_order_focus_{offset:08X}_power",
+                        "label": f"ROM offset 0x{offset:08X} / POWER",
+                        "first_action": "POWER 라벨 영역만 수정해서 업로드",
+                    }
+                ],
+                "source_preview_path": source_path,
+                "source_download_path": source_path,
+                "tile_map_path": tile_map_path,
+                "replacement_path": entry.get("replacement_path", ""),
+                "replacement_target": True,
+                "replacement_target_reason": "",
+                "replacement_payload_base": entry.get("replacement_payload_base", "source_raw") or "source_raw",
+                "replacement_source_color_map": bool(entry.get("replacement_source_color_map", True)),
+                "replacement_verify_source_noop": bool(entry.get("replacement_verify_source_noop", False)),
+                "comparison_notes": "",
+                "candidate_gallery": [
+                    {
+                        "index": "source_1x",
+                        "offset": offset,
+                        "source": "focused_card_list_power_1x",
+                        "png_path": source_path,
+                        "preview_path": source_path,
+                        "decompressed_size": entry.get("matched_tile_count", ""),
+                    },
+                    {
+                        "index": "editable_4x",
+                        "offset": offset,
+                        "source": "focused_card_list_power_4x",
+                        "png_path": entry.get("editable_path", ""),
+                        "preview_path": entry.get("editable_path", ""),
+                        "decompressed_size": entry.get("matched_tile_count", ""),
+                    },
+                ],
+                "source_text": entry.get("source_text", "POWER"),
+                "suggested_korean": entry.get("suggested_korean", "파워"),
+                "progress_status": "candidate_found",
+                "default_review_included": False,
+            }
+        )
+    return items
+
+
 def build_card_book_right_tab_items() -> list[dict]:
     manifest_path = IMAGE_INVENTORY / "edit_packs" / "card_book_right_tabs" / "manifest.json"
     if not manifest_path.exists():
@@ -1715,10 +2269,11 @@ def build_card_book_right_tab_items() -> list[dict]:
                 "label": tab["label"],
                 "review_order": int(tab.get("review_order", 8489)),
                 "review_goal": "카드 책자 오른쪽 세로 탭을 개별 PNG로 한글화",
-                "recommended_probe_method": "0x003A3540 focused screen-order tile_map individual tab crop",
+                "recommended_probe_method": "0x003A3540 active-bookmark screen-order tile_map individual front tab crop",
                 "notes": (
-                    "전체 오른쪽 탭 이미지에서 이 탭이 차지하는 8x8 행만 분리한 개별 편집 항목이다. "
-                    "적용 시 source_raw와 source color map을 기준으로 이 영역의 타일만 바꾼다."
+                    "이 탭이 앞쪽으로 나온 세이브 상태에서 다시 추출한 개별 편집 항목이다. "
+                    "뒤쪽 책갈피에 가려진 상태가 아니므로 글자가 잘리지 않는다. "
+                    "같은 0x003A3540 RLE 블록에 누적 적용되도록 현재 ROM payload를 기준으로 이 영역의 타일만 바꾼다."
                 ),
                 "subunits": [
                     {
@@ -1731,6 +2286,8 @@ def build_card_book_right_tab_items() -> list[dict]:
                 "source_download_path": tab_source,
                 "tile_map_path": tab_tile_map,
                 "replacement_path": tab.get("replacement_path", ""),
+                "replacement_payload_base": tab.get("replacement_payload_base", "current"),
+                "replacement_verify_source_noop": bool(tab.get("replacement_verify_source_noop", False)),
                 "candidate_gallery": [
                     {
                         "index": "editable",
@@ -1836,14 +2393,7 @@ def build_runtime_rle_screen_order_items() -> list[dict]:
     include_keys = {
         ("current_review_ss2", "frame_000002", 0, 0x003ABB9C),
         ("no_entry8_latest_ss1", "frame_007084", 0, 0x003AF23C),
-        ("no_entry8_latest_ss1", "frame_007084", 1, 0x003A206C),
         ("no_entry8_latest_ss3", "frame_009730", 1, 0x003A3540),
-        ("no_entry8_latest_ss3", "frame_009730", 1, 0x003A5E50),
-        ("no_entry8_latest_ss3", "frame_009730", 1, 0x003A6E24),
-        ("no_entry8_latest_ss3", "frame_009730", 1, 0x003A7C3C),
-        ("no_entry8_latest_ss3", "frame_009730", 1, 0x003A8894),
-        ("no_entry8_latest_ss3", "frame_009730", 1, 0x003A9624),
-        ("no_entry8_latest_ss3", "frame_009730", 1, 0x003AA4C0),
         ("timeline_with_rle", "frame_001200", 0, 0x007E0000),
     }
     labels = {
@@ -2863,8 +3413,37 @@ def merge_existing_item_state(items: list[dict], existing_dataset: dict | None, 
         for field in preserved_fields:
             if field in existing and existing[field] not in ("", None):
                 item[field] = existing[field]
+        if item.get("category_id") == REGISTRY_B_ZP_CATEGORY_ID and not item.get("replacement_path"):
+            latest_upload = latest_uploaded_image_replacement(item["item_id"])
+            if latest_upload:
+                item["replacement_path"] = latest_upload
         if item.get("translation") and not item.get("agent_draft"):
             item["agent_draft"] = item["translation"]
+
+
+def latest_uploaded_image_replacement(item_id: str) -> str:
+    upload_dirs = []
+    direct_dir = UPLOADED_IMAGE_REPLACEMENTS / item_id.replace(":", "_")
+    if direct_dir.is_dir():
+        upload_dirs.append(direct_dir)
+    registry_match = re.match(r"image:registry_b_zp01:[0-9A-Fa-f]+:entry_([0-9A-Fa-f]{2})$", item_id)
+    if registry_match:
+        entry_hex = registry_match.group(1).upper()
+        upload_dirs.extend(
+            path
+            for path in UPLOADED_IMAGE_REPLACEMENTS.glob(f"image_registry_b_zp01_*_entry_{entry_hex}")
+            if path.is_dir() and path not in upload_dirs
+        )
+    pngs = [
+        path
+        for upload_dir in upload_dirs
+        for path in upload_dir.iterdir()
+        if path.is_file() and path.suffix.lower() == ".png"
+    ]
+    if not pngs:
+        return ""
+    latest = max(pngs, key=lambda path: path.stat().st_mtime)
+    return str(latest.relative_to(ROOT))
 
 
 def attach_image_candidate_assets(items: list[dict]) -> None:
@@ -2928,6 +3507,7 @@ def build_dataset() -> dict:
     categories = build_categories()
     text_items = build_text_items(dialogue_tokens, entry8_cluster_map)
     image_items = build_image_items()
+    normalize_image_source_paths(image_items)
     font_profile = load_json(FONT_PROFILE)
 
     items = text_items + image_items
@@ -3008,6 +3588,7 @@ def main() -> int:
     dataset = build_dataset()
     merge_existing_item_state(dataset["items"], existing_dataset, existing_images)
     attach_image_candidate_assets(dataset["items"])
+    normalize_image_source_paths(dataset["items"])
     speaker_aliases = merge_existing_speaker_aliases(
         build_speaker_aliases(dataset["items"]),
         existing_speakers,

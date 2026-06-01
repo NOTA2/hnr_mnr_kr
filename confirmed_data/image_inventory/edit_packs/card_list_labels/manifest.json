@@ -1,0 +1,23 @@
+{
+  "item_id": "image:rle_screen_order_focus:no_entry8_latest_ss3:frame_009730:bg1:003A3540:card_list_id_power",
+  "offset": 3814720,
+  "label": "카드 리스트 ID/POWER 라벨",
+  "source_text": "ID / POWER",
+  "suggested_korean": "ID / 파워",
+  "source_path": "confirmed_data/image_inventory/edit_packs/card_list_labels/card_list_id_power__source.png",
+  "editable_path": "confirmed_data/image_inventory/edit_packs/card_list_labels/card_list_id_power__edit_4x.png",
+  "tile_map_path": "confirmed_data/image_inventory/edit_packs/card_list_labels/card_list_id_power__tile_map.json",
+  "source_screen_order_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss3/frame_009730_bg1_rle_003A3540/matched_tiles_screen_order.png",
+  "source_tile_map_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss3/frame_009730_bg1_rle_003A3540/tile_map.json",
+  "rle_offset": 3814720,
+  "rle_offset_hex": "0x003A3540",
+  "width": 88,
+  "height": 16,
+  "scale": 4,
+  "tile_columns": 11,
+  "tile_rows": 2,
+  "replacement_payload_base": "current",
+  "replacement_verify_source_noop": false,
+  "matched_tile_count": 20,
+  "upload_note": "이 PNG를 수정해 GUI에 업로드하면 0x003A3540 RLE 중 카드 리스트 ID/POWER 라벨 영역만 화면순 tile_map으로 적용한다."
+}

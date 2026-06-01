@@ -26,6 +26,8 @@
       "source_path": "confirmed_data/image_inventory/edit_packs/card_book_right_tabs/individual_tabs/card_book_right_tabs__metal__source.png",
       "editable_path": "confirmed_data/image_inventory/edit_packs/card_book_right_tabs/individual_tabs/card_book_right_tabs__metal__edit_4x.png",
       "tile_map_path": "confirmed_data/image_inventory/edit_packs/card_book_right_tabs/individual_tabs/card_book_right_tabs__metal__tile_map.json",
+      "source_screen_order_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss3/frame_009730_bg1_rle_003A3540/matched_tiles_screen_order.png",
+      "source_tile_map_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss3/frame_009730_bg1_rle_003A3540/tile_map.json",
       "rle_offset": 3814720,
       "rle_offset_hex": "0x003A3540",
       "width": 32,
@@ -35,6 +37,8 @@
         0,
         3
       ],
+      "replacement_payload_base": "current",
+      "replacement_verify_source_noop": false,
       "review_order": 8489,
       "matched_tile_count": 9
     },
@@ -47,17 +51,21 @@
       "source_path": "confirmed_data/image_inventory/edit_packs/card_book_right_tabs/individual_tabs/card_book_right_tabs__stone__source.png",
       "editable_path": "confirmed_data/image_inventory/edit_packs/card_book_right_tabs/individual_tabs/card_book_right_tabs__stone__edit_4x.png",
       "tile_map_path": "confirmed_data/image_inventory/edit_packs/card_book_right_tabs/individual_tabs/card_book_right_tabs__stone__tile_map.json",
+      "source_screen_order_path": "confirmed_data/image_inventory/runtime_rle_screen_order/current_review_ss6/frame_000006_bg1_rle_003A3540/matched_tiles_screen_order.png",
+      "source_tile_map_path": "confirmed_data/image_inventory/runtime_rle_screen_order/current_review_ss6/frame_000006_bg1_rle_003A3540/tile_map.json",
       "rle_offset": 3814720,
       "rle_offset_hex": "0x003A3540",
       "width": 32,
-      "height": 16,
+      "height": 32,
       "scale": 4,
       "tile_rows": [
-        4,
-        5
+        3,
+        6
       ],
+      "replacement_payload_base": "current",
+      "replacement_verify_source_noop": false,
       "review_order": 8490,
-      "matched_tile_count": 5
+      "matched_tile_count": 10
     },
     {
       "key": "nature",
@@ -68,17 +76,21 @@
       "source_path": "confirmed_data/image_inventory/edit_packs/card_book_right_tabs/individual_tabs/card_book_right_tabs__nature__source.png",
       "editable_path": "confirmed_data/image_inventory/edit_packs/card_book_right_tabs/individual_tabs/card_book_right_tabs__nature__edit_4x.png",
       "tile_map_path": "confirmed_data/image_inventory/edit_packs/card_book_right_tabs/individual_tabs/card_book_right_tabs__nature__tile_map.json",
+      "source_screen_order_path": "confirmed_data/image_inventory/runtime_rle_screen_order/current_review_ss7/frame_000007_bg1_rle_003A3540/matched_tiles_screen_order.png",
+      "source_tile_map_path": "confirmed_data/image_inventory/runtime_rle_screen_order/current_review_ss7/frame_000007_bg1_rle_003A3540/tile_map.json",
       "rle_offset": 3814720,
       "rle_offset_hex": "0x003A3540",
       "width": 32,
-      "height": 16,
+      "height": 32,
       "scale": 4,
       "tile_rows": [
-        6,
-        7
+        5,
+        8
       ],
+      "replacement_payload_base": "current",
+      "replacement_verify_source_noop": false,
       "review_order": 8491,
-      "matched_tile_count": 5
+      "matched_tile_count": 10
     },
     {
       "key": "inorganic",
@@ -89,17 +101,21 @@
       "source_path": "confirmed_data/image_inventory/edit_packs/card_book_right_tabs/individual_tabs/card_book_right_tabs__inorganic__source.png",
       "editable_path": "confirmed_data/image_inventory/edit_packs/card_book_right_tabs/individual_tabs/card_book_right_tabs__inorganic__edit_4x.png",
       "tile_map_path": "confirmed_data/image_inventory/edit_packs/card_book_right_tabs/individual_tabs/card_book_right_tabs__inorganic__tile_map.json",
+      "source_screen_order_path": "confirmed_data/image_inventory/runtime_rle_screen_order/current_review_ss9/frame_000009_bg1_rle_003A3540/matched_tiles_screen_order.png",
+      "source_tile_map_path": "confirmed_data/image_inventory/runtime_rle_screen_order/current_review_ss9/frame_000009_bg1_rle_003A3540/tile_map.json",
       "rle_offset": 3814720,
       "rle_offset_hex": "0x003A3540",
       "width": 32,
-      "height": 16,
+      "height": 32,
       "scale": 4,
       "tile_rows": [
-        8,
-        9
+        7,
+        10
       ],
+      "replacement_payload_base": "current",
+      "replacement_verify_source_noop": false,
       "review_order": 8492,
-      "matched_tile_count": 5
+      "matched_tile_count": 9
     }
   ]
 }

@@ -1,0 +1,222 @@
+{
+  "source_text": "POWER",
+  "suggested_korean": "파워",
+  "crop_pixels": {
+    "x": 60,
+    "y": 82,
+    "width": 46,
+    "height": 28
+  },
+  "crop_screen_tiles": {
+    "min_x": 7,
+    "min_y": 10,
+    "max_x": 13,
+    "max_y": 13
+  },
+  "items": [
+    {
+      "key": "variant_1",
+      "item_id": "image:rle_screen_order:no_entry8_latest_ss3:frame_009730:bg1:003A5E50",
+      "offset": 3825232,
+      "offset_hex": "0x003A5E50",
+      "label": "화면순 RLE 편집 - 카드 리스트 いいえ UI 변형 1",
+      "source_text": "POWER",
+      "suggested_korean": "파워",
+      "source_path": "confirmed_data/image_inventory/edit_packs/card_list_power_labels/card_list_power__variant_1__source.png",
+      "editable_path": "confirmed_data/image_inventory/edit_packs/card_list_power_labels/card_list_power__variant_1__edit_4x.png",
+      "tile_map_path": "confirmed_data/image_inventory/edit_packs/card_list_power_labels/card_list_power__variant_1__tile_map.json",
+      "source_screen_order_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss3/frame_009730_bg1_rle_003A5E50/matched_tiles_screen_order.png",
+      "source_tile_map_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss3/frame_009730_bg1_rle_003A5E50/tile_map.json",
+      "width": 46,
+      "height": 28,
+      "scale": 4,
+      "crop_pixels": {
+        "x": 60,
+        "y": 82,
+        "width": 46,
+        "height": 28
+      },
+      "crop_screen_tiles": {
+        "min_x": 7,
+        "min_y": 10,
+        "max_x": 13,
+        "max_y": 13
+      },
+      "replacement_payload_base": "source_raw",
+      "replacement_source_color_map": true,
+      "replacement_verify_source_noop": false,
+      "review_order": 4080,
+      "matched_tile_count": 16
+    },
+    {
+      "key": "variant_2",
+      "item_id": "image:rle_screen_order:no_entry8_latest_ss3:frame_009730:bg1:003A6E24",
+      "offset": 3829284,
+      "offset_hex": "0x003A6E24",
+      "label": "화면순 RLE 편집 - 카드 리스트 いいえ UI 변형 2",
+      "source_text": "POWER",
+      "suggested_korean": "파워",
+      "source_path": "confirmed_data/image_inventory/edit_packs/card_list_power_labels/card_list_power__variant_2__source.png",
+      "editable_path": "confirmed_data/image_inventory/edit_packs/card_list_power_labels/card_list_power__variant_2__edit_4x.png",
+      "tile_map_path": "confirmed_data/image_inventory/edit_packs/card_list_power_labels/card_list_power__variant_2__tile_map.json",
+      "source_screen_order_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss3/frame_009730_bg1_rle_003A6E24/matched_tiles_screen_order.png",
+      "source_tile_map_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss3/frame_009730_bg1_rle_003A6E24/tile_map.json",
+      "width": 46,
+      "height": 28,
+      "scale": 4,
+      "crop_pixels": {
+        "x": 60,
+        "y": 82,
+        "width": 46,
+        "height": 28
+      },
+      "crop_screen_tiles": {
+        "min_x": 7,
+        "min_y": 10,
+        "max_x": 13,
+        "max_y": 13
+      },
+      "replacement_payload_base": "source_raw",
+      "replacement_source_color_map": true,
+      "replacement_verify_source_noop": false,
+      "review_order": 4090,
+      "matched_tile_count": 18
+    },
+    {
+      "key": "variant_3",
+      "item_id": "image:rle_screen_order:no_entry8_latest_ss3:frame_009730:bg1:003A7C3C",
+      "offset": 3832892,
+      "offset_hex": "0x003A7C3C",
+      "label": "화면순 RLE 편집 - 카드 리스트 いいえ UI 변형 3",
+      "source_text": "POWER",
+      "suggested_korean": "파워",
+      "source_path": "confirmed_data/image_inventory/edit_packs/card_list_power_labels/card_list_power__variant_3__source.png",
+      "editable_path": "confirmed_data/image_inventory/edit_packs/card_list_power_labels/card_list_power__variant_3__edit_4x.png",
+      "tile_map_path": "confirmed_data/image_inventory/edit_packs/card_list_power_labels/card_list_power__variant_3__tile_map.json",
+      "source_screen_order_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss3/frame_009730_bg1_rle_003A7C3C/matched_tiles_screen_order.png",
+      "source_tile_map_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss3/frame_009730_bg1_rle_003A7C3C/tile_map.json",
+      "width": 46,
+      "height": 28,
+      "scale": 4,
+      "crop_pixels": {
+        "x": 60,
+        "y": 82,
+        "width": 46,
+        "height": 28
+      },
+      "crop_screen_tiles": {
+        "min_x": 7,
+        "min_y": 10,
+        "max_x": 13,
+        "max_y": 13
+      },
+      "replacement_payload_base": "source_raw",
+      "replacement_source_color_map": true,
+      "replacement_verify_source_noop": false,
+      "review_order": 4100,
+      "matched_tile_count": 17
+    },
+    {
+      "key": "variant_4",
+      "item_id": "image:rle_screen_order:no_entry8_latest_ss3:frame_009730:bg1:003A8894",
+      "offset": 3836052,
+      "offset_hex": "0x003A8894",
+      "label": "화면순 RLE 편집 - 카드 리스트 いいえ UI 변형 4",
+      "source_text": "POWER",
+      "suggested_korean": "파워",
+      "source_path": "confirmed_data/image_inventory/edit_packs/card_list_power_labels/card_list_power__variant_4__source.png",
+      "editable_path": "confirmed_data/image_inventory/edit_packs/card_list_power_labels/card_list_power__variant_4__edit_4x.png",
+      "tile_map_path": "confirmed_data/image_inventory/edit_packs/card_list_power_labels/card_list_power__variant_4__tile_map.json",
+      "source_screen_order_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss3/frame_009730_bg1_rle_003A8894/matched_tiles_screen_order.png",
+      "source_tile_map_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss3/frame_009730_bg1_rle_003A8894/tile_map.json",
+      "width": 46,
+      "height": 28,
+      "scale": 4,
+      "crop_pixels": {
+        "x": 60,
+        "y": 82,
+        "width": 46,
+        "height": 28
+      },
+      "crop_screen_tiles": {
+        "min_x": 7,
+        "min_y": 10,
+        "max_x": 13,
+        "max_y": 13
+      },
+      "replacement_payload_base": "source_raw",
+      "replacement_source_color_map": true,
+      "replacement_verify_source_noop": false,
+      "review_order": 4110,
+      "matched_tile_count": 12
+    },
+    {
+      "key": "variant_5",
+      "item_id": "image:rle_screen_order:no_entry8_latest_ss3:frame_009730:bg1:003A9624",
+      "offset": 3839524,
+      "offset_hex": "0x003A9624",
+      "label": "화면순 RLE 편집 - 카드 리스트 いいえ UI 변형 5",
+      "source_text": "POWER",
+      "suggested_korean": "파워",
+      "source_path": "confirmed_data/image_inventory/edit_packs/card_list_power_labels/card_list_power__variant_5__source.png",
+      "editable_path": "confirmed_data/image_inventory/edit_packs/card_list_power_labels/card_list_power__variant_5__edit_4x.png",
+      "tile_map_path": "confirmed_data/image_inventory/edit_packs/card_list_power_labels/card_list_power__variant_5__tile_map.json",
+      "source_screen_order_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss3/frame_009730_bg1_rle_003A9624/matched_tiles_screen_order.png",
+      "source_tile_map_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss3/frame_009730_bg1_rle_003A9624/tile_map.json",
+      "width": 46,
+      "height": 28,
+      "scale": 4,
+      "crop_pixels": {
+        "x": 60,
+        "y": 82,
+        "width": 46,
+        "height": 28
+      },
+      "crop_screen_tiles": {
+        "min_x": 7,
+        "min_y": 10,
+        "max_x": 13,
+        "max_y": 13
+      },
+      "replacement_payload_base": "source_raw",
+      "replacement_source_color_map": true,
+      "replacement_verify_source_noop": false,
+      "review_order": 4120,
+      "matched_tile_count": 17
+    },
+    {
+      "key": "variant_6",
+      "item_id": "image:rle_screen_order:no_entry8_latest_ss3:frame_009730:bg1:003AA4C0",
+      "offset": 3843264,
+      "offset_hex": "0x003AA4C0",
+      "label": "화면순 RLE 편집 - 카드 리스트 いいえ UI 변형 6",
+      "source_text": "POWER",
+      "suggested_korean": "파워",
+      "source_path": "confirmed_data/image_inventory/edit_packs/card_list_power_labels/card_list_power__variant_6__source.png",
+      "editable_path": "confirmed_data/image_inventory/edit_packs/card_list_power_labels/card_list_power__variant_6__edit_4x.png",
+      "tile_map_path": "confirmed_data/image_inventory/edit_packs/card_list_power_labels/card_list_power__variant_6__tile_map.json",
+      "source_screen_order_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss3/frame_009730_bg1_rle_003AA4C0/matched_tiles_screen_order.png",
+      "source_tile_map_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss3/frame_009730_bg1_rle_003AA4C0/tile_map.json",
+      "width": 46,
+      "height": 28,
+      "scale": 4,
+      "crop_pixels": {
+        "x": 60,
+        "y": 82,
+        "width": 46,
+        "height": 28
+      },
+      "crop_screen_tiles": {
+        "min_x": 7,
+        "min_y": 10,
+        "max_x": 13,
+        "max_y": 13
+      },
+      "replacement_payload_base": "source_raw",
+      "replacement_source_color_map": true,
+      "replacement_verify_source_noop": false,
+      "review_order": 4130,
+      "matched_tile_count": 18
+    }
+  ]
+}

@@ -42,13 +42,14 @@ FALLBACK_ROM = ROOT / "patched_roms/current_review/hnr_localization_review_no_en
 DEFAULT_IMAGE_REPLACEMENTS = ROOT / "confirmed_data/localization_workbench/image_replacements.json"
 DEFAULT_REPORT = ROOT / "confirmed_data/localization_workbench/image_apply_report.json"
 DEFAULT_RLE_REPORT = ROOT / "confirmed_data/image_inventory/rle_tile_extraction/notes/rle_tile_extraction_report.json"
+ORIGINAL_JP_ROM = ROOT / "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba"
 TILE_BYTES = 32
 GBA_ROM_BASE = 0x08000000
 GBA_MAX_ROM_SIZE = 0x02000000
 REPOINT_ALIGNMENT = 4
 REFERENCE_CAPACITY_ROMS = [
     ROOT / "patched_roms/current_review/current_review_font_ready.gba",
-    ROOT / "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba",
+    ORIGINAL_JP_ROM,
 ]
 LZ77_STABILITY_REFERENCE_ROMS = [
     ("jp", ROOT / "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba"),
@@ -829,11 +830,15 @@ def restore_same_offset_pointer_patches(
     original_consumed: int,
     compression_tag: int,
     decompressor,
+    extra_pointer_offsets: list[int] | None = None,
 ) -> list[dict]:
     patches: list[dict] = []
     target_pointer = int.from_bytes(gba_pointer_for_offset(original_offset), "little")
     target_size = aligned_resource_size(original_consumed)
-    for pointer_offset in previous_repoint_pointer_offsets(item):
+    pointer_offsets = previous_repoint_pointer_offsets(item)
+    if extra_pointer_offsets:
+        pointer_offsets.extend(extra_pointer_offsets)
+    for pointer_offset in sorted(set(pointer_offsets)):
         value = pointer_value_at(rom, pointer_offset)
         if value is None or value == target_pointer:
             continue
@@ -1442,6 +1447,10 @@ def screen_entry_with_tile_index(screen_entry: int, tile_index: int) -> int:
 
 
 def infer_rle_runtime_tile_layout(tile_map: dict) -> dict | None:
+    if "rle_runtime_tile_layout" in tile_map:
+        layout = tile_map.get("rle_runtime_tile_layout")
+        return layout if isinstance(layout, dict) else None
+
     by_rle_index: dict[int, int] = {}
     strict_conflict = False
     for match in tile_map.get("matches", []):
@@ -2953,8 +2962,8 @@ def apply_lz77_tile_items(rom: bytearray, items: list[dict]) -> list[dict]:
     if write_result.get("status") != "applied":
         return [
             {
-                "item_id": item["item_id"],
                 **write_result,
+                "item_id": item["item_id"],
             }
             for item in items
         ]
@@ -3189,7 +3198,51 @@ def apply_raw4bpp_item(rom: bytearray, item: dict) -> dict:
     }
 
 
-def apply_rle_tile_item(rom: bytearray, item: dict) -> dict:
+def previous_repoint_pointer_offsets_for_offset(items: list[dict] | None, original_offset: int) -> list[int]:
+    if not items:
+        return []
+    offsets: list[int] = []
+    for candidate in items:
+        if rle_offset_from_item(candidate) != original_offset:
+            continue
+        summary = candidate.get("last_apply_summary") or {}
+        for result in summary.get("results", []):
+            for value in result.get("pointer_offsets", []):
+                try:
+                    offsets.append(int(str(value), 16) if isinstance(value, str) else int(value))
+                except (TypeError, ValueError):
+                    continue
+    return sorted(set(offsets))
+
+
+def item_with_repoint_pointer_history(item: dict, pointer_offsets: list[int]) -> dict:
+    if not pointer_offsets:
+        return item
+    clone = dict(item)
+    clone["last_apply_summary"] = {
+        "results": [
+            {
+                "item_id": clone.get("item_id", ""),
+                "pointer_offsets": [f"0x{value:08X}" for value in sorted(set(pointer_offsets))],
+            }
+        ]
+    }
+    return clone
+
+
+def source_rom_rle_payload(offset: int, expected_size: int | None = None) -> tuple[bytes, int] | None:
+    if not ORIGINAL_JP_ROM.is_file():
+        return None
+    try:
+        payload, consumed = decompress_gba_rle(ORIGINAL_JP_ROM.read_bytes(), offset, max_output_size=0x400000)
+    except Exception:
+        return None
+    if expected_size is not None and len(payload) != expected_size:
+        return None
+    return payload, consumed
+
+
+def rle_tile_replacement_from_item(item: dict, tile_count: int) -> dict:
     replacement = item.get("replacement_path", "")
     if not replacement:
         return {"item_id": item["item_id"], "status": "skipped", "reason": "no replacement_path"}
@@ -3197,20 +3250,9 @@ def apply_rle_tile_item(rom: bytearray, item: dict) -> dict:
     if not replacement_path.is_file() or ROOT not in replacement_path.parents:
         return {"item_id": item["item_id"], "status": "error", "reason": "replacement file not found"}
 
-    offset = rle_offset_from_item(item)
-    if offset is None:
-        return {"item_id": item["item_id"], "status": "skipped", "reason": "no RLE block offset"}
     tile_index = lz77_tile_index_from_item(item)
     if tile_index is None:
         return {"item_id": item["item_id"], "status": "error", "reason": "missing tile_index"}
-
-    current = decompress_gba_rle(bytes(rom), offset, max_output_size=0x400000)
-    if not current:
-        return {"item_id": item["item_id"], "status": "error", "reason": "target is not a GBA RLE block"}
-    original_payload, current_consumed = current
-    if len(original_payload) % TILE_BYTES:
-        return {"item_id": item["item_id"], "status": "error", "reason": "RLE payload is not 4bpp tile aligned"}
-    tile_count = len(original_payload) // TILE_BYTES
     if not (0 <= tile_index < tile_count):
         return {
             "item_id": item["item_id"],
@@ -3219,11 +3261,131 @@ def apply_rle_tile_item(rom: bytearray, item: dict) -> dict:
         }
 
     indices = image_to_indices(replacement_path, 8, 8)
-    replacement_tile = indices_to_4bpp_tiles(indices, 8, 8, 1, 1)
+    return {
+        "item_id": item["item_id"],
+        "status": "ready",
+        "tile_index": tile_index,
+        "replacement_tile": indices_to_4bpp_tiles(indices, 8, 8, 1, 1),
+    }
+
+
+def source_rom_rle_tile_batch_items(
+    items: list[dict],
+    protected_items: list[dict] | None,
+    offset: int,
+) -> list[dict]:
+    if not any(item.get("replacement_payload_base") == "source_rom" for item in items):
+        return items
+
+    by_id: dict[str, dict] = {}
+    for candidate in protected_items or []:
+        if candidate.get("replacement_target") is False:
+            continue
+        if not candidate.get("replacement_path"):
+            continue
+        if candidate.get("replacement_payload_base") != "source_rom":
+            continue
+        if not is_rle_tile_item(candidate):
+            continue
+        if rle_offset_from_item(candidate) != offset:
+            continue
+        by_id[str(candidate["item_id"])] = candidate
+
+    for item in items:
+        if item.get("replacement_path"):
+            by_id[str(item["item_id"])] = item
+
+    return sorted(
+        by_id.values(),
+        key=lambda item: (
+            lz77_tile_index_from_item(item)
+            if lz77_tile_index_from_item(item) is not None
+            else 0x100000,
+            str(item.get("item_id", "")),
+        ),
+    )
+
+
+def apply_rle_tile_items(
+    rom: bytearray,
+    items: list[dict],
+    protected_items: list[dict] | None = None,
+) -> list[dict]:
+    if not items:
+        return []
+    offsets = {rle_offset_from_item(item) for item in items}
+    offsets.discard(None)
+    if len(offsets) != 1:
+        return [
+            {
+                "item_id": item["item_id"],
+                "status": "error",
+                "reason": "RLE tile batch must share one block offset",
+            }
+            for item in items
+        ]
+    offset = next(iter(offsets))
+    items = source_rom_rle_tile_batch_items(items, protected_items, offset)
+    current = decompress_gba_rle(bytes(rom), offset, max_output_size=0x400000)
+    if not current:
+        return [
+            {
+                "item_id": item["item_id"],
+                "status": "error",
+                "reason": "target is not a GBA RLE block",
+            }
+            for item in items
+        ]
+
+    original_payload, current_consumed = current
+    payload_source = "current_rom_offset"
+    use_source_rom_base = any(item.get("replacement_payload_base") == "source_rom" for item in items)
+    if use_source_rom_base:
+        reference = source_rom_rle_payload(offset)
+        if reference is None:
+            return [
+                {
+                    "item_id": item["item_id"],
+                    "status": "error",
+                    "reason": "source_rom RLE payload could not be loaded for tile patch base",
+                }
+                for item in items
+            ]
+        original_payload, current_consumed = reference
+        payload_source = "source_rom"
+
+    if len(original_payload) % TILE_BYTES:
+        return [
+            {
+                "item_id": item["item_id"],
+                "status": "error",
+                "reason": "RLE payload is not 4bpp tile aligned",
+            }
+            for item in items
+        ]
+
+    tile_count = len(original_payload) // TILE_BYTES
+    prepared = [rle_tile_replacement_from_item(item, tile_count) for item in items]
+    blocking = [result for result in prepared if result.get("status") != "ready"]
+    if blocking:
+        return blocking
+
     payload = bytearray(original_payload)
-    start = tile_index * TILE_BYTES
-    before_tile = bytes(payload[start : start + TILE_BYTES])
-    payload[start : start + TILE_BYTES] = replacement_tile
+    per_item: list[dict] = []
+    for item, replacement in zip(items, prepared):
+        tile_index = int(replacement["tile_index"])
+        start = tile_index * TILE_BYTES
+        before_tile = bytes(payload[start : start + TILE_BYTES])
+        replacement_tile = bytes(replacement["replacement_tile"])
+        payload[start : start + TILE_BYTES] = replacement_tile
+        per_item.append(
+            {
+                "item_id": item["item_id"],
+                "tile_index": tile_index,
+                "tile_index_hex": f"0x{tile_index:03X}",
+                "tile_changed": before_tile != replacement_tile,
+            }
+        )
 
     original_consumed = reference_consumed_size(
         offset=offset,
@@ -3232,10 +3394,13 @@ def apply_rle_tile_item(rom: bytearray, item: dict) -> dict:
         decompressor=decompress_gba_rle,
     )
     compressed = compress_gba_rle(bytes(payload))
+    prior_pointer_offsets = previous_repoint_pointer_offsets_for_offset(protected_items, offset)
+    repoint_item = item_with_repoint_pointer_history(items[0], prior_pointer_offsets)
+
     if len(compressed) > original_consumed:
-        result = append_repoint_blob(
+        write_result = append_repoint_blob(
             rom,
-            item,
+            repoint_item,
             original_offset=offset,
             original_consumed=original_consumed,
             compressed=compressed,
@@ -3244,41 +3409,75 @@ def apply_rle_tile_item(rom: bytearray, item: dict) -> dict:
             compression_tag=0x30,
             decompressor=decompress_gba_rle,
         )
-        result["tile_index"] = tile_index
-        result["tile_index_hex"] = f"0x{tile_index:03X}"
-        result["tile_changed"] = before_tile != replacement_tile
-        return result
+    else:
+        rom[offset : offset + len(compressed)] = compressed
+        if len(compressed) < original_consumed:
+            rom[offset + len(compressed) : offset + original_consumed] = b"\x00" * (
+                original_consumed - len(compressed)
+            )
+        verify = decompress_gba_rle(bytes(rom), offset, max_output_size=0x400000)
+        if not verify or verify[0] != bytes(payload):
+            write_result = {"status": "error", "reason": "verification failed"}
+        else:
+            restored_pointer_patches = restore_same_offset_pointer_patches(
+                rom,
+                items[0],
+                original_offset=offset,
+                original_consumed=original_consumed,
+                compression_tag=0x30,
+                decompressor=decompress_gba_rle,
+                extra_pointer_offsets=prior_pointer_offsets,
+            )
+            write_result = {
+                "status": "applied",
+                "compression": "rle_tile",
+                "storage": "same_offset",
+                "offset": offset,
+                "offset_hex": f"0x{offset:08X}",
+                "decompressed_size": len(payload),
+                "compressed_size": len(compressed),
+                "available_size": original_consumed,
+                "current_consumed_size": current_consumed,
+                "payload_source": payload_source,
+            }
+            if restored_pointer_patches:
+                write_result["restored_same_offset_pointers"] = restored_pointer_patches
 
-    rom[offset : offset + len(compressed)] = compressed
-    if len(compressed) < original_consumed:
-        rom[offset + len(compressed) : offset + original_consumed] = b"\x00" * (original_consumed - len(compressed))
-    verify = decompress_gba_rle(bytes(rom), offset, max_output_size=0x400000)
-    if not verify or verify[0] != bytes(payload):
-        return {"item_id": item["item_id"], "status": "error", "reason": "verification failed"}
-    restored_pointer_patches = restore_same_offset_pointer_patches(
-        rom,
-        item,
-        original_offset=offset,
-        original_consumed=original_consumed,
-        compression_tag=0x30,
-        decompressor=decompress_gba_rle,
-    )
-    return {
-        "item_id": item["item_id"],
-        "status": "applied",
-        "compression": "rle_tile",
-        "storage": "same_offset",
-        "offset": offset,
-        "offset_hex": f"0x{offset:08X}",
-        "tile_index": tile_index,
-        "tile_index_hex": f"0x{tile_index:03X}",
-        "tile_changed": before_tile != replacement_tile,
-        "decompressed_size": len(payload),
-        "compressed_size": len(compressed),
-        "available_size": original_consumed,
-        "current_consumed_size": current_consumed,
-        **({"restored_same_offset_pointers": restored_pointer_patches} if restored_pointer_patches else {}),
-    }
+    if write_result.get("status") != "applied":
+        return [
+            {
+                "item_id": item["item_id"],
+                **write_result,
+            }
+            for item in items
+        ]
+
+    results: list[dict] = []
+    for item_result in per_item:
+        results.append(
+            {
+                **write_result,
+                **item_result,
+                "batch_applied_count": len(per_item),
+                "batch_tile_indices": [entry["tile_index_hex"] for entry in per_item],
+                "payload_source": payload_source,
+            }
+        )
+    return results
+
+
+def apply_rle_tile_item(
+    rom: bytearray,
+    item: dict,
+    protected_items: list[dict] | None = None,
+) -> dict:
+    results = apply_rle_tile_items(rom, [item], protected_items=protected_items)
+    if not results:
+        return {"item_id": item["item_id"], "status": "skipped", "reason": "no RLE tile item"}
+    for result in results:
+        if result.get("item_id") == item.get("item_id"):
+            return result
+    return results[0]
 
 
 def registry_b_table_offset_from_item(item: dict) -> int | None:
@@ -3520,7 +3719,7 @@ def apply_image_item(rom: bytearray, item: dict, protected_items: list[dict] | N
     if is_lz77_tile_item(item):
         return apply_lz77_tile_item(rom, item)
     if is_rle_tile_item(item):
-        return apply_rle_tile_item(rom, item)
+        return apply_rle_tile_item(rom, item, protected_items=protected_items)
     if is_raw4bpp_item(item):
         return apply_raw4bpp_item(rom, item)
     if is_registry_b_zp_item(item):
@@ -3562,13 +3761,15 @@ def main() -> int:
         candidates.append(item)
 
     lz77_tile_groups: dict[int, list[dict]] = {}
+    rle_tile_groups: dict[int, list[dict]] = {}
     for item in candidates:
-        if not is_lz77_tile_item(item):
-            continue
         offset = rle_offset_from_item(item)
         if offset is None:
             continue
-        lz77_tile_groups.setdefault(offset, []).append(item)
+        if is_lz77_tile_item(item):
+            lz77_tile_groups.setdefault(offset, []).append(item)
+        elif is_rle_tile_item(item):
+            rle_tile_groups.setdefault(offset, []).append(item)
 
     results = []
     handled_item_ids: set[str] = set()
@@ -3578,9 +3779,13 @@ def main() -> int:
         try:
             offset = rle_offset_from_item(item)
             lz77_tile_group = lz77_tile_groups.get(offset or -1, [])
+            rle_tile_group = rle_tile_groups.get(offset or -1, [])
             if is_lz77_tile_item(item) and len(lz77_tile_group) > 1:
                 results.extend(apply_lz77_tile_items(rom, lz77_tile_group))
                 handled_item_ids.update(group_item["item_id"] for group_item in lz77_tile_group)
+            elif is_rle_tile_item(item) and len(rle_tile_group) > 1:
+                results.extend(apply_rle_tile_items(rom, rle_tile_group, protected_items=items))
+                handled_item_ids.update(group_item["item_id"] for group_item in rle_tile_group)
             else:
                 results.append(apply_image_item(rom, item, protected_items=items))
                 handled_item_ids.add(item["item_id"])
