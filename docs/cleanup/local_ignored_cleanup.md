@@ -65,7 +65,7 @@ batch:
 These need evidence review before deletion:
 
 - ignored `analysis/generated_workbenches/.../hangul_*.pgm`
-- local patched ROMs and savestates
+- local patched ROMs and savestates; see `local_rom_audit.md`
 - local original/English ROM copies
 - third-party emulator/runtime build folders
 

@@ -88,6 +88,14 @@ Do not remove these without an explicit separate decision:
 - files referenced by active docs, manifests, or GUI state;
 - broad folders whose only evidence is "not referenced by the GUI".
 
+Local ROM policy:
+
+- `.gba` files must stay ignored by Git.
+- Keep the root original ROM and
+  `patched_roms/current_review/hnr_localization_review.gba` locally.
+- Treat other local `.gba` files as cleanup candidates only after
+  `local_rom_audit.md` confirms their active-script and retrospective status.
+
 ## Required Checks Per Candidate
 
 Before untracking or deleting a candidate subtree:
