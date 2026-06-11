@@ -88,6 +88,24 @@ These need evidence review before deletion:
 - local original/English ROM copies
 - third-party emulator/runtime build folders
 
+## 2026-06-11 Keep Decisions
+
+After the post-release cleanup batches, these ignored local paths remain by
+design:
+
+- `analysis/generated_workbenches/translation_consistency/`: keep during active
+  text QA. It is a generated report from
+  `scripts/audit_translation_consistency_variants.py`, but the detailed variant
+  list is directly useful while checking awkward or inconsistent translations.
+- `confirmed_data/runtime_debug/`: keep until runtime/Entry8 QA is closed. It is
+  small and contains current/Japanese/no-segment comparison captures that explain
+  past runtime failures.
+- `.vendor/`, `third_party/mgba-python-build-x86/`, and `third_party/pymgba-mcp/`:
+  keep as local tooling/runtime support. Do not track or delete during active QA.
+- `.idea/`: keep ignored as local IDE state.
+- root source ROM/SAV, `local_roms/`, and `patched_roms/current_review/`: keep
+  ignored for current gameplay QA and rebuild flow; see `local_rom_audit.md`.
+
 ## Rule
 
 Clean ignored files by targeted path, never with a blanket repo-wide clean.
