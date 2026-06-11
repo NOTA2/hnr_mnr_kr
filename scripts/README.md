@@ -25,6 +25,10 @@ The future group directories now exist as placeholders:
 They intentionally contain only README files for now. Current command paths stay
 at `scripts/<name>.py` and `scripts/<name>.sh`.
 
+Each group README now records the scripts assigned to that future group, the
+paths that are still active public entry points, and the holds that must be
+cleared before any file move.
+
 ## Proposed Groups
 
 ### Build / Rebuild
@@ -39,6 +43,7 @@ at `scripts/<name>.py` and `scripts/<name>.sh`.
 - `build_workset_coverage_audit.py`
 - `build_workset_metadata_index.py`
 - `build_translation_normalization_profile.py`
+- `create_bps_patch.py`
 
 ### Text / Translation
 
@@ -55,12 +60,17 @@ at `scripts/<name>.py` and `scripts/<name>.sh`.
 ### Audit
 
 - `audit_current_review_text_coverage.py`
+- `audit_ability_text_layout_candidates.py`
 - `audit_entry8_missing_prefixed_records.py`
 - `audit_entry8_repoint_safety.py`
 - `audit_entry8_retranslation_batches.py`
 - `audit_gameplay_term_particle_style.py`
 - `audit_rom_text_extraction_gaps.py`
+- `audit_text_layout_metadata_candidates.py`
+- `audit_translation_consistency_variants.py`
 - `audit_translation_expansion_opportunities.py`
+- `audit_translation_normalization_regressions.py`
+- `audit_workbench_source_consistency.py`
 
 ### Font / Glyph
 
@@ -76,6 +86,10 @@ at `scripts/<name>.py` and `scripts/<name>.sh`.
 - `rebuild_active_workbenches_from_atlas.sh`
 - `import_hangul_syllable_atlas.py`
 - `render_galmuri7_hud_text_preview.py`
+- `extract_battle_hud_name_table.py`
+- `apply_english_battle_hud_font.py`
+- `apply_common_hud_korean_slot_patch.py`
+- `apply_battle_hud_name_font.py`
 
 ### Image / Tile
 
@@ -153,10 +167,6 @@ at `scripts/<name>.py` and `scripts/<name>.sh`.
 - `build_entry8_segment_capability_map.py`
 - `build_entry8_structural_repoint_sets.py`
 - `build_expanded_nearby_image_candidates.py`
-- `extract_battle_hud_name_table.py`
-- `apply_battle_hud_name_font.py`
-- `apply_common_hud_korean_slot_patch.py`
-- `apply_english_battle_hud_font.py`
 - `apply_entry8_retranslation_pass.py`
 - `apply_entry8_suspect_retranslation_v2.py`
 - `registry_b_zp.py`

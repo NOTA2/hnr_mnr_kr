@@ -49,6 +49,7 @@ Action:
 Current artifact:
 
 - `docs/structure/script_transition_audit.md`
+- `scripts/{build,audit,text,image,font,runtime,workbench}/README.md`
 
 Why this is next:
 
@@ -60,6 +61,7 @@ Exit gate:
 
 - Active GUI/server script calls are traced.
 - Old top-level script paths can be kept as wrappers if grouping begins later.
+- Each future script group has active/move-hold notes before any actual move.
 
 ## Candidate 3: Confirmed Image Inventory Reduction
 
@@ -147,5 +149,7 @@ Do not remove or untrack these without a separate audit update:
 
 ## Next Recommended Step
 
-Do Candidate 2 next: classify active scripts more sharply without moving them.
-That improves structure while keeping the active gameplay QA path stable.
+Candidate 2 is now in progress: active scripts have been classified without
+moving them. The next safe structure step is to add wrapper-aware migration
+commands for one low-risk script group, or to continue with image-source manifest
+work if gameplay QA needs image cleanup first.

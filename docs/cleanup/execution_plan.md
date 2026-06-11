@@ -132,8 +132,8 @@ Current note:
 - `scripts/` group folders exist as placeholders, but active scripts remain at
   their original paths to avoid breaking documented commands and GUI subprocess
   calls.
-- Current/target layout docs have been updated to explain this transitional
-  state.
+- Current/target layout docs and group README files explain this transitional
+  state, including active entry points and move holds.
 
 ## Phase 4: Evidence Digest Before Deletion
 
