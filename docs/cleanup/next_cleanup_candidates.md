@@ -50,6 +50,7 @@ Current artifact:
 
 - `docs/structure/script_transition_audit.md`
 - `scripts/{build,audit,text,image,font,runtime,workbench}/README.md`
+- `docs/structure/data_role_inventory.md`
 
 Why this is next:
 
@@ -78,6 +79,8 @@ Why this is high value:
 
 - `confirmed_data/image_inventory` is the largest tracked cleanup target at
   about `239M` and `15,781` tracked files.
+- `docs/structure/data_role_inventory.md` now separates this area from canonical
+  text/font/layout data so image cleanup can be scoped independently.
 
 Why this is not immediately safe:
 
