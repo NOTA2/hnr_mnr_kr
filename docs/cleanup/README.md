@@ -66,6 +66,8 @@ further cleanup batch.
 - `generated_workbenches_audit.md`: generated workbench bulk cleanup plan.
 - `image_inventory_audit.md`: image inventory cleanup risk classification.
 - `image_inventory_prune_plan.md`: item-level manifest-based image pruning plan.
+- `image_workspaces_summary.md`: non-deleting summary of the largest image
+  workspace subtree before any future prune.
 - `next_cleanup_candidates.md`: ranked list of remaining cleanup/structure
   candidates and their exit gates.
 - `preliminary_classification.md`: conservative first-pass file categories.

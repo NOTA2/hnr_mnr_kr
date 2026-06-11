@@ -20,6 +20,7 @@
 - 데이터 역할 인벤토리: [data_role_inventory.md](/Users/user/test/docs/structure/data_role_inventory.md)
 - 스크립트 전환 색인: [README.md](/Users/user/test/scripts/README.md)
 - 이미지 pruning 계획: [image_inventory_prune_plan.md](/Users/user/test/docs/cleanup/image_inventory_prune_plan.md)
+- 이미지 workspaces 요약: [image_workspaces_summary.md](/Users/user/test/docs/cleanup/image_workspaces_summary.md)
 - 회고 근거 요약: [evidence_digest.md](/Users/user/test/docs/retrospective/evidence_digest.md)
 - 회고 실패 모드: [failure_modes.md](/Users/user/test/docs/retrospective/failure_modes.md)
 - GBA 스타터킷 초안: [gba_localization_agent.md](/Users/user/test/docs/starter_kit/gba_localization_agent.md)

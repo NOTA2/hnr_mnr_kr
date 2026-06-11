@@ -78,6 +78,7 @@ These are plausible candidates only after the keep-with-caution gates are met.
 
 ## Next Practical Step
 
-Start with a non-deleting summary of `workspaces/` because it is the largest
-image inventory subtree. The goal is to preserve review-unit lessons before any
-bulk removal or archive decision.
+The non-deleting `workspaces/` summary now lives in
+`image_workspaces_summary.md`. The next practical step is to decide whether the
+lowest-priority review unit can be summarized further and pruned one unit at a
+time.
