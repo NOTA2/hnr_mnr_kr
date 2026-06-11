@@ -110,3 +110,46 @@ Verification:
 - Tracked files under `analysis/generated_workbenches/` after batch 2: `9,763`
 - Tracked files left in the three historical/test workbench folders: `0`
 - ROM/savestate/patch files changed in this batch: `0`
+
+## Batch 3 Plan
+
+Status: executed on 2026-06-11 KST.
+
+Deleted the ignored, local-only ability text layout audit output folder:
+
+- `analysis/generated_workbenches/ability_texts_layout_audit/`
+
+Deleted files:
+
+- `ability_texts_layout_candidates.md`
+- `ability_texts_layout_candidates.json`
+
+Preserved evidence in this document:
+
+- The audit checked `413` `ability_texts` rows.
+- `198` rows had an inline `0x0B` source separator.
+- High/medium/low layout candidates: `0`.
+- All rows were `ok`.
+
+Regeneration command:
+
+```sh
+python3 scripts/audit_ability_text_layout_candidates.py
+```
+
+Decision: `DELETE LOCAL OUTPUT`.
+
+Reason:
+
+- The folder was ignored by `.gitignore` through `analysis/`.
+- The folder had no git-tracked files.
+- The only active reference is the generating script's default output path.
+- The useful retrospective result is the zero-candidate summary, not the
+  generated JSON/Markdown files themselves.
+
+Verification:
+
+- Directory exists after deletion: no
+- Git-tracked deleted files after deletion: `0`
+- Tracked files under `analysis/generated_workbenches/` after deletion: `9,763`
+- ROM/savestate/patch files changed in this batch: `0`
