@@ -31,6 +31,12 @@ ROM, current review ROM, English patched reference ROM, two rebuild helper ROMs,
 and active save files are retained until QA and rebuild flows no longer need
 them. See `local_rom_audit.md`.
 
+Small active ignored assets promoted during cleanup:
+
+- `confirmed_data/font_assets/battle_hud_name_hangul_slots_preview.png` is
+  tracked even though preview PNGs are generally ignored, because the active
+  battle HUD apply report and text scope report reference it directly.
+
 ## Repo Snapshot
 
 - Workspace: `/Users/user/test`
