@@ -241,3 +241,54 @@ Next decision:
   retrospective/debug comparison ROM. It is referenced by runtime debug JSON, so
   delete it only after preserving the no-segment-repoint lesson outside the raw
   debug captures.
+
+## Local Delete Batch 3: Executed
+
+Date: 2026-06-11 KST
+
+Batch 3 targets the last local Entry8 structural-repoint comparison ROM and its
+empty save file.
+
+Delete candidates for batch 3:
+
+- `patched_roms/current_review/hnr_localization_review_no_entry8_segment_repoint.gba`
+- `patched_roms/current_review/hnr_localization_review_no_entry8_segment_repoint.sav`
+
+Reason:
+
+- The Entry8 structural repoint lesson is already preserved in:
+  - `confirmed_data/translation_workspace/runtime_resolution_gates.md`
+  - `confirmed_data/translation_workspace/entry8_runtime_stability_notes.md`
+  - `confirmed_data/translation_workspace/text_category_capability_matrix.md`
+  - `scripts/build_localization_review_rom.py`
+- The main review ROM now keeps Entry8 structural segment repoint disabled by
+  default.
+- The `.sav` file is `0` bytes.
+
+Pre-delete checks:
+
+- Target ROM direct references outside cleanup docs are runtime debug JSON only.
+- Target ROM bytes: `8,750,163`
+- Target save bytes: `0`
+
+Post-delete verification:
+
+- Keep files missing after delete: `0`
+- Deleted target files still present: `0`
+- Git-tracked deleted files: `0`
+- Approximate local bytes removed: `8,750,163`
+
+Remaining local `.gba` files after batch 3:
+
+- `Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba`
+- `local_roms/english_patched/Fullmetal Alchemist Stray Rondo (English Patched v0.02).gba`
+- `patched_roms/current_review/current_review_font_ready.gba`
+- `patched_roms/current_review/current_review_text_fast_translated.gba`
+- `patched_roms/current_review/hnr_localization_review.gba`
+
+Current decision:
+
+- Stop local ROM cleanup here.
+- Keep `current_review_font_ready.gba` and `current_review_text_fast_translated.gba`
+  while fast rebuild and image-apply scripts refer to them.
+- Keep `.sav` files for now. They are tiny and may still help reproduce QA state.
