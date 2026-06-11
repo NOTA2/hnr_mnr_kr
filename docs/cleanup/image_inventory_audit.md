@@ -54,6 +54,20 @@ Reason:
 - `workspaces` holds review evidence and candidate reports that may still matter
   for the retrospective and remaining image pass.
 
+## 2026-06-12 Manifest Baseline
+
+`confirmed_data/image_inventory/image_source_manifest.md` now captures the first
+cleanup manifest baseline:
+
+- image replacement items: `2,406`
+- edited items with replacement files: `211`
+- missing non-empty replacement files: `0`
+- missing source download files: `0`
+- missing source preview files: `0`
+
+This does not make image inventory safe to prune yet. It only defines the
+minimum fields and checks required before a later item-level manifest.
+
 ## Next Safe Image Cleanup Order
 
 1. Keep `edit_packs` and active uploaded replacements.
@@ -62,4 +76,3 @@ Reason:
 4. Only then untrack or archive `workspaces` generated exports/dumps.
 5. Treat `rle_tile_extraction` and `global_tile_extraction` as regenerable only
    after their report inputs are either promoted or documented.
-

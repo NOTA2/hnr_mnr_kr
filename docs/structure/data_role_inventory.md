@@ -102,7 +102,7 @@ Keep ignored locally. It is current runtime evidence, not shared source data.
 
 ## Next Safe Data Step
 
-Build a minimal image-source manifest for `confirmed_data/image_inventory/`.
-That manifest should classify each active image-side item as final source,
-generated preview, runtime evidence, or historical/debug artifact before any
-large prune.
+Expand `confirmed_data/image_inventory/image_source_manifest.md` into an
+item-level machine-readable manifest. It should classify each active image-side
+item as final source, generated preview, runtime evidence, or historical/debug
+artifact before any large prune.

@@ -6,6 +6,7 @@
 
 - `image_text_inventory.json`
 - `image_text_inventory.md`
+- `image_source_manifest.md`
 - `image_extraction_pipeline.json`
 - `image_extraction_pipeline.md`
 - `workspaces/`
@@ -26,6 +27,8 @@
 - 이미지 수정은 찢어진 원시 RLE 시트가 아니라 `runtime_rle_patch_previews`의 확대/재조립 PNG를 기준으로 설계하고, 실제 삽입은 `tile_map.json`의 RLE tile index 매핑에 맞춰 raw tile/RLE 블록 쪽에 반영한다.
 - 영문판은 이미지/RLE 수정 레퍼런스로 적극 사용한다. `scripts/compare_english_patch_rle_graphics.py`로 same-offset RLE diff를 뽑으면 영문판이 실제로 고친 이미지 블록 목록과 4배 확대 PNG를 얻을 수 있다.
 - 영문판이 같은 오프셋을 수정한 경우, 한국어 교체 작업은 일본판 원본만 보지 말고 영문판의 타일 수, 축약 방식, 배치 방식을 먼저 참고한다.
+- 큰 정리나 삭제 전에 [image_source_manifest.md](image_source_manifest.md) 로
+  active replacement/source/runtime evidence 의 역할을 먼저 확인한다.
 
 ## 재생성
 

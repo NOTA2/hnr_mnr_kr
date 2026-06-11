@@ -81,6 +81,8 @@ Why this is high value:
   about `239M` and `15,781` tracked files.
 - `docs/structure/data_role_inventory.md` now separates this area from canonical
   text/font/layout data so image cleanup can be scoped independently.
+- `confirmed_data/image_inventory/image_source_manifest.md` records the current
+  GUI image replacement baseline and path existence checks.
 
 Why this is not immediately safe:
 
