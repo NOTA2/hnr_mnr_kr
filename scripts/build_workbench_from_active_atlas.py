@@ -26,6 +26,14 @@ PUNCTUATION_BITMAP_POINTS = {
     "apostrophe": [(6, 1), (6, 2), (5, 3)],
     "double_quote": [(4, 1), (4, 2), (7, 1), (7, 2)],
 }
+GENERATED_PGM_PATTERNS = ("hangul_*.pgm", "punct_*.pgm")
+
+
+def display_path(path: Path) -> str:
+    try:
+        return str(path.resolve().relative_to(REPO_ROOT))
+    except ValueError:
+        return str(path)
 
 
 def parse_args() -> argparse.Namespace:
@@ -80,7 +88,7 @@ def extract_hangul_chars(inputs: list[Path], field: str, limit: int | None) -> t
                         sources.append(
                             {
                                 "char": char,
-                                "source_file": str(path),
+                                "source_file": display_path(path),
                                 "record_index": record_index,
                             }
                         )
@@ -165,7 +173,7 @@ def append_narrow_punctuation_entries(output_dir: Path) -> list[dict]:
             "label": item["label"],
         }
         if bitmap:
-            entry["pgm"] = str(write_punctuation_bitmap(output_dir, str(bitmap)))
+            entry["pgm"] = display_path(write_punctuation_bitmap(output_dir, str(bitmap)))
         else:
             entry["source_code"] = item["source_code"]
         manifest.append(entry)
@@ -175,6 +183,26 @@ def append_narrow_punctuation_entries(output_dir: Path) -> list[dict]:
     if appended:
         manifest_path.write_text(json.dumps(manifest, ensure_ascii=False, indent=2), encoding="utf-8")
     return appended
+
+
+def prune_unreferenced_generated_pgms(output_dir: Path) -> list[Path]:
+    manifest_path = output_dir / "prepared_manifest.json"
+    manifest = load_json(manifest_path)
+    if not isinstance(manifest, list):
+        raise SystemExit(f"error: expected prepared manifest array in {manifest_path}")
+
+    referenced = {
+        Path(item["pgm"]).resolve()
+        for item in manifest
+        if isinstance(item, dict) and item.get("pgm")
+    }
+    pruned: list[Path] = []
+    for pattern in GENERATED_PGM_PATTERNS:
+        for pgm_path in output_dir.glob(pattern):
+            if pgm_path.resolve() not in referenced:
+                pgm_path.unlink()
+                pruned.append(pgm_path)
+    return sorted(pruned)
 
 
 def main() -> int:
@@ -218,22 +246,25 @@ def main() -> int:
     ]
     subprocess.run(command, cwd=REPO_ROOT, check=True)
     punctuation_entries = append_narrow_punctuation_entries(output_dir)
+    pruned_pgms = prune_unreferenced_generated_pgms(output_dir)
 
     report = {
-        "profile": str(profile_path),
-        "atlas": str(atlas_path),
-        "output_dir": str(output_dir),
+        "profile": display_path(profile_path),
+        "atlas": display_path(atlas_path),
+        "output_dir": display_path(output_dir),
         "field": args.field,
         "start_code": f"0x{start_code:04X}",
-        "input_files": [str(path) for path in input_paths],
+        "input_files": [display_path(path) for path in input_paths],
         "hangul_count": len(chars),
         "narrow_punctuation_count": len(punctuation_entries),
-        "seed_manifest": str(seed_manifest_path),
-        "prepared_manifest": str(output_dir / "prepared_manifest.json"),
-        "prepared_table": str(output_dir / "prepared.tbl"),
+        "seed_manifest": display_path(seed_manifest_path),
+        "prepared_manifest": display_path(output_dir / "prepared_manifest.json"),
+        "prepared_table": display_path(output_dir / "prepared.tbl"),
         "sources": sources,
         "entries": seed_manifest,
         "narrow_punctuation_entries": punctuation_entries,
+        "pruned_generated_pgm_count": len(pruned_pgms),
+        "pruned_generated_pgm_samples": [str(path) for path in pruned_pgms[:20]],
     }
     report_path = Path(args.report) if args.report else output_dir / "workbench_report.json"
     report_path.write_text(json.dumps(report, ensure_ascii=False, indent=2), encoding="utf-8")
@@ -241,6 +272,7 @@ def main() -> int:
     print(f"output_dir      : {output_dir}")
     print(f"hangul_count    : {len(chars)}")
     print(f"narrow_punct    : {len(punctuation_entries)}")
+    print(f"pruned_pgms     : {len(pruned_pgms)}")
     print(f"seed_manifest   : {seed_manifest_path}")
     print(f"prepared_tbl    : {output_dir / 'prepared.tbl'}")
     print(f"prepared_manifest: {output_dir / 'prepared_manifest.json'}")

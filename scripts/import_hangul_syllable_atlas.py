@@ -29,6 +29,13 @@ HANGUL_END = 0xD7A3
 HANGUL_COUNT = HANGUL_END - HANGUL_BASE + 1
 
 
+def display_path(path: Path) -> str:
+    try:
+        return str(path.resolve().relative_to(REPO_ROOT))
+    except ValueError:
+        return str(path)
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser(
         description="12x12 한글 음절 atlas PNG 를 glyph workbench 로 변환합니다."
@@ -159,7 +166,7 @@ def main() -> int:
             {
                 "code": code,
                 "char": char,
-                "pgm": str(pgm_path),
+                "pgm": display_path(pgm_path),
             }
         )
         table_lines.append(f"{code.replace('0x', '').upper()}={char}")
@@ -175,7 +182,7 @@ def main() -> int:
                 "tile_x": tile_x,
                 "tile_y": tile_y,
                 "nonzero_pixels": sum(1 for value in pixels if value),
-                "pgm": str(pgm_path),
+                "pgm": display_path(pgm_path),
             }
         )
 
@@ -185,11 +192,11 @@ def main() -> int:
     table_path.write_text("\n".join(table_lines) + "\n", encoding="utf-8")
 
     result = {
-        "atlas": str(atlas_path),
-        "manifest": str(manifest_path),
-        "output_dir": str(output_dir),
-        "prepared_manifest": str(prepared_manifest_path),
-        "table": str(table_path),
+        "atlas": display_path(atlas_path),
+        "manifest": display_path(manifest_path),
+        "output_dir": display_path(output_dir),
+        "prepared_manifest": display_path(prepared_manifest_path),
+        "table": display_path(table_path),
         "tile_width": args.tile_width,
         "tile_height": args.tile_height,
         "cell_width": cell_width,

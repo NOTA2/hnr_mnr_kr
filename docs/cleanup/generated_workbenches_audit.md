@@ -153,3 +153,67 @@ Verification:
 - Git-tracked deleted files after deletion: `0`
 - Tracked files under `analysis/generated_workbenches/` after deletion: `9,763`
 - ROM/savestate/patch files changed in this batch: `0`
+
+## Batch 4 Plan
+
+Status: executed on 2026-06-11 KST.
+
+Cleaned stale glyph PGM accumulation from the active
+`analysis/generated_workbenches/current_review/` workbench.
+
+Pre-cleanup shape:
+
+- Actual PGM files in `current_review`: `15,430`
+- PGM files referenced by the current `prepared_manifest.json`: `1,000`
+- Referenced PGM files missing locally: `0`
+- Unreferenced actual PGM files: `14,430`
+- Tracked PGM files before staging: `9,517`
+- Tracked referenced PGM files before staging: `72`
+- Tracked unreferenced PGM files before staging: `9,445`
+- Untracked but referenced PGM files before staging: `928`
+
+Executed cleanup:
+
+- Rebuilt the `current_review` workbench from
+  `patched_roms/current_review/current_review_translations.json`.
+- Pruned only generated `hangul_*.pgm` and `punct_*.pgm` files that were not
+  referenced by the newly written `prepared_manifest.json`.
+- Kept all `1,000` manifest-referenced PGM files.
+- Force-added the `928` referenced PGM files that were present locally but
+  ignored by the broad `analysis/` ignore rule.
+- Removed the `9,445` tracked stale PGM files that the current manifest no
+  longer references.
+
+Script hardening added:
+
+- `scripts/build_workbench_from_active_atlas.py` now prunes unreferenced
+  generated PGM files after successful manifest generation.
+- `scripts/build_workbench_from_active_atlas.py` and
+  `scripts/import_hangul_syllable_atlas.py` now write repo-relative report and
+  manifest paths for files inside this repository.
+
+Post-cleanup shape:
+
+- Actual PGM files in `current_review`: `1,000`
+- PGM files referenced by `prepared_manifest.json`: `1,000`
+- Referenced PGM files missing locally: `0`
+- Unreferenced actual PGM files: `0`
+- `current_review` disk size: about `4.7M`
+- `analysis/generated_workbenches` disk size: about `23M`
+- `analysis` disk size: about `44M`
+
+Decision: `DELETE STALE LOCAL/TRACKED OUTPUT; KEEP ACTIVE REFERENCED OUTPUT`.
+
+Reason:
+
+- The deleted PGM files were generated workbench outputs.
+- They were not referenced by the current active manifest.
+- The current active manifest remains self-contained in the repo by tracking all
+  `1,000` referenced PGM files.
+- The rebuild command is known and was run successfully.
+
+Verification:
+
+- Absolute `/Users/user/test` and `/private/tmp` paths in the current review
+  workbench JSON/TBL reports after regeneration: `0`
+- ROM/savestate/patch files changed in this batch: `0`
