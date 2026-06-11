@@ -22,7 +22,7 @@ the project is still active.
 - `confirmed_data/font_assets/translation_normalization_profile.json`
 - `third_party/font_atlases/`
 - `third_party/gba_free_fonts/`
-- `README.md`, `.gitignore`, `package.json`, `package-lock.json`
+- `README.md`, `.gitignore`
 
 ## KEEP WITH CAUTION
 
@@ -62,6 +62,9 @@ the project is still active.
   - Savestate-derived runtime evidence. Should not be treated as direct edit source.
 - `confirmed_data/image_inventory/savestate_compare_labels/`
   - QA/comparison material rather than final patch input.
+- `generated-images/`
+  - Contains one tiny tracked PNG still referenced by image edit-pack manifests.
+    Keep until those manifests are updated.
 
 ## DELETE CANDIDATE AFTER EVIDENCE DIGEST
 
@@ -73,6 +76,8 @@ These should not be removed until the lesson they represent is written down:
 - Failed no-op/repoint test reports that duplicate a final successful report.
 - Obsolete runtime probes under `pymgba_runtime_probe_*` if not referenced.
 - Intermediate generated workbench glyph images that can be regenerated.
+- Legacy top-level package manager files that have no active script or command
+  dependency.
 
 ## DO NOT TRACK / LOCAL ONLY
 

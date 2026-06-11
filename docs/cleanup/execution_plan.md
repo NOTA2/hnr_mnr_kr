@@ -199,6 +199,8 @@ Completed so far:
   review/English reference ROMs and active saves.
 - Promoted small active referenced assets hidden by broad ignore rules.
 - Recorded explicit keep decisions for remaining ignored QA/tooling paths.
+- Removed legacy top-level Node package files after verifying no active script or
+  documented command uses them.
 
 Exit condition:
 

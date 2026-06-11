@@ -46,7 +46,9 @@ Updated checkpoint: 2026-06-11 KST
 - `patched_roms/`, `local_roms/`
   - Local-only ignored ROM outputs/inputs.
 - `generated-images/`
-  - Local generated image scratch area.
+  - Legacy generated image scratch area.
+  - Currently kept only because one tiny tracked PNG is still referenced by two
+    image edit-pack manifests. See `docs/cleanup/top_level_audit.md`.
 
 ## Main Friction Points
 

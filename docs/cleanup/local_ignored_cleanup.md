@@ -33,6 +33,24 @@ Safety checks:
 - Local `__pycache__` directories after the cleanup: `0`
 - Git-tracked deleted files after the cleanup: `0`
 
+## Executed Batch 3
+
+Date: 2026-06-12 KST
+
+Deleted empty local-only directories:
+
+- `startup_profiles/`
+- `generated-images/apply-ready/`
+
+Safety checks:
+
+- Neither directory had git-tracked files.
+- `generated-images/` itself remains because one tracked PNG under
+  `generated-images/debug_tiles_003A206C/` is still referenced by image edit-pack
+  manifests.
+- No ROM, save, patch, source script, source asset, or active manifest was
+  removed by this local-only batch.
+
 ## Ignored File Count
 
 Ignored-but-present paths before batch 1: `3,605`

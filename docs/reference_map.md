@@ -12,6 +12,7 @@
 - 정리 작업 입구: [README.md](/Users/user/test/docs/cleanup/README.md)
 - 정리 실행 계획: [execution_plan.md](/Users/user/test/docs/cleanup/execution_plan.md)
 - 다음 정리 후보: [next_cleanup_candidates.md](/Users/user/test/docs/cleanup/next_cleanup_candidates.md)
+- top-level 감사: [top_level_audit.md](/Users/user/test/docs/cleanup/top_level_audit.md)
 - 현재/목표 구조: [README.md](/Users/user/test/docs/structure/README.md)
 - 구조 이행 지도: [migration_map.md](/Users/user/test/docs/structure/migration_map.md)
 - 스크립트 전환 감사: [script_transition_audit.md](/Users/user/test/docs/structure/script_transition_audit.md)
