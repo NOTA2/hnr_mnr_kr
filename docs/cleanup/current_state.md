@@ -68,6 +68,53 @@ Ignored paths currently kept by design:
 - `third_party/mgba-python-build-x86/`
 - `third_party/pymgba-mcp/`
 
+## 2026-06-12 Top-Level Cleanup Checkpoint
+
+- Branch: `codex/bootstrap-toolkit`
+- Latest cleanup checkpoint: `bc7b61d`
+  (`generated-images 참조 자산 위치 정리`)
+- Tracked files: `18,802`
+- Ignored-but-present status lines: `11`
+- Git-tracked ROM/save/savestate/patch files, excluding intentional release
+  patches: `0`
+
+Completed in this checkpoint family:
+
+- Removed unused legacy Node package files:
+  - `package.json`
+  - `package-lock.json`
+- Removed empty local-only top-level scratch directories:
+  - `startup_profiles/`
+  - `generated-images/apply-ready/`
+- Moved the only tracked `generated-images/` PNG into the owning image edit-pack
+  subtree:
+  - `confirmed_data/image_inventory/edit_packs/alchemy_tiles_003A206C/direct_patch_replacements/`
+- Removed the now-empty `generated-images/` top-level directory locally.
+
+Current tracked top-level distribution:
+
+- `confirmed_data`: `16,626`
+- `analysis`: `1,968`
+- `scripts`: `126`
+- `docs`: `48`
+- `third_party`: `18`
+- `releases`: `7`
+- `gba_kor_tool`: `4`
+- `tools`: `2`
+- other tracked top-level entries: `3`
+
+Current disk hotspots:
+
+- `.git`: about `874M` (do not touch during project cleanup)
+- `confirmed_data`: about `389M`
+- `confirmed_data/image_inventory`: about `239M`
+- `analysis`: about `27M`
+- `analysis/generated_workbenches`: about `6.4M`
+- `patched_roms`: about `54M`, ignored except `.gitkeep`
+- `local_roms`: about `16M`, ignored
+- `third_party`: about `59M`, including ignored local emulator/tooling folders
+- `docs`: about `452K`
+
 ## 2026-06-11 Post-Release Cleanup Checkpoint
 
 - Branch: `codex/bootstrap-toolkit`

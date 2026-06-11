@@ -47,7 +47,8 @@ Safety checks:
 - Neither directory had git-tracked files.
 - `generated-images/` itself remains because one tracked PNG under
   `generated-images/debug_tiles_003A206C/` is still referenced by image edit-pack
-  manifests.
+  manifests. This was superseded by batch 4 below after that PNG was moved into
+  the image edit-pack tree.
 - No ROM, save, patch, source script, source asset, or active manifest was
   removed by this local-only batch.
 

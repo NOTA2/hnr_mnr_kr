@@ -13,8 +13,8 @@ tracing only.
 This estimate covers the user's full request: project cleanup/structure,
 retrospective synthesis, and a reusable GBA localization starter-kit agent.
 
-- Overall request: about `45%`
-- Project cleanup / structure track: about `65%`
+- Overall request: about `47%`
+- Project cleanup / structure track: about `70%`
 - Retrospective track: about `30%`
 - Starter-kit agent track: about `20%`
 
@@ -201,6 +201,8 @@ Completed so far:
 - Recorded explicit keep decisions for remaining ignored QA/tooling paths.
 - Removed legacy top-level Node package files after verifying no active script or
   documented command uses them.
+- Removed top-level generated scratch clutter by moving the only referenced
+  tracked PNG into its owning image edit-pack subtree.
 
 Exit condition:
 
