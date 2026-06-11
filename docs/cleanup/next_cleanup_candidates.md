@@ -46,6 +46,10 @@ Action:
   historical analysis, or archive candidates.
 - Do not move active scripts yet.
 
+Current artifact:
+
+- `docs/structure/script_transition_audit.md`
+
 Why this is next:
 
 - Project structure is still flat and hard to scan.

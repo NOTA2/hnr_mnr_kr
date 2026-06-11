@@ -8,6 +8,8 @@
 - `current_layout.md`: 지금 repo가 실제로 어떤 역할별 폴더를 갖고 있는지 정리한다.
 - `target_layout.md`: 최종적으로 지향할 깔끔한 구조를 정의한다.
 - `migration_map.md`: 현재 경로에서 목표 구조로 옮길 때의 단계와 호환성 전략을 정리한다.
+- `script_transition_audit.md`: active QA 를 깨지 않기 위해 `scripts/` 를
+  이동하기 전에 지켜야 할 entry point, subprocess, wrapper 조건을 정리한다.
 - `../starter_kit/gba_localization_agent.md`: 이 프로젝트에서 얻은 정리/회고 규칙을
   다른 GBA 한글화 프로젝트에도 쓸 수 있게 중립화한 에이전트 초안이다.
 

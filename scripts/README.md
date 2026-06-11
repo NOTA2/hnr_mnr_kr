@@ -6,6 +6,10 @@ refer to many `scripts/<name>.py` paths directly.
 
 For the cleanup/restructure effort, treat this file as the transition index.
 
+Current transition audit:
+
+- [script_transition_audit.md](/Users/user/test/docs/structure/script_transition_audit.md)
+
 ## Group Directories
 
 The future group directories now exist as placeholders:
@@ -162,3 +166,7 @@ at `scripts/<name>.py` and `scripts/<name>.sh`.
 When scripts are eventually grouped, keep old top-level entry points as wrappers
 until all docs, GUI subprocess calls, and regular commands have moved to the new
 paths.
+
+Do not move or archive scripts until the hard active entry points and subprocess
+dependencies listed in `docs/structure/script_transition_audit.md` have wrappers
+or updated call sites.

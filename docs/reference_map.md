@@ -14,6 +14,7 @@
 - 다음 정리 후보: [next_cleanup_candidates.md](/Users/user/test/docs/cleanup/next_cleanup_candidates.md)
 - 현재/목표 구조: [README.md](/Users/user/test/docs/structure/README.md)
 - 구조 이행 지도: [migration_map.md](/Users/user/test/docs/structure/migration_map.md)
+- 스크립트 전환 감사: [script_transition_audit.md](/Users/user/test/docs/structure/script_transition_audit.md)
 - 스크립트 전환 색인: [README.md](/Users/user/test/scripts/README.md)
 - 회고 근거 요약: [evidence_digest.md](/Users/user/test/docs/retrospective/evidence_digest.md)
 - 회고 실패 모드: [failure_modes.md](/Users/user/test/docs/retrospective/failure_modes.md)
