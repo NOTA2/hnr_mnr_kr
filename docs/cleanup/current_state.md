@@ -2,6 +2,32 @@
 
 Date: 2026-06-02 KST
 
+## 2026-06-11 Post-Release Cleanup Checkpoint
+
+- Branch: `codex/bootstrap-toolkit`
+- Latest cleanup checkpoint before this note: `f57a251`
+  (`로컬 ROM 정리 batch 3 기록`)
+- Tracked files: `27,299`
+- Ignored-but-present status lines: `5,930`
+- Local `.DS_Store` files after the latest ignored cleanup: `0`
+- Local `__pycache__` directories after the latest ignored cleanup: `0`
+- Git-tracked deleted files after local ROM and ignored cleanup batches: `0`
+
+Current disk hotspots:
+
+- `.git`: about `874M` (do not touch during project cleanup)
+- `confirmed_data`: about `389M`
+- `analysis`: about `100M`
+- `patched_roms`: about `54M`, ignored except `.gitkeep`
+- `local_roms`: about `16M`, ignored
+- `.vendor`: about `13M`, ignored local tooling/runtime cache
+- `releases`: about `860K`
+
+The current local ROM set is intentionally reduced but not minimal. The source
+ROM, current review ROM, English patched reference ROM, two rebuild helper ROMs,
+and active save files are retained until QA and rebuild flows no longer need
+them. See `local_rom_audit.md`.
+
 ## Repo Snapshot
 
 - Workspace: `/Users/user/test`

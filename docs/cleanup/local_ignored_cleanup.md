@@ -14,6 +14,25 @@ Deleted local cache files only:
 
 Git-tracked deleted files after the cleanup: `0`
 
+## Executed Batch 2
+
+Date: 2026-06-11 KST
+
+Deleted regenerated macOS folder metadata only:
+
+- `.DS_Store`
+- `releases/.DS_Store`
+- `patched_roms/current_review/.DS_Store`
+- `local_roms/english_patched/.DS_Store`
+
+Safety checks:
+
+- All four paths were ignored by `.gitignore`.
+- None of the four paths were tracked by git.
+- Local `.DS_Store` files after the cleanup: `0`
+- Local `__pycache__` directories after the cleanup: `0`
+- Git-tracked deleted files after the cleanup: `0`
+
 ## Ignored File Count
 
 Ignored-but-present paths before batch 1: `3,605`
