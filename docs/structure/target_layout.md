@@ -91,3 +91,5 @@ gba-localization-starter/
 The starter kit should contain no ROM, no project-specific extracted text, no
 local Codex logs, and no `/Users/user/test` paths.
 
+Starter-kit extraction should use `docs/retrospective/failure_modes.md` as the
+main source for reusable agent guardrails.

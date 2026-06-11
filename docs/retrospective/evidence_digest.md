@@ -3,6 +3,9 @@
 This document records lessons from local project files and local Codex session
 metadata. Raw session logs are not copied into the repo.
 
+The reusable prevention checklist lives in
+`docs/retrospective/failure_modes.md`.
+
 ## Evidence Sources
 
 Relevant local Codex sessions found in `/Users/user/.codex/session_index.jsonl`
