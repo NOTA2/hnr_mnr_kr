@@ -85,6 +85,8 @@ Why this is high value:
   GUI image replacement baseline and path existence checks.
 - `confirmed_data/image_inventory/image_source_manifest.json` records all
   `2,406` GUI image items with source/replacement roles and missing-path checks.
+- `docs/cleanup/image_inventory_prune_plan.md` records protected path families
+  and deletion gates.
 
 Why this is not immediately safe:
 

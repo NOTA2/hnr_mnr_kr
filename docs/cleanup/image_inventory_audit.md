@@ -77,6 +77,9 @@ This does not make image inventory safe to prune yet. It defines the baseline
 for separating active source/replacement/runtime evidence from generated previews
 and broader historical extraction outputs.
 
+See `image_inventory_prune_plan.md` for the current protected path families and
+the gates required before deleting any image-side subtree.
+
 ## Next Safe Image Cleanup Order
 
 1. Keep `edit_packs` and active uploaded replacements.
