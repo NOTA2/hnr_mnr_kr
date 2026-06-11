@@ -2,13 +2,45 @@
 
 Date: 2026-06-02 KST
 
+Updated checkpoint: 2026-06-12 KST
+
 The project is still active, so cleanup must be reversible, evidence-driven, and
 split into small commits. The current pass is documentation and dependency
 tracing only.
 
+## 2026-06-12 Progress Estimate
+
+This estimate covers the user's full request: project cleanup/structure,
+retrospective synthesis, and a reusable GBA localization starter-kit agent.
+
+- Overall request: about `40-45%`
+- Project cleanup / structure track: about `65%`
+- Retrospective track: about `25%`
+- Starter-kit agent track: about `10%`
+
+Why the overall percentage is lower than the cleanup percentage:
+
+- The safest cleanup batches are mostly done.
+- The repo is much cleaner than before, but image-inventory pruning and script
+  migration are intentionally deferred while QA is active.
+- Retrospective synthesis exists only as an evidence digest, not yet as a full
+  reusable failure-mode playbook.
+- The starter-kit shape exists in `docs/structure/target_layout.md`, but the
+  actual reusable agent prompt/skill has not been written yet.
+
+Current order of operations:
+
+1. Keep active QA stable and do not move public script/data paths yet.
+2. Finish cleanup documentation and only do small, evidence-backed cleanup
+   batches.
+3. Expand retrospective notes into reusable failure-mode and decision-pattern
+   docs.
+4. Extract those patterns into a project-neutral GBA localization starter-kit
+   agent.
+
 ## Phase 0: Safety Baseline
 
-Status: started
+Status: complete for current cleanup pass
 
 - Record current branch, git status, file counts, ignored local files, and size
   hotspots.
@@ -20,9 +52,16 @@ Status: started
   `safety_gate.md`.
 - Classify every candidate with `retention_policy.md` before changing it.
 
+Completed:
+
+- Safety and retention docs are in place.
+- `.gba`, `.sav`, savestate, and patch tracking checks are part of every cleanup
+  batch.
+- Cleanup is being saved through small commits and pushed checkpoints.
+
 ## Phase 1: Active Dependency Map
 
-Status: started
+Status: mostly complete for the areas touched so far
 
 - Trace active GUI data:
   - `confirmed_data/localization_workbench/workbench_dataset.json`
@@ -36,9 +75,15 @@ Exit condition:
 
 - Every deletion candidate has a reason and an active-reference check result.
 
+Current note:
+
+- Generated workbench, local ROM, ignored cache/tooling, release bundle, and
+  small active referenced assets have explicit keep/delete/track decisions.
+- `confirmed_data/image_inventory/` remains high risk and is not pruned yet.
+
 ## Phase 2: No-Delete Portability Fixes
 
-Status: started
+Status: partially complete
 
 These are low-risk because they should only remove machine-specific assumptions.
 
@@ -62,9 +107,15 @@ Exit condition:
 - Current build/workbench scripts still run, but no active workflow depends on a
   specific user home path.
 
+Current note:
+
+- Active generated workbench reports were normalized to repo-relative paths.
+- Broader historical docs still contain absolute paths when they serve as
+  provenance. That is acceptable until final documentation polish.
+
 ## Phase 3: Structure Migration Without Breakage
 
-Status: started
+Status: started, intentionally conservative
 
 - Maintain `docs/structure/` as the migration control point.
 - Keep old public paths working while introducing grouped structure.
@@ -76,9 +127,17 @@ Exit condition:
 - A new session can identify active source-of-truth data, generated artifacts,
   local-only files, and archive candidates without opening large JSON files.
 
+Current note:
+
+- `scripts/` group folders exist as placeholders, but active scripts remain at
+  their original paths to avoid breaking documented commands and GUI subprocess
+  calls.
+- Current/target layout docs have been updated to explain this transitional
+  state.
+
 ## Phase 4: Evidence Digest Before Deletion
 
-Status: pending
+Status: started
 
 - Expand `docs/retrospective/evidence_digest.md` from local session logs and
   project evidence.
@@ -97,9 +156,16 @@ Exit condition:
 
 - Each deletion batch has a matching retrospective note.
 
+Current note:
+
+- `docs/retrospective/evidence_digest.md` preserves key generated-workbench and
+  cleanup lessons.
+- This still needs to be expanded into a direct "failure modes / prevention
+  playbook" before starter-kit extraction.
+
 ## Phase 5: Conservative Cleanup Batches
 
-Status: started
+Status: in progress
 
 Batch order should be smallest-risk first.
 
@@ -123,6 +189,14 @@ Completed so far:
   `analysis/generated_workbenches/`, with all local files verified present after
   the index cleanup.
 - No files under `confirmed_data/image_inventory/` were removed or untracked.
+- Pruned stale `current_review` generated-workbench PGM accumulation down to the
+  `1,000` files referenced by the active manifest.
+- Deleted local-only historical/test generated workbench folders after their
+  retrospective summary was preserved.
+- Pruned local ROM backup/intermediate files while preserving source/current
+  review/English reference ROMs and active saves.
+- Promoted small active referenced assets hidden by broad ignore rules.
+- Recorded explicit keep decisions for remaining ignored QA/tooling paths.
 
 Exit condition:
 
@@ -131,7 +205,7 @@ Exit condition:
 
 ## Phase 6: GBA Localization Starter Kit
 
-Status: pending
+Status: pending, with skeleton defined
 
 The starter kit should be created only after the project-specific cleanup reveals
 which rules are genuinely reusable.
