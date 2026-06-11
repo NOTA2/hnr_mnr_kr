@@ -185,3 +185,59 @@ Next ROM cleanup pass:
   their retrospective/debug references are summarized or retired.
 - Review `.sav` files separately; they are small and may be useful for QA
   reproduction.
+
+## Local Delete Batch 2: Executed
+
+Date: 2026-06-11 KST
+
+Batch 2 targets battle HUD rollback/intermediate ROMs whose lessons are already
+summarized in `confirmed_data/font_assets/battle_hud_text_scope_report.md`.
+
+Delete candidates for batch 2:
+
+- `patched_roms/current_review/hnr_localization_review.before_battle_hud_name_font.gba`
+- `patched_roms/current_review/hnr_localization_review.before_safe_battle_hud_name_font.gba`
+- `patched_roms/current_review/hnr_localization_review.before_no_shadow_battle_hud_name_font.gba`
+- `patched_roms/current_review/hnr_localization_review.before_bw_invert_battle_hud_name_font.gba`
+
+Reason:
+
+- These ROMs are local-only ignored backups.
+- They are not active script defaults.
+- The important lesson is already preserved: the shared `0x00534874` UI/font
+  block must not be broadly overwritten, and the safe pass uses a separate battle
+  mini-font path.
+- Keeping the filenames in the report is enough for retrospective traceability;
+  the bulky ROM copies are no longer needed.
+
+Pre-delete checks:
+
+- Direct references outside cleanup docs are only in
+  `confirmed_data/font_assets/battle_hud_text_scope_report.md`.
+- Target file count: `4`
+- Approximate target bytes: `35,065,596`
+- `.sav` files in this batch: `0`
+
+Post-delete verification:
+
+- Keep files missing after delete: `0`
+- Deleted target files still present: `0`
+- Git-tracked deleted files: `0`
+- Approximate local bytes removed: `35,065,596`
+- `.sav` files removed: `0`
+
+Remaining local `.gba` files after batch 2:
+
+- `Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba`
+- `local_roms/english_patched/Fullmetal Alchemist Stray Rondo (English Patched v0.02).gba`
+- `patched_roms/current_review/current_review_font_ready.gba`
+- `patched_roms/current_review/current_review_text_fast_translated.gba`
+- `patched_roms/current_review/hnr_localization_review.gba`
+- `patched_roms/current_review/hnr_localization_review_no_entry8_segment_repoint.gba`
+
+Next decision:
+
+- `hnr_localization_review_no_entry8_segment_repoint.gba` is the only remaining
+  retrospective/debug comparison ROM. It is referenced by runtime debug JSON, so
+  delete it only after preserving the no-segment-repoint lesson outside the raw
+  debug captures.
