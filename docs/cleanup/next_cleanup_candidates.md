@@ -83,6 +83,8 @@ Why this is high value:
   text/font/layout data so image cleanup can be scoped independently.
 - `confirmed_data/image_inventory/image_source_manifest.md` records the current
   GUI image replacement baseline and path existence checks.
+- `confirmed_data/image_inventory/image_source_manifest.json` records all
+  `2,406` GUI image items with source/replacement roles and missing-path checks.
 
 Why this is not immediately safe:
 
@@ -96,6 +98,7 @@ Exit gate:
   generated previews, runtime evidence, and historical/debug artifacts.
 - `python3 scripts/audit_gui_workflow_integrity.py` passes after any image
   manifest or path move.
+- `python3 scripts/build_image_source_manifest.py` reports `missing paths: 0`.
 
 ## Candidate 4: Remaining Ignored Local Paths
 

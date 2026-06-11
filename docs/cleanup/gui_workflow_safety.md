@@ -29,6 +29,7 @@ This audit is read-only. It checks:
 - required GUI JSON files parse;
 - workbench image replacement items still match dataset items;
 - image source/preview/replacement paths exist;
+- item-level image source manifest can be regenerated with zero missing paths;
 - current review ROM and source ROM paths exist locally;
 - fast text apply prerequisites exist;
 - critical GUI/build/apply/patch scripts have valid Python syntax;

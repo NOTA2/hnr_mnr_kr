@@ -95,6 +95,7 @@ cleared before any file move.
 ### Image / Tile
 
 - `build_image_extraction_pipeline.py`
+- `build_image_source_manifest.py`
 - `build_image_text_inventory.py`
 - `build_battle_command_button_edit_pack.py`
 - `build_card_book_right_tabs_edit_pack.py`

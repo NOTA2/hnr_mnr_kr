@@ -7,6 +7,7 @@
 - `image_text_inventory.json`
 - `image_text_inventory.md`
 - `image_source_manifest.md`
+- `image_source_manifest.json`
 - `image_extraction_pipeline.json`
 - `image_extraction_pipeline.md`
 - `workspaces/`

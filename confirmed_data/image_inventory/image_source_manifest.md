@@ -6,7 +6,11 @@ Date: 2026-06-12 KST
 
 This manifest is a cleanup safety layer for image-side assets. It summarizes the
 active GUI image replacement state before any large `confirmed_data/image_inventory`
-cleanup. It is not yet a full item-by-item machine-readable manifest.
+cleanup.
+
+The item-level machine-readable manifest is:
+
+- `confirmed_data/image_inventory/image_source_manifest.json`
 
 ## Source Inputs
 
@@ -25,6 +29,21 @@ cleanup. It is not yet a full item-by-item machine-readable manifest.
 - Missing non-empty replacement files: `0`
 - Missing `source_download_path` files: `0`
 - Missing `source_preview_path` files: `0`
+
+## Item-Level Role Summary
+
+Source roles:
+
+- `edit_pack_source`: `2,394`
+- `runtime_match_preview`: `8`
+- `runtime_screen_order_evidence`: `3`
+- `runtime_patch_preview`: `1`
+
+Replacement roles:
+
+- `no_replacement_yet`: `2,195`
+- `uploaded_replacement`: `203`
+- `edit_pack_direct_patch_asset`: `8`
 
 ## Category Summary
 
@@ -102,7 +121,7 @@ Source download paths currently live under:
 
 Before deleting or untracking any image-side subtree:
 
-1. Generate an item-level manifest from `image_replacements.json`.
+1. Regenerate `image_source_manifest.json` from `image_replacements.json`.
 2. Verify all non-empty `replacement_path`, `source_download_path`, and
    `source_preview_path` files exist.
 3. Preserve replacement assets under `uploaded_image_replacements/` or a
@@ -112,5 +131,5 @@ Before deleting or untracking any image-side subtree:
 
 ## Next Step
 
-Turn this draft into a small machine-readable manifest that records item ID,
-category, status, replacement path, source path, source role, and keep reason.
+Use `image_source_manifest.json` to identify generated previews and contact
+sheets that are not active source/replacement/runtime evidence.

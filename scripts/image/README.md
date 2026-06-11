@@ -14,6 +14,7 @@ Active apply path:
 
 Inventory and extraction:
 
+- `scripts/build_image_source_manifest.py`
 - `scripts/build_image_extraction_pipeline.py`
 - `scripts/build_image_text_inventory.py`
 - `scripts/build_graphics_extraction_progress.py`

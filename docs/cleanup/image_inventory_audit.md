@@ -65,13 +65,22 @@ cleanup manifest baseline:
 - missing source download files: `0`
 - missing source preview files: `0`
 
-This does not make image inventory safe to prune yet. It only defines the
-minimum fields and checks required before a later item-level manifest.
+`confirmed_data/image_inventory/image_source_manifest.json` now expands this
+into an item-level machine-readable manifest:
+
+- item-level records: `2,406`
+- missing path count: `0`
+- active source role records from `edit_packs`: `2,394`
+- active runtime evidence source records: `12`
+
+This does not make image inventory safe to prune yet. It defines the baseline
+for separating active source/replacement/runtime evidence from generated previews
+and broader historical extraction outputs.
 
 ## Next Safe Image Cleanup Order
 
 1. Keep `edit_packs` and active uploaded replacements.
-2. Produce a minimal final image-source manifest from active GUI state.
+2. Keep `image_source_manifest.json` current with active GUI state.
 3. Summarize review-unit lessons from `workspaces`.
 4. Only then untrack or archive `workspaces` generated exports/dumps.
 5. Treat `rle_tile_extraction` and `global_tile_extraction` as regenerable only
