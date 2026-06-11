@@ -93,3 +93,18 @@ If local ROM cleanup is executed, delete only a named batch after:
 2. confirming the root original and `hnr_localization_review.gba` remain;
 3. preserving any retrospective lesson in Markdown;
 4. checking `git status --short --branch` before and after.
+
+## Post-QA Update: 2026-06-11
+
+After first-pass QA and release packaging, local `.gba` inventory changed.
+
+Important findings:
+
+- `patched_roms/current_review/hnr_localization_review.gba` is the verified
+  v0.1.0 release target.
+- Root `hnr_localization_review.gba` exists locally but matches the clean source
+  ROM SHA256. It is not the release target.
+- `patched_roms/current_review/current_review_text_fast_translated.gba` is a new
+  local candidate that needs direct reference checks before deletion.
+
+Do not run a ROM deletion batch until the release baseline is committed.

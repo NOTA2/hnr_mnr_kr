@@ -44,6 +44,8 @@ reviewing any further cleanup batch.
 - `safety_gate.md`: mandatory checks before deletion or large structure changes.
 - `retention_policy.md`: criteria for keep, retrospective keep, untrack, and
   delete decisions.
+- `post_qa_release_snapshot.md`: file-state snapshot after first-pass QA and
+  v0.1.0 patch creation.
 - `execution_plan.md`: staged cleanup, retrospective, and starter-kit plan.
 - `active_reference_trace.md`: references extracted from active GUI JSON files.
 - `external_path_audit.md`: active vs historical absolute-path findings.

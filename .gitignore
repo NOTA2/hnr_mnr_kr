@@ -6,6 +6,8 @@
 *.ips
 *.ups
 *.bps
+# Release bundles can intentionally include distributable patch artifacts.
+!releases/**/*.bps
 local_roms/
 patched_roms/*
 !patched_roms/.gitkeep
