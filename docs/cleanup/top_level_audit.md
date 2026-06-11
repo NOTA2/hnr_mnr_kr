@@ -11,7 +11,7 @@ current localization workflow requires.
 | --- | --- | --- |
 | `package.json` | `DELETE` | Legacy Node dependency file. No active script or documented command uses it. |
 | `package-lock.json` | `DELETE` | Lockfile for the same unused Node dependency set. |
-| `generated-images/` | `KEEP WITH CAUTION` | Contains one tracked PNG still referenced by image edit-pack manifests. |
+| `generated-images/` | `MOVED / DELETE EMPTY DIRS` | The only tracked PNG was moved into the relevant image edit pack. |
 | `startup_profiles/` | `DELETE LOCAL EMPTY DIR` | Empty untracked directory; no git-tracked files or references. |
 | `generated-images/apply-ready/` | `DELETE LOCAL EMPTY DIR` | Empty untracked directory under a kept top-level folder. |
 
@@ -30,21 +30,20 @@ The tracked package files were introduced in commit `b6c377b`
 (`Entry8 번역 워크벤치와 분석 결과 통합`). They are not part of the current
 Python-based build, GUI, image replacement, runtime QA, or release workflow.
 
-## generated-images Hold
+## generated-images Cleanup
 
-Do not delete `generated-images/` yet. The tracked file
+The former tracked file
 `generated-images/debug_tiles_003A206C/compose_jangjjae_galmuri9_with_tile013_040_clean_1x.png`
-is referenced by:
+was moved to:
+
+- `confirmed_data/image_inventory/edit_packs/alchemy_tiles_003A206C/direct_patch_replacements/compose_jangjjae_galmuri9_with_tile013_040_clean_1x.png`
+
+The two referencing manifests were updated:
 
 - `confirmed_data/image_inventory/edit_packs/card_page_count/manifest.json`
 - `confirmed_data/image_inventory/edit_packs/alchemy_tiles_003A206C/manifest.json`
 
-Future cleanup option:
-
-- Move the referenced PNG into a clearer `confirmed_data/image_inventory/...`
-  source or replacement folder.
-- Update both manifests in the same commit.
-- Verify the new path exists and no stale `generated-images` references remain.
+After this move, `generated-images/` has no tracked files and can stay absent.
 
 ## Local Empty Dirs
 

@@ -51,6 +51,19 @@ Safety checks:
 - No ROM, save, patch, source script, source asset, or active manifest was
   removed by this local-only batch.
 
+## Executed Batch 4
+
+Date: 2026-06-12 KST
+
+Moved the only tracked `generated-images/` PNG into the image edit-pack tree and
+updated both manifest references.
+
+New location:
+
+- `confirmed_data/image_inventory/edit_packs/alchemy_tiles_003A206C/direct_patch_replacements/compose_jangjjae_galmuri9_with_tile013_040_clean_1x.png`
+
+After the move, the empty `generated-images/` directories were removed locally.
+
 ## Ignored File Count
 
 Ignored-but-present paths before batch 1: `3,605`

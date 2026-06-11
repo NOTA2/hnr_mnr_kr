@@ -62,10 +62,6 @@ the project is still active.
   - Savestate-derived runtime evidence. Should not be treated as direct edit source.
 - `confirmed_data/image_inventory/savestate_compare_labels/`
   - QA/comparison material rather than final patch input.
-- `generated-images/`
-  - Contains one tiny tracked PNG still referenced by image edit-pack manifests.
-    Keep until those manifests are updated.
-
 ## DELETE CANDIDATE AFTER EVIDENCE DIGEST
 
 These should not be removed until the lesson they represent is written down:
@@ -78,6 +74,8 @@ These should not be removed until the lesson they represent is written down:
 - Intermediate generated workbench glyph images that can be regenerated.
 - Legacy top-level package manager files that have no active script or command
   dependency.
+- Empty top-level generated scratch folders after referenced assets are moved
+  into their owning data area.
 
 ## DO NOT TRACK / LOCAL ONLY
 

@@ -45,10 +45,6 @@ Updated checkpoint: 2026-06-11 KST
     `releases/**/*.bps`.
 - `patched_roms/`, `local_roms/`
   - Local-only ignored ROM outputs/inputs.
-- `generated-images/`
-  - Legacy generated image scratch area.
-  - Currently kept only because one tiny tracked PNG is still referenced by two
-    image edit-pack manifests. See `docs/cleanup/top_level_audit.md`.
 
 ## Main Friction Points
 
