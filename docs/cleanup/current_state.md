@@ -2,6 +2,72 @@
 
 Date: 2026-06-02 KST
 
+## 2026-06-12 Starter-Kit / Planning Checkpoint
+
+- Branch: `codex/bootstrap-toolkit`
+- Latest cleanup/starter-kit checkpoint: `3ea6eeb`
+  (`스타터킷 에이전트 초안 추가`)
+- Tracked files: `18,799`
+- Ignored-but-present status lines: `11`
+- Git-tracked ROM/save/savestate/patch files, excluding intentional release
+  patches: `0`
+
+Current disk hotspots:
+
+- `.git`: about `874M` (do not touch during project cleanup)
+- `confirmed_data`: about `389M`
+- `confirmed_data/image_inventory`: about `239M`
+- `analysis`: about `27M`
+- `analysis/generated_workbenches`: about `6.4M`
+- `patched_roms`: about `54M`, ignored except `.gitkeep`
+- `local_roms`: about `16M`, ignored
+- `releases`: about `860K`
+- `scripts`: about `1.5M`
+- `docs`: about `420K`
+
+Current tracked top-level distribution:
+
+- `confirmed_data`: `16,624`
+- `analysis`: `1,968`
+- `scripts`: `126`
+- `docs`: `44`
+- `third_party`: `18`
+- `releases`: `7`
+- `gba_kor_tool`: `4`
+- `tools`: `2`
+
+Current top tracked extensions:
+
+- `png`: `9,627`
+- `pgm`: `4,679`
+- `bin`: `3,142`
+- `json`: `930`
+- `md`: `230`
+- `py`: `113`
+- `txt`: `34`
+- `tbl`: `24`
+
+High-volume area still requiring caution:
+
+- `confirmed_data/image_inventory`: `15,781` tracked files.
+- Largest subtrees are `edit_packs` (`5,789`), `workspaces` (`2,776`),
+  `rle_tile_extraction` (`2,235`), and `global_tile_extraction` (`1,924`).
+- Do not prune this area until `image_inventory_audit.md` and
+  `next_cleanup_candidates.md` exit gates pass.
+
+Ignored paths currently kept by design:
+
+- `.idea/`
+- `.vendor/`
+- root source ROM/SAV
+- `analysis/generated_workbenches/translation_consistency/`
+- `confirmed_data/runtime_debug/`
+- `hnr_localization_review.sav`
+- `local_roms/`
+- `patched_roms/current_review/`
+- `third_party/mgba-python-build-x86/`
+- `third_party/pymgba-mcp/`
+
 ## 2026-06-11 Post-Release Cleanup Checkpoint
 
 - Branch: `codex/bootstrap-toolkit`

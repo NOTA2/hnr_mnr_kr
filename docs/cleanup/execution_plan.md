@@ -182,6 +182,8 @@ Current image-inventory note:
 - Do not prune `confirmed_data/image_inventory/` yet. See
   `image_inventory_audit.md`; active GUI references are not the only dependency
   because image scripts still use broad extraction reports.
+- Remaining cleanup candidates and their exit gates are ranked in
+  `next_cleanup_candidates.md`.
 
 Completed so far:
 

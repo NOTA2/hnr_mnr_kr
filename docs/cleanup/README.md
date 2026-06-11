@@ -61,4 +61,6 @@ further cleanup batch.
 - `local_rom_audit.md`: ignored local `.gba` inventory and cleanup candidates.
 - `generated_workbenches_audit.md`: generated workbench bulk cleanup plan.
 - `image_inventory_audit.md`: image inventory cleanup risk classification.
+- `next_cleanup_candidates.md`: ranked list of remaining cleanup/structure
+  candidates and their exit gates.
 - `preliminary_classification.md`: conservative first-pass file categories.
