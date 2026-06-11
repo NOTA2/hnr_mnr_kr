@@ -13,20 +13,20 @@ tracing only.
 This estimate covers the user's full request: project cleanup/structure,
 retrospective synthesis, and a reusable GBA localization starter-kit agent.
 
-- Overall request: about `40-45%`
+- Overall request: about `45%`
 - Project cleanup / structure track: about `65%`
-- Retrospective track: about `25%`
-- Starter-kit agent track: about `10%`
+- Retrospective track: about `30%`
+- Starter-kit agent track: about `20%`
 
 Why the overall percentage is lower than the cleanup percentage:
 
 - The safest cleanup batches are mostly done.
 - The repo is much cleaner than before, but image-inventory pruning and script
   migration are intentionally deferred while QA is active.
-- Retrospective synthesis exists only as an evidence digest, not yet as a full
-  reusable failure-mode playbook.
-- The starter-kit shape exists in `docs/structure/target_layout.md`, but the
-  actual reusable agent prompt/skill has not been written yet.
+- Retrospective synthesis now includes an evidence digest and a failure-mode
+  playbook, but it still needs final consolidation after QA closes.
+- The starter-kit has an initial project-neutral agent spec, but not yet a full
+  template/skill package.
 
 Current order of operations:
 
@@ -205,10 +205,14 @@ Exit condition:
 
 ## Phase 6: GBA Localization Starter Kit
 
-Status: pending, with skeleton defined
+Status: started, with project-neutral draft defined
 
-The starter kit should be created only after the project-specific cleanup reveals
-which rules are genuinely reusable.
+The starter kit should be expanded only after the project-specific cleanup
+reveals which rules are genuinely reusable.
+
+Current artifact:
+
+- `docs/starter_kit/gba_localization_agent.md`
 
 Reusable agent capabilities:
 
