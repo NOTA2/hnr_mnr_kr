@@ -1,240 +1,98 @@
-# GBA 한글화 작업용 툴킷
+# GBA Korean Localization Workspace
 
-이 폴더에는 GBA ROM을 한글화하기 전에 필요한 조사 작업을 빠르게 진행할 수 있는 Python CLI를 넣었습니다.
+This repository contains the late-stage Korean localization workspace for a GBA
+game, plus the tools and documentation produced during the project.
 
-## 현재 프로젝트 입구
+The active priority is stable QA and careful cleanup. Do not treat this repo as a
+fresh generic CLI sample: it now contains project data, active review workflows,
+retrospective notes, and starter-kit extraction material.
 
-이 repo는 이제 단순 CLI 실험 폴더가 아니라, 막바지 QA 중인 GBA 한글화 프로젝트와
-그 과정에서 만든 도구/데이터를 함께 담고 있다.
+## Start Here
 
-- 세션 시작점: [docs/session_start.md](/Users/user/test/docs/session_start.md)
-- 현재 작업 카드: [docs/active_task.md](/Users/user/test/docs/active_task.md)
-- 전체 참고 지도: [docs/reference_map.md](/Users/user/test/docs/reference_map.md)
-- 구조 개편 기준: [docs/structure/README.md](/Users/user/test/docs/structure/README.md)
-- 정리 작업 기준: [docs/cleanup/README.md](/Users/user/test/docs/cleanup/README.md)
-- 회고 근거 요약: [docs/retrospective/evidence_digest.md](/Users/user/test/docs/retrospective/evidence_digest.md)
+- Session start: [docs/session_start.md](docs/session_start.md)
+- Current task card: [docs/active_task.md](docs/active_task.md)
+- Reference map: [docs/reference_map.md](docs/reference_map.md)
+- Cleanup plan: [docs/cleanup/execution_plan.md](docs/cleanup/execution_plan.md)
+- Current structure: [docs/structure/current_layout.md](docs/structure/current_layout.md)
+- Data roles: [docs/structure/data_role_inventory.md](docs/structure/data_role_inventory.md)
+- Script transition audit: [docs/structure/script_transition_audit.md](docs/structure/script_transition_audit.md)
 
-현재 구조 개편은 active workflow를 깨지 않기 위해 문서화와 경로 의존성 제거부터
-진행한다. 대량 파일 이동이나 삭제는 별도 trace 이후 작은 batch로만 진행한다.
+For cleanup work, read [docs/cleanup/README.md](docs/cleanup/README.md) before
+deleting, moving, or untracking anything.
 
-현재 들어 있는 ROM:
+## Current Safety Rules
 
-- `Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba`
+- Do not commit ROMs, saves, savestates, or local emulator state.
+- Do not move public `scripts/<name>.py` paths during active QA without wrappers.
+- Do not prune `confirmed_data/image_inventory/` until the image source manifest
+  is expanded and active references are verified.
+- Do not copy raw Codex session logs into the repo. Summarize lessons in
+  `docs/retrospective/` instead.
+- Cleanup happens in small, pushed checkpoints.
 
-이 툴은 아직 특정 게임 전용 패처가 아니라, 아래 작업을 먼저 진행하기 위한 "작업대" 역할에 집중합니다.
+## Main Areas
 
-- ROM 헤더 확인
-- 문자열 후보 스캔
-- 특정 범위 문자열 추출
-- 특정 문자열 바이트 검색
-- 포인터 위치 찾기
-- 길이/포인터 기반 리소스 테이블 점검
-- GBA LZ77 압축 블록 스캔
-- 4bpp 타일 덤프
-- 간단한 문자열 교체 / 리포인트 주입
-- 번역 JSON 일괄 적용
-- ROM 해킹용 `.tbl` 문자 테이블 사용
+- `gba_kor_tool/`: Python CLI helpers for ROM inspection, text extraction,
+  pointer search, table handling, tile/font operations, and translation apply.
+- `scripts/`: active project workflow scripts. Group folders exist as transition
+  indexes, but current entry points remain at top level for compatibility.
+- `tools/`: local browser-based workbench HTML files.
+- `confirmed_data/`: active project data, including extracted texts, worksets,
+  font assets, layout metadata, workbench state, and image inventory.
+- `analysis/`: selected reverse-engineering evidence and generated workbench
+  outputs. Many files are historical or retrospective material.
+- `docs/`: handoff, cleanup, structure, retrospective, translation, and starter
+  kit documents.
+- `releases/`: tracked patch/release bundles. Release patches are intentionally
+  allowed here.
+- `local_roms/` and `patched_roms/`: local-only ignored ROM inputs/outputs.
 
-## 실행 방법
+## Active Local Files
 
-Python 3.9 이상에서 바로 실행할 수 있습니다.
+The source ROM and review ROM are local files and should remain ignored by Git.
+
+Common local paths:
+
+- source ROM at repo root;
+- current review ROM under `patched_roms/current_review/`;
+- active save files next to the ROM or review ROM.
+
+`.gitignore` is configured so ROM/save/savestate files stay out of the repo.
+
+## Useful Commands
+
+Run the local workbench:
+
+```bash
+python3 scripts/run_localization_workbench.py
+```
+
+Rebuild the workbench dataset:
+
+```bash
+python3 scripts/build_localization_workbench_dataset.py
+```
+
+Build the current review ROM:
+
+```bash
+python3 scripts/build_localization_review_rom.py
+```
+
+Quick CLI help:
 
 ```bash
 python3 -m gba_kor_tool --help
 ```
 
-ROM 정보 확인:
+## Retrospective And Starter Kit
 
-```bash
-python3 -m gba_kor_tool info "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba"
-```
+The retrospective and starter-kit materials are intentionally draft-stage while
+gameplay QA is still active.
 
-CP932(일본어 Windows 코드페이지) 기준으로 `00` 종료 문자열 후보를 찾기:
+- Evidence digest: [docs/retrospective/evidence_digest.md](docs/retrospective/evidence_digest.md)
+- Failure modes: [docs/retrospective/failure_modes.md](docs/retrospective/failure_modes.md)
+- Starter-kit agent draft: [docs/starter_kit/gba_localization_agent.md](docs/starter_kit/gba_localization_agent.md)
 
-```bash
-python3 -m gba_kor_tool scan-text \
-  "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
-  --encoding cp932 \
-  --terminator 00 \
-  --min-chars 4 \
-  --require-japanese \
-  --limit 100
-```
-
-`FF` 종료 문자열 후보를 찾기:
-
-```bash
-python3 -m gba_kor_tool scan-text \
-  "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
-  --encoding cp932 \
-  --terminator FF \
-  --min-chars 4 \
-  --require-japanese \
-  --limit 100
-```
-
-특정 ROM 구간을 번역용 JSON으로 추출:
-
-```bash
-python3 -m gba_kor_tool extract-range \
-  "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
-  0x08AEFC \
-  0x08B400 \
-  --encoding cp932 \
-  --terminator 00 \
-  --output confirmed_data/extracted_texts/item_texts.json
-```
-
-특정 일본어 문자열 검색:
-
-```bash
-python3 -m gba_kor_tool search-text \
-  "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
-  "セーブ" \
-  --encoding cp932
-```
-
-문자열 오프셋을 가리키는 포인터 찾기:
-
-```bash
-python3 -m gba_kor_tool find-pointers \
-  "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
-  0x123456
-```
-
-특정 Thumb helper 함수를 BL로 호출하는 위치 찾기:
-
-```bash
-python3 -m gba_kor_tool find-thumb-bl \
-  "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
-  0x03BC \
-  --output analysis/thumb_bl_to_03bc.json
-```
-
-특정 ROM 구간을 간단한 Thumb 디스어셈블리 형태로 덤프:
-
-```bash
-python3 -m gba_kor_tool dump-thumb \
-  "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
-  0x047CFC \
-  0x047DA0 \
-  --output analysis/world_map_slot_loop.txt
-```
-
-LZ77 압축 블록 스캔:
-
-```bash
-python3 -m gba_kor_tool scan-lz77 \
-  "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
-  --limit 50
-```
-
-길이+포인터 또는 포인터+길이 형태의 8바이트 청크 테이블 점검:
-
-```bash
-python3 -m gba_kor_tool inspect-chunk-table \
-  "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
-  0x17C1C0 \
-  --count 35 \
-  --scan-text \
-  --encoding cp932 \
-  --terminator 00 \
-  --require-japanese \
-  --output analysis/resource_chunks.json
-```
-
-폰트/타일 후보 영역을 4bpp 이미지로 덤프:
-
-```bash
-python3 -m gba_kor_tool dump-4bpp \
-  "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
-  0x400000 \
-  --tiles 256 \
-  --columns 16 \
-  --output font_dump.pgm
-```
-
-같은 길이 이하의 문자열을 제자리 교체:
-
-```bash
-python3 -m gba_kor_tool replace-text \
-  "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
-  patched.gba \
-  --offset 0x123456 \
-  --text "TEST" \
-  --encoding ascii \
-  --max-bytes 8 \
-  --terminator 00
-```
-
-자유 공간에 새 문자열을 넣고 포인터를 새 위치로 갱신:
-
-```bash
-python3 -m gba_kor_tool inject-text \
-  "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
-  patched.gba \
-  --pointer 0x234560 \
-  --text "TEST" \
-  --encoding ascii \
-  --search-free-space-from 0x700000 \
-  --terminator 00
-```
-
-번역 JSON의 `translation` 값을 한 번에 반영:
-
-```bash
-python3 -m gba_kor_tool apply-translations \
-  "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba" \
-  confirmed_data/extracted_texts/item_texts.json \
-  patched.gba \
-  --encoding cp932 \
-  --search-free-space-from 0x700000 \
-  --report analysis/item_patch_report.json
-```
-
-여러 추출 JSON을 하나의 번역 작업용 JSON으로 합치기:
-
-```bash
-python3 -m gba_kor_tool build-translation-set \
-  confirmed_data/translation_worksets/translation_workset_core_ui.json \
-  confirmed_data/extracted_texts/system_messages.json \
-  analysis/save_menu_texts.json \
-  confirmed_data/extracted_texts/location_texts.json \
-  confirmed_data/extracted_texts/ui_skill_texts.json
-```
-
-## `.tbl` 사용
-
-게임이 Shift-JIS가 아니라 전용 문자셋을 쓴다면 `.tbl` 파일을 만들어서 사용할 수 있습니다.
-
-예시:
-
-```text
-00=<END>
-01=あ
-02=い
-03=う
-10=Ａ
-11=Ｂ
-8140=　
-```
-
-이후 `--encoding` 대신 `--table your.tbl` 를 사용하면 됩니다.
-
-## 권장 작업 순서
-
-1. `info` 로 ROM 기본 정보를 확인합니다.
-2. `scan-lz77` 로 압축이 많이 쓰였는지 먼저 봅니다.
-3. `scan-text` 를 `cp932`, `00`, `FF` 조합으로 돌려봅니다.
-4. 메뉴에서 보이는 문구를 하나 정해서 `search-text` 로 직접 찾습니다.
-5. 연속된 텍스트 블록이 보이면 `extract-range` 로 JSON으로 뽑아서 번역 목록을 만듭니다.
-6. `translation` 필드를 채운 뒤 `apply-translations` 로 일괄 패치합니다.
-7. 여러 추출본을 같이 번역하고 싶으면 `build-translation-set` 으로 먼저 작업용 JSON 한 개로 묶습니다.
-8. 문자열이 안 잡히면 커스텀 인코딩이나 압축 스크립트일 가능성이 높으니 `.tbl` 과 폰트 타일부터 조사합니다.
-9. 타일/폰트를 찾으면 한글 글리프를 넣고, 그 다음 문자열 삽입기로 넘어갑니다.
-
-## 주의
-
-- 이 툴은 ROM을 자동 번역해 주지 않습니다.
-- GBA 게임은 보통 텍스트, 포인터, 폰트, 폭 테이블, 압축이 각각 다른 방식으로 섞여 있습니다.
-- 그래서 첫 단계는 "게임 전용 데이터 형식 파악"이고, 이 툴은 그 작업을 빠르게 하도록 설계했습니다.
+The goal is to turn this project into reusable GBA localization guidance after
+project-specific cleanup and the user's own retrospective notes are merged.
