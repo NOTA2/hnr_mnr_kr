@@ -24,6 +24,8 @@ def load_json(path: Path):
 def ensure_workspace_dirs(review_units: list[dict]) -> list[str]:
     created: list[str] = []
     for unit in review_units:
+        if unit.get("workspace_state") == "pruned_summary":
+            continue
         unit_dir = ROOT / unit["future_workspace"]
         for child in ("candidates", "dumps", "exports", "notes"):
             path = unit_dir / child
@@ -52,6 +54,8 @@ def build() -> dict:
                 "id": unit["id"],
                 "review_order": unit["review_order"],
                 "workspace": unit["future_workspace"],
+                "workspace_state": unit.get("workspace_state", "active_scaffold"),
+                "summary": unit.get("summary"),
                 "probe_method": unit["recommended_probe_method"],
             }
             for unit in review_units
@@ -134,6 +138,9 @@ def render_md(data: dict) -> str:
     for item in data["review_unit_order"]:
         lines.append(f"- `{item['id']}` (순서={item['review_order']})")
         lines.append(f"  - 작업 폴더: `{item['workspace']}`")
+        lines.append(f"  - 작업 폴더 상태: `{item['workspace_state']}`")
+        if item.get("summary"):
+            lines.append(f"  - 요약: `{item['summary']}`")
         lines.append(f"  - 탐색 방식: {item['probe_method']}")
 
     lines.extend(["", "## 작업 단계", ""])

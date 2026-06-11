@@ -25,7 +25,10 @@ def build() -> dict:
             {
                 "offset": "0x00534874",
                 "workspace": "confirmed_data/image_inventory/workspaces/07_ui_icon_badge_wordmarks",
-                "preview": "confirmed_data/image_inventory/workspaces/07_ui_icon_badge_wordmarks/png_exports/004_off_00534874.png",
+                "workspace_state": "pruned_summary",
+                "summary": "confirmed_data/image_inventory/workspaces/07_ui_icon_badge_wordmarks/README.md",
+                "active_source_family": "confirmed_data/image_inventory/edit_packs/common_hud_tiles_00534874",
+                "active_preview": "confirmed_data/image_inventory/edit_packs/common_hud_tiles_00534874/common_hud_tiles_00534874_contact_sheet.png",
                 "classification": "battle_hud_small_font_or_glyph_sheet",
                 "localization_needed": False,
                 "reason": "전투 HUD 의 작은 이름/수치 글자와 같은 계열로 보이는 원본 소형 폰트/글리프 시트 후보이다. 화면에 구워진 UI 라벨이나 문장 이미지가 아니므로 이미지 교체 대상은 아니다. 위쪽 깨짐은 타일맵/팔레트 없이 4bpp 타일을 일렬로 펼친 덤프 특성으로 본다.",
@@ -239,6 +242,8 @@ def build() -> dict:
                 "review_goal": "작은 아이콘/배지성 워드마크가 있다면 나중에 교체 난도가 높은 단위로 따로 뺀다.",
                 "recommended_probe_method": "대표 UI 캡처 -> 작은 4bpp 배지 후보 덤프 -> 문자인지 아이콘인지 구분",
                 "future_workspace": "confirmed_data/image_inventory/workspaces/07_ui_icon_badge_wordmarks",
+                "workspace_state": "pruned_summary",
+                "summary": "confirmed_data/image_inventory/workspaces/07_ui_icon_badge_wordmarks/README.md",
                 "expected_text_kind": "작은 워드마크, 배지, 미니 라벨",
                 "subunits": [
                     {
@@ -251,6 +256,7 @@ def build() -> dict:
                 "notes": [
                     "아이콘/배지 크기의 워드마크는 큰 UI 패널과 따로 검토한다.",
                     "교체 전략이 패널 아트와 다를 가능성이 커서 분리 유지가 유용하다.",
+                    "2026-06-12 정리에서 대량 후보 dump/export 는 요약으로 대체했다. 현재 활성 0x00534874 작업은 edit_packs/common_hud_tiles_00534874 를 기준으로 한다.",
                 ],
             },
             {
@@ -312,6 +318,12 @@ def render_md(data: dict) -> str:
         lines.append(
             f"- `{item['offset']}`: {item['classification']} / 한글화 대상 아님 / {item['reason']}"
         )
+        if item.get("workspace_state"):
+            lines.append(f"  - workspace 상태: `{item['workspace_state']}`")
+        if item.get("summary"):
+            lines.append(f"  - 요약: `{item['summary']}`")
+        if item.get("active_source_family"):
+            lines.append(f"  - 현재 활성 소스: `{item['active_source_family']}`")
     lines.extend(["", "## 비-이미지 텍스트로 확인된 문맥", ""])
     for item in data["confirmed_non_image_text_contexts"]:
         lines.append(f"- `{item['context']}`: {item['reason']}")
@@ -322,6 +334,10 @@ def render_md(data: dict) -> str:
         lines.append(f"  - 탐색 방식: {item['recommended_probe_method']}")
         lines.append(f"  - 예상 텍스트 종류: {item['expected_text_kind']}")
         lines.append(f"  - 작업 폴더: `{item['future_workspace']}`")
+        if item.get("workspace_state"):
+            lines.append(f"  - 작업 폴더 상태: `{item['workspace_state']}`")
+        if item.get("summary"):
+            lines.append(f"  - 요약: `{item['summary']}`")
         lines.append("  - 세부 단위:")
         for subunit in item["subunits"]:
             lines.append(f"    - `{subunit['id']}`: {subunit['label']} / {subunit['status']} / 첫 행동: {subunit['first_action']}")
@@ -348,6 +364,8 @@ def render_readme() -> str:
             "",
             "- `image_text_inventory.json`",
             "- `image_text_inventory.md`",
+            "- `image_source_manifest.md`",
+            "- `image_source_manifest.json`",
             "- `image_extraction_pipeline.json`",
             "- `image_extraction_pipeline.md`",
             "- `workspaces/`",
@@ -355,14 +373,30 @@ def render_readme() -> str:
             "## 사용 원칙",
             "",
             "- 기준 추출 텍스트와 이미지에 구워진 텍스트는 분리해서 관리한다.",
+            "- GUI의 역할은 편집 가능한 원본 PNG 다운로드, 사용자가 수정한 PNG 업로드, 업로드된 교체본의 자동 적용 트리거까지만 담당한다.",
+            "- 어떤 이미지/타일을 추출해야 하는지 판정하고, 수정 가능한 PNG로 재구성하고, 업로드 이미지를 ROM 블록으로 변환/패치하는 책임은 추출/적용 스크립트가 가진다.",
             "- 이 inventory 는 막연한 bucket 이 아니라 실제 검토 단위에 가까운 `review_units` 중심으로 유지한다.",
             "- 각 review unit 은 이후 추출 산출물을 모을 전용 workspace 를 갖는다.",
+            "- `.ss` 저장상태 기반 분석은 캡처 화면을 등록하는 용도가 아니다. 캡처에서 런타임 타일을 뽑고 ROM 블록과 매칭한 뒤, 교체 가능한 개별 이미지 블록만 GUI 후보로 승격한다.",
+            "- 한 후보를 찾으면 주변 LZ77/RLE 블록도 같이 훑어 같은 라벨 묶음의 추가 후보를 찾는다.",
+            "- 원시 타일 배열만으로 글자가 어긋나 보이면 BG `screenblock` tilemap/scroll/OAM 데이터를 렌더링해 실제 화면 배치로 다시 확인한다.",
+            "- tilemap/OAM 렌더링 결과는 교체 파일이 아니라 내부 조합 방식을 찾기 위한 분석 지도다. 이 지도에서 보이는 글자를 ROM raw tilemap, LZ77/RLE 그래픽 블록, 또는 텍스트 렌더러로 역추적해야 실제 교체가 가능하다.",
+            "- 사람이 알아보기 어려운 RLE 레이아웃/전체 후보 시트는 GUI에 노출하지 않고, 실제 텍스트가 보이는 선별 후보만 남긴다.",
+            "- RLE 조각은 기본적으로 `scripts/build_readable_rle_layouts.py`로 8/16/24/32-column 4배 확대본을 만들고, savestate와 연결된 경우 `scripts/build_runtime_rle_patch_previews.py`로 실제 화면 배치 재조립본과 `tile_map.json`을 함께 만든다.",
+            "- 이미지 수정은 찢어진 원시 RLE 시트가 아니라 `runtime_rle_patch_previews`의 확대/재조립 PNG를 기준으로 설계하고, 실제 삽입은 `tile_map.json`의 RLE tile index 매핑에 맞춰 raw tile/RLE 블록 쪽에 반영한다.",
+            "- 영문판은 이미지/RLE 수정 레퍼런스로 적극 사용한다. `scripts/compare_english_patch_rle_graphics.py`로 same-offset RLE diff를 뽑으면 영문판이 실제로 고친 이미지 블록 목록과 4배 확대 PNG를 얻을 수 있다.",
+            "- 영문판이 같은 오프셋을 수정한 경우, 한국어 교체 작업은 일본판 원본만 보지 말고 영문판의 타일 수, 축약 방식, 배치 방식을 먼저 참고한다.",
+            "- 큰 정리나 삭제 전에 [image_source_manifest.md](image_source_manifest.md) 로",
+            "  active replacement/source/runtime evidence 의 역할을 먼저 확인한다.",
             "",
             "## 재생성",
             "",
             "```bash",
             "python3 scripts/build_image_text_inventory.py",
             "python3 scripts/build_image_extraction_pipeline.py",
+            "PYTHONPATH=.vendor python3 scripts/build_readable_rle_layouts.py",
+            "PYTHONPATH=.vendor python3 scripts/build_runtime_rle_patch_previews.py --probe-dir confirmed_data/image_inventory/runtime_user_captures/no_entry8_latest_ss1 --bg 0 --rle-offset 0x003AF23C",
+            "PYTHONPATH=.vendor python3 scripts/compare_english_patch_rle_graphics.py",
             "```",
             "",
         ]

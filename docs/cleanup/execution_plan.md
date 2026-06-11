@@ -13,16 +13,18 @@ tracing only.
 This estimate covers the user's full request: project cleanup/structure,
 retrospective synthesis, and a reusable GBA localization starter-kit agent.
 
-- Overall request: about `47%`
-- Project cleanup / structure track: about `70%`
+- Overall request: about `49%`
+- Project cleanup / structure track: about `73%`
 - Retrospective track: about `30%`
 - Starter-kit agent track: about `20%`
 
 Why the overall percentage is lower than the cleanup percentage:
 
 - The safest cleanup batches are mostly done.
-- The repo is much cleaner than before, but image-inventory pruning and script
-  migration are intentionally deferred while QA is active.
+- The repo is much cleaner than before, and image-inventory pruning has started
+  with one low-risk review unit summarized and removed from generated artifacts.
+  Larger script/data migrations are still intentionally deferred while QA is
+  active.
 - Retrospective synthesis now includes an evidence digest and a failure-mode
   playbook, but it still needs final consolidation after QA closes.
 - The starter-kit has an initial project-neutral agent spec, but not yet a full
@@ -81,7 +83,9 @@ Current note:
 
 - Generated workbench, local ROM, ignored cache/tooling, release bundle, and
   small active referenced assets have explicit keep/delete/track decisions.
-- `confirmed_data/image_inventory/` remains high risk and is not pruned yet.
+- `confirmed_data/image_inventory/` remains high risk overall, but the first
+  low-priority workspace unit has been pruned to a summary after manifest and
+  GUI workflow checks.
 - GUI workflow integrity currently passes with `14,017` workbench items and
   `2,406` image replacement items.
 

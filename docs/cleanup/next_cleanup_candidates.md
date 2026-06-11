@@ -7,8 +7,8 @@ next areas by safety, value, and dependency risk.
 
 ## Current Progress Baseline
 
-- Overall request: about `47%`
-- Project cleanup / structure: about `70%`
+- Overall request: about `49%`
+- Project cleanup / structure: about `73%`
 - Retrospective: about `30%`
 - Starter-kit extraction: about `20%`
 
@@ -78,7 +78,7 @@ Action:
 Why this is high value:
 
 - `confirmed_data/image_inventory` is the largest tracked cleanup target at
-  about `239M` and `15,781` tracked files.
+  about `237M` and `15,420` tracked files after the first workspace prune.
 - `docs/structure/data_role_inventory.md` now separates this area from canonical
   text/font/layout data so image cleanup can be scoped independently.
 - `confirmed_data/image_inventory/image_source_manifest.md` records the current
@@ -91,8 +91,10 @@ Why this is high value:
 Why this is not immediately safe:
 
 - `rle_tile_extraction` and `global_tile_extraction` are still script defaults.
-- `workspaces` holds review evidence that may matter for remaining image QA and
-  retrospective extraction.
+- Remaining `workspaces` units hold review evidence that may matter for image QA
+  and retrospective extraction. `07_ui_icon_badge_wordmarks` is already reduced
+  to a summary README and should be used as the model for future per-unit
+  pruning.
 
 Exit gate:
 

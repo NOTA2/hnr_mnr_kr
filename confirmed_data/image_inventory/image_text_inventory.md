@@ -1,11 +1,14 @@
 # 이미지 텍스트 inventory
 
 - 상태: `in_progress`
-- 마지막 갱신: `2026-05-19`
+- 마지막 갱신: `2026-06-12`
 
 ## 한글화 대상이 아닌 이미지 후보
 
 - `0x00534874`: battle_hud_small_font_or_glyph_sheet / 한글화 대상 아님 / 전투 HUD 의 작은 이름/수치 글자와 같은 계열로 보이는 원본 소형 폰트/글리프 시트 후보이다. 화면에 구워진 UI 라벨이나 문장 이미지가 아니므로 이미지 교체 대상은 아니다. 위쪽 깨짐은 타일맵/팔레트 없이 4bpp 타일을 일렬로 펼친 덤프 특성으로 본다.
+  - workspace 상태: `pruned_summary`
+  - 요약: `confirmed_data/image_inventory/workspaces/07_ui_icon_badge_wordmarks/README.md`
+  - 현재 활성 소스: `confirmed_data/image_inventory/edit_packs/common_hud_tiles_00534874`
 
 ## 비-이미지 텍스트로 확인된 문맥
 
@@ -84,10 +87,13 @@
   - 탐색 방식: 대표 UI 캡처 -> 작은 4bpp 배지 후보 덤프 -> 문자인지 아이콘인지 구분
   - 예상 텍스트 종류: 작은 워드마크, 배지, 미니 라벨
   - 작업 폴더: `confirmed_data/image_inventory/workspaces/07_ui_icon_badge_wordmarks`
+  - 작업 폴더 상태: `pruned_summary`
+  - 요약: `confirmed_data/image_inventory/workspaces/07_ui_icon_badge_wordmarks/README.md`
   - 세부 단위:
     - `mini_badge_labels`: 미니 배지 라벨 / pending_review / 첫 행동: 텍스트 기반인지 장식 아이콘인지 먼저 판별한다.
   - 참고: 아이콘/배지 크기의 워드마크는 큰 UI 패널과 따로 검토한다.
   - 참고: 교체 전략이 패널 아트와 다를 가능성이 커서 분리 유지가 유용하다.
+  - 참고: 2026-06-12 정리에서 대량 후보 dump/export 는 요약으로 대체했다. 현재 활성 0x00534874 작업은 edit_packs/common_hud_tiles_00534874 를 기준으로 한다.
 - `battle_result_or_reward_banners` (`pending_review`, `순서=8`, `우선순위=medium`)
   - 목표: 전투 결과/획득/보상 배너처럼 짧고 강한 워드마크 자산을 분리한다.
   - 탐색 방식: 전투 결과 화면 캡처 -> 배너 후보 LZ77/4bpp 덤프 -> 고정 워드마크 여부 확인

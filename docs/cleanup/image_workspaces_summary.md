@@ -10,7 +10,7 @@ No files are removed by this document.
 
 ## Shape
 
-- Total size: about `86M`
+- Total size after the first prune pass: about `82M`
 - Purpose: review-unit candidate workspaces for image/text-in-graphics audit.
 - Main file types:
   - `918` `.pgm`
@@ -32,7 +32,7 @@ contact sheets.
 | `04_dialogue_window_frame_art` | `11M` | 120 | Frame/label art evidence; not automatically editable source. |
 | `05_portrait_headshot_assets` | `11M` | 120 | Portrait evidence; mostly diagnostic unless text-bearing assets are found. |
 | `06_ui_panel_label_art` | `5.7M` | 120 | UI panel candidate evidence. |
-| `07_ui_icon_badge_wordmarks` | `3.6M` | 120 | Small badge/icon candidate evidence. |
+| `07_ui_icon_badge_wordmarks` | `4.0K` | 120 summarized | Pruned to `README.md`; active 0x00534874 work is protected under `edit_packs/common_hud_tiles_00534874`. |
 | `08_battle_result_or_reward_banners` | `11M` | 120 | Battle result/reward banner candidate evidence. |
 
 ## Lesson To Preserve
@@ -48,7 +48,11 @@ candidate sheets alone:
 
 ## Current Decision
 
-`workspaces/` remains `RETROSPECTIVE HOLD / KEEP WITH CAUTION`.
+`workspaces/` remains `RETROSPECTIVE HOLD / KEEP WITH CAUTION`, with one
+completed low-risk prune:
+
+- `07_ui_icon_badge_wordmarks` was reduced from generated candidate artifacts to
+  `confirmed_data/image_inventory/workspaces/07_ui_icon_badge_wordmarks/README.md`.
 
 It is not directly referenced by the item-level GUI image source manifest, but it
 still explains the review-unit approach and may contain useful evidence for

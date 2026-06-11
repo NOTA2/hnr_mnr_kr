@@ -38,6 +38,9 @@ been removed. Current cleanup checkpoints include:
   retrospective summaries were preserved;
 - tracking of small active referenced assets that had been hidden by broad ignore
   rules, such as the HUD 8x8 PGM set and battle HUD preview PNG;
+- first image-workspace prune: `07_ui_icon_badge_wordmarks` was reduced from
+  generated dumps/previews/contact sheets to a compact summary README while the
+  active `common_hud_tiles_00534874` edit-pack stayed protected;
 - explicit keep decisions for remaining ignored local QA/tooling paths.
 
 See `generated_workbenches_audit.md`, `local_rom_audit.md`,
@@ -66,8 +69,8 @@ further cleanup batch.
 - `generated_workbenches_audit.md`: generated workbench bulk cleanup plan.
 - `image_inventory_audit.md`: image inventory cleanup risk classification.
 - `image_inventory_prune_plan.md`: item-level manifest-based image pruning plan.
-- `image_workspaces_summary.md`: non-deleting summary of the largest image
-  workspace subtree before any future prune.
+- `image_workspaces_summary.md`: image workspace summary and first per-unit
+  prune record.
 - `next_cleanup_candidates.md`: ranked list of remaining cleanup/structure
   candidates and their exit gates.
 - `preliminary_classification.md`: conservative first-pass file categories.

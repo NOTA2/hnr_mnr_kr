@@ -2,6 +2,32 @@
 
 Date: 2026-06-02 KST
 
+## 2026-06-12 Image Workspace Prune Checkpoint
+
+- Branch: `codex/bootstrap-toolkit`
+- Tracked files after this cleanup batch: about `18,445`
+- Git-tracked ROM/save/savestate/patch files, excluding intentional release
+  patches: `0`
+
+Completed in this checkpoint family:
+
+- Added `scripts/audit_gui_workflow_integrity.py` as the cleanup safety check
+  for GUI item visibility, image source paths, review ROM paths, and BPS patch
+  generation basics.
+- Added `confirmed_data/image_inventory/image_source_manifest.json` as the
+  item-level GUI image source/replacement manifest.
+- Reduced `confirmed_data/image_inventory/workspaces/07_ui_icon_badge_wordmarks`
+  from generated dump/export/PNG/contact-sheet artifacts to one summary README.
+- Preserved the `0x00534874` lesson while keeping the active edit-pack source at
+  `confirmed_data/image_inventory/edit_packs/common_hud_tiles_00534874`.
+
+Current image cleanup snapshot:
+
+- `confirmed_data/image_inventory`: about `237M`
+- `confirmed_data/image_inventory/workspaces`: about `82M`
+- `07_ui_icon_badge_wordmarks`: about `4.0K`, summary-only
+- Image inventory tracked files after staging this batch: about `15,421`
+
 ## 2026-06-12 Starter-Kit / Planning Checkpoint
 
 - Branch: `codex/bootstrap-toolkit`

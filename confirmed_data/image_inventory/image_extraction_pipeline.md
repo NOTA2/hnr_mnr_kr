@@ -1,6 +1,6 @@
 # 이미지 추출 파이프라인 준비
 
-- 마지막 갱신: `2026-05-19`
+- 마지막 갱신: `2026-06-12`
 - 상태: `prepared`
 - 목표: 이미지에 구워진 텍스트 자산을 review unit 단위로 찾고, 덤프/수정/교체 가능한 작업 폴더를 준비한다.
 
@@ -8,27 +8,36 @@
 
 - `title_logo_wordmark` (순서=1)
   - 작업 폴더: `confirmed_data/image_inventory/workspaces/01_title_logo_wordmark`
+  - 작업 폴더 상태: `active_scaffold`
   - 탐색 방식: 타이틀 화면 런타임 케이스 등록 -> 영문판/일판 LZ77 diff 확인 -> 후보가 안 보이면 VRAM/tilemap/palette 역추적
 - `title_screen_static_menu_wordmarks` (순서=2)
   - 작업 폴더: `confirmed_data/image_inventory/workspaces/02_title_screen_static_menu_wordmarks`
+  - 작업 폴더 상태: `active_scaffold`
   - 탐색 방식: 타이틀 화면 런타임 케이스 등록 -> 영문판/일판 LZ77 diff 확인 -> 후보가 안 보이면 VRAM/tilemap/palette 역추적
 - `event_or_cutscene_text_cards` (순서=3)
   - 작업 폴더: `confirmed_data/image_inventory/workspaces/03_event_or_cutscene_text_cards`
+  - 작업 폴더 상태: `active_scaffold`
   - 탐색 방식: 대표 장면 스크린샷 수집 -> 카드성 오버레이 후보 LZ77 블록 탐색 -> 덤프 비교
 - `dialogue_window_frame_art` (순서=4)
   - 작업 폴더: `confirmed_data/image_inventory/workspaces/04_dialogue_window_frame_art`
+  - 작업 폴더 상태: `active_scaffold`
   - 탐색 방식: 대사창 스크린샷 -> 프레임/판넬 후보 아트 덤프 -> 텍스트 유무 확인
 - `portrait_headshot_assets` (순서=5)
   - 작업 폴더: `confirmed_data/image_inventory/workspaces/05_portrait_headshot_assets`
+  - 작업 폴더 상태: `active_scaffold`
   - 탐색 방식: 대표 대사 장면 스크린샷 -> portrait 후보 아트 덤프 -> 동일 인물 변형 수집
 - `ui_panel_label_art` (순서=6)
   - 작업 폴더: `confirmed_data/image_inventory/workspaces/06_ui_panel_label_art`
+  - 작업 폴더 상태: `active_scaffold`
   - 탐색 방식: 메뉴/인벤토리/상태창 스크린샷 -> 패널 후보 시트 덤프 -> 텍스트 여부 확인
 - `ui_icon_badge_wordmarks` (순서=7)
   - 작업 폴더: `confirmed_data/image_inventory/workspaces/07_ui_icon_badge_wordmarks`
+  - 작업 폴더 상태: `pruned_summary`
+  - 요약: `confirmed_data/image_inventory/workspaces/07_ui_icon_badge_wordmarks/README.md`
   - 탐색 방식: 대표 UI 캡처 -> 작은 4bpp 배지 후보 덤프 -> 문자인지 아이콘인지 구분
 - `battle_result_or_reward_banners` (순서=8)
   - 작업 폴더: `confirmed_data/image_inventory/workspaces/08_battle_result_or_reward_banners`
+  - 작업 폴더 상태: `active_scaffold`
   - 탐색 방식: 전투 결과 화면 캡처 -> 배너 후보 LZ77/4bpp 덤프 -> 고정 워드마크 여부 확인
 
 ## 작업 단계
@@ -60,7 +69,7 @@
 
 - 루트: `confirmed_data/image_inventory/workspaces`
 - 하위 폴더: `candidates, dumps, exports, notes`
-- 생성 수: `32`
+- 생성 수: `28`
 
 ## 첫 목표
 

@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "last_updated": "2026-05-19",
+  "last_updated": "2026-06-12",
   "status": "prepared",
   "pipeline_goal": "이미지에 구워진 텍스트 자산을 review unit 단위로 찾고, 덤프/수정/교체 가능한 작업 폴더를 준비한다.",
   "review_unit_order": [
@@ -8,48 +8,64 @@
       "id": "title_logo_wordmark",
       "review_order": 1,
       "workspace": "confirmed_data/image_inventory/workspaces/01_title_logo_wordmark",
+      "workspace_state": "active_scaffold",
+      "summary": null,
       "probe_method": "타이틀 화면 런타임 케이스 등록 -> 영문판/일판 LZ77 diff 확인 -> 후보가 안 보이면 VRAM/tilemap/palette 역추적"
     },
     {
       "id": "title_screen_static_menu_wordmarks",
       "review_order": 2,
       "workspace": "confirmed_data/image_inventory/workspaces/02_title_screen_static_menu_wordmarks",
+      "workspace_state": "active_scaffold",
+      "summary": null,
       "probe_method": "타이틀 화면 런타임 케이스 등록 -> 영문판/일판 LZ77 diff 확인 -> 후보가 안 보이면 VRAM/tilemap/palette 역추적"
     },
     {
       "id": "event_or_cutscene_text_cards",
       "review_order": 3,
       "workspace": "confirmed_data/image_inventory/workspaces/03_event_or_cutscene_text_cards",
+      "workspace_state": "active_scaffold",
+      "summary": null,
       "probe_method": "대표 장면 스크린샷 수집 -> 카드성 오버레이 후보 LZ77 블록 탐색 -> 덤프 비교"
     },
     {
       "id": "dialogue_window_frame_art",
       "review_order": 4,
       "workspace": "confirmed_data/image_inventory/workspaces/04_dialogue_window_frame_art",
+      "workspace_state": "active_scaffold",
+      "summary": null,
       "probe_method": "대사창 스크린샷 -> 프레임/판넬 후보 아트 덤프 -> 텍스트 유무 확인"
     },
     {
       "id": "portrait_headshot_assets",
       "review_order": 5,
       "workspace": "confirmed_data/image_inventory/workspaces/05_portrait_headshot_assets",
+      "workspace_state": "active_scaffold",
+      "summary": null,
       "probe_method": "대표 대사 장면 스크린샷 -> portrait 후보 아트 덤프 -> 동일 인물 변형 수집"
     },
     {
       "id": "ui_panel_label_art",
       "review_order": 6,
       "workspace": "confirmed_data/image_inventory/workspaces/06_ui_panel_label_art",
+      "workspace_state": "active_scaffold",
+      "summary": null,
       "probe_method": "메뉴/인벤토리/상태창 스크린샷 -> 패널 후보 시트 덤프 -> 텍스트 여부 확인"
     },
     {
       "id": "ui_icon_badge_wordmarks",
       "review_order": 7,
       "workspace": "confirmed_data/image_inventory/workspaces/07_ui_icon_badge_wordmarks",
+      "workspace_state": "pruned_summary",
+      "summary": "confirmed_data/image_inventory/workspaces/07_ui_icon_badge_wordmarks/README.md",
       "probe_method": "대표 UI 캡처 -> 작은 4bpp 배지 후보 덤프 -> 문자인지 아이콘인지 구분"
     },
     {
       "id": "battle_result_or_reward_banners",
       "review_order": 8,
       "workspace": "confirmed_data/image_inventory/workspaces/08_battle_result_or_reward_banners",
+      "workspace_state": "active_scaffold",
+      "summary": null,
       "probe_method": "전투 결과 화면 캡처 -> 배너 후보 LZ77/4bpp 덤프 -> 고정 워드마크 여부 확인"
     }
   ],
@@ -111,7 +127,7 @@
       "exports",
       "notes"
     ],
-    "created_count": 32
+    "created_count": 28
   },
   "first_targets": [
     "01_title_logo_wordmark",

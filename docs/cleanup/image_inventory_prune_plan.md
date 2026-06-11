@@ -9,8 +9,8 @@ No files are removed by this document.
 
 ## Current Baseline
 
-- `confirmed_data/image_inventory/`: about `239M`
-- tracked files under image inventory: `15,781+`
+- `confirmed_data/image_inventory/`: about `237M`
+- tracked files under image inventory: about `15,420`
 - item-level GUI image manifest records: `2,406`
 - item-level missing paths: `0`
 - GUI workflow integrity audit: passing
@@ -48,7 +48,7 @@ are still referenced by scripts, target lists, reports, or retrospective notes.
 | `edit_packs/party_menu_names_trace` | Runtime/OAM reconstruction evidence for party menu naming; useful retrospective material. |
 | `edit_packs/party_menu_ss4_ss5` | User-supplied savestate UI evidence; needs summary before pruning. |
 | `edit_packs/user_supplied_ss4_ss5_only*` | User-supplied capture crops; preserve until their role is summarized. |
-| `workspaces/` | Largest folder, but holds review-unit evidence and contact sheets. Needs summary first. |
+| `workspaces/` | Largest folder, but holds review-unit evidence and contact sheets. `07_ui_icon_badge_wordmarks` has been pruned to a summary; remaining units still need per-unit review before pruning. |
 | `global_tile_extraction/` | Broad extraction output; scripts and reports still use it as discovery context. |
 | `rle_tile_extraction/` | Broad RLE extraction output; image scripts still use default reports under this tree. |
 
@@ -78,7 +78,8 @@ These are plausible candidates only after the keep-with-caution gates are met.
 
 ## Next Practical Step
 
-The non-deleting `workspaces/` summary now lives in
-`image_workspaces_summary.md`. The next practical step is to decide whether the
-lowest-priority review unit can be summarized further and pruned one unit at a
-time.
+The first per-unit prune is complete:
+`confirmed_data/image_inventory/workspaces/07_ui_icon_badge_wordmarks` now keeps
+only a summary README. The next practical step is to choose the next
+lowest-risk review unit, summarize it first, and prune one unit at a time only
+after the GUI workflow audit passes.

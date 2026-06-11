@@ -1,13 +1,16 @@
 {
   "version": 1,
-  "last_updated": "2026-05-19",
+  "last_updated": "2026-06-12",
   "status": "in_progress",
   "note": "이 레이어는 inventory / 상태 관리용이며, 이미지에 구워진 텍스트 추출이 완료됐다는 뜻은 아니다.",
   "known_non_localizable_image_candidates": [
     {
       "offset": "0x00534874",
       "workspace": "confirmed_data/image_inventory/workspaces/07_ui_icon_badge_wordmarks",
-      "preview": "confirmed_data/image_inventory/workspaces/07_ui_icon_badge_wordmarks/png_exports/004_off_00534874.png",
+      "workspace_state": "pruned_summary",
+      "summary": "confirmed_data/image_inventory/workspaces/07_ui_icon_badge_wordmarks/README.md",
+      "active_source_family": "confirmed_data/image_inventory/edit_packs/common_hud_tiles_00534874",
+      "active_preview": "confirmed_data/image_inventory/edit_packs/common_hud_tiles_00534874/common_hud_tiles_00534874_contact_sheet.png",
       "classification": "battle_hud_small_font_or_glyph_sheet",
       "localization_needed": false,
       "reason": "전투 HUD 의 작은 이름/수치 글자와 같은 계열로 보이는 원본 소형 폰트/글리프 시트 후보이다. 화면에 구워진 UI 라벨이나 문장 이미지가 아니므로 이미지 교체 대상은 아니다. 위쪽 깨짐은 타일맵/팔레트 없이 4bpp 타일을 일렬로 펼친 덤프 특성으로 본다."
@@ -221,6 +224,8 @@
       "review_goal": "작은 아이콘/배지성 워드마크가 있다면 나중에 교체 난도가 높은 단위로 따로 뺀다.",
       "recommended_probe_method": "대표 UI 캡처 -> 작은 4bpp 배지 후보 덤프 -> 문자인지 아이콘인지 구분",
       "future_workspace": "confirmed_data/image_inventory/workspaces/07_ui_icon_badge_wordmarks",
+      "workspace_state": "pruned_summary",
+      "summary": "confirmed_data/image_inventory/workspaces/07_ui_icon_badge_wordmarks/README.md",
       "expected_text_kind": "작은 워드마크, 배지, 미니 라벨",
       "subunits": [
         {
@@ -232,7 +237,8 @@
       ],
       "notes": [
         "아이콘/배지 크기의 워드마크는 큰 UI 패널과 따로 검토한다.",
-        "교체 전략이 패널 아트와 다를 가능성이 커서 분리 유지가 유용하다."
+        "교체 전략이 패널 아트와 다를 가능성이 커서 분리 유지가 유용하다.",
+        "2026-06-12 정리에서 대량 후보 dump/export 는 요약으로 대체했다. 현재 활성 0x00534874 작업은 edit_packs/common_hud_tiles_00534874 를 기준으로 한다."
       ]
     },
     {
