@@ -17,8 +17,9 @@ Current disk hotspots:
 
 - `.git`: about `874M` (do not touch during project cleanup)
 - `confirmed_data`: about `389M`
-- `analysis`: about `44M` after current review stale PGM pruning
-- `analysis/generated_workbenches`: about `23M`
+- `analysis`: about `27M` after current review stale PGM pruning and
+  historical generated workbench local deletion
+- `analysis/generated_workbenches`: about `6.4M`
 - `analysis/generated_workbenches/current_review`: about `4.7M`
 - `patched_roms`: about `54M`, ignored except `.gitkeep`
 - `local_roms`: about `16M`, ignored

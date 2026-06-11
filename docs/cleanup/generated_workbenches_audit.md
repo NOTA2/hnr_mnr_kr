@@ -247,3 +247,42 @@ Verification:
 - Actual files in folder before add: `13`
 - Git-tracked files in folder before add: `0`
 - ROM/savestate/patch files changed in this batch: `0`
+
+## Batch 6 Plan
+
+Status: executed on 2026-06-11 KST.
+
+Deleted local-only historical/test generated workbench folders after preserving
+their retrospective summary in `docs/retrospective/evidence_digest.md`.
+
+Targets:
+
+- `analysis/generated_workbenches/inline_event_text_test/`
+- `analysis/generated_workbenches/current_review_entry8_retranslated/`
+- `analysis/generated_workbenches/current_review_entry8_two_only/`
+
+Pre-delete shape:
+
+- `inline_event_text_test`: `1,781` local files, about `7.7M`
+- `current_review_entry8_retranslated`: `1,441` local files, about `6.4M`
+- `current_review_entry8_two_only`: `640` local files, about `3.0M`
+- Git-tracked files in the three folders before deletion: `0`
+
+Decision: `DELETE LOCAL OUTPUT`.
+
+Reason:
+
+- These folders were generated historical/test workbench outputs.
+- Active GUI and build references were already checked as `0` in batch 2.
+- The reusable lesson and key counts are already summarized in
+  `docs/retrospective/evidence_digest.md`.
+- Keeping the local generated bulk no longer helps the active QA or starter-kit
+  extraction work.
+
+Verification:
+
+- Directories exist after deletion: no
+- Git-tracked deleted files after deletion: `0`
+- `analysis/generated_workbenches` disk size after deletion: about `6.4M`
+- `analysis` disk size after deletion: about `27M`
+- ROM/savestate/patch files changed in this batch: `0`
