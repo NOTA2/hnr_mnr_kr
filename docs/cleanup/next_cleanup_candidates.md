@@ -87,6 +87,8 @@ Why this is high value:
   `2,406` GUI image items with source/replacement roles and missing-path checks.
 - `docs/cleanup/image_inventory_prune_plan.md` records protected path families
   and deletion gates.
+- `docs/cleanup/image_workspace_prune_readiness.md` records why the remaining
+  workspace units are on hold after the first safe prune.
 
 Why this is not immediately safe:
 
@@ -95,6 +97,8 @@ Why this is not immediately safe:
   and retrospective extraction. `07_ui_icon_badge_wordmarks` is already reduced
   to a summary README and should be used as the model for future per-unit
   pruning.
+- No further workspace subtree should be pruned during active QA without a
+  per-unit summary and a fresh GUI workflow audit.
 
 Exit gate:
 

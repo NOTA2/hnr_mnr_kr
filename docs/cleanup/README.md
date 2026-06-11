@@ -71,6 +71,8 @@ further cleanup batch.
 - `image_inventory_prune_plan.md`: item-level manifest-based image pruning plan.
 - `image_workspaces_summary.md`: image workspace summary and first per-unit
   prune record.
+- `image_workspace_prune_readiness.md`: remaining image workspace keep/prune
+  readiness table.
 - `next_cleanup_candidates.md`: ranked list of remaining cleanup/structure
   candidates and their exit gates.
 - `preliminary_classification.md`: conservative first-pass file categories.
