@@ -24,18 +24,25 @@ localization pipeline by accident.
 
 ## Current Status
 
-The inventory pass is complete and conservative cleanup has started.
+The inventory pass is complete and cleanup is now in targeted batches.
 
-No active ROM, savestate, patch, workbench JSON, source script, or image
-replacement payload has been removed. Two Git index cleanup batches have been
-executed under `analysis/generated_workbenches/` with local files preserved on
-disk:
+No active ROM, savestate, patch, source script, or image replacement payload has
+been removed. Current cleanup checkpoints include:
 
-- `3,847` generated historical/test PGM files;
-- `15` generated historical/test metadata files.
+- local ROM backup/intermediate pruning, with source/current review/English
+  reference ROMs and active saves retained;
+- release packaging for `releases/hnr_mnr_ko_v0.1.0/`;
+- current review generated-workbench pruning from stale accumulated PGM files to
+  the `1,000` manifest-referenced PGM files;
+- local deletion of historical/test generated workbench folders after compact
+  retrospective summaries were preserved;
+- tracking of small active referenced assets that had been hidden by broad ignore
+  rules, such as the HUD 8x8 PGM set and battle HUD preview PNG;
+- explicit keep decisions for remaining ignored local QA/tooling paths.
 
-See `generated_workbenches_audit.md` and `safety_gate.md` before making or
-reviewing any further cleanup batch.
+See `generated_workbenches_audit.md`, `local_rom_audit.md`,
+`local_ignored_cleanup.md`, and `safety_gate.md` before making or reviewing any
+further cleanup batch.
 
 ## Inventory Documents
 
