@@ -108,3 +108,80 @@ Important findings:
   local candidate that needs direct reference checks before deletion.
 
 Do not run a ROM deletion batch until the release baseline is committed.
+
+## Local Delete Batch 1: Executed
+
+Date: 2026-06-11 KST
+
+The v0.1.0 release baseline has been committed and pushed. Batch 1 should remove
+only local ignored `.gba` files that are not active review targets and are not
+used by active script defaults.
+
+Keep:
+
+- `Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba`
+- `patched_roms/current_review/hnr_localization_review.gba`
+- `local_roms/english_patched/Fullmetal Alchemist Stray Rondo (English Patched v0.02).gba`
+- `patched_roms/current_review/current_review_font_ready.gba`
+- `patched_roms/current_review/current_review_text_fast_translated.gba`
+
+Keep all `.sav` files in this batch. Save files are small and may still help QA
+reproduction.
+
+Delete candidates for batch 1:
+
+- `hnr_localization_review.gba`
+- `analysis/tmp_lz77_tile_test/hnr_lz77_tile_test_changed.gba`
+- `patched_roms/current_review/backups/hnr_localization_review_before_field_label_archive_repoint.gba`
+- `patched_roms/current_review/backups/hnr_localization_review_before_image_capacity_fix.gba`
+- `patched_roms/current_review/current_review_font_expand_base.gba`
+- `patched_roms/current_review/current_review_translated.gba`
+- `patched_roms/current_review/hnr_localization_review.before_card_page_source_fix.gba`
+- `patched_roms/current_review/hnr_localization_review.before_common_hud_korean_slots.gba`
+
+Reasons:
+
+- root `hnr_localization_review.gba` has the same SHA256 as the clean source ROM
+  and is therefore a misleading duplicate, not the release target.
+- `analysis/tmp_lz77_tile_test/hnr_lz77_tile_test_changed.gba` is an ignored
+  temporary LZ77 tile test output.
+- the remaining files are older local review backups or intermediate translated
+  ROMs with no active script-default role.
+
+Pre-delete checks:
+
+- Git-tracked `.gba` / `.sav` files: `0`
+- working tree before doc update: clean
+- active release target SHA256 preserved in
+  `post_qa_release_snapshot.md`
+
+Post-delete verification:
+
+- Keep files missing after delete: `0`
+- Deleted target files still present: `0`
+- Git-tracked deleted files: `0`
+- Approximate local bytes removed: `69,667,668`
+- `.sav` files removed: `0`
+
+Remaining local `.gba` files after batch 1:
+
+- `Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba`
+- `local_roms/english_patched/Fullmetal Alchemist Stray Rondo (English Patched v0.02).gba`
+- `patched_roms/current_review/current_review_font_ready.gba`
+- `patched_roms/current_review/current_review_text_fast_translated.gba`
+- `patched_roms/current_review/hnr_localization_review.before_battle_hud_name_font.gba`
+- `patched_roms/current_review/hnr_localization_review.before_bw_invert_battle_hud_name_font.gba`
+- `patched_roms/current_review/hnr_localization_review.before_no_shadow_battle_hud_name_font.gba`
+- `patched_roms/current_review/hnr_localization_review.before_safe_battle_hud_name_font.gba`
+- `patched_roms/current_review/hnr_localization_review.gba`
+- `patched_roms/current_review/hnr_localization_review_no_entry8_segment_repoint.gba`
+
+Next ROM cleanup pass:
+
+- Keep the source ROM and current review ROM.
+- Keep English patched ROM and `current_review_font_ready.gba` while active
+  scripts reference them.
+- Review battle-HUD rollback ROMs and `no_entry8_segment_repoint` only after
+  their retrospective/debug references are summarized or retired.
+- Review `.sav` files separately; they are small and may be useful for QA
+  reproduction.
