@@ -57,6 +57,8 @@ Completed:
 - Safety and retention docs are in place.
 - `.gba`, `.sav`, savestate, and patch tracking checks are part of every cleanup
   batch.
+- `scripts/audit_gui_workflow_integrity.py` now protects GUI display, text/image
+  apply prerequisites, review ROM paths, and BPS patch generation during cleanup.
 - Cleanup is being saved through small commits and pushed checkpoints.
 
 ## Phase 1: Active Dependency Map
@@ -80,6 +82,8 @@ Current note:
 - Generated workbench, local ROM, ignored cache/tooling, release bundle, and
   small active referenced assets have explicit keep/delete/track decisions.
 - `confirmed_data/image_inventory/` remains high risk and is not pruned yet.
+- GUI workflow integrity currently passes with `14,017` workbench items and
+  `2,406` image replacement items.
 
 ## Phase 2: No-Delete Portability Fixes
 

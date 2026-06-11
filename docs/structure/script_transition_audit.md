@@ -54,6 +54,8 @@ Migration rule:
 
 - Do not move these until the GUI call sites are changed or top-level wrappers
   are added.
+- After any wrapper or path change, run
+  `python3 scripts/audit_gui_workflow_integrity.py`.
 
 ## Review ROM Build Dependencies
 
@@ -69,6 +71,8 @@ Migration rule:
 
 - Keep these paths stable until the full review ROM build and fast text rebuild
   paths are verified after any wrapper change.
+- Use `scripts/audit_gui_workflow_integrity.py` as the first read-only gate
+  before running heavier rebuild checks.
 
 ## Active Manual Commands
 

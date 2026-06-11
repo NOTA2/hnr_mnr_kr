@@ -49,6 +49,8 @@ further cleanup batch.
 - `current_state.md`: repo size, tracked-file distribution, ignored local files,
   and high-volume areas.
 - `safety_gate.md`: mandatory checks before deletion or large structure changes.
+- `gui_workflow_safety.md`: read-only GUI/text/image/ROM build/release safety
+  audit and latest known-good result.
 - `retention_policy.md`: criteria for keep, retrospective keep, untrack, and
   delete decisions.
 - `post_qa_release_snapshot.md`: file-state snapshot after first-pass QA and

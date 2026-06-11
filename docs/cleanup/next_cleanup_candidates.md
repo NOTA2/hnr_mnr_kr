@@ -7,8 +7,8 @@ next areas by safety, value, and dependency risk.
 
 ## Current Progress Baseline
 
-- Overall request: about `45%`
-- Project cleanup / structure: about `65%`
+- Overall request: about `47%`
+- Project cleanup / structure: about `70%`
 - Retrospective: about `30%`
 - Starter-kit extraction: about `20%`
 
@@ -94,6 +94,8 @@ Exit gate:
 
 - The minimal manifest proves which image assets are final source inputs,
   generated previews, runtime evidence, and historical/debug artifacts.
+- `python3 scripts/audit_gui_workflow_integrity.py` passes after any image
+  manifest or path move.
 
 ## Candidate 4: Remaining Ignored Local Paths
 

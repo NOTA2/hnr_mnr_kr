@@ -9,6 +9,7 @@ after compatibility wrappers are in place.
 
 Text and runtime coverage:
 
+- `scripts/audit_gui_workflow_integrity.py`
 - `scripts/audit_current_review_text_coverage.py`
 - `scripts/audit_rom_text_extraction_gaps.py`
 - `scripts/audit_ability_text_layout_candidates.py`
@@ -35,6 +36,9 @@ Translation quality and consistency:
   or marked historical.
 - `audit_translation_consistency_variants.py` feeds the ignored but kept
   `analysis/generated_workbenches/translation_consistency/` QA evidence.
+- `audit_gui_workflow_integrity.py` is the cleanup safety check for GUI display,
+  text/image apply prerequisites, current review ROM paths, and BPS patch
+  generation.
 
 ## Future Migration Shape
 

@@ -33,6 +33,12 @@ git ls-files '<target>'
 rg -n '<target-path-or-folder-name>' README.md docs confirmed_data scripts tools gba_kor_tool analysis
 ```
 
+For GUI/build/apply/release safety:
+
+```bash
+python3 scripts/audit_gui_workflow_integrity.py
+```
+
 For deletion or untracking batches:
 
 ```bash
@@ -71,6 +77,7 @@ Expected result for normal cleanup: no ROM, savestate, or patch files.
 - Do not use broad `rm -rf` on project data folders.
 - Do not delete or untrack active build inputs just because active GUI JSON does
   not reference them.
+- Do not merge a cleanup batch if the GUI workflow integrity audit fails.
 - Treat `confirmed_data/image_inventory/` as high risk until image-side QA ends.
 - Treat `analysis/generated_workbenches/current_review/prepared.tbl` as active
   while scripts still reference it.

@@ -59,6 +59,7 @@ cleared before any file move.
 
 ### Audit
 
+- `audit_gui_workflow_integrity.py`
 - `audit_current_review_text_coverage.py`
 - `audit_ability_text_layout_candidates.py`
 - `audit_entry8_missing_prefixed_records.py`
