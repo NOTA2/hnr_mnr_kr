@@ -20,6 +20,15 @@ ASCII_TO_FULLWIDTH = {
     "$": "＄",
 }
 
+ASCII_DIGIT_TO_FULLWIDTH = {
+    str(digit): chr(ord("０") + digit)
+    for digit in range(10)
+}
+FULLWIDTH_DIGIT_TO_ASCII = {
+    chr(ord("０") + digit): str(digit)
+    for digit in range(10)
+}
+
 UNICODE_COMPAT_REPLACEMENTS = {
     "·": "・",
     "’": "'",
@@ -68,8 +77,8 @@ FULLWIDTH_SPACE_SOURCE_GROUPS = {
 }
 
 FULLWIDTH_DIGIT_SOURCE_GROUPS = {
-    # These renderers/counted slots have shown halfwidth instability or are
-    # fixed-width enough that keeping the original fullwidth path is safer.
+    # Fallback only when a caller has no reference text. If the original/source
+    # text contains digits, its digit width wins over this group default.
     "startup_intro_texts",
     "inline_event_texts",
     "save_menu_texts",
@@ -83,12 +92,24 @@ ENTRY8_FIXED_WIDTH_SOURCE_GROUPS = {
 }
 
 COMMA_FOLLOWING_SPACE_RE = re.compile(r"([,、，])[\u3000 ]+")
+DIGIT_RUN_RE = re.compile(r"[0-9０-９]+")
 
 TERM_DESCRIPTION_SOURCE_GROUPS = {
     "battle_texts",
     "ability_texts",
     "material_texts",
 }
+
+RECOVERY_MEDICINE_BATTLE_DESCRIPTION_RE = re.compile(r"^体力を[０-９]+[\u3000 ]*\x0b回復する薬$")
+RECOVERY_MEDICINE_NUMBER_RE = re.compile(r"^回復薬[0-9０-９](?:$|体力を)")
+CERTIFICATE_PROGRESS_LABEL_RE = re.compile(r"^証[\u3000 ](?:[０-９]{2}／１０|ＦＩＮＳＨ)$")
+SPEAR_ALCHEMY_ATTACK_SOURCE_TEXT = "槍を錬成して攻撃"
+
+TEXT_LAYOUT_METADATA_SOURCE_GROUPS = {
+    "location_texts",
+}
+
+WORLD_MAP_LOCATION_SOURCE_GROUPS = TEXT_LAYOUT_METADATA_SOURCE_GROUPS
 
 JAPANESE_TEXT_RE = re.compile(
     r"[\u3041-\u3096\u309d-\u309f\u30a1-\u30fa\u30fd-\u30ff\u3400-\u9fff]"
@@ -145,8 +166,9 @@ def build_default_profile(texts: Iterable[str]) -> dict:
     for src, dst in ASCII_TO_FULLWIDTH.items():
         replacements[src] = dst if dst in safe_chars else src
     for digit in range(10):
+        fullwidth_digit = chr(ord("０") + digit)
         replacements[str(digit)] = str(digit)
-        replacements[chr(ord("０") + digit)] = str(digit)
+        replacements[fullwidth_digit] = fullwidth_digit
     replacements.update(
         {
             "，": ",",
@@ -165,8 +187,81 @@ def build_default_profile(texts: Iterable[str]) -> dict:
         "notes": [
             "현재 추출본에서 실제로 확인된 비일본어/비한자 문자 기준 프로필",
             "GUI 저장, 에이전트 결과 병합, ROM 적용 전에 같은 정규화를 적용한다",
+            "숫자/숫자 주변 슬래시는 원문 폭을 따른다. 프로필 기본값은 숫자 모양을 보존하고, 실제 정규화 단계가 reference_text 를 보고 폭을 결정한다.",
         ],
     }
+
+
+def preferred_digit_width(reference_text: str | None, source_group: str | None = None) -> str | None:
+    reference = reference_text or ""
+    has_ascii = bool(re.search(r"[0-9]", reference))
+    has_fullwidth = bool(re.search(r"[０-９]", reference))
+    if has_ascii and not has_fullwidth:
+        return "ascii"
+    if has_fullwidth and not has_ascii:
+        return "fullwidth"
+    if has_ascii and has_fullwidth:
+        return None
+    if source_group in FULLWIDTH_DIGIT_SOURCE_GROUPS:
+        return "fullwidth"
+    return None
+
+
+def preferred_slash_width(reference_text: str | None) -> str | None:
+    reference = reference_text or ""
+    has_ascii = "/" in reference
+    has_fullwidth = "／" in reference
+    if has_ascii and not has_fullwidth:
+        return "ascii"
+    if has_fullwidth and not has_ascii:
+        return "fullwidth"
+    if has_ascii and has_fullwidth:
+        return None
+    return None
+
+
+def digit_run_width(text: str) -> str | None:
+    has_ascii = bool(re.search(r"[0-9]", text))
+    has_fullwidth = bool(re.search(r"[０-９]", text))
+    if has_ascii and not has_fullwidth:
+        return "ascii"
+    if has_fullwidth and not has_ascii:
+        return "fullwidth"
+    return None
+
+
+def convert_digit_run_width(text: str, width: str) -> str:
+    if width == "ascii":
+        return "".join(FULLWIDTH_DIGIT_TO_ASCII.get(ch, ch) for ch in text)
+    if width == "fullwidth":
+        return "".join(ASCII_DIGIT_TO_FULLWIDTH.get(ch, ch) for ch in text)
+    return text
+
+
+def normalize_digit_width_runs(
+    text: str,
+    *,
+    reference_text: str | None = None,
+    source_group: str | None = None,
+) -> str:
+    reference = reference_text or ""
+    reference_runs = list(DIGIT_RUN_RE.finditer(reference))
+    text_runs = list(DIGIT_RUN_RE.finditer(text))
+    if reference_runs and len(reference_runs) == len(text_runs):
+        widths = [digit_run_width(match.group(0)) for match in reference_runs]
+        if all(widths):
+            pieces: list[str] = []
+            cursor = 0
+            for match, width in zip(text_runs, widths):
+                pieces.append(text[cursor:match.start()])
+                pieces.append(convert_digit_run_width(match.group(0), str(width)))
+                cursor = match.end()
+            pieces.append(text[cursor:])
+            return "".join(pieces)
+    digit_width = preferred_digit_width(reference_text, source_group)
+    if digit_width:
+        return convert_digit_run_width(text, digit_width)
+    return text
 
 
 def load_profile() -> dict:
@@ -198,7 +293,57 @@ def pad_term_name_field(name: str, *, reference_text: str | None = None) -> str:
     return f"{name}{'　' * fullwidth_spaces}{' ' * halfwidth_spaces}"
 
 
-def normalize_term_description_layout(text: str, *, reference_text: str | None = None) -> str:
+def normalize_world_map_location_layout(text: str, *, reference_text: str | None = None) -> str:
+    # World-map label width is computed by the runtime from the string itself.
+    # Keep translator-facing text clean: no leading/trailing alignment spaces,
+    # and only deliberate internal spaces as fullwidth.
+    return text.replace(" ", "　").strip("　")
+
+
+def normalize_item_popup_medicine_layout(text: str, *, reference_text: str | None = None) -> str:
+    separator = "\x0b" if "\x0b" in text else "\n" if "\n" in text else None
+    if separator is None:
+        return re.sub(r"[\u3000 ]+", " ", text).strip()
+    name, description = text.split(separator, 1)
+    normalized_name_field = name.replace("　", " ")
+    leading_name_space = re.match(r"^ *", normalized_name_field).group(0)
+    normalized_name = leading_name_space + re.sub(r" +", " ", normalized_name_field).strip()
+    # Keep intentional leading/trailing spaces after the inline separator so
+    # the GUI can tune this awkward battle ITEM popup manually. Trailing spaces
+    # can be useful as blank glyphs to clear pixels left by a previous item.
+    normalized_description = description.replace("　", " ")
+    padded_name = pad_term_name_field(normalized_name, reference_text=reference_text)
+    return f"{padded_name}\x0b{normalized_description}"
+
+
+def normalize_recovery_medicine_number_spacing(text: str, *, reference_text: str | None = None) -> str:
+    # Item names are fixed-size records such as 回復薬１. A stray visible space
+    # before the number makes 회복약１ exceed the original 8-byte slot.
+    if not reference_text or not RECOVERY_MEDICINE_NUMBER_RE.search(reference_text):
+        return text
+    return re.sub(r"회복약[\u3000 ]+(?=[0-9０-９])", "회복약", text)
+
+
+def normalize_certificate_progress_label_spacing(text: str, *, reference_text: str | None = None) -> str:
+    if not reference_text or not CERTIFICATE_PROGRESS_LABEL_RE.fullmatch(reference_text):
+        return text
+    return text.replace(" ", "　")
+
+
+def normalize_user_confirmed_fixed_slot_phrases(text: str, *, reference_text: str | None = None) -> str:
+    if reference_text == SPEAR_ALCHEMY_ATTACK_SOURCE_TEXT:
+        return text.replace("창을 연성해 공격", "창을연성해 공격").replace("창을 연성해\n공격", "창을연성해 공격")
+    return text
+
+
+def normalize_term_description_layout(
+    text: str,
+    *,
+    source_group: str | None = None,
+    reference_text: str | None = None,
+) -> str:
+    if source_group == "battle_texts" and reference_text and RECOVERY_MEDICINE_BATTLE_DESCRIPTION_RE.fullmatch(reference_text):
+        return normalize_item_popup_medicine_layout(text, reference_text=reference_text)
     separator = "\x0b" if "\x0b" in text else "\n" if "\n" in text else None
     if separator is None:
         return text
@@ -233,12 +378,9 @@ def normalize_translation_text(
     replacements = dict(profile.get("replacements", {}))
     replacements.update(UNICODE_COMPAT_REPLACEMENTS)
     for digit in range(10):
+        fullwidth_digit = chr(ord("０") + digit)
         replacements[str(digit)] = str(digit)
-        replacements[chr(ord("０") + digit)] = str(digit)
-    if source_group in FULLWIDTH_DIGIT_SOURCE_GROUPS:
-        for digit in range(10):
-            replacements[str(digit)] = chr(ord("０") + digit)
-            replacements[chr(ord("０") + digit)] = chr(ord("０") + digit)
+        replacements[fullwidth_digit] = fullwidth_digit
     if source_group not in FULLWIDTH_SPACE_SOURCE_GROUPS:
         replacements[" "] = " "
         replacements["　"] = " "
@@ -260,13 +402,14 @@ def normalize_translation_text(
                 "”": '"',
                 "-": "-",
                 "－": "-",
-                "/": "/",
-                "／": "/",
+                "/": "／",
+                "／": "／",
             }
         )
-        for digit in range(10):
-            replacements[str(digit)] = str(digit)
-            replacements[chr(ord("０") + digit)] = str(digit)
+    if source_group == "credits_texts":
+        # Keep the staff/company divider as the fullwidth slash used by the
+        # original font instead of the narrow ASCII slash.
+        replacements.update({"/": "／", "／": "／"})
     if source_group in FULLWIDTH_PUNCTUATION_SOURCE_GROUPS:
         replacements.update(
             {
@@ -322,8 +465,29 @@ def normalize_translation_text(
             }
         )
         for digit in range(10):
-            replacements[str(digit)] = chr(ord("０") + digit)
-            replacements[chr(ord("０") + digit)] = chr(ord("０") + digit)
+            fullwidth_digit = chr(ord("０") + digit)
+            replacements[str(digit)] = fullwidth_digit
+            replacements[fullwidth_digit] = fullwidth_digit
+
+    digit_width = preferred_digit_width(reference_text, source_group)
+    if digit_width == "ascii":
+        for digit in range(10):
+            fullwidth_digit = chr(ord("０") + digit)
+            replacements[str(digit)] = str(digit)
+            replacements[fullwidth_digit] = str(digit)
+    elif digit_width == "fullwidth":
+        for digit in range(10):
+            fullwidth_digit = chr(ord("０") + digit)
+            replacements[str(digit)] = fullwidth_digit
+            replacements[fullwidth_digit] = fullwidth_digit
+
+    slash_width = preferred_slash_width(reference_text)
+    if slash_width == "ascii":
+        replacements["/"] = "/"
+        replacements["／"] = "/"
+    elif slash_width == "fullwidth":
+        replacements["/"] = "／"
+        replacements["／"] = "／"
 
     normalized = text.replace("\r\n", "\n").replace("\r", "\n").replace("\t", " ")
 
@@ -341,8 +505,31 @@ def normalize_translation_text(
     for ch in normalized:
         out.append(replacements.get(ch, ch))
     normalized = "".join(out)
+    normalized = normalize_digit_width_runs(
+        normalized,
+        reference_text=reference_text,
+        source_group=source_group,
+    )
+    normalized = normalize_recovery_medicine_number_spacing(
+        normalized,
+        reference_text=reference_text,
+    )
+    normalized = normalize_certificate_progress_label_spacing(
+        normalized,
+        reference_text=reference_text,
+    )
+    normalized = normalize_user_confirmed_fixed_slot_phrases(
+        normalized,
+        reference_text=reference_text,
+    )
     if source_group in ENTRY8_FIXED_WIDTH_SOURCE_GROUPS:
         normalized = COMMA_FOLLOWING_SPACE_RE.sub(r"\1", normalized)
     if source_group in TERM_DESCRIPTION_SOURCE_GROUPS:
-        normalized = normalize_term_description_layout(normalized, reference_text=reference_text)
+        normalized = normalize_term_description_layout(
+            normalized,
+            source_group=source_group,
+            reference_text=reference_text,
+        )
+    if source_group in WORLD_MAP_LOCATION_SOURCE_GROUPS:
+        normalized = normalize_world_map_location_layout(normalized, reference_text=reference_text)
     return normalized

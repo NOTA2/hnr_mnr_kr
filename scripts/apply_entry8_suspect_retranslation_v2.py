@@ -134,8 +134,6 @@ def validate(
         return False, "unknown_item", None
     if item.get("source_group") != ENTRY8_SOURCE_GROUP:
         return False, "not_entry8", None
-    if item.get("manual_locked"):
-        return False, "manual_locked", None
     current = item.get("translation") or item.get("effective_translation") or ""
     if current != current_seen:
         return False, "stale_current_value", None

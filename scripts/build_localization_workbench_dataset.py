@@ -3,7 +3,9 @@
 from __future__ import annotations
 
 import json
+import os
 import re
+import subprocess
 import sys
 from collections import defaultdict
 from datetime import date
@@ -61,6 +63,48 @@ IMAGE_CATEGORY_IDS = {
 
 def is_image_item(item: dict) -> bool:
     return item.get("category_id") in IMAGE_CATEGORY_IDS
+
+
+def python_has_pillow(python_path: str) -> bool:
+    try:
+        completed = subprocess.run(
+            [python_path, "-c", "from PIL import Image"],
+            cwd=ROOT,
+            text=True,
+            capture_output=True,
+            env={key: value for key, value in os.environ.items() if key != "PYTHONPATH"},
+            check=False,
+        )
+    except OSError:
+        return False
+    return completed.returncode == 0
+
+
+def select_pillow_python() -> str:
+    candidates = [
+        os.environ.get("PYTHON"),
+        sys.executable,
+        str(Path.home() / ".cache/codex-runtimes/codex-primary-runtime/dependencies/python/bin/python3"),
+        "python3",
+    ]
+    seen: set[str] = set()
+    for candidate in candidates:
+        if not candidate or candidate in seen:
+            continue
+        seen.add(candidate)
+        if python_has_pillow(candidate):
+            return candidate
+    return sys.executable
+
+
+def ensure_pillow_runtime_for_direct_run() -> None:
+    if python_has_pillow(sys.executable):
+        return
+    pillow_python = select_pillow_python()
+    if pillow_python == sys.executable:
+        return
+    env = {key: value for key, value in os.environ.items() if key != "PYTHONPATH"}
+    os.execve(pillow_python, [pillow_python, *sys.argv], env)
 
 PORTRAIT_VARIANT_TOKEN_RE = re.compile(r"^(?P<prefix>[^:]+):(?P<person>\d+)(?P<variant>[A-Z])$")
 
@@ -228,6 +272,73 @@ def load_json(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
 
 
+def text_payload_range(record: dict) -> tuple[int, int] | None:
+    if record.get("offset") is None or record.get("byte_length") is None:
+        return None
+    start = int(record["offset"])
+    return start, start + int(record["byte_length"])
+
+
+def load_text_overlay_protection_ranges() -> list[dict]:
+    ranges = []
+    for path in sorted(TRANSLATION_WORKSETS.glob("translation_workset_*.json")):
+        if path.name == "translation_workset_inline_event_texts.json":
+            continue
+        records = load_json(path)
+        if not isinstance(records, list):
+            continue
+        for record in records:
+            if record.get("source_group") == "inline_event_texts":
+                continue
+            payload_range = text_payload_range(record)
+            if payload_range is None:
+                continue
+            start, end = payload_range
+            ranges.append(
+                {
+                    "start": start,
+                    "end": end,
+                    "item_id": f"{path.stem}:{start:08X}",
+                    "source_group": record.get("source_group"),
+                    "text": record.get("text", ""),
+                }
+            )
+    for path in sorted((TRANSLATION_WORKSPACE / "registry_a_entry8_clusters").glob("cluster_*.json")):
+        records = load_json(path)
+        if not isinstance(records, list):
+            continue
+        for record in records:
+            if record.get("source_group") != "registry_a_entry8_prefixed_texts":
+                continue
+            payload_range = text_payload_range(record)
+            if payload_range is None:
+                continue
+            start, end = payload_range
+            ranges.append(
+                {
+                    "start": start,
+                    "end": end,
+                    "item_id": f"{path.stem}:{start:08X}",
+                    "source_group": record.get("source_group"),
+                    "text": record.get("text", ""),
+                }
+            )
+    return sorted(ranges, key=lambda row: (row["start"], row["end"]))
+
+
+def find_inline_text_overlap_parent(record: dict, protection_ranges: list[dict]) -> dict | None:
+    if record.get("source_group") != "inline_event_texts":
+        return None
+    payload_range = text_payload_range(record)
+    if payload_range is None:
+        return None
+    start, end = payload_range
+    for parent in protection_ranges:
+        if max(start, int(parent["start"])) < min(end, int(parent["end"])):
+            return parent
+    return None
+
+
 def load_json_if_exists(path: Path, fallback):
     if path.exists():
         return load_json(path)
@@ -253,10 +364,72 @@ def native_image_source_path(path: str) -> str:
     if name.endswith("_4x.png"):
         candidates.append(str(path_obj.with_name(name.replace("_4x.png", ".png"))))
         candidates.append(path.replace("_4x.png", ".png.1x.png"))
+    scaled_suffix = re.search(r"_(?:[2-9]|1[0-9])x(?=\.png$)", name)
+    if scaled_suffix:
+        candidates.append(str(path_obj.with_name(name[: scaled_suffix.start()] + ".png")))
     for candidate in candidates:
         if candidate != path and existing_relative_path(candidate):
             return candidate
     return path
+
+
+def is_scaled_image_path(path: str) -> bool:
+    if not path:
+        return False
+    path_obj = Path(path)
+    return (
+        re.search(r"_(?:[2-9]|1[0-9])x(?=\.png$)", path_obj.name) is not None
+        or "__edit_4x" in path_obj.name
+        or "__advanced_edit_4x" in path_obj.name
+        or any(re.fullmatch(r"(?:preview|grid)_(?:[2-9]|1[0-9])x", part) for part in path_obj.parts)
+    )
+
+
+def native_visible_image_path(path: str) -> str:
+    if not path:
+        return ""
+    native_path = native_image_source_path(path)
+    if native_path and not is_scaled_image_path(native_path) and existing_relative_path(native_path):
+        return native_path
+    if not is_scaled_image_path(path) and existing_relative_path(path):
+        return path
+    return ""
+
+
+def normalize_candidate_gallery_paths(gallery) -> list[dict]:
+    if not isinstance(gallery, list):
+        return []
+    normalized: list[dict] = []
+    seen_paths: set[tuple[str, str]] = set()
+    for entry in gallery:
+        if not isinstance(entry, dict):
+            continue
+        item = dict(entry)
+        for field in ("png_path", "preview_path", "jp_reference_path"):
+            path = item.get(field, "")
+            if not path:
+                continue
+            native_path = native_visible_image_path(str(path))
+            if native_path:
+                item[field] = native_path
+            elif is_scaled_image_path(str(path)):
+                item[field] = ""
+
+        primary_path = str(item.get("png_path") or item.get("preview_path") or "")
+        if not primary_path or is_scaled_image_path(primary_path):
+            continue
+
+        for field in ("index", "source"):
+            value = item.get(field)
+            if isinstance(value, str):
+                item[field] = re.sub(r"(?:[2-9]|1[0-9])x", "1x", value)
+
+        path_key = (str(item.get("png_path", "")), str(item.get("preview_path", "")))
+        if path_key in seen_paths:
+            continue
+        seen_paths.add(path_key)
+        normalized.append(item)
+    return normalized
 
 
 def build_image_native_source_path_map() -> dict[str, str]:
@@ -339,7 +512,7 @@ def build_image_native_source_path_map() -> dict[str, str]:
     )
     for resource in registry_b_manifest.get("resources", []):
         try:
-            offset = int(resource["file_offset"])
+            offset = int(resource.get("original_file_offset") or resource["file_offset"])
             entry = int(resource["entry"])
         except (KeyError, TypeError, ValueError):
             continue
@@ -354,14 +527,28 @@ def normalize_image_source_paths(items: list[dict]) -> None:
         if not is_image_item(item):
             continue
         preferred_source = source_by_item.get(item.get("item_id"))
+        if preferred_source:
+            preferred_source = native_visible_image_path(preferred_source)
         if not preferred_source:
-            preferred_source = native_image_source_path(item.get("source_download_path", ""))
+            preferred_source = native_visible_image_path(item.get("source_download_path", ""))
         if not preferred_source or not existing_relative_path(preferred_source):
-            preferred_source = native_image_source_path(item.get("source_preview_path", ""))
-        if not preferred_source or not existing_relative_path(preferred_source):
-            continue
-        item["source_preview_path"] = preferred_source
-        item["source_download_path"] = preferred_source
+            preferred_source = native_visible_image_path(item.get("source_preview_path", ""))
+        if preferred_source and existing_relative_path(preferred_source):
+            item["source_preview_path"] = preferred_source
+            item["source_download_path"] = preferred_source
+        reference_path = native_visible_image_path(item.get("reference_preview_path", ""))
+        if reference_path:
+            item["reference_preview_path"] = reference_path
+        item["candidate_gallery"] = normalize_candidate_gallery_paths(item.get("candidate_gallery", []))
+        if is_scaled_image_path(str(item.get("previous_replacement_path") or "")):
+            item["previous_replacement_path"] = ""
+        history = item.get("replacement_history")
+        if isinstance(history, list):
+            item["replacement_history"] = [
+                value
+                for value in history
+                if isinstance(value, str) and not is_scaled_image_path(value)
+            ]
 
 
 def build_translation_normalization_profile() -> None:
@@ -528,6 +715,7 @@ def build_categories() -> list[dict]:
 
 def build_text_items(dialogue_tokens: dict[str, dict[int, str]], entry8_cluster_map: dict[int, str]) -> list[dict]:
     items: list[dict] = []
+    text_overlay_protection_ranges = load_text_overlay_protection_ranges()
     workset_specs = [
         ("translation_workset_opening_intro.json", "translation_workset_opening_intro"),
         ("translation_workset_core_ui.json", "translation_workset_core_ui"),
@@ -536,6 +724,30 @@ def build_text_items(dialogue_tokens: dict[str, dict[int, str]], entry8_cluster_
         ("translation_workset_registry_d_dialogue.json", "translation_workset_registry_d_dialogue"),
         ("translation_workset_inline_event_texts.json", "translation_workset_inline_event_texts"),
     ]
+
+    def normalize_translation_for_workbench_storage(record: dict) -> str:
+        source_group = record["source_group"]
+        normalized = normalize_translation_text(
+            record.get("translation", ""),
+            source_group=source_group,
+            reference_text=record.get("text"),
+        )
+        if source_group == "location_texts":
+            return normalized.strip("　 ")
+        return normalized
+
+    def draft_for_workbench_storage(record: dict, translation: str) -> str:
+        if record.get("source_group") == "credits_texts" and not translation:
+            # In credits, an empty translation intentionally means "keep the
+            # original fixed-size slot". Falling back to an old draft can
+            # resurrect transliterated Japanese staff names in the GUI.
+            return ""
+        draft = record.get("agent_draft") or translation
+        return normalize_translation_text(
+            draft,
+            source_group=record.get("source_group"),
+            reference_text=record.get("text"),
+        )
 
     for filename, category_id in workset_specs:
         workset_id = filename.replace(".json", "")
@@ -551,11 +763,10 @@ def build_text_items(dialogue_tokens: dict[str, dict[int, str]], entry8_cluster_
             if source_group in {"save_menu_texts", "registry_a_entry8_prefixed_texts"}:
                 terminator = None
                 append_terminator = False
-            translation = normalize_translation_text(
-                record.get("translation", ""),
-                source_group=source_group,
-                reference_text=record.get("text"),
-            )
+            translation = normalize_translation_for_workbench_storage(record)
+            text_overlap_parent = find_inline_text_overlap_parent(record, text_overlay_protection_ranges)
+            if text_overlap_parent is not None:
+                continue
             items.append(
                 {
                     "item_id": item_id,
@@ -576,9 +787,8 @@ def build_text_items(dialogue_tokens: dict[str, dict[int, str]], entry8_cluster_
                     "order_in_category": order,
                     "text": record["text"],
                     "translation": translation,
-                    "agent_draft": record.get("agent_draft") or translation,
+                    "agent_draft": draft_for_workbench_storage(record, translation),
                     "agent_comment": "",
-                    "manual_locked": False,
                     "effective_translation": translation,
                     "translation_source": "seed" if translation else "original",
                     "notes": record.get("notes", ""),
@@ -638,9 +848,12 @@ def build_text_items(dialogue_tokens: dict[str, dict[int, str]], entry8_cluster_
                     "order_in_category": order,
                     "text": record["text"],
                     "translation": translation,
-                    "agent_draft": record.get("agent_draft") or translation,
+                    "agent_draft": normalize_translation_text(
+                        record.get("agent_draft") or translation,
+                        source_group=record["source_group"],
+                        reference_text=record.get("text"),
+                    ),
                     "agent_comment": "",
-                    "manual_locked": False,
                     "effective_translation": translation,
                     "translation_source": "seed" if translation else "original",
                     "notes": record.get("notes", ""),
@@ -1046,10 +1259,12 @@ def decode_registry_b_tile_resource(rom: bytes, info: dict) -> dict:
 def ensure_registry_b_zp_edit_pack() -> list[dict]:
     from PIL import Image, ImageDraw, ImageFont
 
-    source_rom = CURRENT_REVIEW_ROM if CURRENT_REVIEW_ROM.exists() else SOURCE_ROM
+    source_rom = SOURCE_ROM
     if not source_rom.exists():
         return []
     rom = source_rom.read_bytes()
+    current_rom_path = CURRENT_REVIEW_ROM if CURRENT_REVIEW_ROM.exists() else SOURCE_ROM
+    current_rom = current_rom_path.read_bytes() if current_rom_path.exists() else rom
 
     REGISTRY_B_ZP_OUT.mkdir(parents=True, exist_ok=True)
     raw_dir = REGISTRY_B_ZP_OUT / "decoded_raw"
@@ -1072,17 +1287,18 @@ def ensure_registry_b_zp_edit_pack() -> list[dict]:
         info = registry_b_entry_info(rom, entry)
         if not info:
             continue
+        current_info = registry_b_entry_info(current_rom, entry) or info
         try:
             decoded = decode_registry_b_tile_resource(rom, info)
         except Exception as exc:
-            records.append({**spec, **info, "status": "decode_error", "error": str(exc)})
+            records.append({**spec, **current_info, "status": "decode_error", "error": str(exc)})
             continue
         payload = decoded["payload"]
         if len(payload) % 32:
             records.append(
                 {
                     **spec,
-                    **info,
+                    **current_info,
                     "status": "skipped",
                     "variant": decoded["variant"],
                     "decoded_size": len(payload),
@@ -1145,8 +1361,12 @@ def ensure_registry_b_zp_edit_pack() -> list[dict]:
         records.append(
             {
                 **spec,
-                **info,
+                **current_info,
                 "status": "decoded",
+                "original_file_offset": int(info["file_offset"]),
+                "original_rom_pointer": int(info["rom_pointer"]),
+                "current_file_offset": int(current_info["file_offset"]),
+                "current_rom_pointer": int(current_info["rom_pointer"]),
                 "variant": decoded["variant"],
                 "compression": decoded["compression"],
                 "decoded_size": len(payload),
@@ -1166,6 +1386,7 @@ def ensure_registry_b_zp_edit_pack() -> list[dict]:
                 "grid_4x": str(grid_path.relative_to(ROOT)),
                 "contact_sheet": str(contact_path.relative_to(ROOT)),
                 "source_rom": str(source_rom.relative_to(ROOT)),
+                "current_rom": str(current_rom_path.relative_to(ROOT)),
             }
         )
 
@@ -1173,6 +1394,7 @@ def ensure_registry_b_zp_edit_pack() -> list[dict]:
         "table_offset": REGISTRY_B_TABLE_OFFSET,
         "table_offset_hex": f"0x{REGISTRY_B_TABLE_OFFSET:08X}",
         "source_rom": str(source_rom.relative_to(ROOT)),
+        "current_rom": str(current_rom_path.relative_to(ROOT)),
         "notes": "Registry B tile resources decoded from the 0x08183D50 mirror table. ZP01/ZP00 resources are decompressed; raw 4bpp entries are exported directly. source_1x images are contiguous 8x8 tile sheets for editing.",
         "resources": records,
     }
@@ -1760,7 +1982,8 @@ def build_registry_b_zp_items() -> list[dict]:
     for resource in sorted(resources, key=lambda record: int(record["entry"])):
         entry = int(resource["entry"])
         entry_hex = f"{entry:02X}"
-        offset = int(resource["file_offset"])
+        current_offset = int(resource["file_offset"])
+        offset = int(resource.get("original_file_offset") or current_offset)
         compressed_size = int(resource["compressed_size"])
         decoded_size = int(resource["decoded_size"])
         tile_count = int(resource["tile_count"])
@@ -1789,7 +2012,8 @@ def build_registry_b_zp_items() -> list[dict]:
                 "compression": compression,
                 "notes": (
                     f"{resource.get('notes', '')} "
-                    f"테이블 0x{int(resource['table_offset']):08X}, ROM 포인터 0x{int(resource['rom_pointer']):08X}, "
+                    f"테이블 0x{int(resource['table_offset']):08X}, 원본 오프셋 0x{offset:08X}, 현재 오프셋 0x{current_offset:08X}, "
+                    f"ROM 포인터 0x{int(resource['rom_pointer']):08X}, "
                     f"저장 {compressed_size} bytes, 해제/원본 {decoded_size} bytes, {tile_count} tiles, "
                     f"편집 시트 {edit_tile_count} tiles/{columns}칸 기준. 업로드할 경우 source_1x와 같은 타일 시트 크기/배치를 유지하면 "
                     "8x8 단위로 자동 분해해 같은 순서로 삽입한다."
@@ -1859,6 +2083,10 @@ def build_registry_b_zp_items() -> list[dict]:
                 "tile_indices": tile_indices,
                 "raw_byte_length": decoded_size,
                 "compressed_size": compressed_size,
+                "original_offset": offset,
+                "original_offset_hex": f"0x{offset:08X}",
+                "current_offset": current_offset,
+                "current_offset_hex": f"0x{current_offset:08X}",
                 "registry_b_entry": entry,
                 "registry_b_entry_hex": f"0x{entry_hex}",
                 "registry_b_table_offset": int(resource["table_offset"]),
@@ -2250,8 +2478,8 @@ def build_card_book_right_tab_items() -> list[dict]:
                     "decompressed_size": manifest.get("matched_tile_count", ""),
                 },
             ],
-            "source_text": manifest.get("source_text", "金属 / 石 / 自然 / 無機"),
-            "suggested_korean": manifest.get("suggested_korean", "금속 / 돌 / 자연 / 무기"),
+            "source_text": manifest.get("source_text", "金属 ／ 石 ／ 自然 ／ 無機"),
+            "suggested_korean": manifest.get("suggested_korean", "금속 ／ 돌 ／ 자연 ／ 무기"),
         }
     ]
     for tab in manifest.get("individual_tabs", []):
@@ -2425,8 +2653,8 @@ def build_runtime_rle_screen_order_items() -> list[dict]:
         0x007E0000: "타이틀 일본어 로고와 부제 영역을 실제 배치에 가까운 PNG로 편집",
     }
     source_texts = {
-        0x003ABB9C: "OK? / はい / いいえ",
-        0x003AF23C: "錬成 / つかう / すてる / もどる",
+        0x003ABB9C: "OK? ／ はい ／ いいえ",
+        0x003AF23C: "錬成 ／ つかう ／ すてる ／ もどる",
         0x003A206C: "2枚",
         0x003A3540: "いいえ",
         0x003A5E50: "いいえ",
@@ -2435,11 +2663,11 @@ def build_runtime_rle_screen_order_items() -> list[dict]:
         0x003A8894: "いいえ",
         0x003A9624: "いいえ",
         0x003AA4C0: "いいえ",
-        0x007E0000: "鋼の錬金術師 / 迷走の輪舞曲",
+        0x007E0000: "鋼の錬金術師 ／ 迷走の輪舞曲",
     }
     suggested_korean = {
-        0x003ABB9C: "OK? / 예 / 아니요",
-        0x003AF23C: "연성 / 사용 / 버리기 / 돌아가기",
+        0x003ABB9C: "OK? ／ 예 ／ 아니요",
+        0x003AF23C: "연성 ／ 사용 ／ 버리기 ／ 돌아가기",
         0x003A206C: "2장",
         0x003A3540: "아니요",
         0x003A5E50: "아니요",
@@ -2448,7 +2676,7 @@ def build_runtime_rle_screen_order_items() -> list[dict]:
         0x003A8894: "아니요",
         0x003A9624: "아니요",
         0x003AA4C0: "아니요",
-        0x007E0000: "강철의 연금술사 / 미주의 윤무곡",
+        0x007E0000: "강철의 연금술사 ／ 미주의 윤무곡",
     }
 
     items: list[dict] = []
@@ -2459,8 +2687,12 @@ def build_runtime_rle_screen_order_items() -> list[dict]:
             continue
         if block.get("replacement_target") is False:
             continue
-        reference_path = block.get("reference_preview_path") or block.get("context_preview_path", "")
-        download_path = block.get("source_download_path") or block.get("editable_preview_path", "")
+        reference_path = native_visible_image_path(
+            block.get("reference_preview_path") or block.get("context_preview_path", "")
+        )
+        download_path = native_visible_image_path(
+            block.get("source_download_path") or block.get("editable_preview_path", "")
+        )
         tile_map_path = block.get("tile_map_path", "")
         preview_path = download_path
         if not preview_path or not download_path or not tile_map_path:
@@ -3377,7 +3609,6 @@ def merge_existing_item_state(items: list[dict], existing_dataset: dict | None, 
         preserved_fields = [
             "agent_draft",
             "agent_comment",
-            "manual_locked",
             "progress_status",
             "review_status",
             "replacement_path",
@@ -3401,6 +3632,11 @@ def merge_existing_item_state(items: list[dict], existing_dataset: dict | None, 
         ]
         if not is_image_item(item):
             preserved_fields.append("notes")
+            # The GUI workbench is where the reviewer confirms final wording.
+            # Preserve that confirmed translation across dataset regeneration so
+            # older source extracts, stale drafts, or cached generated worksets
+            # cannot silently replace a user's saved edit.
+            preserved_fields.append("translation")
         if not is_image_item(item):
             preserved_fields.extend(
                 [
@@ -3411,14 +3647,34 @@ def merge_existing_item_state(items: list[dict], existing_dataset: dict | None, 
             )
 
         for field in preserved_fields:
+            if (
+                field == "agent_draft"
+                and item.get("source_group") == "credits_texts"
+                and not item.get("translation")
+            ):
+                continue
             if field in existing and existing[field] not in ("", None):
                 item[field] = existing[field]
+        if not is_image_item(item):
+            for field in ("translation", "agent_draft", "effective_translation"):
+                if isinstance(item.get(field), str):
+                    normalized = normalize_translation_text(
+                        item[field],
+                        source_group=item.get("source_group"),
+                        reference_text=item.get("text"),
+                    )
+                    if item.get("source_group") == "location_texts":
+                        normalized = normalized.strip("　 ")
+                    item[field] = normalized
         if item.get("category_id") == REGISTRY_B_ZP_CATEGORY_ID and not item.get("replacement_path"):
             latest_upload = latest_uploaded_image_replacement(item["item_id"])
             if latest_upload:
                 item["replacement_path"] = latest_upload
         if item.get("translation") and not item.get("agent_draft"):
             item["agent_draft"] = item["translation"]
+        if not is_image_item(item) and item.get("translation"):
+            item["effective_translation"] = item["translation"]
+            item["translation_source"] = existing.get("translation_source") or "gui_saved"
 
 
 def latest_uploaded_image_replacement(item_id: str) -> str:
@@ -3533,7 +3789,6 @@ def build_dataset() -> dict:
             "이미지 item 은 실제 교체 파일 경로와 검토 메모를 함께 관리한다.",
             "translation 은 최종 적용 번역이다.",
             "agent_draft 는 번역 에이전트가 제안한 초안이다.",
-            "manual_locked=true 인 항목은 에이전트가 translation 을 덮어쓰면 안 된다.",
             "시작 직후 고정 카드 4줄은 테스트용 코어 UI가 아니라 정식 오프닝/인트로 카테고리로 관리한다.",
         ],
     }
@@ -3578,6 +3833,7 @@ def render_readme(dataset: dict) -> str:
 
 
 def main() -> int:
+    ensure_pillow_runtime_for_direct_run()
     WORKSPACE_ROOT.mkdir(parents=True, exist_ok=True)
     build_translation_normalization_profile()
     existing_dataset = load_json_if_exists(OUT_DATASET, None)

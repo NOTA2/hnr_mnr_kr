@@ -1,5 +1,14 @@
 [
   {
+    "offset": 571404,
+    "rom_address": 134789132,
+    "byte_length": 6,
+    "terminator": "0x00",
+    "unknown_tokens": 0,
+    "text": "壁錬成",
+    "translation": "벽연성"
+  },
+  {
     "offset": 7036266,
     "rom_address": 141128994,
     "byte_length": 14,
@@ -36,22 +45,13 @@
     "translation": "58:다이무라④지하"
   },
   {
-    "offset": 571404,
-    "rom_address": 134789132,
-    "byte_length": 6,
-    "terminator": "0x00",
-    "unknown_tokens": 0,
-    "text": "壁錬成",
-    "translation": "벽연성"
-  },
-  {
     "offset": 8029520,
     "rom_address": 142247248,
     "byte_length": 8,
     "append_terminator": false,
     "unknown_tokens": 0,
     "text": "回復薬１",
-    "translation": "회복약 1"
+    "translation": "회복약１"
   },
   {
     "offset": 8029528,
@@ -60,7 +60,7 @@
     "append_terminator": false,
     "unknown_tokens": 0,
     "text": "体力を５０回復する薬",
-    "translation": "체력 50 회복약"
+    "translation": "체력 ５０ 회복약"
   },
   {
     "offset": 8029660,
@@ -69,7 +69,7 @@
     "append_terminator": false,
     "unknown_tokens": 0,
     "text": "回復薬３",
-    "translation": "회복약 3"
+    "translation": "회복약３"
   },
   {
     "offset": 8029668,
@@ -78,7 +78,7 @@
     "append_terminator": false,
     "unknown_tokens": 0,
     "text": "体力を２００回復する薬",
-    "translation": "체력 200 회복약"
+    "translation": "체력 ２００ 회복약"
   },
   {
     "offset": 8029876,
@@ -117,6 +117,15 @@
     "translation": "오토메일 소재 ５／５"
   },
   {
+    "offset": 8030380,
+    "rom_address": 142248108,
+    "byte_length": 14,
+    "unknown_tokens": 0,
+    "text": "証　０１／１０",
+    "translation": "증　０１／１０",
+    "append_terminator": false
+  },
+  {
     "offset": 8030396,
     "rom_address": 142248124,
     "byte_length": 24,
@@ -124,6 +133,15 @@
     "unknown_tokens": 0,
     "text": "トーナメントを優勝した証",
     "translation": "토너먼트 우승의 증표"
+  },
+  {
+    "offset": 8030460,
+    "rom_address": 142248188,
+    "byte_length": 14,
+    "unknown_tokens": 0,
+    "text": "証　０２／１０",
+    "translation": "증　０２／１０",
+    "append_terminator": false
   },
   {
     "offset": 8030476,
@@ -135,6 +153,33 @@
     "translation": "환상 오토메일 획득 증표"
   },
   {
+    "offset": 8030540,
+    "rom_address": 142248268,
+    "byte_length": 14,
+    "unknown_tokens": 0,
+    "text": "証　０３／１０",
+    "translation": "증　０３／１０",
+    "append_terminator": false
+  },
+  {
+    "offset": 8030624,
+    "rom_address": 142248352,
+    "byte_length": 14,
+    "unknown_tokens": 0,
+    "text": "証　０４／１０",
+    "translation": "증　０４／１０",
+    "append_terminator": false
+  },
+  {
+    "offset": 8030712,
+    "rom_address": 142248440,
+    "byte_length": 14,
+    "unknown_tokens": 0,
+    "text": "証　０５／１０",
+    "translation": "증　０５／１０",
+    "append_terminator": false
+  },
+  {
     "offset": 8030728,
     "rom_address": 142248456,
     "byte_length": 32,
@@ -142,6 +187,15 @@
     "unknown_tokens": 0,
     "text": "シェスカのクイズに全問正解した証",
     "translation": "셰스카 퀴즈 전부 정답의 증표"
+  },
+  {
+    "offset": 8030800,
+    "rom_address": 142248528,
+    "byte_length": 14,
+    "unknown_tokens": 0,
+    "text": "証　０６／１０",
+    "translation": "증　０６／１０",
+    "append_terminator": false
   },
   {
     "offset": 8030816,
@@ -153,6 +207,24 @@
     "translation": "대총통 심부름 완수의 증표"
   },
   {
+    "offset": 8030884,
+    "rom_address": 142248612,
+    "byte_length": 14,
+    "unknown_tokens": 0,
+    "text": "証　０７／１０",
+    "translation": "증　０７／１０",
+    "append_terminator": false
+  },
+  {
+    "offset": 8030972,
+    "rom_address": 142248700,
+    "byte_length": 14,
+    "unknown_tokens": 0,
+    "text": "証　０８／１０",
+    "translation": "증　０８／１０",
+    "append_terminator": false
+  },
+  {
     "offset": 8030988,
     "rom_address": 142248716,
     "byte_length": 28,
@@ -162,6 +234,24 @@
     "translation": "하보크 숨겨진 자식 증표"
   },
   {
+    "offset": 8031056,
+    "rom_address": 142248784,
+    "byte_length": 14,
+    "unknown_tokens": 0,
+    "text": "証　０９／１０",
+    "translation": "증　０９／１０",
+    "append_terminator": false
+  },
+  {
+    "offset": 8031144,
+    "rom_address": 142248872,
+    "byte_length": 14,
+    "unknown_tokens": 0,
+    "text": "証　１０／１０",
+    "translation": "증　１０／１０",
+    "append_terminator": false
+  },
+  {
     "offset": 8031160,
     "rom_address": 142248888,
     "byte_length": 28,
@@ -169,6 +259,15 @@
     "unknown_tokens": 0,
     "text": "マスタング大佐　汚名返上の証",
     "translation": "머스탱 대령 오명 회복의 증표"
+  },
+  {
+    "offset": 8031228,
+    "rom_address": 142248956,
+    "byte_length": 14,
+    "unknown_tokens": 0,
+    "text": "証　ＦＩＮＳＨ",
+    "translation": "증　완료　　　",
+    "append_terminator": false
   },
   {
     "offset": 8031328,

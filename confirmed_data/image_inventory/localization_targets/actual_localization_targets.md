@@ -16,12 +16,12 @@
 | `battle_bottom_alchemy_command` | 전투 하단 커맨드 れんせい | `registered_in_gui` | `0x003AC25C` | れんせい | 연성 |
 | `battle_bottom_item_command` | 전투 하단 커맨드 アイテム | `registered_in_gui` | `0x003AC3DC` | アイテム | 아이템 |
 | `battle_bottom_special_command` | 전투 하단 커맨드 ひっさつ | `registered_in_gui` | `0x003AC55C` | ひっさつ | 필살기 |
-| `card_book_right_category_tabs` | 카드 책자 오른쪽 탭 金属/石/自然/無機 | `registered_in_gui` | `0x003A3540` | 金属 / 石 / 自然 / 無機 | 금속 / 돌 / 자연 / 무기 |
+| `card_book_right_category_tabs` | 카드 책자 오른쪽 탭 金属/石/自然/無機 | `registered_in_gui` | `0x003A3540` | 金属 ／ 石 ／ 自然 ／ 無機 | 금속 ／ 돌 ／ 자연 ／ 무기 |
 | `title_new_game` | 타이틀 はじめから | `registered_in_gui` | `0x007E9404` | はじめから | 처음부터 |
 | `title_continue` | 타이틀 つづきから | `registered_in_gui` | `0x007E95E0` | つづきから | 이어하기 |
 | `title_link` | 타이틀 通信 | `registered_in_gui` | `0x007E97A4` | 通信 | 통신 |
-| `battle_confirm_ok_yes_no_popup` | 전투 확인 팝업 OK?/はい/いいえ | `registered_in_gui` | `0x003ABB9C` | OK? / はい / いいえ | OK? / 예 / 아니요 |
-| `battle_popup_alchemy_commands` | 전투 팝업 錬成/つかう/すてる/もどる | `registered_in_gui` | `0x003AF23C` | 錬成 / つかう / すてる / もどる | 연성 / 사용 / 버리기 / 돌아가기 |
+| `battle_confirm_ok_yes_no_popup` | 전투 확인 팝업 OK?/はい/いいえ | `registered_in_gui` | `0x003ABB9C` | OK? ／ はい ／ いいえ | OK? ／ 예 ／ 아니요 |
+| `battle_popup_alchemy_commands` | 전투 팝업 錬成/つかう/すてる/もどる | `registered_in_gui` | `0x003AF23C` | 錬成 ／ つかう ／ すてる ／ もどる | 연성 ／ 사용 ／ 버리기 ／ 돌아가기 |
 | `battle_card_alchemy_panel` | 전투 카드 패널 2枚 | `registered_in_gui` | `0x003A206C` | 2枚 | 2장 |
 | `card_list_frame_controls` | 카드 리스트 いいえ UI | `registered_in_gui` | `0x003A3540` | いいえ | 아니요 |
 | `card_list_iie_variant_003A5E50` | 카드 리스트 いいえ UI 변형 1 | `registered_in_gui` | `0x003A5E50` | いいえ | 아니요 |
@@ -30,7 +30,7 @@
 | `card_list_iie_variant_003A8894` | 카드 리스트 いいえ UI 변형 4 | `registered_in_gui` | `0x003A8894` | いいえ | 아니요 |
 | `card_list_iie_variant_003A9624` | 카드 리스트 いいえ UI 변형 5 | `registered_in_gui` | `0x003A9624` | いいえ | 아니요 |
 | `card_list_iie_variant_003AA4C0` | 카드 리스트 いいえ UI 변형 6 | `registered_in_gui` | `0x003AA4C0` | いいえ | 아니요 |
-| `title_logo_copyright` | 타이틀 로고/부제 | `registered_in_gui` | `0x007E0000` | 鋼の錬金術師 / 迷走の輪舞曲 | 강철의 연금술사 / 미주의 윤무곡 또는 확정 제목 |
+| `title_logo_copyright` | 타이틀 로고/부제 | `registered_in_gui` | `0x007E0000` | 鋼の錬金術師 ／ 迷走の輪舞曲 | 강철의 연금술사 ／ 미주의 윤무곡 또는 확정 제목 |
 
 ## Notes
 

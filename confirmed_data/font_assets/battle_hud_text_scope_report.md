@@ -56,15 +56,17 @@ Repointing the HUD mini-font block looks plausible because the source is
 referenced by a pointer-length table. The name string storage also sits inside
 resource `0x0933`, which is itself pointer-length addressed, so expanding or
 moving the name table is feasible if translations exceed the current string
-area. The separate caution is that the HUD renderer currently addresses a
-120-slot 8x8 glyph space through one-byte codes and dakuten modifiers, so using
-more than those slots would require a renderer patch, not only a data repoint.
+area. The separate caution is that the HUD renderer has a 120-tile 8x8 glyph
+block, but the name strings can safely address only 92 direct one-byte slots.
+Bytes `0xDE` and `0xDF` behave as dakuten/handakuten markers, not ordinary
+glyph codes. Repointing the font block does not make the remaining physical
+tiles safe to call from name strings.
 
 1. Append a larger HUD mini-font block to expanded ROM space.
 2. Update the pointer-length table entry at `0x0017789C`.
 3. Repoint/expand resource `0x0933` if the translated name strings need more
 byte space.
-4. Verify whether the 120 renderer-addressable glyph slots are enough for the
+4. Verify whether the 92 direct-addressable glyph slots are enough for the
 chosen Korean name translations.
 
 ## Korean HUD Name Patch Status
@@ -77,21 +79,33 @@ corrupts unrelated screens. The safe patch now avoids that block entirely.
 - Target ROM: `patched_roms/current_review/hnr_localization_review.gba`
 - Rollback for the bad shared-font pass: `patched_roms/current_review/hnr_localization_review.before_battle_hud_name_font.gba`
 - Backup before the current safe pass: `patched_roms/current_review/hnr_localization_review.before_safe_battle_hud_name_font.gba`
-- Font atlas: `third_party/font_atlases/finalists/Galmuri7_9x9_no_shadow.png`
+- Font atlas: `third_party/font_atlases/finalists/Galmuri7_9x9.png`
 - Backup before the no-shadow font repaint: `patched_roms/current_review/hnr_localization_review.before_no_shadow_battle_hud_name_font.gba`
 - Backup before the black/white inversion fix: `patched_roms/current_review/hnr_localization_review.before_bw_invert_battle_hud_name_font.gba`
 - Current atlas conversion: bright white pixels are glyph ink; black atlas pixels are transparent background.
 - Patched battle-name raw font block: `0x00186C34`
 - Unchanged shared UI/font block: `0x00534874`
 - Patched name resource: `0x0933` at `0x003D0E80`
-- Hangul glyphs used: `99`
-- Addressable battle mini-font slots used: `99`
+- Physical battle mini-font tiles: `120`
+- Safe direct-addressable Hangul slots used: `92`
+- Safe direct-addressable slot budget: `92`
+- Do not use the old `+7` dakuten/handakuten composite slots for independent
+  Hangul syllables. They looked addressable in static previews, but in-game
+  the renderer treats `0xDE/0xDF` as marks on the previous glyph. This caused
+  wrong output such as `スピードスター` mapping through a composite slot and
+  rendering like `스크드스타`.
+- The remaining physical tiles (`60`, `95-99`, `105-119`, plus composite-only
+  slots) require a renderer/ASM patch before they can be used safely.
 - HUD-only compact labels used to fit the slot budget:
   - `ゴウトウ`: `도적`
   - `サンゾク`: `도적`
   - `シシオウ`: `사왕`
-  - `ゴーゴンリップ`: `고르곤`
-- Name strings used `307` bytes inside resource `0x0933`, leaving `327` bytes free
+  - `ゴーゴンリップ`: `고르곤리프`
+  - `アーマーゲーター`: `아머케이터`
+  - `ヴェノムスピン`: `베놈스피너`
+  - `ユニコーンヘッド`: `유니콘`
+  - `ダークネスヘブン`: `다크니스`
+- Name strings used `268` bytes inside resource `0x0933`, leaving `366` bytes free
 - Reports:
   - `confirmed_data/font_assets/battle_hud_name_font_apply_report.json`
   - `confirmed_data/font_assets/battle_hud_name_hangul_tile_map.json`
@@ -99,9 +113,8 @@ corrupts unrelated screens. The safe patch now avoids that block entirely.
   - `confirmed_data/font_assets/battle_hud_name_no_shadow_sample_preview_8x.png`
   - `confirmed_data/font_assets/battle_hud_name_bw_inverted_sample_preview_8x.png`
 
-This safe pass is applied to the current review ROM, but it is not yet wired
-into `scripts/build_localization_review_rom.py`. Keep it manual until the
-runtime screen check confirms the mini-font byte range behaves as expected.
+This safe pass is applied to the current review ROM and is wired into
+`scripts/build_localization_review_rom.py` as a post-build step.
 
 ## Next Extraction Need
 

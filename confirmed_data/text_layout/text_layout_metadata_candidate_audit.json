@@ -1,0 +1,332 @@
+{
+  "generated_at": "2026-06-04T00:36:04",
+  "source_rom": "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba",
+  "criteria": {
+    "formula": "field_value = display_units(original_text) * 6 + constant",
+    "strict_small_s32_ratio": 0.95,
+    "strict_constant_ratio": 0.95,
+    "suspicious_small_s32_ratio": 0.9,
+    "suspicious_constant_ratio": 0.5
+  },
+  "strict_candidates": [
+    {
+      "source_group": "location_texts",
+      "record_count": 10,
+      "common_stride": 44,
+      "field": {
+        "field_delta": 20,
+        "field_delta_hex": "0x14",
+        "small_s32_ratio": 1.0,
+        "top_constant": -104,
+        "top_constant_count": 10,
+        "constant_ratio": 1.0,
+        "status": "strict_candidate",
+        "sample_rows": [
+          {
+            "offset": 1589852,
+            "offset_hex": "0x18425C",
+            "text": "セントラルシティ",
+            "visible_px": 96,
+            "value": -8,
+            "constant": -104,
+            "is_small_s32": true
+          },
+          {
+            "offset": 1589896,
+            "offset_hex": "0x184288",
+            "text": "ヴィヴァス",
+            "visible_px": 60,
+            "value": -44,
+            "constant": -104,
+            "is_small_s32": true
+          },
+          {
+            "offset": 1589940,
+            "offset_hex": "0x1842B4",
+            "text": "リオール",
+            "visible_px": 48,
+            "value": -56,
+            "constant": -104,
+            "is_small_s32": true
+          },
+          {
+            "offset": 1589984,
+            "offset_hex": "0x1842E0",
+            "text": "ソリン",
+            "visible_px": 36,
+            "value": -68,
+            "constant": -104,
+            "is_small_s32": true
+          },
+          {
+            "offset": 1590028,
+            "offset_hex": "0x18430C",
+            "text": "ダイムラー邸",
+            "visible_px": 72,
+            "value": -32,
+            "constant": -104,
+            "is_small_s32": true
+          },
+          {
+            "offset": 1590072,
+            "offset_hex": "0x184338",
+            "text": "オルヘンティノス城",
+            "visible_px": 108,
+            "value": 4,
+            "constant": -104,
+            "is_small_s32": true
+          },
+          {
+            "offset": 1590116,
+            "offset_hex": "0x184364",
+            "text": "イーストシティ",
+            "visible_px": 84,
+            "value": -20,
+            "constant": -104,
+            "is_small_s32": true
+          },
+          {
+            "offset": 1590160,
+            "offset_hex": "0x184390",
+            "text": "レドンド",
+            "visible_px": 48,
+            "value": -56,
+            "constant": -104,
+            "is_small_s32": true
+          }
+        ]
+      }
+    }
+  ],
+  "suspicious_fields": [],
+  "groups": [
+    {
+      "source_group": "ability_texts",
+      "record_count": 413,
+      "offset_min_hex": "0x3D327E",
+      "offset_max_hex": "0x3D6259",
+      "common_stride": 17,
+      "common_stride_count": 72,
+      "candidate_fields": []
+    },
+    {
+      "source_group": "battle_texts",
+      "record_count": 104,
+      "offset_min_hex": "0x3D2036",
+      "offset_max_hex": "0x3D253D",
+      "common_stride": 3,
+      "common_stride_count": 33,
+      "candidate_fields": []
+    },
+    {
+      "source_group": "credits_texts",
+      "record_count": 28,
+      "offset_min_hex": "0x08C354",
+      "offset_max_hex": "0x08D140",
+      "common_stride": 88,
+      "common_stride_count": 8,
+      "candidate_fields": []
+    },
+    {
+      "source_group": "duplicate_text_slots",
+      "record_count": 28,
+      "offset_min_hex": "0x08B80C",
+      "offset_max_hex": "0x7A8E34",
+      "common_stride": 80,
+      "common_stride_count": 6,
+      "candidate_fields": []
+    },
+    {
+      "source_group": "item_texts",
+      "record_count": 49,
+      "offset_min_hex": "0x08AED8",
+      "offset_max_hex": "0x08B374",
+      "common_stride": 12,
+      "common_stride_count": 12,
+      "candidate_fields": []
+    },
+    {
+      "source_group": "location_texts",
+      "record_count": 10,
+      "offset_min_hex": "0x18425C",
+      "offset_max_hex": "0x1843E8",
+      "common_stride": 44,
+      "common_stride_count": 9,
+      "candidate_fields": [
+        {
+          "field_delta": 20,
+          "field_delta_hex": "0x14",
+          "small_s32_ratio": 1.0,
+          "top_constant": -104,
+          "top_constant_count": 10,
+          "constant_ratio": 1.0,
+          "status": "strict_candidate",
+          "sample_rows": [
+            {
+              "offset": 1589852,
+              "offset_hex": "0x18425C",
+              "text": "セントラルシティ",
+              "visible_px": 96,
+              "value": -8,
+              "constant": -104,
+              "is_small_s32": true
+            },
+            {
+              "offset": 1589896,
+              "offset_hex": "0x184288",
+              "text": "ヴィヴァス",
+              "visible_px": 60,
+              "value": -44,
+              "constant": -104,
+              "is_small_s32": true
+            },
+            {
+              "offset": 1589940,
+              "offset_hex": "0x1842B4",
+              "text": "リオール",
+              "visible_px": 48,
+              "value": -56,
+              "constant": -104,
+              "is_small_s32": true
+            },
+            {
+              "offset": 1589984,
+              "offset_hex": "0x1842E0",
+              "text": "ソリン",
+              "visible_px": 36,
+              "value": -68,
+              "constant": -104,
+              "is_small_s32": true
+            },
+            {
+              "offset": 1590028,
+              "offset_hex": "0x18430C",
+              "text": "ダイムラー邸",
+              "visible_px": 72,
+              "value": -32,
+              "constant": -104,
+              "is_small_s32": true
+            },
+            {
+              "offset": 1590072,
+              "offset_hex": "0x184338",
+              "text": "オルヘンティノス城",
+              "visible_px": 108,
+              "value": 4,
+              "constant": -104,
+              "is_small_s32": true
+            },
+            {
+              "offset": 1590116,
+              "offset_hex": "0x184364",
+              "text": "イーストシティ",
+              "visible_px": 84,
+              "value": -20,
+              "constant": -104,
+              "is_small_s32": true
+            },
+            {
+              "offset": 1590160,
+              "offset_hex": "0x184390",
+              "text": "レドンド",
+              "visible_px": 48,
+              "value": -56,
+              "constant": -104,
+              "is_small_s32": true
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "source_group": "material_texts",
+      "record_count": 44,
+      "offset_min_hex": "0x3D2E94",
+      "offset_max_hex": "0x3D33FE",
+      "common_stride": 32,
+      "common_stride_count": 20,
+      "candidate_fields": []
+    },
+    {
+      "source_group": "registry_a_entry12_texts",
+      "record_count": 22,
+      "offset_min_hex": "0x7A8594",
+      "offset_max_hex": "0x7A8E78",
+      "common_stride": 80,
+      "common_stride_count": 3,
+      "candidate_fields": []
+    },
+    {
+      "source_group": "registry_a_entry8_prefixed_texts",
+      "record_count": 10417,
+      "offset_min_hex": "0x6B7A36",
+      "offset_max_hex": "0x7731B4",
+      "common_stride": 30,
+      "common_stride_count": 723,
+      "candidate_fields": []
+    },
+    {
+      "source_group": "registry_a_map_labels",
+      "record_count": 70,
+      "offset_min_hex": "0x6BAD20",
+      "offset_max_hex": "0x770318",
+      "common_stride": 4676,
+      "common_stride_count": 2,
+      "candidate_fields": []
+    },
+    {
+      "source_group": "registry_d_fc_script_texts",
+      "record_count": 245,
+      "offset_min_hex": "0x7F301F",
+      "offset_max_hex": "0x7F966F",
+      "common_stride": 58,
+      "common_stride_count": 8,
+      "candidate_fields": []
+    },
+    {
+      "source_group": "save_menu_prefixed_texts",
+      "record_count": 12,
+      "offset_min_hex": "0x772E4A",
+      "offset_max_hex": "0x7731B4",
+      "common_stride": 26,
+      "common_stride_count": 1,
+      "candidate_fields": []
+    },
+    {
+      "source_group": "startup_intro_texts",
+      "record_count": 4,
+      "offset_min_hex": "0x703D70",
+      "offset_max_hex": "0x703DAC",
+      "common_stride": 14,
+      "common_stride_count": 1,
+      "candidate_fields": []
+    },
+    {
+      "source_group": "system_messages",
+      "record_count": 10,
+      "offset_min_hex": "0x0768ED",
+      "offset_max_hex": "0x088D7C",
+      "common_stride": 44,
+      "common_stride_count": 2,
+      "candidate_fields": []
+    },
+    {
+      "source_group": "ui_skill_texts",
+      "record_count": 25,
+      "offset_min_hex": "0x08B608",
+      "offset_max_hex": "0x08B7F4",
+      "common_stride": 32,
+      "common_stride_count": 6,
+      "candidate_fields": []
+    },
+    {
+      "source_group": "ui_status_texts",
+      "record_count": 2,
+      "offset_min_hex": "0x0768DC",
+      "offset_max_hex": "0x08D1D0",
+      "common_stride": 92404,
+      "common_stride_count": 1,
+      "candidate_fields": []
+    }
+  ]
+}

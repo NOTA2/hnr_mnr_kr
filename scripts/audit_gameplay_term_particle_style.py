@@ -67,9 +67,30 @@ def main() -> int:
         translation = record.get("translation") or ""
         source_group = str(record.get("source_group", ""))
         source_text = record.get("text") or ""
-        if re.search(r"[０-９／]", translation):
+        source_has_ascii_digit = bool(re.search(r"[0-9]", source_text))
+        source_has_fullwidth_digit = bool(re.search(r"[０-９]", source_text))
+        translation_has_ascii_digit = bool(re.search(r"[0-9]", translation))
+        translation_has_fullwidth_digit = bool(re.search(r"[０-９]", translation))
+        if source_has_ascii_digit and not source_has_fullwidth_digit and translation_has_fullwidth_digit:
             findings.append(
-                f"0x{int(record['offset']):06X}: digits/slash must stay halfwidth: {translation!r} "
+                f"0x{int(record['offset']):06X}: digit width must follow halfwidth source: {translation!r} "
+                f"source={source_text!r}"
+            )
+        if source_has_fullwidth_digit and not source_has_ascii_digit and translation_has_ascii_digit:
+            findings.append(
+                f"0x{int(record['offset']):06X}: digit width must follow fullwidth source: {translation!r} "
+                f"source={source_text!r}"
+            )
+        source_has_ascii_slash = "/" in source_text
+        source_has_fullwidth_slash = "／" in source_text
+        if source_has_ascii_slash and not source_has_fullwidth_slash and "／" in translation:
+            findings.append(
+                f"0x{int(record['offset']):06X}: slash width must follow halfwidth source: {translation!r} "
+                f"source={source_text!r}"
+            )
+        if source_has_fullwidth_slash and not source_has_ascii_slash and "/" in translation:
+            findings.append(
+                f"0x{int(record['offset']):06X}: slash width must follow fullwidth source: {translation!r} "
                 f"source={source_text!r}"
             )
         if (

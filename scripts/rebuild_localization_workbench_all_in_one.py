@@ -29,7 +29,6 @@ CRITICAL_FIELDS = [
     "translation",
     "agent_draft",
     "agent_comment",
-    "manual_locked",
     "progress_status",
     "review_status",
 ]

@@ -5,6 +5,7 @@ from __future__ import annotations
 import argparse
 import json
 import subprocess
+import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
@@ -196,7 +197,7 @@ def main() -> int:
     import_report_path = output_dir / "import_report.json"
 
     command = [
-        "python3",
+        sys.executable,
         "scripts/import_hangul_syllable_atlas.py",
         "--atlas",
         str(atlas_path),

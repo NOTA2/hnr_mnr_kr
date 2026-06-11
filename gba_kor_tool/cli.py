@@ -3092,12 +3092,16 @@ def normalize_translation_for_record(record: dict, translation: str) -> str:
 
 def in_place_pad_byte_for_record(record: dict, default_pad_byte: int) -> int:
     source_group = str(record.get("source_group", ""))
-    if source_group == "registry_a_map_labels":
+    if source_group in {"registry_a_map_labels", "location_texts"}:
         # Map labels live inside fixed map header records. They look like
         # 0x00-terminated strings, but the bytes after the label are still
         # consumed as structured map data. Padding shortened labels with 0xFF
         # corrupts map loading after area transitions; keep the original
         # zero-filled shape instead.
+        #
+        # World-map location labels use a similar fixed record field: the first
+        # 20 bytes are the name slot and the following bytes are coordinates /
+        # display metadata. Keep the unused name-slot bytes zero-filled too.
         return 0x00
     return default_pad_byte
 

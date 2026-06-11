@@ -17,22 +17,40 @@ import struct
 import sys
 from datetime import datetime
 from pathlib import Path
-from typing import Any
+from typing import Any, TYPE_CHECKING
 
 
 ROOT = Path(__file__).resolve().parents[1]
 VENDOR = ROOT / ".vendor"
 if VENDOR.exists() and str(VENDOR) not in sys.path:
-    sys.path.insert(0, str(VENDOR))
+    sys.path.append(str(VENDOR))
 
-try:
-    from PIL import Image, ImageDraw, ImageFont
-except Exception as exc:  # pragma: no cover
-    raise SystemExit(f"error: Pillow is required: {exc}")
+if TYPE_CHECKING:
+    from PIL import Image as PILImageModule
+
+Image: Any = None
+ImageDraw: Any = None
+ImageFont: Any = None
+
+
+def ensure_pillow() -> None:
+    """Load Pillow only for the font/image operations that actually need it."""
+    global Image, ImageDraw, ImageFont
+    if Image is not None and ImageDraw is not None and ImageFont is not None:
+        return
+    try:
+        from PIL import Image as pil_image
+        from PIL import ImageDraw as pil_image_draw
+        from PIL import ImageFont as pil_image_font
+    except Exception as exc:  # pragma: no cover
+        raise SystemExit(f"error: Pillow is required for battle HUD font image work: {exc}") from exc
+    Image = pil_image
+    ImageDraw = pil_image_draw
+    ImageFont = pil_image_font
 
 
 DEFAULT_TARGET = ROOT / "patched_roms" / "current_review" / "hnr_localization_review.gba"
-DEFAULT_ATLAS = ROOT / "third_party" / "font_atlases" / "finalists" / "Galmuri7_9x9_no_shadow.png"
+DEFAULT_ATLAS = ROOT / "third_party" / "font_atlases" / "finalists" / "Galmuri7_9x9.png"
 NAME_TABLE_JSON = ROOT / "confirmed_data" / "font_assets" / "battle_hud_name_table.json"
 REPORT_PATH = ROOT / "confirmed_data" / "font_assets" / "battle_hud_name_font_apply_report.json"
 MAPPING_PATH = ROOT / "confirmed_data" / "font_assets" / "battle_hud_name_hangul_tile_map.json"
@@ -47,14 +65,40 @@ BATTLE_FONT_SIZE = 0x0F00
 BATTLE_FONT_TILE_COUNT = BATTLE_FONT_SIZE // 32
 HANGUL_BASE = 0xAC00
 HANGUL_END = 0xD7A3
+ASCII_TO_FULLWIDTH_DIGITS = str.maketrans({
+    str(digit): chr(ord("０") + digit)
+    for digit in range(10)
+})
+FULLWIDTH_TO_ASCII_DIGITS = {
+    chr(ord("０") + digit): str(digit)
+    for digit in range(10)
+}
 
 # Keep the main translation table intact, but use a few shorter HUD-only labels
 # so the full name set fits in the battle mini-font's addressable slots.
 HUD_TEXT_OVERRIDES = {
     "ゴウトウ": "도적",
     "サンゾク": "도적",
+    "サイキョウト": "신도",
     "シシオウ": "사왕",
-    "ゴーゴンリップ": "고르곤",
+    "ゴーゴンリップ": "고르곤리프",
+    # Raw ASCII digit bytes collide with overwritten Hangul mini-font slots in
+    # this renderer. For example マッチョ4 was observed as "마초유" in-game.
+    # Battle HUD names omit variant numbers instead of spelling them out.
+    "マッチョ1": "마초",
+    "マッチョ2": "마초",
+    "マッチョ3": "마초",
+    "マッチョ4": "마초",
+    "キメラ5": "키메라",
+    "キメラ7": "키메라",
+    # Use only direct-addressed mini-font slots. The dakuten/handakuten byte
+    # pairs render as base glyph + mark in-game, so assigning Hangul to those
+    # inferred composite slots can display the wrong syllable.
+    "コーネロ": "코네로",
+    "ヴェノムスピン": "베놈스피너",
+    "アーマーゲーター": "아머케이터",
+    "ユニコーンヘッド": "유니콘",
+    "ダークネスヘブン": "다크니스",
 }
 
 
@@ -130,7 +174,7 @@ def combo_slot_codes() -> list[tuple[int, bytes, str]]:
 
 
 def available_slot_codes() -> list[tuple[int, bytes, str]]:
-    entries = direct_slot_codes() + combo_slot_codes()
+    entries = direct_slot_codes()
     seen_slots: set[int] = set()
     unique = []
     for slot, code, note in entries:
@@ -195,9 +239,15 @@ def glyph_tile_from_atlas(
                 r, g, b, a = pixels[px + dx, py]
                 luminance = (r * 299 + g * 587 + b * 114) // 1000
                 # The Galmuri atlas used here is black-background, white-ink.
-                # Use only the bright pixels as glyph ink; the black cell
-                # background must stay transparent in the GBA tile.
-                value = 0x01 if a >= 32 and luminance >= 240 else 0x00
+                # Bright pixels are the main stroke, while the regular
+                # Galmuri7_9x9 atlas uses mid-gray pixels for the shadow.
+                # Keep black cell background transparent.
+                if a >= 32 and luminance >= 240:
+                    value = 0x01
+                elif a >= 32 and luminance >= 48:
+                    value = 0x02
+                else:
+                    value = 0x00
                 packed |= value << (dx * 4)
             out.append(packed)
     return bytes(out)
@@ -212,6 +262,7 @@ def patch_battle_font(
     glyph_size: int,
     columns: int,
 ) -> bytes:
+    ensure_pillow()
     if not battle_font_entry_matches(bytes(rom)):
         raise SystemExit("error: battle mini-font resource entry no longer matches the expected raw block")
     font = bytearray(rom[BATTLE_FONT_OFFSET : BATTLE_FONT_OFFSET + BATTLE_FONT_SIZE])
@@ -235,7 +286,15 @@ def encode_hud_text(text: str, mapping: dict[str, dict[str, Any]]) -> bytes:
         if is_hangul_syllable(char):
             out.extend(bytes.fromhex(str(mapping[char]["encoded_hex"])))
         elif char.isascii() and char.isdigit():
-            out.append(ord(char))
+            raise SystemExit(
+                f"error: raw digit {char!r} is unsafe in battle HUD names; "
+                f"add a HUD_TEXT_OVERRIDES Hangul numeral for {text!r}"
+            )
+        elif char in FULLWIDTH_TO_ASCII_DIGITS:
+            raise SystemExit(
+                f"error: raw digit {char!r} is unsafe in battle HUD names; "
+                f"add a HUD_TEXT_OVERRIDES Hangul numeral for {text!r}"
+            )
         else:
             raise SystemExit(f"error: unsupported HUD-name character: {char!r} in {text!r}")
     if not out or 0 in out:
@@ -337,6 +396,7 @@ def patch_name_resource(
 
 
 def render_mapping_preview(mapping_entries: list[dict[str, Any]], font: bytes) -> None:
+    ensure_pillow()
     cols = 16
     cell = 46
     rows = max(1, (len(mapping_entries) + cols - 1) // cols)
@@ -351,10 +411,17 @@ def render_mapping_preview(mapping_entries: list[dict[str, Any]], font: bytes) -
         raw = font[slot * 32 : slot * 32 + 32]
         tile = Image.new("L", (8, 8), 0)
         pixels = tile.load()
+        def preview_luma(value: int) -> int:
+            if value == 1:
+                return 255
+            if value == 2:
+                return 120
+            return 0
+
         for y in range(8):
             for pair, byte in enumerate(raw[y * 4 : y * 4 + 4]):
-                pixels[pair * 2, y] = (byte & 0x0F) * 255
-                pixels[pair * 2 + 1, y] = ((byte >> 4) & 0x0F) * 255
+                pixels[pair * 2, y] = preview_luma(byte & 0x0F)
+                pixels[pair * 2 + 1, y] = preview_luma((byte >> 4) & 0x0F)
         big = tile.resize((24, 24), Image.Resampling.NEAREST).convert("RGB")
         x = (index % cols) * cell
         y = (index // cols) * cell

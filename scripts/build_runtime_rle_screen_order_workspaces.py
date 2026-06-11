@@ -202,10 +202,8 @@ def crop_and_write(
     out_dir.mkdir(parents=True, exist_ok=True)
     write_png_rgb(out_dir / "context_crop.png", crop_px[2], crop_px[3], context_plain)
     write_png_rgb(out_dir / "context_crop_grid.png", crop_px[2], crop_px[3], bytes(context_grid))
-    write_png_rgb(out_dir / "context_crop_4x.png", *scale_rgb(context_plain, crop_px[2], crop_px[3], 4))
     write_png_rgb(out_dir / "matched_tiles_screen_order.png", crop_px[2], crop_px[3], matched_plain)
     write_png_rgb(out_dir / "matched_tiles_screen_order_grid.png", crop_px[2], crop_px[3], matched_grid)
-    write_png_rgb(out_dir / "matched_tiles_screen_order_4x.png", *scale_rgb(matched_plain, crop_px[2], crop_px[3], 4))
 
     payload = {
         "scene": scene,
@@ -248,9 +246,9 @@ def crop_and_write(
         "offset_hex": f"0x{rle_offset:08X}",
         "label": KNOWN_LABELS.get(rle_offset, f"RLE 0x{rle_offset:08X} 화면순 재조립"),
         "workspace": str(out_dir.relative_to(ROOT)),
-        "context_preview_path": str((out_dir / "context_crop_4x.png").relative_to(ROOT)),
-        "editable_preview_path": str((out_dir / "matched_tiles_screen_order_4x.png").relative_to(ROOT)),
-        "source_download_path": str((out_dir / "matched_tiles_screen_order_4x.png").relative_to(ROOT)),
+        "context_preview_path": str((out_dir / "context_crop.png").relative_to(ROOT)),
+        "editable_preview_path": str((out_dir / "matched_tiles_screen_order.png").relative_to(ROOT)),
+        "source_download_path": str((out_dir / "matched_tiles_screen_order.png").relative_to(ROOT)),
         "tile_map_path": str((out_dir / "tile_map.json").relative_to(ROOT)),
         "matched_tile_count": len(matches),
         "score": source_match.get("score"),
@@ -258,7 +256,7 @@ def crop_and_write(
         "candidate_coverage": source_match.get("candidate_coverage"),
         "runtime_coverage": source_match.get("runtime_coverage"),
         "asset_source_type": "runtime_rle_screen_order_rebuild",
-        "reference_preview_path": str((out_dir / "context_crop_4x.png").relative_to(ROOT)),
+        "reference_preview_path": str((out_dir / "context_crop.png").relative_to(ROOT)),
         "replacement_target": (scene, frame, bg, rle_offset) in DIRECT_REPLACEMENT_KEYS,
         "replacement_target_reason": (
             "tile_map-aware same-offset RLE replacement candidate"

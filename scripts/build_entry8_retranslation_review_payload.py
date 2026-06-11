@@ -45,7 +45,7 @@ def build_entry8_records() -> list[dict]:
 
 def main() -> int:
     dataset = load_json(DATASET_PATH)
-    base_payload = build_translation_json(
+    base_payload, overlapped_skips = build_translation_json(
         dataset,
         None,
         exclude_risky_dialogue=False,
@@ -63,6 +63,7 @@ def main() -> int:
     print(f"written: {OUT_PATH}")
     print(f"base_records: {len(base_payload)}")
     print(f"entry8_records: {len(entry8_payload)}")
+    print(f"overlapped_skips: {len(overlapped_skips)}")
     print(f"total_records: {len(combined)}")
     return 0
 

@@ -1,6 +1,6 @@
 {
   "output": "confirmed_data/translation_workspace/all_extracted_texts_master.json",
-  "record_count": 11440,
+  "record_count": 11536,
   "source_count": 15,
   "sources": [
     {
@@ -26,7 +26,7 @@
     {
       "source_order": 4,
       "file": "confirmed_data/extracted_texts/registry_a_map_labels.json",
-      "record_count": 48
+      "record_count": 70
     },
     {
       "source_order": 5,
@@ -61,7 +61,7 @@
     {
       "source_order": 11,
       "file": "confirmed_data/extracted_texts/registry_d_fc_script_texts.json",
-      "record_count": 244
+      "record_count": 245
     },
     {
       "source_order": 12,
@@ -76,7 +76,7 @@
     {
       "source_order": 14,
       "file": "confirmed_data/extracted_texts/credits_texts.json",
-      "record_count": 10
+      "record_count": 83
     }
   ],
   "coverage_note": "현재까지 확보한 known extracted text sources를 통합한 작업 기준본이다. 실플레이 기반 누락 회수와 이미지 텍스트는 별도다."

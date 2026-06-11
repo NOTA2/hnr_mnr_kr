@@ -121,14 +121,6 @@ def merge_record(target: dict, record: dict) -> str:
             translation = ""
             comment = "무시됨: 오염된 확인 필요 초안"
 
-    if target.get("manual_locked"):
-        if translation:
-            target["agent_draft"] = translation
-            target["agent_comment"] = comment or "수동 잠금 항목: 에이전트 초안을 참고만 함"
-        elif comment:
-            target["agent_comment"] = comment
-        return "locked_preserved"
-
     if translation:
         target["agent_draft"] = translation
         target["translation"] = translation
@@ -153,7 +145,6 @@ def main() -> int:
         "imported_at": datetime.now().isoformat(timespec="seconds"),
         "record_count": len(records),
         "applied_count": 0,
-        "locked_preserved_count": 0,
         "comment_only_count": 0,
         "unmatched_count": 0,
         "unmatched": [],
@@ -168,8 +159,6 @@ def main() -> int:
         result = merge_record(target, record)
         if result == "applied":
             summary["applied_count"] += 1
-        elif result == "locked_preserved":
-            summary["locked_preserved_count"] += 1
         elif result == "comment_only":
             summary["comment_only_count"] += 1
 
@@ -192,8 +181,8 @@ def main() -> int:
     print(f"dataset updated: {DATASET_PATH}")
     print(f"report written: {report_path}")
     print(
-        "applied={applied_count} locked_preserved={locked_preserved_count} "
-        "comment_only={comment_only_count} unmatched={unmatched_count}".format(**summary)
+        "applied={applied_count} comment_only={comment_only_count} "
+        "unmatched={unmatched_count}".format(**summary)
     )
     return 0
 

@@ -2,8 +2,8 @@
   "version": 1,
   "rom": "/Users/user/test/Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba",
   "rom_size": 8388608,
-  "extracted_interval_count": 23021,
-  "candidate_count": 21583,
+  "extracted_interval_count": 23071,
+  "candidate_count": 21555,
   "high_confidence_count": 0,
   "high_confidence_candidates": [],
   "suppressed_high_confidence_count": 2,
@@ -1698,198 +1698,6 @@
       "terminator": null,
       "text": "\"色ﾍ`港饒ｩ`",
       "japanese_ratio": 0.375
-    },
-    {
-      "offset": 574732,
-      "rom_address": 134792460,
-      "byte_length": 40,
-      "terminator": "0x00",
-      "text": "　　　 久保　勝範　　　八束　洋子 　　　",
-      "japanese_ratio": 0.381
-    },
-    {
-      "offset": 574820,
-      "rom_address": 134792548,
-      "byte_length": 40,
-      "terminator": "0x00",
-      "text": "　　　 熊田　直樹　　　星合　真樹 　　　",
-      "japanese_ratio": 0.381
-    },
-    {
-      "offset": 574866,
-      "rom_address": 134792594,
-      "byte_length": 38,
-      "terminator": "0x00",
-      "text": "　　 田中　穣　　　　中田　理生 　　　",
-      "japanese_ratio": 0.35
-    },
-    {
-      "offset": 574908,
-      "rom_address": 134792636,
-      "byte_length": 40,
-      "terminator": "0x00",
-      "text": "　　　 澤田　悦己　　　西澤　冬樹 　　　",
-      "japanese_ratio": 0.381
-    },
-    {
-      "offset": 574996,
-      "rom_address": 134792724,
-      "byte_length": 40,
-      "terminator": "0x00",
-      "text": "　　　 田中　庸介　　　岡本　吉弘 　　　",
-      "japanese_ratio": 0.381
-    },
-    {
-      "offset": 575040,
-      "rom_address": 134792768,
-      "byte_length": 40,
-      "terminator": "0x00",
-      "text": "　　　 今西　智明　　　稲垣　浩文 　　　",
-      "japanese_ratio": 0.381
-    },
-    {
-      "offset": 575128,
-      "rom_address": 134792856,
-      "byte_length": 40,
-      "terminator": "0x00",
-      "text": "　　　 高橋　哲也　　　千本松　勝 　　　",
-      "japanese_ratio": 0.381
-    },
-    {
-      "offset": 575172,
-      "rom_address": 134792900,
-      "byte_length": 40,
-      "terminator": "0x00",
-      "text": "　　　 高橋　尚登　　　葛西　史典 　　　",
-      "japanese_ratio": 0.381
-    },
-    {
-      "offset": 575218,
-      "rom_address": 134792946,
-      "byte_length": 38,
-      "terminator": "0x00",
-      "text": "　　 木下　典子　　　大野　毅 　　　　",
-      "japanese_ratio": 0.35
-    },
-    {
-      "offset": 575260,
-      "rom_address": 134792988,
-      "byte_length": 40,
-      "terminator": "0x00",
-      "text": "　　　 岩井　俊彰　　　阿部　知司 　　　",
-      "japanese_ratio": 0.381
-    },
-    {
-      "offset": 575392,
-      "rom_address": 134793120,
-      "byte_length": 40,
-      "terminator": "0x00",
-      "text": "　　　 西田　丈彦　　　伊藤　和晃 　　　",
-      "japanese_ratio": 0.381
-    },
-    {
-      "offset": 575526,
-      "rom_address": 134793254,
-      "byte_length": 38,
-      "terminator": "0x00",
-      "text": "　　 勝股　英夫　　　大山　良 　　　　",
-      "japanese_ratio": 0.35
-    },
-    {
-      "offset": 575612,
-      "rom_address": 134793340,
-      "byte_length": 40,
-      "terminator": "0x00",
-      "text": "　　　 南　雅彦　　　　小笠原　宗紀 　　",
-      "japanese_ratio": 0.381
-    },
-    {
-      "offset": 575744,
-      "rom_address": 134793472,
-      "byte_length": 40,
-      "terminator": "0x00",
-      "text": "　　　 松崎　武吏　　　下村　裕一 　　　",
-      "japanese_ratio": 0.381
-    },
-    {
-      "offset": 575876,
-      "rom_address": 134793604,
-      "byte_length": 40,
-      "terminator": "0x00",
-      "text": "　　　 中村　憲ニ　　　川邉　悠司 　　　",
-      "japanese_ratio": 0.381
-    },
-    {
-      "offset": 575920,
-      "rom_address": 134793648,
-      "byte_length": 40,
-      "terminator": "0x00",
-      "text": "　　　 森川　敦　　　　宇都宮　千秋 　　",
-      "japanese_ratio": 0.381
-    },
-    {
-      "offset": 576976,
-      "rom_address": 134794704,
-      "byte_length": 40,
-      "terminator": "0x00",
-      "text": "　　　 大脇　雄治　　　小笠原　貴樹 　　",
-      "japanese_ratio": 0.429
-    },
-    {
-      "offset": 577108,
-      "rom_address": 134794836,
-      "byte_length": 40,
-      "terminator": "0x00",
-      "text": "　　　 田中　登志弘　　細田　康幸 　　　",
-      "japanese_ratio": 0.429
-    },
-    {
-      "offset": 577152,
-      "rom_address": 134794880,
-      "byte_length": 40,
-      "terminator": "0x00",
-      "text": "　　　 森野　裕之　　　平川　洋一 　　　",
-      "japanese_ratio": 0.381
-    },
-    {
-      "offset": 577196,
-      "rom_address": 134794924,
-      "byte_length": 40,
-      "terminator": "0x00",
-      "text": "　　　 平山　近広　　　高橋　亜紀 　　　",
-      "japanese_ratio": 0.381
-    },
-    {
-      "offset": 577242,
-      "rom_address": 134794970,
-      "byte_length": 38,
-      "terminator": "0x00",
-      "text": "　　 斉藤　基　　　　立烏　帽子 　　　",
-      "japanese_ratio": 0.35
-    },
-    {
-      "offset": 577328,
-      "rom_address": 134795056,
-      "byte_length": 40,
-      "terminator": "0x00",
-      "text": "　　　 稲垣　直紀　　　後藤　清治 　　　",
-      "japanese_ratio": 0.381
-    },
-    {
-      "offset": 577372,
-      "rom_address": 134795100,
-      "byte_length": 40,
-      "terminator": "0x00",
-      "text": "　　　 佐藤　幹治　　　上田　佳史 　　　",
-      "japanese_ratio": 0.381
-    },
-    {
-      "offset": 577460,
-      "rom_address": 134795188,
-      "byte_length": 40,
-      "terminator": "0x00",
-      "text": "　　　 大場　彰博　　　北村　智史 　　　",
-      "japanese_ratio": 0.381
     },
     {
       "offset": 578616,
@@ -164588,14 +164396,6 @@
       "japanese_ratio": 0.4
     },
     {
-      "offset": 7048542,
-      "rom_address": 141266270,
-      "byte_length": 12,
-      "terminator": null,
-      "text": "　おおーっ！",
-      "japanese_ratio": 0.667
-    },
-    {
       "offset": 7057954,
       "rom_address": 141275682,
       "byte_length": 8,
@@ -164732,22 +164532,6 @@
       "japanese_ratio": 0.4
     },
     {
-      "offset": 7238936,
-      "rom_address": 141456664,
-      "byte_length": 10,
-      "terminator": null,
-      "text": "だぁーっ！",
-      "japanese_ratio": 0.8
-    },
-    {
-      "offset": 7265096,
-      "rom_address": 141482824,
-      "byte_length": 8,
-      "terminator": null,
-      "text": "うわっ！",
-      "japanese_ratio": 0.75
-    },
-    {
       "offset": 7277888,
       "rom_address": 141495616,
       "byte_length": 6,
@@ -164866,14 +164650,6 @@
       "terminator": "0xFF",
       "text": "ｯV胚[靍",
       "japanese_ratio": 0.4
-    },
-    {
-      "offset": 7541446,
-      "rom_address": 141759174,
-      "byte_length": 14,
-      "terminator": null,
-      "text": "脱がんでいい、",
-      "japanese_ratio": 0.857
     },
     {
       "offset": 7566617,

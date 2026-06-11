@@ -4,22 +4,24 @@ from __future__ import annotations
 
 import argparse
 import json
+import sys
 from pathlib import Path
 
 REPO_ROOT = Path(__file__).resolve().parents[1]
 VENDOR_DIR = REPO_ROOT / ".vendor"
-import sys
-
-if VENDOR_DIR.exists():
-    sys.path.insert(0, str(VENDOR_DIR))
 
 try:
     from PIL import Image
-except Exception as exc:  # pragma: no cover - runtime dependency guard
-    raise SystemExit(
-        "error: Pillow 가 필요합니다. `python3 -m pip install --target .vendor pillow` 로 설치하세요.\n"
-        f"detail: {exc}"
-    )
+except Exception as first_exc:  # pragma: no cover - runtime dependency guard
+    if VENDOR_DIR.exists() and str(VENDOR_DIR) not in sys.path:
+        sys.path.append(str(VENDOR_DIR))
+    try:
+        from PIL import Image
+    except Exception as exc:
+        raise SystemExit(
+            "error: Pillow 가 필요합니다. 번들 Python 또는 `python3 -m pip install --target .vendor pillow` 로 실행하세요.\n"
+            f"detail: {exc or first_exc}"
+        )
 
 
 HANGUL_BASE = 0xAC00

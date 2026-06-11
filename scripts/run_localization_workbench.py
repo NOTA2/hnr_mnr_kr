@@ -6,10 +6,12 @@ import argparse
 import base64
 import json
 import mimetypes
+import re
 import shutil
 import subprocess
 import sys
 import urllib.parse
+import zipfile
 from datetime import datetime
 from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -23,11 +25,22 @@ if str(ROOT) not in sys.path:
 if str(ROOT / ".vendor") not in sys.path:
     sys.path.append(str(ROOT / ".vendor"))
 
-from gba_kor_tool.translation_normalization import normalize_translation_text
+from gba_kor_tool.translation_normalization import TEXT_LAYOUT_METADATA_SOURCE_GROUPS, normalize_translation_text
+from scripts.create_bps_patch import apply_patch as apply_bps_patch
+from scripts.create_bps_patch import create_patch as create_bps_patch
+from scripts.create_bps_patch import sha256 as sha256_bytes
+from scripts.apply_battle_hud_name_font import (
+    HUD_TEXT_OVERRIDES as BATTLE_HUD_TEXT_OVERRIDES,
+    normalize_hud_name as normalize_battle_hud_name,
+)
 
 HTML = ROOT / "tools" / "localization_workbench.html"
 WORKBENCH_DIR = ROOT / "confirmed_data" / "localization_workbench"
 DATASET_PATH = WORKBENCH_DIR / "workbench_dataset.json"
+SOURCE_ROM_PATH = ROOT / "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba"
+CURRENT_REVIEW_ROM_RELATIVE = "patched_roms/current_review/hnr_localization_review.gba"
+RELEASES_DIR = ROOT / "releases"
+DEFAULT_RELEASE_NAME = "hnr_mnr_ko_v0.1.0"
 SPEAKERS_PATH = WORKBENCH_DIR / "speaker_aliases.json"
 SPEAKER_REGISTRY_PATH = WORKBENCH_DIR / "speaker_registry.json"
 PROGRESS_PATH = WORKBENCH_DIR / "progress_state.json"
@@ -84,7 +97,6 @@ TEXT_SAVE_FIELDS = (
     "translation",
     "agent_draft",
     "agent_comment",
-    "manual_locked",
     "notes",
     "progress_status",
     "review_status",
@@ -214,6 +226,120 @@ def load_json(path: Path):
 
 def write_json(path: Path, payload: Any) -> None:
     path.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+
+
+def safe_release_name(raw_name: str | None) -> str:
+    name = (raw_name or DEFAULT_RELEASE_NAME).strip()
+    if not re.fullmatch(r"[A-Za-z0-9._-]+", name):
+        raise ValueError("release_name must contain only letters, numbers, dots, underscores, and hyphens")
+    return name
+
+
+def root_relative(path: Path) -> str:
+    return path.resolve().relative_to(ROOT).as_posix()
+
+
+def ensure_project_file(raw_path: str | Path) -> Path:
+    path = raw_path if isinstance(raw_path, Path) else Path(raw_path)
+    resolved = path if path.is_absolute() else ROOT / path
+    resolved = resolved.resolve()
+    if ROOT != resolved and ROOT not in resolved.parents:
+        raise ValueError(f"path is outside the project: {raw_path}")
+    if not resolved.is_file():
+        raise FileNotFoundError(f"file not found: {raw_path}")
+    return resolved
+
+
+def release_readme_text(release_name: str, source_sha: str, target_sha: str) -> str:
+    return f"""# HNR MNR Korean Patch v0.1.0
+
+이 배포물은 GBA 게임 `Hagane no Renkinjutsushi - Meisou no Rondo (Japan)`의
+한국어 패치입니다. 1차 검수 완료본을 기준으로 제작했습니다.
+
+원본 또는 패치 완료된 `.gba` 파일은 포함하지 않습니다. 사용자는 본인이 소유한
+정상적인 일본판 원본 ROM에 `.bps` 패치를 직접 적용해야 합니다.
+
+## 포함 파일
+
+- `{release_name}.bps`: BPS 패치 파일
+- `checksums.sha256`: 원본/패치/적용 결과 검증용 SHA256
+- `NOTICE.txt`: 폰트 및 배포 고지
+- `LICENSES/Galmuri_OFL_1.1.txt`: Galmuri 폰트 라이선스
+
+## 필요한 원본 ROM
+
+- 파일: `Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba`
+- 크기: `8388608` bytes
+- SHA256:
+  `{source_sha}`
+
+파일명은 달라도 되지만, SHA256이 위 값과 같은 깨끗한 일본판 원본 ROM을
+사용해야 합니다.
+
+## Windows 패치 방법
+
+1. Floating IPS/FLIPS를 실행합니다.
+2. `Apply Patch`를 선택합니다.
+3. `{release_name}.bps`를 선택합니다.
+4. 본인이 가진 일본판 원본 `.gba`를 선택합니다.
+5. 새 `.gba` 파일 이름을 정해 저장합니다.
+6. 생성된 `.gba`를 mGBA 같은 에뮬레이터에서 실행합니다.
+
+브라우저에서 적용하려면 RomPatcher.js/RomPatcher.app에서도 BPS 패치를 적용할 수
+있습니다. 이 경우에도 원본 ROM 파일은 사용자가 직접 선택해야 합니다.
+
+## 적용 결과 검증값
+
+패치 적용 후 생성되는 ROM의 SHA256은 아래와 같아야 합니다.
+
+`{target_sha}`
+
+## 주의
+
+- 이 패치는 무료 배포용입니다.
+- 원본 게임 ROM 또는 패치가 적용된 ROM을 공유하지 마세요.
+- 게임 원저작권은 원 권리자에게 있습니다.
+- 이 패치에는 Galmuri에서 파생한 비트맵 글리프 데이터가 포함되어 있습니다.
+"""
+
+
+def release_notice_text() -> str:
+    return """HNR MNR Korean Patch v0.1.0
+
+This package contains only a BPS patch, documentation, checksums, and license
+notices. It does not contain the original game ROM or a pre-patched ROM.
+
+Game copyright belongs to the original rights holders.
+
+Font notice:
+
+This patch includes bitmap glyph data derived from Galmuri.
+Galmuri is Copyright 2019-2025 Lee Minseo and licensed under the
+SIL Open Font License, Version 1.1.
+
+Official Galmuri page:
+https://quiple.dev/font/galmuri
+
+SIL Open Font License:
+https://openfontlicense.org/
+"""
+
+
+def galmuri_license_text(release_dir: Path) -> str:
+    candidates = [
+        release_dir / "LICENSES" / "Galmuri_OFL_1.1.txt",
+        RELEASES_DIR / DEFAULT_RELEASE_NAME / "LICENSES" / "Galmuri_OFL_1.1.txt",
+    ]
+    for candidate in candidates:
+        if candidate.is_file():
+            return candidate.read_text(encoding="utf-8")
+    return """Galmuri
+Copyright 2019-2025 Lee Minseo
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+Official page: https://quiple.dev/font/galmuri
+License text: https://openfontlicense.org/open-font-license-official-text/
+"""
 
 
 class WorkbenchStore:
@@ -372,6 +498,13 @@ class WorkbenchStore:
     def battle_hud_name_item_id(self, item: dict[str, Any]) -> str:
         return f"{BATTLE_HUD_NAME_ITEM_PREFIX}{int(item.get('first_record_index', 0)):04d}"
 
+    def battle_hud_display_translation(self, item: dict[str, Any]) -> str:
+        source = str(item.get("decoded_name") or "")
+        if source == "ヌル":
+            return ""
+        base_translation = str(item.get("korean_translation") or source)
+        return normalize_battle_hud_name(BATTLE_HUD_TEXT_OVERRIDES.get(source, base_translation))
+
     def battle_hud_name_items(self) -> list[dict[str, Any]]:
         output: list[dict[str, Any]] = []
         for item in self.battle_hud_name_table.get("unique_names", []):
@@ -380,6 +513,10 @@ class WorkbenchStore:
                 offset = int(str(first_offset), 16)
             except ValueError:
                 offset = None
+            source = str(item.get("decoded_name", ""))
+            base_translation = item.get("korean_translation", "")
+            hud_translation = self.battle_hud_display_translation(item)
+            agent_draft = item.get("agent_draft") or base_translation
             output.append(
                 {
                     "item_id": self.battle_hud_name_item_id(item),
@@ -389,12 +526,13 @@ class WorkbenchStore:
                     "source_order": item.get("first_record_index", 0),
                     "order_in_category": item.get("first_record_index", 0),
                     "offset": offset,
-                    "text": item.get("decoded_name", ""),
-                    "translation": item.get("korean_translation", ""),
-                    "effective_translation": item.get("korean_translation", ""),
-                    "agent_draft": "",
-                    "agent_comment": "",
-                    "manual_locked": False,
+                    "text": source,
+                    "translation": hud_translation,
+                    "effective_translation": hud_translation,
+                    "hud_base_translation": base_translation,
+                    "hud_override_applied": source in BATTLE_HUD_TEXT_OVERRIDES,
+                    "agent_draft": agent_draft,
+                    "agent_comment": item.get("agent_comment", ""),
                     "notes": item.get("translation_note", ""),
                     "progress_status": item.get("progress_status") or ("done" if item.get("korean_translation") else "todo"),
                     "review_status": item.get("review_status") or ("issue" if item.get("translation_needs_review") else "checked"),
@@ -440,11 +578,23 @@ class WorkbenchStore:
                 "translation_basis": source.get("translation_basis", ""),
                 "translation_needs_review": source.get("translation_needs_review", False),
                 "translation_note": source.get("translation_note", ""),
+                "agent_draft": source.get("agent_draft", source.get("korean_translation", "")),
+                "agent_comment": source.get("agent_comment", ""),
                 "progress_status": source.get("progress_status", "done" if source.get("korean_translation") else "todo"),
                 "review_status": source.get("review_status", "issue" if source.get("translation_needs_review") else "checked"),
             }
             if self.battle_hud_name_item_id(source) == item_id:
-                entry["korean_translation"] = updates.get("translation", current.get("translation", ""))
+                entry["korean_translation"] = normalize_translation_text(
+                    updates.get("translation", current.get("translation", "")),
+                    source_group=BATTLE_HUD_NAME_CATEGORY_ID,
+                    reference_text=name,
+                )
+                entry["agent_draft"] = normalize_translation_text(
+                    updates.get("agent_draft", current.get("agent_draft", "")),
+                    source_group=BATTLE_HUD_NAME_CATEGORY_ID,
+                    reference_text=name,
+                )
+                entry["agent_comment"] = updates.get("agent_comment", current.get("agent_comment", ""))
                 entry["translation_note"] = updates.get("notes", current.get("notes", ""))
                 entry["progress_status"] = updates.get("progress_status", current.get("progress_status", "done"))
                 entry["review_status"] = updates.get("review_status", current.get("review_status", "checked"))
@@ -510,18 +660,34 @@ class WorkbenchStore:
                 f"(종료 {terminator_length(merged)} byte 포함)."
             )
 
+    def normalize_translation_for_workbench_storage(
+        self,
+        text: str,
+        *,
+        source_group: str | None,
+        reference_text: str | None,
+    ) -> str:
+        normalized = normalize_translation_text(
+            text,
+            source_group=source_group,
+            reference_text=reference_text,
+        )
+        if source_group in TEXT_LAYOUT_METADATA_SOURCE_GROUPS:
+            return normalized.strip("　 ")
+        return normalized
+
     def prepare_text_item_updates(self, item: dict[str, Any], updates: dict[str, Any]) -> dict[str, Any]:
         previous_translation = item.get("translation", "")
         source_group = item.get("source_group")
         item_updates = dict(updates)
         if "translation" in item_updates and isinstance(item_updates["translation"], str):
-            item_updates["translation"] = normalize_translation_text(
+            item_updates["translation"] = self.normalize_translation_for_workbench_storage(
                 item_updates["translation"],
                 source_group=source_group,
                 reference_text=item.get("text"),
             )
         if "agent_draft" in item_updates and isinstance(item_updates["agent_draft"], str):
-            item_updates["agent_draft"] = normalize_translation_text(
+            item_updates["agent_draft"] = self.normalize_translation_for_workbench_storage(
                 item_updates["agent_draft"],
                 source_group=source_group,
                 reference_text=item.get("text"),
@@ -539,15 +705,6 @@ class WorkbenchStore:
         for field in TEXT_SAVE_FIELDS:
             if field in item_updates:
                 prepared[field] = item_updates[field]
-        new_translation = prepared.get("translation", item.get("translation", ""))
-        if (
-            "translation" in item_updates
-            and new_translation
-            and new_translation != previous_translation
-            and new_translation != current_agent_draft
-            and not item_updates.get("manual_locked", False)
-        ):
-            prepared["manual_locked"] = True
         return prepared
 
     def apply_text_item_updates(self, item: dict[str, Any], prepared: dict[str, Any]) -> None:
@@ -716,6 +873,75 @@ class WorkbenchStore:
                 return item
         raise KeyError(item_id)
 
+    def expected_image_upload_size(self, item: dict[str, Any]) -> tuple[int, int] | None:
+        tile_map_path = str(item.get("tile_map_path") or "")
+        if tile_map_path:
+            path = (ROOT / tile_map_path).resolve()
+            if path.is_file() and ROOT in path.parents:
+                tile_map = load_json(path)
+                crop = tile_map.get("crop_pixels") or {}
+                try:
+                    width = int(crop.get("width"))
+                    height = int(crop.get("height"))
+                except (TypeError, ValueError):
+                    width = height = 0
+                if width > 0 and height > 0:
+                    return (width, height)
+
+        for field in ("source_download_path", "source_preview_path"):
+            raw_path = str(item.get(field) or "")
+            if not raw_path:
+                continue
+            path = (ROOT / raw_path).resolve()
+            if not path.is_file() or ROOT not in path.parents:
+                continue
+            try:
+                from PIL import Image
+
+                with Image.open(path) as image:
+                    width, height = image.size
+                if width > 0 and height > 0:
+                    return (width, height)
+            except Exception:
+                continue
+        return None
+
+    def normalize_uploaded_image_bytes(
+        self,
+        item: dict[str, Any],
+        filename: str,
+        data: bytes,
+    ) -> tuple[str, bytes]:
+        expected_size = self.expected_image_upload_size(item)
+        if not expected_size:
+            return filename, data
+        try:
+            from PIL import Image
+
+            image = Image.open(BytesIO(data)).convert("RGBA")
+        except Exception:
+            return filename, data
+        if image.size == expected_size:
+            return filename, data
+
+        expected_w, expected_h = expected_size
+        scale_x = image.size[0] // expected_w if expected_w else 0
+        scale_y = image.size[1] // expected_h if expected_h else 0
+        if (
+            scale_x <= 1
+            or scale_x != scale_y
+            or image.size[0] != expected_w * scale_x
+            or image.size[1] != expected_h * scale_y
+        ):
+            return filename, data
+
+        resized = image.resize(expected_size, Image.Resampling.NEAREST)
+        output = BytesIO()
+        resized.save(output, format="PNG")
+        upload_stem = self.safe_upload_stem(filename, "edited_replacement")
+        normalized_filename = f"{upload_stem}_{expected_w}x{expected_h}.png"
+        return normalized_filename, output.getvalue()
+
     def upload_image_item(self, item_id: str, filename: str, content_base64: str) -> dict[str, Any]:
         data = base64.b64decode(content_base64)
         item = next((entry for entry in self.image_replacements if entry["item_id"] == item_id), None)
@@ -733,6 +959,7 @@ class WorkbenchStore:
 
         safe_dir = UPLOADS_ROOT / item_id.replace(":", "_")
         safe_dir.mkdir(parents=True, exist_ok=True)
+        filename, data = self.normalize_uploaded_image_bytes(item, filename, data)
         output_path = safe_dir / Path(filename).name
         output_path.write_bytes(data)
         relative = str(output_path.relative_to(ROOT))
@@ -1115,6 +1342,129 @@ class WorkbenchStore:
             "image_apply": image_apply,
         }
 
+    def apply_text_replacements(self, category_id: str | None = None) -> dict[str, Any]:
+        command = [
+            sys.executable,
+            "scripts/build_localization_review_rom.py",
+            "--reuse-prepared-font",
+        ]
+        if category_id:
+            command.extend(["--category-id", category_id])
+        completed = subprocess.run(
+            command,
+            cwd=ROOT,
+            text=True,
+            capture_output=True,
+            check=True,
+        )
+        self.progress["last_built_rom"] = "patched_roms/current_review/hnr_localization_review.gba"
+        # The fast text path starts from the cached font-ready base, so existing
+        # image replacements must be replayed to keep the review ROM visually current.
+        image_apply = self.apply_image_replacements()
+        write_json(PROGRESS_PATH, self.progress)
+        return {
+            "ok": True,
+            "rom_path": self.progress["last_built_rom"],
+            "stdout": completed.stdout,
+            "image_apply": image_apply,
+            "mode": "text_fast",
+        }
+
+    def create_release_patch(self, release_name: str | None = None) -> dict[str, Any]:
+        release_name = safe_release_name(release_name)
+        source_path = ensure_project_file(SOURCE_ROM_PATH)
+        target_path = ensure_project_file(self.progress.get("last_built_rom") or CURRENT_REVIEW_ROM_RELATIVE)
+
+        source = source_path.read_bytes()
+        target = target_path.read_bytes()
+        source_sha = sha256_bytes(source)
+        target_sha = sha256_bytes(target)
+        created_at = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        metadata = (
+            "\n".join(
+                [
+                    "Hagane no Renkinjutsushi - Meisou no Rondo Korean patch",
+                    f"Release: {release_name}",
+                    f"Source file: {source_path.name}",
+                    f"Source SHA256: {source_sha}",
+                    f"Target file: {target_path.name}",
+                    f"Target SHA256: {target_sha}",
+                ]
+            )
+            + "\n"
+        ).encode("utf-8")
+
+        patch = create_bps_patch(source, target, metadata)
+        verified = apply_bps_patch(source, patch)
+        if verified != target:
+            raise RuntimeError("BPS verification failed: applied patch differs from target ROM")
+
+        patch_sha = sha256_bytes(patch)
+        release_dir = RELEASES_DIR / release_name
+        license_dir = release_dir / "LICENSES"
+        license_dir.mkdir(parents=True, exist_ok=True)
+
+        bps_path = release_dir / f"{release_name}.bps"
+        readme_path = release_dir / "README_ko.md"
+        notice_path = release_dir / "NOTICE.txt"
+        checksums_path = release_dir / "checksums.sha256"
+        license_path = license_dir / "Galmuri_OFL_1.1.txt"
+        zip_path = RELEASES_DIR / f"{release_name}.zip"
+        zip_sha_path = RELEASES_DIR / f"{release_name}.zip.sha256"
+
+        bps_path.write_bytes(patch)
+        readme_path.write_text(release_readme_text(release_name, source_sha, target_sha), encoding="utf-8")
+        notice_path.write_text(release_notice_text(), encoding="utf-8")
+        license_path.write_text(galmuri_license_text(release_dir), encoding="utf-8")
+        checksums_path.write_text(
+            "\n".join(
+                [
+                    f"{patch_sha}  {release_name}.bps",
+                    f"{source_sha}  required_source_Hagane_no_Renkinjutsushi_Meisou_no_Rondo_Japan.gba",
+                    f"{target_sha}  expected_patched_output_{release_name}.gba",
+                ]
+            )
+            + "\n",
+            encoding="utf-8",
+        )
+
+        release_files = [license_path, notice_path, readme_path, checksums_path, bps_path]
+        zip_path.parent.mkdir(parents=True, exist_ok=True)
+        with zipfile.ZipFile(zip_path, "w", compression=zipfile.ZIP_DEFLATED) as archive:
+            for path in release_files:
+                archive.write(path, arcname=f"{release_name}/{path.relative_to(release_dir).as_posix()}")
+
+        zip_data = zip_path.read_bytes()
+        zip_sha = sha256_bytes(zip_data)
+        zip_sha_path.write_text(f"{zip_sha}  {zip_path.name}\n", encoding="utf-8")
+
+        self.progress.update(
+            {
+                "last_release_name": release_name,
+                "last_release_patch": root_relative(bps_path),
+                "last_release_zip": root_relative(zip_path),
+                "last_release_created_at": created_at,
+            }
+        )
+        write_json(PROGRESS_PATH, self.progress)
+
+        return {
+            "ok": True,
+            "release_name": release_name,
+            "created_at": created_at,
+            "source_rom": root_relative(source_path),
+            "target_rom": root_relative(target_path),
+            "bps_path": root_relative(bps_path),
+            "zip_path": root_relative(zip_path),
+            "zip_sha256_path": root_relative(zip_sha_path),
+            "source_sha256": source_sha,
+            "target_sha256": target_sha,
+            "bps_sha256": patch_sha,
+            "zip_sha256": zip_sha,
+            "bps_size": len(patch),
+            "zip_size": len(zip_data),
+        }
+
     def import_translation_results(self, filename: str, content_base64: str) -> dict[str, Any]:
         data = base64.b64decode(content_base64)
         IMPORT_REPORT_DIR.mkdir(parents=True, exist_ok=True)
@@ -1235,6 +1585,7 @@ def make_handler(store: WorkbenchStore):
                 content_type, _ = mimetypes.guess_type(file_path.name)
                 self.send_response(HTTPStatus.OK)
                 self.send_header("Content-Type", content_type or "application/octet-stream")
+                self.send_header("Cache-Control", "no-store, max-age=0")
                 self.send_header("Content-Length", str(len(body)))
                 self.end_headers()
                 self.wfile.write(body)
@@ -1309,6 +1660,14 @@ def make_handler(store: WorkbenchStore):
                     return
                 if parsed.path == "/rebuild":
                     result = store.rebuild(payload.get("category_id"))
+                    self._json(result)
+                    return
+                if parsed.path == "/apply-text":
+                    result = store.apply_text_replacements(payload.get("category_id"))
+                    self._json(result)
+                    return
+                if parsed.path == "/release-patch":
+                    result = store.create_release_patch(payload.get("release_name"))
                     self._json(result)
                     return
                 if parsed.path == "/import-translation-results":

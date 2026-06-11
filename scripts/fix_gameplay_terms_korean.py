@@ -4,6 +4,8 @@ from __future__ import annotations
 import json
 from pathlib import Path
 
+from gba_kor_tool.translation_normalization import normalize_translation_text
+
 
 WORKSET = Path("confirmed_data/translation_worksets/translation_workset_gameplay_terms.json")
 
@@ -57,11 +59,11 @@ OVERRIDES = {
     "敵陣に飛び込み　\u000b敵全体に雷攻撃": "적진에 뛰어들어\u000b적 전체에 번개 공격",
     "目にもとまらぬ　\u000b超高速の抜刀術": "눈으로 좇을 수 없는\u000b초고속 발도술",
     "相手の治癒力を　\u000b高めて回復させる": "상대의 치유력을\u000b높여 회복시킨다",
-    "体力を５０　　　\u000b回復する薬": "체력을 50\u000b회복하는 약",
-    "体力を１００　　\u000b回復する薬": "체력을 100\u000b회복하는 약",
-    "体力を２００　　\u000b回復する薬": "체력을 200\u000b회복하는 약",
-    "体力を３００　　\u000b回復する薬": "체력을 300\u000b회복하는 약",
-    "体力を５００　　\u000b回復する薬": "체력을 500\u000b회복하는 약",
+    "体力を５０　　　\u000b回復する薬": "체력 ５０　　　 \u000b 회복약  ",
+    "体力を１００　　\u000b回復する薬": "체력 １００　　 \u000b 회복약  ",
+    "体力を２００　　\u000b回復する薬": "체력 ２００　　 \u000b 회복약  ",
+    "体力を３００　　\u000b回復する薬": "체력 ３００　　 \u000b 회복약  ",
+    "体力を５００　　\u000b回復する薬": "체력 ５００　　 \u000b 회복약  ",
     # ability_texts / mixed
     "ブラックウッド　\u000b炭のような物体": "블랙 우드\u000b숯 같은 물체",
     "ブラックパール　\u000b銀灰色のパール": "블랙 펄\u000b은회색 진주",
@@ -82,7 +84,11 @@ def main() -> None:
     for record in arr:
         src = record["text"]
         if src in OVERRIDES:
-            new_value = OVERRIDES[src]
+            new_value = normalize_translation_text(
+                OVERRIDES[src],
+                source_group=record.get("source_group"),
+                reference_text=src,
+            )
             if record.get("translation") != new_value:
                 record["translation"] = new_value
                 changed += 1

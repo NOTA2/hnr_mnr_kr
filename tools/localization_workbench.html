@@ -579,6 +579,67 @@
       color: #ffd0d0;
       background: rgba(210,122,122,0.12);
     }
+    .term-layout-editor {
+      border: 1px solid var(--line);
+      background: rgba(117,199,177,0.06);
+      padding: 12px;
+      margin: -2px 0 12px;
+    }
+    .term-layout-editor.hidden {
+      display: none;
+    }
+    .term-layout-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+      gap: 10px;
+      margin-top: 8px;
+    }
+    .term-layout-field {
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,0.18);
+      padding: 8px;
+    }
+    .term-layout-field input {
+      margin-bottom: 6px;
+    }
+    .term-layout-source {
+      min-height: 42px;
+      white-space: pre-wrap;
+      word-break: break-word;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+      color: var(--text);
+    }
+    .term-layout-meter {
+      margin-top: 8px;
+      padding: 8px 10px;
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,0.16);
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+    }
+    .term-layout-meter.ok {
+      color: #bfe8c4;
+      border-color: rgba(117,199,177,0.65);
+    }
+    .term-layout-meter.warn {
+      color: #ffe0a6;
+      border-color: rgba(255,210,122,0.65);
+    }
+    .term-layout-meter.error {
+      color: #ffd0d0;
+      border-color: rgba(210,122,122,0.75);
+    }
+    .control-token {
+      display: inline-block;
+      padding: 0 5px;
+      margin: 0 4px;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      font-size: 11px;
+      line-height: 1.5;
+      vertical-align: middle;
+    }
     .length-policy-banner {
       display: grid;
       gap: 4px;
@@ -719,6 +780,35 @@
       font-size: 12px;
       line-height: 1.45;
       white-space: pre-wrap;
+    }
+    .save-review-context {
+      margin-top: 8px;
+      padding: 8px;
+      border: 1px solid var(--line);
+      background: rgba(0,0,0,0.14);
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.45;
+      white-space: pre-wrap;
+    }
+    .save-review-editor {
+      margin-top: 8px;
+      display: grid;
+      gap: 6px;
+    }
+    .save-review-editor textarea {
+      min-height: 72px;
+      margin: 0;
+      font-size: 13px;
+      line-height: 1.45;
+    }
+    .save-review-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .modal-change .save-review-actions button {
+      margin-top: 8px;
     }
     .audit-modal .modal-card {
       width: min(1480px, calc(100vw - 48px));
@@ -869,6 +959,19 @@
     .audit-limit-meter.error {
       color: #ffd0d0;
     }
+    .audit-variant-list {
+      margin-top: 6px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.4;
+    }
+    .audit-bulk-badge {
+      display: inline-block;
+      margin-top: 4px;
+      color: var(--accent-2);
+      font-size: 11px;
+      font-weight: 700;
+    }
     .audit-footer {
       display: flex;
       justify-content: space-between;
@@ -1003,22 +1106,37 @@
           <label>번역문
             <textarea id="translationText"></textarea>
           </label>
+          <div id="termLayoutEditor" class="term-layout-editor hidden">
+            <h3>구조 편집</h3>
+            <div class="meta" id="termLayoutHelp"></div>
+            <div class="term-layout-grid">
+              <div class="term-layout-field">
+                <div class="meta">원문 앞 필드</div>
+                <div id="termSourceName" class="term-layout-source"></div>
+              </div>
+              <div class="term-layout-field">
+                <div class="meta">원문 뒤 필드</div>
+                <div id="termSourceDescription" class="term-layout-source"></div>
+              </div>
+              <label class="term-layout-field">번역 앞 필드
+                <input id="termNameInput" type="text">
+                <div class="small">대상/이름/앞줄</div>
+              </label>
+              <label class="term-layout-field">번역 뒤 필드
+                <input id="termDescriptionInput" type="text">
+                <div class="small">설명/동작/뒷줄</div>
+              </label>
+            </div>
+            <div id="termLayoutMeter" class="term-layout-meter"></div>
+          </div>
           <div id="lengthPolicyBanner" class="length-policy-banner hidden"></div>
           <div id="translationLimitMeter" class="limit-meter hidden"></div>
           <label>에이전트 초안
             <textarea id="agentDraftText" placeholder="번역 에이전트가 제안한 초안"></textarea>
           </label>
           <label>에이전트 메모
-            <textarea id="agentCommentText" placeholder="수동 잠금 항목에는 차선책/설명 메모를 남긴다"></textarea>
+            <textarea id="agentCommentText" placeholder="번역 메모나 차선책을 남긴다"></textarea>
           </label>
-          <label>
-            <input id="manualLockCheckbox" type="checkbox" style="width:auto; margin-right:8px;">
-            수동 잠금
-          </label>
-          <div class="small warning">
-            수동 잠금이 켜진 항목은 번역 에이전트가 현재 적용 번역을 덮어쓰면 안 됩니다.
-            대신 에이전트 초안과 메모만 갱신해야 합니다.
-          </div>
           <label>메모
             <textarea id="notesText"></textarea>
           </label>
@@ -1296,9 +1414,12 @@
         <div class="small" id="autoImportInfo"></div>
         <button id="openAuditReviewBtn">Entry8 후보 검수</button>
         <button id="applyImagesBtn">이미지 교체 전체 적용</button>
+        <button id="applyTextBtn">텍스트만 빠른 적용</button>
         <button id="restoreAllImagesBtn">이미지 교체 전체 원상복구</button>
         <button id="rebuildBtn">전체 적용 ROM 재빌드</button>
+        <button id="createPatchBtn" class="primary">텍스트 적용 후 패치 생성</button>
         <div class="small" id="romInfo"></div>
+        <div class="small" id="releaseInfo"></div>
         <div class="small" id="importInfo"></div>
         <div class="status" id="statusInfo">대기 중</div>
       </div>
@@ -1391,6 +1512,7 @@
       bundle: null,
       categories: [],
       items: [],
+      itemIndex: new Map(),
       categoryId: null,
       categoryKindFilter: "all",
       itemId: null,
@@ -1408,7 +1530,7 @@
       auditCandidates: [],
       auditDecisions: new Map(),
       auditEdits: new Map(),
-      auditTabId: "boundary_apply",
+      auditTabId: "same_source_variants",
       auditPage: 0,
       auditPageSize: 200,
       auditSearch: "",
@@ -1420,7 +1542,10 @@
       commonHudBoards: {},
       commonHudBoard: Array(100).fill(""),
       commonHudBoardCursor: 0,
+      assetVersion: Date.now(),
     };
+    let bundleLoadPromise = null;
+    let bundleLoadError = null;
 
     const categoryList = document.getElementById("categoryList");
     const categoryKindFilter = document.getElementById("categoryKindFilter");
@@ -1441,6 +1566,7 @@
     const progressInfo = document.getElementById("progressInfo");
     const progressDashboard = document.getElementById("progressDashboard");
     const romInfo = document.getElementById("romInfo");
+    const releaseInfo = document.getElementById("releaseInfo");
     const importInfo = document.getElementById("importInfo");
     const autoImportInfo = document.getElementById("autoImportInfo");
     const saveProgressPanel = document.getElementById("saveProgressPanel");
@@ -1495,11 +1621,17 @@
     const editorMeta = document.getElementById("editorMeta");
     const sourceText = document.getElementById("sourceText");
     const translationText = document.getElementById("translationText");
+    const termLayoutEditor = document.getElementById("termLayoutEditor");
+    const termLayoutHelp = document.getElementById("termLayoutHelp");
+    const termSourceName = document.getElementById("termSourceName");
+    const termSourceDescription = document.getElementById("termSourceDescription");
+    const termNameInput = document.getElementById("termNameInput");
+    const termDescriptionInput = document.getElementById("termDescriptionInput");
+    const termLayoutMeter = document.getElementById("termLayoutMeter");
     const lengthPolicyBanner = document.getElementById("lengthPolicyBanner");
     const translationLimitMeter = document.getElementById("translationLimitMeter");
     const agentDraftText = document.getElementById("agentDraftText");
     const agentCommentText = document.getElementById("agentCommentText");
-    const manualLockCheckbox = document.getElementById("manualLockCheckbox");
     const notesText = document.getElementById("notesText");
     const progressStatus = document.getElementById("progressStatus");
     const reviewStatus = document.getElementById("reviewStatus");
@@ -1584,8 +1716,10 @@
     const composerThresholdValue = document.getElementById("composerThresholdValue");
     const composerUploadBtn = document.getElementById("composerUploadBtn");
     const applyImagesBtn = document.getElementById("applyImagesBtn");
+    const applyTextBtn = document.getElementById("applyTextBtn");
     const restoreAllImagesBtn = document.getElementById("restoreAllImagesBtn");
     const rebuildBtn = document.getElementById("rebuildBtn");
+    const createPatchBtn = document.getElementById("createPatchBtn");
     const statusInfo = document.getElementById("statusInfo");
     const composerState = {
       overlayImage: null,
@@ -1604,6 +1738,13 @@
     };
 
     const AUDIT_TAB_CONFIGS = [
+      {
+        id: "same_source_variants",
+        label: "동일 원문 번역 분기",
+        dynamic: "entry8_translation_consistency",
+        tone: "hold",
+        note: "Entry8에서 같은 일본어 원문이 서로 다른 번역으로 저장된 항목입니다. 제안 하나를 수정하면 같은 원문 전체에 일괄 적용됩니다.",
+      },
       {
         id: "boundary_apply",
         label: "특수기호 복원 후보",
@@ -1668,8 +1809,10 @@
         openAuditReviewBtn,
         importTranslationBtn,
         applyImagesBtn,
+        applyTextBtn,
         restoreAllImagesBtn,
         rebuildBtn,
+        createPatchBtn,
         uploadImageBtn,
         restoreImageBtn,
         composerUploadBtn,
@@ -1880,12 +2023,242 @@
       "registry_a_map_labels",
       "duplicate_text_slots",
     ]);
+    const TERM_DESCRIPTION_SOURCE_GROUPS = new Set([
+      "ability_texts",
+      "battle_texts",
+      "material_texts",
+    ]);
+    let syncingTermLayoutEditor = false;
 
     function toFullwidthDigit(ch) {
       return String.fromCharCode("０".charCodeAt(0) + Number(ch));
     }
 
-    function normalizeForLimitPreview(text, sourceGroup) {
+    function toHalfwidthDigit(ch) {
+      return String(ch.charCodeAt(0) - "０".charCodeAt(0));
+    }
+
+    function preferredDigitWidth(referenceText, sourceGroup) {
+      const reference = String(referenceText || "");
+      const hasAscii = /[0-9]/.test(reference);
+      const hasFullwidth = /[０-９]/.test(reference);
+      if (hasAscii && !hasFullwidth) return "ascii";
+      if (hasFullwidth && !hasAscii) return "fullwidth";
+      if (hasAscii && hasFullwidth) return "";
+      if (FULLWIDTH_DIGIT_SOURCE_GROUPS.has(sourceGroup)) return "fullwidth";
+      return "";
+    }
+
+    function preferredSlashWidth(referenceText) {
+      const reference = String(referenceText || "");
+      const hasAscii = reference.includes("/");
+      const hasFullwidth = reference.includes("／");
+      if (hasAscii && !hasFullwidth) return "ascii";
+      if (hasFullwidth && !hasAscii) return "fullwidth";
+      if (hasAscii && hasFullwidth) return "";
+      return "";
+    }
+
+    function digitRunWidth(text) {
+      const value = String(text || "");
+      const hasAscii = /[0-9]/.test(value);
+      const hasFullwidth = /[０-９]/.test(value);
+      if (hasAscii && !hasFullwidth) return "ascii";
+      if (hasFullwidth && !hasAscii) return "fullwidth";
+      return "";
+    }
+
+    function convertDigitRunWidth(text, width) {
+      if (width === "ascii") return String(text || "").replace(/[０-９]/g, toHalfwidthDigit);
+      if (width === "fullwidth") return String(text || "").replace(/[0-9]/g, toFullwidthDigit);
+      return String(text || "");
+    }
+
+    function normalizeDigitWidthRuns(text, referenceText, sourceGroup) {
+      const value = String(text || "");
+      const reference = String(referenceText || "");
+      const sourceRuns = Array.from(reference.matchAll(/[0-9０-９]+/g));
+      const valueRuns = Array.from(value.matchAll(/[0-9０-９]+/g));
+      if (sourceRuns.length && sourceRuns.length === valueRuns.length) {
+        const widths = sourceRuns.map((match) => digitRunWidth(match[0]));
+        if (widths.every(Boolean)) {
+          let cursor = 0;
+          let output = "";
+          valueRuns.forEach((match, index) => {
+            output += value.slice(cursor, match.index);
+            output += convertDigitRunWidth(match[0], widths[index]);
+            cursor = match.index + match[0].length;
+          });
+          output += value.slice(cursor);
+          return output;
+        }
+      }
+      return convertDigitRunWidth(value, preferredDigitWidth(referenceText, sourceGroup));
+    }
+
+    function normalizeRecoveryMedicineNumberSpacing(text, referenceText) {
+      if (!/^回復薬[0-9０-９](?:$|体力を)/.test(String(referenceText || ""))) {
+        return String(text || "");
+      }
+      return String(text || "").replace(/회복약[ 　]+(?=[0-9０-９])/g, "회복약");
+    }
+
+    function normalizeUserConfirmedFixedSlotPhrases(text, referenceText) {
+      if (String(referenceText || "") !== "槍を錬成して攻撃") {
+        return String(text || "");
+      }
+      return String(text || "")
+        .replace(/창을 연성해 공격/g, "창을연성해 공격")
+        .replace(/창을 연성해\n공격/g, "창을연성해 공격");
+    }
+
+    function displayUnits(text) {
+      let units = 0;
+      for (const ch of String(text || "")) {
+        units += ch === " " ? 1 : 2;
+      }
+      return units;
+    }
+
+    function splitTermText(text) {
+      const value = String(text || "");
+      if (value.includes("\v")) {
+        const index = value.indexOf("\v");
+        return { left: value.slice(0, index), right: value.slice(index + 1), separator: "\v" };
+      }
+      if (value.includes("\n")) {
+        const index = value.indexOf("\n");
+        return { left: value.slice(0, index), right: value.slice(index + 1), separator: "\n" };
+      }
+      return { left: value, right: "", separator: "" };
+    }
+
+    function cleanTermField(text) {
+      return String(text || "").replace(/　/g, " ").trim();
+    }
+
+    function isRecoveryMedicineBattleDescription(itemOrReferenceText) {
+      const sourceGroup = typeof itemOrReferenceText === "string"
+        ? "battle_texts"
+        : (itemOrReferenceText?.source_group || "");
+      const referenceText = typeof itemOrReferenceText === "string"
+        ? itemOrReferenceText
+        : (itemOrReferenceText?.text || "");
+      return (
+        sourceGroup === "battle_texts" &&
+        /^体力を[０-９]+[　 ]*\v回復する薬$/.test(String(referenceText || ""))
+      );
+    }
+
+    function cleanTermNameField(text, itemOrReferenceText = null) {
+      if (!isRecoveryMedicineBattleDescription(itemOrReferenceText)) {
+        return cleanTermField(text);
+      }
+      const normalized = String(text || "").replace(/　/g, " ");
+      const leading = normalized.match(/^ */)?.[0] || "";
+      return leading + normalized.trim().replace(/ +/g, " ");
+    }
+
+    function cleanTermDescriptionField(text, itemOrReferenceText = null) {
+      if (!isRecoveryMedicineBattleDescription(itemOrReferenceText)) {
+        return cleanTermField(text);
+      }
+      return String(text || "").replace(/　/g, " ");
+    }
+
+    function termLayoutApplies(item) {
+      return Boolean(
+        item &&
+        TERM_DESCRIPTION_SOURCE_GROUPS.has(item.source_group) &&
+        String(item.text || "").includes("\v")
+      );
+    }
+
+    function padTermNameField(name, referenceText) {
+      if (!String(referenceText || "").includes("\v")) return name;
+      const referenceName = String(referenceText || "").split("\v", 1)[0];
+      const targetUnits = displayUnits(referenceName);
+      const currentUnits = displayUnits(name);
+      if (currentUnits >= targetUnits) return name;
+      const paddingUnits = targetUnits - currentUnits;
+      const fullwidthSpaces = Math.floor(paddingUnits / 2);
+      const halfwidthSpaces = paddingUnits % 2;
+      return `${name}${"　".repeat(fullwidthSpaces)}${" ".repeat(halfwidthSpaces)}`;
+    }
+
+    function normalizeTermDescriptionLayout(text, itemOrReferenceText = null) {
+      const referenceText = typeof itemOrReferenceText === "string"
+        ? itemOrReferenceText
+        : (itemOrReferenceText?.text || "");
+      const sourceGroup = typeof itemOrReferenceText === "string"
+        ? ""
+        : (itemOrReferenceText?.source_group || "");
+      if (!TERM_DESCRIPTION_SOURCE_GROUPS.has(sourceGroup) && typeof itemOrReferenceText !== "string") {
+        return String(text || "");
+      }
+      const separator = String(text || "").includes("\v")
+        ? "\v"
+        : String(text || "").includes("\n")
+          ? "\n"
+          : "";
+      if (!separator) return String(text || "");
+      const split = splitTermText(text);
+      const name = cleanTermNameField(split.left, itemOrReferenceText);
+      const description = cleanTermDescriptionField(split.right, itemOrReferenceText);
+      if (!String(referenceText || "").includes("\v")) {
+        return `${name}\n${description}`;
+      }
+      return `${padTermNameField(name, referenceText)}\v${description}`;
+    }
+
+    function termLayoutInfo(item, text) {
+      if (!termLayoutApplies(item)) return null;
+      const source = splitTermText(item.text || "");
+      const current = splitTermText(text);
+      const name = cleanTermNameField(current.left, item);
+      const description = cleanTermDescriptionField(current.right, item);
+      const targetUnits = displayUnits(source.left);
+      const nameUnits = displayUnits(name);
+      const remainingUnits = targetUnits - nameUnits;
+      const normalized = normalizeTermDescriptionLayout(`${name}\v${description}`, item);
+      let tone = "ok";
+      let status = `앞 필드 폭 ${nameUnits}/${targetUnits} units`;
+      if (remainingUnits < 0) {
+        tone = "error";
+        status += `, ${Math.abs(remainingUnits)} units 초과`;
+      } else if (remainingUnits <= 1) {
+        tone = "warn";
+        status += `, 여유 ${remainingUnits} units`;
+      } else {
+        status += `, 여유 ${remainingUnits} units`;
+      }
+      const paddingText = remainingUnits > 0
+        ? `자동 패딩 ${Math.floor(remainingUnits / 2)}전각${remainingUnits % 2 ? " + 1반각" : ""}`
+        : "자동 패딩 없음";
+      return {
+        sourceName: source.left,
+        sourceDescription: source.right,
+        name,
+        description,
+        targetUnits,
+        nameUnits,
+        remainingUnits,
+        normalized,
+        tone,
+        status,
+        paddingText,
+      };
+    }
+
+    function escapeVisibleControlText(text) {
+      return String(text || "")
+        .replace(/　/g, "□")
+        .replace(/ /g, "·")
+        .replace(/\v/g, "␋")
+        .replace(/\n/g, "↵");
+    }
+
+    function normalizeForLimitPreview(text, sourceGroup, referenceText = "") {
       let normalized = String(text || "")
         .replace(/\r\n/g, "\n")
         .replace(/\r/g, "\n")
@@ -1919,20 +2292,32 @@
       if (FULLWIDTH_SPACE_SOURCE_GROUPS.has(sourceGroup)) {
         normalized = normalized.replace(/ /g, "　");
       }
-      if (FULLWIDTH_DIGIT_SOURCE_GROUPS.has(sourceGroup)) {
-        normalized = normalized.replace(/[0-9]/g, toFullwidthDigit);
-      }
       if (NARROW_PUNCTUATION_SOURCE_GROUPS.has(sourceGroup)) {
         normalized = normalized
           .replace(/！/g, "!")
           .replace(/？/g, "?")
           .replace(/[，、]/g, ",")
           .replace(/[－]/g, "-")
-          .replace(/[／]/g, "/")
-          .replace(/[０-９]/g, (ch) => String(ch.charCodeAt(0) - "０".charCodeAt(0)));
+          .replace(/\//g, "／")
+          .replace(/[／]/g, "／");
+      }
+      normalized = normalizeDigitWidthRuns(normalized, referenceText, sourceGroup);
+      normalized = normalizeRecoveryMedicineNumberSpacing(normalized, referenceText);
+      normalized = normalizeUserConfirmedFixedSlotPhrases(normalized, referenceText);
+      const slashWidth = preferredSlashWidth(referenceText);
+      if (slashWidth === "ascii") {
+        normalized = normalized.replace(/[／/]/g, "/");
+      } else if (slashWidth === "fullwidth") {
+        normalized = normalized.replace(/[／/]/g, "／");
       }
       if (COUNTED_SCRIPT_SOURCE_GROUPS.has(sourceGroup)) {
         normalized = normalized.replace(/([,、，])[\u3000 ]+/g, "$1");
+      }
+      if (TERM_DESCRIPTION_SOURCE_GROUPS.has(sourceGroup)) {
+        normalized = normalizeTermDescriptionLayout(normalized, {
+          source_group: sourceGroup,
+          text: referenceText,
+        });
       }
       return normalized;
     }
@@ -2050,7 +2435,7 @@
       if (!item || isImageItem(item)) return null;
       const capacity = capacityBytesForItem(item);
       if (!Number.isFinite(capacity)) return null;
-      const normalized = normalizeForLimitPreview(text, item.source_group);
+      const normalized = normalizeForLimitPreview(text, item.source_group, item.text || "");
       const terminatorBytes = terminatorBytesForItem(item);
       const used = estimatedEncodedLength(normalized) + terminatorBytes;
       const remainingBytes = capacity - used;
@@ -2121,6 +2506,74 @@
       }
     }
 
+    function renderControlToken(parent, text) {
+      parent.textContent = "";
+      parent.appendChild(document.createTextNode(escapeVisibleControlText(text)));
+    }
+
+    function hideTermDescriptionEditor() {
+      termLayoutEditor.classList.add("hidden");
+      termLayoutHelp.textContent = "";
+      termSourceName.textContent = "";
+      termSourceDescription.textContent = "";
+      termNameInput.value = "";
+      termDescriptionInput.value = "";
+      termLayoutMeter.textContent = "";
+      termLayoutMeter.className = "term-layout-meter";
+    }
+
+    function renderTermDescriptionEditor(item) {
+      if (!termLayoutApplies(item)) {
+        hideTermDescriptionEditor();
+        return;
+      }
+      const info = termLayoutInfo(item, translationText.value);
+      if (!info) {
+        hideTermDescriptionEditor();
+        return;
+      }
+      syncingTermLayoutEditor = true;
+      termLayoutEditor.classList.remove("hidden");
+      termLayoutHelp.innerHTML = isRecoveryMedicineBattleDescription(item)
+        ? `저장 문자열은 <span class="control-token">0x0B</span> 기준으로 합성됩니다. 회복약 항목은 뒤 필드의 앞/뒤 공백을 그대로 보존합니다. 잔상이 남으면 뒤 필드 끝에 공백을 추가해 지우기용으로 시험할 수 있습니다.`
+        : `저장 문자열은 <span class="control-token">0x0B</span> 기준으로 합성됩니다. 앞 필드 패딩은 저장/빌드 시 자동 보정됩니다.`;
+      renderControlToken(termSourceName, info.sourceName);
+      renderControlToken(termSourceDescription, info.sourceDescription);
+      termNameInput.value = info.name;
+      termDescriptionInput.value = info.description;
+      termLayoutMeter.className = `term-layout-meter ${info.tone}`;
+      termLayoutMeter.textContent =
+        `${info.status} / ${info.paddingText} / 정규화 미리보기: ${escapeVisibleControlText(info.normalized)}`;
+      syncingTermLayoutEditor = false;
+    }
+
+    function syncTermDescriptionInputsToTranslation() {
+      if (syncingTermLayoutEditor) return;
+      const item = state.items.find((entry) => entry.item_id === state.itemId);
+      if (!termLayoutApplies(item)) return;
+      const name = cleanTermNameField(termNameInput.value, item);
+      const description = cleanTermDescriptionField(termDescriptionInput.value, item);
+      translationText.value = `${name}\v${description}`;
+      const info = termLayoutInfo(item, translationText.value);
+      if (info) {
+        termLayoutMeter.className = `term-layout-meter ${info.tone}`;
+        termLayoutMeter.textContent =
+          `${info.status} / ${info.paddingText} / 정규화 미리보기: ${escapeVisibleControlText(info.normalized)}`;
+      }
+      collectCurrentItemIntoDraft();
+      updateTranslationLimitMeter();
+    }
+
+    function syncTermDescriptionEditorFromTranslation() {
+      if (syncingTermLayoutEditor) return;
+      const item = state.items.find((entry) => entry.item_id === state.itemId);
+      if (!termLayoutApplies(item)) {
+        hideTermDescriptionEditor();
+        return;
+      }
+      renderTermDescriptionEditor(item);
+    }
+
     function hasOwnValue(object, key) {
       return Object.prototype.hasOwnProperty.call(object, key);
     }
@@ -2148,7 +2601,6 @@
         translation: hasOwnValue(draft, "translation") ? draft.translation : persistedTranslation(item),
         agent_draft: usableAgentDraft({ agent_draft: draftValueOrItem(draft, item, "agent_draft", "") }),
         agent_comment: draftValueOrItem(draft, item, "agent_comment", ""),
-        manual_locked: draftValueOrItem(draft, item, "manual_locked", false),
         notes: draftValueOrItem(draft, item, "notes", ""),
         progress_status: draftValueOrItem(draft, item, "progress_status", "todo"),
         review_status: draftValueOrItem(draft, item, "review_status", "unreviewed"),
@@ -2203,7 +2655,6 @@
         (draft.translation ?? "") === persistedTranslation(item) &&
         (draft.agent_draft ?? "") === (item.agent_draft ?? "") &&
         (draft.agent_comment ?? "") === (item.agent_comment ?? "") &&
-        Boolean(draft.manual_locked ?? false) === Boolean(item.manual_locked ?? false) &&
         (draft.notes ?? "") === (item.notes ?? "") &&
         (draft.progress_status ?? "todo") === (item.progress_status ?? "todo") &&
         (draft.review_status ?? "unreviewed") === (item.review_status ?? "unreviewed")
@@ -2231,8 +2682,7 @@
         !(draft.agent_comment || "").trim() &&
         (draft.notes ?? "") === (item.notes ?? "") &&
         (draft.progress_status ?? "todo") === (item.progress_status ?? "todo") &&
-        (draft.review_status ?? "unreviewed") === (item.review_status ?? "unreviewed") &&
-        Boolean(draft.manual_locked ?? false) === Boolean(item.manual_locked ?? false)
+        (draft.review_status ?? "unreviewed") === (item.review_status ?? "unreviewed")
       );
     }
 
@@ -2251,7 +2701,6 @@
         draftNotes !== (item.notes ?? "");
       if (textChanged) return false;
       return (
-        (item.manual_locked && !normalized.manual_locked) ||
         ((item.progress_status ?? "todo") !== "todo" && (normalized.progress_status ?? "todo") === "todo") ||
         ((item.review_status ?? "unreviewed") !== "unreviewed" && (normalized.review_status ?? "unreviewed") === "unreviewed")
       );
@@ -2348,7 +2797,6 @@
           translation: translationText.value,
           agent_draft: agentDraftText.value,
           agent_comment: agentCommentText.value,
-          manual_locked: manualLockCheckbox.checked,
           notes: notesText.value,
           progress_status: progressStatus.value,
           review_status: reviewStatus.value,
@@ -2392,6 +2840,68 @@
       return payload ?? JSON.parse(text || "{}");
     }
 
+    function normalizeAuditSemanticText(text) {
+      return String(text || "")
+        .replace(/\\x0B/g, "\v")
+        .replace(/\\n/g, "\n")
+        .replace(/[ \t\r\n\u3000\v]+/g, " ")
+        .trim();
+    }
+
+    function normalizeSearchText(text) {
+      return String(text ?? "")
+        .normalize("NFKC")
+        .replace(/\\x0B/g, " ")
+        .replace(/\\n/g, " ")
+        .replace(/\v/g, " ")
+        .replace(/[\s\u3000]+/g, " ")
+        .trim()
+        .toLowerCase();
+    }
+
+    function searchTextMatches(haystack, query) {
+      const normalizedQuery = normalizeSearchText(query);
+      if (!normalizedQuery) return true;
+      const normalizedHaystack = normalizeSearchText(haystack);
+      if (normalizedHaystack.includes(normalizedQuery)) return true;
+      const compactQuery = normalizedQuery.replace(/ /g, "");
+      if (!compactQuery) return true;
+      return normalizedHaystack.replace(/ /g, "").includes(compactQuery);
+    }
+
+    function hasJapaneseText(text) {
+      return /[\u3040-\u30ff\u3400-\u9fff]/.test(String(text || ""));
+    }
+
+    function displayAuditText(text) {
+      return String(text || "")
+        .replace(/\v/g, "\\x0B")
+        .replace(/\n/g, "\\n")
+        .replace(/\u3000/g, "□")
+        .replace(/ /g, "·");
+    }
+
+    function rebuildItemIndex() {
+      state.itemIndex = new Map(state.items.map((item) => [item.item_id, item]));
+    }
+
+    function sourceItemForId(itemId) {
+      return state.itemIndex.get(itemId) || null;
+    }
+
+    function auditTargetItemIds(candidate) {
+      if (Array.isArray(candidate?.item_ids) && candidate.item_ids.length) {
+        return [...new Set(candidate.item_ids.filter(Boolean))];
+      }
+      return candidate?.item_id ? [candidate.item_id] : [];
+    }
+
+    function auditTargetItems(candidate) {
+      return auditTargetItemIds(candidate)
+        .map((itemId) => sourceItemForId(itemId))
+        .filter(Boolean);
+    }
+
     function auditCandidateKey(candidate) {
       return [
         candidate.tabId,
@@ -2399,6 +2909,88 @@
         candidate.hex || candidate.offset || "",
         candidate.suggested || "",
       ].join("::");
+    }
+
+    function buildEntry8TranslationConsistencyCandidates(tabConfig) {
+      const groups = new Map();
+      for (const item of state.items) {
+        if (!item || isImageItem(item) || item.source_group !== "registry_a_entry8_prefixed_texts") continue;
+        const source = item.text || "";
+        if (!source || !hasJapaneseText(source)) continue;
+        const effective = getEffectiveItem(item);
+        const translation = effective.translation || effective.effective_translation || "";
+        if (!translation || translation === source) continue;
+        if (!groups.has(source)) {
+          groups.set(source, []);
+        }
+        groups.get(source).push({ item, translation });
+      }
+
+      const candidates = [];
+      for (const [source, entries] of groups.entries()) {
+        const semanticBuckets = new Map();
+        const rawBuckets = new Map();
+        for (const entry of entries) {
+          const semantic = normalizeAuditSemanticText(entry.translation);
+          if (!semantic) continue;
+          semanticBuckets.set(semantic, (semanticBuckets.get(semantic) || 0) + 1);
+          if (!rawBuckets.has(semantic)) rawBuckets.set(semantic, new Map());
+          const rawMap = rawBuckets.get(semantic);
+          rawMap.set(entry.translation, (rawMap.get(entry.translation) || 0) + 1);
+        }
+        if (semanticBuckets.size <= 1) continue;
+
+        const semanticVariants = [...semanticBuckets.entries()]
+          .map(([translation, count]) => {
+            const rawVariants = [...(rawBuckets.get(translation) || new Map()).entries()]
+              .map(([raw, rawCount]) => ({ raw, count: rawCount }))
+              .sort((a, b) => b.count - a.count || a.raw.length - b.raw.length || a.raw.localeCompare(b.raw, "ko"));
+            return { translation, count, rawVariants };
+          })
+          .sort((a, b) => b.count - a.count || a.translation.length - b.translation.length || a.translation.localeCompare(b.translation, "ko"));
+
+        const suggested = semanticVariants[0]?.rawVariants[0]?.raw || semanticVariants[0]?.translation || "";
+        const sortedEntries = [...entries].sort((a, b) => Number(a.item.offset || 0) - Number(b.item.offset || 0));
+        const first = sortedEntries[0]?.item || entries[0].item;
+        const itemIds = sortedEntries.map((entry) => entry.item.item_id).filter(Boolean);
+        const variantSummary = semanticVariants
+          .map((variant) => `${displayAuditText(variant.translation)} x${variant.count}`)
+          .join(" / ");
+        const candidate = {
+          tabId: tabConfig.id,
+          tabLabel: tabConfig.label,
+          tabTone: tabConfig.tone,
+          tabNote: tabConfig.note,
+          auditIndex: candidates.length,
+          consistency_group: true,
+          item_id: first.item_id || "",
+          item_ids: itemIds,
+          group_id: `same_source:${source}`,
+          hex: first.offset != null ? `0x${Number(first.offset).toString(16).toUpperCase()}` : "",
+          offset: first.offset != null ? Number(first.offset) : null,
+          source,
+          current: variantSummary,
+          suggested,
+          used: "일괄",
+          suggestedUsed: "",
+          capacity: "",
+          variants: semanticVariants,
+          reason: `같은 원문 ${entries.length}개가 ${semanticVariants.length}개 번역으로 갈림. 제안 수정 후 적용하면 전체 item에 일괄 반영됩니다.`,
+        };
+        candidate.key = auditCandidateKey(candidate);
+        candidate.hasChange = auditCandidateHasChange(candidate);
+        candidates.push(candidate);
+      }
+
+      candidates.sort((a, b) => {
+        const variantDelta = (b.variants?.length || 0) - (a.variants?.length || 0);
+        if (variantDelta) return variantDelta;
+        return (b.item_ids?.length || 0) - (a.item_ids?.length || 0) || Number(a.offset || 0) - Number(b.offset || 0);
+      });
+      candidates.forEach((candidate, index) => {
+        candidate.auditIndex = index;
+      });
+      return candidates;
     }
 
     function normalizeAuditItems(payload, tabConfig) {
@@ -2444,6 +3036,20 @@
     }
 
     function auditCurrentText(candidate) {
+      if (candidate?.consistency_group) {
+        const counts = new Map();
+        for (const item of auditTargetItems(candidate)) {
+          const effective = getEffectiveItem(item);
+          const translation = effective.translation || effective.effective_translation || "";
+          if (!translation) continue;
+          const semantic = normalizeAuditSemanticText(translation);
+          counts.set(semantic, (counts.get(semantic) || 0) + 1);
+        }
+        return [...counts.entries()]
+          .sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0], "ko"))
+          .map(([translation, count]) => `${displayAuditText(translation)} x${count}`)
+          .join(" / ") || candidate.current || "";
+      }
       const item = sourceItemForAuditCandidate(candidate);
       if (!item || isImageItem(item)) {
         return candidate.current || "";
@@ -2454,10 +3060,20 @@
 
     function normalizedAuditText(candidate, text) {
       const item = sourceItemForAuditCandidate(candidate);
-      return normalizeForLimitPreview(text, item?.source_group || "");
+      return normalizeForLimitPreview(text, item?.source_group || "", item?.text || "");
     }
 
     function auditCandidateHasChange(candidate) {
+      if (candidate?.consistency_group) {
+        const suggested = auditSuggestedText(candidate);
+        if (!suggested) return false;
+        return auditTargetItems(candidate).some((item) => {
+          const effective = getEffectiveItem(item);
+          const current = effective.translation || effective.effective_translation || "";
+          return normalizedAuditText({ ...candidate, item_id: item.item_id }, current) !==
+            normalizedAuditText({ ...candidate, item_id: item.item_id }, suggested);
+        });
+      }
       return normalizedAuditText(candidate, auditCurrentText(candidate)) !==
         normalizedAuditText(candidate, auditSuggestedText(candidate));
     }
@@ -2492,6 +3108,18 @@
     }
 
     function auditCandidateMatchesCurrentTranslation(candidate) {
+      if (candidate?.consistency_group) {
+        const suggested = auditSuggestedText(candidate);
+        if (!suggested) return false;
+        const targets = auditTargetItems(candidate);
+        if (!targets.length) return false;
+        return targets.every((item) => {
+          const effective = getEffectiveItem(item);
+          const current = effective.translation || effective.effective_translation || "";
+          return normalizedAuditText({ ...candidate, item_id: item.item_id }, current) ===
+            normalizedAuditText({ ...candidate, item_id: item.item_id }, suggested);
+        });
+      }
       const item = sourceItemForAuditCandidate(candidate);
       if (!item || isImageItem(item)) return false;
       const suggested = auditSuggestedText(candidate);
@@ -2548,10 +3176,32 @@
 
     function sourceItemForAuditCandidate(candidate) {
       if (!candidate?.item_id) return null;
-      return state.items.find((entry) => entry.item_id === candidate.item_id) || null;
+      return sourceItemForId(candidate.item_id);
     }
 
     function auditLimitInfo(candidate, text) {
+      if (candidate?.consistency_group) {
+        const infos = auditTargetItems(candidate)
+          .map((item) => ({ item, info: limitInfoForItem(item, text) }))
+          .filter((entry) => entry.info);
+        if (!infos.length) return null;
+        let worst = infos[0];
+        for (const entry of infos) {
+          const left = entry.info.remainingBytes;
+          const right = worst.info.remainingBytes;
+          if (left < right || (left === right && entry.info.used > worst.info.used)) {
+            worst = entry;
+          }
+        }
+        const overflowCount = infos.filter((entry) => entry.info.remainingBytes < 0 && !entry.info.overflowAllowed).length;
+        return {
+          ...worst.info,
+          group: true,
+          targetCount: infos.length,
+          overflowCount,
+          worstItemId: worst.item.item_id,
+        };
+      }
       const item = sourceItemForAuditCandidate(candidate);
       if (!item) return null;
       return limitInfoForItem(item, text);
@@ -2570,13 +3220,16 @@
         : `초과 ${Math.abs(info.remainingBytes)} bytes`;
       const charText = info.normalized != null ? `문자 ${info.normalized.length}, ` : "";
       const allowedText = info.overflowAllowed ? " / 초과 허용" : "";
+      const groupText = info.group
+        ? `일괄 ${info.targetCount}개, 최저 여유 기준 ${info.worstItemId}${info.overflowCount ? ` / 초과 ${info.overflowCount}개` : ""}: `
+        : "";
       const tone = info.remainingBytes < 0 && !info.overflowAllowed
         ? "error"
         : info.remainingBytes < 0 || info.remainingBytes <= 4
           ? "warn"
           : "ok";
       node.className = `audit-limit-meter ${tone}`;
-      node.textContent = `정규화 후 ${charText}${info.used}/${info.capacity} bytes, ${remainingText}${allowedText}${normalizedNote}`;
+      node.textContent = `${groupText}정규화 후 ${charText}${info.used}/${info.capacity} bytes, ${remainingText}${allowedText}${normalizedNote}`;
     }
 
     function auditDecisionCounts() {
@@ -2611,35 +3264,55 @@
     async function loadAuditCandidates() {
       if (state.auditCandidates.length) return;
       setStatus("Entry8 후보 목록을 불러오는 중...");
-      const loaded = [];
-      for (const tab of AUDIT_TAB_CONFIGS) {
+      const loadedGroups = await Promise.all(AUDIT_TAB_CONFIGS.map(async (tab) => {
+        if (tab.dynamic === "entry8_translation_consistency") {
+          return buildEntry8TranslationConsistencyCandidates(tab);
+        }
         try {
           const payload = await fetchJson(`/workspace-file?path=${encodeURIComponent(tab.path)}`);
-          loaded.push(...normalizeAuditItems(payload, tab));
+          return normalizeAuditItems(payload, tab);
         } catch (error) {
           console.warn(`failed to load ${tab.path}`, error);
+          return [];
         }
-      }
+      }));
+      const loaded = loadedGroups.flat();
       state.auditCandidates = loaded;
       setStatus(`Entry8 후보 ${loaded.length}개 불러옴`, "ok");
     }
 
+    async function ensureBundleLoadedForAudit() {
+      if (state.bundle && state.items.length) return;
+      if (bundleLoadPromise) {
+        await bundleLoadPromise;
+      }
+      if (bundleLoadError) {
+        throw bundleLoadError;
+      }
+      if (!state.bundle || !state.items.length) {
+        throw new Error("작업대 데이터가 아직 준비되지 않았습니다. 잠시 후 다시 열어 주세요.");
+      }
+    }
+
     function auditCandidatesForCurrentTab() {
       let items = state.auditCandidates.filter((item) => item.tabId === state.auditTabId);
-      const query = state.auditSearch.trim().toLowerCase();
+      const query = normalizeSearchText(state.auditSearch);
       if (query) {
-        items = items.filter((item) => [
-          item.item_id,
-          item.group_id,
-          item.hex,
-          item.source,
-          auditCurrentText(item),
-          item.current,
-          item.suggested,
-          auditSuggestedText(item),
-          item.reason,
-          item.tabLabel,
-        ].join("\n").toLowerCase().includes(query));
+        items = items.filter((item) => {
+          const haystack = [
+            item.item_id,
+            item.group_id,
+            item.hex,
+            item.source,
+            auditCurrentText(item),
+            item.current,
+            item.suggested,
+            auditSuggestedText(item),
+            item.reason,
+            item.tabLabel,
+          ].join("\n");
+          return searchTextMatches(haystack, query);
+        });
       }
       if (state.auditStatusFilter === "apply") {
         items = items.filter((item) => auditDecisionFor(item) === "apply");
@@ -2666,13 +3339,25 @@
       return items;
     }
 
+    function auditTabStats() {
+      const stats = new Map(AUDIT_TAB_CONFIGS.map((tab) => [tab.id, { count: 0, apply: 0, skip: 0, done: 0 }]));
+      for (const item of state.auditCandidates) {
+        const row = stats.get(item.tabId);
+        if (!row) continue;
+        row.count += 1;
+        const decision = auditDecisionFor(item);
+        if (decision === "apply") row.apply += 1;
+        if (decision === "skip") row.skip += 1;
+        if (decision === "done") row.done += 1;
+      }
+      return stats;
+    }
+
     function renderAuditTabs() {
       auditTabs.innerHTML = "";
+      const stats = auditTabStats();
       for (const tab of AUDIT_TAB_CONFIGS) {
-        const count = state.auditCandidates.filter((item) => item.tabId === tab.id).length;
-        const apply = state.auditCandidates.filter((item) => item.tabId === tab.id && auditDecisionFor(item) === "apply").length;
-        const skip = state.auditCandidates.filter((item) => item.tabId === tab.id && auditDecisionFor(item) === "skip").length;
-        const done = state.auditCandidates.filter((item) => item.tabId === tab.id && auditDecisionFor(item) === "done").length;
+        const { count, apply, skip, done } = stats.get(tab.id) || { count: 0, apply: 0, skip: 0, done: 0 };
         const button = document.createElement("button");
         button.type = "button";
         button.className = `audit-tab${tab.id === state.auditTabId ? " active" : ""}`;
@@ -2787,18 +3472,32 @@
         }
 
         const metaCell = document.createElement("div");
+        const targetIds = auditTargetItemIds(item);
+        const targetCount = targetIds.length || 1;
+        const metaDetail = item.consistency_group
+          ? `대상 ${targetCount}개 / 번역 변형 ${item.variants?.length || "?"}개`
+          : `${item.used || "?"} -> ${item.suggestedUsed || "?"} / ${item.capacity || "?"}`;
         metaCell.innerHTML = `
           <div class="audit-cell-title">Offset</div>
           <div>${item.hex || "-"}</div>
-          <div class="meta">${item.used || "?"} -> ${item.suggestedUsed || "?"} / ${item.capacity || "?"}</div>
+          <div class="meta">${metaDetail}</div>
         `;
 
         const itemCell = document.createElement("div");
+        const itemLabel = item.consistency_group
+          ? `${targetIds[0] || item.item_id || "-"}${targetCount > 1 ? ` 외 ${targetCount - 1}` : ""}`
+          : (item.item_id || "-");
         itemCell.innerHTML = `
           <div class="audit-cell-title">Item</div>
-          <div class="audit-text">${item.item_id || "-"}</div>
+          <div class="audit-text">${itemLabel}</div>
           <div class="meta">${item.tabLabel}</div>
         `;
+        if (item.consistency_group) {
+          const badge = document.createElement("div");
+          badge.className = "audit-bulk-badge";
+          badge.textContent = `같은 원문 ${targetCount}개 일괄 대상`;
+          itemCell.appendChild(badge);
+        }
 
         const sourceCell = document.createElement("div");
         sourceCell.innerHTML = `<div class="audit-cell-title">원문</div>`;
@@ -2813,7 +3512,7 @@
         currentTextNode.className = "audit-text";
         currentTextNode.textContent = currentText || "";
         currentCell.appendChild(currentTextNode);
-        if ((item.current || "") && item.current !== currentText) {
+        if (!item.consistency_group && (item.current || "") && item.current !== currentText) {
           const snapshotNode = document.createElement("div");
           snapshotNode.className = "meta";
           snapshotNode.textContent = `후보 생성시: ${item.current}`;
@@ -2862,6 +3561,14 @@
         reasonTextNode.className = "audit-text";
         reasonTextNode.textContent = item.reason || "";
         reasonCell.appendChild(reasonTextNode);
+        if (Array.isArray(item.variants) && item.variants.length) {
+          const variantList = document.createElement("div");
+          variantList.className = "audit-variant-list";
+          variantList.textContent = item.variants
+            .map((variant) => `${displayAuditText(variant.translation)} x${variant.count}`)
+            .join(" / ");
+          reasonCell.appendChild(variantList);
+        }
 
         row.appendChild(decisionCell);
         row.appendChild(metaCell);
@@ -2876,10 +3583,14 @@
     }
 
     async function openAuditReview() {
-      await loadAuditCandidates();
-      const reconciled = reconcileAuditDoneWithCurrentData({ pruneStaleDone: true });
       auditReviewModal.classList.remove("hidden");
       auditReviewModal.setAttribute("aria-hidden", "false");
+      auditReviewMeta.textContent = "Entry8 후보 목록을 불러오는 중...";
+      auditList.innerHTML = "<div class=\"meta\">후보를 준비하는 중입니다.</div>";
+      await new Promise((resolve) => requestAnimationFrame(resolve));
+      await ensureBundleLoadedForAudit();
+      await loadAuditCandidates();
+      const reconciled = reconcileAuditDoneWithCurrentData({ pruneStaleDone: true });
       renderAuditReview();
       if (reconciled.total) {
         const clearedText = reconciled.cleared ? `, 더 이상 일치하지 않는 완료 ${reconciled.cleared}개 해제` : "";
@@ -2923,10 +3634,11 @@
     function auditSelectionConflicts(candidates) {
       const byItem = new Map();
       for (const candidate of candidates) {
-        if (!candidate.item_id) continue;
-        const list = byItem.get(candidate.item_id) || [];
-        list.push(candidate);
-        byItem.set(candidate.item_id, list);
+        for (const itemId of auditTargetItemIds(candidate)) {
+          const list = byItem.get(itemId) || [];
+          list.push(candidate);
+          byItem.set(itemId, list);
+        }
       }
       const conflicts = [];
       for (const [itemId, list] of byItem.entries()) {
@@ -2963,26 +3675,31 @@
       const missing = [];
       const appliedKeys = [];
       for (const candidate of candidates) {
-        const item = state.items.find((entry) => entry.item_id === candidate.item_id);
-        if (!item || isImageItem(item)) {
-          missing.push(candidate.item_id || candidate.hex || "unknown");
-          continue;
-        }
-        const currentDraft = normalizeTextDraftForItem(getDraft(item.item_id) || {}, item);
-        const draft = {
+        let candidateApplied = 0;
+        for (const itemId of auditTargetItemIds(candidate)) {
+          const item = sourceItemForId(itemId);
+          if (!item || isImageItem(item)) {
+            missing.push(itemId || candidate.hex || "unknown");
+            continue;
+          }
+          const currentDraft = normalizeTextDraftForItem(getDraft(item.item_id) || {}, item);
+          const draft = {
           translation: auditSuggestedText(candidate),
           agent_draft: usableAgentDraft(currentDraft) || usableAgentDraft(item),
           agent_comment: currentDraft.agent_comment ?? item.agent_comment ?? "",
-          manual_locked: true,
           notes: currentDraft.notes ?? item.notes ?? "",
           progress_status: currentDraft.progress_status ?? item.progress_status ?? "done",
           review_status: currentDraft.review_status ?? item.review_status ?? "unreviewed",
-        };
-        if (!shouldKeepDraft(draft, item)) continue;
-        state.draftItems.set(item.item_id, draft);
-        state.dirtyItemIds.add(item.item_id);
-        applied += 1;
-        appliedKeys.push(candidate.key);
+          };
+          if (!shouldKeepDraft(draft, item)) continue;
+          state.draftItems.set(item.item_id, draft);
+          state.dirtyItemIds.add(item.item_id);
+          applied += 1;
+          candidateApplied += 1;
+        }
+        if (candidateApplied) {
+          appliedKeys.push(candidate.key);
+        }
       }
 
       for (const key of appliedKeys) {
@@ -3002,10 +3719,13 @@
     }
 
     async function loadBundle() {
+      bundleLoadError = null;
       setStatus("작업대 데이터를 불러오는 중...");
       state.bundle = await fetchJson("/bundle");
+      state.assetVersion = Date.now();
       state.categories = state.bundle.dataset.categories;
       state.items = state.bundle.dataset.items;
+      rebuildItemIndex();
       state.speakerRegistry = state.bundle.speaker_registry || [];
       state.speakers = state.bundle.speakers || [];
       state.speakerMap = new Map(
@@ -3023,7 +3743,7 @@
       if (localUiState?.drafts) {
         state.draftItems = new Map();
         for (const [itemId, draft] of Object.entries(localUiState.drafts)) {
-          const item = state.items.find((entry) => entry.item_id === itemId);
+          const item = sourceItemForId(itemId);
           const normalizedDraft = isImageItem(item)
             ? normalizeImageDraftForItem(draft, item)
             : normalizeTextDraftForItem(draft, item);
@@ -3070,6 +3790,9 @@
         ? localUiState.categoryKindFilter
         : "all";
       state.auditTabId = localUiState?.auditTabId || state.auditTabId;
+      if (!AUDIT_TAB_CONFIGS.some((tab) => tab.id === state.auditTabId)) {
+        state.auditTabId = AUDIT_TAB_CONFIGS[0]?.id || "same_source_variants";
+      }
       state.auditPage = Number.isFinite(Number(localUiState?.auditPage)) ? Number(localUiState.auditPage) : 0;
       state.auditPageSize = Number(localUiState?.auditPageSize) || 200;
       state.auditSearch = localUiState?.auditSearch || "";
@@ -3126,6 +3849,11 @@
         `현재 카테고리: ${currentCategory?.label || state.bundle.progress.current_category_id || "-"}`;
       renderProgressDashboard(allStats);
       romInfo.textContent = `고정 ROM: ${state.bundle.progress.last_built_rom || state.bundle.dataset.review_rom.fixed_output_path}`;
+      const lastReleaseZip = state.bundle.progress.last_release_zip || "";
+      const lastReleaseTime = state.bundle.progress.last_release_created_at || "";
+      releaseInfo.textContent = lastReleaseZip
+        ? `마지막 패치 ZIP: ${lastReleaseZip}${lastReleaseTime ? ` (${lastReleaseTime})` : ""}`
+        : "마지막 패치 ZIP: -";
     }
 
     function percent(part, total) {
@@ -3367,6 +4095,7 @@
       for (const item of items) {
         if (!isUserFacingImageItem(item)) continue;
         if (isNullPlaceholderItem(item)) continue;
+        if (item.overlap_exclusion_parent) continue;
         const key = duplicateDisplayKey(item);
         if (seen.has(key)) continue;
         seen.add(key);
@@ -3488,7 +4217,7 @@
       if (statusFilter !== "all") {
         targetItems = targetItems.filter((item) => itemMatchesStatusFilter(item, statusFilter));
       }
-      const query = state.itemSearch.trim().toLowerCase();
+      const query = normalizeSearchText(state.itemSearch);
       if (isEntry8Category() || isImageCategory()) {
         if (state.itemGroupFilter !== "all") {
           targetItems = targetItems.filter((item) => itemGroupFilterValue(item) === state.itemGroupFilter);
@@ -3510,8 +4239,8 @@
             effective.image_group_label,
             effective.replacement_path,
             effective.comparison_notes,
-          ].join("\n").toLowerCase();
-          return haystack.includes(query);
+          ].join("\n");
+          return searchTextMatches(haystack, query);
         });
       }
       const mode = state.itemSortMode || "script";
@@ -3947,10 +4676,10 @@
       translationText.value = item.translation || item.effective_translation || "";
       agentDraftText.value = usableAgentDraft(item);
       agentCommentText.value = item.agent_comment || "";
-      manualLockCheckbox.checked = Boolean(item.manual_locked);
       notesText.value = item.notes || "";
       progressStatus.value = item.progress_status || "todo";
       reviewStatus.value = item.review_status || "unreviewed";
+      renderTermDescriptionEditor(item);
       updateTranslationLimitMeter();
       const token = item.dialogue_state_token;
       const hasSpeakerToken = Boolean(token);
@@ -3974,6 +4703,7 @@
     function renderImageItem(item) {
       textEditor.classList.add("hidden");
       imageEditor.classList.remove("hidden");
+      hideTermDescriptionEditor();
       imageTitle.textContent = item.label || item.group_id;
       const isReplacementTarget = item.replacement_target !== false;
       const replacementNotice = isReplacementTarget
@@ -4042,7 +4772,7 @@
       }
       imageCandidateGallery.innerHTML = candidates.map((candidate) => {
         const path = candidate.png_path || candidate.preview_path || "";
-        const url = `/workspace-file?path=${encodeURIComponent(path)}`;
+        const url = workspaceUrl(path);
         const title = `${candidate.index || ""} 0x${Number(candidate.offset || 0).toString(16).toUpperCase().padStart(6, "0")}`;
         return `
           <div class="candidate-card">
@@ -4380,7 +5110,7 @@
         downloadLinkNode.style.display = "none";
         return;
       }
-      const url = `/workspace-file?path=${encodeURIComponent(path)}`;
+      const url = workspaceUrl(path);
       imageNode.src = url;
       metaNode.textContent = path;
       previewLinkNode.href = url;
@@ -4390,7 +5120,7 @@
     }
 
     function workspaceUrl(path) {
-      return `/workspace-file?path=${encodeURIComponent(path)}`;
+      return `/workspace-file?path=${encodeURIComponent(path)}&v=${encodeURIComponent(String(state.assetVersion || ""))}`;
     }
 
     function inferImagePromptSourceText(item) {
@@ -4882,7 +5612,6 @@
         "translation",
         "agent_draft",
         "agent_comment",
-        "manual_locked",
         "notes",
         "progress_status",
         "review_status",
@@ -4982,7 +5711,6 @@
           translation: draft.translation ?? item.translation ?? "",
           agent_draft: usableAgentDraft({ agent_draft: draft.agent_draft ?? item.agent_draft ?? "" }),
           agent_comment: draft.agent_comment ?? item.agent_comment ?? "",
-          manual_locked: draft.manual_locked ?? item.manual_locked ?? false,
           notes: draft.notes ?? item.notes ?? "",
           progress_status: draft.progress_status ?? item.progress_status ?? "todo",
           review_status: draft.review_status ?? item.review_status ?? "unreviewed",
@@ -5029,7 +5757,6 @@
       ["translation", "번역", (item) => persistedTranslation(item)],
       ["agent_draft", "초안", (item) => usableAgentDraft(item)],
       ["agent_comment", "코멘트", (item) => item.agent_comment ?? ""],
-      ["manual_locked", "잠금", (item) => Boolean(item.manual_locked)],
       ["notes", "메모", (item) => item.notes ?? ""],
       ["progress_status", "진행", (item) => item.progress_status ?? "todo"],
       ["review_status", "검수", (item) => item.review_status ?? "unreviewed"],
@@ -5067,10 +5794,101 @@
       return changes;
     }
 
+    function saveReviewContextKey(item) {
+      return [
+        item.source_group || "",
+        item.category_id || "",
+      ].join("::");
+    }
+
+    function buildSaveReviewContextIndex() {
+      const groups = new Map();
+      for (const item of state.items) {
+        if (!item || isImageItem(item) || item.offset == null) continue;
+        const key = saveReviewContextKey(item);
+        const rows = groups.get(key) || [];
+        rows.push(item);
+        groups.set(key, rows);
+      }
+      const index = new Map();
+      for (const rows of groups.values()) {
+        rows.sort((a, b) =>
+          Number(a.offset || 0) - Number(b.offset || 0) ||
+          String(a.item_id || "").localeCompare(String(b.item_id || ""), "ko")
+        );
+        rows.forEach((item, position) => {
+          index.set(item.item_id, {
+            prev: rows[position - 1] || null,
+            next: rows[position + 1] || null,
+          });
+        });
+      }
+      return index;
+    }
+
+    function compactDialogueLine(item) {
+      if (!item) return "";
+      const text = String(item.text || item.label || item.item_id || "")
+        .replace(/\v/g, "\\x0B")
+        .replace(/\r?\n/g, " / ")
+        .replace(/\s+/g, " ")
+        .trim();
+      const translation = String(item.translation || item.effective_translation || "")
+        .replace(/\v/g, "\\x0B")
+        .replace(/\r?\n/g, " / ")
+        .replace(/\s+/g, " ")
+        .trim();
+      const offset = item.offset != null ? `0x${Number(item.offset).toString(16).toUpperCase()}` : item.item_id;
+      const body = translation && translation !== text ? `${text} → ${translation}` : text;
+      return `${offset}: ${body}`;
+    }
+
+    function saveReviewNeighborContext(item, contextIndex) {
+      if (!item || isImageItem(item)) return null;
+      const neighbors = contextIndex.get(item.item_id);
+      if (!neighbors) return null;
+      return {
+        prev: compactDialogueLine(neighbors.prev),
+        next: compactDialogueLine(neighbors.next),
+      };
+    }
+
+    function refreshSaveReviewCard(card, item) {
+      const draft = getDraft(item.item_id);
+      const lines = card.querySelector(".change-lines");
+      if (!lines) return;
+      const changes = draft ? changedFieldSummaries(item, draft) : [];
+      lines.textContent = changes.length ? changes.slice(0, 6).join("\n") : "변경 없음";
+      if (changes.length > 6) {
+        lines.textContent += `\n...외 ${changes.length - 6}개 필드`;
+      }
+      const meter = card.querySelector(".save-review-limit");
+      const textarea = card.querySelector(".save-review-translation");
+      if (meter && textarea) {
+        const info = limitInfoForItem(item, textarea.value);
+        if (!info) {
+          meter.textContent = "길이 정보 없음";
+          meter.className = "audit-limit-meter save-review-limit";
+        } else {
+          const remainingText = info.remainingBytes >= 0
+            ? `남은 ${info.remainingBytes} bytes`
+            : `초과 ${Math.abs(info.remainingBytes)} bytes`;
+          const tone = info.remainingBytes < 0 && !info.overflowAllowed
+            ? "error"
+            : info.remainingBytes < 0 || info.remainingBytes <= 4
+              ? "warn"
+              : "ok";
+          meter.className = `audit-limit-meter save-review-limit ${tone}`;
+          meter.textContent = `정규화 후 ${info.used}/${info.capacity} bytes, ${remainingText}${info.overflowAllowed ? " / 초과 허용" : ""}`;
+        }
+      }
+    }
+
     function dirtySaveSummaries(dirtyIds) {
       const summaries = [];
+      const contextIndex = buildSaveReviewContextIndex();
       for (const itemId of dirtyIds) {
-        const item = state.items.find((entry) => entry.item_id === itemId);
+        const item = sourceItemForId(itemId);
         const draft = getDraft(itemId);
         if (!item || !draft) continue;
         const changes = changedFieldSummaries(item, draft);
@@ -5081,6 +5899,9 @@
           categoryId: item.category_id,
           title: label.slice(0, 70),
           changes,
+          item,
+          draft,
+          context: saveReviewNeighborContext(item, contextIndex),
         });
       }
       return summaries;
@@ -5271,7 +6092,7 @@
       let remainingSummaryCount = summaries.length;
       const updateSaveReviewMeta = () => {
         saveReviewMeta.textContent =
-          `${remainingSummaryCount}개 항목이 변경됩니다. 항목의 '재편집'을 누르면 저장하지 않고 해당 항목으로 이동합니다.`;
+          `${remainingSummaryCount}개 항목이 변경됩니다. 번역문은 이 창에서 바로 고칠 수 있고, '재편집'을 누르면 저장하지 않고 해당 항목으로 이동합니다.`;
       };
       updateSaveReviewMeta();
       saveReviewBody.innerHTML = "";
@@ -5292,6 +6113,53 @@
         }
         card.appendChild(lines);
 
+        if (summary.context?.prev || summary.context?.next) {
+          const context = document.createElement("div");
+          context.className = "save-review-context";
+          context.textContent = [
+            summary.context.prev ? `이전: ${summary.context.prev}` : "",
+            summary.context.next ? `다음: ${summary.context.next}` : "",
+          ].filter(Boolean).join("\n");
+          card.appendChild(context);
+        }
+
+        if (!isImageItem(summary.item)) {
+          const editor = document.createElement("label");
+          editor.className = "save-review-editor";
+          editor.textContent = "번역 빠른 수정";
+          const textarea = document.createElement("textarea");
+          textarea.className = "save-review-translation";
+          textarea.value = normalizeTextDraftForItem(getDraft(summary.itemId) || {}, summary.item).translation || "";
+          textarea.oninput = () => {
+            const currentDraft = normalizeTextDraftForItem(getDraft(summary.itemId) || {}, summary.item);
+            const nextDraft = {
+              ...currentDraft,
+              translation: textarea.value,
+            };
+            if (shouldKeepDraft(nextDraft, summary.item)) {
+              state.draftItems.set(summary.itemId, nextDraft);
+              state.dirtyItemIds.add(summary.itemId);
+            } else {
+              state.draftItems.delete(summary.itemId);
+              state.dirtyItemIds.delete(summary.itemId);
+            }
+            if (state.itemId === summary.itemId) {
+              translationText.value = textarea.value;
+              updateTranslationLimitMeter();
+            }
+            persistLocalUiState();
+            refreshSaveReviewCard(card, summary.item);
+          };
+          const meter = document.createElement("div");
+          meter.className = "audit-limit-meter save-review-limit";
+          editor.appendChild(textarea);
+          editor.appendChild(meter);
+          card.appendChild(editor);
+          refreshSaveReviewCard(card, summary.item);
+        }
+
+        const actions = document.createElement("div");
+        actions.className = "save-review-actions";
         const editBtn = document.createElement("button");
         editBtn.type = "button";
         editBtn.textContent = "이 항목 재편집";
@@ -5301,7 +6169,7 @@
           if (resolve) resolve(false);
           focusChangedItem(summary);
         };
-        card.appendChild(editBtn);
+        actions.appendChild(editBtn);
 
         const itemRollbackBtn = document.createElement("button");
         itemRollbackBtn.type = "button";
@@ -5318,7 +6186,8 @@
             if (resolve) resolve(false);
           }
         };
-        card.appendChild(itemRollbackBtn);
+        actions.appendChild(itemRollbackBtn);
+        card.appendChild(actions);
         fragment.appendChild(card);
       });
       saveReviewBody.appendChild(fragment);
@@ -5328,6 +6197,10 @@
       return new Promise((resolve) => {
         saveReviewModalResolve = resolve;
         saveReviewApplyBtn.onclick = () => {
+          const activeDirtyIds = dirtyIds.filter((itemId) => state.dirtyItemIds.has(itemId));
+          if (blockSaveIfLimitExceeded(activeDirtyIds)) {
+            return;
+          }
           closeSaveReviewModal();
           resolve(true);
         };
@@ -5379,6 +6252,32 @@
       }
       await saveDirtyItems(dirtyIds, "임시 변경");
       return true;
+    }
+
+    async function saveDirtySubset(dirtyIds, label) {
+      const activeDirtyIds = dirtyIds.filter((itemId) => state.dirtyItemIds.has(itemId));
+      if (!activeDirtyIds.length) {
+        return true;
+      }
+      if (blockSaveIfLimitExceeded(activeDirtyIds)) {
+        return false;
+      }
+      if (!(await confirmDirtySave(activeDirtyIds, label))) {
+        setStatus("저장을 취소했습니다.", "ok");
+        return false;
+      }
+      await saveDirtyItems(activeDirtyIds, label);
+      return true;
+    }
+
+    function dirtyIdsByItemKind(kind) {
+      collectCurrentItemIntoDraft();
+      return Array.from(state.dirtyItemIds).filter((itemId) => {
+        const item = state.items.find((entry) => entry.item_id === itemId);
+        if (!item) return false;
+        const image = isImageItem(item);
+        return kind === "image" ? image : !image;
+      });
     }
 
     async function saveSpeakerToken(token, speakerId, notes) {
@@ -5533,17 +6432,108 @@
       }
     }
 
+    async function applyTextNow() {
+      applyTextBtn.disabled = true;
+      try {
+        setBusyActionProgress(0, "텍스트 빠른 적용 준비", "현재 편집 항목과 위치 정보를 먼저 정리합니다.");
+        await nextFrame();
+        collectCurrentItemIntoDraft();
+        if (state.dirtyItemIds.size) {
+          setBusyActionProgress(12, "임시 변경 저장 확인", `텍스트 적용 전 임시 변경 ${state.dirtyItemIds.size}개를 먼저 저장합니다.`);
+          if (!(await saveAllItems())) {
+            setBusyActionProgress(100, "텍스트 빠른 적용 취소", "임시 변경 저장이 취소되었거나 차단되어 적용하지 않았습니다.", "warn");
+            return null;
+          }
+        } else {
+          setBusyActionProgress(20, "임시 변경 확인 완료", "저장할 임시 변경사항이 없습니다.");
+        }
+        if (state.dirtyItemIds.size) {
+          setBusyActionProgress(100, "텍스트 빠른 적용 취소", "아직 저장되지 않은 임시 변경이 남아 있어 적용하지 않았습니다.", "warn");
+          return null;
+        }
+        await nextFrame();
+        setBusyActionProgress(35, "현재 위치 저장", "작업대 진행 위치를 저장합니다.");
+        await saveProgress();
+        await nextFrame();
+        setBusyActionProgress(55, "텍스트 ROM 적용 중", "폰트 준비 캐시를 재사용해 텍스트를 다시 삽입합니다.");
+        const result = await fetchJson("/apply-text", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({}),
+        });
+        const imageSummary = result.image_apply?.summary || {};
+        const failures = (imageSummary.results || []).filter((entry) => entry.status === "error");
+        const imageDetail = `기존 이미지 재적용 ${imageSummary.applied_count ?? 0}개${failures.length ? ` / 실패 ${failures.length}개` : ""}`;
+        setBusyActionProgress(90, "텍스트 적용 결과 반영", imageDetail, failures.length ? "warn" : "");
+        romInfo.textContent = `고정 ROM: ${result.rom_path}`;
+        await nextFrame();
+        setBusyActionProgress(100, "텍스트 빠른 적용 완료", result.rom_path, failures.length ? "warn" : "ok");
+        setStatus(
+          `텍스트 빠른 적용 완료: ${result.rom_path}\n${imageDetail}`,
+          failures.length ? "error" : "ok"
+        );
+        return result;
+      } catch (error) {
+        setBusyActionProgress(100, "텍스트 빠른 적용 실패", error.message, "error");
+        throw error;
+      } finally {
+        applyTextBtn.disabled = false;
+      }
+    }
+
+    async function createPatchNow() {
+      createPatchBtn.disabled = true;
+      try {
+        setBusyActionProgress(0, "패치 생성 준비", "먼저 현재 대사 수정사항을 리뷰 ROM에 반영합니다.");
+        await nextFrame();
+        const applyResult = await applyTextNow();
+        if (!applyResult) {
+          setBusyActionProgress(100, "패치 생성 취소", "텍스트 적용이 완료되지 않아 패치를 만들지 않았습니다.", "warn");
+          return;
+        }
+        await nextFrame();
+        setBusyActionProgress(78, "BPS/ZIP 생성 중", "원본 ROM과 현재 리뷰 ROM의 차이로 배포용 패치를 만들고 있습니다.");
+        const result = await fetchJson("/release-patch", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ release_name: "hnr_mnr_ko_v0.1.0" }),
+        });
+        state.bundle.progress.last_release_name = result.release_name;
+        state.bundle.progress.last_release_patch = result.bps_path;
+        state.bundle.progress.last_release_zip = result.zip_path;
+        state.bundle.progress.last_release_created_at = result.created_at;
+        releaseInfo.textContent = `마지막 패치 ZIP: ${result.zip_path} (${result.created_at})`;
+        await nextFrame();
+        setBusyActionProgress(100, "패치 생성 완료", result.zip_path, "ok");
+        setStatus(
+          `패치 생성 완료: ${result.zip_path}\nBPS SHA256: ${result.bps_sha256}\nZIP SHA256: ${result.zip_sha256}`,
+          "ok"
+        );
+      } catch (error) {
+        setBusyActionProgress(100, "패치 생성 실패", error.message, "error");
+        throw error;
+      } finally {
+        createPatchBtn.disabled = false;
+      }
+    }
+
     async function applyImagesNow() {
       applyImagesBtn.disabled = true;
       try {
         setBusyActionProgress(0, "이미지 교체 적용 준비", "저장되지 않은 이미지 경로 변경을 먼저 확인합니다.");
         collectCurrentItemIntoDraft();
-        if (state.dirtyItemIds.size) {
-          setBusyActionProgress(20, "임시 변경 저장 확인", `이미지 적용 전 임시 변경 ${state.dirtyItemIds.size}개를 먼저 저장합니다.`);
-          if (!(await saveAllItems())) {
+        const imageDirtyIds = dirtyIdsByItemKind("image");
+        const textDirtyCount = dirtyIdsByItemKind("text").length;
+        if (imageDirtyIds.length) {
+          setBusyActionProgress(20, "이미지 변경 저장 확인", `이미지 적용 전 이미지 임시 변경 ${imageDirtyIds.length}개를 먼저 저장합니다.`);
+          if (!(await saveDirtySubset(imageDirtyIds, "이미지 임시 변경"))) {
             setBusyActionProgress(100, "이미지 교체 적용 취소", "임시 변경 저장이 취소되었거나 차단되어 적용하지 않았습니다.", "warn");
             return;
           }
+        }
+        if (textDirtyCount) {
+          setBusyActionProgress(35, "텍스트 임시 변경 보존", `텍스트 임시 변경 ${textDirtyCount}개는 저장/적용하지 않고 이미지 적용만 진행합니다.`);
+          await nextFrame();
         }
         setBusyActionProgress(55, "이미지 패치 적용 중", "업로드된 교체 이미지를 현재 리뷰 ROM에 반영합니다.");
         const result = await fetchJson("/apply-images", {
@@ -5649,7 +6639,7 @@
         }),
       });
       importInfo.textContent =
-        `가져오기 완료: applied=${result.summary.applied_count}, locked_preserved=${result.summary.locked_preserved_count}, unmatched=${result.summary.unmatched_count}`;
+        `가져오기 완료: applied=${result.summary.applied_count}, unmatched=${result.summary.unmatched_count}`;
       await loadBundle();
       setStatus(`번역 결과 가져오기 완료\n${result.report_path}`, "ok");
     }
@@ -5660,7 +6650,7 @@
         return;
       }
       translationText.value = agentDraftText.value;
-      manualLockCheckbox.checked = true;
+      syncTermDescriptionEditorFromTranslation();
       collectCurrentItemIntoDraft();
       updateTranslationLimitMeter();
     }
@@ -5767,8 +6757,10 @@
     saveProgressBtn.onclick = () => runExclusiveAction("현재 위치 저장", saveProgress).catch((error) => setStatus(error.message, "error"));
     importTranslationBtn.onclick = () => runExclusiveAction("번역 결과 가져오기", importTranslationResults).catch((error) => setStatus(error.message, "error"));
     applyImagesBtn.onclick = () => runExclusiveAction("이미지 교체 전체 적용", applyImagesNow).catch((error) => setStatus(error.message, "error"));
+    applyTextBtn.onclick = () => runExclusiveAction("텍스트 빠른 적용", applyTextNow).catch((error) => setStatus(error.message, "error"));
     restoreAllImagesBtn.onclick = () => runExclusiveAction("이미지 교체 전체 원상복구", () => restoreImagesNow()).catch((error) => setStatus(error.message, "error"));
     rebuildBtn.onclick = () => runExclusiveAction("전체 적용 ROM 재빌드", rebuildRom).catch((error) => setStatus(error.message, "error"));
+    createPatchBtn.onclick = () => runExclusiveAction("텍스트 적용 후 패치 생성", createPatchNow).catch((error) => setStatus(error.message, "error"));
     applyDraftBtn.onclick = () => applyDraftToTranslation();
     openAuditReviewBtn.onclick = () => runExclusiveAction("Entry8 후보 검수 열기", openAuditReview).catch((error) => setStatus(error.message, "error"));
     auditCloseBtn.onclick = () => closeAuditReview();
@@ -6031,7 +7023,6 @@
       agentDraftText,
       agentCommentText,
       notesText,
-      manualLockCheckbox,
       progressStatus,
       reviewStatus,
       sourcePreviewPath,
@@ -6044,12 +7035,19 @@
       node.addEventListener(eventName, () => {
         collectCurrentItemIntoDraft();
         if (node === translationText) {
+          syncTermDescriptionEditorFromTranslation();
           updateTranslationLimitMeter();
         }
       });
     });
+    [termNameInput, termDescriptionInput].forEach((node) => {
+      node.addEventListener("input", () => {
+        syncTermDescriptionInputsToTranslation();
+      });
+    });
 
-    loadBundle().catch((error) => {
+    bundleLoadPromise = loadBundle().catch((error) => {
+      bundleLoadError = error;
       setStatus(error.message, "error");
       console.error(error);
     });

@@ -18,11 +18,11 @@
 
 - `translation_workset_opening_intro`: 오프닝/인트로 / 4개
 - `translation_workset_core_ui`: 코어 UI / 149개
-- `translation_workset_gameplay_terms`: 게임 용어 / 656개
-- `translation_workset_credits`: 크레딧 / 28개
+- `translation_workset_gameplay_terms`: 게임 용어 / 677개
+- `translation_workset_credits`: 크레딧 / 83개
 - `translation_workset_registry_d_dialogue`: 대사 Registry D / 245개
 - `registry_a_entry8_clusters_manifest`: 대사 Entry8 / 10417개
-- `translation_workset_inline_event_texts`: 이벤트 연출 텍스트 / 41개
+- `translation_workset_inline_event_texts`: 이벤트 연출 텍스트 / 36개
 - `image_group_field_menu_labels`: 필드/메뉴 라벨 / 4개
 - `image_group_battle_command_buttons`: 전투 하단 버튼 / 5개
 - `image_group_battle_popups_panels`: 전투 팝업/패널 / 2개

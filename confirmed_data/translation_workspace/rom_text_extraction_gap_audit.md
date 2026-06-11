@@ -1,8 +1,8 @@
 # ROM Text Extraction Gap Audit
 
 - ROM: `/Users/user/test/Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba`
-- extracted interval count: `23021`
-- missing-candidate count: `21583`
+- extracted interval count: `23071`
+- missing-candidate count: `21555`
 - high-confidence count: `0`
 - suppressed high-confidence false positives: `2`
 
@@ -142,4 +142,84 @@ This broad list is intentionally noisy and is mainly useful for scripted follow-
 - `0x04FE7A` `7` bytes term=`None` jp=`0.4`: 鴒e奓!ﾉ
 - `0x050AF7` `6` bytes term=`None` jp=`0.5`: "踟2閒
 - `0x050D56` `6` bytes term=`None` jp=`0.5`: 蔔e匇H
-- ... `21463` more candidates omitted from markdown preview.
+- `0x0515A1` `6` bytes term=`None` jp=`0.5`: #煆鴾<
+- `0x05165D` `7` bytes term=`None` jp=`0.4`: #煆釧"H
+- `0x0519D2` `6` bytes term=`None` jp=`0.5`: 線)ｰ西
+- `0x052961` `6` bytes term=`None` jp=`0.5`: !璞冊0
+- `0x052AAC` `7` bytes term=`None` jp=`0.4`: 牲寛oF8
+- `0x052E54` `6` bytes term=`0x00` jp=`0.5`: 牲げoF
+- `0x053D90` `7` bytes term=`None` jp=`0.4`: 牲床oF8
+- `0x0540BF` `7` bytes term=`None` jp=`0.4`: 璧炬hｹi
+- `0x054547` `7` bytes term=`None` jp=`0.4`: G牲晴oF
+- `0x054DAD` `7` bytes term=`None` jp=`0.4`:  褶S弴c
+- `0x054F95` `7` bytes term=`None` jp=`0.4`: "RB磔泚
+- `0x055129` `7` bytes term=`None` jp=`0.4`:  褶抱8c
+- `0x0555BE` `6` bytes term=`None` jp=`0.5`: ｹ`檎銷
+- `0x057D8A` `7` bytes term=`None` jp=`0.4`: 琩Z胤iﾜ
+- `0x0587BC` `6` bytes term=`None` jp=`0.5`: 牲げoF
+- `0x058870` `6` bytes term=`None` jp=`0.5`: 牲げoF
+- `0x059F35` `7` bytes term=`None` jp=`0.4`: 瑰炬iyh
+- `0x05A479` `7` bytes term=`None` jp=`0.4`: 瑣炬i9h
+- `0x05AA71` `7` bytes term=`None` jp=`0.4`: 琥炬iyh
+- `0x05AF89` `7` bytes term=`None` jp=`0.4`: 珥炬i9h
+- `0x05B1F1` `7` bytes term=`None` jp=`0.4`: 瓊炬i9h
+- `0x05C08C` `7` bytes term=`None` jp=`0.4`: 牲臆oF9
+- `0x05C318` `7` bytes term=`None` jp=`0.4`: 牲臆oF9
+- `0x05C5A8` `7` bytes term=`None` jp=`0.4`: 牲臆oF9
+- `0x05C838` `7` bytes term=`None` jp=`0.4`: 牲臆oF9
+- `0x05CACC` `7` bytes term=`None` jp=`0.4`: 牲寛oF9
+- `0x05CF24` `7` bytes term=`None` jp=`0.4`: 牲寛oF9
+- `0x05D380` `7` bytes term=`None` jp=`0.4`: 牲寛oF9
+- `0x05D7D8` `7` bytes term=`None` jp=`0.4`: 牲寛oF9
+- `0x05DC2C` `7` bytes term=`None` jp=`0.4`: 牲臆oF9
+- `0x05DE10` `7` bytes term=`None` jp=`0.4`: 牲臆oF9
+- `0x05DFF8` `7` bytes term=`None` jp=`0.4`: 牲臆oF9
+- `0x05E1E0` `7` bytes term=`None` jp=`0.4`: 牲臆oF9
+- `0x05E3CC` `7` bytes term=`None` jp=`0.4`: 牲寛oF9
+- `0x05E6E4` `7` bytes term=`None` jp=`0.4`: 牲寛oF9
+- `0x05EA00` `7` bytes term=`None` jp=`0.4`: 牲寛oF9
+- `0x05ED18` `7` bytes term=`None` jp=`0.4`: 牲寛oF9
+- `0x06647C` `6` bytes term=`None` jp=`0.5`: 牲げoF
+- `0x06894D` `7` bytes term=`None` jp=`0.4`:  煆i偆`
+- `0x06899C` `10` bytes term=`0x00` jp=`0.429`: 5 沆/鐱燿R
+- `0x068A62` `7` bytes term=`None` jp=`0.4`: 5 沆ﾌ冾
+- `0x068AC6` `7` bytes term=`None` jp=`0.4`: 5 沆奧P
+- `0x068EB1` `7` bytes term=`0x00` jp=`0.4`: 犧hyi丨
+- `0x068EBD` `7` bytes term=`0x00` jp=`0.4`: 犧hyi丨
+- `0x068EC9` `7` bytes term=`0x00` jp=`0.4`: 犧hyi丨
+- `0x068ED5` `7` bytes term=`0x00` jp=`0.4`: 犧hyi丨
+- `0x06A418` `6` bytes term=`0x00` jp=`0.5`: 牲げoF
+- `0x06B941` `7` bytes term=`None` jp=`0.75`: `禰祢弼
+- `0x06B953` `7` bytes term=`None` jp=`0.75`: `辿蝕辱
+- `0x06B967` `7` bytes term=`None` jp=`0.75`: `皐終徽
+- `0x06C7DC` `6` bytes term=`0x00` jp=`0.5`: 咨N聿_
+- `0x06E64C` `6` bytes term=`None` jp=`0.5`: y`鱸廳
+- `0x06E8BA` `8` bytes term=`None` jp=`1.0`: 薮入薮錮
+- `0x06EDC0` `6` bytes term=`None` jp=`0.5`: 牲芦oF
+- `0x07007C` `7` bytes term=`None` jp=`0.4`: ﾏ逋癶 ﾀ
+- `0x070904` `7` bytes term=`None` jp=`0.4`: 譲紆ﾀ!ﾉ
+- `0x071922` `7` bytes term=`0x00` jp=`0.4`: 募0v募ﾑ
+- `0x071966` `7` bytes term=`0x00` jp=`0.4`: 募0v募ﾑ
+- `0x071A31` `7` bytes term=`None` jp=`0.4`: `募0v募
+- `0x071A45` `7` bytes term=`None` jp=`0.4`: ﾈﾌ綰d呉
+- `0x071A51` `7` bytes term=`None` jp=`0.4`: ﾈﾌ緘t呉
+- `0x071AD1` `7` bytes term=`None` jp=`0.75`: F宇巽妲
+- `0x071BBB` `6` bytes term=`None` jp=`0.5`: 2角肅ｪ
+- `0x071C1C` `6` bytes term=`None` jp=`0.5`: ャﾂ鬼C
+- `0x071D58` `6` bytes term=`0x00` jp=`0.5`: 労Ck咤
+- `0x071E01` `7` bytes term=`None` jp=`0.4`:  鑚@ 鑼
+- `0x071FA7` `7` bytes term=`None` jp=`0.75`: F宇巽妲
+- `0x072189` `7` bytes term=`None` jp=`0.4`: b蘆閙(w
+- `0x07221F` `7` bytes term=`None` jp=`0.75`: F宇巽妲
+- `0x0727FB` `7` bytes term=`None` jp=`0.4`: b鐫(c鐵
+- `0x072BBD` `7` bytes term=`None` jp=`0.4`: z撮鰥(z
+- `0x072EF1` `6` bytes term=`None` jp=`0.5`: 猝x休ﾐ
+- `0x073127` `7` bytes term=`0xFF` jp=`0.4`: " p痒疵
+- `0x07313F` `11` bytes term=`0x00` jp=`0.375`: .|ﾐ窕色y珥z
+- `0x0731A6` `7` bytes term=`None` jp=`0.4`: 色Q珥yE
+- `0x073238` `6` bytes term=`None` jp=`0.5`:  y灑炳
+- `0x074399` `7` bytes term=`None` jp=`0.4`: Hィ&ﾘィ
+- `0x0744A1` `7` bytes term=`None` jp=`0.4`: FEF犇擴
+- `0x074567` `7` bytes term=`None` jp=`0.4`: 潺F濾!i
+- `0x0747E7` `7` bytes term=`None` jp=`0.4`: `e瀋F冑
+- ... `21355` more candidates omitted from markdown preview.

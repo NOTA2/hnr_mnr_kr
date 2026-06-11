@@ -175,8 +175,8 @@
     "tile_map_path": "",
     "asset_source_path": "confirmed_data/image_inventory/localization_targets/assets/card_book_right_category_tabs__source.png",
     "asset_edit_path": "confirmed_data/image_inventory/localization_targets/assets/card_book_right_category_tabs__edit.png",
-    "text_seen": "金属 / 石 / 自然 / 無機",
-    "korean_goal": "금속 / 돌 / 자연 / 무기",
+    "text_seen": "金属 ／ 石 ／ 自然 ／ 無機",
+    "korean_goal": "금속 ／ 돌 ／ 자연 ／ 무기",
     "notes": "ss6~ss9 책자 오른쪽 세로 탭 4개. RLE 0x003A3540 전체 카드 리스트 블록에서 오른쪽 탭 영역만 분리한 GUI 직접 교체 항목."
   },
   {
@@ -247,8 +247,8 @@
     "tile_map_path": "confirmed_data/image_inventory/runtime_rle_screen_order/current_review_ss2/frame_000002_bg0_rle_003ABB9C/tile_map.json",
     "asset_source_path": "confirmed_data/image_inventory/localization_targets/assets/battle_confirm_ok_yes_no_popup__source.png",
     "asset_edit_path": "confirmed_data/image_inventory/localization_targets/assets/battle_confirm_ok_yes_no_popup__edit.png",
-    "text_seen": "OK? / はい / いいえ",
-    "korean_goal": "OK? / 예 / 아니요",
+    "text_seen": "OK? ／ はい ／ いいえ",
+    "korean_goal": "OK? ／ 예 ／ 아니요",
     "notes": "사용자가 제공한 current_review ss2에서 확인. 화면순 RLE 편집 PNG와 tile_map이 정상 생성되어 GUI 직접 교체 대상으로 등록한다."
   },
   {
@@ -265,8 +265,8 @@
     "tile_map_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss1/frame_007084_bg0_rle_003AF23C/tile_map.json",
     "asset_source_path": "confirmed_data/image_inventory/localization_targets/assets/battle_popup_alchemy_commands__source.png",
     "asset_edit_path": "confirmed_data/image_inventory/localization_targets/assets/battle_popup_alchemy_commands__edit.png",
-    "text_seen": "錬成 / つかう / すてる / もどる",
-    "korean_goal": "연성 / 사용 / 버리기 / 돌아가기",
+    "text_seen": "錬成 ／ つかう ／ すてる ／ もどる",
+    "korean_goal": "연성 ／ 사용 ／ 버리기 ／ 돌아가기",
     "notes": "화면순 RLE 편집 및 적용 no-op 테스트 통과."
   },
   {
@@ -427,8 +427,8 @@
     "tile_map_path": "confirmed_data/image_inventory/runtime_rle_screen_order/timeline_with_rle/frame_001200_bg0_rle_007E0000/tile_map.json",
     "asset_source_path": "confirmed_data/image_inventory/localization_targets/assets/title_logo_copyright__source.png",
     "asset_edit_path": "confirmed_data/image_inventory/localization_targets/assets/title_logo_copyright__edit.png",
-    "text_seen": "鋼の錬金術師 / 迷走の輪舞曲",
-    "korean_goal": "강철의 연금술사 / 미주의 윤무곡 또는 확정 제목",
+    "text_seen": "鋼の錬金術師 ／ 迷走の輪舞曲",
+    "korean_goal": "강철의 연금술사 ／ 미주의 윤무곡 또는 확정 제목",
     "notes": "화면순 RLE 편집 및 적용 no-op 테스트 통과. 저작권/영문 표기는 제외하고 일본어 로고/부제만 실제 한글화 대상으로 본다."
   }
 ]

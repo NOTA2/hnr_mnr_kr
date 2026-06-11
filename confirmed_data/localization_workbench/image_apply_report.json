@@ -17,23 +17,23 @@
       "storage": "field_label_archive_repoint",
       "offset": 5448620,
       "offset_hex": "0x005323AC",
-      "new_offset": 8750136,
-      "new_offset_hex": "0x00858438",
-      "entry_header_offset": "0x00858434",
+      "new_offset": 8750196,
+      "new_offset_hex": "0x00858474",
+      "entry_header_offset": "0x00858470",
       "table_offsets": [
         "0x00420168"
       ],
       "old_table_values": [
         "0x0010AD20"
       ],
-      "new_table_value": "0x00430DAC",
+      "new_table_value": "0x00430DE8",
       "archive_data_base": "0x00427688",
       "decompressed_size": 2048,
       "compressed_size": 2308,
       "available_size": 459,
       "original_consumed_size": 459,
       "size_overage": 1849,
-      "rom_size_after": 8752444,
+      "rom_size_after": 8752504,
       "repoint_attempted": true,
       "columns": 32,
       "lz77_encoder": "literal",
@@ -84,23 +84,23 @@
       "storage": "field_label_archive_repoint",
       "offset": 5449084,
       "offset_hex": "0x0053257C",
-      "new_offset": 8752448,
-      "new_offset_hex": "0x00858D40",
-      "entry_header_offset": "0x00858D3C",
+      "new_offset": 8752508,
+      "new_offset_hex": "0x00858D7C",
+      "entry_header_offset": "0x00858D78",
       "table_offsets": [
         "0x0042016C"
       ],
       "old_table_values": [
         "0x0010AEF0"
       ],
-      "new_table_value": "0x004316B4",
+      "new_table_value": "0x004316F0",
       "archive_data_base": "0x00427688",
       "decompressed_size": 2048,
       "compressed_size": 2308,
       "available_size": 484,
       "original_consumed_size": 484,
       "size_overage": 1824,
-      "rom_size_after": 8754756,
+      "rom_size_after": 8754816,
       "repoint_attempted": true,
       "columns": 32,
       "lz77_encoder": "literal",
@@ -145,23 +145,23 @@
       "storage": "field_label_archive_repoint",
       "offset": 5449572,
       "offset_hex": "0x00532764",
-      "new_offset": 8754760,
-      "new_offset_hex": "0x00859648",
-      "entry_header_offset": "0x00859644",
+      "new_offset": 8754820,
+      "new_offset_hex": "0x00859684",
+      "entry_header_offset": "0x00859680",
       "table_offsets": [
         "0x00420170"
       ],
       "old_table_values": [
         "0x0010B0D8"
       ],
-      "new_table_value": "0x00431FBC",
+      "new_table_value": "0x00431FF8",
       "archive_data_base": "0x00427688",
       "decompressed_size": 2048,
       "compressed_size": 2308,
       "available_size": 467,
       "original_consumed_size": 467,
       "size_overage": 1841,
-      "rom_size_after": 8757068,
+      "rom_size_after": 8757128,
       "repoint_attempted": true,
       "columns": 32,
       "lz77_encoder": "literal",
@@ -206,23 +206,23 @@
       "storage": "field_label_archive_repoint",
       "offset": 5450044,
       "offset_hex": "0x0053293C",
-      "new_offset": 8757072,
-      "new_offset_hex": "0x00859F50",
-      "entry_header_offset": "0x00859F4C",
+      "new_offset": 8757132,
+      "new_offset_hex": "0x00859F8C",
+      "entry_header_offset": "0x00859F88",
       "table_offsets": [
         "0x00420174"
       ],
       "old_table_values": [
         "0x0010B2B0"
       ],
-      "new_table_value": "0x004328C4",
+      "new_table_value": "0x00432900",
       "archive_data_base": "0x00427688",
       "decompressed_size": 2048,
       "compressed_size": 2308,
       "available_size": 434,
       "original_consumed_size": 434,
       "size_overage": 1874,
-      "rom_size_after": 8759380,
+      "rom_size_after": 8759440,
       "repoint_attempted": true,
       "columns": 32,
       "lz77_encoder": "literal",
@@ -372,15 +372,15 @@
       "storage": "repoint",
       "offset": 3863100,
       "offset_hex": "0x003AF23C",
-      "new_offset": 8759380,
-      "new_offset_hex": "0x0085A854",
+      "new_offset": 8759440,
+      "new_offset_hex": "0x0085A890",
       "pointer_offsets": [
         "0x0017BDC4"
       ],
       "old_pointer_values": [
         "0x083AF23C"
       ],
-      "new_pointer_value": "0x0885A854",
+      "new_pointer_value": "0x0885A890",
       "size_word_patches": [
         {
           "offset": "0x0017BDC8",
@@ -393,7 +393,7 @@
       "available_size": 1031,
       "original_consumed_size": 1031,
       "size_overage": 36,
-      "rom_size_after": 8760447,
+      "rom_size_after": 8760507,
       "repoint_attempted": true,
       "columns": null,
       "tile_map_path": "confirmed_data/image_inventory/runtime_rle_screen_order/no_entry8_latest_ss1/frame_007084_bg0_rle_003AF23C/tile_map.json",
@@ -593,11 +593,11 @@
       "columns": null,
       "tile_map_path": "confirmed_data/image_inventory/runtime_rle_screen_order/timeline_with_rle/frame_001200_bg0_rle_007E0000/tile_map.json",
       "decompressed_size": 16384,
-      "compressed_size": 10449,
+      "compressed_size": 9267,
       "available_size": 11029,
       "current_consumed_size": 11029,
       "screen_order_meta": {
-        "written_tile_count": 353,
+        "written_tile_count": 420,
         "written_tile_indexes": [
           4,
           5,
@@ -764,6 +764,9 @@
           217,
           218,
           219,
+          221,
+          222,
+          223,
           224,
           225,
           226,
@@ -792,6 +795,9 @@
           249,
           250,
           251,
+          253,
+          254,
+          255,
           256,
           257,
           258,
@@ -819,6 +825,10 @@
           280,
           281,
           282,
+          284,
+          285,
+          286,
+          287,
           288,
           289,
           290,
@@ -846,6 +856,10 @@
           312,
           313,
           314,
+          316,
+          317,
+          318,
+          319,
           320,
           321,
           322,
@@ -873,6 +887,10 @@
           344,
           345,
           346,
+          348,
+          349,
+          350,
+          351,
           352,
           353,
           354,
@@ -900,6 +918,10 @@
           376,
           377,
           378,
+          380,
+          381,
+          382,
+          383,
           385,
           386,
           387,
@@ -926,6 +948,10 @@
           408,
           409,
           410,
+          412,
+          413,
+          414,
+          415,
           417,
           418,
           419,
@@ -951,7 +977,48 @@
           439,
           440,
           441,
-          442
+          442,
+          444,
+          445,
+          446,
+          447,
+          448,
+          449,
+          450,
+          451,
+          452,
+          453,
+          454,
+          455,
+          456,
+          457,
+          458,
+          459,
+          460,
+          461,
+          462,
+          463,
+          464,
+          465,
+          466,
+          467,
+          468,
+          469,
+          470,
+          471,
+          472,
+          473,
+          474,
+          475,
+          476,
+          477,
+          478,
+          479,
+          480,
+          481,
+          489,
+          490,
+          493
         ],
         "tile_count_after_alias_split": 512,
         "alias_conflicts": [],
@@ -973,8 +1040,8 @@
       "storage": "repoint",
       "offset": 8295428,
       "offset_hex": "0x007E9404",
-      "new_offset": 8760448,
-      "new_offset_hex": "0x0085AC80",
+      "new_offset": 8760508,
+      "new_offset_hex": "0x0085ACBC",
       "pointer_offsets": [
         "0x0017C78C",
         "0x00184B44"
@@ -983,7 +1050,7 @@
         "0x087E9404",
         "0x087E9404"
       ],
-      "new_pointer_value": "0x0885AC80",
+      "new_pointer_value": "0x0885ACBC",
       "size_word_patches": [
         {
           "offset": "0x0017C790",
@@ -1001,7 +1068,7 @@
       "available_size": 475,
       "original_consumed_size": 475,
       "size_overage": 13,
-      "rom_size_after": 8760936,
+      "rom_size_after": 8760996,
       "repoint_attempted": true,
       "columns": 32,
       "tile_map_path": ""
@@ -1013,8 +1080,8 @@
       "storage": "repoint",
       "offset": 8295904,
       "offset_hex": "0x007E95E0",
-      "new_offset": 8760936,
-      "new_offset_hex": "0x0085AE68",
+      "new_offset": 8760996,
+      "new_offset_hex": "0x0085AEA4",
       "pointer_offsets": [
         "0x0017C794",
         "0x00184B4C"
@@ -1023,7 +1090,7 @@
         "0x087E95E0",
         "0x087E95E0"
       ],
-      "new_pointer_value": "0x0885AE68",
+      "new_pointer_value": "0x0885AEA4",
       "size_word_patches": [
         {
           "offset": "0x0017C798",
@@ -1041,7 +1108,7 @@
       "available_size": 452,
       "original_consumed_size": 452,
       "size_overage": 53,
-      "rom_size_after": 8761441,
+      "rom_size_after": 8761501,
       "repoint_attempted": true,
       "columns": 32,
       "tile_map_path": ""
@@ -1053,8 +1120,8 @@
       "storage": "repoint",
       "offset": 8296356,
       "offset_hex": "0x007E97A4",
-      "new_offset": 8761444,
-      "new_offset_hex": "0x0085B064",
+      "new_offset": 8761504,
+      "new_offset_hex": "0x0085B0A0",
       "pointer_offsets": [
         "0x0017C79C",
         "0x00184B54"
@@ -1063,7 +1130,7 @@
         "0x087E97A4",
         "0x087E97A4"
       ],
-      "new_pointer_value": "0x0885B064",
+      "new_pointer_value": "0x0885B0A0",
       "size_word_patches": [
         {
           "offset": "0x0017C7A0",
@@ -1081,7 +1148,7 @@
       "available_size": 269,
       "original_consumed_size": 269,
       "size_overage": 13,
-      "rom_size_after": 8761726,
+      "rom_size_after": 8761786,
       "repoint_attempted": true,
       "columns": 32,
       "tile_map_path": ""
@@ -15223,21 +15290,21 @@
       ]
     },
     {
-      "item_id": "image:registry_b_zp01:008605E8:entry_03",
+      "item_id": "image:registry_b_zp01:007CAC38:entry_03",
       "status": "applied",
       "compression": "registry_b_zp01",
       "storage": "repoint",
       "variant": "ZP01",
       "offset": 8170552,
       "offset_hex": "0x007CAC38",
-      "original_offset": 8783336,
-      "original_offset_hex": "0x008605E8",
-      "new_offset": 8761728,
-      "new_offset_hex": "0x0085B180",
+      "original_offset": 8170552,
+      "original_offset_hex": "0x007CAC38",
+      "new_offset": 8761788,
+      "new_offset_hex": "0x0085B1BC",
       "registry_b_table_offset": 1588584,
       "registry_b_table_offset_hex": "0x00183D68",
       "old_pointer_value": "0x087CAC38",
-      "new_pointer_value": "0x0885B180",
+      "new_pointer_value": "0x0885B1BC",
       "columns": 12,
       "tile_count": 61,
       "edit_tile_count": 61,
@@ -15246,7 +15313,7 @@
       "compressed_size": 1336,
       "available_size": 1324,
       "current_consumed_size": 1324,
-      "rom_size_after": 8763064,
+      "rom_size_after": 8763124,
       "repoint_attempted": true
     },
     {
@@ -15273,25 +15340,25 @@
       "compressed_size": 903,
       "available_size": 976,
       "current_consumed_size": 976,
-      "rom_size_after": 8763064,
+      "rom_size_after": 8763124,
       "repoint_attempted": false
     },
     {
-      "item_id": "image:registry_b_zp01:00860B20:entry_05",
+      "item_id": "image:registry_b_zp01:007CB534:entry_05",
       "status": "applied",
       "compression": "registry_b_zp01",
       "storage": "repoint",
       "variant": "ZP01",
       "offset": 8172852,
       "offset_hex": "0x007CB534",
-      "original_offset": 8784672,
-      "original_offset_hex": "0x00860B20",
-      "new_offset": 8763064,
-      "new_offset_hex": "0x0085B6B8",
+      "original_offset": 8172852,
+      "original_offset_hex": "0x007CB534",
+      "new_offset": 8763124,
+      "new_offset_hex": "0x0085B6F4",
       "registry_b_table_offset": 1588600,
       "registry_b_table_offset_hex": "0x00183D78",
       "old_pointer_value": "0x087CB534",
-      "new_pointer_value": "0x0885B6B8",
+      "new_pointer_value": "0x0885B6F4",
       "columns": 12,
       "tile_count": 61,
       "edit_tile_count": 61,
@@ -15300,25 +15367,25 @@
       "compressed_size": 1240,
       "available_size": 1183,
       "current_consumed_size": 1183,
-      "rom_size_after": 8764304,
+      "rom_size_after": 8764364,
       "repoint_attempted": true
     },
     {
-      "item_id": "image:registry_b_zp01:00860FF8:entry_06",
+      "item_id": "image:registry_b_zp01:007CB9D4:entry_06",
       "status": "applied",
       "compression": "registry_b_zp01",
       "storage": "repoint",
       "variant": "ZP01",
       "offset": 8174036,
       "offset_hex": "0x007CB9D4",
-      "original_offset": 8785912,
-      "original_offset_hex": "0x00860FF8",
-      "new_offset": 8764304,
-      "new_offset_hex": "0x0085BB90",
+      "original_offset": 8174036,
+      "original_offset_hex": "0x007CB9D4",
+      "new_offset": 8764364,
+      "new_offset_hex": "0x0085BBCC",
       "registry_b_table_offset": 1588608,
       "registry_b_table_offset_hex": "0x00183D80",
       "old_pointer_value": "0x087CB9D4",
-      "new_pointer_value": "0x0885BB90",
+      "new_pointer_value": "0x0885BBCC",
       "columns": 12,
       "tile_count": 61,
       "edit_tile_count": 61,
@@ -15327,25 +15394,25 @@
       "compressed_size": 1054,
       "available_size": 950,
       "current_consumed_size": 950,
-      "rom_size_after": 8765358,
+      "rom_size_after": 8765418,
       "repoint_attempted": true
     },
     {
-      "item_id": "image:registry_b_zp01:00861418:entry_07",
+      "item_id": "image:registry_b_zp01:007CBD8C:entry_07",
       "status": "applied",
       "compression": "registry_b_zp01",
       "storage": "repoint",
       "variant": "ZP01",
       "offset": 8174988,
       "offset_hex": "0x007CBD8C",
-      "original_offset": 8786968,
-      "original_offset_hex": "0x00861418",
-      "new_offset": 8765360,
-      "new_offset_hex": "0x0085BFB0",
+      "original_offset": 8174988,
+      "original_offset_hex": "0x007CBD8C",
+      "new_offset": 8765420,
+      "new_offset_hex": "0x0085BFEC",
       "registry_b_table_offset": 1588616,
       "registry_b_table_offset_hex": "0x00183D88",
       "old_pointer_value": "0x087CBD8C",
-      "new_pointer_value": "0x0885BFB0",
+      "new_pointer_value": "0x0885BFEC",
       "columns": 12,
       "tile_count": 61,
       "edit_tile_count": 61,
@@ -15354,25 +15421,25 @@
       "compressed_size": 1371,
       "available_size": 1365,
       "current_consumed_size": 1365,
-      "rom_size_after": 8766731,
+      "rom_size_after": 8766791,
       "repoint_attempted": true
     },
     {
-      "item_id": "image:registry_b_zp01:00861974:entry_08",
+      "item_id": "image:registry_b_zp01:007CC2E4:entry_08",
       "status": "applied",
       "compression": "registry_b_zp01",
       "storage": "repoint",
       "variant": "ZP01",
       "offset": 8176356,
       "offset_hex": "0x007CC2E4",
-      "original_offset": 8788340,
-      "original_offset_hex": "0x00861974",
-      "new_offset": 8766732,
-      "new_offset_hex": "0x0085C50C",
+      "original_offset": 8176356,
+      "original_offset_hex": "0x007CC2E4",
+      "new_offset": 8766792,
+      "new_offset_hex": "0x0085C548",
       "registry_b_table_offset": 1588624,
       "registry_b_table_offset_hex": "0x00183D90",
       "old_pointer_value": "0x087CC2E4",
-      "new_pointer_value": "0x0885C50C",
+      "new_pointer_value": "0x0885C548",
       "columns": 12,
       "tile_count": 61,
       "edit_tile_count": 61,
@@ -15381,25 +15448,25 @@
       "compressed_size": 1322,
       "available_size": 1306,
       "current_consumed_size": 1306,
-      "rom_size_after": 8768054,
+      "rom_size_after": 8768114,
       "repoint_attempted": true
     },
     {
-      "item_id": "image:registry_b_zp01:00861EA0:entry_09",
+      "item_id": "image:registry_b_zp01:007CC800:entry_09",
       "status": "applied",
       "compression": "registry_b_zp01",
       "storage": "repoint",
       "variant": "ZP01",
       "offset": 8177664,
       "offset_hex": "0x007CC800",
-      "original_offset": 8789664,
-      "original_offset_hex": "0x00861EA0",
-      "new_offset": 8768056,
-      "new_offset_hex": "0x0085CA38",
+      "original_offset": 8177664,
+      "original_offset_hex": "0x007CC800",
+      "new_offset": 8768116,
+      "new_offset_hex": "0x0085CA74",
       "registry_b_table_offset": 1588632,
       "registry_b_table_offset_hex": "0x00183D98",
       "old_pointer_value": "0x087CC800",
-      "new_pointer_value": "0x0885CA38",
+      "new_pointer_value": "0x0885CA74",
       "columns": 12,
       "tile_count": 53,
       "edit_tile_count": 53,
@@ -15408,25 +15475,25 @@
       "compressed_size": 998,
       "available_size": 987,
       "current_consumed_size": 987,
-      "rom_size_after": 8769054,
+      "rom_size_after": 8769114,
       "repoint_attempted": true
     },
     {
-      "item_id": "image:registry_b_zp01:00862288:entry_0A",
+      "item_id": "image:registry_b_zp01:007CCBDC:entry_0A",
       "status": "applied",
       "compression": "registry_b_zp01",
       "storage": "repoint",
       "variant": "ZP01",
       "offset": 8178652,
       "offset_hex": "0x007CCBDC",
-      "original_offset": 8790664,
-      "original_offset_hex": "0x00862288",
-      "new_offset": 8769056,
-      "new_offset_hex": "0x0085CE20",
+      "original_offset": 8178652,
+      "original_offset_hex": "0x007CCBDC",
+      "new_offset": 8769116,
+      "new_offset_hex": "0x0085CE5C",
       "registry_b_table_offset": 1588640,
       "registry_b_table_offset_hex": "0x00183DA0",
       "old_pointer_value": "0x087CCBDC",
-      "new_pointer_value": "0x0885CE20",
+      "new_pointer_value": "0x0885CE5C",
       "columns": 12,
       "tile_count": 60,
       "edit_tile_count": 60,
@@ -15435,7 +15502,7 @@
       "compressed_size": 1298,
       "available_size": 1279,
       "current_consumed_size": 1279,
-      "rom_size_after": 8770354,
+      "rom_size_after": 8770414,
       "repoint_attempted": true
     },
     {
@@ -15462,25 +15529,25 @@
       "compressed_size": 2784,
       "available_size": 2784,
       "current_consumed_size": 2784,
-      "rom_size_after": 8770354,
+      "rom_size_after": 8770414,
       "repoint_attempted": false
     },
     {
-      "item_id": "image:registry_b_zp01:0086279C:entry_10",
+      "item_id": "image:registry_b_zp01:007CE608:entry_10",
       "status": "applied",
       "compression": "registry_b_zp01",
       "storage": "repoint",
       "variant": "ZP01",
       "offset": 8185352,
       "offset_hex": "0x007CE608",
-      "original_offset": 8791964,
-      "original_offset_hex": "0x0086279C",
-      "new_offset": 8770356,
-      "new_offset_hex": "0x0085D334",
+      "original_offset": 8185352,
+      "original_offset_hex": "0x007CE608",
+      "new_offset": 8770416,
+      "new_offset_hex": "0x0085D370",
       "registry_b_table_offset": 1588688,
       "registry_b_table_offset_hex": "0x00183DD0",
       "old_pointer_value": "0x087CE608",
-      "new_pointer_value": "0x0885D334",
+      "new_pointer_value": "0x0885D370",
       "columns": 7,
       "tile_count": 104,
       "edit_tile_count": 28,
@@ -15518,7 +15585,7 @@
       "compressed_size": 647,
       "available_size": 639,
       "current_consumed_size": 639,
-      "rom_size_after": 8771003,
+      "rom_size_after": 8771063,
       "repoint_attempted": true
     },
     {
@@ -15588,7 +15655,7 @@
       "compressed_size": 935,
       "available_size": 1049,
       "current_consumed_size": 1049,
-      "rom_size_after": 8771003,
+      "rom_size_after": 8771063,
       "repoint_attempted": false
     },
     {
@@ -15598,15 +15665,15 @@
       "storage": "repoint",
       "offset": 3836052,
       "offset_hex": "0x003A8894",
-      "new_offset": 8771004,
-      "new_offset_hex": "0x0085D5BC",
+      "new_offset": 8771064,
+      "new_offset_hex": "0x0085D5F8",
       "pointer_offsets": [
         "0x0017BCAC"
       ],
       "old_pointer_values": [
         "0x083A8894"
       ],
-      "new_pointer_value": "0x0885D5BC",
+      "new_pointer_value": "0x0885D5F8",
       "size_word_patches": [
         {
           "offset": "0x0017BCB0",
@@ -15619,7 +15686,7 @@
       "available_size": 3472,
       "original_consumed_size": 3472,
       "size_overage": 8,
-      "rom_size_after": 8774484,
+      "rom_size_after": 8774544,
       "repoint_attempted": true,
       "tile_index": 173,
       "tile_index_hex": "0x0AD",
@@ -15646,15 +15713,15 @@
       "storage": "repoint",
       "offset": 3836052,
       "offset_hex": "0x003A8894",
-      "new_offset": 8771004,
-      "new_offset_hex": "0x0085D5BC",
+      "new_offset": 8771064,
+      "new_offset_hex": "0x0085D5F8",
       "pointer_offsets": [
         "0x0017BCAC"
       ],
       "old_pointer_values": [
         "0x083A8894"
       ],
-      "new_pointer_value": "0x0885D5BC",
+      "new_pointer_value": "0x0885D5F8",
       "size_word_patches": [
         {
           "offset": "0x0017BCB0",
@@ -15667,7 +15734,7 @@
       "available_size": 3472,
       "original_consumed_size": 3472,
       "size_overage": 8,
-      "rom_size_after": 8774484,
+      "rom_size_after": 8774544,
       "repoint_attempted": true,
       "tile_index": 174,
       "tile_index_hex": "0x0AE",
@@ -15694,15 +15761,15 @@
       "storage": "repoint",
       "offset": 3836052,
       "offset_hex": "0x003A8894",
-      "new_offset": 8771004,
-      "new_offset_hex": "0x0085D5BC",
+      "new_offset": 8771064,
+      "new_offset_hex": "0x0085D5F8",
       "pointer_offsets": [
         "0x0017BCAC"
       ],
       "old_pointer_values": [
         "0x083A8894"
       ],
-      "new_pointer_value": "0x0885D5BC",
+      "new_pointer_value": "0x0885D5F8",
       "size_word_patches": [
         {
           "offset": "0x0017BCB0",
@@ -15715,7 +15782,7 @@
       "available_size": 3472,
       "original_consumed_size": 3472,
       "size_overage": 8,
-      "rom_size_after": 8774484,
+      "rom_size_after": 8774544,
       "repoint_attempted": true,
       "tile_index": 175,
       "tile_index_hex": "0x0AF",
@@ -15742,15 +15809,15 @@
       "storage": "repoint",
       "offset": 3836052,
       "offset_hex": "0x003A8894",
-      "new_offset": 8771004,
-      "new_offset_hex": "0x0085D5BC",
+      "new_offset": 8771064,
+      "new_offset_hex": "0x0085D5F8",
       "pointer_offsets": [
         "0x0017BCAC"
       ],
       "old_pointer_values": [
         "0x083A8894"
       ],
-      "new_pointer_value": "0x0885D5BC",
+      "new_pointer_value": "0x0885D5F8",
       "size_word_patches": [
         {
           "offset": "0x0017BCB0",
@@ -15763,7 +15830,7 @@
       "available_size": 3472,
       "original_consumed_size": 3472,
       "size_overage": 8,
-      "rom_size_after": 8774484,
+      "rom_size_after": 8774544,
       "repoint_attempted": true,
       "tile_index": 176,
       "tile_index_hex": "0x0B0",
@@ -15790,15 +15857,15 @@
       "storage": "repoint",
       "offset": 3836052,
       "offset_hex": "0x003A8894",
-      "new_offset": 8771004,
-      "new_offset_hex": "0x0085D5BC",
+      "new_offset": 8771064,
+      "new_offset_hex": "0x0085D5F8",
       "pointer_offsets": [
         "0x0017BCAC"
       ],
       "old_pointer_values": [
         "0x083A8894"
       ],
-      "new_pointer_value": "0x0885D5BC",
+      "new_pointer_value": "0x0885D5F8",
       "size_word_patches": [
         {
           "offset": "0x0017BCB0",
@@ -15811,7 +15878,7 @@
       "available_size": 3472,
       "original_consumed_size": 3472,
       "size_overage": 8,
-      "rom_size_after": 8774484,
+      "rom_size_after": 8774544,
       "repoint_attempted": true,
       "tile_index": 177,
       "tile_index_hex": "0x0B1",
@@ -15838,15 +15905,15 @@
       "storage": "repoint",
       "offset": 3836052,
       "offset_hex": "0x003A8894",
-      "new_offset": 8771004,
-      "new_offset_hex": "0x0085D5BC",
+      "new_offset": 8771064,
+      "new_offset_hex": "0x0085D5F8",
       "pointer_offsets": [
         "0x0017BCAC"
       ],
       "old_pointer_values": [
         "0x083A8894"
       ],
-      "new_pointer_value": "0x0885D5BC",
+      "new_pointer_value": "0x0885D5F8",
       "size_word_patches": [
         {
           "offset": "0x0017BCB0",
@@ -15859,7 +15926,7 @@
       "available_size": 3472,
       "original_consumed_size": 3472,
       "size_overage": 8,
-      "rom_size_after": 8774484,
+      "rom_size_after": 8774544,
       "repoint_attempted": true,
       "tile_index": 188,
       "tile_index_hex": "0x0BC",
@@ -15886,15 +15953,15 @@
       "storage": "repoint",
       "offset": 3836052,
       "offset_hex": "0x003A8894",
-      "new_offset": 8771004,
-      "new_offset_hex": "0x0085D5BC",
+      "new_offset": 8771064,
+      "new_offset_hex": "0x0085D5F8",
       "pointer_offsets": [
         "0x0017BCAC"
       ],
       "old_pointer_values": [
         "0x083A8894"
       ],
-      "new_pointer_value": "0x0885D5BC",
+      "new_pointer_value": "0x0885D5F8",
       "size_word_patches": [
         {
           "offset": "0x0017BCB0",
@@ -15907,7 +15974,7 @@
       "available_size": 3472,
       "original_consumed_size": 3472,
       "size_overage": 8,
-      "rom_size_after": 8774484,
+      "rom_size_after": 8774544,
       "repoint_attempted": true,
       "tile_index": 189,
       "tile_index_hex": "0x0BD",
@@ -15934,15 +16001,15 @@
       "storage": "repoint",
       "offset": 3836052,
       "offset_hex": "0x003A8894",
-      "new_offset": 8771004,
-      "new_offset_hex": "0x0085D5BC",
+      "new_offset": 8771064,
+      "new_offset_hex": "0x0085D5F8",
       "pointer_offsets": [
         "0x0017BCAC"
       ],
       "old_pointer_values": [
         "0x083A8894"
       ],
-      "new_pointer_value": "0x0885D5BC",
+      "new_pointer_value": "0x0885D5F8",
       "size_word_patches": [
         {
           "offset": "0x0017BCB0",
@@ -15955,7 +16022,7 @@
       "available_size": 3472,
       "original_consumed_size": 3472,
       "size_overage": 8,
-      "rom_size_after": 8774484,
+      "rom_size_after": 8774544,
       "repoint_attempted": true,
       "tile_index": 190,
       "tile_index_hex": "0x0BE",
@@ -15982,15 +16049,15 @@
       "storage": "repoint",
       "offset": 3836052,
       "offset_hex": "0x003A8894",
-      "new_offset": 8771004,
-      "new_offset_hex": "0x0085D5BC",
+      "new_offset": 8771064,
+      "new_offset_hex": "0x0085D5F8",
       "pointer_offsets": [
         "0x0017BCAC"
       ],
       "old_pointer_values": [
         "0x083A8894"
       ],
-      "new_pointer_value": "0x0885D5BC",
+      "new_pointer_value": "0x0885D5F8",
       "size_word_patches": [
         {
           "offset": "0x0017BCB0",
@@ -16003,7 +16070,7 @@
       "available_size": 3472,
       "original_consumed_size": 3472,
       "size_overage": 8,
-      "rom_size_after": 8774484,
+      "rom_size_after": 8774544,
       "repoint_attempted": true,
       "tile_index": 191,
       "tile_index_hex": "0x0BF",
@@ -16030,15 +16097,15 @@
       "storage": "repoint",
       "offset": 3836052,
       "offset_hex": "0x003A8894",
-      "new_offset": 8771004,
-      "new_offset_hex": "0x0085D5BC",
+      "new_offset": 8771064,
+      "new_offset_hex": "0x0085D5F8",
       "pointer_offsets": [
         "0x0017BCAC"
       ],
       "old_pointer_values": [
         "0x083A8894"
       ],
-      "new_pointer_value": "0x0885D5BC",
+      "new_pointer_value": "0x0885D5F8",
       "size_word_patches": [
         {
           "offset": "0x0017BCB0",
@@ -16051,7 +16118,7 @@
       "available_size": 3472,
       "original_consumed_size": 3472,
       "size_overage": 8,
-      "rom_size_after": 8774484,
+      "rom_size_after": 8774544,
       "repoint_attempted": true,
       "tile_index": 192,
       "tile_index_hex": "0x0C0",
@@ -16078,15 +16145,15 @@
       "storage": "repoint",
       "offset": 3832892,
       "offset_hex": "0x003A7C3C",
-      "new_offset": 8774484,
-      "new_offset_hex": "0x0085E354",
+      "new_offset": 8774544,
+      "new_offset_hex": "0x0085E390",
       "pointer_offsets": [
         "0x0017BCA4"
       ],
       "old_pointer_values": [
         "0x083A7C3C"
       ],
-      "new_pointer_value": "0x0885E354",
+      "new_pointer_value": "0x0885E390",
       "size_word_patches": [
         {
           "offset": "0x0017BCA8",
@@ -16099,7 +16166,7 @@
       "available_size": 3158,
       "original_consumed_size": 3158,
       "size_overage": 26,
-      "rom_size_after": 8777668,
+      "rom_size_after": 8777728,
       "repoint_attempted": true,
       "tile_index": 173,
       "tile_index_hex": "0x0AD",
@@ -16126,15 +16193,15 @@
       "storage": "repoint",
       "offset": 3832892,
       "offset_hex": "0x003A7C3C",
-      "new_offset": 8774484,
-      "new_offset_hex": "0x0085E354",
+      "new_offset": 8774544,
+      "new_offset_hex": "0x0085E390",
       "pointer_offsets": [
         "0x0017BCA4"
       ],
       "old_pointer_values": [
         "0x083A7C3C"
       ],
-      "new_pointer_value": "0x0885E354",
+      "new_pointer_value": "0x0885E390",
       "size_word_patches": [
         {
           "offset": "0x0017BCA8",
@@ -16147,7 +16214,7 @@
       "available_size": 3158,
       "original_consumed_size": 3158,
       "size_overage": 26,
-      "rom_size_after": 8777668,
+      "rom_size_after": 8777728,
       "repoint_attempted": true,
       "tile_index": 174,
       "tile_index_hex": "0x0AE",
@@ -16174,15 +16241,15 @@
       "storage": "repoint",
       "offset": 3832892,
       "offset_hex": "0x003A7C3C",
-      "new_offset": 8774484,
-      "new_offset_hex": "0x0085E354",
+      "new_offset": 8774544,
+      "new_offset_hex": "0x0085E390",
       "pointer_offsets": [
         "0x0017BCA4"
       ],
       "old_pointer_values": [
         "0x083A7C3C"
       ],
-      "new_pointer_value": "0x0885E354",
+      "new_pointer_value": "0x0885E390",
       "size_word_patches": [
         {
           "offset": "0x0017BCA8",
@@ -16195,7 +16262,7 @@
       "available_size": 3158,
       "original_consumed_size": 3158,
       "size_overage": 26,
-      "rom_size_after": 8777668,
+      "rom_size_after": 8777728,
       "repoint_attempted": true,
       "tile_index": 175,
       "tile_index_hex": "0x0AF",
@@ -16222,15 +16289,15 @@
       "storage": "repoint",
       "offset": 3832892,
       "offset_hex": "0x003A7C3C",
-      "new_offset": 8774484,
-      "new_offset_hex": "0x0085E354",
+      "new_offset": 8774544,
+      "new_offset_hex": "0x0085E390",
       "pointer_offsets": [
         "0x0017BCA4"
       ],
       "old_pointer_values": [
         "0x083A7C3C"
       ],
-      "new_pointer_value": "0x0885E354",
+      "new_pointer_value": "0x0885E390",
       "size_word_patches": [
         {
           "offset": "0x0017BCA8",
@@ -16243,7 +16310,7 @@
       "available_size": 3158,
       "original_consumed_size": 3158,
       "size_overage": 26,
-      "rom_size_after": 8777668,
+      "rom_size_after": 8777728,
       "repoint_attempted": true,
       "tile_index": 176,
       "tile_index_hex": "0x0B0",
@@ -16270,15 +16337,15 @@
       "storage": "repoint",
       "offset": 3832892,
       "offset_hex": "0x003A7C3C",
-      "new_offset": 8774484,
-      "new_offset_hex": "0x0085E354",
+      "new_offset": 8774544,
+      "new_offset_hex": "0x0085E390",
       "pointer_offsets": [
         "0x0017BCA4"
       ],
       "old_pointer_values": [
         "0x083A7C3C"
       ],
-      "new_pointer_value": "0x0885E354",
+      "new_pointer_value": "0x0885E390",
       "size_word_patches": [
         {
           "offset": "0x0017BCA8",
@@ -16291,7 +16358,7 @@
       "available_size": 3158,
       "original_consumed_size": 3158,
       "size_overage": 26,
-      "rom_size_after": 8777668,
+      "rom_size_after": 8777728,
       "repoint_attempted": true,
       "tile_index": 177,
       "tile_index_hex": "0x0B1",
@@ -16318,15 +16385,15 @@
       "storage": "repoint",
       "offset": 3832892,
       "offset_hex": "0x003A7C3C",
-      "new_offset": 8774484,
-      "new_offset_hex": "0x0085E354",
+      "new_offset": 8774544,
+      "new_offset_hex": "0x0085E390",
       "pointer_offsets": [
         "0x0017BCA4"
       ],
       "old_pointer_values": [
         "0x083A7C3C"
       ],
-      "new_pointer_value": "0x0885E354",
+      "new_pointer_value": "0x0885E390",
       "size_word_patches": [
         {
           "offset": "0x0017BCA8",
@@ -16339,7 +16406,7 @@
       "available_size": 3158,
       "original_consumed_size": 3158,
       "size_overage": 26,
-      "rom_size_after": 8777668,
+      "rom_size_after": 8777728,
       "repoint_attempted": true,
       "tile_index": 188,
       "tile_index_hex": "0x0BC",
@@ -16366,15 +16433,15 @@
       "storage": "repoint",
       "offset": 3832892,
       "offset_hex": "0x003A7C3C",
-      "new_offset": 8774484,
-      "new_offset_hex": "0x0085E354",
+      "new_offset": 8774544,
+      "new_offset_hex": "0x0085E390",
       "pointer_offsets": [
         "0x0017BCA4"
       ],
       "old_pointer_values": [
         "0x083A7C3C"
       ],
-      "new_pointer_value": "0x0885E354",
+      "new_pointer_value": "0x0885E390",
       "size_word_patches": [
         {
           "offset": "0x0017BCA8",
@@ -16387,7 +16454,7 @@
       "available_size": 3158,
       "original_consumed_size": 3158,
       "size_overage": 26,
-      "rom_size_after": 8777668,
+      "rom_size_after": 8777728,
       "repoint_attempted": true,
       "tile_index": 189,
       "tile_index_hex": "0x0BD",
@@ -16414,15 +16481,15 @@
       "storage": "repoint",
       "offset": 3832892,
       "offset_hex": "0x003A7C3C",
-      "new_offset": 8774484,
-      "new_offset_hex": "0x0085E354",
+      "new_offset": 8774544,
+      "new_offset_hex": "0x0085E390",
       "pointer_offsets": [
         "0x0017BCA4"
       ],
       "old_pointer_values": [
         "0x083A7C3C"
       ],
-      "new_pointer_value": "0x0885E354",
+      "new_pointer_value": "0x0885E390",
       "size_word_patches": [
         {
           "offset": "0x0017BCA8",
@@ -16435,7 +16502,7 @@
       "available_size": 3158,
       "original_consumed_size": 3158,
       "size_overage": 26,
-      "rom_size_after": 8777668,
+      "rom_size_after": 8777728,
       "repoint_attempted": true,
       "tile_index": 190,
       "tile_index_hex": "0x0BE",
@@ -16462,15 +16529,15 @@
       "storage": "repoint",
       "offset": 3832892,
       "offset_hex": "0x003A7C3C",
-      "new_offset": 8774484,
-      "new_offset_hex": "0x0085E354",
+      "new_offset": 8774544,
+      "new_offset_hex": "0x0085E390",
       "pointer_offsets": [
         "0x0017BCA4"
       ],
       "old_pointer_values": [
         "0x083A7C3C"
       ],
-      "new_pointer_value": "0x0885E354",
+      "new_pointer_value": "0x0885E390",
       "size_word_patches": [
         {
           "offset": "0x0017BCA8",
@@ -16483,7 +16550,7 @@
       "available_size": 3158,
       "original_consumed_size": 3158,
       "size_overage": 26,
-      "rom_size_after": 8777668,
+      "rom_size_after": 8777728,
       "repoint_attempted": true,
       "tile_index": 191,
       "tile_index_hex": "0x0BF",
@@ -16510,15 +16577,15 @@
       "storage": "repoint",
       "offset": 3832892,
       "offset_hex": "0x003A7C3C",
-      "new_offset": 8774484,
-      "new_offset_hex": "0x0085E354",
+      "new_offset": 8774544,
+      "new_offset_hex": "0x0085E390",
       "pointer_offsets": [
         "0x0017BCA4"
       ],
       "old_pointer_values": [
         "0x083A7C3C"
       ],
-      "new_pointer_value": "0x0885E354",
+      "new_pointer_value": "0x0885E390",
       "size_word_patches": [
         {
           "offset": "0x0017BCA8",
@@ -16531,7 +16598,7 @@
       "available_size": 3158,
       "original_consumed_size": 3158,
       "size_overage": 26,
-      "rom_size_after": 8777668,
+      "rom_size_after": 8777728,
       "repoint_attempted": true,
       "tile_index": 192,
       "tile_index_hex": "0x0C0",
@@ -16558,15 +16625,15 @@
       "storage": "repoint",
       "offset": 3843264,
       "offset_hex": "0x003AA4C0",
-      "new_offset": 8777668,
-      "new_offset_hex": "0x0085EFC4",
+      "new_offset": 8777728,
+      "new_offset_hex": "0x0085F000",
       "pointer_offsets": [
         "0x0017BCBC"
       ],
       "old_pointer_values": [
         "0x083AA4C0"
       ],
-      "new_pointer_value": "0x0885EFC4",
+      "new_pointer_value": "0x0885F000",
       "size_word_patches": [
         {
           "offset": "0x0017BCC0",
@@ -16579,7 +16646,7 @@
       "available_size": 3441,
       "original_consumed_size": 3441,
       "size_overage": 26,
-      "rom_size_after": 8781135,
+      "rom_size_after": 8781195,
       "repoint_attempted": true,
       "tile_index": 173,
       "tile_index_hex": "0x0AD",
@@ -16606,15 +16673,15 @@
       "storage": "repoint",
       "offset": 3843264,
       "offset_hex": "0x003AA4C0",
-      "new_offset": 8777668,
-      "new_offset_hex": "0x0085EFC4",
+      "new_offset": 8777728,
+      "new_offset_hex": "0x0085F000",
       "pointer_offsets": [
         "0x0017BCBC"
       ],
       "old_pointer_values": [
         "0x083AA4C0"
       ],
-      "new_pointer_value": "0x0885EFC4",
+      "new_pointer_value": "0x0885F000",
       "size_word_patches": [
         {
           "offset": "0x0017BCC0",
@@ -16627,7 +16694,7 @@
       "available_size": 3441,
       "original_consumed_size": 3441,
       "size_overage": 26,
-      "rom_size_after": 8781135,
+      "rom_size_after": 8781195,
       "repoint_attempted": true,
       "tile_index": 174,
       "tile_index_hex": "0x0AE",
@@ -16654,15 +16721,15 @@
       "storage": "repoint",
       "offset": 3843264,
       "offset_hex": "0x003AA4C0",
-      "new_offset": 8777668,
-      "new_offset_hex": "0x0085EFC4",
+      "new_offset": 8777728,
+      "new_offset_hex": "0x0085F000",
       "pointer_offsets": [
         "0x0017BCBC"
       ],
       "old_pointer_values": [
         "0x083AA4C0"
       ],
-      "new_pointer_value": "0x0885EFC4",
+      "new_pointer_value": "0x0885F000",
       "size_word_patches": [
         {
           "offset": "0x0017BCC0",
@@ -16675,7 +16742,7 @@
       "available_size": 3441,
       "original_consumed_size": 3441,
       "size_overage": 26,
-      "rom_size_after": 8781135,
+      "rom_size_after": 8781195,
       "repoint_attempted": true,
       "tile_index": 175,
       "tile_index_hex": "0x0AF",
@@ -16702,15 +16769,15 @@
       "storage": "repoint",
       "offset": 3843264,
       "offset_hex": "0x003AA4C0",
-      "new_offset": 8777668,
-      "new_offset_hex": "0x0085EFC4",
+      "new_offset": 8777728,
+      "new_offset_hex": "0x0085F000",
       "pointer_offsets": [
         "0x0017BCBC"
       ],
       "old_pointer_values": [
         "0x083AA4C0"
       ],
-      "new_pointer_value": "0x0885EFC4",
+      "new_pointer_value": "0x0885F000",
       "size_word_patches": [
         {
           "offset": "0x0017BCC0",
@@ -16723,7 +16790,7 @@
       "available_size": 3441,
       "original_consumed_size": 3441,
       "size_overage": 26,
-      "rom_size_after": 8781135,
+      "rom_size_after": 8781195,
       "repoint_attempted": true,
       "tile_index": 176,
       "tile_index_hex": "0x0B0",
@@ -16750,15 +16817,15 @@
       "storage": "repoint",
       "offset": 3843264,
       "offset_hex": "0x003AA4C0",
-      "new_offset": 8777668,
-      "new_offset_hex": "0x0085EFC4",
+      "new_offset": 8777728,
+      "new_offset_hex": "0x0085F000",
       "pointer_offsets": [
         "0x0017BCBC"
       ],
       "old_pointer_values": [
         "0x083AA4C0"
       ],
-      "new_pointer_value": "0x0885EFC4",
+      "new_pointer_value": "0x0885F000",
       "size_word_patches": [
         {
           "offset": "0x0017BCC0",
@@ -16771,7 +16838,7 @@
       "available_size": 3441,
       "original_consumed_size": 3441,
       "size_overage": 26,
-      "rom_size_after": 8781135,
+      "rom_size_after": 8781195,
       "repoint_attempted": true,
       "tile_index": 177,
       "tile_index_hex": "0x0B1",
@@ -16798,15 +16865,15 @@
       "storage": "repoint",
       "offset": 3843264,
       "offset_hex": "0x003AA4C0",
-      "new_offset": 8777668,
-      "new_offset_hex": "0x0085EFC4",
+      "new_offset": 8777728,
+      "new_offset_hex": "0x0085F000",
       "pointer_offsets": [
         "0x0017BCBC"
       ],
       "old_pointer_values": [
         "0x083AA4C0"
       ],
-      "new_pointer_value": "0x0885EFC4",
+      "new_pointer_value": "0x0885F000",
       "size_word_patches": [
         {
           "offset": "0x0017BCC0",
@@ -16819,7 +16886,7 @@
       "available_size": 3441,
       "original_consumed_size": 3441,
       "size_overage": 26,
-      "rom_size_after": 8781135,
+      "rom_size_after": 8781195,
       "repoint_attempted": true,
       "tile_index": 188,
       "tile_index_hex": "0x0BC",
@@ -16846,15 +16913,15 @@
       "storage": "repoint",
       "offset": 3843264,
       "offset_hex": "0x003AA4C0",
-      "new_offset": 8777668,
-      "new_offset_hex": "0x0085EFC4",
+      "new_offset": 8777728,
+      "new_offset_hex": "0x0085F000",
       "pointer_offsets": [
         "0x0017BCBC"
       ],
       "old_pointer_values": [
         "0x083AA4C0"
       ],
-      "new_pointer_value": "0x0885EFC4",
+      "new_pointer_value": "0x0885F000",
       "size_word_patches": [
         {
           "offset": "0x0017BCC0",
@@ -16867,7 +16934,7 @@
       "available_size": 3441,
       "original_consumed_size": 3441,
       "size_overage": 26,
-      "rom_size_after": 8781135,
+      "rom_size_after": 8781195,
       "repoint_attempted": true,
       "tile_index": 189,
       "tile_index_hex": "0x0BD",
@@ -16894,15 +16961,15 @@
       "storage": "repoint",
       "offset": 3843264,
       "offset_hex": "0x003AA4C0",
-      "new_offset": 8777668,
-      "new_offset_hex": "0x0085EFC4",
+      "new_offset": 8777728,
+      "new_offset_hex": "0x0085F000",
       "pointer_offsets": [
         "0x0017BCBC"
       ],
       "old_pointer_values": [
         "0x083AA4C0"
       ],
-      "new_pointer_value": "0x0885EFC4",
+      "new_pointer_value": "0x0885F000",
       "size_word_patches": [
         {
           "offset": "0x0017BCC0",
@@ -16915,7 +16982,7 @@
       "available_size": 3441,
       "original_consumed_size": 3441,
       "size_overage": 26,
-      "rom_size_after": 8781135,
+      "rom_size_after": 8781195,
       "repoint_attempted": true,
       "tile_index": 190,
       "tile_index_hex": "0x0BE",
@@ -16942,15 +17009,15 @@
       "storage": "repoint",
       "offset": 3843264,
       "offset_hex": "0x003AA4C0",
-      "new_offset": 8777668,
-      "new_offset_hex": "0x0085EFC4",
+      "new_offset": 8777728,
+      "new_offset_hex": "0x0085F000",
       "pointer_offsets": [
         "0x0017BCBC"
       ],
       "old_pointer_values": [
         "0x083AA4C0"
       ],
-      "new_pointer_value": "0x0885EFC4",
+      "new_pointer_value": "0x0885F000",
       "size_word_patches": [
         {
           "offset": "0x0017BCC0",
@@ -16963,7 +17030,7 @@
       "available_size": 3441,
       "original_consumed_size": 3441,
       "size_overage": 26,
-      "rom_size_after": 8781135,
+      "rom_size_after": 8781195,
       "repoint_attempted": true,
       "tile_index": 191,
       "tile_index_hex": "0x0BF",
@@ -16990,15 +17057,15 @@
       "storage": "repoint",
       "offset": 3843264,
       "offset_hex": "0x003AA4C0",
-      "new_offset": 8777668,
-      "new_offset_hex": "0x0085EFC4",
+      "new_offset": 8777728,
+      "new_offset_hex": "0x0085F000",
       "pointer_offsets": [
         "0x0017BCBC"
       ],
       "old_pointer_values": [
         "0x083AA4C0"
       ],
-      "new_pointer_value": "0x0885EFC4",
+      "new_pointer_value": "0x0885F000",
       "size_word_patches": [
         {
           "offset": "0x0017BCC0",
@@ -17011,7 +17078,7 @@
       "available_size": 3441,
       "original_consumed_size": 3441,
       "size_overage": 26,
-      "rom_size_after": 8781135,
+      "rom_size_after": 8781195,
       "repoint_attempted": true,
       "tile_index": 192,
       "tile_index_hex": "0x0C0",
@@ -17038,15 +17105,15 @@
       "storage": "repoint",
       "offset": 3829284,
       "offset_hex": "0x003A6E24",
-      "new_offset": 8781136,
-      "new_offset_hex": "0x0085FD50",
+      "new_offset": 8781196,
+      "new_offset_hex": "0x0085FD8C",
       "pointer_offsets": [
         "0x0017BC9C"
       ],
       "old_pointer_values": [
         "0x083A6E24"
       ],
-      "new_pointer_value": "0x0885FD50",
+      "new_pointer_value": "0x0885FD8C",
       "size_word_patches": [
         {
           "offset": "0x0017BCA0",
@@ -17059,7 +17126,7 @@
       "available_size": 3606,
       "original_consumed_size": 3606,
       "size_overage": 26,
-      "rom_size_after": 8784768,
+      "rom_size_after": 8784828,
       "repoint_attempted": true,
       "tile_index": 173,
       "tile_index_hex": "0x0AD",
@@ -17086,15 +17153,15 @@
       "storage": "repoint",
       "offset": 3829284,
       "offset_hex": "0x003A6E24",
-      "new_offset": 8781136,
-      "new_offset_hex": "0x0085FD50",
+      "new_offset": 8781196,
+      "new_offset_hex": "0x0085FD8C",
       "pointer_offsets": [
         "0x0017BC9C"
       ],
       "old_pointer_values": [
         "0x083A6E24"
       ],
-      "new_pointer_value": "0x0885FD50",
+      "new_pointer_value": "0x0885FD8C",
       "size_word_patches": [
         {
           "offset": "0x0017BCA0",
@@ -17107,7 +17174,7 @@
       "available_size": 3606,
       "original_consumed_size": 3606,
       "size_overage": 26,
-      "rom_size_after": 8784768,
+      "rom_size_after": 8784828,
       "repoint_attempted": true,
       "tile_index": 174,
       "tile_index_hex": "0x0AE",
@@ -17134,15 +17201,15 @@
       "storage": "repoint",
       "offset": 3829284,
       "offset_hex": "0x003A6E24",
-      "new_offset": 8781136,
-      "new_offset_hex": "0x0085FD50",
+      "new_offset": 8781196,
+      "new_offset_hex": "0x0085FD8C",
       "pointer_offsets": [
         "0x0017BC9C"
       ],
       "old_pointer_values": [
         "0x083A6E24"
       ],
-      "new_pointer_value": "0x0885FD50",
+      "new_pointer_value": "0x0885FD8C",
       "size_word_patches": [
         {
           "offset": "0x0017BCA0",
@@ -17155,7 +17222,7 @@
       "available_size": 3606,
       "original_consumed_size": 3606,
       "size_overage": 26,
-      "rom_size_after": 8784768,
+      "rom_size_after": 8784828,
       "repoint_attempted": true,
       "tile_index": 175,
       "tile_index_hex": "0x0AF",
@@ -17182,15 +17249,15 @@
       "storage": "repoint",
       "offset": 3829284,
       "offset_hex": "0x003A6E24",
-      "new_offset": 8781136,
-      "new_offset_hex": "0x0085FD50",
+      "new_offset": 8781196,
+      "new_offset_hex": "0x0085FD8C",
       "pointer_offsets": [
         "0x0017BC9C"
       ],
       "old_pointer_values": [
         "0x083A6E24"
       ],
-      "new_pointer_value": "0x0885FD50",
+      "new_pointer_value": "0x0885FD8C",
       "size_word_patches": [
         {
           "offset": "0x0017BCA0",
@@ -17203,7 +17270,7 @@
       "available_size": 3606,
       "original_consumed_size": 3606,
       "size_overage": 26,
-      "rom_size_after": 8784768,
+      "rom_size_after": 8784828,
       "repoint_attempted": true,
       "tile_index": 176,
       "tile_index_hex": "0x0B0",
@@ -17230,15 +17297,15 @@
       "storage": "repoint",
       "offset": 3829284,
       "offset_hex": "0x003A6E24",
-      "new_offset": 8781136,
-      "new_offset_hex": "0x0085FD50",
+      "new_offset": 8781196,
+      "new_offset_hex": "0x0085FD8C",
       "pointer_offsets": [
         "0x0017BC9C"
       ],
       "old_pointer_values": [
         "0x083A6E24"
       ],
-      "new_pointer_value": "0x0885FD50",
+      "new_pointer_value": "0x0885FD8C",
       "size_word_patches": [
         {
           "offset": "0x0017BCA0",
@@ -17251,7 +17318,7 @@
       "available_size": 3606,
       "original_consumed_size": 3606,
       "size_overage": 26,
-      "rom_size_after": 8784768,
+      "rom_size_after": 8784828,
       "repoint_attempted": true,
       "tile_index": 177,
       "tile_index_hex": "0x0B1",
@@ -17278,15 +17345,15 @@
       "storage": "repoint",
       "offset": 3829284,
       "offset_hex": "0x003A6E24",
-      "new_offset": 8781136,
-      "new_offset_hex": "0x0085FD50",
+      "new_offset": 8781196,
+      "new_offset_hex": "0x0085FD8C",
       "pointer_offsets": [
         "0x0017BC9C"
       ],
       "old_pointer_values": [
         "0x083A6E24"
       ],
-      "new_pointer_value": "0x0885FD50",
+      "new_pointer_value": "0x0885FD8C",
       "size_word_patches": [
         {
           "offset": "0x0017BCA0",
@@ -17299,7 +17366,7 @@
       "available_size": 3606,
       "original_consumed_size": 3606,
       "size_overage": 26,
-      "rom_size_after": 8784768,
+      "rom_size_after": 8784828,
       "repoint_attempted": true,
       "tile_index": 188,
       "tile_index_hex": "0x0BC",
@@ -17326,15 +17393,15 @@
       "storage": "repoint",
       "offset": 3829284,
       "offset_hex": "0x003A6E24",
-      "new_offset": 8781136,
-      "new_offset_hex": "0x0085FD50",
+      "new_offset": 8781196,
+      "new_offset_hex": "0x0085FD8C",
       "pointer_offsets": [
         "0x0017BC9C"
       ],
       "old_pointer_values": [
         "0x083A6E24"
       ],
-      "new_pointer_value": "0x0885FD50",
+      "new_pointer_value": "0x0885FD8C",
       "size_word_patches": [
         {
           "offset": "0x0017BCA0",
@@ -17347,7 +17414,7 @@
       "available_size": 3606,
       "original_consumed_size": 3606,
       "size_overage": 26,
-      "rom_size_after": 8784768,
+      "rom_size_after": 8784828,
       "repoint_attempted": true,
       "tile_index": 189,
       "tile_index_hex": "0x0BD",
@@ -17374,15 +17441,15 @@
       "storage": "repoint",
       "offset": 3829284,
       "offset_hex": "0x003A6E24",
-      "new_offset": 8781136,
-      "new_offset_hex": "0x0085FD50",
+      "new_offset": 8781196,
+      "new_offset_hex": "0x0085FD8C",
       "pointer_offsets": [
         "0x0017BC9C"
       ],
       "old_pointer_values": [
         "0x083A6E24"
       ],
-      "new_pointer_value": "0x0885FD50",
+      "new_pointer_value": "0x0885FD8C",
       "size_word_patches": [
         {
           "offset": "0x0017BCA0",
@@ -17395,7 +17462,7 @@
       "available_size": 3606,
       "original_consumed_size": 3606,
       "size_overage": 26,
-      "rom_size_after": 8784768,
+      "rom_size_after": 8784828,
       "repoint_attempted": true,
       "tile_index": 190,
       "tile_index_hex": "0x0BE",
@@ -17422,15 +17489,15 @@
       "storage": "repoint",
       "offset": 3829284,
       "offset_hex": "0x003A6E24",
-      "new_offset": 8781136,
-      "new_offset_hex": "0x0085FD50",
+      "new_offset": 8781196,
+      "new_offset_hex": "0x0085FD8C",
       "pointer_offsets": [
         "0x0017BC9C"
       ],
       "old_pointer_values": [
         "0x083A6E24"
       ],
-      "new_pointer_value": "0x0885FD50",
+      "new_pointer_value": "0x0885FD8C",
       "size_word_patches": [
         {
           "offset": "0x0017BCA0",
@@ -17443,7 +17510,7 @@
       "available_size": 3606,
       "original_consumed_size": 3606,
       "size_overage": 26,
-      "rom_size_after": 8784768,
+      "rom_size_after": 8784828,
       "repoint_attempted": true,
       "tile_index": 191,
       "tile_index_hex": "0x0BF",
@@ -17470,15 +17537,15 @@
       "storage": "repoint",
       "offset": 3829284,
       "offset_hex": "0x003A6E24",
-      "new_offset": 8781136,
-      "new_offset_hex": "0x0085FD50",
+      "new_offset": 8781196,
+      "new_offset_hex": "0x0085FD8C",
       "pointer_offsets": [
         "0x0017BC9C"
       ],
       "old_pointer_values": [
         "0x083A6E24"
       ],
-      "new_pointer_value": "0x0885FD50",
+      "new_pointer_value": "0x0885FD8C",
       "size_word_patches": [
         {
           "offset": "0x0017BCA0",
@@ -17491,7 +17558,7 @@
       "available_size": 3606,
       "original_consumed_size": 3606,
       "size_overage": 26,
-      "rom_size_after": 8784768,
+      "rom_size_after": 8784828,
       "repoint_attempted": true,
       "tile_index": 192,
       "tile_index_hex": "0x0C0",
@@ -17518,15 +17585,15 @@
       "storage": "repoint",
       "offset": 3839524,
       "offset_hex": "0x003A9624",
-      "new_offset": 8784768,
-      "new_offset_hex": "0x00860B80",
+      "new_offset": 8784828,
+      "new_offset_hex": "0x00860BBC",
       "pointer_offsets": [
         "0x0017BCB4"
       ],
       "old_pointer_values": [
         "0x083A9624"
       ],
-      "new_pointer_value": "0x08860B80",
+      "new_pointer_value": "0x08860BBC",
       "size_word_patches": [
         {
           "offset": "0x0017BCB8",
@@ -17539,7 +17606,7 @@
       "available_size": 3740,
       "original_consumed_size": 3740,
       "size_overage": 24,
-      "rom_size_after": 8788532,
+      "rom_size_after": 8788592,
       "repoint_attempted": true,
       "tile_index": 173,
       "tile_index_hex": "0x0AD",
@@ -17566,15 +17633,15 @@
       "storage": "repoint",
       "offset": 3839524,
       "offset_hex": "0x003A9624",
-      "new_offset": 8784768,
-      "new_offset_hex": "0x00860B80",
+      "new_offset": 8784828,
+      "new_offset_hex": "0x00860BBC",
       "pointer_offsets": [
         "0x0017BCB4"
       ],
       "old_pointer_values": [
         "0x083A9624"
       ],
-      "new_pointer_value": "0x08860B80",
+      "new_pointer_value": "0x08860BBC",
       "size_word_patches": [
         {
           "offset": "0x0017BCB8",
@@ -17587,7 +17654,7 @@
       "available_size": 3740,
       "original_consumed_size": 3740,
       "size_overage": 24,
-      "rom_size_after": 8788532,
+      "rom_size_after": 8788592,
       "repoint_attempted": true,
       "tile_index": 174,
       "tile_index_hex": "0x0AE",
@@ -17614,15 +17681,15 @@
       "storage": "repoint",
       "offset": 3839524,
       "offset_hex": "0x003A9624",
-      "new_offset": 8784768,
-      "new_offset_hex": "0x00860B80",
+      "new_offset": 8784828,
+      "new_offset_hex": "0x00860BBC",
       "pointer_offsets": [
         "0x0017BCB4"
       ],
       "old_pointer_values": [
         "0x083A9624"
       ],
-      "new_pointer_value": "0x08860B80",
+      "new_pointer_value": "0x08860BBC",
       "size_word_patches": [
         {
           "offset": "0x0017BCB8",
@@ -17635,7 +17702,7 @@
       "available_size": 3740,
       "original_consumed_size": 3740,
       "size_overage": 24,
-      "rom_size_after": 8788532,
+      "rom_size_after": 8788592,
       "repoint_attempted": true,
       "tile_index": 175,
       "tile_index_hex": "0x0AF",
@@ -17662,15 +17729,15 @@
       "storage": "repoint",
       "offset": 3839524,
       "offset_hex": "0x003A9624",
-      "new_offset": 8784768,
-      "new_offset_hex": "0x00860B80",
+      "new_offset": 8784828,
+      "new_offset_hex": "0x00860BBC",
       "pointer_offsets": [
         "0x0017BCB4"
       ],
       "old_pointer_values": [
         "0x083A9624"
       ],
-      "new_pointer_value": "0x08860B80",
+      "new_pointer_value": "0x08860BBC",
       "size_word_patches": [
         {
           "offset": "0x0017BCB8",
@@ -17683,7 +17750,7 @@
       "available_size": 3740,
       "original_consumed_size": 3740,
       "size_overage": 24,
-      "rom_size_after": 8788532,
+      "rom_size_after": 8788592,
       "repoint_attempted": true,
       "tile_index": 176,
       "tile_index_hex": "0x0B0",
@@ -17710,15 +17777,15 @@
       "storage": "repoint",
       "offset": 3839524,
       "offset_hex": "0x003A9624",
-      "new_offset": 8784768,
-      "new_offset_hex": "0x00860B80",
+      "new_offset": 8784828,
+      "new_offset_hex": "0x00860BBC",
       "pointer_offsets": [
         "0x0017BCB4"
       ],
       "old_pointer_values": [
         "0x083A9624"
       ],
-      "new_pointer_value": "0x08860B80",
+      "new_pointer_value": "0x08860BBC",
       "size_word_patches": [
         {
           "offset": "0x0017BCB8",
@@ -17731,7 +17798,7 @@
       "available_size": 3740,
       "original_consumed_size": 3740,
       "size_overage": 24,
-      "rom_size_after": 8788532,
+      "rom_size_after": 8788592,
       "repoint_attempted": true,
       "tile_index": 177,
       "tile_index_hex": "0x0B1",
@@ -17758,15 +17825,15 @@
       "storage": "repoint",
       "offset": 3839524,
       "offset_hex": "0x003A9624",
-      "new_offset": 8784768,
-      "new_offset_hex": "0x00860B80",
+      "new_offset": 8784828,
+      "new_offset_hex": "0x00860BBC",
       "pointer_offsets": [
         "0x0017BCB4"
       ],
       "old_pointer_values": [
         "0x083A9624"
       ],
-      "new_pointer_value": "0x08860B80",
+      "new_pointer_value": "0x08860BBC",
       "size_word_patches": [
         {
           "offset": "0x0017BCB8",
@@ -17779,7 +17846,7 @@
       "available_size": 3740,
       "original_consumed_size": 3740,
       "size_overage": 24,
-      "rom_size_after": 8788532,
+      "rom_size_after": 8788592,
       "repoint_attempted": true,
       "tile_index": 188,
       "tile_index_hex": "0x0BC",
@@ -17806,15 +17873,15 @@
       "storage": "repoint",
       "offset": 3839524,
       "offset_hex": "0x003A9624",
-      "new_offset": 8784768,
-      "new_offset_hex": "0x00860B80",
+      "new_offset": 8784828,
+      "new_offset_hex": "0x00860BBC",
       "pointer_offsets": [
         "0x0017BCB4"
       ],
       "old_pointer_values": [
         "0x083A9624"
       ],
-      "new_pointer_value": "0x08860B80",
+      "new_pointer_value": "0x08860BBC",
       "size_word_patches": [
         {
           "offset": "0x0017BCB8",
@@ -17827,7 +17894,7 @@
       "available_size": 3740,
       "original_consumed_size": 3740,
       "size_overage": 24,
-      "rom_size_after": 8788532,
+      "rom_size_after": 8788592,
       "repoint_attempted": true,
       "tile_index": 189,
       "tile_index_hex": "0x0BD",
@@ -17854,15 +17921,15 @@
       "storage": "repoint",
       "offset": 3839524,
       "offset_hex": "0x003A9624",
-      "new_offset": 8784768,
-      "new_offset_hex": "0x00860B80",
+      "new_offset": 8784828,
+      "new_offset_hex": "0x00860BBC",
       "pointer_offsets": [
         "0x0017BCB4"
       ],
       "old_pointer_values": [
         "0x083A9624"
       ],
-      "new_pointer_value": "0x08860B80",
+      "new_pointer_value": "0x08860BBC",
       "size_word_patches": [
         {
           "offset": "0x0017BCB8",
@@ -17875,7 +17942,7 @@
       "available_size": 3740,
       "original_consumed_size": 3740,
       "size_overage": 24,
-      "rom_size_after": 8788532,
+      "rom_size_after": 8788592,
       "repoint_attempted": true,
       "tile_index": 190,
       "tile_index_hex": "0x0BE",
@@ -17902,15 +17969,15 @@
       "storage": "repoint",
       "offset": 3839524,
       "offset_hex": "0x003A9624",
-      "new_offset": 8784768,
-      "new_offset_hex": "0x00860B80",
+      "new_offset": 8784828,
+      "new_offset_hex": "0x00860BBC",
       "pointer_offsets": [
         "0x0017BCB4"
       ],
       "old_pointer_values": [
         "0x083A9624"
       ],
-      "new_pointer_value": "0x08860B80",
+      "new_pointer_value": "0x08860BBC",
       "size_word_patches": [
         {
           "offset": "0x0017BCB8",
@@ -17923,7 +17990,7 @@
       "available_size": 3740,
       "original_consumed_size": 3740,
       "size_overage": 24,
-      "rom_size_after": 8788532,
+      "rom_size_after": 8788592,
       "repoint_attempted": true,
       "tile_index": 191,
       "tile_index_hex": "0x0BF",
@@ -17950,15 +18017,15 @@
       "storage": "repoint",
       "offset": 3839524,
       "offset_hex": "0x003A9624",
-      "new_offset": 8784768,
-      "new_offset_hex": "0x00860B80",
+      "new_offset": 8784828,
+      "new_offset_hex": "0x00860BBC",
       "pointer_offsets": [
         "0x0017BCB4"
       ],
       "old_pointer_values": [
         "0x083A9624"
       ],
-      "new_pointer_value": "0x08860B80",
+      "new_pointer_value": "0x08860BBC",
       "size_word_patches": [
         {
           "offset": "0x0017BCB8",
@@ -17971,7 +18038,7 @@
       "available_size": 3740,
       "original_consumed_size": 3740,
       "size_overage": 24,
-      "rom_size_after": 8788532,
+      "rom_size_after": 8788592,
       "repoint_attempted": true,
       "tile_index": 192,
       "tile_index_hex": "0x0C0",
@@ -17998,15 +18065,15 @@
       "storage": "repoint",
       "offset": 3825232,
       "offset_hex": "0x003A5E50",
-      "new_offset": 8788532,
-      "new_offset_hex": "0x00861A34",
+      "new_offset": 8788592,
+      "new_offset_hex": "0x00861A70",
       "pointer_offsets": [
         "0x0017BC94"
       ],
       "old_pointer_values": [
         "0x083A5E50"
       ],
-      "new_pointer_value": "0x08861A34",
+      "new_pointer_value": "0x08861A70",
       "size_word_patches": [
         {
           "offset": "0x0017BC98",
@@ -18019,7 +18086,7 @@
       "available_size": 4052,
       "original_consumed_size": 4052,
       "size_overage": 26,
-      "rom_size_after": 8792610,
+      "rom_size_after": 8792670,
       "repoint_attempted": true,
       "tile_index": 173,
       "tile_index_hex": "0x0AD",
@@ -18046,15 +18113,15 @@
       "storage": "repoint",
       "offset": 3825232,
       "offset_hex": "0x003A5E50",
-      "new_offset": 8788532,
-      "new_offset_hex": "0x00861A34",
+      "new_offset": 8788592,
+      "new_offset_hex": "0x00861A70",
       "pointer_offsets": [
         "0x0017BC94"
       ],
       "old_pointer_values": [
         "0x083A5E50"
       ],
-      "new_pointer_value": "0x08861A34",
+      "new_pointer_value": "0x08861A70",
       "size_word_patches": [
         {
           "offset": "0x0017BC98",
@@ -18067,7 +18134,7 @@
       "available_size": 4052,
       "original_consumed_size": 4052,
       "size_overage": 26,
-      "rom_size_after": 8792610,
+      "rom_size_after": 8792670,
       "repoint_attempted": true,
       "tile_index": 174,
       "tile_index_hex": "0x0AE",
@@ -18094,15 +18161,15 @@
       "storage": "repoint",
       "offset": 3825232,
       "offset_hex": "0x003A5E50",
-      "new_offset": 8788532,
-      "new_offset_hex": "0x00861A34",
+      "new_offset": 8788592,
+      "new_offset_hex": "0x00861A70",
       "pointer_offsets": [
         "0x0017BC94"
       ],
       "old_pointer_values": [
         "0x083A5E50"
       ],
-      "new_pointer_value": "0x08861A34",
+      "new_pointer_value": "0x08861A70",
       "size_word_patches": [
         {
           "offset": "0x0017BC98",
@@ -18115,7 +18182,7 @@
       "available_size": 4052,
       "original_consumed_size": 4052,
       "size_overage": 26,
-      "rom_size_after": 8792610,
+      "rom_size_after": 8792670,
       "repoint_attempted": true,
       "tile_index": 175,
       "tile_index_hex": "0x0AF",
@@ -18142,15 +18209,15 @@
       "storage": "repoint",
       "offset": 3825232,
       "offset_hex": "0x003A5E50",
-      "new_offset": 8788532,
-      "new_offset_hex": "0x00861A34",
+      "new_offset": 8788592,
+      "new_offset_hex": "0x00861A70",
       "pointer_offsets": [
         "0x0017BC94"
       ],
       "old_pointer_values": [
         "0x083A5E50"
       ],
-      "new_pointer_value": "0x08861A34",
+      "new_pointer_value": "0x08861A70",
       "size_word_patches": [
         {
           "offset": "0x0017BC98",
@@ -18163,7 +18230,7 @@
       "available_size": 4052,
       "original_consumed_size": 4052,
       "size_overage": 26,
-      "rom_size_after": 8792610,
+      "rom_size_after": 8792670,
       "repoint_attempted": true,
       "tile_index": 176,
       "tile_index_hex": "0x0B0",
@@ -18190,15 +18257,15 @@
       "storage": "repoint",
       "offset": 3825232,
       "offset_hex": "0x003A5E50",
-      "new_offset": 8788532,
-      "new_offset_hex": "0x00861A34",
+      "new_offset": 8788592,
+      "new_offset_hex": "0x00861A70",
       "pointer_offsets": [
         "0x0017BC94"
       ],
       "old_pointer_values": [
         "0x083A5E50"
       ],
-      "new_pointer_value": "0x08861A34",
+      "new_pointer_value": "0x08861A70",
       "size_word_patches": [
         {
           "offset": "0x0017BC98",
@@ -18211,7 +18278,7 @@
       "available_size": 4052,
       "original_consumed_size": 4052,
       "size_overage": 26,
-      "rom_size_after": 8792610,
+      "rom_size_after": 8792670,
       "repoint_attempted": true,
       "tile_index": 177,
       "tile_index_hex": "0x0B1",
@@ -18238,15 +18305,15 @@
       "storage": "repoint",
       "offset": 3825232,
       "offset_hex": "0x003A5E50",
-      "new_offset": 8788532,
-      "new_offset_hex": "0x00861A34",
+      "new_offset": 8788592,
+      "new_offset_hex": "0x00861A70",
       "pointer_offsets": [
         "0x0017BC94"
       ],
       "old_pointer_values": [
         "0x083A5E50"
       ],
-      "new_pointer_value": "0x08861A34",
+      "new_pointer_value": "0x08861A70",
       "size_word_patches": [
         {
           "offset": "0x0017BC98",
@@ -18259,7 +18326,7 @@
       "available_size": 4052,
       "original_consumed_size": 4052,
       "size_overage": 26,
-      "rom_size_after": 8792610,
+      "rom_size_after": 8792670,
       "repoint_attempted": true,
       "tile_index": 188,
       "tile_index_hex": "0x0BC",
@@ -18286,15 +18353,15 @@
       "storage": "repoint",
       "offset": 3825232,
       "offset_hex": "0x003A5E50",
-      "new_offset": 8788532,
-      "new_offset_hex": "0x00861A34",
+      "new_offset": 8788592,
+      "new_offset_hex": "0x00861A70",
       "pointer_offsets": [
         "0x0017BC94"
       ],
       "old_pointer_values": [
         "0x083A5E50"
       ],
-      "new_pointer_value": "0x08861A34",
+      "new_pointer_value": "0x08861A70",
       "size_word_patches": [
         {
           "offset": "0x0017BC98",
@@ -18307,7 +18374,7 @@
       "available_size": 4052,
       "original_consumed_size": 4052,
       "size_overage": 26,
-      "rom_size_after": 8792610,
+      "rom_size_after": 8792670,
       "repoint_attempted": true,
       "tile_index": 189,
       "tile_index_hex": "0x0BD",
@@ -18334,15 +18401,15 @@
       "storage": "repoint",
       "offset": 3825232,
       "offset_hex": "0x003A5E50",
-      "new_offset": 8788532,
-      "new_offset_hex": "0x00861A34",
+      "new_offset": 8788592,
+      "new_offset_hex": "0x00861A70",
       "pointer_offsets": [
         "0x0017BC94"
       ],
       "old_pointer_values": [
         "0x083A5E50"
       ],
-      "new_pointer_value": "0x08861A34",
+      "new_pointer_value": "0x08861A70",
       "size_word_patches": [
         {
           "offset": "0x0017BC98",
@@ -18355,7 +18422,7 @@
       "available_size": 4052,
       "original_consumed_size": 4052,
       "size_overage": 26,
-      "rom_size_after": 8792610,
+      "rom_size_after": 8792670,
       "repoint_attempted": true,
       "tile_index": 190,
       "tile_index_hex": "0x0BE",
@@ -18382,15 +18449,15 @@
       "storage": "repoint",
       "offset": 3825232,
       "offset_hex": "0x003A5E50",
-      "new_offset": 8788532,
-      "new_offset_hex": "0x00861A34",
+      "new_offset": 8788592,
+      "new_offset_hex": "0x00861A70",
       "pointer_offsets": [
         "0x0017BC94"
       ],
       "old_pointer_values": [
         "0x083A5E50"
       ],
-      "new_pointer_value": "0x08861A34",
+      "new_pointer_value": "0x08861A70",
       "size_word_patches": [
         {
           "offset": "0x0017BC98",
@@ -18403,7 +18470,7 @@
       "available_size": 4052,
       "original_consumed_size": 4052,
       "size_overage": 26,
-      "rom_size_after": 8792610,
+      "rom_size_after": 8792670,
       "repoint_attempted": true,
       "tile_index": 191,
       "tile_index_hex": "0x0BF",
@@ -18430,15 +18497,15 @@
       "storage": "repoint",
       "offset": 3825232,
       "offset_hex": "0x003A5E50",
-      "new_offset": 8788532,
-      "new_offset_hex": "0x00861A34",
+      "new_offset": 8788592,
+      "new_offset_hex": "0x00861A70",
       "pointer_offsets": [
         "0x0017BC94"
       ],
       "old_pointer_values": [
         "0x083A5E50"
       ],
-      "new_pointer_value": "0x08861A34",
+      "new_pointer_value": "0x08861A70",
       "size_word_patches": [
         {
           "offset": "0x0017BC98",
@@ -18451,7 +18518,7 @@
       "available_size": 4052,
       "original_consumed_size": 4052,
       "size_overage": 26,
-      "rom_size_after": 8792610,
+      "rom_size_after": 8792670,
       "repoint_attempted": true,
       "tile_index": 192,
       "tile_index_hex": "0x0C0",

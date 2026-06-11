@@ -11,6 +11,7 @@
 - 새 후보 bitmap PNG 에서 **반드시 필요한 것**은 `가..힣` 완성형 `11,172`자 atlas 다.
 - 숫자/영문/기본 기호는 1차 한글화 기준으로 **원본 게임 공통 폰트**를 그대로 재사용하되, 반각/전각은 source family별 정책을 따른다. `Registry D`, 코어 UI, 게임 용어에서 이미 안정적으로 쓰인 반각은 유지하고, `Entry8`, 이벤트 연출 텍스트, 오프닝/세이브/선택지 계열은 전각 우선으로 둔다.
 - 인명/고유명사 내부의 `・`는 한국어에서 띄어쓰기로 통일한다. `・・・` 말줄임표와 숫자 사이의 `・`는 보존한다.
+- 어떤 적용/보정도 ROM 전용 숨은 값으로만 두지 않는다. 실제 ROM 적용값, GUI 표시/편집값, 저장 source JSON/재추출/`전체 적용 ROM 재빌드` 값이 같은 의미를 가리켜야 한다. 예외가 필요하면 GUI에 실제 적용값과 이유를 함께 노출한다.
 - 첫 화면 즉시 비교용 startup showcase 세트는 [translation_workset_startup_font_showcase.json](/Users/user/test/confirmed_data/translation_worksets/translation_workset_startup_font_showcase.json) 이다.
 - startup 비교 문구는 현재 원문 의미를 유지한 `대륙력 / １９１０년 ２월 / 리젠블 마을 / 형１１세 동생１０세` 기준으로 맞추고 있다.
 - atlas importer 는 PNG 의 밝은 본체와 그림자 역할을 게임 원본 단계인 `0 / 17 / 34` 로 매핑하되, **이 화면에서는 밝은 본체가 `17`, 그림자가 `34` 역할** 이 되도록 반대로 넣는다.
@@ -37,6 +38,8 @@
 - 현재 가장 먼저 볼 `Registry D` focus run 은 `11, 15, 22, 24, 25, 113, 114, 140` 이다.
 - 구조적으로는 known source `13`개 / known record `10756` 기준으로 닫혔고, 남은 핵심은 **visual page-turn / live playthrough / baked image review** 세 축으로 압축됐다.
 - `ui_skill/item/entry12` 는 `ui_or_item_plain_00_record`, `battle/ability/material` 은 `term_description_plain_00_optional_0b`, `credits` 는 `credits_padded_plain_00_record` family 로 부분 확정했다.
+- 전투 ITEM 팝업의 회복약 설명은 `term_description_plain_00_optional_0b` 안에서도 확인된 예외다. `0x0B` 는 줄바꿈이 아니라 뒷필드 separator 이며, `\n` 으로 바꾸지 않는다. `체력 NN　　 \x0b 회복약  ` 형태처럼 뒷필드 선행 공백과 끝 공백을 보존해야 위치/잔상 문제가 재발하지 않는다.
+- Entry8 질문 뒤 선택지 중에는 `01 FF <char_count>` 헤더가 없는 inline fixed slot 이 있다. 질문 대사가 `대사 Entry8` 에 보여도 선택지는 `이벤트 연출 텍스트` 로 따로 관리될 수 있으므로, 미번역 선택지가 나오면 가까운 Entry8 record 뒤쪽 ROM bytes 를 직접 확인한다. 확인된 예: `translation_workset_inline_event_texts:006FFF86` `　物々交換　等価交換`, `translation_workset_inline_event_texts:0070010C` `　科学技術　魔術`.
 - image-side 감사는 [confirmed_data/image_inventory/README.md](/Users/user/test/confirmed_data/image_inventory/README.md) 기준으로 시작됐다.
 - 이미지 추출 준비 파이프라인은 [image_extraction_pipeline.md](/Users/user/test/confirmed_data/image_inventory/image_extraction_pipeline.md) 에 정리한다.
 - image-side 감사는 이제 `review bucket` 이 아니라 `title_logo_wordmark / event_or_cutscene_text_cards / ui_panel_label_art / battle_result_or_reward_banners` 같은 **review unit** 기준으로 본다.

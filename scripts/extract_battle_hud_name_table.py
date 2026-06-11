@@ -25,6 +25,10 @@ OUT_TRANSLATIONS = ROOT / "confirmed_data" / "font_assets" / "battle_hud_name_tr
 RESOURCE_TABLE = 0x0017785C
 RESOURCE_INDEX = 0x0933
 RECORD_SIZE = 0x1A
+FULLWIDTH_TO_ASCII_DIGITS = str.maketrans({
+    chr(ord("０") + digit): str(digit)
+    for digit in range(10)
+})
 
 DEFAULT_TRANSLATION_DRAFTS: dict[str, dict[str, object]] = {
     "ヌル": {
@@ -40,7 +44,7 @@ DEFAULT_TRANSLATION_DRAFTS: dict[str, dict[str, object]] = {
     "アームストロング": {"korean": "암스트롱", "basis": "common_glossary"},
     "マーティンス": {"korean": "마틴스", "basis": "common_glossary"},
     "コニィ": {"korean": "코니", "basis": "common_glossary"},
-    "コーネロ": {"korean": "코넬로", "basis": "common_glossary"},
+    "コーネロ": {"korean": "코네로", "basis": "common_glossary"},
     "バルド": {"korean": "발드", "basis": "common_glossary"},
     "ランディ": {"korean": "랜디", "basis": "common_glossary"},
     "ケイト": {"korean": "케이트", "basis": "common_glossary"},
@@ -59,10 +63,10 @@ DEFAULT_TRANSLATION_DRAFTS: dict[str, dict[str, object]] = {
     "ゴウトウ": {"korean": "강도", "basis": "semantic_enemy_type"},
     "ボマー": {"korean": "봄버", "basis": "localized_transliteration"},
     "サンゾク": {"korean": "산적", "basis": "semantic_enemy_type"},
-    "マッチョ1": {"korean": "마초1", "basis": "localized_transliteration"},
-    "マッチョ2": {"korean": "마초2", "basis": "localized_transliteration"},
-    "マッチョ3": {"korean": "마초3", "basis": "localized_transliteration"},
-    "マッチョ4": {"korean": "마초4", "basis": "localized_transliteration"},
+    "マッチョ1": {"korean": "마초", "basis": "localized_transliteration"},
+    "マッチョ2": {"korean": "마초", "basis": "localized_transliteration"},
+    "マッチョ3": {"korean": "마초", "basis": "localized_transliteration"},
+    "マッチョ4": {"korean": "마초", "basis": "localized_transliteration"},
     "メインビースト": {"korean": "메인비스트", "basis": "confirmed_runtime_target"},
     "ワイルドファング": {"korean": "와일드팽", "basis": "localized_transliteration"},
     "ダークブリング": {"korean": "다크브링", "basis": "localized_transliteration"},
@@ -76,23 +80,23 @@ DEFAULT_TRANSLATION_DRAFTS: dict[str, dict[str, object]] = {
     "アンデットホーン": {"korean": "언데드혼", "basis": "localized_transliteration"},
     "ブレイドバイソン": {"korean": "블레이드바이슨", "basis": "localized_transliteration"},
     "サイキョウト": {
-        "korean": "사이쿄우토",
+        "korean": "신도",
         "basis": "localized_transliteration",
         "needs_review": False,
         "note": "Phonetic draft from the confirmed HUD source ｻｲｷｮｳﾄ.",
     },
-    "キメラ5": {"korean": "키메라5", "basis": "common_glossary"},
-    "アーマーゲーター": {"korean": "아머게이터", "basis": "localized_transliteration"},
+    "キメラ5": {"korean": "키메라", "basis": "common_glossary"},
+    "アーマーゲーター": {"korean": "아머케이터", "basis": "localized_transliteration"},
     "スパイクカイマン": {"korean": "스파이크카이만", "basis": "localized_transliteration"},
-    "ヴェノムスピン": {"korean": "베놈스핀", "basis": "localized_transliteration"},
+    "ヴェノムスピン": {"korean": "베놈스피너", "basis": "localized_transliteration"},
     "デモンズカイマン": {"korean": "데몬즈카이만", "basis": "localized_transliteration"},
     "ウルフスナッフ": {"korean": "울프스너프", "basis": "localized_transliteration"},
     "ナックルウルフ": {"korean": "너클울프", "basis": "localized_transliteration"},
     "フェンリルニー": {"korean": "펜리르니", "basis": "localized_transliteration"},
     "ウルヴァリン": {"korean": "울버린", "basis": "localized_transliteration"},
-    "キメラ7": {"korean": "키메라7", "basis": "common_glossary"},
+    "キメラ7": {"korean": "키메라", "basis": "common_glossary"},
     "ドリルホース": {"korean": "드릴호스", "basis": "localized_transliteration"},
-    "ユニコーンヘッド": {"korean": "유니콘헤드", "basis": "localized_transliteration"},
+    "ユニコーンヘッド": {"korean": "유니콘", "basis": "localized_transliteration"},
     "スピードスター": {"korean": "스피드스타", "basis": "localized_transliteration"},
     "スレイプニール": {"korean": "슬레이프니르", "basis": "localized_transliteration"},
     "ライノスロス": {"korean": "라이노슬로스", "basis": "common_glossary"},
@@ -111,11 +115,78 @@ DEFAULT_TRANSLATION_DRAFTS: dict[str, dict[str, object]] = {
     },
     "スネークバインド": {"korean": "스네이크바인드", "basis": "localized_transliteration"},
     "ヒドラ": {"korean": "히드라", "basis": "common_glossary"},
-    "ゴーゴンリップ": {"korean": "고르곤립", "basis": "localized_transliteration"},
-    "ダークネスヘブン": {"korean": "다크니스헤븐", "basis": "localized_transliteration"},
+    "ゴーゴンリップ": {"korean": "고르곤리프", "basis": "localized_transliteration"},
+    "ダークネスヘブン": {"korean": "다크니스", "basis": "localized_transliteration"},
     "スカー": {"korean": "스카", "basis": "common_glossary"},
     "ラスト": {"korean": "러스트", "basis": "common_glossary"},
     "グラトニー": {"korean": "글러트니", "basis": "common_glossary"},
+}
+
+BATTLE_HUD_AGENT_DRAFTS: dict[str, str] = {
+    "ヌル": "널",
+    "エド": "에드",
+    "アル": "알",
+    "マスタング": "머스탱",
+    "ホークアイ": "호크아이",
+    "アームストロング": "암스트롱",
+    "マーティンス": "마틴스",
+    "コニィ": "코니",
+    "コーネロ": "코넬로",
+    "バルド": "발드",
+    "ランディ": "랜디",
+    "ケイト": "케이트",
+    "ブリストル": "브리스톨",
+    "リンカー": "링커",
+    "ラストリンカー": "라스트 링커",
+    "アザーズ": "아더즈",
+    "ティアーズ": "티어즈",
+    "キョウト": "쿄우토",
+    "トウゾク": "도적",
+    "ゴウトウ": "강도",
+    "ボマー": "봄버",
+    "サンゾク": "산적",
+    "マッチョ1": "마초1",
+    "マッチョ2": "마초2",
+    "マッチョ3": "마초3",
+    "マッチョ4": "마초4",
+    "メインビースト": "메인비스트",
+    "ワイルドファング": "와일드팽",
+    "ダークブリング": "다크브링",
+    "シシオウ": "사자왕",
+    "エルフラッター": "엘플러터",
+    "バーンフラッター": "번플러터",
+    "グリフォン": "그리폰",
+    "デスフラッター": "데스플러터",
+    "ホーンバイソン": "혼바이슨",
+    "クリムゾンテラー": "크림슨테러",
+    "アンデットホーン": "언데드혼",
+    "ブレイドバイソン": "블레이드바이슨",
+    "サイキョウト": "사이쿄우토",
+    "キメラ5": "키메라5",
+    "アーマーゲーター": "아머게이터",
+    "スパイクカイマン": "스파이크카이만",
+    "ヴェノムスピン": "베놈스핀",
+    "デモンズカイマン": "데몬즈카이만",
+    "ウルフスナッフ": "울프스너프",
+    "ナックルウルフ": "너클울프",
+    "フェンリルニー": "펜리르니",
+    "ウルヴァリン": "울버린",
+    "キメラ7": "키메라7",
+    "ドリルホース": "드릴호스",
+    "ユニコーンヘッド": "유니콘헤드",
+    "スピードスター": "스피드스타",
+    "スレイプニール": "슬레이프니르",
+    "ライノスロス": "라이노슬로스",
+    "グランディス": "그랜디스",
+    "ディルヴァス": "딜바스",
+    "エクスクライム": "엑스크라임",
+    "スネークバインド": "스네이크바인드",
+    "ヒドラ": "히드라",
+    "ゴーゴンリップ": "고르곤립",
+    "ダークネスヘブン": "다크니스헤븐",
+    "スカー": "스카",
+    "ラスト": "러스트",
+    "グラトニー": "글러트니",
 }
 
 
@@ -147,6 +218,26 @@ def read_c_string(data: bytes, start: int) -> bytes:
     return data[start:end]
 
 
+def normalize_korean_translation(text: object, *, reference_text: str = "") -> str:
+    value = str(text or "")
+    has_ascii_digits = any(ch.isascii() and ch.isdigit() for ch in reference_text)
+    has_fullwidth_digits = any("０" <= ch <= "９" for ch in reference_text)
+    if has_ascii_digits and not has_fullwidth_digits:
+        value = value.translate(FULLWIDTH_TO_ASCII_DIGITS)
+    elif has_fullwidth_digits and not has_ascii_digits:
+        value = value.translate(
+            str.maketrans({
+                str(digit): chr(ord("０") + digit)
+                for digit in range(10)
+            })
+        )
+    if "/" in reference_text and "／" not in reference_text:
+        value = value.replace("／", "/")
+    elif "／" in reference_text:
+        value = value.replace("/", "／")
+    return value
+
+
 def load_translation_drafts() -> dict[str, dict[str, object]]:
     drafts = deepcopy(DEFAULT_TRANSLATION_DRAFTS)
     if not OUT_TRANSLATIONS.exists():
@@ -165,9 +256,9 @@ def load_translation_drafts() -> dict[str, dict[str, object]]:
             continue
         current = dict(drafts.get(name, {}))
         if "korean_translation" in item:
-            current["korean"] = item.get("korean_translation", "")
+            current["korean"] = normalize_korean_translation(item.get("korean_translation", ""), reference_text=name)
         elif "korean" in item:
-            current["korean"] = item.get("korean", "")
+            current["korean"] = normalize_korean_translation(item.get("korean", ""), reference_text=name)
         if "translation_basis" in item:
             current["basis"] = item.get("translation_basis", "")
         elif "basis" in item:
@@ -180,6 +271,10 @@ def load_translation_drafts() -> dict[str, dict[str, object]]:
             current["note"] = item.get("translation_note", "")
         elif "note" in item:
             current["note"] = item.get("note", "")
+        if "agent_draft" in item:
+            current["agent_draft"] = normalize_korean_translation(item.get("agent_draft", ""), reference_text=name)
+        if "agent_comment" in item:
+            current["agent_comment"] = item.get("agent_comment", "")
         if "progress_status" in item:
             current["progress_status"] = item.get("progress_status", "")
         if "review_status" in item:
@@ -198,9 +293,15 @@ def translation_entry(name: str, drafts: dict[str, dict[str, object]]) -> dict[s
             "note": "No translation draft has been assigned.",
         },
     )
-    korean = str(draft.get("korean", ""))
+    korean = normalize_korean_translation(draft.get("korean", ""), reference_text=name)
+    agent_draft = normalize_korean_translation(
+        draft.get("agent_draft", BATTLE_HUD_AGENT_DRAFTS.get(name, korean)),
+        reference_text=name,
+    )
     return {
         "korean_translation": korean,
+        "agent_draft": agent_draft,
+        "agent_comment": draft.get("agent_comment", ""),
         "korean_char_count": len(korean),
         "translation_basis": draft.get("basis", "missing"),
         "translation_needs_review": bool(draft.get("needs_review", False)),
@@ -304,13 +405,13 @@ def write_markdown(report: dict) -> None:
         "",
         "## Unique Names",
         "",
-        "| first record | count | decoded name | Korean draft | basis | review | first offset |",
-        "| ---: | ---: | --- | --- | --- | --- | --- |",
+        "| first record | count | decoded name | HUD translation | agent draft | basis | review | first offset |",
+        "| ---: | ---: | --- | --- | --- | --- | --- | --- |",
     ]
     for item in report["unique_names"]:
         review = "yes" if item["translation_needs_review"] else ""
         lines.append(
-            f"| {item['first_record_index']} | {item['count']} | {item['decoded_name']} | {item['korean_translation']} | {item['translation_basis']} | {review} | `{item['first_name_offset_hex']}` |"
+            f"| {item['first_record_index']} | {item['count']} | {item['decoded_name']} | {item['korean_translation']} | {item['agent_draft']} | {item['translation_basis']} | {review} | `{item['first_name_offset_hex']}` |"
         )
     review_notes = [
         item
@@ -328,13 +429,13 @@ def write_markdown(report: dict) -> None:
             "",
             "## Records",
             "",
-            "| record | decoded name | Korean draft | raw HUD bytes | name offset |",
-            "| ---: | --- | --- | --- | --- |",
+            "| record | decoded name | HUD translation | agent draft | raw HUD bytes | name offset |",
+            "| ---: | --- | --- | --- | --- | --- |",
         ]
     )
     for item in report["records"]:
         lines.append(
-            f"| {item['record_index']} | {item['decoded_name']} | {item['korean_translation']} | `{item['raw_bytes_hex']}` | `{item['name_offset_hex']}` |"
+            f"| {item['record_index']} | {item['decoded_name']} | {item['korean_translation']} | {item['agent_draft']} | `{item['raw_bytes_hex']}` | `{item['name_offset_hex']}` |"
         )
     OUT_MD.write_text("\n".join(lines) + "\n", encoding="utf-8")
 

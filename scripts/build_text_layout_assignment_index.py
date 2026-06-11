@@ -28,6 +28,10 @@ def build_index() -> dict:
             "notes": [
                 "World-map location renderer directly reads the location-name field path tied to this source.",
                 "This family has code-derived capacity 18 mixed-width units.",
+                "Workbench storage strips manual leading/trailing spaces and preserves only deliberate internal spaces as fullwidth spaces.",
+                "ROM insertion does not add display padding. Instead it recalculates the record+0x28 label/scroll offset from the Korean visible width so the background follows the translated label length.",
+                "The metadata correction is implemented through source_group rules in TEXT_LAYOUT_METADATA_PATCH_RULES; the 2026-06-04 audit found location_texts as the only strict candidate.",
+                "Unused bytes in the fixed name field must stay zero-filled because coordinate/display metadata follows the name slot.",
             ],
         },
         "system_messages": {
