@@ -217,3 +217,33 @@ Verification:
 - Absolute `/Users/user/test` and `/private/tmp` paths in the current review
   workbench JSON/TBL reports after regeneration: `0`
 - ROM/savestate/patch files changed in this batch: `0`
+
+## Batch 5 Plan
+
+Status: executed on 2026-06-11 KST.
+
+Added the small active HUD Galmuri7 8x8 workbench that was referenced by
+tracked font-asset manifests but hidden by the broad `analysis/` ignore rule.
+
+Target:
+
+- `analysis/generated_workbenches/hud_galmuri7_8x8/`
+
+Reason:
+
+- `confirmed_data/font_assets/hud_galmuri7_8x8_tiles_manifest.json` directly
+  references the PGM files in this folder.
+- `confirmed_data/font_assets/hud_galmuri7_8x8_profile.json` records this
+  folder as the prepared workbench.
+- All `13` manifest-referenced PGM files exist locally.
+- The folder is small, about `52K`.
+
+Decision: `KEEP AND TRACK`.
+
+Verification:
+
+- Manifest PGM references: `13`
+- Missing referenced PGM files before add: `0`
+- Actual files in folder before add: `13`
+- Git-tracked files in folder before add: `0`
+- ROM/savestate/patch files changed in this batch: `0`
