@@ -11,7 +11,8 @@ retrospective value without letting generated evidence dominate the repo.
 - top-level analysis files: `243` files
 - `analysis/generated_workbenches/`: about `6.4M`, `1,259` tracked files
 - `analysis/archive/`: about `2.3M`, `468` tracked files
-- `analysis/tmp_lz77_tile_test/`: local empty directory, `0` tracked files
+- `analysis/tmp_lz77_tile_test/`: verified empty with `0` tracked files, then
+  removed locally
 
 ## Retention Classes
 
@@ -26,7 +27,7 @@ retrospective value without letting generated evidence dominate the repo.
 | `analysis/generated_workbenches/hud_galmuri7_8x8/` | `KEEP WITH CAUTION` | Keep | HUD mini-font subset evidence. Do not remove while HUD rendering remains a possible QA topic. |
 | `analysis/archive/font_trials/` | `RETROSPECTIVE HOLD` | Keep compactly | Old font trials explain why the project moved away from earlier candidates and into bitmap-locked sources. |
 | `analysis/archive/data_structure_raw/` | `RETROSPECTIVE HOLD` | Keep | Small raw evidence for resource and helper analysis. Useful when a summary needs byte-level re-checking. |
-| `analysis/tmp_lz77_tile_test/` | `DELETE LOCAL OK` | Local cleanup only | Currently empty and untracked. Older local ROM audit notes mention a prior ignored GBA there, but the current directory does not affect Git cleanup. |
+| `analysis/tmp_lz77_tile_test/` | `LOCAL CLEANED` | Removed locally | It was empty and untracked. Older local ROM audit notes mention a prior ignored GBA there, but the current directory did not affect Git cleanup. |
 
 ## Deletion Gate
 

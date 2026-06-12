@@ -34,6 +34,8 @@ Completed in this checkpoint:
 - Added `docs/cleanup/analysis_retention_matrix.md`.
 - Classified active generated workbenches, archive evidence, large structure
   JSON reports, and the empty local `analysis/tmp_lz77_tile_test/` directory.
+- Removed the empty, untracked local `analysis/tmp_lz77_tile_test/` directory
+  after confirming it had no tracked files.
 - Updated analysis navigation so future cleanup does not delete retrospective
   evidence before the lesson is summarized.
 
