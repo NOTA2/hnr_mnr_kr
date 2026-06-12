@@ -2,6 +2,28 @@
 
 Date: 2026-06-02 KST
 
+## 2026-06-12 Analysis Retention Matrix Checkpoint
+
+- Branch: `codex/bootstrap-toolkit`
+- `analysis/`: about `27M`
+- `analysis/generated_workbenches/`: about `6.4M`, `1,259` tracked files
+- `analysis/archive/`: about `2.3M`, `468` tracked files
+- `docs/`: `54` tracked files after adding the retention matrix
+
+Completed in this checkpoint:
+
+- Added `docs/cleanup/analysis_retention_matrix.md`.
+- Classified active generated workbenches, archive evidence, large structure
+  JSON reports, and the empty local `analysis/tmp_lz77_tile_test/` directory.
+- Updated analysis navigation so future cleanup does not delete retrospective
+  evidence before the lesson is summarized.
+
+Safety impact:
+
+- No analysis data was removed in this checkpoint.
+- The next analysis cleanup candidate is summary extraction from large structure
+  reports, not immediate deletion.
+
 ## 2026-06-12 Script Placeholder Completion Checkpoint
 
 - Branch: `codex/bootstrap-toolkit`

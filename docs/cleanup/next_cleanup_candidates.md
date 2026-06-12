@@ -52,6 +52,7 @@ Current artifact:
 - `docs/structure/script_move_readiness.md`
 - `scripts/{build,audit,text,image,font,runtime,workbench,layout,archive}/README.md`
 - `docs/structure/data_role_inventory.md`
+- `docs/cleanup/analysis_retention_matrix.md`
 
 Why this is next:
 
@@ -137,6 +138,7 @@ Action:
 - Merge the evidence digest and failure-mode playbook into reusable rules for
   the starter-kit agent.
 - Preserve only compact examples; do not import raw session logs.
+- Use `analysis_retention_matrix.md` before deleting any analysis evidence.
 
 Why this matters:
 
@@ -176,3 +178,5 @@ manifest work if gameplay QA needs image cleanup first. README-only placeholders
 now exist for layout/dialogue reports and archive candidates, but no scripts
 should move there until outputs and retrospective value are classified. Do not
 move GUI, ROM build, image apply, patch creation, font, or runtime scripts next.
+For analysis cleanup, summarize the largest structure reports before deleting
+raw JSON evidence.

@@ -62,6 +62,8 @@ further cleanup batch.
   package files and scratch folders.
 - `execution_plan.md`: staged cleanup, retrospective, and starter-kit plan.
 - `active_reference_trace.md`: references extracted from active GUI JSON files.
+- `analysis_retention_matrix.md`: `analysis/` keep/hold/delete-local decisions
+  before further pruning.
 - `external_path_audit.md`: active vs historical absolute-path findings.
 - `uploaded_replacements_audit.md`: active uploaded image replacement tracking.
 - `local_ignored_cleanup.md`: non-destructive ignored-file cleanup preview.

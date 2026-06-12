@@ -37,6 +37,8 @@
 
 ## 보관 문서
 
+- cleanup 전에 `analysis/` 전체의 keep/hold/delete-local 기준은
+  [analysis_retention_matrix.md](/Users/user/test/docs/cleanup/analysis_retention_matrix.md) 를 본다.
 - raw disassembly / caller / helper / scratch evidence 는 [archive/README.md](/Users/user/test/analysis/archive/README.md) 아래로 내렸다.
 - 예전 폰트 후보 비교와 벡터 seed 실험은 [archive/font_trials/2026-05-17_pre_bitmap_lock](/Users/user/test/analysis/archive/font_trials/2026-05-17_pre_bitmap_lock) 아래로 내렸다.
 - 예전 core UI compact ROM, seed manifest, placeholder glyph, startup 전용 임시 workbench 는 [archive/font_trials/2026-05-17_finalist_pool_cleanup](/Users/user/test/analysis/archive/font_trials/2026-05-17_finalist_pool_cleanup) 아래로 내렸다.
