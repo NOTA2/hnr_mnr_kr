@@ -43,8 +43,8 @@ Before removing any `analysis/` file or subtree:
 
 ## Next Analysis Cleanup Candidate
 
-The safest next analysis cleanup is not deletion. It is to summarize the largest
-top-level structure reports, starting with `entry8_vm_structure.json`, into a
-short retrospective note that explains what must be preserved for future GBA
-projects. Only then should the raw JSON be considered for archive, local-only
-storage, or removal.
+The first summary extraction target is complete in
+`docs/retrospective/entry8_vm_lessons.md`. The raw Entry8 JSON reports should
+still stay for now, but future cleanup can use that note as the preserved lesson
+before deciding whether the raw reports belong in archive, local-only storage,
+or the tracked repo.

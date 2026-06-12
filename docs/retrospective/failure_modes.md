@@ -356,6 +356,32 @@ Starter-kit rule:
 - Cleanup agents must require a retention decision and a retrospective note for
   every deletion batch.
 
+## 16. Pointer-Looking Values Treated As Segment Boundaries
+
+Symptom:
+
+- A counted Entry8 record appears to cross a segment boundary, and the apply
+  path either corrupts nearby bytes or incorrectly marks the record impossible.
+
+Cause:
+
+- The segment-end heuristic treats every pointer-looking value in the Entry8
+  table range as a hard boundary, even when the value points into a counted text
+  payload.
+
+Prevention:
+
+- Carry byte span, counted prefix, original payload length, inferred segment,
+  and boundary-crossing state through extraction and apply.
+- Classify segments with a capability matrix before choosing in-place, overlay,
+  repoint, protected, or unknown apply behavior.
+
+Starter-kit rule:
+
+- Script-bank tooling must validate candidate boundaries against record spans
+  and range overlaps. Boundary-crossing records need a dedicated
+  length-preserved path before any expansion or repoint attempt.
+
 ## Starter-Kit Extraction Checklist
 
 Before creating the generic GBA localization agent, convert the above failure
@@ -365,6 +391,8 @@ modes into:
   local tooling, and previews;
 - a text extraction schema that distinguishes terminators, counted headers,
   fixed slots, packed scripts, and source-family layout rules;
+- a script-bank capability matrix for segmented command-stream data such as
+  Entry8;
 - a font workflow with code-space, glyph-storage, relocation, atlas, and runtime
   render gates;
 - an image workflow that separates runtime evidence from ROM-backed edit sources;

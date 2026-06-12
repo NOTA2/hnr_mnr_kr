@@ -2,6 +2,25 @@
 
 Date: 2026-06-02 KST
 
+## 2026-06-12 Entry8 VM Retrospective Checkpoint
+
+- Branch: `codex/bootstrap-toolkit`
+- Added compact lesson note:
+  `docs/retrospective/entry8_vm_lessons.md`
+
+Completed in this checkpoint:
+
+- Summarized the largest Entry8 structure-report family before any raw JSON
+  pruning.
+- Added the pointer-looking-boundary failure mode to the reusable playbook.
+- Updated the analysis retention matrix so Entry8 raw JSON remains kept for now,
+  with the preserved lesson documented.
+
+Safety impact:
+
+- No Entry8 analysis JSON or Markdown files were removed.
+- No text extraction, GUI, build, image, or patch script changed.
+
 ## 2026-06-12 Analysis Retention Matrix Checkpoint
 
 - Branch: `codex/bootstrap-toolkit`

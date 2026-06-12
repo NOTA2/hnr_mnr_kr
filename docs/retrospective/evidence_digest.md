@@ -126,3 +126,11 @@ The reusable starter-kit rule is: generated workbench outputs may be kept locall
 for recovery, but the repo should keep the active input, generator script, and a
 compact audit summary instead of thousands of generated glyph files and repeated
 manifests.
+
+### Entry8 Is Command-Stream Data, Not Plain Text
+
+The large Entry8 structure reports are now condensed in
+`docs/retrospective/entry8_vm_lessons.md`. The key lesson is that Entry8 needed
+per-record metadata, segment capability classes, range-overlap checks, and
+boundary-crossing handling. Treating pointer-looking values as hard boundaries
+or applying one global repoint policy was the risky path.

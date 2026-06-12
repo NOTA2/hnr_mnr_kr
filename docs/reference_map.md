@@ -26,6 +26,7 @@
 - analysis retention matrix: [analysis_retention_matrix.md](/Users/user/test/docs/cleanup/analysis_retention_matrix.md)
 - 회고 근거 요약: [evidence_digest.md](/Users/user/test/docs/retrospective/evidence_digest.md)
 - 회고 실패 모드: [failure_modes.md](/Users/user/test/docs/retrospective/failure_modes.md)
+- Entry8 VM 회고: [entry8_vm_lessons.md](/Users/user/test/docs/retrospective/entry8_vm_lessons.md)
 - GBA 스타터킷 초안: [gba_localization_agent.md](/Users/user/test/docs/starter_kit/gba_localization_agent.md)
 
 ## Active Summaries
