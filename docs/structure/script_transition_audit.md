@@ -15,7 +15,7 @@ script grouping can happen later without breaking active QA or the GUI.
 
 ## Current Shape
 
-- Tracked files under `scripts/`: `126`
+- Tracked files under `scripts/`: `128`
 - Top-level scripts are still the active command surface.
 - Group directories exist only as README placeholders:
   `build`, `audit`, `text`, `image`, `font`, `runtime`, and `workbench`.
@@ -156,6 +156,8 @@ Before archiving or removing any script:
 
 ## Next Safe Move
 
-The next structural step is to expand each group README with active vs archive
-subsections. Actual script moves should wait until wrappers are introduced and
-the GUI/review ROM build paths are re-tested.
+The group README files now have active vs hold notes, and
+`script_move_readiness.md` ranks future wrapper work. The first future pilot
+should be a read-only audit script wrapper. Actual GUI, review ROM, image apply,
+patch creation, font, or runtime script moves should wait until wrappers are
+introduced and the relevant paths are re-tested.

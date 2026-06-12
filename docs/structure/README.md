@@ -10,6 +10,8 @@
 - `migration_map.md`: 현재 경로에서 목표 구조로 옮길 때의 단계와 호환성 전략을 정리한다.
 - `script_transition_audit.md`: active QA 를 깨지 않기 위해 `scripts/` 를
   이동하기 전에 지켜야 할 entry point, subprocess, wrapper 조건을 정리한다.
+- `script_move_readiness.md`: 실제 이동 전에 어떤 script group 을 먼저 wrapper
+  pilot 으로 다룰 수 있는지와 어떤 group 을 hold 해야 하는지 정리한다.
 - `data_role_inventory.md`: `confirmed_data/` 의 기준본, GUI 상태, runtime
   evidence, generated index 역할을 구분한다.
 - `../starter_kit/gba_localization_agent.md`: 이 프로젝트에서 얻은 정리/회고 규칙을

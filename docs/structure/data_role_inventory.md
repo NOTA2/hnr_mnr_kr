@@ -42,7 +42,8 @@ structure move. It does not move or delete files.
 
 ## Size And Count Snapshot
 
-- `confirmed_data/image_inventory/`: about `239M`, `15,781` tracked files.
+- `confirmed_data/image_inventory/`: about `237M`, `15,421` tracked files after
+  pruning `workspaces/07_ui_icon_badge_wordmarks` to a summary README.
 - `confirmed_data/translation_workspace/`: about `91M`, `322` tracked files.
 - `confirmed_data/localization_workbench/`: about `40M`, `421` tracked files.
 - `confirmed_data/dialogue_metadata/`: about `8.6M`, `8` tracked files.
@@ -88,6 +89,10 @@ while the GUI state is the active operator surface.
 
 Keep with caution. It contains review units, edit packs, broad extraction
 outputs, runtime captures, tilemap evidence, and source candidates.
+
+`workspaces/07_ui_icon_badge_wordmarks` is the first pruned workspace model: it
+now keeps only a README summary after generated contact sheets, dumps, exports,
+and notes were removed.
 
 Do not prune until:
 

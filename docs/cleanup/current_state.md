@@ -2,6 +2,29 @@
 
 Date: 2026-06-02 KST
 
+## 2026-06-12 Script Move Readiness Checkpoint
+
+- Branch: `codex/bootstrap-toolkit`
+- Tracked files after this docs-only checkpoint: about `18,447`
+- `docs/`: about `492K`, `53` tracked files
+- `scripts/`: about `1.5M`, `128` tracked files
+- `confirmed_data/image_inventory`: about `237M`, `15,421` tracked files
+
+Completed in this checkpoint:
+
+- Added `docs/structure/script_move_readiness.md` as the wrapper-first script
+  migration readiness table.
+- Kept all active top-level script paths unchanged.
+- Marked `scripts/audit/` as the first future wrapper pilot candidate.
+- Kept GUI, ROM build, image apply, patch creation, font, text sync/import, and
+  runtime script groups blocked or on hold during active QA.
+
+Safety impact:
+
+- No script files were moved, renamed, deleted, or edited.
+- GUI item visibility, text/image apply, review ROM build, and BPS patch command
+  paths remain the same as before this checkpoint.
+
 ## 2026-06-12 Image Workspace Prune Checkpoint
 
 - Branch: `codex/bootstrap-toolkit`

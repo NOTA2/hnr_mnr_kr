@@ -17,6 +17,7 @@
 - 현재/목표 구조: [README.md](/Users/user/test/docs/structure/README.md)
 - 구조 이행 지도: [migration_map.md](/Users/user/test/docs/structure/migration_map.md)
 - 스크립트 전환 감사: [script_transition_audit.md](/Users/user/test/docs/structure/script_transition_audit.md)
+- 스크립트 이동 준비도: [script_move_readiness.md](/Users/user/test/docs/structure/script_move_readiness.md)
 - 데이터 역할 인벤토리: [data_role_inventory.md](/Users/user/test/docs/structure/data_role_inventory.md)
 - 스크립트 전환 색인: [README.md](/Users/user/test/scripts/README.md)
 - 이미지 pruning 계획: [image_inventory_prune_plan.md](/Users/user/test/docs/cleanup/image_inventory_prune_plan.md)

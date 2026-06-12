@@ -49,6 +49,7 @@ Action:
 Current artifact:
 
 - `docs/structure/script_transition_audit.md`
+- `docs/structure/script_move_readiness.md`
 - `scripts/{build,audit,text,image,font,runtime,workbench}/README.md`
 - `docs/structure/data_role_inventory.md`
 
@@ -168,6 +169,7 @@ Do not remove or untrack these without a separate audit update:
 ## Next Recommended Step
 
 Candidate 2 is now in progress: active scripts have been classified without
-moving them. The next safe structure step is to add wrapper-aware migration
-commands for one low-risk script group, or to continue with image-source manifest
-work if gameplay QA needs image cleanup first.
+moving them. The next safe structure step is a wrapper pilot for one read-only
+audit script, or continued image-source manifest work if gameplay QA needs image
+cleanup first. Do not move GUI, ROM build, image apply, patch creation, font, or
+runtime scripts as the first pilot.

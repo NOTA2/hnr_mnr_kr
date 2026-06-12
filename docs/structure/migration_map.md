@@ -74,6 +74,11 @@ Completed so far:
 
 - Added group placeholder directories with README files.
 - Kept all current top-level script entry points in place.
+- Added `script_move_readiness.md` so future script moves start with a
+  wrapper-first readiness decision instead of a broad rename.
+- Identified `scripts/audit/` as the first possible wrapper pilot group, while
+  GUI, build, font, image, text, and runtime groups remain blocked or on hold
+  during active QA.
 
 Exit condition:
 
