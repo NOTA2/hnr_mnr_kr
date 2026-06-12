@@ -2,6 +2,26 @@
 
 Date: 2026-06-02 KST
 
+## 2026-06-12 Uploaded Replacement Recheck
+
+- Branch: `codex/bootstrap-toolkit`
+- `confirmed_data/localization_workbench/uploaded_image_replacements/`: about
+  `2.5M`
+- Files on disk: `368`, all tracked
+
+Completed in this checkpoint:
+
+- Rechecked the post-QA unreferenced upload candidate.
+- Confirmed `title_240x160_transparent.png` is no longer present on disk.
+- Confirmed the remaining post-QA title/workspace payloads are active JSON
+  references.
+
+Safety impact:
+
+- No uploaded replacement payloads were removed.
+- Existing upload manifest is documented as stale by two active payload files and
+  must be refreshed before any future uploaded-payload pruning.
+
 ## 2026-06-12 Local Runtime Artifact Checkpoint
 
 - Branch: `codex/bootstrap-toolkit`

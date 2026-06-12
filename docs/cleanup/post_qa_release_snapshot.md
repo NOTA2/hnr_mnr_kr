@@ -99,6 +99,13 @@ Decision:
 - treat `title_240x160_transparent.png` as a local cleanup candidate only after
   another reference check.
 
+Follow-up:
+
+- 2026-06-12 recheck found `title_240x160_transparent.png` no longer present on
+  disk.
+- The two post-QA title/workspace payloads that remain on disk are active JSON
+  references and should not be pruned during image QA.
+
 ## Next Safe Order
 
 1. Commit the release-support plumbing and verified release artifacts.

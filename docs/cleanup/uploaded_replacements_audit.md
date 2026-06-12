@@ -55,3 +55,28 @@ Before deletion:
    `confirmed_data/image_inventory/edit_packs/...` folder.
 4. After promotion/pruning, rerun active reference tracing and require zero
    missing paths.
+
+## 2026-06-12 Recheck
+
+The post-QA snapshot mentioned `title_240x160_transparent.png` as an
+unreferenced local cleanup candidate. A later recheck found that file is no
+longer present on disk.
+
+Current disk/reference state:
+
+- Files under `uploaded_image_replacements/`: `368`, including README and
+  manifest.
+- Git-tracked files under this folder: `368`.
+- Directory size: about `2.5M`.
+- The existing manifest records `365` files and is stale by two active payloads:
+  - `image_rle_screen_order_timeline_with_rle_frame_001200_bg0_007E0000/title_960x640_transparent (1).png`
+  - `image_rle_screen_order_timeline_with_rle_frame_001200_bg0_007E0000/workspace-file (2) (1).png`
+- Both files are referenced by current `workbench_dataset.json` and
+  `image_replacements.json`.
+
+Decision:
+
+- Do not prune uploaded replacement payloads during active image QA.
+- Refresh or regenerate the upload manifest before any future pruning.
+- Treat the `37` to `39` apparently unreferenced files as `KEEP WITH CAUTION`
+  until Unicode-normalized path checks and active GUI state agree.

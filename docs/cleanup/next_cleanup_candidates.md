@@ -92,6 +92,9 @@ Why this is high value:
   and deletion gates.
 - `docs/cleanup/image_workspace_prune_readiness.md` records why the remaining
   workspace units are on hold after the first safe prune.
+- `docs/cleanup/uploaded_replacements_audit.md` now records that the post-QA
+  unreferenced title upload is gone and that the remaining post-QA title/workspace
+  payloads are active JSON references.
 
 Why this is not immediately safe:
 
@@ -102,6 +105,8 @@ Why this is not immediately safe:
   pruning.
 - No further workspace subtree should be pruned during active QA without a
   per-unit summary and a fresh GUI workflow audit.
+- Uploaded replacement payloads should not be pruned until their manifest is
+  refreshed and Unicode-normalized path checks agree with active GUI state.
 
 Exit gate:
 
