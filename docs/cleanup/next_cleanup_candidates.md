@@ -7,13 +7,14 @@ next areas by safety, value, and dependency risk.
 
 ## Current Progress Baseline
 
-- Overall request: about `49%`
-- Project cleanup / structure: about `73%`
-- Retrospective: about `30%`
-- Starter-kit extraction: about `20%`
+- Overall request: about `55%`
+- Project cleanup / structure: about `80%`
+- Retrospective: about `38%`
+- Starter-kit extraction: about `23%`
 
-These percentages are intentionally conservative. The repo is much cleaner, but
-large active-data areas still need QA-aware handling.
+These percentages are intentionally conservative. The repo is much cleaner and
+the structure/retrospective safety rails are stronger, but large active-data
+areas still need QA-aware handling.
 
 ## Candidate 1: Documentation Index Polish
 
