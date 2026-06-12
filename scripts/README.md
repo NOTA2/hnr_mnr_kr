@@ -22,8 +22,8 @@ The future group directories now exist as placeholders:
 - `scripts/runtime/`
 - `scripts/workbench/`
 
-They intentionally contain only README files for now. Current command paths stay
-at `scripts/<name>.py` and `scripts/<name>.sh`.
+Only the audit group has started a wrapper pilot. Current command paths stay at
+`scripts/<name>.py` and `scripts/<name>.sh`.
 
 Each group README now records the scripts assigned to that future group, the
 paths that are still active public entry points, and the holds that must be
@@ -59,7 +59,8 @@ cleared before any file move.
 
 ### Audit
 
-- `audit_gui_workflow_integrity.py`
+- `audit_gui_workflow_integrity.py` (top-level compatibility wrapper)
+- `audit/audit_gui_workflow_integrity.py` (grouped implementation)
 - `audit_current_review_text_coverage.py`
 - `audit_ability_text_layout_candidates.py`
 - `audit_entry8_missing_prefixed_records.py`

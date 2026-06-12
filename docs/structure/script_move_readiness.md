@@ -2,9 +2,8 @@
 
 Date: 2026-06-12 KST
 
-This document ranks future script grouping work without moving any script in this
-checkpoint. It exists to keep late-stage QA stable while still making the
-project structure easier to improve later.
+This document ranks future script grouping work. It exists to keep late-stage QA
+stable while still making the project structure easier to improve later.
 
 ## Current Rule
 
@@ -36,7 +35,7 @@ These files must stay callable at their current paths during active QA:
 
 | Future group | Readiness | Why | Before any move |
 | --- | --- | --- | --- |
-| `scripts/audit/` | `PILOT CANDIDATE` | Mostly read-only checks. It is the safest group for the first wrapper experiment. | Keep `scripts/audit_gui_workflow_integrity.py` as a top-level wrapper. Compile changed scripts and run the audit from the old path. |
+| `scripts/audit/` | `PILOT COMPLETE` | The GUI workflow audit now has a grouped implementation with a stable top-level wrapper. Other audit scripts can follow this pattern after their report outputs are checked. | Keep `scripts/audit_gui_workflow_integrity.py` as a top-level wrapper. Compile changed scripts and run the audit from both old and grouped paths. |
 | `scripts/build/` | `BLOCKED` | GUI and operator flows call review ROM, workbench dataset, all-in-one rebuild, and BPS patch scripts by top-level path. | Add wrappers for build entry points, update docs only after old paths pass, and run GUI audit plus a review ROM build when the QA window allows. |
 | `scripts/workbench/` | `BLOCKED` | The local GUI is the active operator surface and launches helper scripts through top-level paths. | Add a shared subprocess path helper or wrappers, then verify GUI actions for text sync, image apply, ROM build, and patch creation. |
 | `scripts/font/` | `BLOCKED` | Review ROM builds call atlas, startup, battle HUD, and name-table font patch scripts directly. | Preserve shell script entry points, add wrappers for HUD/font helpers, and test startup/font checks before changing documented commands. |
@@ -45,17 +44,17 @@ These files must stay callable at their current paths during active QA:
 | `scripts/runtime/` | `HOLD` | Emulator, savestate, and runtime visual capture tooling may still be needed while gameplay QA is open. | Document local runtime setup such as `MGBA_BIN`, keep local paths ignored, and move only after runtime QA closes or wrappers exist. |
 | `scripts/archive/` | `PENDING` | Historical one-offs may still explain repeated failure modes. | Summarize the lesson in `docs/retrospective/` before archiving or deleting. |
 
-## First Safe Pilot
+## Completed Pilot
 
-The first future implementation move should be an audit script, not a GUI or ROM
-builder script. A safe pilot shape is:
+The first implementation move was an audit script, not a GUI or ROM builder
+script. The current pilot shape is:
 
 ```text
 scripts/audit_gui_workflow_integrity.py          # stable wrapper
 scripts/audit/audit_gui_workflow_integrity.py    # grouped implementation
 ```
 
-Do not start with `run_localization_workbench.py`,
+Do not use this pilot as permission to move `run_localization_workbench.py`,
 `build_localization_review_rom.py`, `apply_image_replacements.py`, or
 `create_bps_patch.py`. Those are directly tied to the user's late-stage QA flow.
 
@@ -71,6 +70,6 @@ Do not start with `run_localization_workbench.py`,
 
 ## Current Checkpoint
 
-No script files were moved in this checkpoint. The project now has enough
-classification to continue cleanup without guessing which commands are safe to
-touch.
+Only the GUI workflow audit implementation has been grouped so far, and its old
+top-level command path remains valid. The project now has enough classification
+to continue cleanup without guessing which commands are safe to touch.

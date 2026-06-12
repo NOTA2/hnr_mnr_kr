@@ -76,8 +76,10 @@ Completed so far:
 - Kept all current top-level script entry points in place.
 - Added `script_move_readiness.md` so future script moves start with a
   wrapper-first readiness decision instead of a broad rename.
-- Identified `scripts/audit/` as the first possible wrapper pilot group, while
-  GUI, build, font, image, text, and runtime groups remain blocked or on hold
+- Completed the first wrapper pilot by moving the
+  `audit_gui_workflow_integrity.py` implementation into `scripts/audit/` while
+  keeping the old top-level command path as a compatibility wrapper.
+- Kept GUI, build, font, image, text, and runtime groups blocked or on hold
   during active QA.
 
 Exit condition:

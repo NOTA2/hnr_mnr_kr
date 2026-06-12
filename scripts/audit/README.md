@@ -2,14 +2,21 @@
 
 Future home for coverage, safety, consistency, and readiness checks.
 
-Current implementations still live in `scripts/` top level. Move them here only
+Most implementations still live in `scripts/` top level. Move them here only
 after compatibility wrappers are in place.
+
+## Grouped Implementations
+
+- `scripts/audit/audit_gui_workflow_integrity.py`
+
+The old command `python3 scripts/audit_gui_workflow_integrity.py` remains the
+stable wrapper and must keep working.
 
 ## Current Top-Level Scripts
 
 Text and runtime coverage:
 
-- `scripts/audit_gui_workflow_integrity.py`
+- `scripts/audit_gui_workflow_integrity.py` (compatibility wrapper)
 - `scripts/audit_current_review_text_coverage.py`
 - `scripts/audit_rom_text_extraction_gaps.py`
 - `scripts/audit_ability_text_layout_candidates.py`
@@ -38,7 +45,8 @@ Translation quality and consistency:
   `analysis/generated_workbenches/translation_consistency/` QA evidence.
 - `audit_gui_workflow_integrity.py` is the cleanup safety check for GUI display,
   text/image apply prerequisites, current review ROM paths, and BPS patch
-  generation.
+  generation. Keep the top-level wrapper even though the implementation is now
+  grouped.
 
 ## Future Migration Shape
 

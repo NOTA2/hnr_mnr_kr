@@ -169,7 +169,8 @@ Do not remove or untrack these without a separate audit update:
 ## Next Recommended Step
 
 Candidate 2 is now in progress: active scripts have been classified without
-moving them. The next safe structure step is a wrapper pilot for one read-only
-audit script, or continued image-source manifest work if gameplay QA needs image
-cleanup first. Do not move GUI, ROM build, image apply, patch creation, font, or
-runtime scripts as the first pilot.
+moving active GUI/build paths. The first wrapper pilot is complete for the
+read-only GUI workflow audit. The next safe structure step is either another
+read-only audit wrapper after checking report outputs, or continued image-source
+manifest work if gameplay QA needs image cleanup first. Do not move GUI, ROM
+build, image apply, patch creation, font, or runtime scripts next.
