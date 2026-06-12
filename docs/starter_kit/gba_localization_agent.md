@@ -36,6 +36,10 @@ make cleanup irreversible.
 6. Never move public script/data paths during active QA without compatibility
    wrappers and doc updates.
 7. Never use blanket cleanup commands across ignored project data.
+8. Never prune uploaded replacement payloads from stale manifests; refresh the
+   manifest and verify active GUI references first.
+9. Never treat pointer-looking values inside a script bank as hard boundaries
+   until record spans and range overlaps are validated.
 
 ## Required Repo Policy
 
@@ -98,15 +102,29 @@ Required outputs:
 
 - canonical extracted text files;
 - source-family capability matrix;
+- segmented script-bank capability matrix when the game uses command-stream
+  records or bank-local pointers;
 - extraction coverage report;
 - missing/ambiguous candidate report;
 - translation workset index.
+
+For command-stream banks, each record should carry:
+
+- source segment or table entry;
+- byte span;
+- counted prefix/header metadata;
+- original payload length;
+- terminator policy;
+- inferred boundary-crossing state;
+- allowed apply action: in-place, overlay, repoint, protected, or unknown.
 
 Exit gate:
 
 - Known sources have stable IDs and byte ranges.
 - False positive candidates are either rejected or manually classified.
 - The build path can reconstruct required metadata, not just visible text.
+- Boundary-crossing records have a dedicated length-preserved path before any
+  expansion or repoint attempt.
 
 ## Phase 2: Translation Worksets And QA
 
@@ -173,11 +191,22 @@ For editable sources, record:
 - replacement dimensions and scale;
 - apply script and verification screenshot.
 
+Uploaded replacement payloads need their own manifest:
+
+- every payload path;
+- active GUI reference status;
+- missing-path checks using the same path semantics as the runtime platform;
+- whether the payload is final source, previous upload, scratch, or generated
+  preview;
+- promotion target if the payload should move into a durable edit-pack folder.
+
 Exit gate:
 
 - A replacement can be rebuilt from tracked source assets.
 - Scaled previews are not confused with 1x edit sources.
 - Palette provenance is recorded.
+- Uploaded replacement pruning is blocked unless the manifest is current and
+  active GUI references have zero missing paths.
 
 ## Phase 5: Runtime QA
 
@@ -195,10 +224,20 @@ Runtime QA should cover:
 Runtime captures are evidence. They should not be promoted to editable sources
 unless their backing ROM resource is found.
 
+Local runtime artifacts should be recorded in a matrix:
+
+- source ROM;
+- current review ROM;
+- intermediate build ROMs that active scripts still reference;
+- English/reference ROMs used for comparison;
+- saves and savestates used for QA reproduction;
+- local current-review reports.
+
 Exit gate:
 
 - Known high-risk source families have representative runtime checks.
 - Bugs have reproduction paths and affected build IDs.
+- Remaining local ignored ROM/save/savestate files have explicit keep reasons.
 
 ## Phase 6: Cleanup
 
@@ -212,6 +251,15 @@ For every candidate:
   `DELETE`;
 - preserve the lesson before deleting confusing failed artifacts;
 - commit and push small batches.
+
+Structure cleanup should use wrapper-first migration:
+
+- keep old public command paths working;
+- move one low-risk implementation first;
+- run active workflow audits from the old path and new path;
+- update docs only after compatibility is proven;
+- do not start with GUI, ROM build, image apply, patch creation, font, or
+  runtime scripts during active QA.
 
 Exit gate:
 
@@ -270,6 +318,12 @@ docs/
     safety_gate.md
     retention_policy.md
     current_state.md
+    local_rom_audit.md
+    local_runtime_artifacts_matrix.md
+    uploaded_replacements_audit.md
+  structure/
+    script_transition_audit.md
+    script_move_readiness.md
   retrospective/
     failure_modes.md
 confirmed_data/
@@ -294,7 +348,9 @@ Use this as the first draft of the project-neutral agent prompt:
 You are a GBA localization engineering agent. Work evidence-first. Never commit
 ROMs or saves. Classify every text/image/font/runtime artifact before editing or
 deleting it. Keep active QA stable, preserve lessons before deleting failed
-artifacts, and turn project-specific discoveries into reusable docs only after
-removing local paths and copyrighted/project-specific data. Report progress by
-track: cleanup/structure, retrospective, starter-kit extraction, and active QA.
+artifacts, use compatibility wrappers before moving public scripts, refresh GUI
+upload manifests before pruning payloads, and turn project-specific discoveries
+into reusable docs only after removing local paths and copyrighted/project-
+specific data. Report progress by track: cleanup/structure, retrospective,
+starter-kit extraction, and active QA.
 ```

@@ -7,10 +7,10 @@ next areas by safety, value, and dependency risk.
 
 ## Current Progress Baseline
 
-- Overall request: about `55%`
+- Overall request: about `57%`
 - Project cleanup / structure: about `80%`
-- Retrospective: about `38%`
-- Starter-kit extraction: about `23%`
+- Retrospective: about `40%`
+- Starter-kit extraction: about `28%`
 
 These percentages are intentionally conservative. The repo is much cleaner and
 the structure/retrospective safety rails are stronger, but large active-data
@@ -152,6 +152,9 @@ Why this matters:
 
 - Some confusing failed outputs are useful only if their lesson is captured
   before cleanup.
+- Entry8 boundary handling, uploaded replacement pruning, local runtime artifact
+  retention, and wrapper-first script migration have been folded into the
+  starter-kit agent draft.
 
 Exit gate:
 

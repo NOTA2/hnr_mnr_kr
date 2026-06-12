@@ -2,6 +2,24 @@
 
 Date: 2026-06-02 KST
 
+## 2026-06-12 Starter-Kit Safety Rails Checkpoint
+
+- Branch: `codex/bootstrap-toolkit`
+- Updated `docs/starter_kit/gba_localization_agent.md`.
+
+Completed in this checkpoint:
+
+- Folded Entry8 command-stream boundary lessons into the generic agent spec.
+- Added uploaded replacement manifest/pruning gates.
+- Added local runtime artifact matrix expectations.
+- Added wrapper-first script migration rules for future structure cleanup.
+
+Safety impact:
+
+- Documentation-only change.
+- No active project paths, scripts, image payloads, ROMs, saves, or manifests
+  were modified.
+
 ## 2026-06-12 Uploaded Replacement Recheck
 
 - Branch: `codex/bootstrap-toolkit`

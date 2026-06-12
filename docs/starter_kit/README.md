@@ -18,3 +18,11 @@ Start with:
 The agent spec is derived from `docs/retrospective/failure_modes.md`, but it is
 written so it can be copied to a new GBA localization repo without this
 project's data.
+
+Recent lessons already folded into the spec:
+
+- command-stream script banks need record-span and boundary validation;
+- uploaded replacement payloads need a current active-reference manifest before
+  pruning;
+- local ROM/save/savestate artifacts need an explicit keep matrix;
+- public script paths should move by compatibility wrapper, not broad rename.
