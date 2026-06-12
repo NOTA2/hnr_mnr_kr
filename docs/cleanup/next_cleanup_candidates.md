@@ -50,7 +50,7 @@ Current artifact:
 
 - `docs/structure/script_transition_audit.md`
 - `docs/structure/script_move_readiness.md`
-- `scripts/{build,audit,text,image,font,runtime,workbench}/README.md`
+- `scripts/{build,audit,text,image,font,runtime,workbench,layout,archive}/README.md`
 - `docs/structure/data_role_inventory.md`
 
 Why this is next:
@@ -172,5 +172,7 @@ Candidate 2 is now in progress: active scripts have been classified without
 moving active GUI/build paths. The first wrapper pilot is complete for the
 read-only GUI workflow audit. The next safe structure step is either another
 read-only audit wrapper after checking report outputs, or continued image-source
-manifest work if gameplay QA needs image cleanup first. Do not move GUI, ROM
-build, image apply, patch creation, font, or runtime scripts next.
+manifest work if gameplay QA needs image cleanup first. README-only placeholders
+now exist for layout/dialogue reports and archive candidates, but no scripts
+should move there until outputs and retrospective value are classified. Do not
+move GUI, ROM build, image apply, patch creation, font, or runtime scripts next.

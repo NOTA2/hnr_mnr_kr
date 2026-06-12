@@ -68,6 +68,8 @@ Proposed groups:
 - `scripts/font/`: font atlas, glyph, charset, HUD font operations.
 - `scripts/runtime/`: emulator/savestate/tilemap runtime capture tooling.
 - `scripts/workbench/`: local GUI server and sync/import helpers.
+- `scripts/layout/`: text-box layout, dialogue metadata, and runtime dialogue
+  family reports.
 - `scripts/archive/`: one-off historical scripts.
 
 Completed so far:
@@ -79,6 +81,9 @@ Completed so far:
 - Completed the first wrapper pilot by moving the
   `audit_gui_workflow_integrity.py` implementation into `scripts/audit/` while
   keeping the old top-level command path as a compatibility wrapper.
+- Added README-only `scripts/layout/` and `scripts/archive/` placeholders so
+  layout/dialogue report scripts and one-off historical scripts have explicit
+  future homes before any moves.
 - Kept GUI, build, font, image, text, and runtime groups blocked or on hold
   during active QA.
 

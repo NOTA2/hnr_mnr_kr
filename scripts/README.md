@@ -21,6 +21,8 @@ The future group directories now exist as placeholders:
 - `scripts/font/`
 - `scripts/runtime/`
 - `scripts/workbench/`
+- `scripts/layout/`
+- `scripts/archive/`
 
 Only the audit group has started a wrapper pilot. Current command paths stay at
 `scripts/<name>.py` and `scripts/<name>.sh`.

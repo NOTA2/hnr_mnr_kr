@@ -2,6 +2,24 @@
 
 Date: 2026-06-02 KST
 
+## 2026-06-12 Script Placeholder Completion Checkpoint
+
+- Branch: `codex/bootstrap-toolkit`
+- `scripts/`: about `1.5M`, `131` tracked files after this docs-only addition
+
+Completed in this checkpoint:
+
+- Added README-only `scripts/layout/` and `scripts/archive/` placeholders.
+- Documented layout/dialogue report scripts separately from runtime emulator
+  tools.
+- Documented archive candidates without moving or deleting historical scripts.
+
+Safety impact:
+
+- No active script command path changed.
+- No GUI, ROM build, image apply, patch creation, font, text sync/import, or
+  runtime implementation moved.
+
 ## 2026-06-12 Audit Wrapper Pilot Checkpoint
 
 - Branch: `codex/bootstrap-toolkit`

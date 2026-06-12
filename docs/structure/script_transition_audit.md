@@ -15,12 +15,14 @@ script grouping can happen later without breaking active QA or the GUI.
 
 ## Current Shape
 
-- Tracked files under `scripts/`: `129` after the first wrapper pilot.
+- Tracked files under `scripts/`: `131` after the first wrapper pilot and
+  layout/archive placeholder READMEs.
 - Top-level scripts are still the active command surface.
 - `scripts/audit/` now contains the first grouped implementation:
   `audit_gui_workflow_integrity.py`.
 - Other group directories remain README placeholders:
-  `build`, `text`, `image`, `font`, `runtime`, and `workbench`.
+  `build`, `text`, `image`, `font`, `runtime`, `workbench`, `layout`, and
+  `archive`.
 
 ## Hard Active Entry Points
 

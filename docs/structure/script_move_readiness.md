@@ -42,6 +42,7 @@ These files must stay callable at their current paths during active QA:
 | `scripts/image/` | `HOLD` | Image replacement is active, and broad image inventory data is still being reduced with manifest gates. | Finish manifest-backed image cleanup gates, keep `apply_image_replacements.py` stable, and run both image manifest and GUI audits after any path change. |
 | `scripts/text/` | `HOLD` | Workbench sync/import scripts are active, and Entry8/Registry D one-off lessons still feed retrospective docs. | Separate active sync/import commands from one-off historical scripts, then create wrappers before moving implementations. |
 | `scripts/runtime/` | `HOLD` | Emulator, savestate, and runtime visual capture tooling may still be needed while gameplay QA is open. | Document local runtime setup such as `MGBA_BIN`, keep local paths ignored, and move only after runtime QA closes or wrappers exist. |
+| `scripts/layout/` | `HOLD` | Layout and dialogue runtime reports may be QA context, retrospective evidence, or regenerated indexes depending on the file. | Classify each report output before moving the generator, then keep top-level wrappers for any documented command. |
 | `scripts/archive/` | `PENDING` | Historical one-offs may still explain repeated failure modes. | Summarize the lesson in `docs/retrospective/` before archiving or deleting. |
 
 ## Completed Pilot
