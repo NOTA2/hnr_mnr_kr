@@ -292,3 +292,33 @@ Current decision:
 - Keep `current_review_font_ready.gba` and `current_review_text_fast_translated.gba`
   while fast rebuild and image-apply scripts refer to them.
 - Keep `.sav` files for now. They are tiny and may still help reproduce QA state.
+
+## Local Ignored Runtime Cleanup: 2026-06-12
+
+After the script/analysis structure cleanup, the local ignored runtime set was
+checked again.
+
+Removed local-only ignored files:
+
+- `patched_roms/current_review/hnr_localization_review.sa2` (`0` bytes)
+- `patched_roms/current_review/hnr_localization_review-0.png` (`28,622` bytes)
+
+Reason:
+
+- Neither file was tracked by Git.
+- Both paths were ignored by `.gitignore`.
+- Exact reference search across project docs, scripts, confirmed data, tools,
+  package code, and analysis files found no hits.
+
+Remaining local `.gba` files:
+
+- `Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba`
+- `local_roms/english_patched/Fullmetal Alchemist Stray Rondo (English Patched v0.02).gba`
+- `patched_roms/current_review/current_review_font_ready.gba`
+- `patched_roms/current_review/current_review_text_fast_translated.gba`
+- `patched_roms/current_review/hnr_localization_review.gba`
+
+Current decision:
+
+- Do not delete more local ROMs during active QA.
+- See `local_runtime_artifacts_matrix.md` for the current keep/hold matrix.

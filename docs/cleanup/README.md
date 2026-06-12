@@ -68,6 +68,8 @@ further cleanup batch.
 - `uploaded_replacements_audit.md`: active uploaded image replacement tracking.
 - `local_ignored_cleanup.md`: non-destructive ignored-file cleanup preview.
 - `local_rom_audit.md`: ignored local `.gba` inventory and cleanup candidates.
+- `local_runtime_artifacts_matrix.md`: current ignored ROM/save/savestate/report
+  keep decisions after local cleanup batches.
 - `generated_workbenches_audit.md`: generated workbench bulk cleanup plan.
 - `image_inventory_audit.md`: image inventory cleanup risk classification.
 - `image_inventory_prune_plan.md`: item-level manifest-based image pruning plan.

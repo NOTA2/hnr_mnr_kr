@@ -119,6 +119,8 @@ Action:
 
 - Keep the current 11 ignored path families unless QA closes or the user asks for
   a local machine cleanup.
+- Use `local_runtime_artifacts_matrix.md` for the current ROM/save/savestate and
+  current-review report decisions.
 
 Why this is safe:
 
@@ -181,3 +183,5 @@ should move there until outputs and retrospective value are classified. Do not
 move GUI, ROM build, image apply, patch creation, font, or runtime scripts next.
 For analysis cleanup, summarize the largest structure reports before deleting
 raw JSON evidence.
+For ignored local cleanup, no more ROM/save/savestate cleanup is recommended
+during active QA; only exact-reference-checked leftovers should be removed.

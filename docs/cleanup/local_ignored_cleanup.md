@@ -65,6 +65,23 @@ New location:
 
 After the move, the empty `generated-images/` directories were removed locally.
 
+## Executed Batch 5
+
+Date: 2026-06-12 KST
+
+Deleted two local ignored runtime leftovers after exact-reference checks:
+
+- `patched_roms/current_review/hnr_localization_review.sa2` (`0` bytes)
+- `patched_roms/current_review/hnr_localization_review-0.png` (`28,622` bytes)
+
+Safety checks:
+
+- Both paths were ignored by `.gitignore`.
+- Neither path was tracked by Git.
+- Direct reference search found no hits outside the cleanup update itself.
+- No `.gba`, `.sav`, `.ss*`, source script, image replacement payload, or active
+  manifest was removed.
+
 ## Ignored File Count
 
 Ignored-but-present paths before batch 1: `3,605`

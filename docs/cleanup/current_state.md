@@ -2,6 +2,29 @@
 
 Date: 2026-06-02 KST
 
+## 2026-06-12 Local Runtime Artifact Checkpoint
+
+- Branch: `codex/bootstrap-toolkit`
+- Current local `.gba` files after cleanup: `5`
+- Added `docs/cleanup/local_runtime_artifacts_matrix.md`.
+
+Completed in this checkpoint:
+
+- Rechecked local ROM/save/savestate/report files against current script and
+  data references.
+- Removed two ignored, untracked local leftovers:
+  - `patched_roms/current_review/hnr_localization_review.sa2` (`0` bytes)
+  - `patched_roms/current_review/hnr_localization_review-0.png` (`28,622` bytes)
+- Recorded that remaining local `.gba`, `.sav`, `.ss*`, current-review reports,
+  and English reference files should stay during active QA.
+
+Safety impact:
+
+- No tracked files were removed.
+- No `.gba`, `.sav`, or `.ss*` files were removed in this batch.
+- Active GUI, build, image apply, patch creation, and review ROM paths remain
+  unchanged.
+
 ## 2026-06-12 Entry8 VM Retrospective Checkpoint
 
 - Branch: `codex/bootstrap-toolkit`
