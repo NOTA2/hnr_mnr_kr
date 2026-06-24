@@ -17,7 +17,6 @@ from gba_kor_tool.translation_normalization import normalize_translation_text
 
 WORKBENCH_DIR = ROOT / "confirmed_data" / "localization_workbench"
 DATASET_PATH = WORKBENCH_DIR / "workbench_dataset.json"
-SPEAKERS_PATH = WORKBENCH_DIR / "speaker_aliases.json"
 IMPORT_REPORT_DIR = WORKBENCH_DIR / "import_reports"
 
 

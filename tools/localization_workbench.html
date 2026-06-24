@@ -170,7 +170,7 @@
     }
     h1 { font-size: 18px; }
     h2 { font-size: 15px; }
-    .category, .item, .speaker {
+    .category, .item {
       border: 1px solid var(--line);
       background: rgba(255,255,255,0.02);
       padding: 10px;
@@ -193,7 +193,7 @@
       background: rgba(117,199,177,0.12);
       color: var(--text);
     }
-    .category.active, .item.active, .speaker.active {
+    .category.active, .item.active {
       border-color: var(--accent);
       box-shadow: 0 0 0 1px var(--accent) inset;
       background: rgba(117,199,177,0.08);
@@ -1090,8 +1090,6 @@
         <button id="exportDraftsBtn">임시 변경 백업</button>
         <button id="importDraftsBtn">백업 불러오기</button>
         <input id="draftBackupFile" type="file" accept="application/json" class="hidden" />
-        <button id="saveSpeakerBtn">토큰 화자 저장</button>
-        <button id="saveSpeakerRegistryBtn">화자 목록 저장</button>
         <button id="saveProgressBtn">현재 위치 저장</button>
         <button id="applyDraftBtn" class="primary">에이전트 초안 → 적용 번역</button>
       </div>
@@ -1158,33 +1156,9 @@
             </label>
           </div>
           <div class="section">
-            <h3>화자 / 상태 토큰</h3>
-            <div id="speakerMeta" class="meta"></div>
-            <div id="speakerFamilyMeta" class="meta"></div>
-            <label>이 토큰에 연결할 화자
-              <select id="speakerSelect"></select>
-            </label>
-            <label>토큰 메모
-              <textarea id="speakerNotes"></textarea>
-            </label>
-            <button id="applySpeakerFamilyBtn" type="button">같은 초상화군 토큰에도 적용</button>
-            <div class="small">화자 이름은 직접 입력하지 말고, 아래 화자 목록에 등록한 뒤 여기서 선택합니다.</div>
-          </div>
-          <div class="section">
-            <h3>화자 목록 관리</h3>
-            <label>등록된 화자
-              <select id="speakerRegistrySelect"></select>
-            </label>
-            <button id="newSpeakerRegistryBtn">새 화자 입력 초기화</button>
-            <label>화자 이름
-              <input id="registrySpeakerName" placeholder="예: 에드워드 엘릭">
-            </label>
-            <label>역할/설명
-              <input id="registrySpeakerRole" placeholder="예: 주인공 / 군인 / NPC">
-            </label>
-            <label>화자 메모
-              <textarea id="registrySpeakerNotes"></textarea>
-            </label>
+            <h3>상태 토큰</h3>
+            <div id="dialogueStateMeta" class="meta"></div>
+            <div class="small">dialogue_state_token 은 화자 확정값이 아니라 같은 대사 상태 후보를 묶는 참고 정보입니다.</div>
           </div>
         </div>
 
@@ -1516,9 +1490,6 @@
       categoryId: null,
       categoryKindFilter: "all",
       itemId: null,
-      speakerRegistry: [],
-      speakers: [],
-      speakerMap: new Map(),
       draftItems: new Map(),
       dirtyItemIds: new Set(),
       itemPage: 0,
@@ -1588,8 +1559,6 @@
     const exportDraftsBtn = document.getElementById("exportDraftsBtn");
     const importDraftsBtn = document.getElementById("importDraftsBtn");
     const draftBackupFile = document.getElementById("draftBackupFile");
-    const saveSpeakerBtn = document.getElementById("saveSpeakerBtn");
-    const saveSpeakerRegistryBtn = document.getElementById("saveSpeakerRegistryBtn");
     const saveProgressBtn = document.getElementById("saveProgressBtn");
     const applyDraftBtn = document.getElementById("applyDraftBtn");
     const importTranslationBtn = document.getElementById("importTranslationBtn");
@@ -1636,15 +1605,7 @@
     const progressStatus = document.getElementById("progressStatus");
     const reviewStatus = document.getElementById("reviewStatus");
     let reviewInclusionWarning = null;
-    const speakerMeta = document.getElementById("speakerMeta");
-    const speakerFamilyMeta = document.getElementById("speakerFamilyMeta");
-    const speakerSelect = document.getElementById("speakerSelect");
-    const speakerNotes = document.getElementById("speakerNotes");
-    const applySpeakerFamilyBtn = document.getElementById("applySpeakerFamilyBtn");
-    const speakerRegistrySelect = document.getElementById("speakerRegistrySelect");
-    const registrySpeakerName = document.getElementById("registrySpeakerName");
-    const registrySpeakerRole = document.getElementById("registrySpeakerRole");
-    const registrySpeakerNotes = document.getElementById("registrySpeakerNotes");
+    const dialogueStateMeta = document.getElementById("dialogueStateMeta");
 
     const imageTitle = document.getElementById("imageTitle");
     const imageMeta = document.getElementById("imageMeta");
@@ -1801,11 +1762,8 @@
         validateDraftsBtn,
         exportDraftsBtn,
         importDraftsBtn,
-        saveSpeakerBtn,
-        saveSpeakerRegistryBtn,
         saveProgressBtn,
         applyDraftBtn,
-        applySpeakerFamilyBtn,
         openAuditReviewBtn,
         importTranslationBtn,
         applyImagesBtn,
@@ -3726,12 +3684,6 @@
       state.categories = state.bundle.dataset.categories;
       state.items = state.bundle.dataset.items;
       rebuildItemIndex();
-      state.speakerRegistry = state.bundle.speaker_registry || [];
-      state.speakers = state.bundle.speakers || [];
-      state.speakerMap = new Map(
-        state.speakers.map((item) => [item.dialogue_state_token, item])
-      );
-      renderSpeakerRegistryOptions();
       fontInfo.textContent = `active font: ${state.bundle.dataset.active_font.label || "unknown"}`;
       const autoImport = state.bundle.auto_import_summary || { imported_count: 0 };
       if (autoImport.imported_count > 0) {
@@ -3942,55 +3894,6 @@
           임시 변경 ${stats.dirty}개 / 글자수 초과 ${stats.overLimit}개 / 길이 확장 가능 ${stats.repointCapable}개
         </div>
       `;
-    }
-
-    function renderSpeakerRegistryOptions(selectedSpeakerId = "") {
-      const options = ['<option value="">-- 미지정 --</option>'];
-      for (const speaker of state.speakerRegistry) {
-        const selected = speaker.speaker_id === selectedSpeakerId ? "selected" : "";
-        const role = speaker.speaker_role ? ` / ${speaker.speaker_role}` : "";
-        options.push(`<option value="${speaker.speaker_id}" ${selected}>${speaker.speaker_name}${role}</option>`);
-      }
-      speakerSelect.innerHTML = options.join("");
-      speakerRegistrySelect.innerHTML = options.join("");
-    }
-
-    function getSpeakerAlias(token) {
-      return token ? state.speakerMap.get(token) : null;
-    }
-
-    function getRelatedSpeakerAliases(token) {
-      const current = getSpeakerAlias(token);
-      if (!current?.speaker_family_token || !current.portrait_variant_candidate) {
-        return [];
-      }
-      return state.speakers.filter(
-        (item) =>
-          item.speaker_family_token === current.speaker_family_token &&
-          item.portrait_variant_candidate
-      );
-    }
-
-    function renderSpeakerFamilyInfo(token) {
-      const current = getSpeakerAlias(token);
-      const related = getRelatedSpeakerAliases(token);
-      if (!current || !related.length) {
-        speakerFamilyMeta.textContent = token ? "초상화군 후보 없음" : "";
-        applySpeakerFamilyBtn.disabled = true;
-        return;
-      }
-      const variants = related
-        .map((item) => {
-          const marker = item.dialogue_state_token === token ? "*" : "";
-          const linked = item.speaker_id
-            ? state.speakerRegistry.find((speaker) => speaker.speaker_id === item.speaker_id)?.speaker_name || item.speaker_id
-            : "미지정";
-          return `${item.dialogue_state_token}${marker}=${linked}`;
-        })
-        .join(", ");
-      speakerFamilyMeta.textContent =
-        `초상화군 후보 ${current.speaker_family_token} / 현재 변형 ${current.portrait_variant || "-"} / ${related.length}개: ${variants}`;
-      applySpeakerFamilyBtn.disabled = !speakerSelect.value || related.length <= 1;
     }
 
     function renderCategories() {
@@ -4682,22 +4585,7 @@
       renderTermDescriptionEditor(item);
       updateTranslationLimitMeter();
       const token = item.dialogue_state_token;
-      const hasSpeakerToken = Boolean(token);
-      if (token && state.speakerMap.has(token)) {
-        const speaker = state.speakerMap.get(token);
-        const linkedSpeaker = state.speakerRegistry.find((entry) => entry.speaker_id === speaker.speaker_id);
-        speakerMeta.textContent = `dialogue_state_token: ${token}${linkedSpeaker ? ` / 연결 화자: ${linkedSpeaker.speaker_name}` : ""}`;
-        renderSpeakerRegistryOptions(speaker.speaker_id || "");
-        speakerNotes.value = speaker.notes || "";
-      } else {
-        speakerMeta.textContent = token ? `dialogue_state_token: ${token}` : "dialogue_state_token 없음";
-        renderSpeakerRegistryOptions("");
-        speakerNotes.value = "";
-      }
-      speakerSelect.disabled = !hasSpeakerToken;
-      speakerNotes.disabled = !hasSpeakerToken;
-      document.getElementById("saveSpeakerBtn").disabled = !hasSpeakerToken;
-      renderSpeakerFamilyInfo(token);
+      dialogueStateMeta.textContent = token ? `dialogue_state_token: ${token}` : "dialogue_state_token 없음";
     }
 
     function renderImageItem(item) {
@@ -6280,102 +6168,6 @@
       });
     }
 
-    async function saveSpeakerToken(token, speakerId, notes) {
-      const payload = {
-        dialogue_state_token: token,
-        speaker_id: speakerId,
-        notes,
-        confirmed: Boolean(speakerId),
-      };
-      return await fetchJson("/speaker", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-    }
-
-    async function saveSpeaker() {
-      setStatus("화자 연결 저장 중...");
-      const item = state.items.find((entry) => entry.item_id === state.itemId);
-      if (!item || !item.dialogue_state_token) {
-        setStatus("이 항목에는 dialogue_state_token 이 없어 화자 연결을 저장하지 않습니다.", "ok");
-        return;
-      }
-      const saved = await saveSpeakerToken(item.dialogue_state_token, speakerSelect.value, speakerNotes.value);
-      state.speakerMap.set(saved.dialogue_state_token, saved);
-      renderTextItem(item);
-      setStatus("화자 연결 저장 완료", "ok");
-    }
-
-    async function applySpeakerToFamily() {
-      setStatus("같은 초상화군 토큰에 화자 적용 중...");
-      const item = state.items.find((entry) => entry.item_id === state.itemId);
-      if (!item || !item.dialogue_state_token || !speakerSelect.value) {
-        setStatus("적용할 화자 토큰 또는 선택된 화자가 없습니다.", "ok");
-        return;
-      }
-      const related = getRelatedSpeakerAliases(item.dialogue_state_token);
-      for (const alias of related) {
-        const notes = alias.dialogue_state_token === item.dialogue_state_token
-          ? speakerNotes.value
-          : alias.notes || "";
-        const saved = await saveSpeakerToken(alias.dialogue_state_token, speakerSelect.value, notes);
-        state.speakerMap.set(saved.dialogue_state_token, saved);
-      }
-      state.speakers = state.speakers.map(
-        (alias) => state.speakerMap.get(alias.dialogue_state_token) || alias
-      );
-      const linkedSpeaker = state.speakerRegistry.find((entry) => entry.speaker_id === speakerSelect.value);
-      renderTextItem(item);
-      setStatus(
-        `초상화군 후보 ${related.length}개에 ${linkedSpeaker?.speaker_name || speakerSelect.value} 적용 완료`,
-        "ok"
-      );
-    }
-
-    function fillSpeakerRegistryForm(speakerId) {
-      const speaker = state.speakerRegistry.find((entry) => entry.speaker_id === speakerId);
-      if (!speaker) {
-        speakerRegistrySelect.value = "";
-        registrySpeakerName.value = "";
-        registrySpeakerRole.value = "";
-        registrySpeakerNotes.value = "";
-        return;
-      }
-      speakerRegistrySelect.value = speaker.speaker_id;
-      registrySpeakerName.value = speaker.speaker_name || "";
-      registrySpeakerRole.value = speaker.speaker_role || "";
-      registrySpeakerNotes.value = speaker.notes || "";
-    }
-
-    async function saveSpeakerRegistry() {
-      setStatus("화자 목록 저장 중...");
-      const payload = {
-        speaker_id: speakerRegistrySelect.value,
-        speaker_name: registrySpeakerName.value,
-        speaker_role: registrySpeakerRole.value,
-        notes: registrySpeakerNotes.value,
-      };
-      const saved = await fetchJson("/speaker-registry", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(payload),
-      });
-      const index = state.speakerRegistry.findIndex((entry) => entry.speaker_id === saved.speaker_id);
-      if (index >= 0) {
-        state.speakerRegistry[index] = saved;
-      } else {
-        state.speakerRegistry.push(saved);
-      }
-      renderSpeakerRegistryOptions(saved.speaker_id);
-      fillSpeakerRegistryForm(saved.speaker_id);
-      setStatus("화자 목록 저장 완료", "ok");
-    }
-
-    function newSpeakerRegistry() {
-      fillSpeakerRegistryForm("");
-    }
-
     async function saveProgress() {
       setStatus("현재 위치 저장 중...");
       const payload = {
@@ -6751,9 +6543,6 @@
         draftBackupFile.value = "";
       }
     ).catch((error) => setStatus(error.message, "error"));
-    saveSpeakerBtn.onclick = () => runExclusiveAction("토큰 화자 저장", saveSpeaker).catch((error) => setStatus(error.message, "error"));
-    applySpeakerFamilyBtn.onclick = () => runExclusiveAction("초상화군 화자 적용", applySpeakerToFamily).catch((error) => setStatus(error.message, "error"));
-    saveSpeakerRegistryBtn.onclick = () => runExclusiveAction("화자 목록 저장", saveSpeakerRegistry).catch((error) => setStatus(error.message, "error"));
     saveProgressBtn.onclick = () => runExclusiveAction("현재 위치 저장", saveProgress).catch((error) => setStatus(error.message, "error"));
     importTranslationBtn.onclick = () => runExclusiveAction("번역 결과 가져오기", importTranslationResults).catch((error) => setStatus(error.message, "error"));
     applyImagesBtn.onclick = () => runExclusiveAction("이미지 교체 전체 적용", applyImagesNow).catch((error) => setStatus(error.message, "error"));
@@ -6962,18 +6751,12 @@
       const eventName = node.tagName === "SELECT" || node.type === "checkbox" ? "change" : "input";
       node.addEventListener(eventName, () => renderImageComposer());
     });
-    document.getElementById("newSpeakerRegistryBtn").onclick = () => newSpeakerRegistry();
     window.addEventListener("beforeunload", (event) => {
       collectCurrentItemIntoDraft();
       if (!state.dirtyItemIds.size) return;
       event.preventDefault();
       event.returnValue = "";
     });
-    speakerRegistrySelect.onchange = () => fillSpeakerRegistryForm(speakerRegistrySelect.value);
-    speakerSelect.onchange = () => {
-      const item = state.items.find((entry) => entry.item_id === state.itemId);
-      renderSpeakerFamilyInfo(item?.dialogue_state_token);
-    };
     itemSearch.oninput = () => {
       state.itemSearch = itemSearch.value;
       state.itemPage = 0;

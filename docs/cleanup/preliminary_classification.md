@@ -13,7 +13,6 @@ the project is still active.
 - `confirmed_data/localization_workbench/workbench_dataset.json`
 - `confirmed_data/localization_workbench/image_replacements.json`
 - `confirmed_data/localization_workbench/progress_state.json`
-- `confirmed_data/localization_workbench/speaker_*.json`
 - `confirmed_data/extracted_texts/`
 - `confirmed_data/translation_workspace/` current manifests, audits, and active
   translation batches
@@ -23,6 +22,15 @@ the project is still active.
 - `third_party/font_atlases/`
 - `third_party/gba_free_fonts/`
 - `README.md`, `.gitignore`
+
+Removed from KEEP after tool cleanup:
+
+- `confirmed_data/localization_workbench/speaker_aliases.json`
+- `confirmed_data/localization_workbench/speaker_registry.json`
+
+These belonged to the manual speaker assignment UI, which was removed because
+the project kept using `dialogue_state_token` only as read-only state evidence,
+not as confirmed speaker metadata.
 
 ## KEEP WITH CAUTION
 

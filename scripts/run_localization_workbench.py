@@ -41,8 +41,6 @@ SOURCE_ROM_PATH = ROOT / "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba
 CURRENT_REVIEW_ROM_RELATIVE = "patched_roms/current_review/hnr_localization_review.gba"
 RELEASES_DIR = ROOT / "releases"
 DEFAULT_RELEASE_NAME = "hnr_mnr_ko_v0.1.0"
-SPEAKERS_PATH = WORKBENCH_DIR / "speaker_aliases.json"
-SPEAKER_REGISTRY_PATH = WORKBENCH_DIR / "speaker_registry.json"
 PROGRESS_PATH = WORKBENCH_DIR / "progress_state.json"
 IMAGE_REPLACEMENTS_PATH = WORKBENCH_DIR / "image_replacements.json"
 UPLOADS_ROOT = WORKBENCH_DIR / "uploaded_image_replacements"
@@ -354,8 +352,6 @@ class WorkbenchStore:
 
     def reload(self) -> None:
         self.dataset = load_json(DATASET_PATH)
-        self.speakers = load_json(SPEAKERS_PATH)
-        self.speaker_registry = load_json(SPEAKER_REGISTRY_PATH)
         self.progress = load_json(PROGRESS_PATH)
         self.image_replacements = load_json(IMAGE_REPLACEMENTS_PATH)
         common_hud_defaults = common_hud_tile_asset_defaults()
@@ -412,8 +408,6 @@ class WorkbenchStore:
         return index
 
     def reload_sidecars(self) -> None:
-        self.speakers = load_json(SPEAKERS_PATH)
-        self.speaker_registry = load_json(SPEAKER_REGISTRY_PATH)
         self.progress = load_json(PROGRESS_PATH)
         self.image_replacements = load_json(IMAGE_REPLACEMENTS_PATH)
         common_hud_defaults = common_hud_tile_asset_defaults()
@@ -474,8 +468,6 @@ class WorkbenchStore:
                             item[field] = sidecar[field]
         return {
             "dataset": dataset,
-            "speakers": self.speakers,
-            "speaker_registry": self.speaker_registry,
             "progress": self.progress,
             "image_replacements": self.image_replacements,
             "auto_import_summary": self.last_auto_import_summary,
@@ -783,42 +775,6 @@ class WorkbenchStore:
             write_json(DATASET_PATH, self.dataset)
             raise
         return saved_items + saved_special_items
-
-    def save_speaker(self, token: str, updates: dict[str, Any]) -> dict[str, Any]:
-        for item in self.speakers:
-            if item["dialogue_state_token"] == token:
-                for field in ("speaker_id", "notes", "confirmed", "speaker_name", "speaker_role"):
-                    if field in updates:
-                        item[field] = updates[field]
-                write_json(SPEAKERS_PATH, self.speakers)
-                return item
-        raise KeyError(token)
-
-    def save_speaker_registry(self, payload: dict[str, Any]) -> dict[str, Any]:
-        speaker_id = payload.get("speaker_id", "").strip()
-        speaker_name = payload.get("speaker_name", "").strip()
-        if not speaker_name:
-            raise ValueError("speaker_name is required")
-        if not speaker_id:
-            speaker_id = f"speaker_{len(self.speaker_registry) + 1:03d}"
-
-        for item in self.speaker_registry:
-            if item["speaker_id"] == speaker_id:
-                item["speaker_name"] = speaker_name
-                item["speaker_role"] = payload.get("speaker_role", "")
-                item["notes"] = payload.get("notes", "")
-                write_json(SPEAKER_REGISTRY_PATH, self.speaker_registry)
-                return item
-
-        new_item = {
-            "speaker_id": speaker_id,
-            "speaker_name": speaker_name,
-            "speaker_role": payload.get("speaker_role", ""),
-            "notes": payload.get("notes", ""),
-        }
-        self.speaker_registry.append(new_item)
-        write_json(SPEAKER_REGISTRY_PATH, self.speaker_registry)
-        return new_item
 
     def save_progress(self, updates: dict[str, Any]) -> dict[str, Any]:
         for field in ("current_category_id", "current_item_id", "last_built_rom"):
@@ -1615,14 +1571,6 @@ def make_handler(store: WorkbenchStore):
                 if parsed.path == "/sync-sources":
                     store.sync_sources()
                     self._json({"ok": True})
-                    return
-                if parsed.path == "/speaker":
-                    result = store.save_speaker(payload["dialogue_state_token"], payload)
-                    self._json(result)
-                    return
-                if parsed.path == "/speaker-registry":
-                    result = store.save_speaker_registry(payload)
-                    self._json(result)
                     return
                 if parsed.path == "/progress":
                     result = store.save_progress(payload)

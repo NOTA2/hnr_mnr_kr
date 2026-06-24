@@ -1,6 +1,6 @@
 # Localization Workbench
 
-이 문서는 **사람이 직접 번역/수정/화자 라벨링/이미지 교체 후보 관리**를 할 수 있도록 만든 작업대의 사용법을 정리한다.
+이 문서는 **사람이 직접 번역/수정/진행 상태/이미지 교체 후보 관리**를 할 수 있도록 만든 작업대의 사용법을 정리한다.
 
 ## 목적
 
@@ -8,7 +8,6 @@
 
 - 카테고리별 텍스트 관리
 - 대사 항목의 `dialogue_state_token` 확인
-- 사람이 직접 붙이는 화자 이름/역할 저장
 - 번역 에이전트 초안과 최종 적용 번역 분리
 - 수동 잠금으로 사람이 확정한 번역 보호
 - 진행 상태 저장
@@ -99,8 +98,6 @@ http://127.0.0.1:8766
 ## 주요 파일
 
 - [workbench_dataset.json](/Users/user/test/confirmed_data/localization_workbench/workbench_dataset.json)
-- [speaker_aliases.json](/Users/user/test/confirmed_data/localization_workbench/speaker_aliases.json)
-- [speaker_registry.json](/Users/user/test/confirmed_data/localization_workbench/speaker_registry.json)
 - [progress_state.json](/Users/user/test/confirmed_data/localization_workbench/progress_state.json)
 - [image_replacements.json](/Users/user/test/confirmed_data/localization_workbench/image_replacements.json)
 - [uploaded_image_replacements](/Users/user/test/confirmed_data/localization_workbench/uploaded_image_replacements)
@@ -210,12 +207,12 @@ http://127.0.0.1:8766
 - `RLE 레이아웃 비교 시트`, `RLE 전체 후보 시트`, 전체 갤러리처럼 사람이 판별하기 어려운 대량 시트는 GUI에 노출하지 않는다.
 - GUI에는 `0x005323AC` 같은 교체 가능한 개별 ROM 오프셋 후보와 그 미리보기만 남긴다.
 
-## 화자 관리 방식
+## 상태 토큰 방식
 
-- `dialogue_state_token` 은 여전히 객관적 상태 토큰이다.
-- 실제 화자명은 **`speaker_registry.json` 에 먼저 등록**한다.
-- 각 대사 토큰에는 GUI에서 **등록된 화자를 선택**해 연결한다.
-- 이렇게 해서 자유 입력 오타를 줄이고, 같은 캐릭터 표기를 일관되게 유지한다.
+- `dialogue_state_token` 은 객관적 상태 토큰이다.
+- GUI는 이 값을 읽기 전용 참고 정보로 보여준다.
+- 화자명 확정/연결 UI는 실제 번역 QA에 도움이 크지 않아 제거했다.
+- 말투 판단이 필요하면 확정 화자명 대신 장면 맥락과 state/run sidecar 를 참고한다.
 
 ### 이미지
 
@@ -229,7 +226,7 @@ http://127.0.0.1:8766
 ## 주의
 
 - `dialogue_state_token` 은 화자 이름 확정값이 아니다.
-- 사람이 직접 “이 토큰은 이 캐릭터다”라고 붙이는 보조 레이어를 따로 저장한다.
+- GUI는 더 이상 사람이 직접 “이 토큰은 이 캐릭터다”라고 붙이는 보조 레이어를 저장하지 않는다.
 - 이미지 파일 교체는 현재 **업로드/경로/메모/진행 상태 관리**까지 준비된 상태이며, 실제 ROM 삽입 루프는 다음 단계에서 연결한다.
 - 원본 이미지가 아직 추출되지 않은 항목은 미리보기에 “연결되지 않음”으로 보인다.
 - 원본 자산이 프로젝트 안 경로로 준비되면, 해당 경로를 이미지 항목에 넣는 즉시 비교/다운로드 UI가 활성화된다.

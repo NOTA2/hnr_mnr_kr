@@ -74,8 +74,6 @@ def audit_required_paths(audit: Audit) -> None:
         ("confirmed_data/localization_workbench/workbench_dataset.json", "GUI dataset"),
         ("confirmed_data/localization_workbench/image_replacements.json", "image replacement state"),
         ("confirmed_data/localization_workbench/progress_state.json", "GUI progress state"),
-        ("confirmed_data/localization_workbench/speaker_aliases.json", "speaker aliases"),
-        ("confirmed_data/localization_workbench/speaker_registry.json", "speaker registry"),
         ("confirmed_data/localization_workbench/uploaded_image_replacements", "uploaded image replacements"),
         ("analysis/generated_workbenches/current_review/prepared.tbl", "current review prepared table"),
         ("patched_roms/current_review/current_review_font_ready.gba", "font-ready review ROM"),

@@ -34,8 +34,6 @@ FONT_PROFILE = DATA_ROOT / "font_assets" / "active_hangul_font_profile.json"
 SOURCE_ROM = ROOT / "Hagane no Renkinjutsushi - Meisou no Rondo (Japan).gba"
 
 OUT_DATASET = WORKSPACE_ROOT / "workbench_dataset.json"
-OUT_SPEAKERS = WORKSPACE_ROOT / "speaker_aliases.json"
-OUT_SPEAKER_REGISTRY = WORKSPACE_ROOT / "speaker_registry.json"
 OUT_PROGRESS = WORKSPACE_ROOT / "progress_state.json"
 OUT_IMAGE = WORKSPACE_ROOT / "image_replacements.json"
 OUT_README = WORKSPACE_ROOT / "README.md"
@@ -105,168 +103,6 @@ def ensure_pillow_runtime_for_direct_run() -> None:
         return
     env = {key: value for key, value in os.environ.items() if key != "PYTHONPATH"}
     os.execve(pillow_python, [pillow_python, *sys.argv], env)
-
-PORTRAIT_VARIANT_TOKEN_RE = re.compile(r"^(?P<prefix>[^:]+):(?P<person>\d+)(?P<variant>[A-Z])$")
-
-DEFAULT_SPEAKER_REGISTRY = [
-    {
-        "speaker_id": "edward_elric",
-        "speaker_name": "에드워드 엘릭",
-        "speaker_role": "주인공 / 국가 연금술사",
-        "notes": "애칭: 에드. 기본 반말, 짧고 직설적이며 자신감 있는 말투.",
-    },
-    {
-        "speaker_id": "alphonse_elric",
-        "speaker_name": "알폰스 엘릭",
-        "speaker_role": "주인공 / 에드워드의 동생",
-        "notes": "애칭: 알. 형에게는 '형'이라고 부르며, 부드럽고 차분한 말투.",
-    },
-    {
-        "speaker_id": "roy_mustang",
-        "speaker_name": "로이 머스탱",
-        "speaker_role": "군부 / 대령",
-        "notes": "대사에서는 '머스탱 대령' 가능. 군인답게 단정하고 냉정한 말투.",
-    },
-    {
-        "speaker_id": "riza_hawkeye",
-        "speaker_name": "리자 호크아이",
-        "speaker_role": "군부 / 중위",
-        "notes": "대사에서는 '호크아이 중위' 가능. 절제되고 정중한 군인 말투.",
-    },
-    {
-        "speaker_id": "alex_louis_armstrong",
-        "speaker_name": "알렉스 루이 암스트롱",
-        "speaker_role": "군부 / 소령",
-        "notes": "대사에서는 '암스트롱 소령' 가능. 장중하고 과장된 말투.",
-    },
-    {
-        "speaker_id": "king_bradley",
-        "speaker_name": "킹 브래드레이",
-        "speaker_role": "아메스트리스 / 대총통",
-        "notes": "대사에서는 '브래드레이 대총통' 가능. '브래들리' 표기 금지.",
-    },
-    {
-        "speaker_id": "winry_rockbell",
-        "speaker_name": "윈리 록벨",
-        "speaker_role": "오토메일 정비사",
-        "notes": "원작 캐릭터 표기 기준.",
-    },
-    {
-        "speaker_id": "rose_thomas",
-        "speaker_name": "로제 토마스",
-        "speaker_role": "리올 관련 인물",
-        "notes": "원작 캐릭터 표기 기준.",
-    },
-    {
-        "speaker_id": "cornello",
-        "speaker_name": "코넬로",
-        "speaker_role": "리올 / 교주",
-        "notes": "리올 종교 문맥의 인물.",
-    },
-    {
-        "speaker_id": "scar",
-        "speaker_name": "스카",
-        "speaker_role": "이슈발 관련 인물",
-        "notes": "원작 캐릭터 표기 기준.",
-    },
-    {
-        "speaker_id": "lust",
-        "speaker_name": "러스트",
-        "speaker_role": "호문쿨루스",
-        "notes": "원작 캐릭터 표기 기준.",
-    },
-    {
-        "speaker_id": "gluttony",
-        "speaker_name": "글러트니",
-        "speaker_role": "호문쿨루스",
-        "notes": "원작 캐릭터 표기 기준.",
-    },
-    {
-        "speaker_id": "jean_havoc",
-        "speaker_name": "쟝 하보크",
-        "speaker_role": "군부",
-        "notes": "원작 캐릭터 표기 기준. 성만 나올 때는 '하보크'.",
-    },
-    {
-        "speaker_id": "sheska",
-        "speaker_name": "셰스카",
-        "speaker_role": "원작 캐릭터",
-        "notes": "원작 캐릭터 표기 기준.",
-    },
-    {
-        "speaker_id": "elysia",
-        "speaker_name": "엘리시아",
-        "speaker_role": "원작 캐릭터",
-        "notes": "원작 캐릭터 표기 기준.",
-    },
-    {
-        "speaker_id": "black_hayate",
-        "speaker_name": "블랙 하야테 호",
-        "speaker_role": "원작 캐릭터 / 군견",
-        "notes": "화자 후보로 쓰일 가능성은 낮지만, 배경지식의 원작 캐릭터 표에 포함된 항목.",
-    },
-    {
-        "speaker_id": "corniche_lois",
-        "speaker_name": "코니슈 로이스",
-        "speaker_role": "게임 오리지널 / 히로인",
-        "notes": "원문 후보: コーニッシュ・ロイス / コニシュ・ロイス. 애칭: 코니. 초반에는 밝고 상냥한 말투.",
-    },
-    {
-        "speaker_id": "seraphy_lois",
-        "speaker_name": "세라피 로이스",
-        "speaker_role": "게임 오리지널 / 코니슈의 오빠",
-        "notes": "로이스 대령은 세라피 로이스를 가리키는 군 계급 호칭.",
-    },
-    {
-        "speaker_id": "linker",
-        "speaker_name": "링커",
-        "speaker_role": "게임 오리지널 / 최종보스 호칭",
-        "notes": "차갑고 압박감 있는 말투. 설명을 과하게 늘리지 않는다.",
-    },
-    {
-        "speaker_id": "last_linker",
-        "speaker_name": "라스트 링커",
-        "speaker_role": "게임 오리지널 / 최종 형태",
-        "notes": "링커의 최종 형태 호칭. 장면에 따라 링커/세라피와 구분해 선택.",
-    },
-    {
-        "speaker_id": "aston_martins",
-        "speaker_name": "아스턴 마틴스",
-        "speaker_role": "게임 오리지널 / 중령",
-        "notes": "대사에서는 '마틴스 중령' 우선. 반항적이고 거친 면이 있지만 동료애가 강한 군인.",
-    },
-    {
-        "speaker_id": "kate_lam",
-        "speaker_name": "케이트 람",
-        "speaker_role": "게임 오리지널",
-        "notes": "천진난만하지만 고집 세고 자존심 강한 말투.",
-    },
-    {
-        "speaker_id": "randy_rover",
-        "speaker_name": "랜디 로버",
-        "speaker_role": "게임 오리지널",
-        "notes": "투박하고 단순한 말투. 과도한 비속어와 현대 밈은 금지.",
-    },
-    {
-        "speaker_id": "dart_daimler",
-        "speaker_name": "다트 다이무라",
-        "speaker_role": "게임 오리지널",
-        "notes": "PDF 기준 표기. '다임러' 금지.",
-    },
-    {
-        "speaker_id": "bald",
-        "speaker_name": "발드",
-        "speaker_role": "게임 오리지널 / 적의 단 두목",
-        "notes": "적의 단 관련 인물.",
-    },
-    {
-        "speaker_id": "black_ed",
-        "speaker_name": "흑색의 에드",
-        "speaker_role": "게임 오리지널 / 에필로그 문맥",
-        "notes": "원문 후보: 黒色のエド / 黒いエド 계열.",
-    },
-]
-
 
 def load_json(path: Path):
     return json.loads(path.read_text(encoding="utf-8"))
@@ -3520,65 +3356,6 @@ def build_runtime_rle_image_items() -> list[dict]:
     return items
 
 
-def build_speaker_aliases(text_items: list[dict]) -> list[dict]:
-    tokens = sorted(
-        {
-            item["dialogue_state_token"]
-            for item in text_items
-            if item.get("dialogue_state_token")
-        }
-    )
-    return [
-        {
-            "dialogue_state_token": token,
-            **parse_dialogue_state_token(token),
-            "speaker_id": "",
-            "notes": "",
-            "confirmed": False,
-            "speaker_name": "",
-            "speaker_role": "",
-        }
-        for token in tokens
-    ]
-
-
-def parse_dialogue_state_token(token: str) -> dict[str, str | bool]:
-    match = PORTRAIT_VARIANT_TOKEN_RE.match(token)
-    if match:
-        person = str(int(match.group("person")))
-        variant = match.group("variant")
-        return {
-            "speaker_family_token": f"{match.group('prefix')}:{person}",
-            "portrait_variant": variant,
-            "portrait_variant_candidate": True,
-        }
-    return {
-        "speaker_family_token": token,
-        "portrait_variant": "",
-        "portrait_variant_candidate": False,
-    }
-
-
-def build_speaker_registry(existing: list[dict] | None) -> list[dict]:
-    existing_by_id = {
-        item.get("speaker_id"): item
-        for item in (existing or [])
-        if item.get("speaker_id")
-    }
-    merged: list[dict] = []
-    used_ids: set[str] = set()
-    for default_item in DEFAULT_SPEAKER_REGISTRY:
-        speaker_id = default_item["speaker_id"]
-        merged.append({**default_item, **existing_by_id.get(speaker_id, {})})
-        used_ids.add(speaker_id)
-    for item in existing or []:
-        speaker_id = item.get("speaker_id")
-        if speaker_id and speaker_id not in used_ids:
-            merged.append(item)
-            used_ids.add(speaker_id)
-    return merged
-
-
 def build_progress_state(categories: list[dict]) -> dict:
     return {
         "version": 1,
@@ -3721,20 +3498,6 @@ def attach_image_candidate_assets(items: list[dict]) -> None:
             item["candidate_gallery"] = load_json(gallery_path)
 
 
-def merge_existing_speaker_aliases(speaker_aliases: list[dict], existing: list[dict] | None) -> list[dict]:
-    if not existing:
-        return speaker_aliases
-    existing_map = {item["dialogue_state_token"]: item for item in existing}
-    for item in speaker_aliases:
-        prev = existing_map.get(item["dialogue_state_token"])
-        if not prev:
-            continue
-        for field in ("speaker_id", "speaker_name", "speaker_role", "notes", "confirmed"):
-            if field in prev and prev[field] not in ("", None, False):
-                item[field] = prev[field]
-    return speaker_aliases
-
-
 def merge_existing_progress(progress_state: dict, existing: dict | None) -> dict:
     if not existing:
         return progress_state
@@ -3798,13 +3561,11 @@ def render_readme(dataset: dict) -> str:
     lines = [
         "# Localization Workbench 데이터",
         "",
-        "이 폴더는 사람이 직접 번역/수정/진행 상태/화자 라벨/이미지 교체 후보를 관리하기 위한 작업대 데이터다.",
+        "이 폴더는 사람이 직접 번역/수정/진행 상태/이미지 교체 후보를 관리하기 위한 작업대 데이터다.",
         "",
         "## 핵심 파일",
         "",
         "- `workbench_dataset.json`",
-        "- `speaker_aliases.json`",
-        "- `speaker_registry.json`",
         "- `progress_state.json`",
         "- `image_replacements.json`",
         "",
@@ -3823,7 +3584,7 @@ def render_readme(dataset: dict) -> str:
             "## 사용 용도",
             "",
             "- 텍스트를 카테고리별로 나눠 본다.",
-            "- 대사에는 dialogue_state_token 과 등록된 화자 선택값을 함께 본다.",
+            "- 대사에는 객관적 dialogue_state_token 을 참고 정보로 함께 본다.",
             "- 진행 상태를 저장하고, 현재 검토 중인 category 를 이어서 연다.",
             "- 이미지 교체 후보는 replacement_path 와 메모를 따로 관리한다.",
             "",
@@ -3837,19 +3598,12 @@ def main() -> int:
     WORKSPACE_ROOT.mkdir(parents=True, exist_ok=True)
     build_translation_normalization_profile()
     existing_dataset = load_json_if_exists(OUT_DATASET, None)
-    existing_speakers = load_json_if_exists(OUT_SPEAKERS, None)
-    existing_speaker_registry = load_json_if_exists(OUT_SPEAKER_REGISTRY, None)
     existing_progress = load_json_if_exists(OUT_PROGRESS, None)
     existing_images = load_json_if_exists(OUT_IMAGE, None)
     dataset = build_dataset()
     merge_existing_item_state(dataset["items"], existing_dataset, existing_images)
     attach_image_candidate_assets(dataset["items"])
     normalize_image_source_paths(dataset["items"])
-    speaker_aliases = merge_existing_speaker_aliases(
-        build_speaker_aliases(dataset["items"]),
-        existing_speakers,
-    )
-    speaker_registry = build_speaker_registry(existing_speaker_registry)
     progress_state = merge_existing_progress(
         build_progress_state(dataset["categories"]),
         existing_progress,
@@ -3858,14 +3612,10 @@ def main() -> int:
     image_items = [item for item in dataset["items"] if is_image_item(item)]
 
     OUT_DATASET.write_text(json.dumps(dataset, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    OUT_SPEAKERS.write_text(json.dumps(speaker_aliases, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
-    OUT_SPEAKER_REGISTRY.write_text(json.dumps(speaker_registry, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     OUT_PROGRESS.write_text(json.dumps(progress_state, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     OUT_IMAGE.write_text(json.dumps(image_items, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     OUT_README.write_text(render_readme(dataset), encoding="utf-8")
     print(f"wrote {OUT_DATASET}")
-    print(f"wrote {OUT_SPEAKERS}")
-    print(f"wrote {OUT_SPEAKER_REGISTRY}")
     print(f"wrote {OUT_PROGRESS}")
     print(f"wrote {OUT_IMAGE}")
     print(f"wrote {OUT_README}")
