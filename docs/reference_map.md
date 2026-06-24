@@ -30,6 +30,10 @@
 - Entry8 VM 회고: [entry8_vm_lessons.md](/Users/user/test/docs/retrospective/entry8_vm_lessons.md)
 - 이미지/타일 회고: [image_tile_pipeline_lessons.md](/Users/user/test/docs/retrospective/image_tile_pipeline_lessons.md)
 - GBA 스타터킷 초안: [gba_localization_agent.md](/Users/user/test/docs/starter_kit/gba_localization_agent.md)
+- 스타터킷 추출 지도: [starter_kit_extraction_map.md](/Users/user/test/docs/structure/starter_kit_extraction_map.md)
+- 스타터킷 세션 체크리스트: [session_start.md](/Users/user/test/docs/starter_kit/checklists/session_start.md)
+- 스타터킷 cleanup gate: [cleanup_gate.md](/Users/user/test/docs/starter_kit/checklists/cleanup_gate.md)
+- 스타터킷 seed prompt: [agent_seed_prompt.md](/Users/user/test/docs/starter_kit/prompts/agent_seed_prompt.md)
 
 ## Active Summaries
 

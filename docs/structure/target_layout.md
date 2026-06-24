@@ -67,12 +67,16 @@ project data. It should copy the workflow skeleton:
 gba-localization-starter/
 ├── README.md
 ├── docs/
-│   ├── start.md
-│   ├── workflow_text.md
-│   ├── workflow_font.md
-│   ├── workflow_image.md
-│   ├── qa_checklist.md
-│   └── failure_modes.md
+│   ├── checklists/
+│   │   ├── session_start.md
+│   │   ├── cleanup_gate.md
+│   │   └── release_gate.md
+│   ├── workflows/
+│   │   ├── bootstrap_sequence.md
+│   │   └── cleanup_sequence.md
+│   ├── retrospective/
+│   │   └── failure_modes.md
+│   └── start.md
 ├── src/
 │   └── gba_kor_tool/
 ├── scripts/
@@ -81,10 +85,17 @@ gba-localization-starter/
 │   ├── image/
 │   ├── text/
 │   └── runtime/
+├── schemas/
+│   ├── project_config.schema.json
+│   ├── text_source_family.schema.json
+│   └── image_target.schema.json
 ├── templates/
-│   ├── translation_workset.schema.json
-│   ├── image_edit_pack.schema.json
-│   └── project_config.example.json
+│   ├── project_config.example.json
+│   ├── gitignore.gba-localization.example
+│   ├── local_runtime_artifacts_matrix.template.md
+│   └── generated_workbench_retention.template.md
+├── prompts/
+│   └── agent_seed_prompt.md
 └── .gitignore
 ```
 
@@ -93,3 +104,19 @@ local Codex logs, and no `/Users/user/test` paths.
 
 Starter-kit extraction should use `docs/retrospective/failure_modes.md` as the
 main source for reusable agent guardrails.
+
+## Current Starter-Kit Extraction Layer
+
+The active repo now keeps the reusable extraction layer under
+`docs/starter_kit/`:
+
+- `checklists/`: session, cleanup, and release gates.
+- `schemas/`: neutral metadata contracts for project config, text families, and
+  image targets.
+- `templates/`: copyable starter files.
+- `prompts/`: reusable agent seed prompt.
+- `workflows/`: bootstrap and late-stage cleanup operating order.
+
+This layer is allowed to become more organized before the active project data
+does. It must stay free of ROMs, extracted project text, local paths, and raw
+session logs.

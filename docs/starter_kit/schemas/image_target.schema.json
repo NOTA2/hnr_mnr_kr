@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GBA Image Target",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "target_id",
+    "artifact_role",
+    "cleanup_classification"
+  ],
+  "properties": {
+    "target_id": {
+      "type": "string"
+    },
+    "display_context": {
+      "type": "string"
+    },
+    "artifact_role": {
+      "type": "string",
+      "enum": [
+        "runtime_evidence",
+        "discovery_workspace",
+        "editable_source",
+        "generated_preview",
+        "uploaded_payload",
+        "final_replacement",
+        "historical_debug"
+      ]
+    },
+    "evidence_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "rom_resource_offset_or_id": {
+      "type": "string"
+    },
+    "compression": {
+      "type": "string"
+    },
+    "tile_order": {
+      "type": "string"
+    },
+    "screen_order_mapping": {
+      "type": "string"
+    },
+    "tilemap_or_screenblock_path": {
+      "type": "string"
+    },
+    "palette_source": {
+      "type": "string"
+    },
+    "source_1x_path": {
+      "type": "string"
+    },
+    "preview_paths": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    },
+    "replacement_path": {
+      "type": "string"
+    },
+    "replacement_scale": {
+      "type": "string"
+    },
+    "apply_script": {
+      "type": "string"
+    },
+    "verification_command": {
+      "type": "string"
+    },
+    "runtime_screenshot_or_save": {
+      "type": "string"
+    },
+    "cleanup_classification": {
+      "type": "string",
+      "enum": [
+        "KEEP",
+        "KEEP WITH CAUTION",
+        "RETROSPECTIVE KEEP",
+        "UNTRACK",
+        "DELETE",
+        "UNKNOWN"
+      ]
+    }
+  }
+}

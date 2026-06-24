@@ -131,11 +131,24 @@ Exit condition:
 
 ## Phase F: Starter Kit Extraction
 
-Status: pending
+Status: started
 
 - Extract workflows, schemas, templates, and agent rules.
 - Remove this game's data, ROM names, path assumptions, and session-log details.
 - Keep the lessons as general failure-mode checklists.
+
+Completed so far:
+
+- Added `docs/starter_kit/checklists/` for session-start, cleanup, and release
+  gates.
+- Added `docs/starter_kit/schemas/` for project config, text source-family, and
+  image target metadata.
+- Added `docs/starter_kit/templates/` with a neutral project config example.
+- Added `docs/starter_kit/prompts/` with the reusable seed prompt.
+- Added `docs/starter_kit/workflows/` for bootstrap and late-stage cleanup
+  sequence notes.
+- Added `docs/structure/starter_kit_extraction_map.md` to connect project
+  evidence to reusable outputs.
 
 Exit condition:
 

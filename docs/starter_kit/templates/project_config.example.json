@@ -1,0 +1,24 @@
+{
+  "project_name": "example-gba-localization",
+  "source_rom": {
+    "path": "local_roms/source.gba",
+    "sha256": "fill-this-after-verification",
+    "tracked": false
+  },
+  "artifact_policy": {
+    "ignore_roms": true,
+    "release_patch_paths": [
+      "releases/**/*.bps"
+    ],
+    "local_runtime_paths": [
+      "local_roms/",
+      "patched_roms/"
+    ]
+  },
+  "commands": {
+    "audit_gui": "python3 scripts/audit/audit_gui_workflow_integrity.py",
+    "build_review_rom": "python3 scripts/build/build_review_rom.py",
+    "build_image_manifest": "python3 scripts/image/build_image_source_manifest.py",
+    "create_patch": "python3 scripts/build/create_patch.py"
+  }
+}

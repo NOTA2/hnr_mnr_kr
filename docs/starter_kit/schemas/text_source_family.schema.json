@@ -1,0 +1,86 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GBA Text Source Family",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "family_id",
+    "encoding",
+    "record_type",
+    "apply_capability"
+  ],
+  "properties": {
+    "family_id": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
+    "encoding": {
+      "type": "string"
+    },
+    "record_type": {
+      "type": "string",
+      "enum": [
+        "terminated",
+        "fixed_slot",
+        "counted_command_stream",
+        "packed_script",
+        "pointer_table",
+        "unknown"
+      ]
+    },
+    "terminator": {
+      "type": "string"
+    },
+    "counted_header": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "prefix_bytes": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "count_field": {
+          "type": "string"
+        },
+        "count_unit": {
+          "type": "string",
+          "enum": [
+            "bytes",
+            "characters",
+            "glyphs",
+            "unknown"
+          ]
+        }
+      }
+    },
+    "apply_capability": {
+      "type": "string",
+      "enum": [
+        "in_place",
+        "overlay",
+        "repoint",
+        "length_preserved_only",
+        "protected",
+        "unknown"
+      ]
+    },
+    "layout_profile": {
+      "type": "object",
+      "additionalProperties": true
+    },
+    "overlap_validation_required": {
+      "type": "boolean",
+      "default": true
+    },
+    "qa_examples": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}

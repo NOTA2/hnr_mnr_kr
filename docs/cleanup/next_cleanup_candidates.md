@@ -7,10 +7,10 @@ next areas by safety, value, and dependency risk.
 
 ## Current Progress Baseline
 
-- Overall request: about `59%`
-- Project cleanup / structure: about `81%`
+- Overall request: about `61%`
+- Project cleanup / structure: about `83%`
 - Retrospective: about `45%`
-- Starter-kit extraction: about `32%`
+- Starter-kit extraction: about `40%`
 
 These percentages are intentionally conservative. The repo is much cleaner and
 the structure/retrospective safety rails are stronger, but large active-data
@@ -35,6 +35,8 @@ Exit gate:
 - `docs/reference_map.md`, `docs/cleanup/README.md`, and
   `docs/structure/README.md` point to the current cleanup, retrospective, and
   starter-kit docs.
+- `docs/starter_kit/` has navigable checklists, workflows, schemas, templates,
+  and prompt folders instead of a single draft spec.
 
 ## Candidate 2: Script Grouping Without Moving Scripts
 
@@ -164,6 +166,31 @@ Exit gate:
 - Each major cleanup family has either a keep reason, a compact lesson, or a
   safe removal decision.
 
+## Candidate 6: Starter-Kit Extraction Layer
+
+Classification: `KEEP / STRUCTURE`
+
+Action:
+
+- Keep extracting project-neutral checklists, schemas, templates, prompts, and
+  workflows under `docs/starter_kit/`.
+- Keep the extraction map current so later sessions know which project-specific
+  evidence feeds each reusable output.
+
+Why this is safe:
+
+- It changes only docs and neutral JSON schemas/templates.
+- It gives future cleanup a destination for lessons before raw evidence is
+  pruned.
+- It avoids moving active scripts or data during gameplay QA.
+
+Exit gate:
+
+- The starter-kit files contain no ROMs, extracted text, local paths, or raw
+  session logs.
+- A new project can copy the starter-kit folder and understand first checks,
+  artifact roles, text/image schemas, cleanup gates, and release gates.
+
 ## Current Do-Not-Delete List
 
 Do not remove or untrack these without a separate audit update:
@@ -196,3 +223,5 @@ For analysis cleanup, summarize the largest structure reports before deleting
 raw JSON evidence.
 For ignored local cleanup, no more ROM/save/savestate cleanup is recommended
 during active QA; only exact-reference-checked leftovers should be removed.
+For starter-kit extraction, continue adding neutral templates before attempting
+any active project path migration.

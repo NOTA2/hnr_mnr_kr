@@ -1,0 +1,26 @@
+# ROMs and local emulator state
+*.gba
+*.sav
+*.sgm
+*.srm
+*.ss
+*.state
+
+# Patch outputs are local by default.
+*.ips
+*.ups
+*.bps
+
+# Track release patches only through a narrow project-specific exception.
+!releases/**/*.bps
+
+# Local runtime areas
+local_roms/
+patched_roms/*
+!patched_roms/.gitkeep
+
+# Generated or temporary work
+analysis/generated_workbenches/
+tmp/
+__pycache__/
+.DS_Store

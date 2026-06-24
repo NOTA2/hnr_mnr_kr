@@ -1,0 +1,78 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "GBA Localization Project Config",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "project_name",
+    "artifact_policy",
+    "commands"
+  ],
+  "properties": {
+    "project_name": {
+      "type": "string"
+    },
+    "source_rom": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "path": {
+          "type": "string"
+        },
+        "sha256": {
+          "type": "string"
+        },
+        "tracked": {
+          "type": "boolean",
+          "const": false
+        }
+      }
+    },
+    "artifact_policy": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "ignore_roms",
+        "release_patch_paths"
+      ],
+      "properties": {
+        "ignore_roms": {
+          "type": "boolean",
+          "const": true
+        },
+        "release_patch_paths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "local_runtime_paths": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "commands": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "string"
+      },
+      "properties": {
+        "audit_gui": {
+          "type": "string"
+        },
+        "build_review_rom": {
+          "type": "string"
+        },
+        "build_image_manifest": {
+          "type": "string"
+        },
+        "create_patch": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

@@ -14,6 +14,8 @@
   pilot 으로 다룰 수 있는지와 어떤 group 을 hold 해야 하는지 정리한다.
 - `data_role_inventory.md`: `confirmed_data/` 의 기준본, GUI 상태, runtime
   evidence, generated index 역할을 구분한다.
+- `starter_kit_extraction_map.md`: 현재 프로젝트의 회고/정리 근거가 범용
+  스타터킷 체크리스트, 스키마, 템플릿으로 어떻게 이어지는지 정리한다.
 - `../starter_kit/gba_localization_agent.md`: 이 프로젝트에서 얻은 정리/회고 규칙을
   다른 GBA 한글화 프로젝트에도 쓸 수 있게 중립화한 에이전트 초안이다.
 
@@ -24,3 +26,5 @@
 - `confirmed_data/`는 지금 당장 이름을 바꾸지 않는다. 현재 스크립트와 GUI가 강하게 의존한다.
 - `analysis/`는 곧바로 삭제하지 않는다. 회고와 스타트킷으로 옮길 교훈을 먼저 요약한다.
 - 새 구조는 이 repo 전용 산출물과 범용 GBA 한글화 스타트킷을 분리해야 한다.
+- 범용 스타터킷은 `docs/starter_kit/` 아래에서 먼저 구조화하고, active repo의
+  실제 script/data 경로는 QA가 끝날 때까지 안정성을 우선한다.
