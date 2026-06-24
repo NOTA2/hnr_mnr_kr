@@ -382,6 +382,57 @@ Starter-kit rule:
   and range overlaps. Boundary-crossing records need a dedicated
   length-preserved path before any expansion or repoint attempt.
 
+## 17. Image Discovery Output Promoted Without A Source Role
+
+Symptom:
+
+- A contact sheet, runtime capture, or broad tile extraction looks like the
+  image to localize, but the replacement path later cannot be rebuilt or does
+  not affect the target screen.
+
+Cause:
+
+- Discovery evidence, ROM-backed editable sources, previews, and final
+  replacements were not separated with an explicit image target manifest.
+
+Prevention:
+
+- Assign every image artifact a role before editing or cleanup.
+- Promote a candidate only after identifying the ROM resource, tile/screen-order
+  mapping, palette source, 1x source image, replacement path, and apply script.
+- Keep scaled previews regenerable and separate from editable sources.
+
+Starter-kit rule:
+
+- Image workflows need an artifact role taxonomy and a required image target
+  schema before any candidate becomes a final replacement.
+
+## 18. Uploaded Replacement Payloads Treated As Disposable Cache
+
+Symptom:
+
+- A small upload folder appears safe to prune, but active GUI JSON still points
+  at files inside it.
+
+Cause:
+
+- Browser/user uploads became operational replacement assets before being
+  promoted into durable edit packs. A stale manifest or byte-level filename
+  comparison can miss active references, especially with macOS Unicode
+  normalization.
+
+Prevention:
+
+- Regenerate the upload manifest from current GUI state before cleanup.
+- Use the same path existence semantics as the runtime platform.
+- Promote final assets into durable edit packs when appropriate, then update GUI
+  references and verify zero missing paths.
+
+Starter-kit rule:
+
+- Uploaded replacement pruning is blocked unless the active-reference manifest
+  is current, Unicode/path checks agree, and GUI integrity passes.
+
 ## Starter-Kit Extraction Checklist
 
 Before creating the generic GBA localization agent, convert the above failure
@@ -395,7 +446,9 @@ modes into:
   Entry8;
 - a font workflow with code-space, glyph-storage, relocation, atlas, and runtime
   render gates;
-- an image workflow that separates runtime evidence from ROM-backed edit sources;
+- an image workflow that separates runtime evidence, discovery workspaces,
+  editable ROM-backed sources, scaled previews, and final replacements;
+- an uploaded replacement manifest gate with Unicode/path checks;
 - a GUI/workbench rebuild sequence with stale-state detection;
 - a cleanup workflow that records keep/delete/untrack/track decisions before
   modifying files;

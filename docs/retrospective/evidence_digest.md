@@ -134,3 +134,15 @@ The large Entry8 structure reports are now condensed in
 per-record metadata, segment capability classes, range-overlap checks, and
 boundary-crossing handling. Treating pointer-looking values as hard boundaries
 or applying one global repoint policy was the risky path.
+
+### Image/Tile Pipeline Needs Explicit Artifact Roles
+
+The image-side cleanup and QA lessons are now condensed in
+`docs/retrospective/image_tile_pipeline_lessons.md`.
+
+The reusable lesson is that GBA image localization needs discovery evidence,
+ROM-backed editable sources, scaled previews, uploaded payloads, and final
+replacement assets to stay separate. A future project should create image target
+records with ROM resource, tile/screen-order mapping, palette source, source
+scale, replacement path, apply command, and cleanup classification before
+promoting a candidate into the active GUI/build flow.

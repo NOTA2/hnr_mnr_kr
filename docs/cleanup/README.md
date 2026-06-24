@@ -77,6 +77,8 @@ further cleanup batch.
   prune record.
 - `image_workspace_prune_readiness.md`: remaining image workspace keep/prune
   readiness table.
+- `../retrospective/image_tile_pipeline_lessons.md`: compact image/tile
+  retrospective rules that must be preserved before further image pruning.
 - `next_cleanup_candidates.md`: ranked list of remaining cleanup/structure
   candidates and their exit gates.
 - `preliminary_classification.md`: conservative first-pass file categories.

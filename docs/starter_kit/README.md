@@ -26,3 +26,5 @@ Recent lessons already folded into the spec:
   pruning;
 - local ROM/save/savestate artifacts need an explicit keep matrix;
 - public script paths should move by compatibility wrapper, not broad rename.
+- image/tile work needs explicit artifact roles, palette provenance, 1x source
+  separation from scaled previews, and per-workspace prune gates.

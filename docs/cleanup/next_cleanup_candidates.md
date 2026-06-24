@@ -7,10 +7,10 @@ next areas by safety, value, and dependency risk.
 
 ## Current Progress Baseline
 
-- Overall request: about `57%`
-- Project cleanup / structure: about `80%`
-- Retrospective: about `40%`
-- Starter-kit extraction: about `28%`
+- Overall request: about `59%`
+- Project cleanup / structure: about `81%`
+- Retrospective: about `45%`
+- Starter-kit extraction: about `32%`
 
 These percentages are intentionally conservative. The repo is much cleaner and
 the structure/retrospective safety rails are stronger, but large active-data
@@ -155,6 +155,9 @@ Why this matters:
 - Entry8 boundary handling, uploaded replacement pruning, local runtime artifact
   retention, and wrapper-first script migration have been folded into the
   starter-kit agent draft.
+- Image/tile pipeline lessons now have a compact retrospective note covering
+  artifact roles, palette provenance, 1x source vs scaled previews, uploaded
+  payload gates, and per-workspace prune rules.
 
 Exit gate:
 

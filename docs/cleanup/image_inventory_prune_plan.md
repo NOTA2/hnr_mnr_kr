@@ -83,3 +83,9 @@ The first per-unit prune is complete:
 only a summary README. The next practical step is to choose the next
 lowest-risk review unit, summarize it first, and prune one unit at a time only
 after the GUI workflow audit passes.
+
+The cross-cutting lesson has been preserved in
+`docs/retrospective/image_tile_pipeline_lessons.md`. Use that document as the
+role/classification checklist before deciding whether an image artifact is active
+source, runtime evidence, discovery output, generated preview, uploaded payload,
+or historical/debug material.

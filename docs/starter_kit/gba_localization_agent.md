@@ -40,6 +40,9 @@ make cleanup irreversible.
    manifest and verify active GUI references first.
 9. Never treat pointer-looking values inside a script bank as hard boundaries
    until record spans and range overlaps are validated.
+10. Never promote an image candidate from discovery evidence to editable source
+    without a ROM resource, tile/screen-order mapping, palette source, source
+    scale, replacement path, and apply command.
 
 ## Required Repo Policy
 
@@ -200,6 +203,24 @@ Uploaded replacement payloads need their own manifest:
   preview;
 - promotion target if the payload should move into a durable edit-pack folder.
 
+Image target records should carry:
+
+- artifact role: runtime evidence, discovery workspace, editable source,
+  generated preview, uploaded payload, final replacement, or historical/debug;
+- ROM resource offset or ID;
+- compression/resource type;
+- tile order and screen-order mapping;
+- palette source and quantization policy;
+- 1x source path and scaled preview paths;
+- replacement path and scale;
+- apply script;
+- verification command or runtime screenshot/save;
+- cleanup classification.
+
+For small labels inside large compressed resources, prefer crop edit packs with
+a reversible map back to the parent resource. Whole-block replacement should be
+reserved for cases where the whole block is intentionally edited.
+
 Exit gate:
 
 - A replacement can be rebuilt from tracked source assets.
@@ -207,6 +228,8 @@ Exit gate:
 - Palette provenance is recorded.
 - Uploaded replacement pruning is blocked unless the manifest is current and
   active GUI references have zero missing paths.
+- Discovery workspaces are summarized before pruning and are never confused with
+  active editable source packs.
 
 ## Phase 5: Runtime QA
 
@@ -260,6 +283,16 @@ Structure cleanup should use wrapper-first migration:
 - update docs only after compatibility is proven;
 - do not start with GUI, ROM build, image apply, patch creation, font, or
   runtime scripts during active QA.
+
+Image cleanup should use manifest-first pruning:
+
+- regenerate the active image source manifest;
+- require zero missing paths;
+- read subtree docs before pruning;
+- search exact references from docs, scripts, active GUI data, and tool code;
+- write the retrospective lesson first if the subtree explains a failed
+  approach;
+- prune one image family or workspace unit per commit.
 
 Exit gate:
 
