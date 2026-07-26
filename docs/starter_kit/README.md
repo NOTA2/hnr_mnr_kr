@@ -11,6 +11,11 @@ repository is opened. Start a new or resumed lifecycle with:
 $gba-localization-lifecycle
 ```
 
+For a human-readable walkthrough with copyable commands, phase gates, safety
+rules, and session routines, open
+[`gba_localization_skill_guide.html`](gba_localization_skill_guide.html) in a
+browser.
+
 It must not contain:
 
 - ROM files or patches;
@@ -21,6 +26,8 @@ It must not contain:
 
 ## Start Here
 
+- `gba_localization_skill_guide.html`: human-readable lifecycle guide with
+  copyable commands, phase contracts, safety rules, and troubleshooting.
 - `.agents/skills/gba-localization-lifecycle/`: lifecycle orchestrator,
   repository scaffold, phase status, and dependency checks.
 - `.agents/skills/gba-localization-*`: focused phase skills for bootstrap, ROM
@@ -46,6 +53,7 @@ dependencies of the skills.
 ```text
 docs/starter_kit/
   README.md
+  gba_localization_skill_guide.html
   gba_localization_agent.md
   prompts/
     agent_seed_prompt.md

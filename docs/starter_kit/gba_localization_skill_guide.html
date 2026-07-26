@@ -1,0 +1,2608 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>GBA 한글화 스킬 운영 가이드</title>
+  <style>
+    :root {
+      --paper: #f7f8f5;
+      --surface: #ffffff;
+      --surface-strong: #edf1ee;
+      --ink: #1e2824;
+      --muted: #5d6963;
+      --line: #cbd4cf;
+      --line-strong: #9baaa2;
+      --green: #086b50;
+      --green-soft: #e2f2eb;
+      --teal: #126a72;
+      --teal-soft: #e2f0f1;
+      --amber: #9a5700;
+      --amber-soft: #fff0d2;
+      --red: #9b3939;
+      --red-soft: #fbe7e5;
+      --violet: #635488;
+      --violet-soft: #eeeaf6;
+      --code: #18211e;
+      --code-muted: #aebdb5;
+      --shadow: 0 10px 28px rgba(28, 48, 39, 0.08);
+      --radius: 8px;
+      --sidebar: 264px;
+      --content: 1040px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 24px;
+    }
+
+    body {
+      margin: 0;
+      min-width: 320px;
+      background: var(--paper);
+      color: var(--ink);
+      font-family:
+        -apple-system, BlinkMacSystemFont, "Apple SD Gothic Neo",
+        "Noto Sans KR", "Segoe UI", sans-serif;
+      font-size: 16px;
+      line-height: 1.65;
+      letter-spacing: 0;
+    }
+
+    button,
+    input {
+      font: inherit;
+      letter-spacing: 0;
+    }
+
+    button {
+      cursor: pointer;
+    }
+
+    a {
+      color: var(--green);
+      text-underline-offset: 3px;
+    }
+
+    a:hover {
+      color: #064f3c;
+    }
+
+    code,
+    pre {
+      font-family:
+        "SFMono-Regular", Consolas, "Liberation Mono", Menlo, monospace;
+    }
+
+    code {
+      overflow-wrap: anywhere;
+    }
+
+    .skip-link {
+      position: fixed;
+      z-index: 100;
+      top: 12px;
+      left: 12px;
+      padding: 8px 12px;
+      border-radius: 4px;
+      background: var(--ink);
+      color: #fff;
+      transform: translateY(-160%);
+    }
+
+    .skip-link:focus {
+      transform: translateY(0);
+    }
+
+    .shell {
+      display: grid;
+      grid-template-columns: var(--sidebar) minmax(0, 1fr);
+      min-height: 100vh;
+    }
+
+    .sidebar {
+      position: sticky;
+      top: 0;
+      align-self: start;
+      height: 100vh;
+      overflow-y: auto;
+      border-right: 1px solid var(--line);
+      background: #f0f3f0;
+      padding: 28px 20px 22px;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 26px;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .brand-mark {
+      display: grid;
+      flex: 0 0 40px;
+      width: 40px;
+      height: 40px;
+      place-items: center;
+      border: 2px solid var(--ink);
+      border-radius: 7px;
+      background: var(--green-soft);
+      color: var(--green);
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 13px;
+      font-weight: 800;
+      line-height: 1;
+    }
+
+    .brand-copy {
+      min-width: 0;
+    }
+
+    .brand-copy strong,
+    .brand-copy span {
+      display: block;
+    }
+
+    .brand-copy strong {
+      font-size: 15px;
+      line-height: 1.3;
+    }
+
+    .brand-copy span {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .nav-label {
+      margin: 0 0 8px 10px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .section-nav {
+      display: grid;
+      gap: 3px;
+    }
+
+    .section-nav a {
+      display: grid;
+      grid-template-columns: 24px minmax(0, 1fr);
+      align-items: center;
+      min-height: 38px;
+      padding: 6px 10px;
+      border-left: 3px solid transparent;
+      border-radius: 4px;
+      color: #44504a;
+      font-size: 14px;
+      font-weight: 650;
+      text-decoration: none;
+    }
+
+    .section-nav a span:first-child {
+      color: #7d8982;
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 11px;
+    }
+
+    .section-nav a:hover {
+      background: #e5ebe7;
+      color: var(--ink);
+    }
+
+    .section-nav a[aria-current="true"] {
+      border-left-color: var(--green);
+      background: var(--green-soft);
+      color: var(--green);
+    }
+
+    .side-note {
+      margin-top: 24px;
+      padding: 14px 12px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.55;
+    }
+
+    .side-note strong {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--ink);
+      font-size: 12px;
+    }
+
+    main {
+      min-width: 0;
+      padding: 0 48px 80px;
+    }
+
+    .content {
+      width: min(100%, var(--content));
+      margin: 0 auto;
+    }
+
+    .guide-header {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 212px;
+      gap: 48px;
+      align-items: end;
+      min-height: 360px;
+      padding: 72px 0 54px;
+      border-bottom: 1px solid var(--line-strong);
+    }
+
+    .eyebrow {
+      margin: 0 0 14px;
+      color: var(--green);
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 13px;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin-top: 0;
+      line-height: 1.25;
+      letter-spacing: 0;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin-bottom: 20px;
+      font-size: 43px;
+      font-weight: 850;
+    }
+
+    .lead {
+      max-width: 760px;
+      margin: 0;
+      color: #48534e;
+      font-size: 19px;
+      line-height: 1.7;
+    }
+
+    .header-visual {
+      display: grid;
+      gap: 10px;
+      align-self: center;
+      padding: 20px;
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .header-screen {
+      position: relative;
+      aspect-ratio: 4 / 3;
+      overflow: hidden;
+      border: 6px solid #2d3732;
+      border-radius: 4px;
+      background: #d6eadf;
+      box-shadow: inset 0 0 0 1px rgba(30, 40, 36, 0.12);
+    }
+
+    .header-screen::before {
+      position: absolute;
+      inset: 23% 19%;
+      border: 3px solid var(--green);
+      background: var(--paper);
+      content: "";
+    }
+
+    .header-screen::after {
+      position: absolute;
+      top: 36%;
+      left: 35%;
+      width: 30%;
+      height: 7px;
+      background: var(--green);
+      box-shadow: 0 16px 0 var(--teal), 0 32px 0 var(--amber);
+      content: "";
+    }
+
+    .header-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      color: var(--muted);
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .d-pad {
+      position: relative;
+      width: 38px;
+      height: 38px;
+    }
+
+    .d-pad::before,
+    .d-pad::after {
+      position: absolute;
+      background: var(--ink);
+      border-radius: 2px;
+      content: "";
+    }
+
+    .d-pad::before {
+      top: 13px;
+      left: 0;
+      width: 38px;
+      height: 12px;
+    }
+
+    .d-pad::after {
+      top: 0;
+      left: 13px;
+      width: 12px;
+      height: 38px;
+    }
+
+    .ab {
+      display: flex;
+      gap: 8px;
+    }
+
+    .ab span {
+      display: grid;
+      width: 25px;
+      height: 25px;
+      place-items: center;
+      border: 2px solid var(--red);
+      border-radius: 50%;
+      color: var(--red);
+    }
+
+    .document-section {
+      padding: 68px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 46px minmax(0, 1fr);
+      gap: 16px;
+      align-items: start;
+      margin-bottom: 30px;
+    }
+
+    .section-number {
+      display: grid;
+      width: 42px;
+      height: 42px;
+      place-items: center;
+      border: 1px solid var(--line-strong);
+      border-radius: 50%;
+      color: var(--green);
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 13px;
+      font-weight: 800;
+    }
+
+    h2 {
+      margin-bottom: 8px;
+      font-size: 29px;
+    }
+
+    .section-heading p {
+      max-width: 760px;
+      margin: 0;
+      color: var(--muted);
+    }
+
+    h3 {
+      margin-bottom: 10px;
+      font-size: 19px;
+    }
+
+    .quick-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.3fr) minmax(260px, 0.7fr);
+      gap: 26px;
+      align-items: start;
+    }
+
+    .setup-tool {
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .tool-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 48px;
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .tool-header h3 {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .tool-header small {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .setup-fields {
+      display: grid;
+      grid-template-columns: 0.75fr 1.25fr;
+      gap: 14px;
+      padding: 16px;
+    }
+
+    .field {
+      display: grid;
+      gap: 6px;
+    }
+
+    .field label {
+      color: #46514c;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .field input {
+      width: 100%;
+      min-height: 42px;
+      padding: 8px 10px;
+      border: 1px solid var(--line-strong);
+      border-radius: 5px;
+      background: #fbfcfa;
+      color: var(--ink);
+      outline: none;
+    }
+
+    .field input:focus {
+      border-color: var(--green);
+      box-shadow: 0 0 0 3px rgba(8, 107, 80, 0.12);
+    }
+
+    .command-stack {
+      display: grid;
+      gap: 12px;
+      margin-top: 18px;
+    }
+
+    .command-block {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 66px;
+      min-width: 0;
+      overflow: hidden;
+      border: 1px solid #29352f;
+      border-radius: 6px;
+      background: var(--code);
+    }
+
+    .command-block pre {
+      min-width: 0;
+      margin: 0;
+      padding: 14px 16px;
+      overflow-x: auto;
+      color: #f0f7f3;
+      font-size: 13px;
+      line-height: 1.55;
+      white-space: pre;
+    }
+
+    .copy-button {
+      min-width: 66px;
+      border: 0;
+      border-left: 1px solid #3b4942;
+      border-radius: 0;
+      background: #24312b;
+      color: #d8e6de;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .copy-button:hover,
+    .copy-button:focus-visible {
+      background: #30433a;
+      color: #fff;
+    }
+
+    .copy-button[data-state="copied"] {
+      background: var(--green);
+      color: #fff;
+    }
+
+    .command-caption {
+      margin: 8px 2px 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .checklist-tool {
+      border-top: 4px solid var(--teal);
+      border-radius: 4px;
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .checklist-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 16px 16px 11px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .checklist-head h3 {
+      margin: 0;
+      font-size: 16px;
+    }
+
+    .checklist-progress {
+      color: var(--teal);
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .checklist {
+      display: grid;
+      gap: 0;
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+
+    .checklist label {
+      display: grid;
+      grid-template-columns: 22px minmax(0, 1fr);
+      gap: 9px;
+      align-items: start;
+      padding: 12px 16px;
+      border-bottom: 1px solid #e3e8e5;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .checklist input {
+      width: 17px;
+      height: 17px;
+      margin: 2px 0 0;
+      accent-color: var(--teal);
+    }
+
+    .checklist input:checked + span {
+      color: #77827d;
+      text-decoration: line-through;
+    }
+
+    .checklist-reset {
+      width: 100%;
+      min-height: 38px;
+      border: 0;
+      border-radius: 0 0 4px 4px;
+      background: #edf3f1;
+      color: var(--teal);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .checklist-reset:hover {
+      background: #e1ece8;
+    }
+
+    .callout {
+      margin-top: 22px;
+      padding: 15px 18px;
+      border-left: 4px solid var(--amber);
+      background: var(--amber-soft);
+      color: #53350c;
+    }
+
+    .callout strong {
+      color: #6d3f00;
+    }
+
+    .callout p {
+      margin: 5px 0 0;
+    }
+
+    .callout.danger {
+      border-left-color: var(--red);
+      background: var(--red-soft);
+      color: #633232;
+    }
+
+    .callout.danger strong {
+      color: var(--red);
+    }
+
+    .callout.success {
+      border-left-color: var(--green);
+      background: var(--green-soft);
+      color: #174b3b;
+    }
+
+    .callout.success strong {
+      color: var(--green);
+    }
+
+    .lifecycle-visual {
+      padding: 28px;
+      border: 1px solid var(--line-strong);
+      border-radius: var(--radius);
+      background: var(--surface);
+      box-shadow: var(--shadow);
+    }
+
+    .flow-row {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) 34px minmax(0, 1fr);
+      gap: 8px;
+      align-items: stretch;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    .flow-row.finish {
+      grid-template-columns: minmax(0, 1fr) 34px minmax(0, 1fr) 34px minmax(0, 1fr);
+    }
+
+    .flow-node {
+      display: grid;
+      grid-template-columns: 30px minmax(0, 1fr);
+      gap: 10px;
+      align-items: center;
+      min-height: 66px;
+      padding: 11px 12px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      color: var(--ink);
+      text-decoration: none;
+    }
+
+    .flow-node:hover {
+      border-color: var(--green);
+      background: #f7fbf8;
+      color: var(--ink);
+    }
+
+    .flow-node strong,
+    .flow-node small {
+      display: block;
+    }
+
+    .flow-node strong {
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    .flow-node small {
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 11px;
+    }
+
+    .flow-index {
+      display: grid;
+      width: 30px;
+      height: 30px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--green-soft);
+      color: var(--green);
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .flow-arrow {
+      display: grid;
+      place-items: center;
+      color: var(--line-strong);
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .flow-down {
+      display: grid;
+      place-items: center;
+      min-height: 44px;
+      color: var(--line-strong);
+      font-size: 20px;
+      font-weight: 800;
+    }
+
+    .flow-down.dependencies {
+      min-height: 54px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 700;
+      text-align: center;
+    }
+
+    .branch-label {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 12px;
+      color: var(--teal);
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .branch-label::before,
+    .branch-label::after {
+      width: min(20%, 120px);
+      height: 1px;
+      background: var(--line);
+      content: "";
+    }
+
+    .flow-branch {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+
+    .flow-branch .flow-node:nth-child(1) .flow-index {
+      background: var(--teal-soft);
+      color: var(--teal);
+    }
+
+    .flow-branch .flow-node:nth-child(2) .flow-index {
+      background: var(--violet-soft);
+      color: var(--violet);
+    }
+
+    .flow-branch .flow-node:nth-child(3) .flow-index {
+      background: var(--amber-soft);
+      color: var(--amber);
+    }
+
+    .loop-note {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 9px;
+      margin-top: 22px;
+      padding-top: 18px;
+      border-top: 1px dashed var(--line-strong);
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+    }
+
+    .loop-note strong {
+      color: var(--red);
+    }
+
+    .phase-list {
+      display: grid;
+      gap: 10px;
+      margin-top: 28px;
+    }
+
+    .phase-row {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface);
+    }
+
+    .phase-row[open] {
+      border-color: var(--line-strong);
+      box-shadow: 0 7px 18px rgba(31, 49, 41, 0.06);
+    }
+
+    .phase-row summary {
+      display: grid;
+      grid-template-columns: 42px minmax(180px, 0.7fr) minmax(260px, 1.3fr) 20px;
+      gap: 14px;
+      align-items: center;
+      min-height: 74px;
+      padding: 10px 16px;
+      cursor: pointer;
+      list-style: none;
+    }
+
+    .phase-row summary::-webkit-details-marker {
+      display: none;
+    }
+
+    .phase-row summary::after {
+      color: var(--muted);
+      font-size: 19px;
+      line-height: 1;
+      content: "+";
+    }
+
+    .phase-row[open] summary::after {
+      content: "−";
+    }
+
+    .phase-badge {
+      display: grid;
+      width: 36px;
+      height: 36px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--surface-strong);
+      color: var(--green);
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .phase-title strong,
+    .phase-title code {
+      display: block;
+    }
+
+    .phase-title strong {
+      font-size: 15px;
+    }
+
+    .phase-title code {
+      margin-top: 4px;
+      color: var(--green);
+      font-size: 11px;
+    }
+
+    .phase-purpose {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.5;
+    }
+
+    .phase-content {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 22px;
+      padding: 20px 20px 22px 72px;
+      border-top: 1px solid var(--line);
+    }
+
+    .phase-content h3 {
+      margin-bottom: 7px;
+      color: #4a5650;
+      font-size: 12px;
+      text-transform: uppercase;
+    }
+
+    .phase-content p,
+    .phase-content ul {
+      margin: 0;
+      font-size: 13px;
+    }
+
+    .phase-content ul {
+      padding-left: 18px;
+    }
+
+    .phase-content li + li {
+      margin-top: 5px;
+    }
+
+    .status-table,
+    .trouble-table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--surface);
+      font-size: 14px;
+    }
+
+    .status-table th,
+    .status-table td,
+    .trouble-table th,
+    .trouble-table td {
+      padding: 13px 15px;
+      border: 1px solid var(--line);
+      text-align: left;
+      vertical-align: top;
+    }
+
+    .status-table th,
+    .trouble-table th {
+      background: var(--surface-strong);
+      color: #44504a;
+      font-size: 12px;
+    }
+
+    .status-label {
+      display: inline-flex;
+      align-items: center;
+      min-height: 25px;
+      padding: 2px 8px;
+      border: 1px solid currentColor;
+      border-radius: 4px;
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 11px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+
+    .status-label.not-started {
+      color: #626c67;
+      background: #f0f2f0;
+    }
+
+    .status-label.in-progress {
+      color: var(--teal);
+      background: var(--teal-soft);
+    }
+
+    .status-label.blocked {
+      color: var(--red);
+      background: var(--red-soft);
+    }
+
+    .status-label.ready {
+      color: var(--amber);
+      background: var(--amber-soft);
+    }
+
+    .status-label.complete {
+      color: var(--green);
+      background: var(--green-soft);
+    }
+
+    .two-column {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 28px;
+      align-items: start;
+    }
+
+    .plain-panel {
+      border-top: 3px solid var(--line-strong);
+      padding-top: 17px;
+    }
+
+    .plain-panel.safe {
+      border-top-color: var(--green);
+    }
+
+    .plain-panel.risk {
+      border-top-color: var(--red);
+    }
+
+    .plain-panel p {
+      color: var(--muted);
+    }
+
+    .plain-panel ul,
+    .rules-list,
+    .session-list {
+      margin: 0;
+      padding-left: 20px;
+    }
+
+    .plain-panel li + li,
+    .rules-list li + li,
+    .session-list li + li {
+      margin-top: 9px;
+    }
+
+    .prompt-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .prompt-item {
+      display: grid;
+      grid-template-columns: 132px minmax(0, 1fr) 66px;
+      min-width: 0;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface);
+    }
+
+    .prompt-skill {
+      display: grid;
+      place-items: center start;
+      padding: 11px 13px;
+      border-right: 1px solid var(--line);
+      background: var(--surface-strong);
+      color: var(--green);
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    .prompt-text {
+      min-width: 0;
+      margin: 0;
+      padding: 12px 14px;
+      color: #39453f;
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .prompt-item .copy-button {
+      border-left-color: var(--line);
+      background: #edf3ef;
+      color: var(--green);
+    }
+
+    .prompt-item .copy-button:hover,
+    .prompt-item .copy-button:focus-visible {
+      background: var(--green-soft);
+      color: #034e39;
+    }
+
+    .prompt-item .copy-button[data-state="copied"] {
+      background: var(--green);
+      color: #fff;
+    }
+
+    .claim-sequence {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+      margin: 22px 0;
+      counter-reset: claim-step;
+    }
+
+    .claim-step {
+      position: relative;
+      min-height: 132px;
+      padding: 44px 16px 16px;
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      background: var(--surface);
+      counter-increment: claim-step;
+    }
+
+    .claim-step::before {
+      position: absolute;
+      top: 14px;
+      left: 16px;
+      display: grid;
+      width: 24px;
+      height: 24px;
+      place-items: center;
+      border-radius: 50%;
+      background: var(--teal-soft);
+      color: var(--teal);
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 11px;
+      font-weight: 800;
+      content: counter(claim-step);
+    }
+
+    .claim-step strong {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 14px;
+    }
+
+    .claim-step p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .rule-index {
+      color: var(--red);
+      font-family: "SFMono-Regular", Consolas, monospace;
+      font-size: 12px;
+      font-weight: 800;
+    }
+
+    .session-strip {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1px;
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--line);
+    }
+
+    .session-part {
+      min-height: 180px;
+      padding: 18px;
+      background: var(--surface);
+    }
+
+    .session-part:nth-child(1) {
+      border-top: 4px solid var(--teal);
+    }
+
+    .session-part:nth-child(2) {
+      border-top: 4px solid var(--amber);
+    }
+
+    .session-part:nth-child(3) {
+      border-top: 4px solid var(--green);
+    }
+
+    .session-part h3 {
+      margin-bottom: 12px;
+      font-size: 16px;
+    }
+
+    .session-part ol {
+      margin: 0;
+      padding-left: 20px;
+      color: #45514b;
+      font-size: 13px;
+    }
+
+    .session-part li + li {
+      margin-top: 8px;
+    }
+
+    .guide-footer {
+      display: flex;
+      align-items: start;
+      justify-content: space-between;
+      gap: 24px;
+      padding: 32px 0 10px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .guide-footer p {
+      max-width: 660px;
+      margin: 0;
+    }
+
+    .back-top {
+      white-space: nowrap;
+    }
+
+    :focus-visible {
+      outline: 3px solid rgba(18, 106, 114, 0.35);
+      outline-offset: 2px;
+    }
+
+    @media (max-width: 1000px) {
+      main {
+        padding-right: 32px;
+        padding-left: 32px;
+      }
+
+      .guide-header {
+        grid-template-columns: minmax(0, 1fr) 176px;
+        gap: 28px;
+      }
+
+      h1 {
+        font-size: 38px;
+      }
+
+      .phase-row summary {
+        grid-template-columns: 38px minmax(170px, 0.8fr) minmax(220px, 1.2fr) 20px;
+        gap: 10px;
+      }
+    }
+
+    @media (max-width: 840px) {
+      html {
+        scroll-padding-top: 84px;
+      }
+
+      .shell {
+        display: block;
+      }
+
+      .sidebar {
+        position: sticky;
+        z-index: 20;
+        top: 0;
+        width: 100%;
+        height: auto;
+        overflow: hidden;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+        padding: 10px 16px;
+        box-shadow: 0 3px 12px rgba(30, 40, 36, 0.08);
+      }
+
+      .brand {
+        margin-bottom: 7px;
+      }
+
+      .brand-mark {
+        width: 32px;
+        height: 32px;
+        flex-basis: 32px;
+        font-size: 10px;
+      }
+
+      .brand-copy strong {
+        font-size: 13px;
+      }
+
+      .brand-copy span,
+      .nav-label,
+      .side-note {
+        display: none;
+      }
+
+      .section-nav {
+        display: flex;
+        gap: 2px;
+        overflow-x: auto;
+        padding-bottom: 2px;
+        scrollbar-width: thin;
+      }
+
+      .section-nav a {
+        display: block;
+        min-width: max-content;
+        min-height: 30px;
+        padding: 4px 8px;
+        border-bottom: 2px solid transparent;
+        border-left: 0;
+        font-size: 12px;
+      }
+
+      .section-nav a span:first-child {
+        display: none;
+      }
+
+      .section-nav a[aria-current="true"] {
+        border-bottom-color: var(--green);
+        border-left: 0;
+      }
+
+      main {
+        padding: 0 24px 64px;
+      }
+
+      .guide-header {
+        min-height: 0;
+        padding: 52px 0 44px;
+      }
+
+      h1 {
+        font-size: 34px;
+      }
+
+      .lead {
+        font-size: 17px;
+      }
+
+      .quick-grid,
+      .two-column {
+        grid-template-columns: 1fr;
+      }
+
+      .phase-row summary {
+        grid-template-columns: 38px minmax(0, 1fr) 20px;
+      }
+
+      .phase-purpose {
+        display: none;
+      }
+
+      .phase-content {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        padding-left: 20px;
+      }
+
+      .session-strip {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 640px) {
+      main {
+        padding-right: 17px;
+        padding-left: 17px;
+      }
+
+      .guide-header {
+        display: block;
+        padding-top: 40px;
+      }
+
+      .header-visual {
+        display: none;
+      }
+
+      h1 {
+        font-size: 31px;
+      }
+
+      .document-section {
+        padding: 52px 0;
+      }
+
+      .section-heading {
+        grid-template-columns: 38px minmax(0, 1fr);
+        gap: 12px;
+      }
+
+      .section-number {
+        width: 36px;
+        height: 36px;
+      }
+
+      h2 {
+        font-size: 25px;
+      }
+
+      .setup-fields {
+        grid-template-columns: 1fr;
+      }
+
+      .lifecycle-visual {
+        padding: 18px 14px;
+      }
+
+      .flow-row,
+      .flow-row.finish,
+      .flow-branch {
+        grid-template-columns: 1fr;
+      }
+
+      .flow-arrow {
+        min-height: 20px;
+        transform: rotate(90deg);
+      }
+
+      .flow-branch {
+        gap: 8px;
+      }
+
+      .flow-branch .flow-node + .flow-node {
+        margin-top: 0;
+      }
+
+      .branch-label {
+        margin-bottom: 10px;
+      }
+
+      .prompt-item {
+        grid-template-columns: minmax(0, 1fr) 60px;
+      }
+
+      .prompt-skill {
+        grid-column: 1 / -1;
+        min-height: 34px;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .claim-sequence {
+        grid-template-columns: 1fr;
+      }
+
+      .status-table,
+      .trouble-table {
+        display: block;
+        overflow-x: auto;
+      }
+
+      .guide-footer {
+        display: block;
+      }
+
+      .back-top {
+        display: inline-block;
+        margin-top: 14px;
+      }
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        font-size: 11pt;
+      }
+
+      .shell {
+        display: block;
+      }
+
+      .sidebar,
+      .copy-button,
+      .checklist-reset,
+      .header-visual,
+      .back-top {
+        display: none;
+      }
+
+      main {
+        padding: 0;
+      }
+
+      .content {
+        width: 100%;
+      }
+
+      .guide-header {
+        display: block;
+        min-height: 0;
+        padding: 24px 0;
+      }
+
+      .document-section {
+        break-inside: avoid;
+        padding: 28px 0;
+      }
+
+      .phase-row {
+        break-inside: avoid;
+      }
+
+      .phase-row .phase-content {
+        display: grid;
+      }
+
+      details:not([open]) > .phase-content {
+        display: grid !important;
+      }
+
+      .command-block {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
+
+  <div class="shell">
+    <aside class="sidebar" aria-label="문서 탐색">
+      <a class="brand" href="#top">
+        <span class="brand-mark" aria-hidden="true">GBA</span>
+        <span class="brand-copy">
+          <strong>한글화 스킬 가이드</strong>
+          <span>Repository-local lifecycle</span>
+        </span>
+      </a>
+
+      <p class="nav-label">Guide</p>
+      <nav class="section-nav">
+        <a href="#quick-start"><span>01</span><span>3분 시작</span></a>
+        <a href="#lifecycle"><span>02</span><span>전체 흐름</span></a>
+        <a href="#phases"><span>03</span><span>단계별 사용법</span></a>
+        <a href="#status"><span>04</span><span>상태와 증거</span></a>
+        <a href="#claims"><span>05</span><span>병행 작업</span></a>
+        <a href="#prompts"><span>06</span><span>요청 예시</span></a>
+        <a href="#safety"><span>07</span><span>안전 규칙</span></a>
+        <a href="#troubleshooting"><span>08</span><span>문제 해결</span></a>
+        <a href="#session-routine"><span>09</span><span>세션 루틴</span></a>
+      </nav>
+
+      <div class="side-note">
+        <strong>핵심 원칙</strong>
+        추측이 아니라 저장소 안의 재현 가능한 증거로 다음 단계에 진입합니다.
+      </div>
+    </aside>
+
+    <main id="main-content">
+      <div class="content">
+        <header class="guide-header" id="top">
+          <div>
+            <p class="eyebrow">GBA Localization Skill Suite</p>
+            <h1>한글화 전 과정을 안전하게 끝내는 운영 가이드</h1>
+            <p class="lead">
+              새 프로젝트의 초기 조사부터 텍스트·폰트·이미지 작업, 게임 플레이 검수,
+              패치 배포와 회고까지 같은 절차로 반복하기 위한 실전 안내서입니다.
+            </p>
+          </div>
+
+          <div class="header-visual" aria-label="GBA 작업 흐름을 상징하는 그림">
+            <div class="header-screen" aria-hidden="true"></div>
+            <div class="header-controls" aria-hidden="true">
+              <span class="d-pad"></span>
+              <span>PLAN · BUILD · QA</span>
+              <span class="ab"><span>B</span><span>A</span></span>
+            </div>
+          </div>
+        </header>
+
+        <section class="document-section" id="quick-start">
+          <div class="section-heading">
+            <span class="section-number">01</span>
+            <div>
+              <h2>3분 안에 시작하기</h2>
+              <p>
+                스타터킷이 들어 있는 저장소 루트에서 Codex를 열고 아래 순서대로 진행합니다.
+                원본 ROM 자체는 로컬에만 두며 Git에는 절대 추가하지 않습니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="quick-grid">
+            <div>
+              <div class="setup-tool" aria-labelledby="setup-title">
+                <div class="tool-header">
+                  <h3 id="setup-title">초기화 명령 만들기</h3>
+                  <small>입력값은 이 브라우저 밖으로 전송되지 않습니다.</small>
+                </div>
+                <div class="setup-fields">
+                  <div class="field">
+                    <label for="project-name">프로젝트 이름</label>
+                    <input id="project-name" type="text" value="my-gba-ko" autocomplete="off">
+                  </div>
+                  <div class="field">
+                    <label for="source-rom">저장소 기준 원본 ROM 경로</label>
+                    <input id="source-rom" type="text" value="local_roms/source.gba" autocomplete="off">
+                  </div>
+                </div>
+              </div>
+
+              <div class="command-stack">
+                <div>
+                  <h3>1. 라이프사이클 스킬 호출</h3>
+                  <div class="command-block">
+                    <pre><code>$gba-localization-lifecycle</code></pre>
+                    <button class="copy-button" type="button" data-copy="$gba-localization-lifecycle" aria-label="스킬 호출문 복사">복사</button>
+                  </div>
+                  <p class="command-caption">Codex 대화 입력창에 붙여 넣습니다. 터미널 명령이 아닙니다.</p>
+                </div>
+
+                <div>
+                  <h3>2. 저장소 제어 파일 초기화</h3>
+                  <div class="command-block">
+                    <pre><code id="init-command">python3 .agents/skills/gba-localization-lifecycle/scripts/lifecycle.py init --root . --name 'my-gba-ko' --target-language ko --source-rom 'local_roms/source.gba'</code></pre>
+                    <button class="copy-button" type="button" data-copy-target="init-command" aria-label="초기화 명령 복사">복사</button>
+                  </div>
+                  <p class="command-caption">
+                    이 명령은 <code>.gba-localization/</code> 아래에 프로젝트 설정, 단계 상태,
+                    검증용 매니페스트와 회고 기록 공간을 만듭니다.
+                  </p>
+                </div>
+
+                <div>
+                  <h3>3. 현재 상태 검사</h3>
+                  <div class="command-block">
+                    <pre><code>python3 .agents/skills/gba-localization-lifecycle/scripts/lifecycle.py check --root .
+python3 .agents/skills/gba-localization-lifecycle/scripts/lifecycle.py status --root .</code></pre>
+                    <button class="copy-button" type="button" data-copy="python3 .agents/skills/gba-localization-lifecycle/scripts/lifecycle.py check --root .&#10;python3 .agents/skills/gba-localization-lifecycle/scripts/lifecycle.py status --root ." aria-label="검사 명령 복사">복사</button>
+                  </div>
+                  <p class="command-caption">
+                    첫 검사에서는 미완료 항목이 나오는 것이 정상입니다. 오류 문구가 곧 다음 작업 목록입니다.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <aside class="checklist-tool" aria-labelledby="start-checklist-title">
+              <div class="checklist-head">
+                <h3 id="start-checklist-title">새 프로젝트 체크</h3>
+                <span class="checklist-progress" id="checklist-progress">0 / 6</span>
+              </div>
+              <ul class="checklist" id="start-checklist">
+                <li>
+                  <label>
+                    <input type="checkbox" data-check="clean-git">
+                    <span>작업 브랜치와 <code>git status</code>를 확인했다.</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="checkbox" data-check="rom-local">
+                    <span>원본 ROM을 저장소 내부의 무시된 로컬 경로에 두었다.</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="checkbox" data-check="initialized">
+                    <span><code>lifecycle.py init</code>을 실행했다.</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="checkbox" data-check="gitignore">
+                    <span><code>gitignore.fragment</code> 내용을 루트 <code>.gitignore</code>에 반영했다.</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="checkbox" data-check="source-hash">
+                    <span>원본 ROM의 SHA-256이 <code>project.json</code>에 기록된 것을 확인했다.</span>
+                  </label>
+                </li>
+                <li>
+                  <label>
+                    <input type="checkbox" data-check="first-check">
+                    <span><code>check</code>와 <code>status</code> 결과를 읽었다.</span>
+                  </label>
+                </li>
+              </ul>
+              <button class="checklist-reset" id="checklist-reset" type="button">체크 초기화</button>
+            </aside>
+          </div>
+
+          <div class="callout">
+            <strong>초기화 직후 꼭 할 일</strong>
+            <p>
+              <code>.gba-localization/gitignore.fragment</code>는 참고 조각입니다.
+              기존 규칙을 지우지 말고 필요한 줄만 루트 <code>.gitignore</code>에 합친 뒤,
+              <code>git check-ignore</code>로 ROM·세이브·세이브스테이트가 실제로 제외되는지 확인합니다.
+            </p>
+          </div>
+        </section>
+
+        <section class="document-section" id="lifecycle">
+          <div class="section-heading">
+            <span class="section-number">02</span>
+            <div>
+              <h2>전체 흐름 한눈에 보기</h2>
+              <p>
+                라이프사이클은 일방통행 체크리스트가 아닙니다. 앞 단계의 증거를 다음 단계가 소비하며,
+                게임 플레이 QA에서 문제가 나오면 원인이 있는 단계로 돌아갑니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="lifecycle-visual" aria-label="GBA 한글화 라이프사이클">
+            <div class="flow-row">
+              <a class="flow-node" href="#phase-bootstrap">
+                <span class="flow-index">01</span>
+                <span><strong>Bootstrap</strong><small>안전한 기준선</small></span>
+              </a>
+              <span class="flow-arrow" aria-hidden="true">→</span>
+              <a class="flow-node" href="#phase-rom-analysis">
+                <span class="flow-index">02</span>
+                <span><strong>ROM Analysis</strong><small>구조와 가설 검증</small></span>
+              </a>
+            </div>
+
+            <div class="flow-down" aria-hidden="true">↓</div>
+            <div class="branch-label">분석 증거를 공유하며 설계</div>
+
+            <div class="flow-branch">
+              <a class="flow-node" href="#phase-text">
+                <span class="flow-index">03</span>
+                <span><strong>Text</strong><small>완료 후 Translate 진입</small></span>
+              </a>
+              <a class="flow-node" href="#phase-font">
+                <span class="flow-index">04</span>
+                <span><strong>Font</strong><small>Build &amp; QA의 선행 조건</small></span>
+              </a>
+              <a class="flow-node" href="#phase-images">
+                <span class="flow-index">05</span>
+                <span><strong>Images</strong><small>Release의 선행 조건</small></span>
+              </a>
+            </div>
+
+            <div class="flow-down dependencies">
+              Text → Translate · Font + Translate → Build &amp; QA · Images + Build &amp; QA → Release
+            </div>
+
+            <div class="flow-row finish">
+              <a class="flow-node" href="#phase-translate">
+                <span class="flow-index">06</span>
+                <span><strong>Translate</strong><small>문맥·용어·잠금</small></span>
+              </a>
+              <span class="flow-arrow" aria-hidden="true">→</span>
+              <a class="flow-node" href="#phase-build-qa">
+                <span class="flow-index">07</span>
+                <span><strong>Build &amp; QA</strong><small>재현 빌드·실기 검수</small></span>
+              </a>
+              <span class="flow-arrow" aria-hidden="true">→</span>
+              <a class="flow-node" href="#phase-release">
+                <span class="flow-index">08</span>
+                <span><strong>Release</strong><small>패치·정리·회고</small></span>
+              </a>
+            </div>
+
+            <div class="loop-note">
+              <strong>QA 피드백 루프</strong>
+              <span>문자 깨짐, 진행 불가, 누락 이미지, 어색한 번역은 해당 원인 단계의 증거와 규칙을 고친 뒤 다시 빌드합니다.</span>
+            </div>
+          </div>
+
+          <div class="callout success">
+            <strong>라이프사이클 스킬의 역할</strong>
+            <p>
+              지금 어느 단계인지 판단하고, 필요한 전문 스킬을 선택하고, 선행 조건과 종료 조건을 검사합니다.
+              실제 텍스트·폰트·이미지 작업은 각 단계 스킬이 담당합니다.
+            </p>
+          </div>
+        </section>
+
+        <section class="document-section" id="phases">
+          <div class="section-heading">
+            <span class="section-number">03</span>
+            <div>
+              <h2>단계별 사용법</h2>
+              <p>
+                각 행을 열면 그 단계에서 해야 할 일, 저장해야 할 증거, 다음 단계로 넘어가기 위한 기준을 볼 수 있습니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="phase-list">
+            <details class="phase-row" id="phase-bootstrap" open>
+              <summary>
+                <span class="phase-badge">01</span>
+                <span class="phase-title">
+                  <strong>프로젝트 기준선</strong>
+                  <code>gba-localization-bootstrap</code>
+                </span>
+                <span class="phase-purpose">ROM 신원, 로컬 산출물 역할, 실행 명령, 저장소 경계를 확정합니다.</span>
+              </summary>
+              <div class="phase-content">
+                <div>
+                  <h3>해야 할 일</h3>
+                  <ul>
+                    <li>원본 ROM의 크기와 SHA-256 기록</li>
+                    <li>ROM·세이브·캐시 Git 제외 검증</li>
+                    <li>모든 공개 명령을 저장소 루트 기준으로 통일</li>
+                    <li>입력·재생성 가능·보존 증거의 역할 분류</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3>남길 증거</h3>
+                  <p>
+                    <code>.gba-localization/project.json</code>,
+                    <code>.gba-localization/manifests/artifacts.json</code>,
+                    런타임 도구 목록, 기준 빌드 명령과 예상 출력 경로.
+                  </p>
+                </div>
+                <div>
+                  <h3>통과 기준</h3>
+                  <p>
+                    외부 컴퓨터의 절대 경로 없이 재현할 수 있고, Git 추적 대상과 로컬 전용 파일이
+                    명확하며, 원본 ROM 해시가 실제 파일과 일치합니다.
+                  </p>
+                </div>
+              </div>
+            </details>
+
+            <details class="phase-row" id="phase-rom-analysis">
+              <summary>
+                <span class="phase-badge">02</span>
+                <span class="phase-title">
+                  <strong>ROM 구조 분석</strong>
+                  <code>gba-localization-rom-analysis</code>
+                </span>
+                <span class="phase-purpose">헤더, 포인터, 압축, 텍스트·이미지 후보를 보수적으로 조사합니다.</span>
+              </summary>
+              <div class="phase-content">
+                <div>
+                  <h3>해야 할 일</h3>
+                  <ul>
+                    <li>후보 영역과 레지스트리 목록화</li>
+                    <li>가설마다 최소 변경 실험 설계</li>
+                    <li>원본·실험 ROM 해시와 바이트 차이 기록</li>
+                    <li>실패한 가설도 이유와 함께 보존</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3>남길 증거</h3>
+                  <p>
+                    조사 노트, 오프셋·포인터 표, 압축 판별 근거, 작은 패치 실험과 실행 결과.
+                    추측은 반드시 <em>가설</em>로 표시합니다.
+                  </p>
+                </div>
+                <div>
+                  <h3>통과 기준</h3>
+                  <p>
+                    다음 단계가 사용할 구조적 가정이 최소 한 번의 재현 가능한 실험으로 검증되고,
+                    미확정 영역은 빌드 규칙에 들어가지 않습니다.
+                  </p>
+                </div>
+              </div>
+            </details>
+
+            <details class="phase-row" id="phase-text">
+              <summary>
+                <span class="phase-badge">03</span>
+                <span class="phase-title">
+                  <strong>텍스트 파이프라인</strong>
+                  <code>gba-localization-text</code>
+                </span>
+                <span class="phase-purpose">텍스트 계열별 경계·제어 바이트·포인터 계약을 보존하며 추출하고 다시 넣습니다.</span>
+              </summary>
+              <div class="phase-content">
+                <div>
+                  <h3>해야 할 일</h3>
+                  <ul>
+                    <li>source family별 디코더와 적용 가능 범위 분리</li>
+                    <li>원본 바이트 span·종단자·제어 바이트 보존</li>
+                    <li>인접 레코드 겹침과 경계 검사</li>
+                    <li>미추출 일본어의 주변 printable island 조사</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3>남길 증거</h3>
+                  <p>
+                    <code>.gba-localization/manifests/text_sources.json</code>, canonical text records,
+                    추출·재적용 round-trip 결과, overlap·coverage 보고서.
+                  </p>
+                </div>
+                <div>
+                  <h3>통과 기준</h3>
+                  <p>
+                    추출된 모든 레코드가 원본 위치와 바이트 계약을 추적할 수 있고,
+                    지원한다고 표시한 계열은 적용 후 구조 검사를 통과합니다.
+                  </p>
+                </div>
+              </div>
+            </details>
+
+            <details class="phase-row" id="phase-font">
+              <summary>
+                <span class="phase-badge">04</span>
+                <span class="phase-title">
+                  <strong>한글 폰트와 인코딩</strong>
+                  <code>gba-localization-font</code>
+                </span>
+                <span class="phase-purpose">코드 공간, 글리프 저장 용량, 렌더러 주소 계산을 서로 분리해 검증합니다.</span>
+              </summary>
+              <div class="phase-content">
+                <div>
+                  <h3>해야 할 일</h3>
+                  <ul>
+                    <li>문자 코드와 글리프 슬롯의 수용량 산정</li>
+                    <li>폰트 타일 형식·폭·베이스 주소 확인</li>
+                    <li>필요 시 폰트 재배치와 포인터 수정</li>
+                    <li>대표 글자·희귀 글자·미니 폰트 실기 검증</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3>남길 증거</h3>
+                  <p>
+                    <code>.gba-localization/manifests/font.json</code>, 코드 공간 표, 저장 배치,
+                    렌더러 주소 근거, 아틀라스 이미지와 런타임 테스트 결과.
+                  </p>
+                </div>
+                <div>
+                  <h3>통과 기준</h3>
+                  <p>
+                    인코딩 가능한 문자 수와 실제 글리프 용량이 일치하고, 슬롯 충돌·합성 글자·폭 문제 없이
+                    대표 문장이 게임 안에서 렌더링됩니다.
+                  </p>
+                </div>
+              </div>
+            </details>
+
+            <details class="phase-row" id="phase-images">
+              <summary>
+                <span class="phase-badge">05</span>
+                <span class="phase-title">
+                  <strong>이미지 한글화</strong>
+                  <code>gba-localization-images</code>
+                </span>
+                <span class="phase-purpose">타일·타일맵·팔레트·압축의 출처를 추적하며 텍스트 이미지를 교체합니다.</span>
+              </summary>
+              <div class="phase-content">
+                <div>
+                  <h3>해야 할 일</h3>
+                  <ul>
+                    <li>화면이 아니라 ROM 리소스 단위로 대상 분류</li>
+                    <li>1x 편집 원본과 확대 미리보기 분리</li>
+                    <li>타일 순서·팔레트 provenance·crop map 기록</li>
+                    <li>공유 parent 수정 시 sibling 화면 회귀 검사</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3>남길 증거</h3>
+                  <p>
+                    <code>.gba-localization/manifests/image_targets.json</code>, 대상별 원본·편집·삽입 payload,
+                    매핑·팔레트 정보, 픽셀 diff와 런타임 캡처.
+                  </p>
+                </div>
+                <div>
+                  <h3>통과 기준</h3>
+                  <p>
+                    모든 대상이 현재 활성 소스를 가리키며, 압축·타일맵 구조 검증과 실제 화면 확인을 통과하고,
+                    관련 sibling 화면이 깨지지 않습니다.
+                  </p>
+                </div>
+              </div>
+            </details>
+
+            <details class="phase-row" id="phase-translate">
+              <summary>
+                <span class="phase-badge">06</span>
+                <span class="phase-title">
+                  <strong>번역과 검수</strong>
+                  <code>gba-localization-translate</code>
+                </span>
+                <span class="phase-purpose">canonical records를 기준으로 문맥·용어·잠금 상태를 추적하며 번역합니다.</span>
+              </summary>
+              <div class="phase-content">
+                <div>
+                  <h3>해야 할 일</h3>
+                  <ul>
+                    <li>용어집과 말투 원칙 먼저 고정</li>
+                    <li>문맥·화면·길이 제한을 workset에 포함</li>
+                    <li>초안·사람 검수·잠금 상태 분리</li>
+                    <li>중복 원문, 용어, 미번역, 길이 감사</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3>남길 증거</h3>
+                  <p>
+                    <code>.gba-localization/manifests/translation.json</code>, source of truth 경로,
+                    workset 범위와 소유자, 잠금 통계, 일관성·레이아웃 감사 결과.
+                  </p>
+                </div>
+                <div>
+                  <h3>통과 기준</h3>
+                  <p>
+                    빌드가 참조하는 번역 필드가 하나로 명확하고, 우선순위 범위가 사람 검수를 거쳤으며,
+                    GUI·캐시·중간 JSON이 원본보다 앞서지 않습니다.
+                  </p>
+                </div>
+              </div>
+            </details>
+
+            <details class="phase-row" id="phase-build-qa">
+              <summary>
+                <span class="phase-badge">07</span>
+                <span class="phase-title">
+                  <strong>ROM 빌드와 게임 플레이 QA</strong>
+                  <code>gba-localization-build-qa</code>
+                </span>
+                <span class="phase-purpose">같은 입력에서 같은 검수 ROM을 만들고 진행·저장·전환까지 실제로 확인합니다.</span>
+              </summary>
+              <div class="phase-content">
+                <div>
+                  <h3>해야 할 일</h3>
+                  <ul>
+                    <li>입력 해시·도구 버전·명령을 build manifest에 기록</li>
+                    <li>텍스트·폰트·이미지 적용 순서 고정</li>
+                    <li>메뉴, 전투, 이벤트, 저장, 화면 전환 검수</li>
+                    <li>버그마다 재현 절차와 수정 단계 연결</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3>남길 증거</h3>
+                  <p>
+                    <code>.gba-localization/manifests/qa_cases.json</code>, build ID와 ROM 해시,
+                    테스트 케이스·결과·스크린샷, 알려진 미검수 범위와 버그 기록.
+                  </p>
+                </div>
+                <div>
+                  <h3>통과 기준</h3>
+                  <p>
+                    최신 source of truth에서 검수 ROM이 재현되고, 출시 범위의 필수 케이스가 통과하며,
+                    실패 항목은 원인 단계로 되돌아갈 수 있습니다.
+                  </p>
+                </div>
+              </div>
+            </details>
+
+            <details class="phase-row" id="phase-release">
+              <summary>
+                <span class="phase-badge">08</span>
+                <span class="phase-title">
+                  <strong>패치 배포와 회고</strong>
+                  <code>gba-localization-release</code>
+                </span>
+                <span class="phase-purpose">원본 ROM 없이 패치를 검증하고, 정리 전에 재사용할 교훈을 보존합니다.</span>
+              </summary>
+              <div class="phase-content">
+                <div>
+                  <h3>해야 할 일</h3>
+                  <ul>
+                    <li>원본·결과 ROM 해시와 패치 생성 명령 기록</li>
+                    <li>깨끗한 원본에 패치를 다시 적용해 round-trip 검증</li>
+                    <li>QA 범위, 알려진 문제, 자산 라이선스 문서화</li>
+                    <li>정리 후보를 역할·참조·재생성 가능성으로 판정</li>
+                  </ul>
+                </div>
+                <div>
+                  <h3>남길 증거</h3>
+                  <p>
+                    <code>.gba-localization/manifests/release.json</code>, 배포 패치와 해시,
+                    적용 검증 결과, 릴리스 노트, 회고와 스타터킷 개선 제안.
+                  </p>
+                </div>
+                <div>
+                  <h3>통과 기준</h3>
+                  <p>
+                    패치만으로 검수 ROM이 정확히 재생성되고, 배포물에 ROM이 없으며,
+                    삭제 전 게이트와 Git 체크포인트를 통과합니다.
+                  </p>
+                </div>
+              </div>
+            </details>
+          </div>
+        </section>
+
+        <section class="document-section" id="status">
+          <div class="section-heading">
+            <span class="section-number">04</span>
+            <div>
+              <h2>상태는 진척도가 아니라 증거의 수준</h2>
+              <p>
+                “거의 된 것 같다”는 상태가 아닙니다. 각 단계의 매니페스트와 실제 파일이 의미 검사를
+                통과할 때만 <code>ready</code> 또는 <code>complete</code>로 올립니다.
+              </p>
+            </div>
+          </div>
+
+          <table class="status-table">
+            <thead>
+              <tr>
+                <th>상태</th>
+                <th>언제 사용하나</th>
+                <th>필수 기록</th>
+                <th>다음 행동</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="status-label not-started">not_started</span></td>
+                <td>아직 작업과 조사가 시작되지 않음</td>
+                <td>없음</td>
+                <td>선행 단계와 현재 우선순위를 확인</td>
+              </tr>
+              <tr>
+                <td><span class="status-label in-progress">in_progress</span></td>
+                <td>작업 중이며 결과가 아직 바뀔 수 있음</td>
+                <td>현재 증거와 짧은 작업 메모</td>
+                <td>claim 범위 안에서 증거를 계속 갱신</td>
+              </tr>
+              <tr>
+                <td><span class="status-label blocked">blocked</span></td>
+                <td>구체적인 선행 조건이나 외부 확인이 필요함</td>
+                <td>재현 가능한 blocker와 확인한 증거</td>
+                <td>막힘을 숨기지 말고 원인 단계로 이동</td>
+              </tr>
+              <tr>
+                <td><span class="status-label ready">ready</span></td>
+                <td>다음 단계가 소비할 수 있는 결과가 준비됨</td>
+                <td>존재하는 저장소 상대경로 증거</td>
+                <td><code>check</code>로 의미 게이트 통과 확인</td>
+              </tr>
+              <tr>
+                <td><span class="status-label complete">complete</span></td>
+                <td>요구 범위와 종료 조건이 모두 충족됨</td>
+                <td>최종 증거, 검증 결과, 결정 메모</td>
+                <td>체크포인트 커밋 후 다음 단계 진행</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="command-stack">
+            <div>
+              <h3>작업 시작 체크포인트</h3>
+              <div class="command-block">
+                <pre><code>python3 .agents/skills/gba-localization-lifecycle/scripts/lifecycle.py checkpoint --root . --phase text --status in_progress --evidence .gba-localization/manifests/text_sources.json --note "dialog family extraction started"</code></pre>
+                <button class="copy-button" type="button" data-copy="python3 .agents/skills/gba-localization-lifecycle/scripts/lifecycle.py checkpoint --root . --phase text --status in_progress --evidence .gba-localization/manifests/text_sources.json --note &quot;dialog family extraction started&quot;" aria-label="작업 시작 체크포인트 명령 복사">복사</button>
+              </div>
+            </div>
+
+            <div>
+              <h3>막힘 기록</h3>
+              <div class="command-block">
+                <pre><code>python3 .agents/skills/gba-localization-lifecycle/scripts/lifecycle.py checkpoint --root . --phase text --status blocked --blocker "unknown command-stream terminator at 0x123456" --evidence localization/evidence/text/terminator_probe.md</code></pre>
+                <button class="copy-button" type="button" data-copy="python3 .agents/skills/gba-localization-lifecycle/scripts/lifecycle.py checkpoint --root . --phase text --status blocked --blocker &quot;unknown command-stream terminator at 0x123456&quot; --evidence localization/evidence/text/terminator_probe.md" aria-label="막힘 체크포인트 명령 복사">복사</button>
+              </div>
+            </div>
+
+            <div>
+              <h3>단계 완료 체크포인트</h3>
+              <div class="command-block">
+                <pre><code>python3 .agents/skills/gba-localization-lifecycle/scripts/lifecycle.py checkpoint --root . --phase text --status complete --clear-blockers --evidence .gba-localization/manifests/text_sources.json --evidence localization/evidence/text/round_trip_report.md</code></pre>
+                <button class="copy-button" type="button" data-copy="python3 .agents/skills/gba-localization-lifecycle/scripts/lifecycle.py checkpoint --root . --phase text --status complete --clear-blockers --evidence .gba-localization/manifests/text_sources.json --evidence localization/evidence/text/round_trip_report.md" aria-label="단계 완료 체크포인트 명령 복사">복사</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="callout danger">
+            <strong>빈 매니페스트로는 완료할 수 없습니다.</strong>
+            <p>
+              파일이 존재하는지만 검사하지 않습니다. 예를 들어 이미지 단계는 대상 목록, 활성 참조,
+              매핑·팔레트·런타임 증거가 채워져야 하고, QA 단계는 build ID와 실제 케이스 결과가 있어야 합니다.
+            </p>
+          </div>
+        </section>
+
+        <section class="document-section" id="claims">
+          <div class="section-heading">
+            <span class="section-number">05</span>
+            <div>
+              <h2>여러 세션이 함께 일할 때</h2>
+              <p>
+                조사와 문서 읽기는 병행할 수 있지만, 매니페스트·생성물·ROM을 바꾸는 작업은
+                저장소 전체에서 한 번에 하나의 단계만 활성 claim을 가질 수 있습니다.
+                claim은 이 단일 작성자 원칙을 기록합니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="claim-sequence">
+            <div class="claim-step">
+              <strong>작업 범위 점유</strong>
+              <p>단계와 소유자를 기록하고 만료 시간을 정합니다. 선행 단계가 준비되지 않으면 점유할 수 없습니다.</p>
+            </div>
+            <div class="claim-step">
+              <strong>작업·검증·체크포인트</strong>
+              <p>같은 owner 이름을 유지하고, 증거 파일과 상태를 갱신한 뒤 검사와 Git 체크포인트를 남깁니다.</p>
+            </div>
+            <div class="claim-step">
+              <strong>점유 해제</strong>
+              <p>다른 세션이 이어받을 수 있도록 claim을 해제합니다. 만료된 claim도 자동으로 무시하지 않습니다.</p>
+            </div>
+          </div>
+
+          <div class="command-stack">
+            <div>
+              <h3>1. 이미지 단계 90분 점유</h3>
+              <div class="command-block">
+                <pre><code>python3 .agents/skills/gba-localization-lifecycle/scripts/lifecycle.py claim --root . --phase images --owner codex-images-01 --minutes 90</code></pre>
+                <button class="copy-button" type="button" data-copy="python3 .agents/skills/gba-localization-lifecycle/scripts/lifecycle.py claim --root . --phase images --owner codex-images-01 --minutes 90" aria-label="단계 점유 명령 복사">복사</button>
+              </div>
+            </div>
+            <div>
+              <h3>2. 상태와 현재 점유 확인</h3>
+              <div class="command-block">
+                <pre><code>python3 .agents/skills/gba-localization-lifecycle/scripts/lifecycle.py status --root .</code></pre>
+                <button class="copy-button" type="button" data-copy="python3 .agents/skills/gba-localization-lifecycle/scripts/lifecycle.py status --root ." aria-label="상태 확인 명령 복사">복사</button>
+              </div>
+            </div>
+            <div>
+              <h3>3. 작업 후 점유 해제</h3>
+              <div class="command-block">
+                <pre><code>python3 .agents/skills/gba-localization-lifecycle/scripts/lifecycle.py release-claim --root . --owner codex-images-01</code></pre>
+                <button class="copy-button" type="button" data-copy="python3 .agents/skills/gba-localization-lifecycle/scripts/lifecycle.py release-claim --root . --owner codex-images-01" aria-label="점유 해제 명령 복사">복사</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="two-column" style="margin-top: 28px;">
+            <div class="plain-panel safe">
+              <h3>병행해도 좋은 일</h3>
+              <ul>
+                <li>문서와 기존 증거 읽기</li>
+                <li>서로 다른 텍스트 workset의 번역 초안</li>
+                <li>읽기 전용 ROM 후보 조사</li>
+                <li>QA 케이스 설계와 기존 캡처 비교</li>
+              </ul>
+            </div>
+            <div class="plain-panel risk">
+              <h3>한 소유자만 해야 하는 일</h3>
+              <ul>
+                <li>같은 단계 매니페스트 수정</li>
+                <li>공유 parent 이미지나 팔레트 교체</li>
+                <li>canonical translation source 병합</li>
+                <li>최종 ROM 빌드와 패치 생성</li>
+              </ul>
+            </div>
+          </div>
+        </section>
+
+        <section class="document-section" id="prompts">
+          <div class="section-heading">
+            <span class="section-number">06</span>
+            <div>
+              <h2>Codex에 이렇게 요청하세요</h2>
+              <p>
+                스킬 이름과 기대 결과를 함께 적으면 현재 저장소를 읽은 뒤 해당 절차로 작업합니다.
+                오프셋이나 구현 방식을 미리 단정하기보다 관찰할 증상과 완료 조건을 말하는 편이 좋습니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="prompt-list">
+            <div class="prompt-item">
+              <span class="prompt-skill">lifecycle</span>
+              <p class="prompt-text" id="prompt-lifecycle">$gba-localization-lifecycle 현재 저장소의 단계 상태와 증거를 검사하고, 지금 해야 할 다음 작업을 결정해줘. 기존 파일은 삭제하거나 크게 옮기지 말고 먼저 위험을 보고해줘.</p>
+              <button class="copy-button" type="button" data-copy-target="prompt-lifecycle" aria-label="라이프사이클 요청 예시 복사">복사</button>
+            </div>
+            <div class="prompt-item">
+              <span class="prompt-skill">bootstrap</span>
+              <p class="prompt-text" id="prompt-bootstrap">$gba-localization-bootstrap 이 저장소를 새 GBA 한글화 프로젝트의 안전한 기준선으로 초기화해줘. ROM 신원, Git 제외, 산출물 역할, 저장소 상대경로, 기준 명령을 검증해줘.</p>
+              <button class="copy-button" type="button" data-copy-target="prompt-bootstrap" aria-label="부트스트랩 요청 예시 복사">복사</button>
+            </div>
+            <div class="prompt-item">
+              <span class="prompt-skill">rom-analysis</span>
+              <p class="prompt-text" id="prompt-analysis">$gba-localization-rom-analysis 이 ROM의 대화 텍스트 후보를 보수적으로 조사해줘. 추측과 검증된 사실을 분리하고, 작은 실험과 오프셋 증거를 남겨줘.</p>
+              <button class="copy-button" type="button" data-copy-target="prompt-analysis" aria-label="ROM 분석 요청 예시 복사">복사</button>
+            </div>
+            <div class="prompt-item">
+              <span class="prompt-skill">text</span>
+              <p class="prompt-text" id="prompt-text">$gba-localization-text 아직 추출되지 않은 일본어를 source family별로 조사하고, record span·종단자·제어 바이트·포인터를 보존하는 추출 및 적용 경로를 만들어줘.</p>
+              <button class="copy-button" type="button" data-copy-target="prompt-text" aria-label="텍스트 요청 예시 복사">복사</button>
+            </div>
+            <div class="prompt-item">
+              <span class="prompt-skill">font</span>
+              <p class="prompt-text" id="prompt-font">$gba-localization-font 현재 한글 폰트의 코드 공간, 글리프 용량, 타일 형식, 렌더러 주소 계산을 각각 검증하고 런타임에서 깨지는 글자의 원인을 찾아줘.</p>
+              <button class="copy-button" type="button" data-copy-target="prompt-font" aria-label="폰트 요청 예시 복사">복사</button>
+            </div>
+            <div class="prompt-item">
+              <span class="prompt-skill">images</span>
+              <p class="prompt-text" id="prompt-images">$gba-localization-images 이 메뉴 이미지의 ROM 리소스, 압축, 타일 순서, 타일맵, 팔레트 출처를 추적하고 1x 편집 원본과 런타임 검증까지 포함해 교체해줘.</p>
+              <button class="copy-button" type="button" data-copy-target="prompt-images" aria-label="이미지 요청 예시 복사">복사</button>
+            </div>
+            <div class="prompt-item">
+              <span class="prompt-skill">translate</span>
+              <p class="prompt-text" id="prompt-translate">$gba-localization-translate 이 번역 workset을 용어집과 문맥에 맞게 검수해줘. 어색한 문장, 미번역, 중복 원문의 불일치, 길이 초과를 감사하고 canonical source만 갱신해줘.</p>
+              <button class="copy-button" type="button" data-copy-target="prompt-translate" aria-label="번역 요청 예시 복사">복사</button>
+            </div>
+            <div class="prompt-item">
+              <span class="prompt-skill">build-qa</span>
+              <p class="prompt-text" id="prompt-qa">$gba-localization-build-qa 최신 번역·폰트·이미지로 검수 ROM을 재현 빌드하고, 메뉴·전투·이벤트·저장·화면 전환 QA 케이스와 결과 증거를 남겨줘.</p>
+              <button class="copy-button" type="button" data-copy-target="prompt-qa" aria-label="빌드 QA 요청 예시 복사">복사</button>
+            </div>
+            <div class="prompt-item">
+              <span class="prompt-skill">release</span>
+              <p class="prompt-text" id="prompt-release">$gba-localization-release 릴리스 후보의 패치 round-trip, 원본·결과 해시, QA 범위, 알려진 문제, 라이선스와 정리 게이트를 검증하고 회고 교훈을 스킬 개선안으로 정리해줘.</p>
+              <button class="copy-button" type="button" data-copy-target="prompt-release" aria-label="릴리스 요청 예시 복사">복사</button>
+            </div>
+          </div>
+
+          <div class="callout">
+            <strong>좋은 요청의 구조</strong>
+            <p>
+              <code>스킬 이름 + 관찰한 증상 + 반드시 지킬 제약 + 기대하는 증거</code> 순서로 씁니다.
+              예: “전투 승리 뒤 진행이 멈춘다 / 원본 ROM은 수정하지 않는다 / 재현 세이브와 적용 전후 해시를 남긴다.”
+            </p>
+          </div>
+        </section>
+
+        <section class="document-section" id="safety">
+          <div class="section-heading">
+            <span class="section-number">07</span>
+            <div>
+              <h2>반드시 지킬 안전 규칙</h2>
+              <p>
+                이 규칙은 파일 정리, 구조 변경, 자동화, 여러 세션의 동시 작업에서 가장 먼저 적용합니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="two-column">
+            <div class="plain-panel risk">
+              <h3>절대 하지 않는 일</h3>
+              <ol class="rules-list">
+                <li><span class="rule-index">01</span> ROM, 세이브, 세이브스테이트를 Git에 커밋하지 않습니다.</li>
+                <li><span class="rule-index">02</span> 역할을 모르는 파일을 “임시 같아 보인다”는 이유로 삭제하지 않습니다.</li>
+                <li><span class="rule-index">03</span> 스크린샷과 확대 미리보기를 편집 원본으로 승격하지 않습니다.</li>
+                <li><span class="rule-index">04</span> GUI 캐시나 중간 JSON을 번역 source of truth로 사용하지 않습니다.</li>
+                <li><span class="rule-index">05</span> 다른 저장소나 개인 컴퓨터의 절대 경로를 활성 의존성으로 만들지 않습니다.</li>
+                <li><span class="rule-index">06</span> 같은 공유 출력물을 여러 세션이 동시에 수정하지 않습니다.</li>
+              </ol>
+            </div>
+
+            <div class="plain-panel safe">
+              <h3>삭제·이동 전 확인 순서</h3>
+              <ol class="rules-list">
+                <li><span class="rule-index">01</span> 모든 문서와 매니페스트에서 참조를 검색합니다.</li>
+                <li><span class="rule-index">02</span> 입력, 재생성 가능 산출물, 보존 증거, 로컬 런타임 파일 중 역할을 분류합니다.</li>
+                <li><span class="rule-index">03</span> canonical build와 GUI가 실제로 읽는 경로를 추적합니다.</li>
+                <li><span class="rule-index">04</span> 대체 파일과 재생성 명령을 확인합니다.</li>
+                <li><span class="rule-index">05</span> 작은 단위로 이동하거나 삭제하고 즉시 build·QA·Git diff를 확인합니다.</li>
+                <li><span class="rule-index">06</span> 위험한 변경 전후로 커밋하고 원격 저장소에 푸시합니다.</li>
+              </ol>
+            </div>
+          </div>
+
+          <div class="callout danger">
+            <strong>정리보다 회고 증거가 먼저입니다.</strong>
+            <p>
+              실패한 실험, 임시 분석 스크립트, 오래된 이미지 payload도 재사용 가능한 교훈을 담고 있을 수 있습니다.
+              삭제 전에는 “왜 생겼고, 무엇이 대체하며, 같은 실수를 막을 규칙이 어디에 기록됐는가”를 확인합니다.
+            </p>
+          </div>
+        </section>
+
+        <section class="document-section" id="troubleshooting">
+          <div class="section-heading">
+            <span class="section-number">08</span>
+            <div>
+              <h2>막혔을 때 보는 표</h2>
+              <p>
+                증상을 덮는 임시 패치보다 어느 단계의 계약이 깨졌는지 먼저 찾습니다.
+                아래 확인으로 해결되지 않으면 증거 경로와 함께 해당 전문 스킬을 호출합니다.
+              </p>
+            </div>
+          </div>
+
+          <table class="trouble-table">
+            <thead>
+              <tr>
+                <th>증상</th>
+                <th>먼저 확인</th>
+                <th>호출할 스킬</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><code>check</code>가 실패한다</td>
+                <td>출력된 첫 의미 게이트, 누락된 저장소 상대경로, 선행 단계 상태를 순서대로 확인</td>
+                <td><code>$gba-localization-lifecycle</code></td>
+              </tr>
+              <tr>
+                <td>스킬이 목록에 보이지 않는다</td>
+                <td>저장소 루트에서 열었는지, <code>.agents/skills/&lt;name&gt;/SKILL.md</code>가 있는지 확인 후 작업을 다시 열어 목록 갱신</td>
+                <td><code>$gba-localization-lifecycle</code></td>
+              </tr>
+              <tr>
+                <td>원본 ROM이 없거나 해시가 다르다</td>
+                <td>잘못된 ROM으로 분석하지 말고 bootstrap을 <code>blocked</code>로 유지</td>
+                <td><code>$gba-localization-bootstrap</code></td>
+              </tr>
+              <tr>
+                <td>번역했는데 게임에는 일본어가 남는다</td>
+                <td>같은 화면 주변의 printable island, 다른 source family, GUI와 build source 불일치 조사</td>
+                <td><code>$gba-localization-text</code></td>
+              </tr>
+              <tr>
+                <td>한글이 합쳐지거나 엉뚱한 글자가 나온다</td>
+                <td>코드 공간과 글리프 슬롯 수, 렌더러 주소 계산, base pointer를 각각 확인</td>
+                <td><code>$gba-localization-font</code></td>
+              </tr>
+              <tr>
+                <td>이미지가 뒤섞이거나 색이 깨진다</td>
+                <td>타일·타일맵·팔레트의 공유 parent, 원본 1x 크기, 삽입 전후 픽셀 diff 확인</td>
+                <td><code>$gba-localization-images</code></td>
+              </tr>
+              <tr>
+                <td>GUI에서 수정한 내용이 ROM에 없다</td>
+                <td>GUI 저장 위치, canonical source, apply 입력 해시, 빌드 순서를 대조</td>
+                <td><code>$gba-localization-translate</code> + <code>$gba-localization-build-qa</code></td>
+              </tr>
+              <tr>
+                <td>진행 불가나 저장 오류가 생긴다</td>
+                <td>재현 세이브·입력 순서·직전 빌드 ID를 고정하고 구조 변경 단계로 되돌아감</td>
+                <td><code>$gba-localization-build-qa</code></td>
+              </tr>
+              <tr>
+                <td>claim이 만료되었거나 다른 owner가 잡고 있다</td>
+                <td>현재 Git 상태와 출력 해시를 비교합니다. 활성 claim은 기존 owner가 해제하고, 만료된 claim은 확인 후 새 owner가 재점유합니다.</td>
+                <td><code>$gba-localization-lifecycle</code></td>
+              </tr>
+              <tr>
+                <td>패치를 적용한 ROM이 검수 ROM과 다르다</td>
+                <td>원본 해시, 패치 도구·명령, clean source에 대한 round-trip 결과 확인</td>
+                <td><code>$gba-localization-release</code></td>
+              </tr>
+            </tbody>
+          </table>
+        </section>
+
+        <section class="document-section" id="session-routine">
+          <div class="section-heading">
+            <span class="section-number">09</span>
+            <div>
+              <h2>매 세션의 시작·작업·종료 루틴</h2>
+              <p>
+                오래 쉬었다 돌아오거나 다른 컴퓨터에서 이어갈 때도 아래 세 묶음만 지키면 현재 상태를
+                감으로 복원하지 않아도 됩니다.
+              </p>
+            </div>
+          </div>
+
+          <div class="session-strip">
+            <section class="session-part">
+              <h3>시작할 때</h3>
+              <ol>
+                <li><code>git status</code>, branch, 최근 커밋 확인</li>
+                <li><code>lifecycle.py check</code> 실행</li>
+                <li><code>lifecycle.py status</code>로 다음 단계와 claim 확인</li>
+                <li>관련 문서·매니페스트·최근 증거 읽기</li>
+              </ol>
+            </section>
+            <section class="session-part">
+              <h3>작업하는 동안</h3>
+              <ol>
+                <li>쓰기 전에 단계 claim 획득</li>
+                <li>작은 변경마다 구조 검사 또는 미리보기</li>
+                <li>실험 입력·명령·해시·결과 기록</li>
+                <li>실패를 숨기지 말고 blocker로 남기기</li>
+              </ol>
+            </section>
+            <section class="session-part">
+              <h3>끝낼 때</h3>
+              <ol>
+                <li>build·QA와 <code>check</code> 재실행</li>
+                <li>phase checkpoint와 인수인계 메모 갱신</li>
+                <li>claim 해제</li>
+                <li>의도한 파일만 커밋하고 push</li>
+              </ol>
+            </section>
+          </div>
+
+          <div class="command-stack">
+            <div>
+              <h3>세션 시작에 바로 붙여 넣을 요청</h3>
+              <div class="command-block">
+                <pre><code id="resume-prompt">$gba-localization-lifecycle 이 저장소에서 이전 작업을 안전하게 이어가자. 먼저 git 상태, lifecycle check/status, 현재 claim, 최근 증거와 인수인계 문서를 읽고 실제 다음 단계를 보고해줘. 기존 변경은 되돌리지 말고, 쓰기 작업 전에는 해당 phase를 claim해줘.</code></pre>
+                <button class="copy-button" type="button" data-copy-target="resume-prompt" aria-label="세션 재개 요청 복사">복사</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="callout success">
+            <strong>완료의 정의</strong>
+            <p>
+              “ROM이 한 번 실행됐다”가 아니라, 깨끗한 입력에서 재현 가능하고, 필수 게임 플레이 범위를 통과하며,
+              패치 round-trip과 문서화가 끝났고, 다음 프로젝트에 넘길 교훈까지 남은 상태입니다.
+            </p>
+          </div>
+        </section>
+
+        <footer class="guide-footer">
+          <p>
+            이 문서는 저장소의 <a href="../../.agents/skills/gba-localization-lifecycle/SKILL.md">라이프사이클 스킬</a>과
+            <a href="../../.agents/skills/gba-localization-lifecycle/references/phase-contracts.md">단계 계약</a>을 사람이
+            빠르게 읽을 수 있도록 풀어쓴 가이드입니다. 명령 동작과 게이트의 최종 기준은 각 스킬의
+            <code>SKILL.md</code>와 실행 스크립트입니다.
+          </p>
+          <a class="back-top" href="#top">맨 위로 ↑</a>
+        </footer>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    (() => {
+      const projectName = document.querySelector("#project-name");
+      const sourceRom = document.querySelector("#source-rom");
+      const initCommand = document.querySelector("#init-command");
+
+      const shellQuote = (value) => {
+        const text = String(value || "").trim();
+        return "'" + text.replace(/'/g, "'\"'\"'") + "'";
+      };
+
+      const updateInitCommand = () => {
+        const name = projectName.value.trim() || "my-gba-ko";
+        const rom = sourceRom.value.trim() || "local_roms/source.gba";
+        initCommand.textContent =
+          "python3 .agents/skills/gba-localization-lifecycle/scripts/lifecycle.py init " +
+          "--root . --name " + shellQuote(name) +
+          " --target-language ko --source-rom " + shellQuote(rom);
+      };
+
+      projectName.addEventListener("input", updateInitCommand);
+      sourceRom.addEventListener("input", updateInitCommand);
+      updateInitCommand();
+
+      const fallbackCopy = (text) => {
+        const temporary = document.createElement("textarea");
+        temporary.value = text;
+        temporary.setAttribute("readonly", "");
+        temporary.style.position = "fixed";
+        temporary.style.opacity = "0";
+        document.body.appendChild(temporary);
+        temporary.select();
+        const copied = document.execCommand("copy");
+        temporary.remove();
+        return copied;
+      };
+
+      document.querySelectorAll(".copy-button").forEach((button) => {
+        button.addEventListener("click", async () => {
+          const targetId = button.dataset.copyTarget;
+          const target = targetId ? document.getElementById(targetId) : null;
+          const text = target ? target.textContent.trim() : button.dataset.copy;
+          let copied = false;
+
+          try {
+            if (navigator.clipboard && window.isSecureContext) {
+              await navigator.clipboard.writeText(text);
+              copied = true;
+            } else {
+              copied = fallbackCopy(text);
+            }
+          } catch (_error) {
+            copied = fallbackCopy(text);
+          }
+
+          if (!copied) {
+            return;
+          }
+
+          const original = button.textContent;
+          button.textContent = "완료";
+          button.dataset.state = "copied";
+          window.setTimeout(() => {
+            button.textContent = original;
+            delete button.dataset.state;
+          }, 1300);
+        });
+      });
+
+      const checklistKey = "gba-localization-guide-checklist-v1";
+      const checklist = Array.from(document.querySelectorAll("[data-check]"));
+      const checklistProgress = document.querySelector("#checklist-progress");
+      let savedChecklist = {};
+
+      try {
+        savedChecklist = JSON.parse(localStorage.getItem(checklistKey) || "{}");
+      } catch (_error) {
+        savedChecklist = {};
+      }
+
+      const renderChecklist = () => {
+        const checked = checklist.filter((item) => item.checked).length;
+        checklistProgress.textContent = checked + " / " + checklist.length;
+      };
+
+      checklist.forEach((item) => {
+        item.checked = Boolean(savedChecklist[item.dataset.check]);
+        item.addEventListener("change", () => {
+          savedChecklist[item.dataset.check] = item.checked;
+          try {
+            localStorage.setItem(checklistKey, JSON.stringify(savedChecklist));
+          } catch (_error) {
+            // Direct-file browsing can disable storage; the checklist still works in memory.
+          }
+          renderChecklist();
+        });
+      });
+
+      document.querySelector("#checklist-reset").addEventListener("click", () => {
+        savedChecklist = {};
+        checklist.forEach((item) => {
+          item.checked = false;
+        });
+        try {
+          localStorage.removeItem(checklistKey);
+        } catch (_error) {
+          // Keep the visible reset even when storage is unavailable.
+        }
+        renderChecklist();
+      });
+      renderChecklist();
+
+      const navLinks = Array.from(document.querySelectorAll(".section-nav a"));
+      const sections = navLinks
+        .map((link) => document.querySelector(link.getAttribute("href")))
+        .filter(Boolean);
+
+      const setCurrentSection = (id) => {
+        navLinks.forEach((link) => {
+          const current = link.getAttribute("href") === "#" + id;
+          if (current) {
+            link.setAttribute("aria-current", "true");
+          } else {
+            link.removeAttribute("aria-current");
+          }
+        });
+      };
+
+      if ("IntersectionObserver" in window) {
+        const observer = new IntersectionObserver((entries) => {
+          const visible = entries
+            .filter((entry) => entry.isIntersecting)
+            .sort((a, b) => b.intersectionRatio - a.intersectionRatio);
+          if (visible[0]) {
+            setCurrentSection(visible[0].target.id);
+          }
+        }, {
+          rootMargin: "-18% 0px -68% 0px",
+          threshold: [0, 0.1, 0.3]
+        });
+        sections.forEach((section) => observer.observe(section));
+      }
+
+      const openHashTarget = () => {
+        if (!window.location.hash) {
+          return;
+        }
+        const target = document.querySelector(window.location.hash);
+        if (target && target.matches("details")) {
+          target.open = true;
+        }
+      };
+
+      window.addEventListener("hashchange", openHashTarget);
+      openHashTarget();
+    })();
+  </script>
+</body>
+</html>
