@@ -1,0 +1,4 @@
+interface:
+  display_name: "GBA ROM Analysis"
+  short_description: "Map ROM structures without unsafe assumptions"
+  default_prompt: "Use $gba-localization-rom-analysis to inventory and investigate this ROM before extraction."

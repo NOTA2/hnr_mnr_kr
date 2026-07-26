@@ -1,0 +1,4 @@
+interface:
+  display_name: "GBA Font Pipeline"
+  short_description: "Build and validate Korean font and encoding support"
+  default_prompt: "Use $gba-localization-font to design and verify Korean font support for this game."

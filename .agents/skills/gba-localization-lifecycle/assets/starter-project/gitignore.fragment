@@ -1,0 +1,23 @@
+# Local copyrighted/runtime artifacts
+*.gba
+*.sav
+*.sgm
+*.state
+*.srm
+*.ips
+*.ups
+*.bps
+local_roms/
+patched_roms/
+emulator_state/
+.gba-localization/active_claim.json
+
+# Reproducible generated output
+analysis/generated/
+localization/generated/
+tmp/
+__pycache__/
+.DS_Store
+
+# Track release patches only with a narrow repository-specific exception.
+# !releases/**/*.bps

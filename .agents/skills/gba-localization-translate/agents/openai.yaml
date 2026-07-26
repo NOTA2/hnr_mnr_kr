@@ -1,0 +1,4 @@
+interface:
+  display_name: "GBA Translation Workflow"
+  short_description: "Run traceable translation, review, and workset QA"
+  default_prompt: "Use $gba-localization-translate to prepare, translate, and review localization worksets."

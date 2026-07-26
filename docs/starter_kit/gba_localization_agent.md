@@ -1,11 +1,23 @@
 # Generic GBA Localization Agent Spec
 
-Status: draft
+Status: implemented as a repository-scoped v1 skill suite
+
+Runnable implementation:
+
+- `.agents/skills/gba-localization-lifecycle/`
+- `.agents/skills/gba-localization-bootstrap/`
+- `.agents/skills/gba-localization-rom-analysis/`
+- `.agents/skills/gba-localization-text/`
+- `.agents/skills/gba-localization-font/`
+- `.agents/skills/gba-localization-images/`
+- `.agents/skills/gba-localization-translate/`
+- `.agents/skills/gba-localization-build-qa/`
+- `.agents/skills/gba-localization-release/`
 
 This is a project-neutral operating spec for an agent that helps localize a GBA
 game while keeping the repo clean, reproducible, and safe. It should be turned
-into a dedicated prompt, skill, or starter-kit template after it is reviewed in
-one more project.
+into revised skill rules when another project produces evidence that changes
+the current phase contracts.
 
 ## Mission
 

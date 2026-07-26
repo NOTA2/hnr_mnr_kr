@@ -1,0 +1,4 @@
+interface:
+  display_name: "GBA Text Pipeline"
+  short_description: "Discover, extract, classify, and prepare game text"
+  default_prompt: "Use $gba-localization-text to build or improve the text extraction pipeline for this game."

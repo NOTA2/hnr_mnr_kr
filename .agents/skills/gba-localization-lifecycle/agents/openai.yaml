@@ -1,0 +1,4 @@
+interface:
+  display_name: "GBA Localization Lifecycle"
+  short_description: "Run the complete GBA localization lifecycle"
+  default_prompt: "Use $gba-localization-lifecycle to initialize or resume this GBA localization project."

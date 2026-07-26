@@ -433,6 +433,79 @@ Starter-kit rule:
 - Uploaded replacement pruning is blocked unless the active-reference manifest
   is current, Unicode/path checks agree, and GUI integrity passes.
 
+## 19. Manual Correction Trapped In An Agent Round Trip
+
+Symptom:
+
+- The user repeatedly asks for one-pixel shifts, crop changes, tile-order fixes,
+  font baseline adjustments, or palette selection because the tool cannot save
+  those parameters.
+
+Cause:
+
+- Discovery output was produced, but uncertain visual parameters remained
+  hard-coded in scripts or depended on a fresh agent edit.
+
+Prevention:
+
+- Provide a local adjustment surface with an 8x8 grid, tile indices, numeric
+  x/y offsets, tile start/order, palette selection, undo/redo, and saved
+  repo-relative configuration.
+- Preserve generated seeds separately from user-authored correction overlays.
+
+Starter-kit rule:
+
+- Repeated visual correction must graduate into deterministic user controls
+  instead of consuming another agent round trip.
+
+## 20. Shared Resources Or Concurrent Writers Reintroduced Damage
+
+Symptom:
+
+- Fixing one image breaks an earlier image, or two sessions modify the same
+  canonical file/build output and the later result silently loses work.
+
+Cause:
+
+- Multiple targets shared one compressed parent, tile bank, palette, or output
+  ROM, while apply steps rebuilt from stale inputs or more than one writer
+  mutated shared state.
+
+Prevention:
+
+- Aggregate all edits for a shared parent into one deterministic apply order.
+- Re-run every sibling target after the parent changes.
+- Use a repository-local phase claim and one-writer policy for canonical data,
+  GUI state, and shared build outputs.
+
+Starter-kit rule:
+
+- A successful target is insufficient when its parent is shared; parent-level
+  regression and single-writer gates are required.
+
+## 21. Pixel Edit Escaped Its Allowed Region
+
+Symptom:
+
+- A localized image looks plausible at first, but nearby borders, gradients,
+  shadows, transparent pixels, or unrelated UI become contaminated.
+
+Cause:
+
+- The workflow relied on visual inspection without a machine-checkable edit
+  rectangle or pixel mask.
+
+Prevention:
+
+- Require exact output dimensions.
+- Compare source and replacement pixels and fail if any pixel outside the
+  allowed rectangle or mask changes.
+- Reject unapproved palette colors, resampling, and antialiasing.
+
+Starter-kit rule:
+
+- Image targets need pixel invariants in addition to ROM mapping and runtime QA.
+
 ## Starter-Kit Extraction Checklist
 
 Before creating the generic GBA localization agent, convert the above failure
@@ -448,6 +521,8 @@ modes into:
   render gates;
 - an image workflow that separates runtime evidence, discovery workspaces,
   editable ROM-backed sources, scaled previews, and final replacements;
+- saved manual tile/alignment controls and exact pixel-diff gates;
+- parent-resource sibling regression and repository-local writer claims;
 - an uploaded replacement manifest gate with Unicode/path checks;
 - a GUI/workbench rebuild sequence with stale-state detection;
 - a cleanup workflow that records keep/delete/untrack/track decisions before

@@ -1,0 +1,4 @@
+interface:
+  display_name: "GBA Localization Bootstrap"
+  short_description: "Create a safe and reproducible project baseline"
+  default_prompt: "Use $gba-localization-bootstrap to establish the repository, ROM, and artifact safety baseline."

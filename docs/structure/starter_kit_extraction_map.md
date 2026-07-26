@@ -38,6 +38,28 @@ command: no active project files should be moved because of this map alone.
 | `docs/starter_kit/workflows/bootstrap_sequence.md` | New-project operating order. |
 | `docs/starter_kit/workflows/cleanup_sequence.md` | Late-stage cleanup operating order. |
 
+## Runnable Skill Suite
+
+The reusable rules are now implemented as repository-scoped Codex skills under
+`.agents/skills/`.
+
+| Skill | Lifecycle responsibility |
+| --- | --- |
+| `gba-localization-lifecycle` | Initialize, resume, validate, route, and checkpoint the whole lifecycle. |
+| `gba-localization-bootstrap` | Establish ROM, Git, path, artifact, and command safety. |
+| `gba-localization-rom-analysis` | Turn ROM hypotheses into bounded evidence. |
+| `gba-localization-text` | Discover, extract, classify, and round-trip text families. |
+| `gba-localization-font` | Prove encoding, capacity, relocation, atlas, and runtime rendering. |
+| `gba-localization-images` | Map, edit, apply, and verify ROM-backed graphics. |
+| `gba-localization-translate` | Generate, translate, review, merge, and synchronize worksets. |
+| `gba-localization-build-qa` | Build deterministic review ROMs and run gameplay QA. |
+| `gba-localization-release` | Verify patches, package releases, clean safely, and capture lessons. |
+
+The suite keeps active control state in the target repository under
+`.gba-localization/`.
+It does not read current-project scripts, data, ROM offsets, or paths as runtime
+dependencies.
+
 ## Still Project-Specific
 
 These remain useful evidence, but should not be copied directly into a generic
@@ -51,14 +73,13 @@ starter kit:
 - raw Codex logs;
 - screenshots or runtime captures from this project.
 
-## Next Extraction Steps
+## Next Iteration Steps
 
-1. Turn the text source-family schema into a concrete starter template with one
-   empty example for terminated text, fixed slots, and counted command streams.
-2. Add a translation workset schema/template.
-3. Add an image target example template that pairs with the schema.
-4. After active QA closes, decide which project-specific docs should move into a
-   final `docs/project_history/` or remain as cleanup evidence.
+1. Forward-test lifecycle initialization and checkpoint behavior in a temporary
+   Git repository.
+2. Use the suite in another GBA localization project.
+3. Promote only newly proven, project-neutral failure-prevention rules.
+4. Consider plugin packaging after the standalone skills stabilize.
 
 ## Safety Boundary
 

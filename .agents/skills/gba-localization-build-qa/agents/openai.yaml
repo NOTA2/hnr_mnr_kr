@@ -1,0 +1,4 @@
+interface:
+  display_name: "GBA Build and QA"
+  short_description: "Build review ROMs and run reproducible gameplay QA"
+  default_prompt: "Use $gba-localization-build-qa to apply localization data and verify a review ROM."

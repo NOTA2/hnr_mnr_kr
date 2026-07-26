@@ -1,0 +1,4 @@
+interface:
+  display_name: "GBA Image Pipeline"
+  short_description: "Localize tile graphics with reversible asset mapping"
+  default_prompt: "Use $gba-localization-images to discover, edit, apply, and verify localized graphics."

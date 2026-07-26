@@ -146,3 +146,32 @@ replacement assets to stay separate. A future project should create image target
 records with ROM resource, tile/screen-order mapping, palette source, source
 scale, replacement path, apply command, and cleanup classification before
 promoting a candidate into the active GUI/build flow.
+
+## Skill-Suite Conversation Cross-Check
+
+Date: 2026-07-26 KST
+
+Before implementing the repository-scoped skill suite, selected local sessions
+were re-read for operational lessons that compact project docs could have
+missed. The sample included the initial GBA tool setup, core UI and terminology
+translation, image extraction recovery, image replacement, and cleanup
+sessions. Raw messages and attached copyrighted/runtime files were not copied
+into the repo.
+
+Additional reusable findings:
+
+- repeated one-pixel, crop, baseline, and tile-order corrections should become
+  saved local controls rather than repeated agent code edits;
+- image replacements need exact dimension, palette, and outside-edit-region
+  pixel checks, not visual inspection alone;
+- targets sharing a compressed parent, tile bank, or palette need sibling
+  regression tests after every parent rebuild;
+- concurrent sessions need a single-writer phase claim before mutating
+  canonical data or shared ROM outputs;
+- font iteration needs an easy-to-reach runtime screen plus a user-editable
+  overlay that survives regeneration;
+- lifecycle state should keep the next task and blockers compact so a new
+  session does not load every historical document.
+
+These findings are implemented in `.agents/skills/gba-localization-*` and
+summarized as failure modes 19 through 21.
