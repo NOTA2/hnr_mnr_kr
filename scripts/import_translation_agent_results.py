@@ -51,14 +51,6 @@ def normalize_records(payload) -> list[dict]:
     raise ValueError("지원하지 않는 번역 결과 JSON 형식입니다.")
 
 
-def item_match_key(item: dict) -> tuple[str | None, int | None, str | None]:
-    return (
-        item.get("item_id"),
-        int(item["offset"]) if item.get("offset") is not None else None,
-        item.get("source_group"),
-    )
-
-
 def source_label(record: dict) -> str:
     parts = []
     if record.get("item_id"):

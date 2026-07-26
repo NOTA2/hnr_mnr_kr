@@ -17,7 +17,7 @@ from http import HTTPStatus
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from io import BytesIO
 from pathlib import Path
-from typing import Any
+from typing import Any, Sequence
 
 ROOT = Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:
@@ -209,6 +209,20 @@ def length_overflow_allowed(item: dict[str, Any]) -> bool:
     ):
         return True
     return bool(item.get("repoint_allowed") or item.get("can_repoint") or item.get("length_policy") == "repoint")
+
+
+def run_project_command(command: Sequence[str], *, check: bool = True) -> subprocess.CompletedProcess[str]:
+    return subprocess.run(
+        list(command),
+        cwd=ROOT,
+        text=True,
+        capture_output=True,
+        check=check,
+    )
+
+
+def run_project_script(script: str, *args: str, check: bool = True) -> subprocess.CompletedProcess[str]:
+    return run_project_command([sys.executable, script, *args], check=check)
 
 
 def parse_args() -> argparse.Namespace:
@@ -608,13 +622,7 @@ class WorkbenchStore:
                 "items": ordered_items,
             },
         )
-        subprocess.run(
-            [sys.executable, "scripts/extract_battle_hud_name_table.py"],
-            cwd=ROOT,
-            text=True,
-            capture_output=True,
-            check=True,
-        )
+        run_project_script("scripts/extract_battle_hud_name_table.py")
         self.battle_hud_name_table = self.load_battle_hud_name_table()
         saved = next((item for item in self.battle_hud_name_items() if item["item_id"] == item_id), None)
         if not saved:
@@ -1159,13 +1167,7 @@ class WorkbenchStore:
         if filters:
             for filtered_item_id in dict.fromkeys(filters):
                 command.extend(["--item-id", filtered_item_id])
-        completed = subprocess.run(
-            command,
-            cwd=ROOT,
-            text=True,
-            capture_output=True,
-            check=False,
-        )
+        completed = run_project_command(command, check=False)
         summary = load_json(report_path) if report_path.exists() else {}
         return {
             "ok": completed.returncode == 0,
@@ -1269,25 +1271,13 @@ class WorkbenchStore:
         return report
 
     def sync_sources(self) -> None:
-        subprocess.run(
-            [sys.executable, "scripts/sync_workbench_to_sources.py"],
-            cwd=ROOT,
-            text=True,
-            capture_output=True,
-            check=True,
-        )
+        run_project_script("scripts/sync_workbench_to_sources.py")
 
     def rebuild(self, category_id: str | None) -> dict[str, Any]:
         command = [sys.executable, "scripts/build_localization_review_rom.py"]
         if category_id:
             command.extend(["--category-id", category_id])
-        completed = subprocess.run(
-            command,
-            cwd=ROOT,
-            text=True,
-            capture_output=True,
-            check=True,
-        )
+        completed = run_project_command(command)
         self.progress["last_built_rom"] = "patched_roms/current_review/hnr_localization_review.gba"
         image_apply = self.apply_image_replacements()
         write_json(PROGRESS_PATH, self.progress)
@@ -1306,13 +1296,7 @@ class WorkbenchStore:
         ]
         if category_id:
             command.extend(["--category-id", category_id])
-        completed = subprocess.run(
-            command,
-            cwd=ROOT,
-            text=True,
-            capture_output=True,
-            check=True,
-        )
+        completed = run_project_command(command)
         self.progress["last_built_rom"] = "patched_roms/current_review/hnr_localization_review.gba"
         # The fast text path starts from the cached font-ready base, so existing
         # image replacements must be replayed to keep the review ROM visually current.
@@ -1434,13 +1418,7 @@ class WorkbenchStore:
             "--report",
             str(report_path),
         ]
-        completed = subprocess.run(
-            command,
-            cwd=ROOT,
-            text=True,
-            capture_output=True,
-            check=True,
-        )
+        completed = run_project_command(command)
         self.reload()
         report = load_json(report_path)
         return {
@@ -1468,13 +1446,7 @@ class WorkbenchStore:
                 "--report",
                 str(report_path),
             ]
-            subprocess.run(
-                command,
-                cwd=ROOT,
-                text=True,
-                capture_output=True,
-                check=True,
-            )
+            run_project_command(command)
             destination = IMPORTED_AGENT_RESULTS_DIR / import_path.name
             if destination.exists():
                 destination.unlink()
